@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontend Audit"
+  short_description: "Audit frontend truth, UX, and implementation"
+  default_prompt: "Use $frontend-audit to audit this frontend and produce evidence-backed findings or complete the requested remediation."
