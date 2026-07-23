@@ -18,6 +18,7 @@ Audit the frontend as a product interface and an engineering system. Base conclu
 
 1. Model the product before evaluating the interface:
    - Identify users, goals, decisions, responsibilities, and irreversible actions.
+   - Define the problem domain served by each surface and the neighboring implementation, storage, protocol, integration, or observability domains that must remain behind its boundary.
    - Separate domain invariants from accidental requirements and current API shapes.
    - Mark each displayed value as authoritative fact, client derivation, user input, or unknown.
 2. Inventory the implementation:
@@ -43,7 +44,9 @@ Evaluate the following relationships rather than walking files in discovery orde
 
 - Make the primary task, current state, required decision, and next valid action visible.
 - Evaluate journeys across routes and roles, including recovery paths and cross-menu navigation.
-- Remove implementation vocabulary from the primary interface unless the target user needs it; preserve technical identifiers as secondary detail when useful.
+- Treat the frontend as a domain translation boundary, not a direct projection of API, DTO, database, or client-state shapes. Expose a cross-domain concept only when the target user needs it for the current task, and translate it into that problem domain before presentation.
+- Require persistent visible content to contribute a state, decision, action, consequence, or recovery path. Remove prose that merely repeats structure, labels, badges, or available controls.
+- Keep essential task and safety information directly visible, place optional local help near its subject, and move implementation provenance or diagnostic detail to a surface intended for diagnostics.
 - Distinguish information, attention, decision, and action instead of rendering every datum with equal weight.
 
 ### Interaction and state
@@ -79,7 +82,8 @@ For remediation work:
 2. Correct the authoritative boundary before polishing its presentation.
 3. Reuse or extend stable project primitives before introducing parallel components.
 4. Stop at the smallest model that no longer lies about the problem domain. Do not add speculative generality.
-5. Add regression coverage for rules or failures that are easy to reintroduce.
+5. When one finding reveals a reusable pattern, inspect every related route, state, role, locale, search or filter entry, notification, dialog, and user-visible copy or export surface before declaring it resolved.
+6. Add regression coverage for rules or failures that are easy to reintroduce.
 
 ## Verify the result
 

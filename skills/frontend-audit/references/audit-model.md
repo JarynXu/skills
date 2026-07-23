@@ -23,6 +23,29 @@ Use these truth rules:
 - A disabled control is not proof that the backend enforces the rule.
 - A client-derived status must not masquerade as an authoritative server decision.
 
+## Presentation boundary
+
+Define the problem domain of each user-facing surface before judging which data belongs on it. Every visible concept must either belong to that domain or be necessary for the target user to complete the current task. Availability in an API response, DTO, database row, client store, or route parameter is not evidence that a value belongs in the interface.
+
+Treat these as neighboring domains unless the product surface explicitly serves them:
+
+- Implementation and source-code structure.
+- Persistence identifiers and storage relationships.
+- Transport protocols and raw contract fields.
+- Integration mechanics and provider-specific metadata.
+- Observability traces and diagnostic provenance.
+
+Translate necessary cross-domain information into the user's problem domain. For example, map a raw execution enum to a user-meaningful status, retain a persistence ID only in routing, and present a business reference number only when users search, share, or reconcile work with it. A diagnostic surface may legitimately expose technical information that would violate the boundary of an operational product surface.
+
+For each candidate visible concept, ask:
+
+1. Does the target user recognize what it means?
+2. Does it change a decision, action, consequence, or recovery path?
+3. Will the user actively search, share, compare, or verify it?
+4. Would the concept remain valid if the storage, protocol, or observability implementation changed?
+
+If the first three answers are no, keep it internal. If the fourth answer is no, require explicit task evidence before allowing it to cross the boundary.
+
 ## Evidence hierarchy
 
 Prefer evidence in this order when claims conflict:

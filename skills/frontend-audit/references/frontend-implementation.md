@@ -15,6 +15,27 @@ Identify only states that can exist in the product, then verify each relevant tr
 
 Keep previous data during refresh only when the UI clearly preserves its age and action safety. Do not replace failed queries with empty arrays unless the API contract defines failure as empty.
 
+## Visible content and disclosure
+
+Audit the complete user-visible surface: headings, descriptions, cards, tables, form labels, placeholders, filters, tooltips, dialogs, notifications, errors, breadcrumbs, navigation, copied text, and exports.
+
+Require persistent content to do at least one of these jobs:
+
+- Communicate a state or fact the surrounding structure does not already express.
+- Support a user decision or identify the next valid action.
+- Explain a material consequence, risk, or constraint.
+- Provide a recovery path for an exceptional condition.
+
+Remove content that only explains why the interface was designed a certain way or repeats a heading, field label, status badge, empty-state structure, or available action. Secondary text is justified only when it changes the user's interpretation or next step.
+
+Use disclosure levels deliberately:
+
+- Keep core task state, safety information, action consequences, and recovery guidance directly visible.
+- Put optional, local clarification next to its subject or in an accessible tooltip or help entry.
+- Put source provenance, raw identifiers, protocol details, and implementation diagnostics on a surface intended for diagnostic work.
+
+Do not hide required information in hover-only content. Tooltips supplement an understandable interface; they do not carry essential instructions, status, validation, or safety meaning.
+
 ## Component system
 
 Discover the project's actual component policy before judging it. Then check:
