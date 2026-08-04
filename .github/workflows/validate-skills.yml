@@ -1,0 +1,26 @@
+name: Validate skills
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install SVG test dependencies
+        run: pip install cairosvg pillow
+
+      - name: Validate skill structure and frontmatter
+        run: python scripts/validate_repository.py
+
+      - name: Run skill tests
+        run: bash scripts/test_all.sh

@@ -1,23 +1,96 @@
 # Agent Skills
 
-Reusable, product-oriented skills for coding agents. Each skill follows the open Agent Skills format and keeps its canonical source under `skills/<skill-name>/`.
+A growing collection of reusable skills for AI coding agents.
+
+Each skill lives in its own directory under `skills/` and can be discovered and installed independently with the open `skills` CLI.
 
 ## Available skills
 
-- `frontend-audit` — audit and remediate frontend product truth, UX, implementation consistency, and end-to-end verification.
+| Skill | Description |
+|---|---|
+| [`svg`](skills/svg/) | Create, edit, repair, validate, and optimize standalone SVG files with deterministic layout and parse/render verification. |
 
 ## Install
 
-List the skills in this repository:
+List all skills available in this repository:
 
 ```bash
-npx skills add <owner>/skills --list
+npx skills add JarynXu/skills --list
 ```
 
-Install `frontend-audit` for Codex:
+Install one skill:
 
 ```bash
-npx skills add <owner>/skills --skill frontend-audit --agent codex
+npx skills add JarynXu/skills --skill svg
 ```
 
-Use `--global` to install it for all projects. Replace `<owner>` with the GitHub account or organization after the remote repository is created.
+Install one skill globally for Codex without prompts:
+
+```bash
+npx skills add JarynXu/skills --skill svg --global --agent codex --yes
+```
+
+Install every skill in this repository for Codex:
+
+```bash
+npx skills add JarynXu/skills --skill '*' --agent codex
+```
+
+A skill can also be installed directly from its GitHub directory URL:
+
+```bash
+npx skills add https://github.com/JarynXu/skills/tree/main/skills/svg
+```
+
+
+## Repository layout
+
+```text
+.
+├── skills/
+│   ├── svg/
+│   │   ├── SKILL.md
+│   │   ├── examples/
+│   │   ├── scripts/
+│   │   └── tests/
+│   └── another-skill/
+│       └── SKILL.md
+├── scripts/
+│   ├── validate_repository.py
+│   └── test_all.sh
+├── templates/
+│   └── skill/
+│       └── SKILL.template.md
+└── .github/workflows/
+    └── validate-skills.yml
+```
+
+## Add another skill
+
+1. Create `skills/<skill-name>/SKILL.md`.
+2. Use lowercase letters, digits, and hyphens for `<skill-name>`.
+3. Set the YAML frontmatter `name` to exactly the directory name.
+4. Add optional resources, examples, scripts, and tests inside the same directory.
+5. If the skill has executable tests, expose them as `skills/<skill-name>/tests/test.sh`.
+6. Run the repository checks:
+
+```bash
+python scripts/validate_repository.py
+bash scripts/test_all.sh
+```
+
+Start from [`templates/skill/SKILL.template.md`](templates/skill/SKILL.template.md) when creating a new skill.
+
+## Local CLI check
+
+From the repository root:
+
+```bash
+npx skills add . --list
+```
+
+The output should include every directory under `skills/` that contains a valid `SKILL.md`.
+
+## License
+
+MIT
