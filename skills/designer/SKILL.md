@@ -1,7 +1,6 @@
 ---
 name: designer
 description: "Professional product/UI design skill for reading PRD and UX documentation, planning information architecture and user flows, building design systems and developer-ready delivery files, operating Figma or pen.dev safely, and performing senior-level self-review. Use for product design, UI/UX design, design-system work, design audits, Figma work, Pen/Pencil work, or developer handoff."
-disable-model-invocation: false
 ---
 
 # Designer
