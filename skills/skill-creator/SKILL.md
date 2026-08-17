@@ -68,6 +68,8 @@ Use the environment's supported skill initializer when required. Write instructi
 
 Make each requirement affect the step that produces the relevant decision or artifact. Do not knowingly generate invalid content and rely on a final checklist to repair it. Give every rule one authoritative definition; let other locations route to it, instantiate its fields, or test it without paraphrasing a competing version.
 
+Carry the purpose of every required step, intermediate model, and reusable resource into the later decision or consumer it exists to affect. If nothing consumes a result, remove the ceremony or define the missing adoption transition. When the skilled role controls the consumers, require actual integration and verification; when it does not, define a truthful handoff, feedback, or conformance path without claiming adoption.
+
 Do not make a partial task generate the profession's complete artifact system. Treat documents and other artifacts as optional materializations selected by the user's requested outcome and write authorization.
 
 ### 5. Validate behavior, not packaging alone

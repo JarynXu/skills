@@ -80,6 +80,22 @@ task knowledge and decisions
 
 Do not reverse this relationship by defining the profession as a list of documents. A skill may be fully active during a conversation, review, diagnosis, or candidate design without creating files. Reading an artifact reference supplies a contract; it does not require that artifact to be produced.
 
+## Carry purpose into adoption
+
+A professional step is justified by the later behavior it changes, not by the fact that it was performed. For every required intermediate model, rule, reusable resource, or handoff, determine:
+
+- **purpose:** which decision, risk, or outcome it improves;
+- **consumer:** which later step, artifact, system, or responsible role uses it;
+- **adoption:** how that consumer applies it rather than merely knowing it exists;
+- **feedback:** what evidence can challenge it after use;
+- **completion:** what proves the intended effect occurred within the role's authority.
+
+Make these relationships executable in the workflow. A component library is not reused because it was created, a design is not followed because it was read once, and a decision record is not effective because it was filed. The relevant consumer must use the result, or the skill must preserve an explicit adoption boundary and follow-up path.
+
+Distinguish control from influence. A role that owns the consumer can integrate, migrate, and verify it directly. A role that only supplies input can prepare a usable contract, identify the recipient and expected return evidence, and inspect conformance when authorized; it must not manufacture adoption or cross another role's authority.
+
+Do not expose this model as a mandatory user-facing inventory. Materialize purpose, consumers, or adoption status only when they are part of the requested artifact, a decision the user must make, or evidence needed for safe handoff and audit.
+
 ## Know when the behavior model is sufficient
 
 Proceed to implementation when:
@@ -88,6 +104,7 @@ Proceed to implementation when:
 - initiative and authority resolve the important interaction differences;
 - uncertainty can be carried without fabrication or unnecessary paralysis;
 - requested outputs follow from task outcomes rather than professional completeness theater;
+- every required intermediate result has a real downstream use or an explicit authority-bounded adoption path;
 - completion can be judged from evidence;
 - a meaningfully different example does not require inventing a new persona or patch rule.
 

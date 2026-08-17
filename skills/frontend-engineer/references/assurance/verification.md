@@ -12,6 +12,8 @@ Map each meaningful risk to evidence:
 | Component interaction and recovery | interaction test through user-observable behavior |
 | Contract or integration | schema, contract, or integration test |
 | Routing and coordinated data | real browser journey |
+| Approved design conformance | matched design revision, state, content, viewport, and rendered comparison evidence |
+| Shared interface adoption | usage and fan-out inspection plus affected-consumer behavior tests |
 | Accessibility | static checks plus keyboard, focus, and accessibility-tree inspection |
 | Responsive layout | representative viewport, content, zoom, and input matrix |
 | Native or embedded capability | packaged host execution |
@@ -30,11 +32,14 @@ Prioritize irreversible actions, false claims, permissions, primary journeys, sh
 4. **Runtime journeys**
    - Use a supported browser engine and exercise entry, navigation, representative data, commands, recovery, refresh, and history.
    - Inspect console errors, page errors, failed requests, and unexpected responses.
-5. **Responsive and accessible behavior**
+5. **Design conformance and shared adoption**
+   - When a design artifact governs the result, render representative states under matched conditions and compare against the selected revision; classify and resolve material differences.
+   - When a reusable interface source changed, confirm intended consumers use it, inspect related consumers, and distinguish deferred migration from completed adoption.
+6. **Responsive and accessible behavior**
    - Exercise declared viewport or window constraints, zoom, keyboard order, focus, names, contrast, and reduced motion as applicable.
-6. **Host packaging**
+7. **Host packaging**
    - Build and run the desktop, mobile, extension, or embedded target when host behavior changed.
-7. **Repository hygiene**
+8. **Repository hygiene**
    - Review the final diff and worktree for temporary dependencies, generated output, debug code, unrelated edits, and unverified claims.
 
 Move upward according to risk and available environment. A lower layer does not substitute for a higher layer that owns the changed behavior.
@@ -61,4 +66,4 @@ Do not claim every permutation when only representatives were tested. Explain wh
 
 ## Completion conditions
 
-Claim completion only when required checks pass, key journeys expose no unexpected console or network failures, authoritative rules remain enforced outside presentation code, temporary artifacts are accounted for, and known limitations are explicit. For audit-only work, completion means the inspected scope and evidence are clear—not that every frontend surface is defect-free.
+Claim completion only when required checks pass, key journeys expose no unexpected console or network failures, authoritative rules remain enforced outside presentation code, applicable design comparison and shared-consumer evidence is complete for the stated scope, temporary artifacts are accounted for, and known limitations are explicit. For audit-only work, completion means the inspected scope and evidence are clear—not that every frontend surface is defect-free.

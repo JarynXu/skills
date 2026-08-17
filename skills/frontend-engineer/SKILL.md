@@ -32,6 +32,7 @@ Before editing, determine:
 - Which system is authoritative for every important fact, permission, status, and transition.
 - The relevant loading, empty, unavailable, partial, stale, forbidden, ready, submitting, success, conflict, and failure states.
 - The existing route, feature, data, state, component, styling, localization, test, and host boundaries.
+- For visible interface work, which design revision and interface-system sources govern the surface, and whether each need should adopt, extend, localize, or reopen an existing contract.
 - The smallest model that represents the problem honestly without speculative generality.
 - What evidence can disprove the implementation if it is wrong.
 
@@ -44,12 +45,12 @@ Load only the references relevant to the detected project and task. Do not prelo
 ### Architecture
 
 - Read [architecture/alignment-and-boundaries.md](references/architecture/alignment-and-boundaries.md) for architecture documents, ownership boundaries, dependency direction, or decisions that may need escalation.
-- Read [architecture/component-design.md](references/architecture/component-design.md) for component APIs, composition, design-system integration, or reusable frontend structure.
+- Read [architecture/component-design.md](references/architecture/component-design.md) whenever adding or changing UI components or patterns, integrating a design system, deciding local versus shared ownership, extending reusable frontend structure, or migrating consumers.
 - Read [architecture/state-and-data.md](references/architecture/state-and-data.md) for server state, client state, forms, commands, caching, derived data, or concurrency.
 
 ### Interface engineering
 
-- Read [interface/design-collaboration.md](references/interface/design-collaboration.md) when implementing from design artifacts, assessing feasibility, resolving design-engineering conflicts, filling design gaps, or operating in combined Design Engineer mode.
+- Read [interface/design-collaboration.md](references/interface/design-collaboration.md) throughout work governed by design artifacts, and when assessing feasibility, resolving design-engineering conflicts, filling design gaps, or operating in combined Design Engineer mode.
 - Read [interface/interaction-and-commands.md](references/interface/interaction-and-commands.md) for forms, dialogs, navigation, tables, mutations, validation, and recovery behavior.
 - Read [interface/accessibility.md](references/interface/accessibility.md) whenever user interaction, semantics, focus, keyboard behavior, motion, or assistive technology is affected.
 - Read [interface/responsive-and-hosts.md](references/interface/responsive-and-hosts.md) for responsive layouts, desktop shells, mobile or embedded hosts, window constraints, and host-only capabilities.
@@ -92,15 +93,17 @@ Project configuration, lockfiles, installed types, local framework conventions, 
 At each meaningful increment:
 
 1. Re-read the changed behavior as a user journey and as a maintainer.
-2. Check data authority, state transitions, permissions, failure recovery, accessibility, responsive or host behavior, and component-system consistency as applicable.
-3. Inspect related call sites and surfaces when a shared contract or reusable pattern changes.
-4. Add regression coverage for decisions and failures that are easy to reintroduce.
-5. Treat static-analysis scripts as evidence collectors, never as substitutes for engineering judgment.
+2. When a design artifact governs visible output, apply the persistent-baseline comparison loop in [interface/design-collaboration.md](references/interface/design-collaboration.md) to the relevant state and viewport.
+3. When a reusable interface source changes, apply the adoption and consumer loop in [architecture/component-design.md](references/architecture/component-design.md); shared placement alone is not reuse.
+4. Check data authority, state transitions, permissions, failure recovery, accessibility, responsive or host behavior, and component-system consistency as applicable.
+5. Inspect related call sites and surfaces when a shared contract or reusable pattern changes.
+6. Add regression coverage for decisions and failures that are easy to reintroduce.
+7. Treat static-analysis scripts as evidence collectors, never as substitutes for engineering judgment.
 
 Use `node scripts/collect-frontend-evidence.mjs <project-root>` for a read-only inventory of text-based frontend sources and review leads. Use `node scripts/compare-json-locales.mjs <baseline.json> <candidate.json> [...]` when JSON locale catalogs require exact key and leaf-type parity.
 
 ## Verify and hand off
 
-Run the narrowest checks that can falsify the changed behavior, then expand according to risk: focused tests, repository-prescribed static checks, production build, browser journeys, accessibility and viewport checks, and native or packaged-host verification. Review the final diff and worktree for temporary artifacts and unrelated changes.
+Run the narrowest checks that can falsify the changed behavior, then expand according to risk: focused tests, repository-prescribed static checks, production build, browser journeys, design-conformance evidence, shared-consumer checks, accessibility and viewport checks, and native or packaged-host verification. Review the final diff and worktree for temporary artifacts and unrelated changes.
 
 Lead the handoff with resulting behavior and verification evidence. State untested boundaries, environmental blockers, assumptions, and remaining risks explicitly. Record durable decisions or newly learned project facts in the project's existing knowledge mechanism; do not expose a command diary or hidden reasoning as project documentation.

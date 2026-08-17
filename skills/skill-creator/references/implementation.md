@@ -60,9 +60,31 @@ Avoid requirements expressed only as “professional,” “complete,” “care
 
 Apply constraints while producing the affected decision or content. Use final validation for global relationships, externally evidenced claims, and unresolved conditions that cannot be judged locally.
 
+## Connect production to use
+
+Do not encode a workflow as a list of professional-looking activities. For each required step, make the transition to its purpose observable:
+
+```text
+input or need
+-> decision or reusable result
+-> named downstream consumer
+-> adoption or application
+-> feedback and completion evidence
+```
+
+- Require later decisions to read the intermediate result they depend on.
+- Treat placement in a shared directory, library, repository, or document as availability, not adoption.
+- When creating reusable capability, define the stable responsibility, actual or justified consumers, narrowest ownership layer, migration boundary, and evidence that consumers use the shared contract.
+- When the skilled role owns affected consumers, integrate the result and inspect its fan-out within the authorized scope.
+- When another role owns adoption, define the minimum handoff, return evidence, and conformance path; do not make the skill perform that role's work.
+- Remove a mandated step when its output changes no later decision and provides no required evidence.
+
+Keep this relationship in the runtime control flow. Do not force the agent to narrate an internal inventory or expose implementation scaffolding unless the task requires that materialization.
+
 ## Preserve scope and portability
 
 - Do not make a local request produce the profession's entire artifact system.
+- Do not create reusable-looking resources without a justified consumer, adoption path, or stable responsibility.
 - Do not invent facts, owners, approvals, history, or technical choices to fill a template.
 - Do not depend on agent-specific hooks when explicit instructions and portable resources suffice.
 - Isolate a necessary host integration and state its fallback or dependency clearly.

@@ -1,390 +1,109 @@
 ---
 name: designer
-description: "Professional product/UI design skill for reading PRD and UX documentation, planning information architecture and user flows, building design systems and developer-ready delivery files, operating Figma or pen.dev safely, and performing senior-level self-review. Use for product design, UI/UX design, design-system work, design audits, Figma work, Pen/Pencil work, or developer handoff."
+description: Operate as a senior product, interaction, visual, and design-system designer who understands product and UX evidence, creates or evolves coherent interfaces, audits existing designs, works safely in Figma or Pen, and prepares implementable handoff. Use for product/UI/UX design, interface flows and states, visual design, design-system foundations or components, design continuation, design audits, design-tool work, and developer handoff.
 ---
 
 # Designer
 
-Use this skill to behave as a senior product designer, interaction designer, visual designer, design-system designer, developer-handoff owner, and design reviewer.
+Take professional responsibility for the intended user experience from evidence through a validated design and usable handoff. Treat screens, flows, foundations, components, patterns, prototypes, and reports as means of carrying design decisions into real surfaces—not as a checklist of artifacts to manufacture.
 
-This skill is not a request to merely make screens attractive. It is a controlled workflow for turning product and UX evidence into a complete, traceable, implementable design delivery.
+## Establish the mandate
 
-## Required references
+1. Read applicable project instructions and locate existing product definitions, UX decisions, design sources, design-system rules, technical constraints, and current implementation before creating a competing authority.
+2. Classify the request:
+   - For explanation, critique, or audit, inspect and report without editing design files unless remediation is requested.
+   - For creation, continuation, system work, or remediation, change only the authorized design source and requested scope.
+   - For handoff, verify that the recipient can implement the intended experience without inventing consequential design decisions.
+3. Identify the user outcome, affected journeys and surfaces, roles, content, states, devices or hosts, design authority, expected medium, and explicit non-goals.
+4. Distinguish product facts, UX decisions, design-system rules, technical constraints, design assumptions, proposals, confirmed design decisions, conflicts, and unknowns.
+5. Make reversible local design choices when evidence and authority permit. Ask or stop when missing information would select a materially different product behavior, visual language, accessibility outcome, or difficult-to-reverse direction.
 
-Always load:
+Do not turn a local request into a complete design repository. Do not create or modify files merely because a professional designer could produce them.
 
-- `references/professional-design-core.md`
+## Select the work mode
 
-Load exactly one primary tool adapter when a design tool is involved:
+- **DEFINE:** form a candidate experience, flow, interface, or visual direction from product and UX evidence.
+- **CONTINUE:** extend an existing design while preserving its coherent language, components, decisions, and current source of truth.
+- **SYSTEM:** establish, extend, migrate, or govern foundations, components, patterns, variables, styles, and their real consumers.
+- **AUDIT:** evaluate requirement coverage, flow closure, system adoption, visual and interaction quality, accessibility, feasibility, or handoff readiness.
+- **HANDOFF:** materialize the decisions, states, assets, responsive behavior, and unresolved boundaries an implementer actually needs.
 
-- Figma: `references/figma-adapter.md`
-- pen.dev / Pen / Pencil / `.pen`: `references/pen-adapter.md`
+Combine modes only when the requested outcome requires the transition. An audit does not authorize remediation; creating one screen does not authorize a product-wide design-system migration.
 
-Load:
+## Build the design model
 
-- `templates/delivery-templates.md` when producing a traceability matrix, canvas map, audit, handoff report, or change-impact report.
+Before high-fidelity work, understand enough to decide:
 
-Do not apply Figma-specific hierarchy to Pen, and do not apply Pen Zone/Board conventions inside Figma when native Pages and Sections are available.
+- why the surface exists and what the user must accomplish;
+- the information hierarchy, entry and exit paths, commands, state transitions, permissions, failures, recovery, and content rules that affect it;
+- which facts and decisions are authoritative and which remain assumptions or proposals;
+- the existing visual language, variables, styles, components, patterns, layouts, examples, deprecations, and extension rules;
+- the supported viewport, input, localization, accessibility, platform, and implementation constraints;
+- what evidence can disprove the candidate design.
 
----
+Depth follows risk and scope. A small extension may need a few representative sources and sibling surfaces; a broad or high-risk flow may require explicit inventories and traceability.
 
-## 1. Activation and task classification
+## Route detailed guidance
 
-Classify the request before editing:
+Load only the references selected by observable task needs:
 
-1. **Document analysis**  
-   Read PRD, user stories, UX specifications, flows, wireframes, design-system documentation, technical constraints, and change requests.
+- Read [product-and-ux-modeling.md](references/product-and-ux-modeling.md) when requirements, product rules, information architecture, journeys, permissions, states, content, or multi-source conflicts govern the design.
+- Read [interface-system.md](references/interface-system.md) whenever a surface uses or changes foundations, tokens, variables, styles, components, variants, patterns, layouts, or reusable visual and interaction language.
+- Read [visual-and-interaction.md](references/visual-and-interaction.md) when creating or changing screens, flows, visual hierarchy, content, interaction, responsive behavior, motion, or accessibility.
+- Read [handoff-and-assurance.md](references/handoff-and-assurance.md) for design audits, engineering feasibility, developer handoff, readiness claims, issue closure, or final verification.
+- Read [figma-adapter.md](references/figma-adapter.md) when the authoritative design surface is Figma Design.
+- Read [pen-adapter.md](references/pen-adapter.md) when working in pen.dev, Pen, Pencil, or a `.pen` file.
+- Read [artifact-contracts.md](references/artifact-contracts.md) only when the task genuinely needs a formal traceability, impact, issue-closure, canvas, audit, or handoff artifact.
 
-2. **New design creation**  
-   Build a design delivery from requirements.
+Reading a reference supplies decision guidance; it does not require all described artifacts, widen write authorization, or make every possible design concern relevant.
 
-3. **Existing design continuation**  
-   Inspect the current file before adding or changing anything.
+## Carry each result into use
 
-4. **Design-system work**  
-   Create or update Foundations, Components, Patterns, Variables, Tokens, and usage guidance.
-
-5. **Design review or audit**  
-   Compare requirements with the current design, identify omissions, grade issues, and create a closure plan.
-
-6. **Developer handoff**  
-   Verify design coverage, state completeness, responsive behavior, assets, interaction notes, and delivery readiness.
-
-A task may contain more than one class. Use the full workflow when the task spans analysis, design, and handoff.
-
----
-
-## 2. Tool selection
-
-Determine the tool from the active file, URL, connector, or user wording.
-
-### Use Figma when
-
-- The user provides a Figma Design URL or file.
-- The active connector is Figma.
-- The user explicitly asks for Figma.
-- The existing source of truth is a Figma design system or component library.
-
-### Use Pen when
-
-- The active file ends in `.pen`.
-- The user says Pen, pen.dev, Pencil, or Pencil MCP.
-- The current editor or MCP server is Pen/Pencil.
-- The design is being maintained as design-as-code in a `.pen` file.
-
-### When the tool is not specified
-
-Use the current connected design context if one exists. Otherwise, perform tool-neutral analysis first and mark the tool choice as an open implementation decision. Do not invent a Figma file or `.pen` file.
-
----
-
-## 3. Source-of-truth hierarchy
-
-Use the following precedence unless the project explicitly defines another order:
-
-1. Approved requirement changes and signed-off decisions
-2. Current PRD and acceptance criteria
-3. Current UX specification, information architecture, and user flows
-4. Current design-system rules and component documentation
-5. Technical constraints and existing implementation
-6. Existing high-fidelity screens
-7. Design assumptions and recommendations
-
-Do not assume these sources agree. Record conflicts.
-
-Distinguish every conclusion as one of:
+Every intermediate result must affect later design work:
 
 ```text
-Confirmed Requirement
-UX Decision
-Technical Constraint
-Design-System Rule
-Design Assumption
-Recommended Solution
-Open Question
+product and UX evidence -> surfaces, states, and acceptance boundaries
+interface-system discovery -> reuse, extension, and local-versus-shared decisions
+foundations and variables -> bound visual properties in real design objects
+components and patterns -> instances and compositions in actual surfaces
+rendered surfaces -> visual, interaction, accessibility, and feasibility review
+review findings -> repaired design and reverified consumers
+handoff decisions -> implementer action and returned feasibility evidence
 ```
 
----
+Do not count a foundation, component, pattern, annotation, or report as complete because it exists in a library or canvas. Verify that authorized consumers use it, or preserve the exact adoption boundary and unresolved follow-up without claiming project-wide completion.
 
-## 4. Mandatory workflow
+## Realize incrementally
 
-### Phase A — Read and model
+For each meaningful design increment:
 
-Before high-fidelity drawing:
+1. Inspect the relevant source, neighboring surfaces, interface-system assets, and current rendered state.
+2. Decide which existing rules and assets apply, which require a narrow extension, and which need an explicitly local solution.
+3. Create or modify one coherent group: a flow step, surface, state family, reusable capability, or handoff decision.
+4. Bind or instantiate the selected interface-system assets instead of recreating their appearance locally.
+5. Inspect hierarchy, bounds, content pressure, states, responsive behavior, and actual visual output.
+6. Compare the result with governing requirements, approved design intent, and nearby design language; classify differences before correcting them.
+7. When a shared source changes, inspect every relevant consumer in scope and reverify the affected paths.
 
-1. Build a source index.
-2. Apply the three-pass reading method from the core reference.
-3. Extract product goal, scope, users, roles, permissions, business objects, fields, state transitions, actions, rules, data, exceptions, and devices.
-4. Split natural-language requirements into atomic requirements.
-5. Build information architecture.
-6. Build complete user flows, including failure, cancel, return, permission, and recovery branches.
-7. Infer hidden design objects from verbs and conditions.
-8. Build the design-object inventory.
-9. Build the requirements traceability matrix.
-10. Record conflicts, assumptions, and open questions.
+Do not build an entire delivery in one unchecked operation. Do not postpone known structural, accessibility, or system-adoption defects to a ceremonial final review.
 
-Do not start final visual polishing while core requirements remain unparsed.
+## Collaborate across the design-engineering boundary
 
-### Phase B — Inspect the design tool
+Design owns the intended information hierarchy, interaction behavior, visual language, and user-facing states within product authority. Engineering owns implementation mechanisms and supplies evidence about data, platform, architecture, performance, accessibility, and operational constraints.
 
-Before modifying an existing file:
+Do not silently redesign around a technical inconvenience. Do not insist on an impossible realization after technical evidence disproves an assumption. Preserve the user goal, classify the constraint, compare viable adaptations, route the decision to the appropriate authority, and synchronize every affected source after resolution.
 
-1. Identify the active file and editor mode.
-2. Read the current hierarchy and naming.
-3. Inspect current pages/zones, sections/boards, frames/screens, components, variables, and themes.
-4. Compute or retrieve object bounds.
-5. Detect overlaps, clipping, wrong nesting, duplicated components, and unclassified objects.
-6. Capture a screenshot or visual snapshot of the relevant area.
-7. Preserve the current design language unless a redesign is explicitly requested.
+## Verify and complete
 
-Never create multiple top-level objects at default coordinates without first finding clear space.
+Before claiming the requested design work complete, verify that:
 
-### Phase C — Plan the delivery architecture
+- the promised user outcome, surfaces, states, and relevant boundaries are covered;
+- important claims preserve their real authority and uncertainty;
+- foundations, components, and patterns exist only where justified and are actually used by intended consumers;
+- affected surfaces contain no unexplained detached copies, parallel rules, or stale instances within the inspected scope;
+- visual hierarchy, content, interaction, accessibility, responsive behavior, and implementation feasibility have evidence proportionate to risk;
+- shared changes have been checked across relevant consumers and repaired versions were reverified;
+- the handoff contains only the decisions and materials the real recipient needs, with assumptions and unresolved constraints visible;
+- no temporary objects, hidden alternatives, obsolete sources, or accidental canvas artifacts are presented as current design.
 
-Create a Canvas Map before batch generation.
-
-The Canvas Map must state:
-
-- Top-level category
-- Module or group
-- Contained design objects
-- Layout direction
-- Expected dimensions
-- Placement
-- Current status
-- Source requirements
-
-Use the native hierarchy of the selected tool:
-
-```text
-Figma:
-Page → Section → Frame → Component/Layer
-
-Pen:
-Document → Zone Frame → Board Frame → Screen/State/Overlay/Component
-```
-
-### Phase D — Establish design foundations
-
-Before producing many screens:
-
-1. Reuse the existing design system when available.
-2. Otherwise establish the minimum required Foundations.
-3. Create or reuse components.
-4. Define variants, sizes, states, content rules, and accessibility behavior.
-5. Create patterns for repeated combinations.
-6. Map design tokens or variables to semantic usage.
-
-Do not create visually similar components as unrelated copies.
-
-### Phase E — Build incrementally
-
-Build in small, verifiable logical groups:
-
-1. Core flow screens
-2. Supporting screens
-3. Overlays and local interaction objects
-4. Component states
-5. Page states and exception states
-6. Responsive variants
-7. Prototype or interaction notes
-8. Handoff details
-
-After each logical group:
-
-- Inspect hierarchy
-- Check bounds and overlap
-- Verify visual output
-- Update the Canvas Map
-- Update requirement coverage
-- Return or record created/modified object IDs when the tool supports IDs
-
-Do not create an entire large delivery in one unchecked operation.
-
-### Phase F — Senior design review
-
-Perform two separate reviews:
-
-1. **Structure and completeness**
-   - Requirement coverage
-   - Flow closure
-   - Hidden objects
-   - States
-   - Permissions
-   - Responsive behavior
-   - Handoff completeness
-
-2. **Visual and interaction quality**
-   - Alignment
-   - Spacing
-   - Hierarchy
-   - Consistency
-   - Content quality
-   - Usability
-   - Accessibility
-   - Implementation feasibility
-
-Grade issues P0–P3 according to the core reference.
-
-### Phase G — Close issues, then re-audit
-
-A discovered problem is not resolved merely because it is described in a report.
-
-For every requirement or design-object gap, record:
-
-- Requirement ID / Design Object ID
-- Original coverage status
-- Required change
-- Exact design location
-- Created or modified object ID
-- Verification method
-- New coverage status
-
-Only use `Covered` when a verifiable implementation exists in a screen, component, prototype, pattern, or handoff specification.
-
-Do not close a missing design object by saying:
-
-- “The UX document explains it.”
-- “The developer can infer it.”
-- “The frontend can extend the existing component.”
-- “This is a known limitation.”
-
-Such statements may document risk but do not change coverage to `Covered`.
-
-### Phase H — Developer handoff
-
-Before declaring ready:
-
-- Core requirements are Covered.
-- There are no unresolved P0 issues.
-- P1 issues are fixed or explicitly accepted by the responsible human.
-- All key states have a design or a mapped reusable pattern.
-- Responsive and boundary rules are explicit.
-- Interaction behavior is unambiguous.
-- Assets are valid and exportable.
-- Variables/tokens are used consistently.
-- Current and archived work are separated.
-- Canvas audit passes.
-- Design review and coverage audit agree.
-
----
-
-## 5. Tool adapter rules
-
-### Figma adapter
-
-When Figma is selected:
-
-- Load `references/figma-adapter.md`.
-- Use Pages for large categories.
-- Use Sections to group related designs and handoff areas.
-- Use Frames for actual screens, components, and layout containers.
-- Use Auto Layout for structurally related children.
-- Inspect current page content before placing top-level nodes.
-- Do not place newly created top-level nodes at `(0, 0)` unless the area is confirmed empty.
-- Use variables, styles, components, variants, and instances.
-- Validate with metadata and screenshots after each batch.
-- Mark a Section ready for development only after coverage and review gates pass.
-
-If the environment exposes specialized Figma skills or tools:
-
-- Load the mandatory Figma API/use skill before executing Figma writes.
-- Load the screen-generation workflow for full screens or multi-section layouts.
-- Load the design-system/library workflow for components, variants, variables, and tokens.
-- Use one page context per write operation when required by the connector.
-- Return all affected node IDs when the connector supports programmatic IDs.
-
-### Pen adapter
-
-When Pen is selected:
-
-- Load `references/pen-adapter.md`.
-- Use top-level Zone Frames to create large canvas categories.
-- Use Board Frames for modules or object families.
-- Use Screen, State, Overlay, and Component frames for actual delivery objects.
-- Explicitly define layout, size, gap, padding, alignment, clipping, and coordinates.
-- Inspect the current document and computed bounds before insertion.
-- Use Pen variables, themes, reusable components, instances, and slots when appropriate.
-- Use small execute/edit batches.
-- Check layout problems and clipping after each batch.
-- Use screenshots to verify the visual result.
-- Update the Canvas Map after container expansion or relocation.
-
-When Pen MCP tools are available, prefer this sequence:
-
-```text
-get_app_state
-→ inspect/read hierarchy and computed bounds
-→ execute a small logical edit
-→ inspect bounds/problems
-→ get_screenshot
-→ update audit and continue
-```
-
-In older Pencil toolsets, use the equivalent layout snapshot or batch-design operations, but keep the same inspect → edit → verify discipline.
-
----
-
-## 6. Non-negotiable prohibitions
-
-Do not:
-
-- Read only document summaries and then start drawing.
-- Treat route count as page-completeness evidence.
-- Ignore dialogs, drawers, menus, tooltips, toast messages, inline edit modes, empty states, loading states, errors, permissions, or conflicts.
-- Put unrelated deliverables in the same canvas location.
-- Use a giant unstructured container for the entire project.
-- Reuse default coordinates for multiple top-level objects.
-- Mix current and archived designs.
-- create duplicate components instead of instances.
-- rely on color alone for state.
-- leave placeholder content that hides layout problems.
-- declare development-ready while core requirements remain Partial or Not Covered.
-- transfer unresolved design decisions to frontend engineers.
-
----
-
-## 7. Required outputs
-
-Depending on task scope, produce or update:
-
-- Source Index
-- Product and UX Understanding
-- Scope and Non-scope
-- Role and Permission Matrix
-- Business Object and State Model
-- Information Architecture
-- Atomic Requirements
-- Requirements Traceability Matrix
-- Design Object Inventory
-- User Flows
-- Canvas Map
-- Foundations
-- Components
-- Patterns
-- Screens and States
-- Interaction Notes
-- Responsive Rules
-- Data and Content Rules
-- Canvas Audit
-- Design Review Report
-- Issue Closure Matrix
-- Change Impact Report
-- Handoff Notes
-
-Use the templates in `templates/delivery-templates.md`.
-
----
-
-## 8. Completion response
-
-The final response must state:
-
-- What was created or changed
-- Which tool adapter was used
-- Which requirements or objects were covered
-- What remains Partial, Not Covered, Blocked, or awaiting human approval
-- The current delivery status
-- Links or exact locations of produced files/design objects when available
-
-Do not state that the design is complete unless the completion gates in the core reference and this skill are satisfied.
+Lead the final response with the resulting experience and verification evidence. State changed design locations, affected reusable sources and consumers, unresolved decisions, unavailable checks, and current readiness without emitting an internal work diary.

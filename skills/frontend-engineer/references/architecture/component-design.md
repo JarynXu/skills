@@ -14,6 +14,20 @@ Map the repository's actual layers before adding one. Common responsibilities in
 
 These labels are illustrative. Preserve a coherent existing system rather than forcing this vocabulary into the repository.
 
+## Discover before creating
+
+Before adding a component, style abstraction, or interaction pattern, inspect the approved design-system sources and their actual consumers. Search for semantic equivalents, wrappers, variants, feature-owned components, representative pages, stories, tests, deprecations, and extension rules. Do not conclude that a capability is missing from one filename or one component directory.
+
+Map the current need to one of:
+
+- adopt an existing contract;
+- extend the same stable responsibility;
+- create a new shared capability;
+- keep the solution local because the responsibility is specific or still exploratory;
+- reopen a design or architecture decision because the current system cannot express it honestly.
+
+The mapping is an implementation decision, not a mandatory user-facing report. Surface it when uncertainty, migration scope, or authority requires a decision.
+
 ## Define APIs by intent
 
 - Name inputs after what callers mean, not the order in which internals render.
@@ -59,6 +73,27 @@ Do not extract solely because markup is long, two fragments look similar, or reu
 
 Do not require a preferred library when the project already has a coherent accessible system.
 
+## Carry the abstraction into consumers
+
+Use this loop when creating or extending reusable capability:
+
+```text
+real consumer need
+-> discover existing contracts and consumers
+-> choose the narrowest stable owner
+-> define the smallest sufficient API
+-> connect the current consumer
+-> inspect semantically eligible consumers
+-> migrate within authorized scope or preserve an explicit adoption boundary
+-> verify the shared source and affected consumers
+```
+
+Placement under `components/`, `shared/`, `ui/`, or another global-looking directory makes a component available; it does not prove reuse. A shared component must either have real consumers or own a stable foundational responsibility such as accessibility mechanics or a cross-surface semantic contract that justifies canonical placement before broader adoption.
+
+Do not invent speculative props to serve imagined consumers. Do not keep a page-specific API in a global layer merely because the first implementation was extracted. Conversely, do not leave a stable shared behavior copied into pages after its common contract is known.
+
+Always inspect related call sites before declaring a shared capability complete. Replace consumers only when they share the same semantic, interaction, state, and change contract. Similar markup or appearance alone is insufficient. When a safe migration would materially expand the authorized task, keep the boundary visible and do not claim project-wide adoption.
+
 ## Review component health
 
 Investigate when a component:
@@ -71,3 +106,15 @@ Investigate when a component:
 - Is reused across domains only through conditionals for each consumer.
 
 Repair the smallest ownership boundary that removes the false coupling. Avoid replacing one large component with many fragments that still share the same tangled responsibility.
+
+## Complete the component change
+
+Before claiming the affected scope complete, verify that:
+
+- the current surface uses the selected existing or new contract;
+- intended consumers in scope import, instantiate, or compose the canonical source rather than parallel imitations;
+- the component API reflects shared intent rather than one page's internal layout order;
+- excluded lookalikes have a real contract difference;
+- changed consumers preserve behavior, content, accessibility, responsive layout, state handling, and tests;
+- obsolete copies or compatibility layers are removed only after no supported consumer depends on them;
+- deferred eligible consumers and migration risks are reported without calling the whole project consistent.

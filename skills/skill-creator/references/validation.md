@@ -7,6 +7,7 @@ Before examining a candidate output, derive observable acceptance properties fro
 - required inputs, decisions, states, and outputs;
 - forbidden fabrication, leakage, overproduction, or authority crossing;
 - structural and semantic invariants;
+- required intermediate results and the downstream decisions or consumers that must actually use them;
 - the evidence source for each important claim;
 - blocking failures, nonblocking defects, and acceptable variation;
 - pass and stop conditions.
@@ -35,6 +36,8 @@ Select the smallest set of tasks that covers distinct behavior:
 
 Test properties rather than exact prose unless the output itself is a fixed protocol. Inspect what the agent actually read, decided, changed, produced, and verified. A polished artifact is not evidence that the correct inputs, boundaries, or judgments were preserved.
 
+For every required intermediate result, inspect whether the later workflow consumed it. A created component, model, rule set, plan, or handoff that never changes an authorized consumer is evidence of performed procedure, not achieved behavior. When direct adoption lies outside the role's authority, verify that the skill preserved a real recipient, usable contract, expected return evidence, and honest unresolved status instead.
+
 ## Diagnose the causal layer
 
 | Observation | Likely gap | Repair location |
@@ -42,6 +45,7 @@ Test properties rather than exact prose unless the output itself is a fixed prot
 | The agent lacks a necessary fact or professional rule | Knowledge | The relevant reference or authoritative source |
 | The rule exists but was not loaded for the task | Routing | The description or observable reference route |
 | The agent can explain the rule afterward but violates it while working | Execution | The decision flow, field contract, template, degree of freedom, or verifier |
+| The agent creates a required artifact or reusable resource but later work does not use it | Execution or contract | The purpose-to-consumer transition, adoption rule, authority boundary, or completion evidence |
 | Evaluators disagree because success has no decidable boundary | Contract | Predicate, scope, authority, evidence, failure, or stop condition |
 | A known violation escapes the checks | Validation | Acceptance property, test, or deterministic validator |
 | Fixing one example creates the opposite failure elsewhere | Overfitting | Stable domain dimensions and generalization stop condition |

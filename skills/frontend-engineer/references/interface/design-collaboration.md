@@ -17,6 +17,26 @@ Inspect the approved requirements, UX flows, design artifacts, design-system rul
 
 Resolve conflicts from evidence and responsible ownership. Source precedence does not make an impossible guarantee possible: hard implementation evidence must reopen the affected upstream decision. Conversely, technical inconvenience does not authorize changing product or design intent.
 
+## Keep a persistent implementation baseline
+
+Treat the selected design revision as an active implementation input, not onboarding material read once before coding. Establish the relevant surfaces, states, content, viewports or host constraints, design-system sources, assets, and approved adaptations that form the comparison baseline.
+
+At each meaningful visible increment:
+
+```text
+reopen the relevant design state and contract
+-> implement one runnable increment
+-> render under matching state, content, viewport, and host conditions
+-> compare structure, hierarchy, tokens, assets, content, states, and responsive behavior
+-> classify every material difference
+-> repair or resolve the governing decision
+-> rerender and compare the affected scope
+```
+
+Reopen only the design material relevant to the current increment; do not reread an entire file after every edit. Repeat the comparison after layout, component, token, content, interaction-state, or responsive changes that can alter visible output, and perform a whole-surface pass before handoff.
+
+Use side-by-side inspection, overlays, measurements, computed styles, or image comparison according to the claim and available tools. Pixel identity is not the default contract: preserve the approved hierarchy, semantics, system rules, and responsive intent while allowing evidenced browser or platform adaptation.
+
 ## Run a feasibility pass early
 
 Before substantial implementation, test the design against:
@@ -34,6 +54,9 @@ Repeat the pass when implementation reveals a shared contract, hidden state, or 
 
 | Class | Meaning | Response |
 |---|---|---|
+| Implementation defect | The runnable result fails an applicable approved design or interface-system contract | Repair the implementation, rerender, and compare again |
+| Comparison-baseline mismatch | The design revision, state, data, viewport, host, font, or environment does not match the rendered candidate | Correct the comparison conditions before judging fidelity |
+| Intentional adaptation | A declared responsive, accessibility, content, or platform rule requires a different realization while preserving intent | Verify the governing rule and synchronize affected design or handoff sources |
 | Fundamental constraint | The platform, protocol, security boundary, or authoritative data cannot provide the claimed guarantee | Block that realization and reopen the decision |
 | Missing capability | The experience is possible after new API, component, infrastructure, or migration work | Expose the dependency, scope, and delivery order |
 | Cost or risk mismatch | The experience is feasible but its cost, fragility, or operational risk may outweigh its value | Present measured tradeoffs for an owner decision |
@@ -97,4 +120,4 @@ Do not leave a cross-role decision only in chat, a code branch, or an implementa
 
 ## Close the loop
 
-Treat the design as developable only when consequential states and constraints are implementable or explicitly resolved. Treat implementation as complete only when it preserves the approved user intent under real data, failures, accessibility, supported viewports, and hosts. State every remaining assumption, blocked decision, and unavailable verification boundary.
+Treat the design as developable only when consequential states and constraints are implementable or explicitly resolved. Treat implementation as complete only when it preserves the approved user intent under real data, failures, accessibility, supported viewports, and hosts, and when comparison evidence covers the relevant design revision and representative states. State every remaining assumption, intentional adaptation, blocked decision, out-of-scope surface, and unavailable verification boundary.
