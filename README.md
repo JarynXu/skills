@@ -10,7 +10,10 @@ Each skill lives in its own directory under `skills/` and can be discovered and 
 |---|---|
 | [`designer`](skills/designer/) | Professional product/UI design skill for reading PRD and UX documentation, planning information architecture and user flows, building design systems and developer-ready delivery files, operating Figma or pen.dev safely, and performing senior-level self-review. |
 | [`frontend-audit`](skills/frontend-audit/) | Audit and remediate frontend product experiences across web and desktop applications, including product truth, UX, accessibility, responsiveness, state handling, component-system compliance, and frontend architecture. |
+| [`frontend-engineer`](skills/frontend-engineer/) | Act as the frontend owner who can understand, build, debug, review, audit, remediate, and verify production frontends through tested handoff. |
 | [`product`](skills/product/) | 建立、逆向重建、审查、规范化并持续维护产品定义库，覆盖产品定义、业务流程与规则、产品和技术边界，以及面向 UX、UI、架构、开发、数据和 QA 的交接。 |
+| [`skill-creator`](skills/skill-creator/) | Design, create, audit, refactor, and validate portable Agent Skills as professional behavior systems. |
+| [`software-architect`](skills/software-architect/) | Discover, design, document, evaluate, and steward software architectures from system drivers through implementation conformance. |
 | [`svg`](skills/svg/) | Create, edit, repair, validate, and optimize standalone SVG files with deterministic layout and parse/render verification. |
 | [`vision`](skills/vision/) | Describe, analyze, or OCR images using an external vision API when the underlying model lacks native image understanding. |
 
@@ -71,19 +74,20 @@ npx skills add https://github.com/JarynXu/skills/tree/main/skills/svg
 
 ## Add another skill
 
-1. Create `skills/<skill-name>/SKILL.md`.
-2. Use lowercase letters, digits, and hyphens for `<skill-name>`.
-3. Set the YAML frontmatter `name` to exactly the directory name.
-4. Add optional resources, examples, scripts, and tests inside the same directory.
-5. If the skill has executable tests, expose them as `skills/<skill-name>/tests/test.sh`.
-6. Run the repository checks:
+1. Use [`skill-creator`](skills/skill-creator/) to define the target behavior, authority boundaries, implementation structure, and validation contract.
+2. Initialize `skills/<skill-name>/` with the installed skill creator's initializer.
+3. Use lowercase letters, digits, and hyphens for `<skill-name>`.
+4. Set the YAML frontmatter `name` to exactly the directory name.
+5. Add only the references, scripts, assets, metadata, and tests required by the behavior contract.
+6. If the skill has executable tests, expose them as `skills/<skill-name>/tests/test.sh`.
+7. Run the repository checks:
 
 ```bash
 python scripts/validate_repository.py
 bash scripts/test_all.sh
 ```
 
-Start from [`templates/skill/SKILL.template.md`](templates/skill/SKILL.template.md) when creating a new skill.
+Use [`templates/skill/SKILL.template.md`](templates/skill/SKILL.template.md) only as a packaging fallback when the installed initializer is unavailable; it does not replace the `skill-creator` design workflow.
 
 ## Local CLI check
 

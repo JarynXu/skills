@@ -1,5 +1,9 @@
 # Contributing
 
+## Authoring contract
+
+Before creating, redesigning, auditing, or substantially updating a skill, read and follow [`skills/skill-creator/SKILL.md`](skills/skill-creator/SKILL.md) and the references it routes to for the current task. It is the authoritative definition of skill-design behavior in this repository; templates and repository checks cover packaging but do not replace behavioral design or forward validation.
+
 ## Skill directory contract
 
 Every public skill must use this layout:

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Software Architect"
+  short_description: "Discover, design, evaluate, and steward software architecture"
+  default_prompt: "Use $software-architect to understand this system and address the architecture decisions, evidence, and artifacts this task requires."

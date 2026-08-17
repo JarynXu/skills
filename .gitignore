@@ -49,3 +49,5 @@ credentials.json
 # 日志 / 临时
 *.log
 .tmp/
+
+.obsidian/

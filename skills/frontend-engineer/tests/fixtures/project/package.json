@@ -1,0 +1,13 @@
+{
+  "name": "frontend-evidence-fixture",
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "react": "0.0.0"
+  },
+  "devDependencies": {
+    "typescript": "0.0.0"
+  }
+}

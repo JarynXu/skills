@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Creator"
+  short_description: "Design portable, reliable agent skills"
+  default_prompt: "Use $skill-creator to design or improve a skill as a professional behavior system."

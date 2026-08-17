@@ -1,245 +1,83 @@
 # 产品定义库的信息架构
 
-在创建或移动任何产品文档前阅读。这里定义固定目录、信息归属、文件创建和扩展规则。
+仅在用户已经授权创建、更新、拆分、合并或移动产品文档时读取。本文件定义逻辑归属和物化规则；目录与文件名称是路由候选，不是生成清单。
 
-## 5. 固定产品信息架构
+## 先确定是否需要产品定义库
 
-不得根据“项目大或小”选择不同文档体系。
+满足以下条件后才物化仓库内容：
 
-始终使用同一套产品信息分类。项目规模只影响实际内容量，不影响信息归属。
+1. 用户授权将产品判断持久化；
+2. 信息需要超出当前对话或一次性交付继续维护；
+3. 当前信息有明确语义责任和预期使用者；
+4. 现有仓库中没有应当更新的权威位置。
 
-```text
-product/
-├── README.md
-│
-├── 01-context/
-│   ├── source-register.md
-│   ├── product-brief.md
-│   ├── current-state.md
-│   └── glossary.md
-│
-├── 02-discovery/
-│   ├── evidence-register.md
-│   ├── research-summary.md
-│   ├── problems-and-insights.md
-│   ├── hypotheses.md
-│   ├── alternatives-analysis.md
-│   ├── product-observations.md
-│   ├── behavioral-inventory.md
-│   ├── anomalies-and-gaps.md
-│   └── reconstruction-findings.md
-│
-├── 03-strategy/
-│   ├── goals-and-metrics.md
-│   ├── product-principles.md
-│   ├── scope-and-priorities.md
-│   └── releases-and-roadmap.md
-│
-├── 04-users/
-│   ├── users-and-roles.md
-│   ├── user-needs.md
-│   ├── scenarios.md
-│   └── journeys-context.md
-│
-├── 05-product-model/
-│   ├── domain-model.md
-│   ├── business-processes.md
-│   ├── state-models.md
-│   └── product-structure.md
-│
-├── 06-cross-cutting/
-│   ├── business-rules.md
-│   ├── permission-matrix.md
-│   ├── data-definition.md
-│   ├── content-and-notifications.md
-│   ├── constraints-and-nfr.md
-│   └── compliance-and-security.md
-│
-├── 07-features/
-│   └── <feature>/
-│       ├── overview.md
-│       ├── requirements.md
-│       ├── rules.md
-│       ├── states-and-permissions.md
-│       ├── data-and-content.md
-│       └── acceptance-criteria.md
-│
-├── 08-validation/
-│   ├── requirement-register.md
-│   ├── traceability-matrix.md
-│   ├── coverage-review.md
-│   ├── measurement-plan.md
-│   └── product-audit.md
-│
-├── 09-governance/
-│   ├── decision-log.md
-│   ├── assumption-log.md
-│   ├── open-questions.md
-│   ├── conflict-log.md
-│   ├── risks-and-dependencies.md
-│   ├── change-log.md
-│   └── normalization-log.md
-│
-└── 10-handoffs/
-    ├── ux-input.md
-    ├── architecture-input.md
-    ├── analytics-input.md
-    ├── qa-input.md
-    └── release-operations-input.md
-```
+用户只要求讨论、审查结论或独立的单一产物时，按该交付契约完成，不要暗中创建 `product/`。如果已有产品定义库，先读取其导航、来源、决定、开放项和变更记录，再选择更新位置。
 
-### 5.1 文件创建原则
+## 物化原则
 
-- `product/README.md` 和 `01-context/source-register.md` 应在开始正式工作时创建。
-- 其他文件仅在出现对应信息或当前工作确实需要时创建。
-- 不得创建空文件以“补齐目录”。
-- 不得因为内容少而将其放进错误文件。
-- 文件短不是问题，错误归档才是问题。
-- 已有标准位置时，不得创建竞争性的同类文件。
-- 同一事实只能有一个权威定义位置，其他文件使用稳定 ID 引用。
+- 先更新现有权威文档，不创建竞争性同类文件。
+- 仅当对应信息真实存在并需要独立维护时创建文件。
+- 不创建空目录、空文档、TODO 占位文档或仅为展示完整度的文件。
+- 同类且高度内聚的信息可以保留在一个文件中；文件短不是拆分理由。
+- 不同语义责任不能只为减少文件数而混放。
+- `product/README.md` 仅在建立持续维护的产品定义库或其导航发生变化时创建或更新。
+- `01-context/source-register.md` 仅在来源需要被持续引用、比较或审计时创建或更新。
 
-### 5.2 从单文件自然扩展为目录
+## 逻辑信息分类
 
-当同类信息增长到多个可独立维护领域时，可以从：
+始终使用一致的语义分类判断归属。目录编号表达稳定导航顺序，不要求全部存在。
 
-```text
-state-models.md
-```
+| 逻辑责任 | 候选位置 | 仅在出现以下信息时物化 |
+|---|---|---|
+| 背景与来源 | `01-context/` | 产品背景、现状、持续引用的来源或共享术语 |
+| 证据与探索 | `02-discovery/` | 可核查证据、研究结论、问题洞察、假设、替代方向或重建观察 |
+| 战略与范围 | `03-strategy/` | 目标、指标、原则、优先级、版本范围或路线决定 |
+| 用户与情境 | `04-users/` | 需要独立维护的用户、角色、需要、场景或旅程背景 |
+| 产品模型 | `05-product-model/` | 共享业务对象、关系、流程、状态或能力结构 |
+| 跨域规则 | `06-cross-cutting/` | 被多个能力共同使用的规则、权限、数据含义、内容、约束或合规要求 |
+| 独立产品能力 | `07-features/<capability>/` | 能够独立定义、演进或交付的能力及其特有行为 |
+| 验证与追踪 | `08-validation/` | 正式需求索引、跨阶段追踪、覆盖审查、测量计划或产品审查记录 |
+| 决策与治理 | `09-governance/` | 需要持续维护的决定、假设、问题、冲突、风险或变化 |
+| 跨专业交接 | `10-handoffs/` | 存在真实接收方、交接目的和待处理输入 |
 
-扩展为：
+## 候选权威文件
 
-```text
-state-models/
-├── README.md
-├── order.md
-├── invitation.md
-└── import-task.md
-```
+以下文件名用于已有或新增产品定义库中的一致路由。每一项都是候选位置，只创建命中当前信息责任的文件。
 
-扩展条件应基于内容结构，而不是主观判断项目大小：
-
-- 出现多个独立业务领域；
-- 不同部分有不同维护周期；
-- 文件已经难以定位和引用；
-- 多个 Agent 需要并行编辑；
-- 内容之间不再高度内聚。
-
----
-
-## 6. 信息路由规则
-
-每条信息都必须先分类，再写入其权威位置。
-
-| 信息类型 | 主要归属 |
+| 目录 | 候选文件 |
 |---|---|
-| 资料来源、访谈、口述、外部文档 | `01-context/source-register.md` |
-| 产品背景、价值、总体目标、当前范围 | `01-context/product-brief.md` |
-| 现有产品和业务实际状态 | `01-context/current-state.md` |
-| 术语、对象名称和业务定义 | `01-context/glossary.md` |
-| 可核查事实和数据证据 | `02-discovery/evidence-register.md` |
-| 用户研究和业务研究综合结论 | `02-discovery/research-summary.md` |
-| 用户问题、洞察、机会 | `02-discovery/problems-and-insights.md` |
-| 未验证判断 | `02-discovery/hypotheses.md` |
-| 替代方案、竞品、人工流程 | `02-discovery/alternatives-analysis.md` |
-| 对现有产品的原始观察 | `02-discovery/product-observations.md` |
-| 现有产品行为清单 | `02-discovery/behavioral-inventory.md` |
-| 异常、矛盾和无法解释的现状 | `02-discovery/anomalies-and-gaps.md` |
-| 重建后已交叉验证的候选结论 | `02-discovery/reconstruction-findings.md` |
-| 产品目标、业务目标、指标、护栏指标 | `03-strategy/goals-and-metrics.md` |
-| 长期决策原则 | `03-strategy/product-principles.md` |
-| 范围、非范围、优先级、MVP 边界 | `03-strategy/scope-and-priorities.md` |
-| 产品版本范围和阶段演进 | `03-strategy/releases-and-roadmap.md` |
-| 用户类型、业务角色、系统角色 | `04-users/users-and-roles.md` |
-| 用户需要完成的事情 | `04-users/user-needs.md` |
-| 具体使用情境 | `04-users/scenarios.md` |
-| 跨阶段业务旅程背景 | `04-users/journeys-context.md` |
-| 业务对象、关系和生命周期 | `05-product-model/domain-model.md` |
-| 业务运行流程 | `05-product-model/business-processes.md` |
-| 对象状态和迁移 | `05-product-model/state-models.md` |
-| 产品能力域和模块关系 | `05-product-model/product-structure.md` |
-| 跨功能业务规则 | `06-cross-cutting/business-rules.md` |
-| 角色、操作、字段和数据范围权限 | `06-cross-cutting/permission-matrix.md` |
-| 产品层字段、校验和业务含义 | `06-cross-cutting/data-definition.md` |
-| 术语文案、通知和内容要求 | `06-cross-cutting/content-and-notifications.md` |
-| 技术约束、平台限制、性能、安全、可用性等 | `06-cross-cutting/constraints-and-nfr.md` |
-| 合规、隐私、审计和敏感操作要求 | `06-cross-cutting/compliance-and-security.md` |
-| 某一功能的产品行为 | `07-features/<feature>/requirements.md` |
-| 某一功能的特有规则 | `07-features/<feature>/rules.md` |
-| 某一功能的状态和权限 | `07-features/<feature>/states-and-permissions.md` |
-| 某一功能的字段和内容要求 | `07-features/<feature>/data-and-content.md` |
-| 某一功能的可测试完成条件 | `07-features/<feature>/acceptance-criteria.md` |
-| 全部需求主索引 | `08-validation/requirement-register.md` |
-| 来源到设计、开发、测试的追踪关系 | `08-validation/traceability-matrix.md` |
-| 完整性自检 | `08-validation/coverage-review.md` |
-| 上线后验证方案 | `08-validation/measurement-plan.md` |
-| 产品审查发现 | `08-validation/product-audit.md` |
-| 已确认决策 | `09-governance/decision-log.md` |
-| 暂时使用的假设 | `09-governance/assumption-log.md` |
-| 尚待回答的问题 | `09-governance/open-questions.md` |
-| 不同来源或定义之间的冲突 | `09-governance/conflict-log.md` |
-| 风险和外部依赖 | `09-governance/risks-and-dependencies.md` |
-| 产品定义变化 | `09-governance/change-log.md` |
-| 规范化迁移记录 | `09-governance/normalization-log.md` |
-| UX 需要接收的产品输入 | `10-handoffs/ux-input.md` |
-| 架构需要验证或决定的问题 | `10-handoffs/architecture-input.md` |
-| 数据和分析输入 | `10-handoffs/analytics-input.md` |
-| QA 输入 | `10-handoffs/qa-input.md` |
-| 发布、迁移和运营输入 | `10-handoffs/release-operations-input.md` |
+| `01-context/` | `source-register.md`、`product-brief.md`、`current-state.md`、`glossary.md` |
+| `02-discovery/` | `evidence-register.md`、`research-summary.md`、`problems-and-insights.md`、`hypotheses.md`、`alternatives-analysis.md`、`product-observations.md`、`behavioral-inventory.md`、`anomalies-and-gaps.md`、`reconstruction-findings.md` |
+| `03-strategy/` | `goals-and-metrics.md`、`product-principles.md`、`scope-and-priorities.md`、`releases-and-roadmap.md` |
+| `04-users/` | `users-and-roles.md`、`user-needs.md`、`scenarios.md`、`journeys-context.md` |
+| `05-product-model/` | `domain-model.md`、`business-processes.md`、`state-models.md`、`product-structure.md` |
+| `06-cross-cutting/` | `business-rules.md`、`permission-matrix.md`、`data-definition.md`、`content-and-notifications.md`、`constraints-and-nfr.md`、`compliance-and-security.md` |
+| `07-features/<capability>/` | `overview.md`、`requirements.md`、`rules.md`、`states-and-permissions.md`、`data-and-content.md`、`acceptance-criteria.md` |
+| `08-validation/` | `requirement-register.md`、`traceability-matrix.md`、`coverage-review.md`、`measurement-plan.md`、`product-audit.md` |
+| `09-governance/` | `decision-log.md`、`assumption-log.md`、`open-questions.md`、`conflict-log.md`、`risks-and-dependencies.md`、`change-log.md`、`normalization-log.md` |
+| `10-handoffs/` | `ux-input.md`、`architecture-input.md`、`analytics-input.md`、`qa-input.md`、`release-operations-input.md` |
 
----
+一个实际产品库可以长期只包含其中少数文件。
 
-## 17. 文档创建触发条件
+## 功能目录与共享定义
 
-### 17.1 `state-models.md`
+仅当某项产品能力能够独立定义、演进或交付时建立 `07-features/<capability>/`。不要按页面、按钮、字段或技术模块机械拆分。
 
-满足任一条件时创建：
+功能目录中的六个候选文件也不是固定套件：
 
-- 对象存在两个或更多状态；
-- 状态决定允许操作；
-- 存在自动变化；
-- 存在过期、撤销、恢复或失败；
-- 状态影响 UX 展示。
+- 少量且内聚的信息可以先保留在 `overview.md` 或一个最匹配的权威文件；
+- 只有规则、状态权限、数据内容或验收需要独立维护时才拆出对应文件；
+- 被多个能力共享的事实应提升到产品模型或跨域规则位置，功能文档只引用它。
 
-### 17.2 `permission-matrix.md`
+## 拆分、合并与停止
 
-满足任一条件时创建：
+当同类信息出现多个独立责任、不同维护周期、不同接收方、稳定引用需求或明显编辑冲突时，可以把单文件扩展为目录。使用 `<domain>.md` 等占位路径表达结构，不把示例对象写成默认业务模型。
 
-- 存在两个或更多角色；
-- 不同角色看到不同数据；
-- 操作权限不同；
-- 存在字段级权限；
-- 存在受限操作、敏感操作或数据访问差异。
+当多个文件表达同一语义责任、由同一主体维护且总是一起变化时，可以合并；合并后必须保留稳定引用或提供迁移关系。
 
-### 17.3 `architecture-input.md`
+满足以下条件时停止继续拆分或创建文件：
 
-满足任一条件时创建：
-
-- 存在技术硬约束；
-- 存在性能或规模目标；
-- 产品能力需要可行性验证；
-- 依赖外部系统；
-- 存在安全、部署或数据问题；
-- 技术结论可能改变产品范围。
-
-### 17.4 `ux-input.md`
-
-当产品定义具备可供 UX 使用的内容时创建或更新：
-
-- 用户和角色；
-- 用户需求；
-- 核心场景；
-- 业务流程；
-- 对象和状态；
-- 权限；
-- 必须承载的信息；
-- 异常和边界；
-- 不可改变的约束；
-- 待 UX 探索的问题。
-
-### 17.5 功能目录
-
-当出现一个可独立定义、演进或交付的产品能力时创建。
-
-不要按页面、按钮或技术模块机械拆分。
-
----
+- 当前每个文件都有单一、可命名的语义责任；
+- 重要事实拥有唯一权威位置；
+- 预期使用者能够定位并安全使用当前信息；
+- 进一步拆分只会缩短文件或补齐目录，不会改善维护边界。

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontend Engineer"
+  short_description: "Own, build, review, and verify production frontends"
+  default_prompt: "Use $frontend-engineer to take ownership of this frontend task from project understanding through verified handoff."
