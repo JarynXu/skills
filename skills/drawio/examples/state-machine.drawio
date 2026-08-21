@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile compressed="false"><diagram id="order-state" name="订单状态机"><mxGraphModel page="1" pageWidth="1200" pageHeight="700" adaptiveColors="auto"><root><mxCell id="0"/><mxCell id="1" parent="0"/>
+<mxCell id="start" value="" style="ellipse;aspect=fixed;fillColor=#111827;strokeColor=#111827;" vertex="1" parent="1"><mxGeometry x="60" y="300" width="24" height="24" as="geometry"/></mxCell>
+<mxCell id="draft" value="Draft" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;" vertex="1" parent="1"><mxGeometry x="150" y="275" width="150" height="70" as="geometry"/></mxCell>
+<mxCell id="pending" value="Pending" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;" vertex="1" parent="1"><mxGeometry x="390" y="275" width="150" height="70" as="geometry"/></mxCell>
+<mxCell id="approved" value="Approved" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;" vertex="1" parent="1"><mxGeometry x="650" y="160" width="150" height="70" as="geometry"/></mxCell>
+<mxCell id="rejected" value="Rejected" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#DC2626;" vertex="1" parent="1"><mxGeometry x="650" y="390" width="150" height="70" as="geometry"/></mxCell>
+<mxCell id="done" value="Fulfilled" style="doubleEllipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#111827;" vertex="1" parent="1"><mxGeometry x="930" y="160" width="150" height="70" as="geometry"/></mxCell>
+<mxCell id="e0" edge="1" parent="1" source="start" target="draft" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e1" value="submit" edge="1" parent="1" source="draft" target="pending" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e2" value="approve [valid]" edge="1" parent="1" source="pending" target="approved" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e3" value="reject" edge="1" parent="1" source="pending" target="rejected" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e4" value="revise" edge="1" parent="1" source="rejected" target="draft" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="500" y="520"/><mxPoint x="225" y="520"/></Array></mxGeometry></mxCell>
+<mxCell id="e5" value="fulfil" edge="1" parent="1" source="approved" target="done" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;"><mxGeometry relative="1" as="geometry"/></mxCell>
+</root></mxGraphModel></diagram></mxfile>

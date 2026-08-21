@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile compressed="false"><diagram id="approval" name="审批流程"><mxGraphModel page="1" pageWidth="1400" pageHeight="700" adaptiveColors="auto"><root><mxCell id="0"/><mxCell id="1" parent="0"/>
+<mxCell id="requester" value="申请人" style="swimlane;horizontal=0;startSize=110;container=1;collapsible=0;html=1;fillColor=#F8FAFC;strokeColor=#94A3B8;" vertex="1" parent="1"><mxGeometry x="40" y="60" width="1300" height="170" as="geometry"/></mxCell>
+<mxCell id="agent" value="AI Agent" style="swimlane;horizontal=0;startSize=110;container=1;collapsible=0;html=1;fillColor=#F8FAFC;strokeColor=#94A3B8;" vertex="1" parent="1"><mxGeometry x="40" y="230" width="1300" height="170" as="geometry"/></mxCell>
+<mxCell id="approver" value="审批人" style="swimlane;horizontal=0;startSize=110;container=1;collapsible=0;html=1;fillColor=#F8FAFC;strokeColor=#94A3B8;" vertex="1" parent="1"><mxGeometry x="40" y="400" width="1300" height="170" as="geometry"/></mxCell>
+<mxCell id="submit" value="提交需求" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;" vertex="1" parent="requester"><mxGeometry x="170" y="55" width="160" height="60" as="geometry"/></mxCell>
+<mxCell id="execute" value="分析并执行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;" vertex="1" parent="agent"><mxGeometry x="430" y="55" width="170" height="60" as="geometry"/></mxCell>
+<mxCell id="candidate" value="候选结果" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;" vertex="1" parent="agent"><mxGeometry x="700" y="55" width="170" height="60" as="geometry"/></mxCell>
+<mxCell id="review" value="审批？" style="rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;" vertex="1" parent="approver"><mxGeometry x="900" y="45" width="160" height="80" as="geometry"/></mxCell>
+<mxCell id="done" value="完成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;" vertex="1" parent="approver"><mxGeometry x="1110" y="55" width="150" height="60" as="geometry"/></mxCell>
+<mxCell id="e1" edge="1" parent="1" source="submit" target="execute" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e2" edge="1" parent="1" source="execute" target="candidate" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e3" edge="1" parent="1" source="candidate" target="review" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e4" value="通过" edge="1" parent="1" source="review" target="done" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="e5" value="驳回 / 修改后重提" edge="1" parent="1" source="review" target="submit" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="850" y="620"/><mxPoint x="220" y="620"/></Array></mxGeometry></mxCell>
+</root></mxGraphModel></diagram></mxfile>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile compressed="false"><diagram id="login-sequence" name="登录时序"><mxGraphModel page="1" pageWidth="1200" pageHeight="760" adaptiveColors="auto"><root><mxCell id="0"/><mxCell id="1" parent="0"/>
+<mxCell id="user" value="用户" style="shape=umlLifeline;perimeter=lifelinePerimeter;size=42;whiteSpace=wrap;html=1;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="80" y="80" width="180" height="560" as="geometry"/></mxCell>
+<mxCell id="web" value="Web 应用" style="shape=umlLifeline;perimeter=lifelinePerimeter;size=42;whiteSpace=wrap;html=1;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="380" y="80" width="180" height="560" as="geometry"/></mxCell>
+<mxCell id="auth" value="认证服务" style="shape=umlLifeline;perimeter=lifelinePerimeter;size=42;whiteSpace=wrap;html=1;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="680" y="80" width="180" height="560" as="geometry"/></mxCell>
+<mxCell id="db" value="用户库" style="shape=umlLifeline;perimeter=lifelinePerimeter;size=42;whiteSpace=wrap;html=1;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="960" y="80" width="180" height="560" as="geometry"/></mxCell>
+<mxCell id="m1" value="1 登录" style="html=1;endArrow=blockThin;strokeWidth=1.5;" edge="1" parent="1" source="user" target="web"><mxGeometry relative="1" y="-180" as="geometry"/></mxCell>
+<mxCell id="m2" value="2 authenticate()" style="html=1;endArrow=blockThin;strokeWidth=1.5;" edge="1" parent="1" source="web" target="auth"><mxGeometry relative="1" y="-80" as="geometry"/></mxCell>
+<mxCell id="m3" value="3 查询用户" style="html=1;endArrow=blockThin;strokeWidth=1.5;" edge="1" parent="1" source="auth" target="db"><mxGeometry relative="1" y="20" as="geometry"/></mxCell>
+<mxCell id="m4" value="4 用户记录" style="html=1;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="db" target="auth"><mxGeometry relative="1" y="100" as="geometry"/></mxCell>
+<mxCell id="m5" value="5 令牌" style="html=1;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="auth" target="web"><mxGeometry relative="1" y="180" as="geometry"/></mxCell>
+<mxCell id="m6" value="6 登录成功" style="html=1;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="web" target="user"><mxGeometry relative="1" y="260" as="geometry"/></mxCell>
+</root></mxGraphModel></diagram></mxfile>

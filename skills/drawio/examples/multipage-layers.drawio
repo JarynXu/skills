@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile compressed="false">
+  <diagram id="page-1" name="Overview">
+    <mxGraphModel dx="0" dy="0" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="700" math="0" shadow="0" adaptiveColors="auto">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="annotations" value="Annotations" parent="0" visible="0" />
+        <mxCell id="client" value="Client" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="100" y="200" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="service" value="Service" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="450" y="200" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Optional migration note" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="annotations">
+          <mxGeometry x="430" y="360" width="220" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="client-service" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;" edge="1" parent="1" source="client" target="service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="deployment" name="Deployment">
+    <mxGraphModel dx="0" dy="0" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="700" math="0" shadow="0" adaptiveColors="auto">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="region" value="Region" style="swimlane;startSize=30;container=1;collapsible=0;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="80" y="80" width="900" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="cluster" value="Kubernetes Cluster" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" vertex="1" parent="region">
+          <mxGeometry x="80" y="90" width="300" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="db" value="Managed Database" style="shape=cylinder3;whiteSpace=wrap;html=1;" vertex="1" parent="region">
+          <mxGeometry x="520" y="90" width="230" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cluster-db" value="private endpoint" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;" edge="1" parent="1" source="cluster" target="db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

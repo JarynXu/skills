@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified">
+  <xs:element name="mxfile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="diagram" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType mixed="true">
+            <xs:sequence minOccurs="0"><xs:element ref="mxGraphModel" minOccurs="0"/></xs:sequence>
+            <xs:attribute name="id" type="xs:string"/><xs:attribute name="name" type="xs:string"/>
+            <xs:anyAttribute processContents="lax"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:anyAttribute processContents="lax"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="mxGraphModel">
+    <xs:complexType>
+      <xs:sequence><xs:element name="root"><xs:complexType><xs:choice minOccurs="2" maxOccurs="unbounded"><xs:element ref="mxCell"/><xs:any processContents="lax"/></xs:choice></xs:complexType></xs:element></xs:sequence>
+      <xs:anyAttribute processContents="lax"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="mxCell">
+    <xs:complexType>
+      <xs:sequence minOccurs="0"><xs:element name="mxGeometry" minOccurs="0"><xs:complexType><xs:choice minOccurs="0" maxOccurs="unbounded"><xs:any processContents="lax"/></xs:choice><xs:anyAttribute processContents="lax"/></xs:complexType></xs:element></xs:sequence>
+      <xs:attribute name="id" type="xs:string"/><xs:attribute name="parent" type="xs:string"/><xs:attribute name="vertex" type="xs:string"/><xs:attribute name="edge" type="xs:string"/><xs:attribute name="source" type="xs:string"/><xs:attribute name="target" type="xs:string"/><xs:attribute name="value" type="xs:string"/><xs:attribute name="style" type="xs:string"/><xs:anyAttribute processContents="lax"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

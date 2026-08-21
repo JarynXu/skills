@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile compressed="false">
+  <diagram id="page-1" name="Advanced Features">
+    <mxGraphModel dx="0" dy="0" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="800" math="0" shadow="0" adaptiveColors="auto">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="main" value="Main" parent="0" />
+        <mxCell id="platform" value="Platform" style="swimlane;startSize=30;container=1;collapsible=0;html=1;whiteSpace=wrap;" vertex="1" parent="main">
+          <mxGeometry x="80" y="80" width="900" height="520" as="geometry" />
+        </mxCell>
+        <object id="profile" label="&lt;b&gt;%name%&lt;/b&gt;&lt;br&gt;Owner: %owner%" tags="critical backend" link="https://example.invalid/docs/identity" tooltip="Identity and token service" placeholders="1" name="Identity Service" owner="IAM" status="active">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="platform">
+            <mxGeometry x="80" y="90" width="250" height="100" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="profile-out" value="" style="ellipse;perimeter=ellipsePerimeter;html=1;aspect=fixed;" vertex="1" parent="profile">
+          <mxGeometry x="1" y="0.5" width="10" height="10" relative="1" as="geometry">
+            <mxPoint x="-5" y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="consumer" value="Consumer" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" vertex="1" parent="platform">
+          <mxGeometry x="560" y="100" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="port-consumer" value="OIDC" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;" edge="1" parent="main" source="profile-out" target="consumer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="table" value="" style="shape=table;html=1;whiteSpace=wrap;container=1;collapsible=0;childLayout=tableLayout;" vertex="1" parent="main">
+          <mxGeometry x="80" y="650" width="760" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="row" value="" style="shape=tableRow;horizontal=0;startSize=40;html=1;collapsible=0;" vertex="1" parent="table">
+          <mxGeometry x="0" y="0" width="760" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="header" value="Actor" style="shape=partialRectangle;top=0;left=0;bottom=0;right=1;html=1;whiteSpace=wrap;" vertex="1" parent="row">
+          <mxGeometry x="0" y="0" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="phase" value="Authenticate" style="shape=partialRectangle;top=0;left=0;bottom=0;right=1;html=1;whiteSpace=wrap;" vertex="1" parent="row">
+          <mxGeometry x="160" y="0" width="600" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

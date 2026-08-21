@@ -9,6 +9,7 @@ Each skill lives in its own directory under `skills/` and can be discovered and 
 | Skill | Description |
 |---|---|
 | [`designer`](skills/designer/) | Senior product, interaction, visual, and design-system practice for creating or evolving coherent interfaces, auditing designs, operating Figma or Pen safely, and preparing implementable handoff. |
+| [`drawio`](skills/drawio/) | Create, edit, repair, inspect, validate, lay out, route, style, and export native editable diagrams.net/draw.io files with bundled XML references and deterministic Python tooling. |
 | [`frontend-audit`](skills/frontend-audit/) | Audit and remediate frontend product experiences across web and desktop applications, including product truth, UX, accessibility, responsiveness, state handling, component-system compliance, and frontend architecture. |
 | [`frontend-engineer`](skills/frontend-engineer/) | Act as the frontend owner who can understand, build, debug, review, audit, remediate, and verify production frontends through tested handoff. |
 | [`product`](skills/product/) | 建立、逆向重建、审查、规范化并持续维护产品定义库，覆盖产品定义、业务流程与规则、产品和技术边界，以及面向 UX、UI、架构、开发、数据和 QA 的交接。 |
@@ -48,7 +49,6 @@ A skill can also be installed directly from its GitHub directory URL:
 ```bash
 npx skills add https://github.com/JarynXu/skills/tree/main/skills/svg
 ```
-
 
 ## Repository layout
 
