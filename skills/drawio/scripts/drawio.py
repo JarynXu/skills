@@ -24,7 +24,7 @@ def export_file(src,out,fmt='png',drawio=None,width=None,height=None,scale=None,
     if height:cmd += ['--height',str(height)]
     if scale:cmd += ['--scale',str(scale)]
     if border is not None:cmd += ['--border',str(border)]
-    if page:cmd += ['--page-index',str(page)]
+    if page is not None:cmd += ['--page-index',str(page)]
     if transparent:cmd += ['--transparent']
     if embed:cmd += ['--embed-diagram']
     cmd.append(str(src)); r=subprocess.run(cmd,capture_output=True,text=True,timeout=120)
@@ -63,6 +63,9 @@ def main():
             if a.cmd=='preview': out=str(Path(tempfile.gettempdir())/(Path(a.input).stem+'.preview.png'))
             else: raise SystemExit('export requires --output')
         data=export_file(a.input,out,a.format,a.drawio,a.width,a.height,a.scale,a.border,a.page_index,a.transparent,a.embed_diagram); print(json.dumps(data,ensure_ascii=False,indent=2)); return
+    if a.cmd=='diff':
+        _,bp=load(a.before); _,apages=load(a.after); changes=semantic_diff(bp,apages); data={'changed':bool(changes),'count':len(changes),'changes':changes}
+        print(json.dumps(data,ensure_ascii=False,indent=2)); return
     root,pages=load(a.input)
     if a.cmd=='inspect':
         data=inspect(pages)
@@ -81,9 +84,6 @@ def main():
         spec=json.loads(Path(a.patch).read_text(encoding='utf-8')); patch(pages,spec); errs=validate(pages)
         if errs: raise SystemExit('\n'.join(errs))
         save(root,pages,a.output,a.compress); return
-    if a.cmd=='diff':
-        _,bp=load(a.before); changes=semantic_diff(bp,pages); data={'changed':bool(changes),'count':len(changes),'changes':changes}
-        print(json.dumps(data,ensure_ascii=False,indent=2)); return
     if a.cmd=='layout': layout(pages,a.preset,a.gap); save(root,pages,a.output,'preserve'); return
 
 if __name__=='__main__': main()
