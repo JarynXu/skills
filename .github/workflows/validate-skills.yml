@@ -16,8 +16,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install SVG test dependencies
-        run: pip install cairosvg pillow
+      - name: Install test dependencies
+        run: pip install cairosvg pillow lxml
 
       - name: Validate skill structure and frontmatter
         run: python scripts/validate_repository.py
