@@ -14,6 +14,7 @@ Each skill lives in its own directory under `skills/` and can be discovered and 
 | [`frontend-audit`](skills/frontend-audit/) | Audit and remediate frontend product experiences across web and desktop applications, including product truth, UX, accessibility, responsiveness, state handling, component-system compliance, and frontend architecture. |
 | [`frontend-engineer`](skills/frontend-engineer/) | Act as the frontend owner who can understand, build, debug, review, audit, remediate, and verify production frontends through tested handoff. |
 | [`product`](skills/product/) | 建立、逆向重建、审查、规范化并持续维护产品定义库，覆盖产品定义、业务流程与规则、产品和技术边界，以及面向 UX、UI、架构、开发、数据和 QA 的交接。 |
+| [`qa-engineer`](skills/qa-engineer/) | Senior quality engineering for risk-based strategy, functional and non-functional testing, automation, defect diagnosis, UAT facilitation, production validation, and release evidence. |
 | [`skill-creator`](skills/skill-creator/) | Design, create, audit, refactor, and validate portable Agent Skills as professional behavior systems. |
 | [`software-architect`](skills/software-architect/) | Discover, design, document, evaluate, and steward software architectures from system drivers through implementation conformance. |
 | [`svg`](skills/svg/) | Create, edit, repair, validate, and optimize standalone SVG files with deterministic layout and parse/render verification. |

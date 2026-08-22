@@ -1,0 +1,4 @@
+interface:
+  display_name: "QA Engineer"
+  short_description: "Own quality strategy, testing, diagnosis, and release evidence"
+  default_prompt: "Use $qa-engineer to assess quality risk, select and execute faithful tests, and provide evidence-based release guidance."
