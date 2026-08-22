@@ -50,4 +50,15 @@ if python "$ROOT/scripts/inspect_backend.py" "$TMP/missing" >/dev/null 2>&1; the
   echo "expected missing directory to fail" >&2
   exit 1
 fi
+
+# Offline library behavior must work with no network access.
+python "$ROOT/scripts/offline_library.py" list | grep -q 'alibaba-p3c'
+python "$ROOT/scripts/offline_library.py" verify | grep -q 'Verified'
+python "$ROOT/scripts/offline_library.py" search 'ThreadPoolExecutor' --source alibaba-p3c --limit 5 | grep -q '并发处理.md'
+python "$ROOT/scripts/offline_library.py" read 'alibaba-p3c/p3c-gitbook/MySQL数据库/索引规约.md' --start 1 --end 8 | grep -q '索引规约'
+if python "$ROOT/scripts/offline_library.py" read '../escape' >/dev/null 2>&1; then
+  echo "expected unsafe library path to fail" >&2
+  exit 1
+fi
+
 echo "backend-engineer tests passed"
