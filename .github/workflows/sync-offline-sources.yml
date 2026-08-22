@@ -16,7 +16,7 @@ permissions:
 
 concurrency:
   group: sync-offline-role-libraries
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   sync:
@@ -55,6 +55,7 @@ jobs:
             git diff --cached --check
             git commit -m "chore: install offline source synchronizer"
           fi
+          git push origin HEAD:refs/heads/offline-sync-build
 
       - name: Validate synchronizer
         run: |
@@ -71,6 +72,7 @@ jobs:
           if ! git diff --cached --quiet; then
             git commit -m "feat(backend-engineer): vendor offline standards library"
           fi
+          git push origin HEAD:refs/heads/offline-sync-build
 
       - name: Vendor qa-engineer offline library
         run: |
@@ -82,6 +84,7 @@ jobs:
           if ! git diff --cached --quiet; then
             git commit -m "feat(qa-engineer): vendor offline testing library"
           fi
+          git push origin HEAD:refs/heads/offline-sync-build
 
       - name: Create devops-engineer with offline library
         run: |
@@ -93,6 +96,7 @@ jobs:
           if ! git diff --cached --quiet; then
             git commit -m "feat: add DevOps engineer with offline standards"
           fi
+          git push origin HEAD:refs/heads/offline-sync-build
 
       - name: Create project-manager with offline library
         run: |
@@ -104,6 +108,7 @@ jobs:
           if ! git diff --cached --quiet; then
             git commit -m "feat: add project manager with offline guides"
           fi
+          git push origin HEAD:refs/heads/offline-sync-build
 
       - name: Validate complete repository
         run: |
