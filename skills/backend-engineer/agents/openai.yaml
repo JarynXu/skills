@@ -1,0 +1,4 @@
+interface:
+  display_name: "Backend Engineer"
+  short_description: "Design, build, debug, test, and operate production backends"
+  default_prompt: "Use $backend-engineer to own this backend task from project understanding through verified implementation and operational handoff."
