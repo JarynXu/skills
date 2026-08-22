@@ -1,0 +1,119 @@
+name: Sync offline role libraries
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/sync-offline-sources.yml"
+      - "scripts/offline_sync_payload.b64.part-*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-offline-role-libraries
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install PDF text extractor
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - name: Configure Git identity and concurrency base
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          echo "EXPECTED_HEAD=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+
+      - name: Install synchronizer payload
+        run: |
+          if compgen -G "scripts/offline_sync_payload.b64.part-*" >/dev/null; then
+            cat scripts/offline_sync_payload.b64.part-* | base64 -d > /tmp/offline_sync_payload.tar.gz
+            tar -xzf /tmp/offline_sync_payload.tar.gz
+            git rm scripts/offline_sync_payload.b64.part-*
+            git add scripts/sync_offline_sources.py scripts/offline_sources.json scripts/role_templates.json
+            git diff --cached --check
+            git commit -m "chore: install offline source synchronizer"
+          fi
+
+      - name: Validate synchronizer
+        run: |
+          python -m py_compile scripts/sync_offline_sources.py
+          python scripts/sync_offline_sources.py --self-test
+
+      - name: Vendor backend-engineer offline library
+        run: |
+          python scripts/sync_offline_sources.py --role backend-engineer
+          python scripts/validate_repository.py
+          bash skills/backend-engineer/tests/test.sh
+          git add README.md skills/backend-engineer
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m "feat(backend-engineer): vendor offline standards library"
+          fi
+
+      - name: Vendor qa-engineer offline library
+        run: |
+          python scripts/sync_offline_sources.py --role qa-engineer
+          python scripts/validate_repository.py
+          bash skills/qa-engineer/tests/test.sh
+          git add README.md skills/qa-engineer
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m "feat(qa-engineer): vendor offline testing library"
+          fi
+
+      - name: Create devops-engineer with offline library
+        run: |
+          python scripts/sync_offline_sources.py --role devops-engineer
+          python scripts/validate_repository.py
+          bash skills/devops-engineer/tests/test.sh
+          git add README.md skills/devops-engineer
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m "feat: add DevOps engineer with offline standards"
+          fi
+
+      - name: Create project-manager with offline library
+        run: |
+          python scripts/sync_offline_sources.py --role project-manager
+          python scripts/validate_repository.py
+          bash skills/project-manager/tests/test.sh
+          git add README.md skills/project-manager
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m "feat: add project manager with offline guides"
+          fi
+
+      - name: Validate complete repository
+        run: |
+          python scripts/validate_repository.py
+          bash scripts/test_all.sh
+          npx skills add . --list
+          git status --short
+
+      - name: Publish the verified commit series atomically
+        run: |
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$EXPECTED_HEAD" || {
+            echo "main changed while the offline libraries were building; refusing to overwrite it" >&2
+            exit 1
+          }
+          git push origin HEAD:main
