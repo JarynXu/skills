@@ -6,6 +6,9 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/sync-offline-sources.yml"
+      - "scripts/sync_offline_sources.py"
+      - "scripts/offline_sources.json"
+      - "scripts/role_templates.json"
       - "scripts/offline_sync_payload.b64.part-*"
 
 permissions:
