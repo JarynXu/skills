@@ -1,0 +1,256 @@
+{
+  "derived_count": 0,
+  "derived_files": [],
+  "file_count": 23,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 13867,
+      "local_git_sha": "713b40d746680af0e809cc62ec8892e895f8ac3a",
+      "local_path": "Doc/library/asyncio-dev.rst",
+      "searchable_text": true,
+      "sha256": "1369eab58ff51115f80b4f0bb1378d2bc1667db7f77d1ab3ec3d78f50ea64eb0",
+      "upstream_git_sha": "713b40d746680af0e809cc62ec8892e895f8ac3a",
+      "upstream_path": "Doc/library/asyncio-dev.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 72598,
+      "local_git_sha": "41abb2d7d0a53eb4b906485c8a94cc803d911f85",
+      "local_path": "Doc/library/asyncio-eventloop.rst",
+      "searchable_text": true,
+      "sha256": "8131110106dc6d06af7b380094ce9a9da8ca9000ca8b59f55eae6490bd6e94a2",
+      "upstream_git_sha": "41abb2d7d0a53eb4b906485c8a94cc803d911f85",
+      "upstream_path": "Doc/library/asyncio-eventloop.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 53206,
+      "local_git_sha": "689a6a6d2e0bd924ac90c89571e459661a56d95c",
+      "local_path": "Doc/library/asyncio-task.rst",
+      "searchable_text": true,
+      "sha256": "afc2f9df695eaf04ecbc443a7f8f72dd1f81895793012a17eb83ce089f45d46a",
+      "upstream_git_sha": "689a6a6d2e0bd924ac90c89571e459661a56d95c",
+      "upstream_path": "Doc/library/asyncio-task.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3752,
+      "local_git_sha": "956b00f0873a0d1e1f5944939c60a78fc4345c52",
+      "local_path": "Doc/library/asyncio.rst",
+      "searchable_text": true,
+      "sha256": "1c10ee19d64439e2da68bf6eddfd290489a3f615392273d9e495f27cba94b039",
+      "upstream_git_sha": "956b00f0873a0d1e1f5944939c60a78fc4345c52",
+      "upstream_path": "Doc/library/asyncio.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 30169,
+      "local_git_sha": "1f34dc66228e30858035fbde7b648cdbcb36e419",
+      "local_path": "Doc/library/concurrent.futures.rst",
+      "searchable_text": true,
+      "sha256": "43c80b356554b44a23265fa477d3f809908580071a41e86e27feb6feaa4b56f7",
+      "upstream_git_sha": "1f34dc66228e30858035fbde7b648cdbcb36e419",
+      "upstream_path": "Doc/library/concurrent.futures.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 11203,
+      "local_git_sha": "b0cc0be8e911bf0066461d63678146ab81cefe96",
+      "local_path": "Doc/library/contextvars.rst",
+      "searchable_text": true,
+      "sha256": "cb47c056fe9ffbc4384402940fb5acc2d058ee198686a437044d6432d185568c",
+      "upstream_git_sha": "b0cc0be8e911bf0066461d63678146ab81cefe96",
+      "upstream_path": "Doc/library/contextvars.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 74289,
+      "local_git_sha": "a3d117c107024143fd0cdbe0c310fdcfc7603817",
+      "local_path": "Doc/library/logging.rst",
+      "searchable_text": true,
+      "sha256": "7e69c0ec217ef4d645a83b5cb707c9b2251d7aaf8b81d3cb1370f90372885bbd",
+      "upstream_git_sha": "a3d117c107024143fd0cdbe0c310fdcfc7603817",
+      "upstream_path": "Doc/library/logging.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 124421,
+      "local_git_sha": "bedea46cb16d60d58a797d16743c914617571f98",
+      "local_path": "Doc/library/multiprocessing.rst",
+      "searchable_text": true,
+      "sha256": "b693971bcbc774dabed58b11ab8d6941c7852a9e0d976bc630bf96aae4de92b1",
+      "upstream_git_sha": "bedea46cb16d60d58a797d16743c914617571f98",
+      "upstream_path": "Doc/library/multiprocessing.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 14717,
+      "local_git_sha": "f7e85d1598727f92a9510bd23b11b66f6f238c79",
+      "local_path": "Doc/library/profile.rst",
+      "searchable_text": true,
+      "sha256": "bef2db7cee7f7613872a21353bc6d1d3d439d18f10596639a258a7b97d3c0df7",
+      "upstream_git_sha": "f7e85d1598727f92a9510bd23b11b66f6f238c79",
+      "upstream_path": "Doc/library/profile.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 58086,
+      "local_git_sha": "5d9a7b6314b16685d582e4ae4b57351e42f09e17",
+      "local_path": "Doc/library/threading.rst",
+      "searchable_text": true,
+      "sha256": "c5be4c080c249c3a81be3a23c9481c645e29c7faca8d586ab1393a04f1de3758",
+      "upstream_git_sha": "5d9a7b6314b16685d582e4ae4b57351e42f09e17",
+      "upstream_path": "Doc/library/threading.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 25565,
+      "local_git_sha": "0fa70389f1f5771937dfc696025117c6b19fea2b",
+      "local_path": "Doc/library/tracemalloc.rst",
+      "searchable_text": true,
+      "sha256": "dfa85c5657394b5f49b7bc55d4f0efdd36666e90c9d6b8cb6f4eab576cd8e6e9",
+      "upstream_git_sha": "0fa70389f1f5771937dfc696025117c6b19fea2b",
+      "upstream_path": "Doc/library/tracemalloc.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 74833,
+      "local_git_sha": "e74f3262ed540cd4a7476f557771c9fb1e4e2194",
+      "local_path": "Doc/reference/compound_stmts.rst",
+      "searchable_text": true,
+      "sha256": "5a6ffd9eff1cc56d050d3167bc4aef22cdfc8d99582db8bccbd0911b64ca9206",
+      "upstream_git_sha": "e74f3262ed540cd4a7476f557771c9fb1e4e2194",
+      "upstream_path": "Doc/reference/compound_stmts.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 156965,
+      "local_git_sha": "fde3cef63bc6e90abf1fa6caa70fb37600da34e3",
+      "local_path": "Doc/reference/datamodel.rst",
+      "searchable_text": true,
+      "sha256": "c6c5780efe05a41ee650c09112904df6370ebe3e995f8ae3df5030c00db8a9d1",
+      "upstream_git_sha": "fde3cef63bc6e90abf1fa6caa70fb37600da34e3",
+      "upstream_path": "Doc/reference/datamodel.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 24445,
+      "local_git_sha": "639c232571edf38aa7832f6aeaf2f80f4f2c9c59",
+      "local_path": "Doc/reference/executionmodel.rst",
+      "searchable_text": true,
+      "sha256": "11f99f83d785ac174dc02aaf26e03eb91813b38c213729c0017b5a3a70a2eb89",
+      "upstream_git_sha": "639c232571edf38aa7832f6aeaf2f80f4f2c9c59",
+      "upstream_path": "Doc/reference/executionmodel.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 102775,
+      "local_git_sha": "af313f42f9bff6b4df11f476caa715479c39a680",
+      "local_path": "Doc/reference/expressions.rst",
+      "searchable_text": true,
+      "sha256": "3b62d7aa1cd7dcedcf3cad5f9eb9930fb4d4fc5d14b2e4147a539b5e6f2bc97c",
+      "upstream_git_sha": "af313f42f9bff6b4df11f476caa715479c39a680",
+      "upstream_path": "Doc/reference/expressions.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 995,
+      "local_git_sha": "0ce8e42ddf3b0c0dd1f4d1e2f9e4b885685e7c00",
+      "local_path": "Doc/reference/grammar.rst",
+      "searchable_text": true,
+      "sha256": "decf8aa789e571e2ba0eeb906154b2e8e6441c2050ddb1e33f010865e2de171b",
+      "upstream_git_sha": "0ce8e42ddf3b0c0dd1f4d1e2f9e4b885685e7c00",
+      "upstream_path": "Doc/reference/grammar.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 43915,
+      "local_git_sha": "2ff88cb6b1fed5408234fec2dc54dfac96f075c3",
+      "local_path": "Doc/reference/import.rst",
+      "searchable_text": true,
+      "sha256": "f487b909080de3bc4069b6d2c38cf81f2390026b2171a2ee314fd8d09c338fc6",
+      "upstream_git_sha": "2ff88cb6b1fed5408234fec2dc54dfac96f075c3",
+      "upstream_path": "Doc/reference/import.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 957,
+      "local_git_sha": "a66673b17246d7be0376f12120cabd9c15e67b2d",
+      "local_path": "Doc/reference/index.rst",
+      "searchable_text": true,
+      "sha256": "75dc6f4adc71981e2f4b966a5f0f13fa1ebc1c03192f9bd29f36b0ae2d714f90",
+      "upstream_git_sha": "a66673b17246d7be0376f12120cabd9c15e67b2d",
+      "upstream_path": "Doc/reference/index.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 9115,
+      "local_git_sha": "c62240b18cfe554b565265c363d13b7ebc37cbf2",
+      "local_path": "Doc/reference/introduction.rst",
+      "searchable_text": true,
+      "sha256": "3b1c31ffcfc03a0d65c4d94091c2a5e3c6892e90683e472643ac95a67a15953d",
+      "upstream_git_sha": "c62240b18cfe554b565265c363d13b7ebc37cbf2",
+      "upstream_path": "Doc/reference/introduction.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 50990,
+      "local_git_sha": "f3ed1539493b6addb286f4fd59dcebbd8a6d6308",
+      "local_path": "Doc/reference/lexical_analysis.rst",
+      "searchable_text": true,
+      "sha256": "1e249882d4f745150dc0a39188a67fa6e46fd204f6a4c0066382d12c20872c19",
+      "upstream_git_sha": "f3ed1539493b6addb286f4fd59dcebbd8a6d6308",
+      "upstream_path": "Doc/reference/lexical_analysis.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 44962,
+      "local_git_sha": "a964b43ebee17466a833f320db5097ebfebb5d58",
+      "local_path": "Doc/reference/simple_stmts.rst",
+      "searchable_text": true,
+      "sha256": "64fdc985b7445cd6ff397dd4547c086fa47e929ba553ee179ed64ccf93a9e3a5",
+      "upstream_git_sha": "a964b43ebee17466a833f320db5097ebfebb5d58",
+      "upstream_path": "Doc/reference/simple_stmts.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3200,
+      "local_git_sha": "bd64b1c08bd1ff2752b2139a0a1df1a89e8723ec",
+      "local_path": "Doc/reference/toplevel_components.rst",
+      "searchable_text": true,
+      "sha256": "6f2bfed9e0a6e355153dd0df3fbf00520972c1660686cc69be70edf2fc1b7f20",
+      "upstream_git_sha": "bd64b1c08bd1ff2752b2139a0a1df1a89e8723ec",
+      "upstream_path": "Doc/reference/toplevel_components.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 13804,
+      "local_git_sha": "20cf39097c68baa17cc566b64e76d34ebf034044",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "b0e25a78cffb43f4d92de8b61ccfa1f1f98ecbc22330b54b5251e7b6ba010231",
+      "upstream_git_sha": "20cf39097c68baa17cc566b64e76d34ebf034044",
+      "upstream_path": "LICENSE"
+    }
+  ],
+  "license": "Python Software Foundation License Version 2 and bundled notices",
+  "repo": "python/cpython",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T05:27:29+00:00",
+  "schema_version": 1,
+  "source_commit": "b062727097e997bcb900e11503d3248daac903da",
+  "source_id": "cpython-runtime-docs",
+  "source_tree": "711dd6164a48f912c1d6a2cc8cc3a70f1ad435ca",
+  "source_url": "https://github.com/python/cpython/tree/b062727097e997bcb900e11503d3248daac903da",
+  "tier": "canonical-standard",
+  "title": "CPython Language, Concurrency and Diagnostics Documentation",
+  "total_original_bytes": 1008829,
+  "tracks": [
+    "python",
+    "runtime",
+    "async",
+    "concurrency",
+    "diagnostics"
+  ]
+}
