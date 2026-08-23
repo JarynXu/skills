@@ -92,6 +92,15 @@
       "source_commit": "d79bd502ec7fa49335afa422f442af80ed0ab8f6",
       "total_original_bytes": 567579
     },
+    "kotlin-spec": {
+      "derived_count": 0,
+      "file_count": 6864,
+      "repo": "Kotlin/kotlin-spec",
+      "requested_ref": "release",
+      "retrieved_at": "2026-08-23T05:42:58+00:00",
+      "source_commit": "2f7aa0524ec27e788dfacd550f144809f2e0254c",
+      "total_original_bytes": 176902441
+    },
     "node-best-practices": {
       "derived_count": 0,
       "file_count": 561,
