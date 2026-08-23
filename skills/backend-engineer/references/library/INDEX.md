@@ -6,8 +6,9 @@ This library is the offline teaching and reference layer for `backend-engineer`.
 
 Choose one mode:
 
-- **Learn the discipline:** read [`curriculum/README.md`](curriculum/README.md), then follow the applicable language and systems tracks.
-- **Learn one language well:** read [`curriculum/languages.md`](curriculum/languages.md); for Go, use the detailed [`curriculum/go.md`](curriculum/go.md) track.
+- **Learn the discipline:** read [`curriculum/README.md`](curriculum/README.md), then follow the applicable language, systems, and framework tracks.
+- **Learn one language well:** read [`curriculum/languages.md`](curriculum/languages.md). Detailed baseline tracks currently exist for [Go](curriculum/go.md), [Kotlin](curriculum/kotlin.md), and [Rust](curriculum/rust.md).
+- **Learn framework behavior:** read [`curriculum/frameworks.md`](curriculum/frameworks.md), then load only the official framework material selected by the real project stack.
 - **Solve a backend problem:** read [`curriculum/systems.md`](curriculum/systems.md), then search the local originals for the relevant standard or guide.
 - **Understand important books or standards we cannot redistribute:** read [`curriculum/restricted-canon.md`](curriculum/restricted-canon.md).
 - **Inspect why a source is here and how it is maintained:** read [`curriculum/source-selection.md`](curriculum/source-selection.md) and `SOURCES.json`.
@@ -46,7 +47,7 @@ From `skills/backend-engineer/`:
 python scripts/offline_library.py list
 python scripts/offline_library.py search "memory model"
 python scripts/offline_library.py search "idempotency" --source openapi-specification
-python scripts/offline_library.py read go-official-guides/_content/doc/effective_go.html --lines 1:160
+python scripts/offline_library.py read go-official-guides/_content/doc/effective_go.html --start 1 --end 160
 python scripts/offline_library.py verify
 ```
 
