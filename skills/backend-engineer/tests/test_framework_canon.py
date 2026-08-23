@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Contract and installed-library checks for curated backend framework canon."""
+"""Contract, routing, and installed-library checks for curated backend framework canon."""
 
 from __future__ import annotations
 
@@ -11,6 +11,10 @@ LIBRARY = ROOT / "references" / "library"
 CATALOG = LIBRARY / "sources.d" / "framework-canon.json"
 ORIGINALS = LIBRARY / "originals"
 PROCESSED = LIBRARY / "processed"
+ROUTING_FILES = (
+    ROOT / "references" / "technologies" / "languages-and-frameworks.md",
+    LIBRARY / "curriculum" / "frameworks.md",
+)
 
 EXPECTED_REPOS = {
     "quarkus-core-docs": "quarkusio/quarkus",
@@ -164,6 +168,14 @@ def validate_catalog() -> dict[str, dict]:
     return sources
 
 
+def validate_routing(sources: dict[str, dict]) -> None:
+    routing_text = "\n".join(path.read_text(encoding="utf-8") for path in ROUTING_FILES)
+    for source_id in sorted(sources):
+        assert source_id in routing_text, (source_id, "framework source is not discoverable from routing docs")
+    for framework in ("Express", "Axum", "Echo"):
+        assert framework in routing_text, (framework, "deferred framework rationale missing")
+
+
 def validate_installed_library(sources: dict[str, dict]) -> None:
     for source_id in sorted(sources):
         manifest_path = ORIGINALS / source_id / "SOURCE.json"
@@ -201,6 +213,8 @@ def validate_installed_library(sources: dict[str, dict]) -> None:
 def main() -> None:
     sources = validate_catalog()
     print("framework canon catalog contract passed")
+    validate_routing(sources)
+    print("framework canon routing contract passed")
     validate_installed_library(sources)
     print("framework canon offline readiness passed")
 
