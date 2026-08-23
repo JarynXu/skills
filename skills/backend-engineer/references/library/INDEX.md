@@ -7,11 +7,11 @@ This library is the offline teaching and reference layer for `backend-engineer`.
 Choose one mode:
 
 - **Learn the discipline:** read [`curriculum/README.md`](curriculum/README.md), then follow the applicable language, systems, and framework tracks.
-- **Learn one language well:** read [`curriculum/languages.md`](curriculum/languages.md). Detailed baseline tracks currently exist for [Go](curriculum/go.md), [Kotlin](curriculum/kotlin.md), and [Rust](curriculum/rust.md).
+- **Learn one language well:** read [`curriculum/languages.md`](curriculum/languages.md). Detailed tracks exist for [Go](curriculum/go.md), [Java/JVM](curriculum/java-jvm.md), [Kotlin](curriculum/kotlin.md), [Python](curriculum/python.md), [C#/.NET](curriculum/csharp-dotnet.md), [Node.js/TypeScript](curriculum/node-typescript.md), [Rust](curriculum/rust.md), and [C/C++](curriculum/c-cpp.md).
 - **Learn framework behavior:** read [`curriculum/frameworks.md`](curriculum/frameworks.md), then load only the official framework material selected by the real project stack.
 - **Solve a backend problem:** read [`curriculum/systems.md`](curriculum/systems.md), then search the local processed Markdown for the relevant standard or guide.
 - **Understand important books or standards we cannot redistribute:** read [`curriculum/restricted-canon.md`](curriculum/restricted-canon.md).
-- **Understand why a source is here:** read [`curriculum/source-selection.md`](curriculum/source-selection.md) and `SOURCES.json`.
+- **Understand why a source is here:** read [`curriculum/source-selection.md`](curriculum/source-selection.md) and the catalogs in `SOURCES.json` plus `sources.d/`.
 - **Understand how raw manuals become agent-ready:** read [`curriculum/preprocessing.md`](curriculum/preprocessing.md).
 
 ## Teaching model
