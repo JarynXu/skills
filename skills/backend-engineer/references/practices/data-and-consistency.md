@@ -2,6 +2,8 @@
 
 Use this reference for data modeling, databases, transactions, indexes, locks, migrations, caches, replicas, NoSQL stores, retention, and consistency decisions.
 
+When the task moves from design into live query/lock/connection/migration diagnosis, route to [`../technologies/database-tooling.md`](../technologies/database-tooling.md) for product-specific read-only evidence paths and mutation boundaries.
+
 ## Establish data authority
 
 For every important datum, identify its owner, system of record, lifecycle, classification, writers, readers, derived copies, retention, and deletion obligations. A cache, search index, replica, warehouse, or event log may contain the data without owning its truth.

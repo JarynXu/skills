@@ -1,67 +1,36 @@
-# Language, framework, and development-tool routing
+# Language and framework adapter routing
 
-Load only the section selected by repository evidence. Project configuration and version-specific official documentation override these defaults.
+Use this file only to select the active ecosystem adapter. Do not read every adapter. Project instructions, detected versions, configured tools, and executable commands remain authoritative.
 
-If the active language/runtime is unfamiliar, **learn before improvising**: start at [`../library/curriculum/languages.md`](../library/curriculum/languages.md), follow the detailed language track, and use `python scripts/offline_library.py search ...` against the processed Markdown layer for exact bundled guidance. If the agent already understands the ecosystem, use the sections below as routing hints rather than rereading the whole curriculum.
+If the ecosystem is unfamiliar, learn its underlying semantics first through `../library/curriculum/languages.md` and the applicable detailed curriculum. If the agent already understands the ecosystem, load only the adapter below and use targeted offline-library lookup for exact semantics or framework behavior.
 
-## JVM: Java and Kotlin
+| Detected ecosystem | Adapter | Typical framework families |
+|---|---|---|
+| Java / Kotlin / JVM | [jvm.md](jvm.md) | Spring Boot, Quarkus, Micronaut, Jakarta EE, Ktor, Vert.x |
+| Go | [go.md](go.md) | `net/http`, Chi, Gin, Echo, Fiber, gRPC, Connect |
+| C# / .NET | [dotnet.md](dotnet.md) | ASP.NET Core, Minimal APIs, gRPC, EF Core, Dapper, Orleans |
+| Python | [python.md](python.md) | Django, FastAPI/Starlette, Flask, SQLAlchemy, Celery |
+| Node.js / TypeScript | [node-typescript.md](node-typescript.md) | Express, Fastify, NestJS, Koa, GraphQL servers |
+| Rust | [rust.md](rust.md) | Axum, Actix Web, Rocket, tonic, Tokio, SQLx, Diesel |
+| C / C++ | [c-cpp.md](c-cpp.md) | Boost.Asio/Beast, Drogon, gRPC, Qt/service daemons |
 
-Use [`../library/curriculum/java-jvm.md`](../library/curriculum/java-jvm.md) or [`../library/curriculum/kotlin.md`](../library/curriculum/kotlin.md) when the task requires deeper language/runtime learning.
+Cross-ecosystem routes:
 
-Strong signals include Maven or Gradle manifests and JVM source. Common frameworks: Spring Boot, Quarkus, Micronaut, Jakarta EE, Ktor, Vert.x. Inspect wrapper versions, toolchains, annotation/code generation, dependency management, profiles, and test source sets.
+- [tooling-and-evidence.md](tooling-and-evidence.md) — select build/test/protocol/database/debugger/profiler/static-analysis/supply-chain/observability tools from the evidence gap.
+- [database-tooling.md](database-tooling.md) — live PostgreSQL/MySQL/SQL Server/MongoDB/SQLite query, lock, connection, plan and migration diagnosis.
+- [middleware-operations.md](middleware-operations.md) — Redis, Kafka, RabbitMQ, NATS, Elasticsearch/OpenSearch, object storage, workflow/config/gateway operational diagnosis.
 
-Use the project's Maven/Gradle wrapper. Typical evidence includes compile, focused tests, broader tests, static analysis, formatting, dependency insight, and packaging. Common tools include JUnit 5, AssertJ, Mockito/MockK, Testcontainers, WireMock, ArchUnit, SpotBugs, Checkstyle, PMD, Error Prone, JaCoCo, JMH, JFR, async-profiler, `jcmd`, and database migration tools.
+## Adapter contract
 
-Respect the Java/Kotlin memory model, checked versus unchecked error conventions, nullability boundaries, resource lifetime, thread pools, virtual threads where the actual runtime supports them, and framework proxy/transaction behavior. For Spring, verify transaction proxy boundaries, configuration binding, security filters, serialization, actuator exposure, and test slice semantics rather than relying on annotations by appearance.
+Every adapter separates six concerns that must not be conflated:
 
-## Go
+1. **Project truth** — how to identify runtime, framework, build, dependency, code-generation and deployment configuration.
+2. **Semantic traps** — language/runtime/framework behaviors that commonly invalidate otherwise plausible code.
+3. **Implementation stack** — common web/RPC/data/background-job patterns and where framework behavior matters.
+4. **Verification** — project-native compile, static-analysis, test, integration, migration, race/concurrency, security and artifact evidence.
+5. **Diagnostics** — debugger/profiler/runtime inspection and what evidence each tool can actually prove.
+6. **Production consequences** — shutdown, configuration, observability, resource management, mixed versions and operational boundaries.
 
-Use [`../library/curriculum/go.md`](../library/curriculum/go.md) when the task requires deeper language/runtime learning.
+Do not introduce a framework, ORM, linter, profiler, migration tool, or testing library merely because it appears in an adapter. Prefer what the repository already uses. Introduce a new tool only when it closes a demonstrated evidence gap and its ownership/maintenance cost is justified.
 
-Strong signals are `go.mod` and Go packages. Prefer standard library conventions unless the project adopts Gin, Echo, Fiber, Chi, gRPC, Connect, or another framework. Use `gofmt`, `go test`, `go vet`, race detection, benchmarks, fuzzing, `staticcheck` when configured, `pprof`, execution tracing, and module vulnerability/dependency tools available to the project.
-
-Propagate `context.Context` across request-scoped work without storing it in long-lived objects. Define goroutine ownership, cancellation, channel closure, worker bounds, error propagation, and shutdown. Avoid interfaces before a consumer needs substitution or behavior abstraction.
-
-## C# and .NET
-
-Use [`../library/curriculum/csharp-dotnet.md`](../library/curriculum/csharp-dotnet.md) when the task requires deeper language/runtime learning.
-
-Inspect solution/project files, `global.json`, NuGet lock or central package management, analyzers, nullable settings, and target frameworks. Common frameworks include ASP.NET Core, minimal APIs, gRPC, EF Core, Dapper, Orleans, and background services.
-
-Use `dotnet restore/build/test`, format/analyzers, coverage, BenchmarkDotNet, `dotnet-counters`, `dotnet-trace`, and `dotnet-dump` through project conventions. Respect async cancellation, `IAsyncDisposable`, dependency-injection lifetimes, options validation, middleware order, EF tracking and query behavior, and nullable contracts.
-
-## Python
-
-Use [`../library/curriculum/python.md`](../library/curriculum/python.md) when the task requires deeper language/runtime learning.
-
-Inspect `pyproject.toml`, lock and environment tooling, package layout, type checker, linter, and test configuration. Common frameworks include FastAPI, Django, Flask, Starlette, SQLAlchemy, Celery, and asyncio-based services.
-
-Use the project's environment manager and commands. Typical tools include pytest, unittest, mypy/pyright, Ruff, Black when adopted, coverage, Hypothesis, tox/nox, Testcontainers, cProfile, py-spy, and tracemalloc. Make sync/async boundaries, process model, mutable global state, typing expectations, dependency injection, database session scope, and worker retry semantics explicit.
-
-## Node.js and TypeScript
-
-Use [`../library/curriculum/node-typescript.md`](../library/curriculum/node-typescript.md) when the task requires deeper language/runtime learning.
-
-Inspect `package.json`, lockfile, workspace configuration, runtime version, module type, TypeScript configuration, and scripts. Common frameworks include Express, Fastify, NestJS, Koa, Hapi, serverless runtimes, and GraphQL servers.
-
-Use the pinned package manager. Run project typecheck, lint, tests, build, and package/audit commands. Common tools include Vitest/Jest, Node test runner, Supertest, Testcontainers, ESLint, TypeScript compiler, clinic tools, inspector profiles, and diagnostic reports. Bound event-loop blocking, promise concurrency, streams and backpressure, unhandled rejection, process shutdown, and runtime schema validation.
-
-## Rust
-
-Use [`../library/curriculum/rust.md`](../library/curriculum/rust.md) when the task requires deeper language/runtime learning.
-
-Inspect Cargo workspace, features, target, MSRV policy, build scripts, unsafe code, and generated bindings. Common frameworks include Axum, Actix Web, Rocket, tonic, Tokio, Diesel, and SQLx.
-
-Use `cargo fmt --check`, `cargo check`, tests, Clippy as configured, feature-matrix checks, benchmarks, sanitizers or Miri where applicable, and profiling/debugging tools. Make ownership and lifetime design serve behavior rather than cleverness. Bound async tasks, cancellation, blocking work, error context, unsafe invariants, and FFI contracts.
-
-## C and C++
-
-Use [`../library/curriculum/c-cpp.md`](../library/curriculum/c-cpp.md) when the task requires deeper language/runtime learning.
-
-Inspect CMake, Meson, Bazel, Make, Conan/vcpkg, compiler and language standard, generated compile commands, platform targets, and ABI constraints. Frameworks may include Boost.Asio/Beast, Drogon, gRPC, Qt service components, embedded RTOS stacks, or custom daemons.
-
-Use warnings and project-selected static analysis, unit framework, sanitizers, fuzzers, Valgrind-family tools, perf, gdb/lldb, and reproducible release builds. Make ownership, lifetime, error propagation, thread safety, integer and buffer bounds, undefined behavior, ABI, endianness, alignment, and resource cleanup explicit. Do not apply one organization's style guide over the project's established standard.
-
-## Tool selection rule
-
-A tool is applicable only when it fits the detected stack, version, environment, and task risk. Prefer existing configured commands so local and CI behavior match. Introduce a new tool only when it closes a demonstrated evidence gap and its configuration, runtime cost, false-positive handling, ownership, and maintenance path are justified.
+Use `python scripts/plan_backend_checks.py <project-root>` when a deterministic read-only candidate check plan is useful. Its output is a set of candidates derived from repository evidence, not permission to execute them and not proof that every candidate is valid for the project.
