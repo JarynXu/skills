@@ -1,0 +1,26 @@
+> **Offline teaching derivative**  
+> Source: `goldbergyoni/nodebestpractices@dc3d60c29d5483d9ea99cf261bbd6203516a2ba7`  
+> Upstream path: `sections/production/detectvulnerabilities.japanese.md`  
+> Upstream Git blob: `e019e52651173dcb5a57d41064b0cc4a4ef41417`  
+> Transform: `markdown-normalize`  
+> This Markdown is generated for agent use. Consult `originals/` when exact upstream bytes matter.
+
+# 脆弱な依存関係を自動的に検出するツールを使用する
+
+<br/><br/>
+
+### 一段落説明
+
+最近の Node アプリケーションは、数十、時には数百の依存関係を持っています。使用している依存関係のいずれかに既知のセキュリティ脆弱性がある場合、あなたのアプリも同様に脆弱です。
+以下のツールは、依存関係にある既知のセキュリティ脆弱性を自動的にチェックします。:
+
+- [npm audit](https://docs.npmjs.com/cli/audit) - npm 監査
+- [snyk](https://snyk.io/) - 依存関係にある脆弱性を継続的に発見し、修正する
+
+<br/><br/>
+
+### 他のブロガーが言っていること
+
+ブログ [StrongLoop](https://strongloop.com/strongblog/best-practices-for-express-in-production-part-one-security/) より:
+
+> ...アプリケーションの依存関係を管理するために使用することは、強力で便利です。しかし、使用しているパッケージには重要なセキュリティ上の脆弱性が含まれている可能性があり、アプリケーションにも影響を与える可能性があります。アプリのセキュリティは、依存関係の「最も弱いリンク」と同じくらい強力です。幸いなことに、使用するサードパーティ製パッケージのセキュリティを確保するために使用できる 2 つの便利なツールがあります: nsp と requireSafe です。この2つのツールは大体同じことをするので、両方を使うのはやりすぎかもしれませんが、セキュリティに関しては「後悔するよりも安全な方がいい」という言葉が生きてくるでしょう。...
