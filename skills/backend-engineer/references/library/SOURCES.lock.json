@@ -234,13 +234,13 @@
       "total_original_bytes": 2479296
     },
     "pact-specification": {
-      "agent_ready": false,
+      "agent_ready": true,
       "file_count": 3,
-      "processed_bytes": 0,
-      "processed_count": 0,
+      "processed_bytes": 10063,
+      "processed_count": 2,
       "repo": "pact-foundation/pact-specification",
       "requested_ref": "master",
-      "retrieved_at": "2026-08-23T05:45:29+00:00",
+      "retrieved_at": "2026-08-23T06:28:37+00:00",
       "source_commit": "2746817263962c3c470e2f16157153eb78c299bd",
       "total_original_bytes": 10406
     },

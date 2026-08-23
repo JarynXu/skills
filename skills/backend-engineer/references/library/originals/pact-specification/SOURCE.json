@@ -1,6 +1,5 @@
 {
-  "derived_count": 0,
-  "derived_files": [],
+  "agent_ready": true,
   "file_count": 3,
   "files": [
     {
@@ -35,10 +34,37 @@
     }
   ],
   "license": "MIT",
+  "processed_bytes": 10063,
+  "processed_count": 2,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 5180,
+      "derived_from": "README.md",
+      "local_git_sha": "5b63a12ab4e7465af44b4fc54a3fd571689d5d12",
+      "local_path": "README.md",
+      "searchable_text": true,
+      "sha256": "df7446b34a2f93545d52fab4382e50261b1636ee9e12f66960861046f60b6e1c",
+      "source_git_sha": "9edbd6e2536e64d1af93ce8c27afecf0f6eb50d7",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 4883,
+      "derived_from": "implementation-guidelines/README.md",
+      "local_git_sha": "173e96f5fc83f345bd2b99172b1aeba54be4d64d",
+      "local_path": "implementation-guidelines/README.md",
+      "searchable_text": true,
+      "sha256": "bc6214c64cc9086e1a7cbda324ace6e52fe54e16ec4634ae89d10ffa07a44fd4",
+      "source_git_sha": "9b361543a6663656c645990b97a9225360af05f2",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
   "repo": "pact-foundation/pact-specification",
   "requested_ref": "master",
-  "retrieved_at": "2026-08-23T05:45:29+00:00",
-  "schema_version": 1,
+  "retrieved_at": "2026-08-23T06:28:37+00:00",
+  "schema_version": 2,
   "source_commit": "2746817263962c3c470e2f16157153eb78c299bd",
   "source_id": "pact-specification",
   "source_tree": "5516edacd80c47d2e598cae29a26deca968d8307",
