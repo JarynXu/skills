@@ -1,0 +1,145 @@
+{
+  "agent_ready": true,
+  "file_count": 6,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 11365,
+      "local_git_sha": "574429c2ad84f8d5ab85a6e1f9f6baa51ac4f66d",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "307012b4481479a56605420e81db14686a0274d246d06d224c363ee09297d330",
+      "upstream_git_sha": "574429c2ad84f8d5ab85a6e1f9f6baa51ac4f66d",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1146,
+      "local_git_sha": "fd7a9c90ff46dfa3ad7dfd051b0f0634f6731c12",
+      "local_path": "website_and_docs/content/documentation/test_practices/_index.en.md",
+      "searchable_text": true,
+      "sha256": "b6d77ca142ea16e56c7fa0a82b22090d7fdf5405ecf2e7d527ead9e4e7682a35",
+      "upstream_git_sha": "fd7a9c90ff46dfa3ad7dfd051b0f0634f6731c12",
+      "upstream_path": "website_and_docs/content/documentation/test_practices/_index.en.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 12587,
+      "local_git_sha": "61a5be8df2781876605c86b6ab6809302519316b",
+      "local_path": "website_and_docs/content/documentation/test_practices/design_strategies.en.md",
+      "searchable_text": true,
+      "sha256": "a315c70deb131cc8feb635712c2707da74417bb0667d5978332d47efc7ea5434",
+      "upstream_git_sha": "61a5be8df2781876605c86b6ab6809302519316b",
+      "upstream_path": "website_and_docs/content/documentation/test_practices/design_strategies.en.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1239,
+      "local_git_sha": "bcc6c41cf193993db6afc019e4f3ccb32e835c4c",
+      "local_path": "website_and_docs/content/documentation/test_practices/encouraged/_index.en.md",
+      "searchable_text": true,
+      "sha256": "f944f750569f341f01fd70c417208699ab9ee5cb9dff46a3f94bd7147dd09963",
+      "upstream_git_sha": "bcc6c41cf193993db6afc019e4f3ccb32e835c4c",
+      "upstream_path": "website_and_docs/content/documentation/test_practices/encouraged/_index.en.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1084,
+      "local_git_sha": "c72f7f1284772658924db65fba414e3c15f376f7",
+      "local_path": "website_and_docs/content/documentation/test_practices/encouraged/avoid_sharing_state.en.md",
+      "searchable_text": true,
+      "sha256": "bf57a521e65a141d6a85a96a1ee9c10cf5f4bec135c5eae228d4169d4a8eb989",
+      "upstream_git_sha": "c72f7f1284772658924db65fba414e3c15f376f7",
+      "upstream_path": "website_and_docs/content/documentation/test_practices/encouraged/avoid_sharing_state.en.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 20181,
+      "local_git_sha": "c0ca18457f9198ac0de92ba70a53989f2329c368",
+      "local_path": "website_and_docs/content/documentation/test_practices/overview.en.md",
+      "searchable_text": true,
+      "sha256": "4488608cad666cc75d4e557eda63de85df1047219991ad2a59c955444c41b342",
+      "upstream_git_sha": "c0ca18457f9198ac0de92ba70a53989f2329c368",
+      "upstream_path": "website_and_docs/content/documentation/test_practices/overview.en.md"
+    }
+  ],
+  "license": "Apache-2.0",
+  "processed_bytes": 38299,
+  "processed_count": 5,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 1559,
+      "derived_from": "website_and_docs/content/documentation/test_practices/_index.en.md",
+      "local_git_sha": "88171da99fbfb8d89512c6aa3f464259871c0b6d",
+      "local_path": "website_and_docs/content/documentation/test_practices/_index.en.md",
+      "searchable_text": true,
+      "sha256": "3264f79585041090750cfd30f10b5977b5cdbf9c938e711780c3c47f5555da45",
+      "source_git_sha": "fd7a9c90ff46dfa3ad7dfd051b0f0634f6731c12",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 12978,
+      "derived_from": "website_and_docs/content/documentation/test_practices/design_strategies.en.md",
+      "local_git_sha": "5911962fe7292faf54a37f62a38a2b9e8fcdd115",
+      "local_path": "website_and_docs/content/documentation/test_practices/design_strategies.en.md",
+      "searchable_text": true,
+      "sha256": "ae7f9a4a7433fbb54cf6f3ebd395185e3eff979b9d2fba5a69f19be4d36a4f64",
+      "source_git_sha": "61a5be8df2781876605c86b6ab6809302519316b",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 1663,
+      "derived_from": "website_and_docs/content/documentation/test_practices/encouraged/_index.en.md",
+      "local_git_sha": "90d702b2bc6bdb5f01e9e6cbcec23e80fc486879",
+      "local_path": "website_and_docs/content/documentation/test_practices/encouraged/_index.en.md",
+      "searchable_text": true,
+      "sha256": "d0af68bc64f87367757ed2dc3b6c9c697b03bb69f43140be100fe2beff138378",
+      "source_git_sha": "bcc6c41cf193993db6afc019e4f3ccb32e835c4c",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 1515,
+      "derived_from": "website_and_docs/content/documentation/test_practices/encouraged/avoid_sharing_state.en.md",
+      "local_git_sha": "6c77df06a525eccba92e74afee7bf0d296fe27e0",
+      "local_path": "website_and_docs/content/documentation/test_practices/encouraged/avoid_sharing_state.en.md",
+      "searchable_text": true,
+      "sha256": "3190bb735f0dd4012205d7b5ba4e92f70445cfbfc463d60ce8b60898d4d24ea8",
+      "source_git_sha": "c72f7f1284772658924db65fba414e3c15f376f7",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 20584,
+      "derived_from": "website_and_docs/content/documentation/test_practices/overview.en.md",
+      "local_git_sha": "0d7e7aa31fee8786283b619127621212329b1b35",
+      "local_path": "website_and_docs/content/documentation/test_practices/overview.en.md",
+      "searchable_text": true,
+      "sha256": "4df7d30398c1e9afb363f13965507dce6e599cf9d794854b0c5dacb565b80f84",
+      "source_git_sha": "c0ca18457f9198ac0de92ba70a53989f2329c368",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "SeleniumHQ/seleniumhq.github.io",
+  "requested_ref": "trunk",
+  "retrieved_at": "2026-08-23T13:04:38+00:00",
+  "schema_version": 2,
+  "source_commit": "e3626fc3af82d93271dbb776ffd2d149f879d50e",
+  "source_id": "selenium-test-practices",
+  "source_tree": "e61fbf6031736c4b511558a3ff4ce3353e706100",
+  "source_url": "https://github.com/SeleniumHQ/seleniumhq.github.io/tree/e3626fc3af82d93271dbb776ffd2d149f879d50e",
+  "tier": "canonical-tool-guidance",
+  "title": "Selenium Test Practices",
+  "total_original_bytes": 47602,
+  "tracks": [
+    "browser",
+    "webdriver",
+    "test-design",
+    "automation-architecture",
+    "isolation"
+  ]
+}

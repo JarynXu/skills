@@ -1,3 +1,10 @@
+> **Offline teaching derivative**  
+> Source: `OWASP/CheatSheetSeries@6b8819da79e0537d072e04296ffa3adfc94ba881`  
+> Upstream path: `LICENSE.md`  
+> Upstream Git blob: `31f26300fe110a9d9df6d1f0e8a53dc41383b7a4`  
+> Transform: `markdown-normalize`  
+> This Markdown is generated for agent use. Consult `originals/` when exact upstream bytes matter.
+
 # Attribution-ShareAlike 4.0 International
 
 // SPDX-License-Identifier: CC-BY-SA-4.0

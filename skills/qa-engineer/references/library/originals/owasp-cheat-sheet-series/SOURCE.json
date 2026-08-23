@@ -1,59 +1,134 @@
 {
-  "schema_version": 1,
-  "source_id": "owasp-cheat-sheet-series",
-  "title": "OWASP Cheat Sheet Series - QA security testing subset",
-  "owner": "OWASP Foundation / OWASP Cheat Sheet Series contributors",
-  "source_repository": "https://github.com/OWASP/CheatSheetSeries",
-  "source_commit": "6b8819da79e0537d072e04296ffa3adfc94ba881",
-  "source_tree": "2e7690786ae382291876b691999016d40e2f0f6e",
-  "license": "CC-BY-SA-4.0",
-  "license_upstream_blob_sha": "31f26300fe110a9d9df6d1f0e8a53dc41383b7a4",
-  "license_local_blob_sha": "4daabb2c75758637576d9520510ee28295e21a69",
-  "license_byte_exact": false,
-  "retrieved_date": "2026-08-23",
-  "inclusion_mode": "vendored-exact-text-curated",
-  "attribution": "Content from the OWASP Cheat Sheet Series, licensed CC BY-SA 4.0. No endorsement by OWASP is implied.",
-  "notes": [
-    "The selected cheat sheets are kept unmodified and byte-exact to the pinned upstream Git blobs.",
-    "This is a QA-focused curated subset, not a mirror of the full Cheat Sheet Series.",
-    "Relative links inside vendored OWASP documents may point to cheat sheets that are not included in this curated subset. They are upstream cross-references, not broken links in the qa-engineer authored documentation.",
-    "The local license file contains the CC BY-SA 4.0 legal text but its local Git blob differs from the upstream license blob, so it is not marked byte-exact."
-  ],
+  "agent_ready": true,
+  "file_count": 5,
   "files": [
     {
-      "path": "cheatsheets/Authorization_Regression_Testing_Cheat_Sheet.md",
-      "upstream_git_sha": "605438588f897152055eab79d70e02f947bf6cda",
-      "local_git_sha": "605438588f897152055eab79d70e02f947bf6cda",
       "byte_exact": true,
-      "topic": "authorization regression"
-    },
-    {
-      "path": "cheatsheets/Authorization_Testing_Automation_Cheat_Sheet.md",
-      "upstream_git_sha": "9e2d9ab40916bcc5ab97a65d8e9dc4d34f5cfcdb",
-      "local_git_sha": "9e2d9ab40916bcc5ab97a65d8e9dc4d34f5cfcdb",
-      "byte_exact": true,
-      "topic": "authorization test automation"
-    },
-    {
-      "path": "cheatsheets/REST_Assessment_Cheat_Sheet.md",
-      "upstream_git_sha": "d4f24d2e78dcb2d0d16bb244220985321bdbd9d7",
-      "local_git_sha": "d4f24d2e78dcb2d0d16bb244220985321bdbd9d7",
-      "byte_exact": true,
-      "topic": "REST assessment"
-    },
-    {
-      "path": "cheatsheets/Input_Validation_Cheat_Sheet.md",
-      "upstream_git_sha": "7535fa1f1656163a9891479845edfdf5bac2cacc",
-      "local_git_sha": "7535fa1f1656163a9891479845edfdf5bac2cacc",
-      "byte_exact": true,
-      "topic": "input validation oracle"
-    },
-    {
-      "path": "LICENSE.md",
+      "bytes": 18637,
+      "local_git_sha": "31f26300fe110a9d9df6d1f0e8a53dc41383b7a4",
+      "local_path": "LICENSE.md",
+      "searchable_text": true,
+      "sha256": "2b47ecdd5078e948395bc5980226933854228ff688f10d1dd059208be4956084",
       "upstream_git_sha": "31f26300fe110a9d9df6d1f0e8a53dc41383b7a4",
-      "local_git_sha": "4daabb2c75758637576d9520510ee28295e21a69",
-      "byte_exact": false,
-      "topic": "license"
+      "upstream_path": "LICENSE.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 12854,
+      "local_git_sha": "605438588f897152055eab79d70e02f947bf6cda",
+      "local_path": "cheatsheets/Authorization_Regression_Testing_Cheat_Sheet.md",
+      "searchable_text": true,
+      "sha256": "04b2081609a37d42802ff32cb084d7421fec99d12a4c6083c14c9c31cfd6c1ba",
+      "upstream_git_sha": "605438588f897152055eab79d70e02f947bf6cda",
+      "upstream_path": "cheatsheets/Authorization_Regression_Testing_Cheat_Sheet.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 24488,
+      "local_git_sha": "9e2d9ab40916bcc5ab97a65d8e9dc4d34f5cfcdb",
+      "local_path": "cheatsheets/Authorization_Testing_Automation_Cheat_Sheet.md",
+      "searchable_text": true,
+      "sha256": "1e3bd81d23865b1ec49134cd26e99d441ec43154aea2f9cfbd8328815b0a1a0f",
+      "upstream_git_sha": "9e2d9ab40916bcc5ab97a65d8e9dc4d34f5cfcdb",
+      "upstream_path": "cheatsheets/Authorization_Testing_Automation_Cheat_Sheet.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 19249,
+      "local_git_sha": "7535fa1f1656163a9891479845edfdf5bac2cacc",
+      "local_path": "cheatsheets/Input_Validation_Cheat_Sheet.md",
+      "searchable_text": true,
+      "sha256": "474509f8bc6d06dab110bad0d0d5055cc9c6f2a63d2f464ce2966be634246772",
+      "upstream_git_sha": "7535fa1f1656163a9891479845edfdf5bac2cacc",
+      "upstream_path": "cheatsheets/Input_Validation_Cheat_Sheet.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 6239,
+      "local_git_sha": "d4f24d2e78dcb2d0d16bb244220985321bdbd9d7",
+      "local_path": "cheatsheets/REST_Assessment_Cheat_Sheet.md",
+      "searchable_text": true,
+      "sha256": "caf5611ea6c55c11b614dcd944b10b6f1f10dbf1be2ac80e293c9cac5c442beb",
+      "upstream_git_sha": "d4f24d2e78dcb2d0d16bb244220985321bdbd9d7",
+      "upstream_path": "cheatsheets/REST_Assessment_Cheat_Sheet.md"
     }
+  ],
+  "license": "CC-BY-SA-4.0",
+  "processed_bytes": 83370,
+  "processed_count": 5,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 18985,
+      "derived_from": "LICENSE.md",
+      "local_git_sha": "11dbd1cc3ca283ec5a16854d5a9a316b27c25ad9",
+      "local_path": "LICENSE.md",
+      "searchable_text": true,
+      "sha256": "db5951ea72c7ffab078bf3c11afd93f8ad0437c2b6610fb570328cccc23f1cd1",
+      "source_git_sha": "31f26300fe110a9d9df6d1f0e8a53dc41383b7a4",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 13251,
+      "derived_from": "cheatsheets/Authorization_Regression_Testing_Cheat_Sheet.md",
+      "local_git_sha": "3032c7df98f9732dc8bf4eacb547bc190673f48d",
+      "local_path": "cheatsheets/Authorization_Regression_Testing_Cheat_Sheet.md",
+      "searchable_text": true,
+      "sha256": "9854773eec45ac29e94d25a6041cb84fbedd0bbac5dd081abaec2899ab4a9032",
+      "source_git_sha": "605438588f897152055eab79d70e02f947bf6cda",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 24885,
+      "derived_from": "cheatsheets/Authorization_Testing_Automation_Cheat_Sheet.md",
+      "local_git_sha": "e1f8f0739b31275e5f5de0625da8d3fd0e2c64fc",
+      "local_path": "cheatsheets/Authorization_Testing_Automation_Cheat_Sheet.md",
+      "searchable_text": true,
+      "sha256": "f3854cc6c20ae176c88a377c63a4998e0b1737a4b0611ab738bccc27327a3dd5",
+      "source_git_sha": "9e2d9ab40916bcc5ab97a65d8e9dc4d34f5cfcdb",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 19630,
+      "derived_from": "cheatsheets/Input_Validation_Cheat_Sheet.md",
+      "local_git_sha": "d5f08d5e0257fa5792487af2287eeee2309d2ad3",
+      "local_path": "cheatsheets/Input_Validation_Cheat_Sheet.md",
+      "searchable_text": true,
+      "sha256": "6ee0f04274d39d12a0be97fca181d68a4f212a92389710a1f89fd7ce7a184528",
+      "source_git_sha": "7535fa1f1656163a9891479845edfdf5bac2cacc",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 6619,
+      "derived_from": "cheatsheets/REST_Assessment_Cheat_Sheet.md",
+      "local_git_sha": "cdac17f09fc73eead6fb50ac1964063584c282bb",
+      "local_path": "cheatsheets/REST_Assessment_Cheat_Sheet.md",
+      "searchable_text": true,
+      "sha256": "12023c4bd5fad2f93cefa0d6c49015eeecd77d8cedbc5a73c37731c06eb2aff0",
+      "source_git_sha": "d4f24d2e78dcb2d0d16bb244220985321bdbd9d7",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "OWASP/CheatSheetSeries",
+  "requested_ref": "master",
+  "retrieved_at": "2026-08-23T13:04:31+00:00",
+  "schema_version": 2,
+  "source_commit": "6b8819da79e0537d072e04296ffa3adfc94ba881",
+  "source_id": "owasp-cheat-sheet-series",
+  "source_tree": "2e7690786ae382291876b691999016d40e2f0f6e",
+  "source_url": "https://github.com/OWASP/CheatSheetSeries/tree/6b8819da79e0537d072e04296ffa3adfc94ba881",
+  "tier": "canonical-practice",
+  "title": "OWASP Cheat Sheet Series - QA Security Subset",
+  "total_original_bytes": 81467,
+  "tracks": [
+    "security",
+    "authorization",
+    "api-testing",
+    "input-validation"
   ]
 }

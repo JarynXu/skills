@@ -1,0 +1,166 @@
+{
+  "agent_ready": true,
+  "file_count": 7,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 1085,
+      "local_git_sha": "9c9e8bc55639459de3cafa31bac5f8f678f69d93",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "2159220a6d068db4dc329a5f9f1f4670abdfbe225942a5e46c7330ffa98f89d4",
+      "upstream_git_sha": "9c9e8bc55639459de3cafa31bac5f8f678f69d93",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 6728,
+      "local_git_sha": "389936cb89f52d33f4d0c1058b62abae29ae3543",
+      "local_path": "docs/features/configuration.md",
+      "searchable_text": true,
+      "sha256": "63c003f32096228fd10fa102b31fa4caeac82dfec43fa07e8b6c2eaeeed30267",
+      "upstream_git_sha": "389936cb89f52d33f4d0c1058b62abae29ae3543",
+      "upstream_path": "docs/features/configuration.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2320,
+      "local_git_sha": "baaea5fb36d105f53fda7e1ba0ee66d4e32df2a7",
+      "local_path": "docs/features/creating_container.md",
+      "searchable_text": true,
+      "sha256": "bc20619fb8b7d57f877248f91e04f73585445d11e7dcfa04b99718635d669ecb",
+      "upstream_git_sha": "baaea5fb36d105f53fda7e1ba0ee66d4e32df2a7",
+      "upstream_path": "docs/features/creating_container.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 5003,
+      "local_git_sha": "7ecf929da16f9c4d5d21142632eb2fd2d370c2ac",
+      "local_path": "docs/features/networking.md",
+      "searchable_text": true,
+      "sha256": "8d38e52cf664466de1372c322395a7710851c5ea3240fcba381014d44e6abd21",
+      "upstream_git_sha": "7ecf929da16f9c4d5d21142632eb2fd2d370c2ac",
+      "upstream_path": "docs/features/networking.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1823,
+      "local_git_sha": "884f3d5ac336885b2700df57c39297f244009ed4",
+      "local_path": "docs/features/reuse.md",
+      "searchable_text": true,
+      "sha256": "10a1b6c52558c9a0f3fdf3bf5932b3a4198142344cb9f8cfe979f5d1285c9e55",
+      "upstream_git_sha": "884f3d5ac336885b2700df57c39297f244009ed4",
+      "upstream_path": "docs/features/reuse.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7561,
+      "local_git_sha": "d760dfa93d0ebc0b3fb4723dab645fbcabadc016",
+      "local_path": "docs/features/startup_and_waits.md",
+      "searchable_text": true,
+      "sha256": "0776835dce3a95ff06b725d61b1bce7cd5a7329929179fd3e025658f48e4f9c2",
+      "upstream_git_sha": "d760dfa93d0ebc0b3fb4723dab645fbcabadc016",
+      "upstream_path": "docs/features/startup_and_waits.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 14951,
+      "local_git_sha": "40304dd22ed45beb1f8f513b044b8fc8dbddd985",
+      "local_path": "docs/index.md",
+      "searchable_text": true,
+      "sha256": "95da264ac63a165b2c166ec69703d5ec837b49a20850ab19609876deda1b5bae",
+      "upstream_git_sha": "40304dd22ed45beb1f8f513b044b8fc8dbddd985",
+      "upstream_path": "docs/index.md"
+    }
+  ],
+  "license": "MIT",
+  "processed_bytes": 40567,
+  "processed_count": 6,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 7069,
+      "derived_from": "docs/features/configuration.md",
+      "local_git_sha": "1f2b1b2e670f45687b6ec74b26d445c89d46e543",
+      "local_path": "docs/features/configuration.md",
+      "searchable_text": true,
+      "sha256": "8bb173e1460f7a2e16137202d0bf06c3873c88ed9de9f8ad3fa44fb046452322",
+      "source_git_sha": "389936cb89f52d33f4d0c1058b62abae29ae3543",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 2702,
+      "derived_from": "docs/features/creating_container.md",
+      "local_git_sha": "1c18ba7ba6f15e23bcb7e0f7c6c3a841cd5aa47f",
+      "local_path": "docs/features/creating_container.md",
+      "searchable_text": true,
+      "sha256": "8cba9873cf07602db8a2712c7d294ec0afcea3e03edaf7aae1e9456c1e99d7dc",
+      "source_git_sha": "baaea5fb36d105f53fda7e1ba0ee66d4e32df2a7",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 5371,
+      "derived_from": "docs/features/networking.md",
+      "local_git_sha": "cf170a3f86ab8c9032342a55e3b87ffae0dfe35a",
+      "local_path": "docs/features/networking.md",
+      "searchable_text": true,
+      "sha256": "0fc63e63a85ba1be37491d9dce932875b37f681835c52371eb9224e850296e4f",
+      "source_git_sha": "7ecf929da16f9c4d5d21142632eb2fd2d370c2ac",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 2191,
+      "derived_from": "docs/features/reuse.md",
+      "local_git_sha": "ba56b0b7af76fc0531de04344b9565b620254f7d",
+      "local_path": "docs/features/reuse.md",
+      "searchable_text": true,
+      "sha256": "ad7a3d834945ab6aab918be9768368af324b2dcf6b17ea1166e22bbe35791123",
+      "source_git_sha": "884f3d5ac336885b2700df57c39297f244009ed4",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 7926,
+      "derived_from": "docs/features/startup_and_waits.md",
+      "local_git_sha": "90d173bae8bd248ab1a4d64aaf5ae2f904cb7b5e",
+      "local_path": "docs/features/startup_and_waits.md",
+      "searchable_text": true,
+      "sha256": "57f2801b7678d90b30ce0f8ceb57128e8408e260e1687e5805b16a67354c7d42",
+      "source_git_sha": "d760dfa93d0ebc0b3fb4723dab645fbcabadc016",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 15308,
+      "derived_from": "docs/index.md",
+      "local_git_sha": "2ac5cdcb308902845e39e1b8880a28958da61ce6",
+      "local_path": "docs/index.md",
+      "searchable_text": true,
+      "sha256": "20436441abba2b111cc4e2f4de831a290bab6a218e56a5ed8d5f9ef683bb9cb8",
+      "source_git_sha": "40304dd22ed45beb1f8f513b044b8fc8dbddd985",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "testcontainers/testcontainers-java",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T13:04:50+00:00",
+  "schema_version": 2,
+  "source_commit": "ed2c487edeb94a042d86f0d54f86324a0f78eda3",
+  "source_id": "testcontainers-core-docs",
+  "source_tree": "f4fce76a23e332e3df3b9e2ba4bdba5eaf91e61a",
+  "source_url": "https://github.com/testcontainers/testcontainers-java/tree/ed2c487edeb94a042d86f0d54f86324a0f78eda3",
+  "tier": "canonical-tool-guidance",
+  "title": "Testcontainers Integration Testing Guidance",
+  "total_original_bytes": 39471,
+  "tracks": [
+    "integration-testing",
+    "real-dependencies",
+    "containers",
+    "test-environments",
+    "isolation"
+  ]
+}

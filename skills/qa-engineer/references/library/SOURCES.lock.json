@@ -1,0 +1,103 @@
+{
+  "catalog_files": [
+    {
+      "git_blob_sha": "895c9cde43f2a1c5674d0aafb936482ebd0dc60f",
+      "path": "SOURCES.json",
+      "sha256": "2145c36f81d86e15026b2ce8b73a573b23c98ce466de76d964e9a725ec1b939a"
+    }
+  ],
+  "catalog_git_sha": "e20573f326d3afcc5f73fc30a6141d64c3137f60",
+  "catalog_sha256": "5305359fb089717a5092ce1ae43bd3596381e74f8877c20c121eb5e7dc1594ba",
+  "catalog_source_count": 8,
+  "schema_version": 2,
+  "sources": {
+    "hypothesis-property-testing": {
+      "agent_ready": true,
+      "file_count": 5,
+      "processed_bytes": 25194,
+      "processed_count": 5,
+      "repo": "HypothesisWorks/hypothesis",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T13:04:47+00:00",
+      "source_commit": "41004301f02bcb35b7953518ed16705c4cf0211c",
+      "total_original_bytes": 24090
+    },
+    "owasp-cheat-sheet-series": {
+      "agent_ready": true,
+      "file_count": 5,
+      "processed_bytes": 83370,
+      "processed_count": 5,
+      "repo": "OWASP/CheatSheetSeries",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T13:04:31+00:00",
+      "source_commit": "6b8819da79e0537d072e04296ffa3adfc94ba881",
+      "total_original_bytes": 81467
+    },
+    "owasp-wstg": {
+      "agent_ready": true,
+      "file_count": 68,
+      "processed_bytes": 642472,
+      "processed_count": 67,
+      "repo": "OWASP/wstg",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T13:05:05+00:00",
+      "source_commit": "2fab1ade827ee2336f14b7c695014191b7e2f3e1",
+      "total_original_bytes": 634613
+    },
+    "pact-specification": {
+      "agent_ready": true,
+      "file_count": 3,
+      "processed_bytes": 10063,
+      "processed_count": 2,
+      "repo": "pact-foundation/pact-specification",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T13:04:40+00:00",
+      "source_commit": "2746817263962c3c470e2f16157153eb78c299bd",
+      "total_original_bytes": 10406
+    },
+    "playwright-test-docs": {
+      "agent_ready": true,
+      "file_count": 10,
+      "processed_bytes": 152087,
+      "processed_count": 9,
+      "repo": "microsoft/playwright",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T13:04:36+00:00",
+      "source_commit": "d4e1023f6c03a8dced50eb3db88c2217e7c1a86a",
+      "total_original_bytes": 160431
+    },
+    "pytest-core-docs": {
+      "agent_ready": true,
+      "file_count": 8,
+      "processed_bytes": 115529,
+      "processed_count": 7,
+      "repo": "pytest-dev/pytest",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T13:04:44+00:00",
+      "source_commit": "df87db7b0462fb764ef73fa00561adf8ad047572",
+      "total_original_bytes": 129709
+    },
+    "selenium-test-practices": {
+      "agent_ready": true,
+      "file_count": 6,
+      "processed_bytes": 38299,
+      "processed_count": 5,
+      "repo": "SeleniumHQ/seleniumhq.github.io",
+      "requested_ref": "trunk",
+      "retrieved_at": "2026-08-23T13:04:38+00:00",
+      "source_commit": "e3626fc3af82d93271dbb776ffd2d149f879d50e",
+      "total_original_bytes": 47602
+    },
+    "testcontainers-core-docs": {
+      "agent_ready": true,
+      "file_count": 7,
+      "processed_bytes": 40567,
+      "processed_count": 6,
+      "repo": "testcontainers/testcontainers-java",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T13:04:50+00:00",
+      "source_commit": "ed2c487edeb94a042d86f0d54f86324a0f78eda3",
+      "total_original_bytes": 39471
+    }
+  }
+}

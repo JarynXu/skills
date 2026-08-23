@@ -1,0 +1,134 @@
+{
+  "agent_ready": true,
+  "file_count": 5,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 414,
+      "local_git_sha": "a37c2bca372e6c2c58fba6ddb50122d0d4536793",
+      "local_path": "LICENSE.txt",
+      "searchable_text": true,
+      "sha256": "df2ca456f6cda1226620ee99f16bafb6345241040996734d3a46e3afe414c056",
+      "upstream_git_sha": "a37c2bca372e6c2c58fba6ddb50122d0d4536793",
+      "upstream_path": "LICENSE.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1642,
+      "local_git_sha": "d59d2791894a114f0510c1f02611443470b88ecf",
+      "local_path": "README.md",
+      "searchable_text": true,
+      "sha256": "bdea363861e973606d7728f0b7b893e0eb3efa2b3d8afa21a139d3ec8e80c003",
+      "upstream_git_sha": "d59d2791894a114f0510c1f02611443470b88ecf",
+      "upstream_path": "README.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 12924,
+      "local_git_sha": "a49d4626b16fac0c3aeabb9c1869eae7318d89df",
+      "local_path": "guides/strategies-that-shrink.rst",
+      "searchable_text": true,
+      "sha256": "89c5f1af7560fc8987426881de773376609f09c617f34135e8e4ddc088ecf25d",
+      "upstream_git_sha": "a49d4626b16fac0c3aeabb9c1869eae7318d89df",
+      "upstream_path": "guides/strategies-that-shrink.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2359,
+      "local_git_sha": "5c8e45f1ae8c33ded4d598dbcd619e0651c00428",
+      "local_path": "guides/testing-hypothesis.rst",
+      "searchable_text": true,
+      "sha256": "d25af78b165020b2ae2f5a07ed964630cd9c358a6875fba37606e833699732e5",
+      "upstream_git_sha": "5c8e45f1ae8c33ded4d598dbcd619e0651c00428",
+      "upstream_path": "guides/testing-hypothesis.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 6751,
+      "local_git_sha": "6d519f904681ca6cce461067f18d440484fa8dd2",
+      "local_path": "paper.md",
+      "searchable_text": true,
+      "sha256": "d5092b313368ab38c72a40af6f36bd86f428f7f422991b469f7ee61452ce9c68",
+      "upstream_git_sha": "6d519f904681ca6cce461067f18d440484fa8dd2",
+      "upstream_path": "paper.md"
+    }
+  ],
+  "license": "MPL-2.0 repository license; preserve source notices",
+  "processed_bytes": 25194,
+  "processed_count": 5,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 771,
+      "derived_from": "LICENSE.txt",
+      "local_git_sha": "bfeb2cf45d3dc8de504f089f8692e07a1bd46e84",
+      "local_path": "LICENSE.txt.md",
+      "searchable_text": true,
+      "sha256": "50ab758164a2697f4e59d3f6e2df51099615950e4052c856f3c27a098bbd7e35",
+      "source_git_sha": "a37c2bca372e6c2c58fba6ddb50122d0d4536793",
+      "transform": "plain-text-to-markdown"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 1993,
+      "derived_from": "README.md",
+      "local_git_sha": "30714704c754db6d8ea30adf62854facd5ae348d",
+      "local_path": "README.md",
+      "searchable_text": true,
+      "sha256": "eacc814e48b82125a29a844d95b30ef04cf051a454a6bf3c0b9cbcbb710ce995",
+      "source_git_sha": "d59d2791894a114f0510c1f02611443470b88ecf",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 12708,
+      "derived_from": "guides/strategies-that-shrink.rst",
+      "local_git_sha": "f5b9e51da92e6b5b479ac4a85e1dc72dc822051d",
+      "local_path": "guides/strategies-that-shrink.rst.md",
+      "searchable_text": true,
+      "sha256": "abee41b6cee41c123c001ca6c97aa03f795eb8e285d354fa6e5d70b0427e9500",
+      "source_git_sha": "a49d4626b16fac0c3aeabb9c1869eae7318d89df",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 2621,
+      "derived_from": "guides/testing-hypothesis.rst",
+      "local_git_sha": "bf08f3c5ffc913c91fdda6c380207b88e61adf00",
+      "local_path": "guides/testing-hypothesis.rst.md",
+      "searchable_text": true,
+      "sha256": "0ef3aea766c8eb0b004f65367201a5efcefaaeba54770c4fe7bf5e7e76a25f6b",
+      "source_git_sha": "5c8e45f1ae8c33ded4d598dbcd619e0651c00428",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 7101,
+      "derived_from": "paper.md",
+      "local_git_sha": "ff73b2934ed0dd99d08a2b16fbfa9a412c660a56",
+      "local_path": "paper.md",
+      "searchable_text": true,
+      "sha256": "6fe3bcf598e24b82f72079bffc0fa36af7f645e3a21789bd749bd958381365f3",
+      "source_git_sha": "6d519f904681ca6cce461067f18d440484fa8dd2",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "HypothesisWorks/hypothesis",
+  "requested_ref": "master",
+  "retrieved_at": "2026-08-23T13:04:47+00:00",
+  "schema_version": 2,
+  "source_commit": "41004301f02bcb35b7953518ed16705c4cf0211c",
+  "source_id": "hypothesis-property-testing",
+  "source_tree": "251431735367fbebdb3bad13c575a9a7bc65beb9",
+  "source_url": "https://github.com/HypothesisWorks/hypothesis/tree/41004301f02bcb35b7953518ed16705c4cf0211c",
+  "tier": "canonical-tool-guidance",
+  "title": "Hypothesis Property-Based Testing Guidance",
+  "total_original_bytes": 24090,
+  "tracks": [
+    "property-based-testing",
+    "generative-testing",
+    "shrinking",
+    "test-design"
+  ]
+}
