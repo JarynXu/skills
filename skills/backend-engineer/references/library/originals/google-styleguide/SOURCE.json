@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "source_id": "google-styleguide",
+  "title": "Google Style Guides (curated offline core)",
+  "owner": "Google",
+  "source_repository": "https://github.com/google/styleguide",
+  "source_commit": "1809c769de31ba388c755ad15dd057a9ba8531fd",
+  "source_tree": "0474238497db08091bb53a7b88d93a24e406f548",
+  "license": "CC-BY-3.0",
+  "license_upstream_blob_sha": "1a16e05564d2aaa880bbe9e506a0a0226d8742cc",
+  "license_local_blob_sha": "c4d5d5de669a671f6cd23e5f69873e84dd750698",
+  "license_byte_exact": false,
+  "retrieved_date": "2026-08-23",
+  "inclusion_mode": "vendored-exact-text-curated",
+  "notes": [
+    "This package vendors a role-relevant core subset of the upstream Google Style Guide repository rather than pretending to mirror every language artifact.",
+    "Each guidance file marked byte_exact=true was recreated in this repository and its Git blob SHA exactly equals the pinned upstream blob SHA.",
+    "The local license text preserves the CC BY 3.0 legal text but differs at file-boundary bytes from the upstream blob, so it is deliberately not marked byte-exact.",
+    "The upstream repository also contains Java, Python, TypeScript, Shell, HTML/CSS, Objective-C and additional Go guidance. They remain registered upstream material for future expansion; absence from this curated package is not represented as local availability.",
+    "Alibaba P3C is kept as a separate Java-focused package because its historical Chinese Java rules and provenance differ from Google's current style guides."
+  ],
+  "files": [
+    {
+      "path": "cppguide.html",
+      "upstream_git_sha": "9e849cc2f0cb13c3a4a9d9be428b4c9cf1a42c0b",
+      "local_git_sha": "9e849cc2f0cb13c3a4a9d9be428b4c9cf1a42c0b",
+      "byte_exact": true,
+      "topic": "C++"
+    },
+    {
+      "path": "csharp-style.md",
+      "upstream_git_sha": "bae61c56b1797cf6cc52ea5f4019dc187fda61cb",
+      "local_git_sha": "bae61c56b1797cf6cc52ea5f4019dc187fda61cb",
+      "byte_exact": true,
+      "topic": "C#"
+    },
+    {
+      "path": "go/guide.md",
+      "upstream_git_sha": "46557bfb253c96330c064071523e8d951d2f89af",
+      "local_git_sha": "46557bfb253c96330c064071523e8d951d2f89af",
+      "byte_exact": true,
+      "topic": "Go"
+    },
+    {
+      "path": "LICENSE.txt",
+      "upstream_git_sha": "1a16e05564d2aaa880bbe9e506a0a0226d8742cc",
+      "local_git_sha": "c4d5d5de669a671f6cd23e5f69873e84dd750698",
+      "byte_exact": false,
+      "topic": "license"
+    }
+  ]
+}
