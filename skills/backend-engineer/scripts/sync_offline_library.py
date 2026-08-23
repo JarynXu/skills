@@ -1,15 +1,12 @@
 #!/usr/bin/env python3
 """Synchronize and preprocess the backend-engineer offline teaching library.
 
-The library has two explicit layers:
-
-- references/library/originals/<source-id>/ keeps byte-exact upstream evidence.
-- references/library/processed/<source-id>/ keeps agent-ready Markdown derived at sync time.
-
-Moving refs are resolved to immutable commits. Every downloaded GitHub file is
-verified against its upstream Git blob identifier before it is accepted. The
-processed layer is derived locally from those verified originals and never
-pretends to be byte-exact upstream content.
+`originals/` preserves selected upstream evidence byte-for-byte. `processed/`
+contains deterministic, agent-ready Markdown derived from those originals.
+Recursive selections are intentionally conservative: documentation and source
+text may be mirrored, while site builds, dependency trees, test-data corpora,
+web assets, and sample application bundles are skipped unless selected as an
+explicit file by the curriculum.
 """
 from __future__ import annotations
 
@@ -38,7 +35,7 @@ PROCESSED = LIBRARY / "processed"
 LOCK = LIBRARY / "SOURCES.lock.json"
 API = "https://api.github.com"
 RAW = "https://raw.githubusercontent.com"
-USER_AGENT = "JarynXu-skills-backend-offline-library-sync/2"
+USER_AGENT = "JarynXu-skills-backend-offline-library-sync/3"
 
 DEFAULT_MAX_FILES = 2000
 DEFAULT_MAX_BYTES = 50 * 1024 * 1024
@@ -47,12 +44,18 @@ SEARCHABLE_TEXT_EXTENSIONS = {
     ".md", ".markdown", ".txt", ".rst", ".html", ".htm", ".xml", ".sgml", ".adoc",
     ".json", ".yaml", ".yml", ".toml", ".ini", ".cfg", ".conf", ".properties",
     ".go", ".java", ".kt", ".kts", ".cs", ".py", ".rs", ".c", ".cc", ".cpp",
-    ".h", ".hpp", ".proto", ".sh", ".bash", ".zsh", ".sql",
+    ".cxx", ".h", ".hpp", ".proto", ".sh", ".bash", ".zsh", ".sql", ".g4",
+    ".gradle", ".tex",
 }
 DOCUMENT_EXTENSIONS = {
     ".md", ".markdown", ".txt", ".rst", ".html", ".htm", ".xml", ".sgml", ".adoc", ".pdf"
 }
 TEXT_NAMES = {"license", "notice", "copying", "copyright", "readme", "changelog"}
+RECURSIVE_SKIP_DIRS = {
+    ".git", ".gradle", ".idea", ".vscode", "node_modules", "vendor", "dist", "build",
+    "target", "out", "coverage", "wwwroot", "sample", "samples", "testdata", "fixtures",
+    "generated", "generated-src", "generated-sources",
+}
 
 
 class SyncError(RuntimeError):
@@ -95,8 +98,7 @@ def is_searchable_text(path: str) -> bool:
 
 
 def is_processable_document(path: str) -> bool:
-    p = PurePosixPath(path)
-    return p.suffix.lower() in DOCUMENT_EXTENSIONS
+    return PurePosixPath(path).suffix.lower() in DOCUMENT_EXTENSIONS
 
 
 def processed_rel(path: str) -> str:
@@ -104,6 +106,19 @@ def processed_rel(path: str) -> str:
     if p.suffix.lower() in {".md", ".markdown"}:
         return str(p.with_suffix(".md"))
     return str(p) + ".md"
+
+
+def recursive_dir_allowed(path: str) -> bool:
+    return PurePosixPath(path).name.lower() not in RECURSIVE_SKIP_DIRS
+
+
+def recursive_file_allowed(path: str) -> bool:
+    p = PurePosixPath(path)
+    if any(part.lower() in RECURSIVE_SKIP_DIRS for part in p.parts[:-1]):
+        return False
+    if p.name.lower() in TEXT_NAMES:
+        return True
+    return p.suffix.lower() in SEARCHABLE_TEXT_EXTENSIONS
 
 
 class GitHub:
@@ -182,32 +197,31 @@ def expand_include(gh: GitHub, repo: str, commit: str, include: dict[str, Any]) 
         entries = queue.pop(0)
         for item in entries:
             kind = item.get("type")
+            item_path = str(item.get("path") or "")
             if kind == "file":
-                out.append(RemoteFile(path=item["path"], git_sha=item["sha"], size=int(item.get("size", 0))))
+                if recursive_file_allowed(item_path):
+                    out.append(RemoteFile(path=item_path, git_sha=item["sha"], size=int(item.get("size", 0))))
             elif kind == "dir":
-                child = gh.contents(repo, commit, item["path"])
+                if not recursive_dir_allowed(item_path):
+                    continue
+                child = gh.contents(repo, commit, item_path)
                 if not isinstance(child, list):
-                    raise SyncError(f"expected directory listing for {repo}@{commit}:{item['path']}")
+                    raise SyncError(f"expected directory listing for {repo}@{commit}:{item_path}")
                 queue.append(child)
             elif kind in {"symlink", "submodule"}:
-                raise SyncError(f"unsupported {kind} in recursive source {repo}@{commit}:{item.get('path')}")
+                raise SyncError(f"unsupported {kind} in recursive source {repo}@{commit}:{item_path}")
             else:
-                raise SyncError(f"unknown content type {kind!r} at {repo}@{commit}:{item.get('path')}")
+                raise SyncError(f"unknown content type {kind!r} at {repo}@{commit}:{item_path}")
     return sorted(out, key=lambda f: f.path)
 
 
 def provenance_header(manifest: dict[str, Any], original: dict[str, Any], transform: str) -> str:
     return (
-        "> **Offline teaching derivative**  
-"
-        f"> Source: `{manifest['repo']}@{manifest['source_commit']}`  
-"
-        f"> Upstream path: `{original['upstream_path']}`  
-"
-        f"> Upstream Git blob: `{original['upstream_git_sha']}`  
-"
-        f"> Transform: `{transform}`  
-"
+        "> **Offline teaching derivative**  \n"
+        f"> Source: `{manifest['repo']}@{manifest['source_commit']}`  \n"
+        f"> Upstream path: `{original['upstream_path']}`  \n"
+        f"> Upstream Git blob: `{original['upstream_git_sha']}`  \n"
+        f"> Transform: `{transform}`  \n"
         "> This Markdown is generated for agent use. Consult `originals/` when exact upstream bytes matter.\n\n"
     )
 
@@ -324,7 +338,6 @@ def convert_document(path: Path, upstream_path: str) -> tuple[str, str, dict[str
     if suffix == ".pdf":
         body, metadata, warnings = pdf_to_markdown(path)
         return body, "pdf-to-page-structured-markdown:pypdf", metadata, warnings
-
     text = path.read_text(encoding="utf-8", errors="replace")
     if suffix in {".md", ".markdown"}:
         return normalize_markdown(text), "markdown-normalize", {}, []
@@ -354,7 +367,7 @@ def process_manifest(source_root: Path, manifest: dict[str, Any]) -> dict[str, A
         upstream_path = str(original.get("upstream_path") or original.get("local_path") or "")
         if not upstream_path or not is_processable_document(upstream_path):
             continue
-        original_path = local_path(source_root, upstream_path)
+        original_path = source_root.joinpath(*safe_rel(upstream_path).parts)
         if not original_path.is_file():
             raise SyncError(f"cannot preprocess missing original: {source_id}/{upstream_path}")
         body, transform, metadata, doc_warnings = convert_document(original_path, upstream_path)
@@ -380,6 +393,7 @@ def process_manifest(source_root: Path, manifest: dict[str, Any]) -> dict[str, A
             warnings.extend(f"{upstream_path}: {item}" for item in doc_warnings)
         processed_files.append(entry)
 
+    manifest["schema_version"] = 2
     manifest["processed_files"] = processed_files
     manifest["processed_count"] = len(processed_files)
     manifest["processed_bytes"] = sum(int(item["bytes"]) for item in processed_files)
@@ -431,7 +445,7 @@ def rebuild_lock(catalog: dict[str, Any]) -> None:
             "agent_ready": manifest.get("agent_ready", False),
         }
     lock = {
-        "schema_version": 1,
+        "schema_version": 2,
         "catalog_git_sha": git_blob_sha(CATALOG.read_bytes()),
         "sources": summaries,
     }
@@ -510,9 +524,7 @@ def sync_one(gh: GitHub, source: dict[str, Any]) -> dict[str, Any]:
         "total_original_bytes": total_bytes,
     }
     manifest = process_manifest(source_root, manifest)
-    print(
-        f"[{source_id}] wrote {manifest['file_count']} originals / {manifest['processed_count']} processed Markdown files / {total_bytes} original bytes"
-    )
+    print(f"[{source_id}] wrote {manifest['file_count']} originals / {manifest['processed_count']} processed Markdown files / {total_bytes} original bytes")
     return manifest
 
 
