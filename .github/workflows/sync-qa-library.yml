@@ -1,0 +1,86 @@
+name: Sync QA offline library
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_ids:
+        description: "Optional space- or comma-separated source ids; empty syncs every catalog source"
+        required: false
+        type: string
+  push:
+    branches: [qa-engineer-library-rebuild]
+    paths:
+      - ".github/workflows/sync-qa-library.yml"
+      - "skills/qa-engineer/references/library/SOURCES.json"
+      - "skills/qa-engineer/scripts/sync_offline_library.py"
+      - "skills/qa-engineer/scripts/sync_library_catalogs.py"
+      - "skills/qa-engineer/scripts/offline_library.py"
+      - "skills/qa-engineer/tests/test_library_catalog.py"
+      - "skills/qa-engineer/tests/test.sh"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: qa-library-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install preprocessing dependencies
+        run: python -m pip install pypdf beautifulsoup4 markdownify docutils
+
+      - name: Synchronize, preprocess, and verify
+        env:
+          SOURCE_IDS: ${{ inputs.source_ids }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          requested="${SOURCE_IDS//,/ }"
+          if [[ -n "${requested// /}" ]]; then
+            read -r -a sources <<< "$requested"
+          else
+            mapfile -t sources < <(python skills/qa-engineer/scripts/sync_library_catalogs.py --list-source-ids)
+          fi
+
+          for source in "${sources[@]}"; do
+            echo "=== syncing ${source} ==="
+            python skills/qa-engineer/scripts/sync_library_catalogs.py --source "$source"
+          done
+
+          python skills/qa-engineer/scripts/sync_library_catalogs.py --process-existing
+          python skills/qa-engineer/scripts/offline_library.py verify
+          bash skills/qa-engineer/tests/test.sh
+
+      - name: Commit verified QA library atomically
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -f \
+            skills/qa-engineer/references/library/originals \
+            skills/qa-engineer/references/library/processed \
+            skills/qa-engineer/references/library/SOURCES.lock.json
+
+          if git diff --cached --quiet; then
+            echo "QA offline library is already current."
+            exit 0
+          fi
+
+          git commit -m "chore(qa-engineer): sync verified offline library"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
