@@ -41,6 +41,10 @@ python "$ROOT/scripts/inspect_test_system.py" "$TMP" --format text >/dev/null
 if python "$ROOT/scripts/inspect_test_system.py" "$TMP/missing" >/dev/null 2>&1; then
   echo "expected missing directory to fail" >&2; exit 1
 fi
+python "$ROOT/scripts/offline_library.py" verify
+python "$ROOT/scripts/offline_library.py" search "authorization matrix" --source owasp-cheat-sheet-series --limit 3 >/dev/null
+python "$ROOT/scripts/offline_library.py" search "Input Validation" --source owasp-cheat-sheet-series --limit 3 >/dev/null
+python "$ROOT/scripts/offline_library.py" read owasp-cheat-sheet-series/cheatsheets/REST_Assessment_Cheat_Sheet.md --start 1 --end 8 >/dev/null
 echo "qa-engineer tests passed"
 python - "$ROOT" <<'PY'
 from pathlib import Path
@@ -52,6 +56,10 @@ for required in ('smoke', 'regression', 'performance', 'UAT', 'release recommend
     assert required.lower() in skill.lower(), required
 links=0
 for source in root.rglob('*.md'):
+    # Vendored third-party originals keep their upstream relative links unchanged.
+    # Their integrity is checked by offline_library.py rather than by this authored-doc link audit.
+    if 'references/library/originals/' in source.as_posix():
+        continue
     text=source.read_text(encoding='utf-8')
     for match in re.finditer(r'\[[^\]]+\]\(([^)]+)\)', text):
         target=match.group(1)

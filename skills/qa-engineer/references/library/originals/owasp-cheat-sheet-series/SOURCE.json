@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "source_id": "owasp-cheat-sheet-series",
+  "title": "OWASP Cheat Sheet Series - QA security testing subset",
+  "owner": "OWASP Foundation / OWASP Cheat Sheet Series contributors",
+  "source_repository": "https://github.com/OWASP/CheatSheetSeries",
+  "source_commit": "6b8819da79e0537d072e04296ffa3adfc94ba881",
+  "source_tree": "2e7690786ae382291876b691999016d40e2f0f6e",
+  "license": "CC-BY-SA-4.0",
+  "license_upstream_blob_sha": "31f26300fe110a9d9df6d1f0e8a53dc41383b7a4",
+  "license_local_blob_sha": "4daabb2c75758637576d9520510ee28295e21a69",
+  "license_byte_exact": false,
+  "retrieved_date": "2026-08-23",
+  "inclusion_mode": "vendored-exact-text-curated",
+  "attribution": "Content from the OWASP Cheat Sheet Series, licensed CC BY-SA 4.0. No endorsement by OWASP is implied.",
+  "notes": [
+    "The selected cheat sheets are kept unmodified and byte-exact to the pinned upstream Git blobs.",
+    "This is a QA-focused curated subset, not a mirror of the full Cheat Sheet Series.",
+    "Relative links inside vendored OWASP documents may point to cheat sheets that are not included in this curated subset. They are upstream cross-references, not broken links in the qa-engineer authored documentation.",
+    "The local license file contains the CC BY-SA 4.0 legal text but its local Git blob differs from the upstream license blob, so it is not marked byte-exact."
+  ],
+  "files": [
+    {
+      "path": "cheatsheets/Authorization_Regression_Testing_Cheat_Sheet.md",
+      "upstream_git_sha": "605438588f897152055eab79d70e02f947bf6cda",
+      "local_git_sha": "605438588f897152055eab79d70e02f947bf6cda",
+      "byte_exact": true,
+      "topic": "authorization regression"
+    },
+    {
+      "path": "cheatsheets/Authorization_Testing_Automation_Cheat_Sheet.md",
+      "upstream_git_sha": "9e2d9ab40916bcc5ab97a65d8e9dc4d34f5cfcdb",
+      "local_git_sha": "9e2d9ab40916bcc5ab97a65d8e9dc4d34f5cfcdb",
+      "byte_exact": true,
+      "topic": "authorization test automation"
+    },
+    {
+      "path": "cheatsheets/REST_Assessment_Cheat_Sheet.md",
+      "upstream_git_sha": "d4f24d2e78dcb2d0d16bb244220985321bdbd9d7",
+      "local_git_sha": "d4f24d2e78dcb2d0d16bb244220985321bdbd9d7",
+      "byte_exact": true,
+      "topic": "REST assessment"
+    },
+    {
+      "path": "cheatsheets/Input_Validation_Cheat_Sheet.md",
+      "upstream_git_sha": "7535fa1f1656163a9891479845edfdf5bac2cacc",
+      "local_git_sha": "7535fa1f1656163a9891479845edfdf5bac2cacc",
+      "byte_exact": true,
+      "topic": "input validation oracle"
+    },
+    {
+      "path": "LICENSE.md",
+      "upstream_git_sha": "31f26300fe110a9d9df6d1f0e8a53dc41383b7a4",
+      "local_git_sha": "4daabb2c75758637576d9520510ee28295e21a69",
+      "byte_exact": false,
+      "topic": "license"
+    }
+  ]
+}
