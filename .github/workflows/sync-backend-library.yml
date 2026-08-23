@@ -7,13 +7,6 @@ on:
         description: "Optional space- or comma-separated source ids; empty syncs every catalog source"
         required: false
         type: string
-  push:
-    branches:
-      - backend-engineer-framework-library-rebuild
-    paths:
-      - .github/workflows/sync-backend-library.yml
-      - skills/backend-engineer/references/library/sources.d/framework-canon.json
-      - skills/backend-engineer/tests/test_framework_canon.py
 
 permissions:
   contents: write
@@ -46,14 +39,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          python skills/backend-engineer/tests/test_framework_canon.py
-
-          if [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
-            requested="quarkus-core-docs micronaut-core-docs ktor-server-docs fastify-core-docs nestjs-core-docs gin-core-docs tokio-guides sqlalchemy-core-docs efcore-core-docs celery-core-docs"
-          else
-            requested="${SOURCE_IDS//,/ }"
-          fi
-
+          requested="${SOURCE_IDS//,/ }"
           if [[ -n "${requested// /}" ]]; then
             read -r -a sources <<< "$requested"
           else

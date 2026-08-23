@@ -66,6 +66,7 @@ if python "$ROOT/scripts/inspect_backend.py" "$TMP/missing" >/dev/null 2>&1; the
 fi
 
 python "$ROOT/tests/test_control_plane.py"
+python "$ROOT/tests/test_framework_canon.py"
 
 for file in \
   "$ROOT/references/core/risk-and-verification.md" \
@@ -135,7 +136,17 @@ for source in \
   django-core-docs \
   fastapi-core-docs \
   aspnetcore-core-docs \
-  twelve-factor-app; do
+  twelve-factor-app \
+  quarkus-core-docs \
+  micronaut-core-docs \
+  ktor-server-docs \
+  fastify-core-docs \
+  nestjs-core-docs \
+  gin-core-docs \
+  tokio-guides \
+  sqlalchemy-core-docs \
+  efcore-core-docs \
+  celery-core-docs; do
   grep -qx "$source" "$TMP/source-ids.txt"
   grep -q "^${source}[[:space:]]" <<<"$LIB_LIST"
   grep -q "^${source}.*agent_ready=True" <<<"$LIB_LIST"
@@ -172,6 +183,18 @@ python "$ROOT/scripts/offline_library.py" search 'Actuator' --source spring-boot
 python "$ROOT/scripts/offline_library.py" search 'atomic' --source django-core-docs --limit 10 >/dev/null
 python "$ROOT/scripts/offline_library.py" search 'lifespan' --source fastapi-core-docs --limit 10 >/dev/null
 python "$ROOT/scripts/offline_library.py" search 'WebApplicationFactory' --source aspnetcore-core-docs --limit 10 | grep -q 'integration-tests.md'
+
+# Curated framework canon must remain searchable after preprocessing.
+python "$ROOT/scripts/offline_library.py" search 'transaction' --source quarkus-core-docs --limit 10 | grep -q 'transaction.adoc.md'
+python "$ROOT/scripts/offline_library.py" search 'graceful' --source micronaut-core-docs --limit 10 | grep -q 'gracefulShutdown.adoc.md'
+python "$ROOT/scripts/offline_library.py" search 'dependency injection' --source ktor-server-docs --limit 10 | grep -q 'server-dependency-injection.md'
+python "$ROOT/scripts/offline_library.py" search 'Lifecycle' --source fastify-core-docs --limit 10 | grep -q 'Lifecycle.md'
+python "$ROOT/scripts/offline_library.py" search 'dependency injection' --source nestjs-core-docs --limit 10 | grep -q 'dependency-injection.md'
+python "$ROOT/scripts/offline_library.py" search 'middleware' --source gin-core-docs --limit 10 | grep -q 'doc.md'
+python "$ROOT/scripts/offline_library.py" search 'graceful shutdown' --source tokio-guides --limit 10 | grep -q 'shutdown.md'
+python "$ROOT/scripts/offline_library.py" search 'AsyncSession' --source sqlalchemy-core-docs --limit 10 | grep -q 'asyncio.rst.md'
+python "$ROOT/scripts/offline_library.py" search 'concurrency' --source efcore-core-docs --limit 10 | grep -q 'concurrency.md'
+python "$ROOT/scripts/offline_library.py" search 'idempotent' --source celery-core-docs --limit 10 | grep -q 'tasks.rst.md'
 
 # Normal read is processed; exact original requires explicit opt-in.
 python "$ROOT/scripts/offline_library.py" read 'alibaba-p3c/p3c-gitbook/MySQL数据库/索引规约.md' --start 1 --end 8 | grep -q '# layer=processed'
