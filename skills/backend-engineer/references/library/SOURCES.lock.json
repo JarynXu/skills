@@ -25,14 +25,14 @@
       "total_original_bytes": 114162538
     },
     "cpython-runtime-docs": {
-      "agent_ready": false,
+      "agent_ready": true,
       "file_count": 23,
-      "processed_bytes": 0,
-      "processed_count": 0,
+      "processed_bytes": 528729,
+      "processed_count": 22,
       "repo": "python/cpython",
       "requested_ref": "main",
-      "retrieved_at": "2026-08-23T05:27:29+00:00",
-      "source_commit": "b062727097e997bcb900e11503d3248daac903da",
+      "retrieved_at": "2026-08-23T06:24:31+00:00",
+      "source_commit": "526b2e0ede898f219a26014ef97e8914194ea2d7",
       "total_original_bytes": 1008829
     },
     "django-core-docs": {
