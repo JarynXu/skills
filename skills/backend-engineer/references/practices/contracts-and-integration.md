@@ -2,6 +2,8 @@
 
 Use this reference for APIs, RPC, GraphQL, WebSocket, events, files, batch interfaces, third-party integrations, versioning, error semantics, and consumer compatibility.
 
+When a contract failure may actually be DNS/TCP/TLS/HTTP2/proxy/gRPC transport behavior, route to [`../technologies/network-protocol-diagnostics.md`](../technologies/network-protocol-diagnostics.md) before changing application semantics. Reproducing a request with `curl`, `grpcurl`, WebSocket clients or packet tools is diagnostic evidence, not permission to weaken authentication/TLS or production controls.
+
 ## Design from consumer-visible semantics
 
 Define operations in terms of purpose, authority, preconditions, state change, result, side effects, failure, retry, and consistency. Protocol shape follows these semantics.

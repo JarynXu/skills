@@ -30,6 +30,7 @@ REQUIRED_DIRECT_LINKS = {
 FORBIDDEN_RUNTIME_HISTORY = (
     "backend-engineer-control-plane-rebuild",
     "backend-engineer-technology-adapters-rebuild",
+    "backend-engineer-runtime-diagnostics-rebuild",
     "PR #",
     "checkpoint",
     "this refactor project",
@@ -90,14 +91,16 @@ def main() -> int:
         if token not in cases:
             fail(f"behavior acceptance case missing mode: {token}")
 
-    # Technology adapters and the read-only check planner are part of the runtime
-    # capability, so exercise them through their real test path rather than only
-    # checking that files exist.
+    # Ecosystem adapters and diagnostic planners are runtime capabilities, so
+    # execute their contract tests rather than checking packaging only.
     sys.path.insert(0, str(ROOT / "tests"))
     import test_technology_adapters  # type: ignore
+    import test_runtime_diagnostics  # type: ignore
 
     if test_technology_adapters.main() != 0:
         fail("technology adapter tests failed")
+    if test_runtime_diagnostics.main() != 0:
+        fail("runtime diagnostic tests failed")
 
     print("backend-engineer control-plane contract passed")
     return 0

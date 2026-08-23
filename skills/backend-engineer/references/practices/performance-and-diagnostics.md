@@ -2,6 +2,8 @@
 
 Use this reference when latency, throughput, CPU, memory, allocation, garbage collection, threads, goroutines, event loops, database queries, network behavior, deadlocks, leaks, crashes, or runtime profiling matter.
 
+When the symptom may be below the language runtime, read [`../technologies/system-runtime-diagnostics.md`](../technologies/system-runtime-diagnostics.md). For DNS/TCP/TLS/HTTP/HTTP2/gRPC/proxy uncertainty, read [`../technologies/network-protocol-diagnostics.md`](../technologies/network-protocol-diagnostics.md). `python scripts/plan_backend_diagnostics.py <project-root> --symptom <kind>` can produce a non-executing candidate evidence plan with privilege/sensitivity metadata.
+
 ## Begin with a falsifiable symptom
 
 Define workload, environment, baseline, affected percentile or rate, resource state, time window, recent change, and acceptance boundary. Separate user-visible latency from queueing, service time, dependency time, and client/network time. Preserve a correctness oracle before optimization.
