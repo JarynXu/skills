@@ -1,0 +1,277 @@
+{
+  "agent_ready": true,
+  "file_count": 12,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 1123,
+      "local_git_sha": "266e719722c4d45a9d6282e5ca9e8a77b2b67f8c",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "23c91863859171455a536380991b4160fee4e19e2d8dc353ecf7143cc4e53ca2",
+      "upstream_git_sha": "266e719722c4d45a9d6282e5ca9e8a77b2b67f8c",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 9329,
+      "local_git_sha": "e732a8e331122d1c7cdd39f5e9baf8410238e04f",
+      "local_path": "docs/Reference/ContentTypeParser.md",
+      "searchable_text": true,
+      "sha256": "60100a2072d3dd8532c77e0bf6cffb855896fc66786dcd60780032b0c9b91087",
+      "upstream_git_sha": "e732a8e331122d1c7cdd39f5e9baf8410238e04f",
+      "upstream_path": "docs/Reference/ContentTypeParser.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 6663,
+      "local_git_sha": "c544b946336a15942e3f32ac6cb414f1dd6a0802",
+      "local_path": "docs/Reference/Encapsulation.md",
+      "searchable_text": true,
+      "sha256": "fd07e0f6a52a3d788858f44ca270145b56212937b7eb2cb7825a6ff718a05f5d",
+      "upstream_git_sha": "c544b946336a15942e3f32ac6cb414f1dd6a0802",
+      "upstream_path": "docs/Reference/Encapsulation.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 37416,
+      "local_git_sha": "211281b94b129109dc5863ac80fc9a9f25c1b720",
+      "local_path": "docs/Reference/Errors.md",
+      "searchable_text": true,
+      "sha256": "a695141c714529f21562e1f9326e3dd0ae6651e94e81eea468e5845edb3321cb",
+      "upstream_git_sha": "211281b94b129109dc5863ac80fc9a9f25c1b720",
+      "upstream_path": "docs/Reference/Errors.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 29342,
+      "local_git_sha": "cabafbf33747264c5a0b1876be374b8a75c81665",
+      "local_path": "docs/Reference/Hooks.md",
+      "searchable_text": true,
+      "sha256": "98a1ee68e44aec6463892f70232f581479500347bd7c5a9f2960e87ad2f0c497",
+      "upstream_git_sha": "cabafbf33747264c5a0b1876be374b8a75c81665",
+      "upstream_path": "docs/Reference/Hooks.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4617,
+      "local_git_sha": "6081b1a612c199b3803b0f8747cfa483c51df04b",
+      "local_path": "docs/Reference/Lifecycle.md",
+      "searchable_text": true,
+      "sha256": "41314b1a2513ffc6e99b4bfa70b3fe8afd2776bd6ab115425c279c73435598f1",
+      "upstream_git_sha": "6081b1a612c199b3803b0f8747cfa483c51df04b",
+      "upstream_path": "docs/Reference/Lifecycle.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7318,
+      "local_git_sha": "8a50d9644ada8e65dad73bcfbfdcc793532f0adc",
+      "local_path": "docs/Reference/Logging.md",
+      "searchable_text": true,
+      "sha256": "437e8d523a62b4892d5dcc3f6fcab9a6ea53f6ed98da3e64593c35205421fcc8",
+      "upstream_git_sha": "8a50d9644ada8e65dad73bcfbfdcc793532f0adc",
+      "upstream_path": "docs/Reference/Logging.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7549,
+      "local_git_sha": "944553d76c3181e8c16b69caf8a1ffdba006eddb",
+      "local_path": "docs/Reference/Plugins.md",
+      "searchable_text": true,
+      "sha256": "159e9700ec190e539fb78bde13ad7e79e03c3d8e9b8bb5ccb4cb8a846af0d2a0",
+      "upstream_git_sha": "944553d76c3181e8c16b69caf8a1ffdba006eddb",
+      "upstream_path": "docs/Reference/Plugins.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2559,
+      "local_git_sha": "edda7d6fd43272d9e6d74058b80ed48343334c52",
+      "local_path": "docs/Reference/Principles.md",
+      "searchable_text": true,
+      "sha256": "9c99ffbe9cfe8883e9282f3014e11540cfd472a00acfa8b4e458aedb6a165136",
+      "upstream_git_sha": "edda7d6fd43272d9e6d74058b80ed48343334c52",
+      "upstream_path": "docs/Reference/Principles.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 31465,
+      "local_git_sha": "f4d7377fd872f7d725478ddcd423e0202ddc7ccd",
+      "local_path": "docs/Reference/Reply.md",
+      "searchable_text": true,
+      "sha256": "85f46d40a99bd22b6798372cf05bbedd8863a9c64ffa9aa396ec6b3e3d6810df",
+      "upstream_git_sha": "f4d7377fd872f7d725478ddcd423e0202ddc7ccd",
+      "upstream_path": "docs/Reference/Reply.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 12082,
+      "local_git_sha": "130fe3dbf95576919eae7f48c804294e02eb62bf",
+      "local_path": "docs/Reference/Request.md",
+      "searchable_text": true,
+      "sha256": "29f16270920b4d8b5d4f5e0507de84061553dc7d68628b107b1a4c6fcf8b90d7",
+      "upstream_git_sha": "130fe3dbf95576919eae7f48c804294e02eb62bf",
+      "upstream_path": "docs/Reference/Request.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 26868,
+      "local_git_sha": "2045e55e0ea4cf2463f2d92d0e501e91caa458e7",
+      "local_path": "docs/Reference/Routes.md",
+      "searchable_text": true,
+      "sha256": "6d8849e9a84e390551bb31a6ef7510e7d39c2089c22c0852b639eff19adc7a02",
+      "upstream_git_sha": "2045e55e0ea4cf2463f2d92d0e501e91caa458e7",
+      "upstream_path": "docs/Reference/Routes.md"
+    }
+  ],
+  "license": "MIT",
+  "processed_bytes": 179138,
+  "processed_count": 11,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 9695,
+      "derived_from": "docs/Reference/ContentTypeParser.md",
+      "local_git_sha": "3c783512903336c9a52b762f8d64cfd8b13708ee",
+      "local_path": "docs/Reference/ContentTypeParser.md",
+      "searchable_text": true,
+      "sha256": "063336d6ca845b025c3a5c4d67600ba292837db84c5a544ba34365d99d160513",
+      "source_git_sha": "e732a8e331122d1c7cdd39f5e9baf8410238e04f",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 7025,
+      "derived_from": "docs/Reference/Encapsulation.md",
+      "local_git_sha": "b82a733461a5270bd404bcd0ed262b8d07e5d194",
+      "local_path": "docs/Reference/Encapsulation.md",
+      "searchable_text": true,
+      "sha256": "50c27de0bcd6c9b0ac555469012b35c53dece4f40cbeba9eb19302c2c155236a",
+      "source_git_sha": "c544b946336a15942e3f32ac6cb414f1dd6a0802",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 37771,
+      "derived_from": "docs/Reference/Errors.md",
+      "local_git_sha": "2b0607dc89d3a524967057361ac2012e8de69d0d",
+      "local_path": "docs/Reference/Errors.md",
+      "searchable_text": true,
+      "sha256": "efc8ee897d536eb581c6ef66f7f75733150ae78d375d43f10c920a5afe61adaa",
+      "source_git_sha": "211281b94b129109dc5863ac80fc9a9f25c1b720",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 29696,
+      "derived_from": "docs/Reference/Hooks.md",
+      "local_git_sha": "988e18ba7d2d6bbc28debb4c3548ad8ca37a991f",
+      "local_path": "docs/Reference/Hooks.md",
+      "searchable_text": true,
+      "sha256": "feebc141d7d9c1640d95f174318f9f17643e5324890da0bd4d54b949aa4acf42",
+      "source_git_sha": "cabafbf33747264c5a0b1876be374b8a75c81665",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 4975,
+      "derived_from": "docs/Reference/Lifecycle.md",
+      "local_git_sha": "d7484be97b7a0f39f3bff4029ecbc0faf2a10d31",
+      "local_path": "docs/Reference/Lifecycle.md",
+      "searchable_text": true,
+      "sha256": "e942eac61c11a431e656d9055048eb0393f689d14593f59667569c6258ce08db",
+      "source_git_sha": "6081b1a612c199b3803b0f8747cfa483c51df04b",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 7674,
+      "derived_from": "docs/Reference/Logging.md",
+      "local_git_sha": "3b7d735a129ead851a467bff34b86ea67c90ceeb",
+      "local_path": "docs/Reference/Logging.md",
+      "searchable_text": true,
+      "sha256": "420ab44b70eb9ae454b42eba261fd138a7f5e3291df783103554b6d683e5cc4f",
+      "source_git_sha": "8a50d9644ada8e65dad73bcfbfdcc793532f0adc",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 7905,
+      "derived_from": "docs/Reference/Plugins.md",
+      "local_git_sha": "b32a8d63e6f709e830a798078f4bccace92cf3af",
+      "local_path": "docs/Reference/Plugins.md",
+      "searchable_text": true,
+      "sha256": "eec845c97661cd359e7a589c2db8df8db3b519575b19758e6d23333779ad6011",
+      "source_git_sha": "944553d76c3181e8c16b69caf8a1ffdba006eddb",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 2918,
+      "derived_from": "docs/Reference/Principles.md",
+      "local_git_sha": "e0943750922da58a36434ecafe75e75dcd39ca4d",
+      "local_path": "docs/Reference/Principles.md",
+      "searchable_text": true,
+      "sha256": "12e680dbb2af7b9b1f2a928264c3310a9838107aa9dbf2730a64ad57f224c5af",
+      "source_git_sha": "edda7d6fd43272d9e6d74058b80ed48343334c52",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 31818,
+      "derived_from": "docs/Reference/Reply.md",
+      "local_git_sha": "d43279312a82e43bc8a98c749cfcec597cd9eb08",
+      "local_path": "docs/Reference/Reply.md",
+      "searchable_text": true,
+      "sha256": "383678b83ca545ac929b7df6cd2f0c5a4e35094db1c68c3220e650ff67751d9d",
+      "source_git_sha": "f4d7377fd872f7d725478ddcd423e0202ddc7ccd",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 12438,
+      "derived_from": "docs/Reference/Request.md",
+      "local_git_sha": "f85faf16d60264ae92701dd33a1c91729f0c2d8c",
+      "local_path": "docs/Reference/Request.md",
+      "searchable_text": true,
+      "sha256": "875644cb1309efee3d62725b85895622d13ddb79f3cfe6c88c39e6b9fe93415c",
+      "source_git_sha": "130fe3dbf95576919eae7f48c804294e02eb62bf",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 27223,
+      "derived_from": "docs/Reference/Routes.md",
+      "local_git_sha": "161424f34fcda19b22637d5685eafe869b39daf4",
+      "local_path": "docs/Reference/Routes.md",
+      "searchable_text": true,
+      "sha256": "4589a1b13ce2314e16cd81282ff82f63eb4bfd3af4a610b3d8656d8f82ae3838",
+      "source_git_sha": "2045e55e0ea4cf2463f2d92d0e501e91caa458e7",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "fastify/fastify",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T11:46:46+00:00",
+  "schema_version": 2,
+  "source_commit": "4176096a31f5b4c31512c36f578b08a596a72435",
+  "source_id": "fastify-core-docs",
+  "source_tree": "072716472bf0ec5d4dec7c94a5b315f960ea686a",
+  "source_url": "https://github.com/fastify/fastify/tree/4176096a31f5b4c31512c36f578b08a596a72435",
+  "tier": "canonical-practice",
+  "title": "Fastify Core Engineering Guidance",
+  "total_original_bytes": 176331,
+  "tracks": [
+    "node-typescript",
+    "fastify",
+    "lifecycle",
+    "http",
+    "routing",
+    "plugins",
+    "encapsulation",
+    "testing",
+    "logging",
+    "error-handling",
+    "performance"
+  ]
+}

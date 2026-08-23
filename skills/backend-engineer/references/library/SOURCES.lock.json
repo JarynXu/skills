@@ -6,14 +6,19 @@
       "sha256": "b87307254f462b8496010c4ad8b3e0a003d6530eb33a0212d0d3f2babeca47a8"
     },
     {
+      "git_blob_sha": "e2deb7d1982c09898b0cd13d8680b9d35912a70b",
+      "path": "sources.d/framework-canon.json",
+      "sha256": "61cbc5590757193e777e14143687718829095c14557fab9f1f82db034bfa8531"
+    },
+    {
       "git_blob_sha": "e7a6eea92a5d830d0cfa8d611e1d90a05bfd5406",
       "path": "sources.d/language-canon.json",
       "sha256": "aba72e2f43a7a09497c677391a4d1323831835824b574d51043b64a9a9da844a"
     }
   ],
-  "catalog_git_sha": "6119b9263ac1b38f85b3ebc41b16e5df5316d852",
-  "catalog_sha256": "e76a43fa670f8879796a317ce8409ed6fa7f3dd6d179f580cb246a3d0ad1c245",
-  "catalog_source_count": 34,
+  "catalog_git_sha": "972899e5901266a063bd03541981f11b4b8aebaf",
+  "catalog_sha256": "f2fdabf6f1e9535e9951037474ec8327fb00432c638164694fcf43a6b37687af",
+  "catalog_source_count": 44,
   "schema_version": 2,
   "sources": {
     "alibaba-p3c": {
@@ -37,6 +42,17 @@
       "retrieved_at": "2026-08-23T06:32:01+00:00",
       "source_commit": "6885b4c487beda992335631784c1dd31b301403b",
       "total_original_bytes": 2391662
+    },
+    "celery-core-docs": {
+      "agent_ready": true,
+      "file_count": 11,
+      "processed_bytes": 293965,
+      "processed_count": 10,
+      "repo": "celery/celery",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T11:47:02+00:00",
+      "source_commit": "8d2bccca0478cad48f31a75eaebc0ce389f65425",
+      "total_original_bytes": 363396
     },
     "cpython-runtime-docs": {
       "agent_ready": true,
@@ -82,6 +98,17 @@
       "source_commit": "b7779bffad7a68afea19963ca7cf64092c87eff3",
       "total_original_bytes": 43261
     },
+    "efcore-core-docs": {
+      "agent_ready": true,
+      "file_count": 11,
+      "processed_bytes": 167032,
+      "processed_count": 10,
+      "repo": "dotnet/EntityFramework.Docs",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T11:47:00+00:00",
+      "source_commit": "a972d2b5c9f040c8accd286fe91ea01de69a5c17",
+      "total_original_bytes": 181689
+    },
     "fastapi-core-docs": {
       "agent_ready": true,
       "file_count": 29,
@@ -92,6 +119,28 @@
       "retrieved_at": "2026-08-23T05:47:27+00:00",
       "source_commit": "c3f316b7e814667e8ee81e03a7330d00ee61e45c",
       "total_original_bytes": 229839
+    },
+    "fastify-core-docs": {
+      "agent_ready": true,
+      "file_count": 12,
+      "processed_bytes": 179138,
+      "processed_count": 11,
+      "repo": "fastify/fastify",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T11:46:46+00:00",
+      "source_commit": "4176096a31f5b4c31512c36f578b08a596a72435",
+      "total_original_bytes": 176331
+    },
+    "gin-core-docs": {
+      "agent_ready": true,
+      "file_count": 3,
+      "processed_bytes": 81521,
+      "processed_count": 2,
+      "repo": "gin-gonic/gin",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T11:46:51+00:00",
+      "source_commit": "dcaa4296d111981ffb31ac3eba90bb63e1eb5ab9",
+      "total_original_bytes": 81942
     },
     "go-language": {
       "agent_ready": true,
@@ -192,6 +241,39 @@
       "source_commit": "2f7aa0524ec27e788dfacd550f144809f2e0254c",
       "total_original_bytes": 608694
     },
+    "ktor-server-docs": {
+      "agent_ready": true,
+      "file_count": 15,
+      "processed_bytes": 147997,
+      "processed_count": 15,
+      "repo": "ktorio/ktor-documentation",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T11:46:43+00:00",
+      "source_commit": "5803616c32b5f16050a8b1ae4653afa21603796e",
+      "total_original_bytes": 142639
+    },
+    "micronaut-core-docs": {
+      "agent_ready": true,
+      "file_count": 134,
+      "processed_bytes": 332124,
+      "processed_count": 133,
+      "repo": "micronaut-projects/micronaut-core",
+      "requested_ref": "5.2.x",
+      "retrieved_at": "2026-08-23T11:46:39+00:00",
+      "source_commit": "428ddeb3ad2acdabef2027cc06af3bf46865956a",
+      "total_original_bytes": 289276
+    },
+    "nestjs-core-docs": {
+      "agent_ready": true,
+      "file_count": 14,
+      "processed_bytes": 217889,
+      "processed_count": 13,
+      "repo": "nestjs/docs.nestjs.com",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T11:46:50+00:00",
+      "source_commit": "99b5603f17397a5ebfa1d82ca21820920c51220f",
+      "total_original_bytes": 214206
+    },
     "node-best-practices": {
       "agent_ready": true,
       "file_count": 76,
@@ -291,6 +373,17 @@
       "source_commit": "b4f8bb538cffe7bd1401d0f529e721caf4125482",
       "total_original_bytes": 151639
     },
+    "quarkus-core-docs": {
+      "agent_ready": true,
+      "file_count": 14,
+      "processed_bytes": 486151,
+      "processed_count": 13,
+      "repo": "quarkusio/quarkus",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T11:46:17+00:00",
+      "source_commit": "1d5c7d7b1d3c8692a101092b927cb74a5bd2e46b",
+      "total_original_bytes": 502323
+    },
     "redis-protocol-specifications": {
       "agent_ready": true,
       "file_count": 8,
@@ -367,6 +460,28 @@
       "retrieved_at": "2026-08-23T05:46:55+00:00",
       "source_commit": "91eb42645e26a7ef9382b4a655bcefe5c8682fee",
       "total_original_bytes": 2626055
+    },
+    "sqlalchemy-core-docs": {
+      "agent_ready": true,
+      "file_count": 8,
+      "processed_bytes": 270163,
+      "processed_count": 7,
+      "repo": "sqlalchemy/sqlalchemy",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T11:46:56+00:00",
+      "source_commit": "f35da7e2b9349a08b8de1f6bd3b07c8bf8616790",
+      "total_original_bytes": 295340
+    },
+    "tokio-guides": {
+      "agent_ready": true,
+      "file_count": 16,
+      "processed_bytes": 199160,
+      "processed_count": 15,
+      "repo": "tokio-rs/website",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T11:46:54+00:00",
+      "source_commit": "55335b4efd81aa676d038bd7320f7185642d39ea",
+      "total_original_bytes": 194976
     },
     "twelve-factor-app": {
       "agent_ready": true,

@@ -1,0 +1,85 @@
+{
+  "agent_ready": true,
+  "file_count": 3,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 1099,
+      "local_git_sha": "49770f0c691c81759f6eae748f4ceb4b36997c0d",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "b104efb2c7700691650f27034e8541c5ae0ed9af54d884287f19a7467ca2fe7f",
+      "upstream_git_sha": "49770f0c691c81759f6eae748f4ceb4b36997c0d",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 11827,
+      "local_git_sha": "96b0ae3c10204e14099683602217c10541ace230",
+      "local_path": "README.md",
+      "searchable_text": true,
+      "sha256": "0c71595f35bbc7a303d2fb793b0e4639e1f3c3d1eff6a1771b705354f4e8359b",
+      "upstream_git_sha": "96b0ae3c10204e14099683602217c10541ace230",
+      "upstream_path": "README.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 69016,
+      "local_git_sha": "d1c33b876257064db5be6aa9472b560c665c44a1",
+      "local_path": "docs/doc.md",
+      "searchable_text": true,
+      "sha256": "222697d3a8c8fbfd0b2c11eee52ef2534fac1d0f46bb3e15b068757e06be4b14",
+      "upstream_git_sha": "d1c33b876257064db5be6aa9472b560c665c44a1",
+      "upstream_path": "docs/doc.md"
+    }
+  ],
+  "license": "MIT",
+  "processed_bytes": 81521,
+  "processed_count": 2,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 12165,
+      "derived_from": "README.md",
+      "local_git_sha": "1e6b52e1f4858bb56e98d3d82c92290eded311bc",
+      "local_path": "README.md",
+      "searchable_text": true,
+      "sha256": "b249ef379cbe58c500aec1c09351206fe94c85aa66f4e05029e5938897e4a1aa",
+      "source_git_sha": "96b0ae3c10204e14099683602217c10541ace230",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 69356,
+      "derived_from": "docs/doc.md",
+      "local_git_sha": "47e331ea4a166a79ee26936a1e7ac21d810678bb",
+      "local_path": "docs/doc.md",
+      "searchable_text": true,
+      "sha256": "cb29c8b4ce1383e9bf2dfe7d8e8c3c7181d8da740768494ec06b35b1b4e13f5f",
+      "source_git_sha": "d1c33b876257064db5be6aa9472b560c665c44a1",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "gin-gonic/gin",
+  "requested_ref": "master",
+  "retrieved_at": "2026-08-23T11:46:51+00:00",
+  "schema_version": 2,
+  "source_commit": "dcaa4296d111981ffb31ac3eba90bb63e1eb5ab9",
+  "source_id": "gin-core-docs",
+  "source_tree": "b97c21f21a531fb175be721bf0fbcac3b1a38269",
+  "source_url": "https://github.com/gin-gonic/gin/tree/dcaa4296d111981ffb31ac3eba90bb63e1eb5ab9",
+  "tier": "canonical-practice",
+  "title": "Gin Web Framework Guidance",
+  "total_original_bytes": 81942,
+  "tracks": [
+    "go",
+    "gin",
+    "http",
+    "routing",
+    "middleware",
+    "validation",
+    "testing",
+    "deployment"
+  ]
+}

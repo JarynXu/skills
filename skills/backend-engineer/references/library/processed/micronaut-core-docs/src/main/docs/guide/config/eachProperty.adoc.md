@@ -1,0 +1,39 @@
+> **Offline teaching derivative**  
+> Source: `micronaut-projects/micronaut-core@428ddeb3ad2acdabef2027cc06af3bf46865956a`  
+> Upstream path: `src/main/docs/guide/config/eachProperty.adoc`  
+> Upstream Git blob: `fa42f7d051445da837d0185f2293590eb937caf5`  
+> Transform: `asciidoc-structural-to-markdown`  
+> This Markdown is generated for agent use. Consult `originals/` when exact upstream bytes matter.
+
+The [@ConfigurationProperties]({api}/io/micronaut/context/annotation/ConfigurationProperties.html) annotation is great for a single configuration class, but sometimes you want multiple instances, each with its own distinct configuration. That is where [EachProperty]({api}/io/micronaut/context/annotation/EachProperty.html) comes in.
+
+The ann:context.annotation.EachProperty[] annotation creates a `ConfigurationProperties` bean for each sub-property within the given name. As an example consider the following class:
+
+snippet::io.micronaut.docs.config.env.DataSourceConfiguration[tags="eachProperty", indent=0, title="Using @EachProperty"]
+
+<1> The `@EachProperty` annotation defines the property name to be handled.
+<2> The `@Parameter` annotation can be used to inject the name of the sub-property that defines the name of the bean (which is also the bean qualifier)
+<3> Each property of the bean is bound to configuration.
+
+NOTE: Micronaut configuration uses kebap case, not lower camel case. For example, using `@EachProperty("my-bean")` works, but `@EachProperty("myBean")` fails.
+
+The above `DataSourceConfiguration` defines a `url` property to configure one or more data sources. The URLs themselves can be configured using any of the [PropertySource]({api}/io/micronaut/context/env/PropertySource.html) instances evaluated to Micronaut:
+
+snippet::io.micronaut.docs.config.env.EachPropertyTest[tags="config", indent=0, title="Providing Configuration to @EachProperty"]
+
+In the above example two data sources (called `one` and `two`) are defined under the `test.datasource` prefix defined earlier in the `@EachProperty` annotation. Each of these configuration entries triggers the creation of a new `DataSourceConfiguration` bean such that the following test succeeds:
+
+snippet::io.micronaut.docs.config.env.EachPropertyTest[tags="beans", indent=0, title="Evaluating Beans Built by @EachProperty"]
+
+<1> All beans of type `DataSourceConfiguration` can be retrieved using `getBeansOfType`
+<2> Individual beans can be retrieved by using the `byName` qualifier.
+
+### List-Based Binding
+
+The default behavior of ann:context.annotation.EachProperty[] is to bind from a map style of configuration, where the key is the named qualifier of the bean and the value is the data to bind from. For cases where map style configuration doesn't make sense, it is possible to inform the Micronaut framework that the class is bound from a list. Simply set the `list` member on the annotation to true.
+
+snippet::io.micronaut.docs.config.env.RateLimitsConfiguration[tags="clazz", indent=0, title="@EachProperty List Example"]
+
+<1> The `list` member of the annotation is set to `true`
+<2> Implement `Ordered` if order matters when retrieving the beans
+<3> The index is injected into the constructor

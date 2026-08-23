@@ -1,0 +1,7 @@
+The most common data interchange format nowadays is JSON.
+
+By default, the api:http.annotation.Controller[] annotation specifies that the controllers in Micronaut framework consume and produce JSON by default.
+
+Since Micronaut Framework 4.0, users must choose how they want to serialize (Jackson Databind or Micronaut Serialization). Both approaches allow the usage of https://micronaut-projects.github.io/micronaut-serialization/latest/guide/index.html#jacksonAnnotations[Jackson Annotations].
+
+With either approach, the Micronaut framework reads incoming JSON in a non-blocking manner.

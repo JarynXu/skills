@@ -1,0 +1,257 @@
+{
+  "agent_ready": true,
+  "file_count": 11,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 2717,
+      "local_git_sha": "93411068ab7db9401ec4d5c9d52ca14f77e794fc",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "c358cdf77f28bbab50d4a754e123118339c15230349e82bf66489cece3ac093a",
+      "upstream_git_sha": "93411068ab7db9401ec4d5c9d52ca14f77e794fc",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 14779,
+      "local_git_sha": "1ba8cb5aad2acb176817342fef1dec5d8b06f536",
+      "local_path": "docs/userguide/application.rst",
+      "searchable_text": true,
+      "sha256": "efa6589ad072bfa8ba84ab8ae5c0111618f6fd96a9db1354339e1ccb8cfd415b",
+      "upstream_git_sha": "1ba8cb5aad2acb176817342fef1dec5d8b06f536",
+      "upstream_path": "docs/userguide/application.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 26592,
+      "local_git_sha": "b014357e2b6970a6a9ac2bdc7ce8596e0407e073",
+      "local_path": "docs/userguide/calling.rst",
+      "searchable_text": true,
+      "sha256": "a207ed0af59d613d491e328b0192ef96e92886a3de911e508c095ce4d08528ca",
+      "upstream_git_sha": "b014357e2b6970a6a9ac2bdc7ce8596e0407e073",
+      "upstream_path": "docs/userguide/calling.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 127850,
+      "local_git_sha": "9f34706df42e6ddacbed649d5ff616d182ed893e",
+      "local_path": "docs/userguide/configuration.rst",
+      "searchable_text": true,
+      "sha256": "3f85701f7ae1ee942a1eb5d0369b3f825ae8795caa2a4779b9c6da410c705e2e",
+      "upstream_git_sha": "9f34706df42e6ddacbed649d5ff616d182ed893e",
+      "upstream_path": "docs/userguide/configuration.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3131,
+      "local_git_sha": "690e2acb4bd53b3d5d78dbf7026f8eced7522c68",
+      "local_path": "docs/userguide/debugging.rst",
+      "searchable_text": true,
+      "sha256": "b7680c82d52d8fdd897cf7842fa2f7fa616c5731155516c2d00220ecc0d656c5",
+      "upstream_git_sha": "690e2acb4bd53b3d5d78dbf7026f8eced7522c68",
+      "upstream_path": "docs/userguide/debugging.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 23037,
+      "local_git_sha": "3cba351e22f7c2a71b74029d9a1c862046aa6500",
+      "local_path": "docs/userguide/monitoring.rst",
+      "searchable_text": true,
+      "sha256": "ae9b510a8b7af42c30f8bb7345f8da3ba236e8c5779dc4150898142dc31c2823",
+      "upstream_git_sha": "3cba351e22f7c2a71b74029d9a1c862046aa6500",
+      "upstream_path": "docs/userguide/monitoring.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 9745,
+      "local_git_sha": "00ee54481afb03d455cf33cc922c6282b264a4bc",
+      "local_path": "docs/userguide/optimizing.rst",
+      "searchable_text": true,
+      "sha256": "373d6889be0ea3f3b5770ef39d7d01fa7f344c983fd26681c2ce07303d952d3f",
+      "upstream_git_sha": "00ee54481afb03d455cf33cc922c6282b264a4bc",
+      "upstream_path": "docs/userguide/optimizing.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 25056,
+      "local_git_sha": "dae51bc047cea60f1490273a47becf35ae6a2169",
+      "local_path": "docs/userguide/routing.rst",
+      "searchable_text": true,
+      "sha256": "84375bafdce934e34cd8a0bf9a53d3b2f4961c9b102bd2e4fab9c253a4d337e8",
+      "upstream_git_sha": "dae51bc047cea60f1490273a47becf35ae6a2169",
+      "upstream_path": "docs/userguide/routing.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 8693,
+      "local_git_sha": "f880573060bf02c3e09b957fdedb11951cc0c4e8",
+      "local_path": "docs/userguide/security.rst",
+      "searchable_text": true,
+      "sha256": "16aa6be985fc1bae460e345d026ddb3da27718a95e711a2495ba6bcb36a35825",
+      "upstream_git_sha": "f880573060bf02c3e09b957fdedb11951cc0c4e8",
+      "upstream_path": "docs/userguide/security.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 76695,
+      "local_git_sha": "a8bb69f1653b3a948d6be605fb04507804adaa00",
+      "local_path": "docs/userguide/tasks.rst",
+      "searchable_text": true,
+      "sha256": "6151910c5fee03049c43c03adbf5607ad0464dcf0704652cee1198f77bd38125",
+      "upstream_git_sha": "a8bb69f1653b3a948d6be605fb04507804adaa00",
+      "upstream_path": "docs/userguide/tasks.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 45101,
+      "local_git_sha": "63c96b051faa3ff10f19c771c6964fd8332dc695",
+      "local_path": "docs/userguide/workers.rst",
+      "searchable_text": true,
+      "sha256": "fb0cb654d5648ff3b52feb44be50c1f51f3eb9e3832bd38d63a1b5b8059f9376",
+      "upstream_git_sha": "63c96b051faa3ff10f19c771c6964fd8332dc695",
+      "upstream_path": "docs/userguide/workers.rst"
+    }
+  ],
+  "license": "CC BY-SA 4.0 documentation; code repository is BSD-3-Clause; preserve LICENSE and attribution",
+  "processed_bytes": 293965,
+  "processed_count": 10,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 13358,
+      "derived_from": "docs/userguide/application.rst",
+      "local_git_sha": "762b0f5fb1cea824a9812f83bf2d3eae353d78aa",
+      "local_path": "docs/userguide/application.rst.md",
+      "searchable_text": true,
+      "sha256": "7776453735d3aff7fd399985c6a02ff6e617d1e90d05fd888e88974fdf50e8e1",
+      "source_git_sha": "1ba8cb5aad2acb176817342fef1dec5d8b06f536",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 24373,
+      "derived_from": "docs/userguide/calling.rst",
+      "local_git_sha": "3a00c08d644b125168f07cb9ebc06e552d9d0ea0",
+      "local_path": "docs/userguide/calling.rst.md",
+      "searchable_text": true,
+      "sha256": "f5f79ade7eda61577bda79b88df61dd6396efd3ea4ece9d0dda9f1d1749da615",
+      "source_git_sha": "b014357e2b6970a6a9ac2bdc7ce8596e0407e073",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 96509,
+      "derived_from": "docs/userguide/configuration.rst",
+      "local_git_sha": "097fba67d33c39db969c64b557fdb04216368ba0",
+      "local_path": "docs/userguide/configuration.rst.md",
+      "searchable_text": true,
+      "sha256": "5fd89321889bd1861373cee0f3e4c9e88967c94eac4334950cc59778ea6db396",
+      "source_git_sha": "9f34706df42e6ddacbed649d5ff616d182ed893e",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 3031,
+      "derived_from": "docs/userguide/debugging.rst",
+      "local_git_sha": "421e713e4feccde6d1306308ab33cd80d855bd2e",
+      "local_path": "docs/userguide/debugging.rst.md",
+      "searchable_text": true,
+      "sha256": "fed767f4875cb8739ead3ab51e2ab40132ce2df0646a52b60578b56665e02d2e",
+      "source_git_sha": "690e2acb4bd53b3d5d78dbf7026f8eced7522c68",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 21262,
+      "derived_from": "docs/userguide/monitoring.rst",
+      "local_git_sha": "bdf557822ca5fd83144bcaa3491c7e528693ab3a",
+      "local_path": "docs/userguide/monitoring.rst.md",
+      "searchable_text": true,
+      "sha256": "3ebe25d4b64a6005ed879801cc1a48609882a05f590d09e0b067e4f6d0314a2d",
+      "source_git_sha": "3cba351e22f7c2a71b74029d9a1c862046aa6500",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 9648,
+      "derived_from": "docs/userguide/optimizing.rst",
+      "local_git_sha": "c12c02715c90b18b4a83cfb1d60d25989d8430f5",
+      "local_path": "docs/userguide/optimizing.rst.md",
+      "searchable_text": true,
+      "sha256": "a4a5f720f9a84823d2851cb80c2de58b52b2737875aebee36a5b5e46ec57f4ac",
+      "source_git_sha": "00ee54481afb03d455cf33cc922c6282b264a4bc",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 20961,
+      "derived_from": "docs/userguide/routing.rst",
+      "local_git_sha": "926ad0ab0d36aabc8c7c74d064d361cfc5168cb9",
+      "local_path": "docs/userguide/routing.rst.md",
+      "searchable_text": true,
+      "sha256": "a1fc75cc6d7b494c56055624761d5371fabbc816c385bef8bf3723afda0a6a0b",
+      "source_git_sha": "dae51bc047cea60f1490273a47becf35ae6a2169",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 8533,
+      "derived_from": "docs/userguide/security.rst",
+      "local_git_sha": "6f44ac724d8d16181468d734a8d5ad1115c89e45",
+      "local_path": "docs/userguide/security.rst.md",
+      "searchable_text": true,
+      "sha256": "dd01bee7cfbbf14aeee9ca0a05044eda6dd794f9bd5f6963ae3e8221003902d6",
+      "source_git_sha": "f880573060bf02c3e09b957fdedb11951cc0c4e8",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 57263,
+      "derived_from": "docs/userguide/tasks.rst",
+      "local_git_sha": "0d24051502f8a047317feaceb6e580efaf5dc564",
+      "local_path": "docs/userguide/tasks.rst.md",
+      "searchable_text": true,
+      "sha256": "9fbad5e0d378189b2fe66eaa8c07d667b9ca0f94016b63643a28ac4a54b41d80",
+      "source_git_sha": "a8bb69f1653b3a948d6be605fb04507804adaa00",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 39027,
+      "derived_from": "docs/userguide/workers.rst",
+      "local_git_sha": "44aa93792441856b8d1479f3de9aebf8b346ace8",
+      "local_path": "docs/userguide/workers.rst.md",
+      "searchable_text": true,
+      "sha256": "dda6721238f3c985ffeb24c95b1e093cc345312a37638fa386200a506aad9b24",
+      "source_git_sha": "63c96b051faa3ff10f19c771c6964fd8332dc695",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "celery/celery",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T11:47:02+00:00",
+  "schema_version": 2,
+  "source_commit": "8d2bccca0478cad48f31a75eaebc0ce389f65425",
+  "source_id": "celery-core-docs",
+  "source_tree": "5165bc0c412d72808eda0d5846e23a319e30eb83",
+  "source_url": "https://github.com/celery/celery/tree/8d2bccca0478cad48f31a75eaebc0ce389f65425",
+  "tier": "canonical-practice",
+  "title": "Celery Distributed Task Engineering Guidance",
+  "total_original_bytes": 363396,
+  "tracks": [
+    "python",
+    "celery",
+    "messaging",
+    "distributed-tasks",
+    "concurrency",
+    "reliability",
+    "routing",
+    "security",
+    "testing",
+    "diagnostics",
+    "operability",
+    "performance"
+  ]
+}

@@ -1,0 +1,67 @@
+> **Offline teaching derivative**  
+> Source: `micronaut-projects/micronaut-core@428ddeb3ad2acdabef2027cc06af3bf46865956a`  
+> Upstream path: `src/main/docs/guide/ioc/scopes/metaScopes.adoc`  
+> Upstream Git blob: `2e19faad8a8303c6651608b1b39104449acd1398`  
+> Transform: `asciidoc-structural-to-markdown`  
+> This Markdown is generated for agent use. Consult `originals/` when exact upstream bytes matter.
+
+Scopes can be defined on meta annotations that you can then apply to your classes. Consider the following example meta annotation:
+
+.Driver.java Annotation
+
+snippet::io.micronaut.docs.ioc.scopes.Driver[tags="imports,class",indent=0]
+
+<1> The scope declares a requirement on a `Car` class using api:context.annotation.Requires[]
+<2> The annotation is declared as `@Singleton`
+
+In the example above the `@Singleton` annotation is applied to the `@Driver` annotation which results in every class that is annotated with `@Driver` being regarded as singleton.
+
+Note that in this case it is not possible to alter the scope when the annotation is applied. For example, the following will not override the scope declared by `@Driver` and is invalid:
+
+.Declaring Another Scope
+```java
+@Driver
+@Prototype
+class Foo {}
+```
+// TODO should this be converted? it would be the same in every language I think
+
+For the scope to be overridable, instead use the api:context.annotation.DefaultScope[] annotation on `@Driver` which allows a default scope to be specified if none other is present:
+
+.Using @DefaultScope
+
+[source.multi-language-sample,java]
+```
+@Requires(classes = Car.class)
+@DefaultScope(Singleton.class) // <1>
+@Documented
+@Retention(RUNTIME)
+public @interface Driver {
+}
+```
+[source.multi-language-sample,groovy]
+```
+@Requires(classes = Car.class)
+@DefaultScope(Singleton.class) // <1>
+@Documented
+@Retention(RUNTIME)
+@interface Driver {
+}
+```
+[source.multi-language-sample,kotlin]
+```
+@Requires(classes = [Car::class])
+@DefaultScope(Singleton::class) // <1>
+@Documented
+@Retention(RUNTIME)
+annotation class Driver
+```
+[source.multi-language-sample,python]
+```
+@Requires(classes = Car)
+@DefaultScope(Singleton) # <1>
+def Driver(func):
+    return func
+```
+
+<1> api:context.annotation.DefaultScope[] declares the scope to use if none is specified

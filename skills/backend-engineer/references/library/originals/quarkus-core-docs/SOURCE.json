@@ -1,0 +1,323 @@
+{
+  "agent_ready": true,
+  "file_count": 14,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 11360,
+      "local_git_sha": "62589edd12a37dd28b6b6fed1e2d728ac9f05c8d",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "aac73b3148f6d1d7111dbca32099f68d26c644c6813ae1e4f05f6579aa2663fe",
+      "upstream_git_sha": "62589edd12a37dd28b6b6fed1e2d728ac9f05c8d",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 59762,
+      "local_git_sha": "511dbfe3459abc0b35b750c358447612883108ca",
+      "local_path": "docs/src/main/asciidoc/cdi-reference.adoc",
+      "searchable_text": true,
+      "sha256": "5a2c8a87cb41eaad9761a41e47f16a92a7ef5e6157db2a042fd286eda3af85ba",
+      "upstream_git_sha": "511dbfe3459abc0b35b750c358447612883108ca",
+      "upstream_path": "docs/src/main/asciidoc/cdi-reference.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 41048,
+      "local_git_sha": "08023fb111610dc387d9c70c64f566f65e937118",
+      "local_path": "docs/src/main/asciidoc/config-reference.adoc",
+      "searchable_text": true,
+      "sha256": "e87da38781b0b699b121ab63ff89880a0d332b51947733b9ba40081d5c7e01ee",
+      "upstream_git_sha": "08023fb111610dc387d9c70c64f566f65e937118",
+      "upstream_path": "docs/src/main/asciidoc/config-reference.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 70495,
+      "local_git_sha": "5a94c4690c484babab556efe157760d4abc9d059",
+      "local_path": "docs/src/main/asciidoc/getting-started-testing.adoc",
+      "searchable_text": true,
+      "sha256": "a7de0fde37f190700c48c02a3fb5c4853111f277cf408a506fc8cd3f8f5d1f24",
+      "upstream_git_sha": "5a94c4690c484babab556efe157760d4abc9d059",
+      "upstream_path": "docs/src/main/asciidoc/getting-started-testing.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 93990,
+      "local_git_sha": "39c3bd2b0bb61c040c5987e2f20c81c0456c5290",
+      "local_path": "docs/src/main/asciidoc/hibernate-orm.adoc",
+      "searchable_text": true,
+      "sha256": "66e7c33c087af1ce3608913cc23625f48e2a2b0508539f1086c7c3844a6b6fe8",
+      "upstream_git_sha": "39c3bd2b0bb61c040c5987e2f20c81c0456c5290",
+      "upstream_path": "docs/src/main/asciidoc/hibernate-orm.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 15771,
+      "local_git_sha": "f37c1dd099a2b78dd8bde2095b76204d7944caf7",
+      "local_path": "docs/src/main/asciidoc/jfr.adoc",
+      "searchable_text": true,
+      "sha256": "4cc5f91c645f8f3cee99fae1efd4bc73528d45de80379b3a43f1d3cbfca96eda",
+      "upstream_git_sha": "f37c1dd099a2b78dd8bde2095b76204d7944caf7",
+      "upstream_path": "docs/src/main/asciidoc/jfr.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 13748,
+      "local_git_sha": "b4bf56322a60650fa603ee8cd25cd94a3302c498",
+      "local_path": "docs/src/main/asciidoc/lifecycle.adoc",
+      "searchable_text": true,
+      "sha256": "4b2860cc71035e9cda26e95ed55255f2a0b9e51108b34830df866d075ba2e5ba",
+      "upstream_git_sha": "b4bf56322a60650fa603ee8cd25cd94a3302c498",
+      "upstream_path": "docs/src/main/asciidoc/lifecycle.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 5842,
+      "local_git_sha": "0e9314c1d8442e9f3c38d9c62ed05756d970b48b",
+      "local_path": "docs/src/main/asciidoc/observability.adoc",
+      "searchable_text": true,
+      "sha256": "1d7038a1a7e4e41f8e636c75a8cdf2f93ea054b33d0667a79a4514da9c58979f",
+      "upstream_git_sha": "0e9314c1d8442e9f3c38d9c62ed05756d970b48b",
+      "upstream_path": "docs/src/main/asciidoc/observability.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 14518,
+      "local_git_sha": "df562b993c9df8e59dff84798a7087bcb9f08d3d",
+      "local_path": "docs/src/main/asciidoc/performance-measure.adoc",
+      "searchable_text": true,
+      "sha256": "23ba6526f0643a8d3fc2fa6e0b221e3516b6c3a20f479c194bafacdbff432ba1",
+      "upstream_git_sha": "df562b993c9df8e59dff84798a7087bcb9f08d3d",
+      "upstream_path": "docs/src/main/asciidoc/performance-measure.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 12184,
+      "local_git_sha": "de3162c125e2f246a564cb9c0693e7ce8a04e13f",
+      "local_path": "docs/src/main/asciidoc/quarkus-reactive-architecture.adoc",
+      "searchable_text": true,
+      "sha256": "7198b76dab10e0aad9a0a3721c03e0c5e59bd51829c8771c91c471d759c62d0f",
+      "upstream_git_sha": "de3162c125e2f246a564cb9c0693e7ce8a04e13f",
+      "upstream_path": "docs/src/main/asciidoc/quarkus-reactive-architecture.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 11721,
+      "local_git_sha": "927682f03ce9feb19b56534270e69ad995424ba1",
+      "local_path": "docs/src/main/asciidoc/rest-virtual-threads.adoc",
+      "searchable_text": true,
+      "sha256": "75d2fa365cfdccd5c7b5575f19288e3026b9451c7d8a9ed1f8207995f81d0a1c",
+      "upstream_git_sha": "927682f03ce9feb19b56534270e69ad995424ba1",
+      "upstream_path": "docs/src/main/asciidoc/rest-virtual-threads.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 119473,
+      "local_git_sha": "71aa6258133b7c86c24c7aa26440402c45da6b22",
+      "local_path": "docs/src/main/asciidoc/rest.adoc",
+      "searchable_text": true,
+      "sha256": "eda0926a9b648de244f62c23dec66525f636051d21b07287e902dc1f3374bd77",
+      "upstream_git_sha": "71aa6258133b7c86c24c7aa26440402c45da6b22",
+      "upstream_path": "docs/src/main/asciidoc/rest.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7401,
+      "local_git_sha": "5b0cb6bc177337c6e03afc205b5789279b13b3a3",
+      "local_path": "docs/src/main/asciidoc/security-overview.adoc",
+      "searchable_text": true,
+      "sha256": "b3dfaec694696abf1e7927bbbb753216c668d6ba473f9d8c305ce65dea7608ee",
+      "upstream_git_sha": "5b0cb6bc177337c6e03afc205b5789279b13b3a3",
+      "upstream_path": "docs/src/main/asciidoc/security-overview.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 25010,
+      "local_git_sha": "4ab57159d06684d58727f100f4dfbebfabe3b809",
+      "local_path": "docs/src/main/asciidoc/transaction.adoc",
+      "searchable_text": true,
+      "sha256": "ccc58df035b8bc19604803b4cb16e3330a0d42a0c042ed742e465640d3d9db0a",
+      "upstream_git_sha": "4ab57159d06684d58727f100f4dfbebfabe3b809",
+      "upstream_path": "docs/src/main/asciidoc/transaction.adoc"
+    }
+  ],
+  "license": "Apache-2.0",
+  "processed_bytes": 486151,
+  "processed_count": 13,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 59214,
+      "derived_from": "docs/src/main/asciidoc/cdi-reference.adoc",
+      "local_git_sha": "afd252dbd91fb255b01446bc26f46026e9994314",
+      "local_path": "docs/src/main/asciidoc/cdi-reference.adoc.md",
+      "searchable_text": true,
+      "sha256": "a4a89856c4bef5d878ae11aebd2c2af87cb498055d7d9a58eadb2bc9401507f9",
+      "source_git_sha": "511dbfe3459abc0b35b750c358447612883108ca",
+      "transform": "asciidoc-structural-to-markdown"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 40818,
+      "derived_from": "docs/src/main/asciidoc/config-reference.adoc",
+      "local_git_sha": "b89e121289c736321cf7665c4eedb09fa55b15dc",
+      "local_path": "docs/src/main/asciidoc/config-reference.adoc.md",
+      "searchable_text": true,
+      "sha256": "1840acd242922ecbce9e6e02df17501bd16630c78b33f4537fb386456fbd1267",
+      "source_git_sha": "08023fb111610dc387d9c70c64f566f65e937118",
+      "transform": "asciidoc-structural-to-markdown"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 70009,
+      "derived_from": "docs/src/main/asciidoc/getting-started-testing.adoc",
+      "local_git_sha": "0f60d802be544dc5987a6355521a234bd96d11de",
+      "local_path": "docs/src/main/asciidoc/getting-started-testing.adoc.md",
+      "searchable_text": true,
+      "sha256": "bcbe7d6554dc58a4f8ac6c9ab06184e6f467e522dd9ecae36705443107d95424",
+      "source_git_sha": "5a94c4690c484babab556efe157760d4abc9d059",
+      "transform": "asciidoc-structural-to-markdown"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 92924,
+      "derived_from": "docs/src/main/asciidoc/hibernate-orm.adoc",
+      "local_git_sha": "ae2f015667b1225da492853af1a5ada3866b07e5",
+      "local_path": "docs/src/main/asciidoc/hibernate-orm.adoc.md",
+      "searchable_text": true,
+      "sha256": "80e6959115f009e23790b11c7e22b73d2a1306986bc7b45ecf7feca7911ad9e4",
+      "source_git_sha": "39c3bd2b0bb61c040c5987e2f20c81c0456c5290",
+      "transform": "asciidoc-structural-to-markdown"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 15261,
+      "derived_from": "docs/src/main/asciidoc/jfr.adoc",
+      "local_git_sha": "df58296ce0daff494394d1164a641d4c825226f9",
+      "local_path": "docs/src/main/asciidoc/jfr.adoc.md",
+      "searchable_text": true,
+      "sha256": "ba11adaa2a01abdcc8bad0464daa472dbbfefce0d18e89214423f04ccfa0e191",
+      "source_git_sha": "f37c1dd099a2b78dd8bde2095b76204d7944caf7",
+      "transform": "asciidoc-structural-to-markdown"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 13599,
+      "derived_from": "docs/src/main/asciidoc/lifecycle.adoc",
+      "local_git_sha": "e0b88f49775fda6d337498207215884276a8384c",
+      "local_path": "docs/src/main/asciidoc/lifecycle.adoc.md",
+      "searchable_text": true,
+      "sha256": "5c9e04da3c38a2e3e89280fc1da5f9f25e82f37293f59fd4593e961399d840ce",
+      "source_git_sha": "b4bf56322a60650fa603ee8cd25cd94a3302c498",
+      "transform": "asciidoc-structural-to-markdown"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 5877,
+      "derived_from": "docs/src/main/asciidoc/observability.adoc",
+      "local_git_sha": "7e24a35169ca89be7e0f8e9a870b15cd8dbcb794",
+      "local_path": "docs/src/main/asciidoc/observability.adoc.md",
+      "searchable_text": true,
+      "sha256": "cc8d6be4089ee56ad0a28aefccb101f039cbaf336c7c9bca4a30b09c56c8a798",
+      "source_git_sha": "0e9314c1d8442e9f3c38d9c62ed05756d970b48b",
+      "transform": "asciidoc-structural-to-markdown"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 14669,
+      "derived_from": "docs/src/main/asciidoc/performance-measure.adoc",
+      "local_git_sha": "2bf983542d459adef36a54915737d7eb976ffb25",
+      "local_path": "docs/src/main/asciidoc/performance-measure.adoc.md",
+      "searchable_text": true,
+      "sha256": "bab9204b9a3a77e674fa3c94da0dc7483f9dddeb2560238d3c37b7014011354e",
+      "source_git_sha": "df562b993c9df8e59dff84798a7087bcb9f08d3d",
+      "transform": "asciidoc-structural-to-markdown"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 12498,
+      "derived_from": "docs/src/main/asciidoc/quarkus-reactive-architecture.adoc",
+      "local_git_sha": "499e6dee4bb55bd1054992c2c62df3d344cab233",
+      "local_path": "docs/src/main/asciidoc/quarkus-reactive-architecture.adoc.md",
+      "searchable_text": true,
+      "sha256": "63d5ca10615d53e3d8091fd493994766e4a3bbbe74d485f976faad1b4ac0ee86",
+      "source_git_sha": "de3162c125e2f246a564cb9c0693e7ce8a04e13f",
+      "transform": "asciidoc-structural-to-markdown"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 11511,
+      "derived_from": "docs/src/main/asciidoc/rest-virtual-threads.adoc",
+      "local_git_sha": "7be31e2457a6a550a6dc98ad1eadf18766c2622f",
+      "local_path": "docs/src/main/asciidoc/rest-virtual-threads.adoc.md",
+      "searchable_text": true,
+      "sha256": "97a86a50e0e1218aefc7f34a4b828d62f91812f89e61e50f785081c50652ad7f",
+      "source_git_sha": "927682f03ce9feb19b56534270e69ad995424ba1",
+      "transform": "asciidoc-structural-to-markdown"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 116981,
+      "derived_from": "docs/src/main/asciidoc/rest.adoc",
+      "local_git_sha": "98ffbe41aa8bbaa963b5ae6b1f917dfaccd42eb6",
+      "local_path": "docs/src/main/asciidoc/rest.adoc.md",
+      "searchable_text": true,
+      "sha256": "6f54fc7348e0baee054aec2bac8d3785720d0fa63c4fa087eb781227e4277f60",
+      "source_git_sha": "71aa6258133b7c86c24c7aa26440402c45da6b22",
+      "transform": "asciidoc-structural-to-markdown"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 7666,
+      "derived_from": "docs/src/main/asciidoc/security-overview.adoc",
+      "local_git_sha": "574ad4e2a080c1bcf5ee968334d4cc84b2c03a93",
+      "local_path": "docs/src/main/asciidoc/security-overview.adoc.md",
+      "searchable_text": true,
+      "sha256": "f16226ffd1a38e995dda6f0e01e51d75821b9bbe769591b9f36f06ef490c4bbf",
+      "source_git_sha": "5b0cb6bc177337c6e03afc205b5789279b13b3a3",
+      "transform": "asciidoc-structural-to-markdown"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 25124,
+      "derived_from": "docs/src/main/asciidoc/transaction.adoc",
+      "local_git_sha": "92bfeb5278e9e6d3d11b57e9c511197450596c69",
+      "local_path": "docs/src/main/asciidoc/transaction.adoc.md",
+      "searchable_text": true,
+      "sha256": "63306a86b25c75fdc112c47bc2a3a2cdb2fafbaa697c57a8ceec5dc04da8fc1d",
+      "source_git_sha": "4ab57159d06684d58727f100f4dfbebfabe3b809",
+      "transform": "asciidoc-structural-to-markdown"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "quarkusio/quarkus",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T11:46:17+00:00",
+  "schema_version": 2,
+  "source_commit": "1d5c7d7b1d3c8692a101092b927cb74a5bd2e46b",
+  "source_id": "quarkus-core-docs",
+  "source_tree": "5a0a7529c033477f9683a8e9975862e72434bc37",
+  "source_url": "https://github.com/quarkusio/quarkus/tree/1d5c7d7b1d3c8692a101092b927cb74a5bd2e46b",
+  "tier": "canonical-practice",
+  "title": "Quarkus Backend Engineering Guidance",
+  "total_original_bytes": 502323,
+  "tracks": [
+    "java-jvm",
+    "kotlin",
+    "quarkus",
+    "lifecycle",
+    "dependency-injection",
+    "configuration",
+    "async",
+    "concurrency",
+    "data",
+    "transactions",
+    "security",
+    "testing",
+    "diagnostics",
+    "observability",
+    "performance"
+  ]
+}

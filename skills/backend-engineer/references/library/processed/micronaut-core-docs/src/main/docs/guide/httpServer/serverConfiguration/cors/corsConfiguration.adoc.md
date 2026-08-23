@@ -1,0 +1,43 @@
+> **Offline teaching derivative**  
+> Source: `micronaut-projects/micronaut-core@428ddeb3ad2acdabef2027cc06af3bf46865956a`  
+> Upstream path: `src/main/docs/guide/httpServer/serverConfiguration/cors/corsConfiguration.adoc`  
+> Upstream Git blob: `96862b8e19eb3219e7bbe1df89d8d0ec7834466d`  
+> Transform: `asciidoc-structural-to-markdown`  
+> This Markdown is generated for agent use. Consult `originals/` when exact upstream bytes matter.
+
+To enable processing of CORS requests, modify your configuration in the application configuration file:
+
+.CORS Configuration Example
+[configuration]
+```
+micronaut:
+  server:
+    cors:
+      enabled: true
+```
+
+By only enabling CORS processing, a "wide open" strategy is adopted that allows requests from any origin.
+
+To change the settings for all origins or a specific origin, change the configuration to provide one or more "configurations". By providing any configuration, the default "wide open" configuration is not configured.
+
+.CORS Configurations
+[configuration]
+```
+micronaut:
+  server:
+    cors:
+      enabled: true
+      configurations:
+        all:
+          ...
+        web:
+          ...
+        mobile:
+          ...
+```
+
+In the above example, three configurations are provided. Their names (`all`, `web`, `mobile`) are not important and have no significance inside Micronaut. They are there purely to be able to easily recognize the intended user of the configuration.
+
+The same configuration properties can be applied to each configuration. See [CorsOriginConfiguration]({api}/io/micronaut/http/server/cors/CorsOriginConfiguration.html) for properties that can be defined. The values of each configuration supplied will default to the default values of the corresponding fields.
+
+When a CORS request is made, configurations are searched for allowed origins that match exactly or match the request origin through a regular expression.
