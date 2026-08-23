@@ -87,7 +87,7 @@
   "license": "BSD-3-Clause",
   "repo": "redis/redis-specifications",
   "requested_ref": "master",
-  "retrieved_at": "2026-08-23T04:58:33+00:00",
+  "retrieved_at": "2026-08-23T05:45:00+00:00",
   "schema_version": 1,
   "source_commit": "1252427cdbc497f66a7f8550c6b5f2f35367dc92",
   "source_id": "redis-protocol-specifications",
