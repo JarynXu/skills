@@ -12,36 +12,315 @@
     ]
   },
   "sources": [
-    {"source_id":"alibaba-p3c","title":"Alibaba Java Development Manual / P3C","repo":"alibaba/p3c","ref":"master","license":"Apache-2.0 repository; preserve license and provenance for selected documentation","tier":"practice-guide","tracks":["java","sql","testing","security","engineering-practice"],"includes":[{"path":"license.txt"},{"path":"README.md"},{"path":"Java开发手册(黄山版).pdf","extract_pdf_text":true},{"path":"p3c-gitbook","recursive":true}]},
-    {"source_id":"google-styleguide","title":"Google Style Guides","repo":"google/styleguide","ref":"gh-pages","license":"CC BY 3.0","tier":"practice-guide","tracks":["java","go","python","c-cpp","csharp-dotnet","node-typescript","shell"],"includes":[{"path":"LICENSE"},{"path":"javaguide.html"},{"path":"cppguide.html"},{"path":"csharp-style.md"},{"path":"pyguide.md"},{"path":"shellguide.md"},{"path":"tsguide.html"},{"path":"jsguide.html"},{"path":"go/index.md"},{"path":"go/guide.md"},{"path":"go/decisions.md"},{"path":"go/best-practices.md"}]},
-    {"source_id":"go-language","title":"The Go Language Specification and Memory Model","repo":"golang/go","ref":"master","license":"BSD-3-Clause","tier":"canonical-standard","tracks":["go","concurrency"],"includes":[{"path":"LICENSE"},{"path":"doc/go_spec.html"},{"path":"doc/go_mem.html"},{"path":"doc/godebug.md"}]},
-    {"source_id":"go-official-guides","title":"Official Go Engineering Guides","repo":"golang/website","ref":"master","license":"BSD-style repository license; preserve source notices","tier":"canonical-practice","tracks":["go","diagnostics"],"includes":[{"path":"LICENSE"},{"path":"_content/doc/effective_go.html"},{"path":"_content/doc/code.html"},{"path":"_content/doc/comment.md"},{"path":"_content/doc/diagnostics.html"},{"path":"_content/blog/package-names.md"}]},
-    {"source_id":"go-proverbs","title":"Go Proverbs (Rob Pike talk material mirror)","repo":"jboursiquot/go-proverbs","ref":"master","license":"MIT","tier":"conceptual-canon","tracks":["go"],"includes":[{"path":"LICENSE"},{"path":"README.md"},{"path":"proverbs.go"}]},
-    {"source_id":"uber-go-guide","title":"Uber Go Style Guide","repo":"uber-go/guide","ref":"master","license":"Apache-2.0","tier":"practice-guide","tracks":["go"],"includes":[{"path":"LICENSE"},{"path":"README.md"},{"path":"style.md"}]},
-    {"source_id":"python-peps","title":"Core Python Engineering PEPs","repo":"python/peps","ref":"main","license":"PEP-specific; preserve each PEP's copyright/license declaration","tier":"canonical-standard","tracks":["python"],"includes":[{"path":"peps/pep-0008.rst"},{"path":"peps/pep-0020.rst"},{"path":"peps/pep-0257.rst"},{"path":"peps/pep-0484.rst"}]},
-    {"source_id":"cpython-runtime-docs","title":"CPython Language, Concurrency and Diagnostics Documentation","repo":"python/cpython","ref":"main","license":"Python Software Foundation License Version 2 and bundled notices","tier":"canonical-standard","tracks":["python","runtime","async","concurrency","diagnostics"],"includes":[{"path":"LICENSE"},{"path":"Doc/reference","recursive":true},{"path":"Doc/library/asyncio.rst"},{"path":"Doc/library/asyncio-dev.rst"},{"path":"Doc/library/asyncio-eventloop.rst"},{"path":"Doc/library/asyncio-task.rst"},{"path":"Doc/library/concurrent.futures.rst"},{"path":"Doc/library/contextvars.rst"},{"path":"Doc/library/logging.rst"},{"path":"Doc/library/multiprocessing.rst"},{"path":"Doc/library/profile.rst"},{"path":"Doc/library/threading.rst"},{"path":"Doc/library/tracemalloc.rst"}]},
-    {"source_id":"rust-book","title":"The Rust Programming Language","repo":"rust-lang/book","ref":"main","license":"MIT OR Apache-2.0","tier":"canonical","tracks":["rust","language-fundamentals","ownership","concurrency"],"includes":[{"path":"COPYRIGHT"},{"path":"LICENSE-MIT"},{"path":"LICENSE-APACHE"},{"path":"README.md"},{"path":"src","recursive":true}]},
-    {"source_id":"rust-api-guidelines","title":"Rust API Guidelines","repo":"rust-lang/api-guidelines","ref":"master","license":"MIT OR Apache-2.0","tier":"canonical-practice","tracks":["rust","api-design"],"includes":[{"path":"LICENSE-MIT"},{"path":"LICENSE-APACHE"},{"path":"README.md"},{"path":"src","recursive":true}]},
-    {"source_id":"kotlin-spec","title":"Kotlin Language Specification","repo":"Kotlin/kotlin-spec","ref":"release","license":"Apache-2.0","tier":"canonical-standard","tracks":["kotlin","jvm","language-semantics"],"includes":[{"path":"LICENSE"},{"path":"README.md"},{"path":"docs/src","recursive":true},{"path":"grammar","recursive":true}]},
-    {"source_id":"kotlin-coding-conventions","title":"Official Kotlin Coding Conventions","repo":"JetBrains/kotlin-web-site","ref":"master","license":"Apache-2.0 repository license","tier":"canonical-practice","tracks":["kotlin","jvm","coding-style","api-design"],"includes":[{"path":"LICENSE"},{"path":"docs/topics/coding-conventions.md"},{"path":"docs/topics/code-style-migration-guide.md"}]},
-    {"source_id":"dotnet-csharp-conventions","title":".NET / C# Coding Conventions","repo":"dotnet/docs","ref":"main","license":"CC BY 4.0 documentation; MIT code samples","tier":"canonical-practice","tracks":["csharp-dotnet"],"includes":[{"path":"LICENSE"},{"path":"LICENSE-CODE"},{"path":"docs/csharp/fundamentals/coding-style/coding-conventions.md"}]},
-    {"source_id":"node-runtime-docs","title":"Node.js Runtime and Diagnostics Documentation","repo":"nodejs/node","ref":"main","license":"Node.js project permissive license and bundled third-party notices","tier":"canonical-standard","tracks":["node-typescript","runtime","async","streams","diagnostics","testing"],"includes":[{"path":"LICENSE"},{"path":"doc/api/async_context.md"},{"path":"doc/api/diagnostics_channel.md"},{"path":"doc/api/errors.md"},{"path":"doc/api/http.md"},{"path":"doc/api/http2.md"},{"path":"doc/api/perf_hooks.md"},{"path":"doc/api/process.md"},{"path":"doc/api/report.md"},{"path":"doc/api/stream.md"},{"path":"doc/api/test.md"},{"path":"doc/api/worker_threads.md"}]},
-    {"source_id":"node-best-practices","title":"Node.js Best Practices","repo":"goldbergyoni/nodebestpractices","ref":"master","license":"CC BY-SA 4.0","tier":"practice-guide","tracks":["node-typescript","testing","security","operability"],"includes":[{"path":"LICENSE"},{"path":"README.md"},{"path":"sections/codestylepractices","recursive":true},{"path":"sections/errorhandling","recursive":true},{"path":"sections/performance","recursive":true},{"path":"sections/production","recursive":true},{"path":"sections/projectstructre","recursive":true},{"path":"sections/security","recursive":true},{"path":"sections/testingandquality","recursive":true}]},
-    {"source_id":"http-core-rfc911x","title":"IETF HTTP Core RFCs","repo":"httpwg/http-core","ref":"main","license":"IETF Trust Legal Provisions / RFC publication notices contained in each document; preserve exact notices","tier":"canonical-standard","tracks":["http","api-design","caching"],"includes":[{"path":"README.md"},{"path":"rfc9110.html"},{"path":"rfc9111.html"},{"path":"rfc9112.html"}]},
-    {"source_id":"openapi-specification","title":"OpenAPI Specification 3.2.0","repo":"OAI/OpenAPI-Specification","ref":"main","license":"Apache-2.0","tier":"canonical-standard","tracks":["api-design","http"],"includes":[{"path":"LICENSE"},{"path":"versions/3.2.0.md"},{"path":"SECURITY_CONSIDERATIONS.md"}]},
-    {"source_id":"grpc-guides","title":"gRPC Core Engineering Guides","repo":"grpc/grpc.io","ref":"main","license":"CC BY 4.0 documentation; Apache-2.0 code samples","tier":"canonical-practice","tracks":["rpc","distributed-systems","reliability","security"],"includes":[{"path":"LICENSE"},{"path":"content/en/docs/guides/auth.md"},{"path":"content/en/docs/guides/cancellation.md"},{"path":"content/en/docs/guides/deadlines.md"},{"path":"content/en/docs/guides/error.md"},{"path":"content/en/docs/guides/flow-control.md"},{"path":"content/en/docs/guides/health-checking.md"},{"path":"content/en/docs/guides/keepalive.md"},{"path":"content/en/docs/guides/retry.md"},{"path":"content/en/docs/guides/status-codes.md"}]},
-    {"source_id":"postgresql-core-docs","title":"PostgreSQL Core Database Engineering Documentation","repo":"postgres/postgres","ref":"master","license":"PostgreSQL License","tier":"canonical-practice","tracks":["sql","database","transactions","performance","operations"],"includes":[{"path":"COPYRIGHT"},{"path":"doc/src/sgml/ddl.sgml"},{"path":"doc/src/sgml/mvcc.sgml"},{"path":"doc/src/sgml/indices.sgml"},{"path":"doc/src/sgml/perform.sgml"},{"path":"doc/src/sgml/monitoring.sgml"}]},
-    {"source_id":"kafka-core-docs","title":"Apache Kafka Design and Operations Documentation","repo":"apache/kafka","ref":"trunk","license":"Apache-2.0","tier":"canonical-practice","tracks":["messaging","event-streaming","distributed-systems","operations"],"includes":[{"path":"LICENSE"},{"path":"NOTICE"},{"path":"docs/design","recursive":true},{"path":"docs/operations","recursive":true},{"path":"docs/security","recursive":true}]},
-    {"source_id":"redis-protocol-specifications","title":"Redis Protocol and URI Specifications","repo":"redis/redis-specifications","ref":"master","license":"BSD-3-Clause","tier":"canonical-standard","tracks":["cache","redis","protocol"],"includes":[{"path":"LICENSE"},{"path":"README.md"},{"path":"protocol","recursive":true},{"path":"uri","recursive":true}]},
-    {"source_id":"owasp-asvs-5","title":"OWASP Application Security Verification Standard 5.0","repo":"OWASP/ASVS","ref":"v5.0.0","license":"CC BY-SA 4.0","tier":"canonical-standard","tracks":["security","testing"],"includes":[{"path":"LICENSE.md"},{"path":"README.md"},{"path":"5.0/en","recursive":true}]},
-    {"source_id":"owasp-cheat-sheet-series","title":"OWASP Cheat Sheet Series","repo":"OWASP/CheatSheetSeries","ref":"master","license":"CC BY-SA 4.0","tier":"practice-guide","tracks":["security","api-design","authentication","authorization","input-validation","secrets","logging"],"includes":[{"path":"LICENSE.md"},{"path":"README.md"},{"path":"cheatsheets","recursive":true}]},
-    {"source_id":"pact-specification","title":"Pact Contract Specification and Implementation Guidelines","repo":"pact-foundation/pact-specification","ref":"master","license":"MIT","tier":"tool-standard","tracks":["testing","contract-testing","api-design"],"includes":[{"path":"LICENSE"},{"path":"README.md"},{"path":"implementation-guidelines","recursive":true}]},
-    {"source_id":"opentelemetry-specification","title":"OpenTelemetry Specification — Core Backend Observability Material","repo":"open-telemetry/opentelemetry-specification","ref":"main","license":"Apache-2.0","tier":"canonical-standard","tracks":["observability","tracing","metrics","logging"],"includes":[{"path":"LICENSE"},{"path":"specification/README.md"},{"path":"specification/overview.md"},{"path":"specification/error-handling.md"},{"path":"specification/context","recursive":true},{"path":"specification/trace","recursive":true},{"path":"specification/metrics","recursive":true},{"path":"specification/logs","recursive":true},{"path":"specification/resource","recursive":true}]},
-    {"source_id":"spring-framework-docs","title":"Spring Framework Reference Documentation","repo":"spring-projects/spring-framework","ref":"main","license":"Apache-2.0","tier":"canonical-practice","tracks":["java","kotlin","spring","dependency-injection","transactions","web","testing"],"includes":[{"path":"LICENSE.txt"},{"path":"framework-docs/modules/ROOT/pages/core","recursive":true},{"path":"framework-docs/modules/ROOT/pages/data-access","recursive":true},{"path":"framework-docs/modules/ROOT/pages/testing","recursive":true},{"path":"framework-docs/modules/ROOT/pages/web","recursive":true}]},
-    {"source_id":"spring-boot-docs","title":"Spring Boot Reference Documentation","repo":"spring-projects/spring-boot","ref":"main","license":"Apache-2.0","tier":"canonical-practice","tracks":["java","kotlin","spring-boot","configuration","data","messaging","security","testing","observability"],"includes":[{"path":"LICENSE.txt"},{"path":"documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features","recursive":true},{"path":"documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator","recursive":true},{"path":"documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/data","recursive":true},{"path":"documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/messaging","recursive":true},{"path":"documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/security","recursive":true},{"path":"documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/testing","recursive":true},{"path":"documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/web","recursive":true}]},
-    {"source_id":"django-core-docs","title":"Django Core Backend Topics","repo":"django/django","ref":"main","license":"BSD-3-Clause","tier":"canonical-practice","tracks":["python","django","async","database","security","testing","performance"],"includes":[{"path":"LICENSE"},{"path":"docs/topics/async.txt"},{"path":"docs/topics/auth","recursive":true},{"path":"docs/topics/cache.txt"},{"path":"docs/topics/db","recursive":true},{"path":"docs/topics/logging.txt"},{"path":"docs/topics/migrations.txt"},{"path":"docs/topics/performance.txt"},{"path":"docs/topics/security.txt"},{"path":"docs/topics/testing","recursive":true}]},
-    {"source_id":"fastapi-core-docs","title":"FastAPI Core Backend Guidance","repo":"fastapi/fastapi","ref":"master","license":"MIT","tier":"canonical-practice","tracks":["python","fastapi","async","dependency-injection","security","testing","deployment"],"includes":[{"path":"LICENSE"},{"path":"docs/en/docs/async.md"},{"path":"docs/en/docs/tutorial/dependencies","recursive":true},{"path":"docs/en/docs/tutorial/security","recursive":true},{"path":"docs/en/docs/tutorial/background-tasks.md"},{"path":"docs/en/docs/tutorial/handling-errors.md"},{"path":"docs/en/docs/tutorial/testing.md"},{"path":"docs/en/docs/advanced/advanced-dependencies.md"},{"path":"docs/en/docs/advanced/async-tests.md"},{"path":"docs/en/docs/advanced/events.md"},{"path":"docs/en/docs/advanced/middleware.md"},{"path":"docs/en/docs/deployment","recursive":true}]},
-    {"source_id":"aspnetcore-core-docs","title":"ASP.NET Core Backend Guidance","repo":"dotnet/AspNetCore.Docs","ref":"main","license":"CC BY 4.0 documentation; preserve repository attribution","tier":"canonical-practice","tracks":["csharp-dotnet","aspnet-core","configuration","dependency-injection","security","testing","diagnostics","deployment"],"includes":[{"path":"LICENSE"},{"path":"aspnetcore/fundamentals","recursive":true},{"path":"aspnetcore/security","recursive":true},{"path":"aspnetcore/diagnostics","recursive":true},{"path":"aspnetcore/test/integration-tests.md"},{"path":"aspnetcore/test/load-tests.md"},{"path":"aspnetcore/host-and-deploy","recursive":true},{"path":"aspnetcore/grpc","recursive":true}]},
-    {"source_id":"twelve-factor-app","title":"The Twelve-Factor App","repo":"heroku/12factor","ref":"main","license":"MIT","tier":"foundational-classic","tracks":["operability","cloud-native","application-design"],"includes":[{"path":"LICENSE"},{"path":"content/en","recursive":true}]}
+    {
+      "source_id": "alibaba-p3c",
+      "title": "Alibaba Java Development Manual / P3C",
+      "repo": "alibaba/p3c",
+      "ref": "master",
+      "license": "Apache-2.0 repository; preserve license and provenance for selected documentation",
+      "tier": "practice-guide",
+      "tracks": ["java", "sql", "testing", "security", "engineering-practice"],
+      "includes": [{"path": "license.txt"}, {"path": "README.md"}, {"path": "Java开发手册(黄山版).pdf", "extract_pdf_text": true}, {"path": "p3c-gitbook", "recursive": true}]
+    },
+    {
+      "source_id": "google-styleguide",
+      "title": "Google Style Guides",
+      "repo": "google/styleguide",
+      "ref": "gh-pages",
+      "license": "CC BY 3.0",
+      "tier": "practice-guide",
+      "tracks": ["java", "go", "python", "c-cpp", "csharp-dotnet", "node-typescript", "shell"],
+      "includes": [{"path": "LICENSE"}, {"path": "javaguide.html"}, {"path": "cppguide.html"}, {"path": "csharp-style.md"}, {"path": "pyguide.md"}, {"path": "shellguide.md"}, {"path": "tsguide.html"}, {"path": "jsguide.html"}, {"path": "go/index.md"}, {"path": "go/guide.md"}, {"path": "go/decisions.md"}, {"path": "go/best-practices.md"}]
+    },
+    {
+      "source_id": "go-language",
+      "title": "The Go Language Specification and Memory Model",
+      "repo": "golang/go",
+      "ref": "master",
+      "license": "BSD-3-Clause",
+      "tier": "canonical-standard",
+      "tracks": ["go", "concurrency"],
+      "includes": [{"path": "LICENSE"}, {"path": "doc/go_spec.html"}, {"path": "doc/go_mem.html"}, {"path": "doc/godebug.md"}]
+    },
+    {
+      "source_id": "go-official-guides",
+      "title": "Official Go Engineering Guides",
+      "repo": "golang/website",
+      "ref": "master",
+      "license": "BSD-style repository license; preserve source notices",
+      "tier": "canonical-practice",
+      "tracks": ["go", "diagnostics"],
+      "includes": [{"path": "LICENSE"}, {"path": "_content/doc/effective_go.html"}, {"path": "_content/doc/code.html"}, {"path": "_content/doc/comment.md"}, {"path": "_content/doc/diagnostics.html"}, {"path": "_content/blog/package-names.md"}]
+    },
+    {
+      "source_id": "go-proverbs",
+      "title": "Go Proverbs (Rob Pike talk material mirror)",
+      "repo": "jboursiquot/go-proverbs",
+      "ref": "master",
+      "license": "MIT",
+      "tier": "conceptual-canon",
+      "tracks": ["go"],
+      "includes": [{"path": "LICENSE"}, {"path": "README.md"}, {"path": "proverbs.go"}]
+    },
+    {
+      "source_id": "uber-go-guide",
+      "title": "Uber Go Style Guide",
+      "repo": "uber-go/guide",
+      "ref": "master",
+      "license": "Apache-2.0",
+      "tier": "practice-guide",
+      "tracks": ["go"],
+      "includes": [{"path": "LICENSE"}, {"path": "README.md"}, {"path": "style.md"}]
+    },
+    {
+      "source_id": "python-peps",
+      "title": "Core Python Engineering PEPs",
+      "repo": "python/peps",
+      "ref": "main",
+      "license": "PEP-specific; preserve each PEP's copyright/license declaration",
+      "tier": "canonical-standard",
+      "tracks": ["python"],
+      "includes": [{"path": "peps/pep-0008.rst"}, {"path": "peps/pep-0020.rst"}, {"path": "peps/pep-0257.rst"}, {"path": "peps/pep-0484.rst"}]
+    },
+    {
+      "source_id": "cpython-runtime-docs",
+      "title": "CPython Language, Concurrency and Diagnostics Documentation",
+      "repo": "python/cpython",
+      "ref": "main",
+      "license": "Python Software Foundation License Version 2 and bundled notices",
+      "tier": "canonical-standard",
+      "tracks": ["python", "runtime", "async", "concurrency", "diagnostics"],
+      "includes": [{"path": "LICENSE"}, {"path": "Doc/reference", "recursive": true}, {"path": "Doc/library/asyncio.rst"}, {"path": "Doc/library/asyncio-dev.rst"}, {"path": "Doc/library/asyncio-eventloop.rst"}, {"path": "Doc/library/asyncio-task.rst"}, {"path": "Doc/library/concurrent.futures.rst"}, {"path": "Doc/library/contextvars.rst"}, {"path": "Doc/library/logging.rst"}, {"path": "Doc/library/multiprocessing.rst"}, {"path": "Doc/library/profile.rst"}, {"path": "Doc/library/threading.rst"}, {"path": "Doc/library/tracemalloc.rst"}]
+    },
+    {
+      "source_id": "rust-book",
+      "title": "The Rust Programming Language",
+      "repo": "rust-lang/book",
+      "ref": "main",
+      "license": "MIT OR Apache-2.0",
+      "tier": "canonical",
+      "tracks": ["rust", "language-fundamentals", "ownership", "concurrency"],
+      "includes": [{"path": "COPYRIGHT"}, {"path": "LICENSE-MIT"}, {"path": "LICENSE-APACHE"}, {"path": "README.md"}, {"path": "src", "recursive": true}]
+    },
+    {
+      "source_id": "rust-api-guidelines",
+      "title": "Rust API Guidelines",
+      "repo": "rust-lang/api-guidelines",
+      "ref": "master",
+      "license": "MIT OR Apache-2.0",
+      "tier": "canonical-practice",
+      "tracks": ["rust", "api-design"],
+      "includes": [{"path": "LICENSE-MIT"}, {"path": "LICENSE-APACHE"}, {"path": "README.md"}, {"path": "src", "recursive": true}]
+    },
+    {
+      "source_id": "kotlin-spec",
+      "title": "Kotlin Language Specification",
+      "repo": "Kotlin/kotlin-spec",
+      "ref": "release",
+      "license": "Apache-2.0",
+      "tier": "canonical-standard",
+      "tracks": ["kotlin", "jvm", "language-semantics"],
+      "includes": [{"path": "LICENSE"}, {"path": "README.md"}, {"path": "docs/src/md/index.md"}, {"path": "docs/src/md/kotlin.core", "recursive": true}, {"path": "docs/src/md/kotlin.jvm", "recursive": true}, {"path": "grammar/README.md"}, {"path": "grammar/src/main/antlr", "recursive": true}]
+    },
+    {
+      "source_id": "kotlin-coding-conventions",
+      "title": "Official Kotlin Coding Conventions",
+      "repo": "JetBrains/kotlin-web-site",
+      "ref": "master",
+      "license": "Apache-2.0 repository license",
+      "tier": "canonical-practice",
+      "tracks": ["kotlin", "jvm", "coding-style", "api-design"],
+      "includes": [{"path": "LICENSE"}, {"path": "docs/topics/coding-conventions.md"}, {"path": "docs/topics/code-style-migration-guide.md"}]
+    },
+    {
+      "source_id": "dotnet-csharp-conventions",
+      "title": ".NET / C# Coding Conventions",
+      "repo": "dotnet/docs",
+      "ref": "main",
+      "license": "CC BY 4.0 documentation; MIT code samples",
+      "tier": "canonical-practice",
+      "tracks": ["csharp-dotnet"],
+      "includes": [{"path": "LICENSE"}, {"path": "LICENSE-CODE"}, {"path": "docs/csharp/fundamentals/coding-style/coding-conventions.md"}]
+    },
+    {
+      "source_id": "node-runtime-docs",
+      "title": "Node.js Runtime and Diagnostics Documentation",
+      "repo": "nodejs/node",
+      "ref": "main",
+      "license": "Node.js project permissive license and bundled third-party notices",
+      "tier": "canonical-standard",
+      "tracks": ["node-typescript", "runtime", "async", "streams", "diagnostics", "testing"],
+      "includes": [{"path": "LICENSE"}, {"path": "doc/api/async_context.md"}, {"path": "doc/api/diagnostics_channel.md"}, {"path": "doc/api/errors.md"}, {"path": "doc/api/http.md"}, {"path": "doc/api/http2.md"}, {"path": "doc/api/perf_hooks.md"}, {"path": "doc/api/process.md"}, {"path": "doc/api/report.md"}, {"path": "doc/api/stream.md"}, {"path": "doc/api/test.md"}, {"path": "doc/api/worker_threads.md"}]
+    },
+    {
+      "source_id": "node-best-practices",
+      "title": "Node.js Best Practices",
+      "repo": "goldbergyoni/nodebestpractices",
+      "ref": "master",
+      "license": "CC BY-SA 4.0",
+      "tier": "practice-guide",
+      "tracks": ["node-typescript", "testing", "security", "operability"],
+      "includes": [{"path": "LICENSE"}, {"path": "README.md"}, {"path": "sections/codestylepractices", "recursive": true}, {"path": "sections/errorhandling", "recursive": true}, {"path": "sections/performance", "recursive": true}, {"path": "sections/production", "recursive": true}, {"path": "sections/projectstructre", "recursive": true}, {"path": "sections/security", "recursive": true}, {"path": "sections/testingandquality", "recursive": true}]
+    },
+    {
+      "source_id": "http-core-rfc911x",
+      "title": "IETF HTTP Core RFCs",
+      "repo": "httpwg/http-core",
+      "ref": "main",
+      "license": "IETF Trust Legal Provisions / RFC publication notices contained in each document; preserve exact notices",
+      "tier": "canonical-standard",
+      "tracks": ["http", "api-design", "caching"],
+      "includes": [{"path": "README.md"}, {"path": "rfc9110.html"}, {"path": "rfc9111.html"}, {"path": "rfc9112.html"}]
+    },
+    {
+      "source_id": "openapi-specification",
+      "title": "OpenAPI Specification 3.2.0",
+      "repo": "OAI/OpenAPI-Specification",
+      "ref": "main",
+      "license": "Apache-2.0",
+      "tier": "canonical-standard",
+      "tracks": ["api-design", "http"],
+      "includes": [{"path": "LICENSE"}, {"path": "versions/3.2.0.md"}, {"path": "SECURITY_CONSIDERATIONS.md"}]
+    },
+    {
+      "source_id": "grpc-guides",
+      "title": "gRPC Core Engineering Guides",
+      "repo": "grpc/grpc.io",
+      "ref": "main",
+      "license": "CC BY 4.0 documentation; Apache-2.0 code samples",
+      "tier": "canonical-practice",
+      "tracks": ["rpc", "distributed-systems", "reliability", "security"],
+      "includes": [{"path": "LICENSE"}, {"path": "content/en/docs/guides/auth.md"}, {"path": "content/en/docs/guides/cancellation.md"}, {"path": "content/en/docs/guides/deadlines.md"}, {"path": "content/en/docs/guides/error.md"}, {"path": "content/en/docs/guides/flow-control.md"}, {"path": "content/en/docs/guides/health-checking.md"}, {"path": "content/en/docs/guides/keepalive.md"}, {"path": "content/en/docs/guides/retry.md"}, {"path": "content/en/docs/guides/status-codes.md"}]
+    },
+    {
+      "source_id": "postgresql-core-docs",
+      "title": "PostgreSQL Core Database Engineering Documentation",
+      "repo": "postgres/postgres",
+      "ref": "master",
+      "license": "PostgreSQL License",
+      "tier": "canonical-practice",
+      "tracks": ["sql", "database", "transactions", "performance", "operations"],
+      "includes": [{"path": "COPYRIGHT"}, {"path": "doc/src/sgml/ddl.sgml"}, {"path": "doc/src/sgml/mvcc.sgml"}, {"path": "doc/src/sgml/indices.sgml"}, {"path": "doc/src/sgml/perform.sgml"}, {"path": "doc/src/sgml/monitoring.sgml"}]
+    },
+    {
+      "source_id": "kafka-core-docs",
+      "title": "Apache Kafka Design and Operations Documentation",
+      "repo": "apache/kafka",
+      "ref": "trunk",
+      "license": "Apache-2.0",
+      "tier": "canonical-practice",
+      "tracks": ["messaging", "event-streaming", "distributed-systems", "operations"],
+      "includes": [{"path": "LICENSE"}, {"path": "NOTICE"}, {"path": "docs/design", "recursive": true}, {"path": "docs/operations", "recursive": true}, {"path": "docs/security", "recursive": true}]
+    },
+    {
+      "source_id": "redis-protocol-specifications",
+      "title": "Redis Protocol and URI Specifications",
+      "repo": "redis/redis-specifications",
+      "ref": "master",
+      "license": "BSD-3-Clause",
+      "tier": "canonical-standard",
+      "tracks": ["cache", "redis", "protocol"],
+      "includes": [{"path": "LICENSE"}, {"path": "README.md"}, {"path": "protocol", "recursive": true}, {"path": "uri", "recursive": true}]
+    },
+    {
+      "source_id": "owasp-asvs-5",
+      "title": "OWASP Application Security Verification Standard 5.0",
+      "repo": "OWASP/ASVS",
+      "ref": "v5.0.0",
+      "license": "CC BY-SA 4.0",
+      "tier": "canonical-standard",
+      "tracks": ["security", "testing"],
+      "includes": [{"path": "LICENSE.md"}, {"path": "README.md"}, {"path": "5.0/en", "recursive": true}]
+    },
+    {
+      "source_id": "owasp-cheat-sheet-series",
+      "title": "OWASP Cheat Sheet Series",
+      "repo": "OWASP/CheatSheetSeries",
+      "ref": "master",
+      "license": "CC BY-SA 4.0",
+      "tier": "practice-guide",
+      "tracks": ["security", "api-design", "authentication", "authorization", "input-validation", "secrets", "logging"],
+      "includes": [{"path": "LICENSE.md"}, {"path": "README.md"}, {"path": "cheatsheets", "recursive": true}]
+    },
+    {
+      "source_id": "pact-specification",
+      "title": "Pact Contract Specification and Implementation Guidelines",
+      "repo": "pact-foundation/pact-specification",
+      "ref": "master",
+      "license": "MIT",
+      "tier": "tool-standard",
+      "tracks": ["testing", "contract-testing", "api-design"],
+      "includes": [{"path": "LICENSE"}, {"path": "README.md"}, {"path": "implementation-guidelines", "recursive": true}]
+    },
+    {
+      "source_id": "opentelemetry-specification",
+      "title": "OpenTelemetry Specification — Core Backend Observability Material",
+      "repo": "open-telemetry/opentelemetry-specification",
+      "ref": "main",
+      "license": "Apache-2.0",
+      "tier": "canonical-standard",
+      "tracks": ["observability", "tracing", "metrics", "logging"],
+      "includes": [{"path": "LICENSE"}, {"path": "specification/README.md"}, {"path": "specification/overview.md"}, {"path": "specification/error-handling.md"}, {"path": "specification/context", "recursive": true}, {"path": "specification/trace", "recursive": true}, {"path": "specification/metrics", "recursive": true}, {"path": "specification/logs", "recursive": true}, {"path": "specification/resource", "recursive": true}]
+    },
+    {
+      "source_id": "spring-framework-docs",
+      "title": "Spring Framework Reference Documentation",
+      "repo": "spring-projects/spring-framework",
+      "ref": "main",
+      "license": "Apache-2.0",
+      "tier": "canonical-practice",
+      "tracks": ["java", "kotlin", "spring", "dependency-injection", "transactions", "web", "testing"],
+      "includes": [{"path": "LICENSE.txt"}, {"path": "framework-docs/modules/ROOT/pages/core", "recursive": true}, {"path": "framework-docs/modules/ROOT/pages/data-access", "recursive": true}, {"path": "framework-docs/modules/ROOT/pages/testing", "recursive": true}, {"path": "framework-docs/modules/ROOT/pages/web", "recursive": true}]
+    },
+    {
+      "source_id": "spring-boot-docs",
+      "title": "Spring Boot Reference Documentation",
+      "repo": "spring-projects/spring-boot",
+      "ref": "main",
+      "license": "Apache-2.0",
+      "tier": "canonical-practice",
+      "tracks": ["java", "kotlin", "spring-boot", "configuration", "data", "messaging", "security", "testing", "observability"],
+      "includes": [{"path": "LICENSE.txt"}, {"path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features", "recursive": true}, {"path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator", "recursive": true}, {"path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/data", "recursive": true}, {"path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/messaging", "recursive": true}, {"path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/security", "recursive": true}, {"path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/testing", "recursive": true}, {"path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/web", "recursive": true}]
+    },
+    {
+      "source_id": "django-core-docs",
+      "title": "Django Core Backend Topics",
+      "repo": "django/django",
+      "ref": "main",
+      "license": "BSD-3-Clause",
+      "tier": "canonical-practice",
+      "tracks": ["python", "django", "async", "database", "security", "testing", "performance"],
+      "includes": [{"path": "LICENSE"}, {"path": "docs/topics/async.txt"}, {"path": "docs/topics/auth", "recursive": true}, {"path": "docs/topics/cache.txt"}, {"path": "docs/topics/db", "recursive": true}, {"path": "docs/topics/logging.txt"}, {"path": "docs/topics/migrations.txt"}, {"path": "docs/topics/performance.txt"}, {"path": "docs/topics/security.txt"}, {"path": "docs/topics/testing", "recursive": true}]
+    },
+    {
+      "source_id": "fastapi-core-docs",
+      "title": "FastAPI Core Backend Guidance",
+      "repo": "fastapi/fastapi",
+      "ref": "master",
+      "license": "MIT",
+      "tier": "canonical-practice",
+      "tracks": ["python", "fastapi", "async", "dependency-injection", "security", "testing", "deployment"],
+      "includes": [{"path": "LICENSE"}, {"path": "docs/en/docs/async.md"}, {"path": "docs/en/docs/tutorial/dependencies", "recursive": true}, {"path": "docs/en/docs/tutorial/security", "recursive": true}, {"path": "docs/en/docs/tutorial/background-tasks.md"}, {"path": "docs/en/docs/tutorial/handling-errors.md"}, {"path": "docs/en/docs/tutorial/testing.md"}, {"path": "docs/en/docs/advanced/advanced-dependencies.md"}, {"path": "docs/en/docs/advanced/async-tests.md"}, {"path": "docs/en/docs/advanced/events.md"}, {"path": "docs/en/docs/advanced/middleware.md"}, {"path": "docs/en/docs/deployment", "recursive": true}]
+    },
+    {
+      "source_id": "aspnetcore-core-docs",
+      "title": "ASP.NET Core Backend Guidance",
+      "repo": "dotnet/AspNetCore.Docs",
+      "ref": "main",
+      "license": "CC BY 4.0 documentation; preserve repository attribution",
+      "tier": "canonical-practice",
+      "tracks": ["csharp-dotnet", "aspnet-core", "configuration", "dependency-injection", "security", "testing", "diagnostics", "deployment"],
+      "includes": [{"path": "LICENSE"}, {"path": "aspnetcore/fundamentals/index.md"}, {"path": "aspnetcore/fundamentals/best-practices.md"}, {"path": "aspnetcore/fundamentals/app-state.md"}, {"path": "aspnetcore/fundamentals/configuration", "recursive": true}, {"path": "aspnetcore/fundamentals/dependency-injection.md"}, {"path": "aspnetcore/fundamentals/environments.md"}, {"path": "aspnetcore/fundamentals/error-handling.md"}, {"path": "aspnetcore/fundamentals/error-handling-api.md"}, {"path": "aspnetcore/fundamentals/http-context.md"}, {"path": "aspnetcore/fundamentals/http-requests.md"}, {"path": "aspnetcore/fundamentals/logging", "recursive": true}, {"path": "aspnetcore/fundamentals/middleware", "recursive": true}, {"path": "aspnetcore/fundamentals/routing.md"}, {"path": "aspnetcore/fundamentals/validation.md"}, {"path": "aspnetcore/security/anti-request-forgery.md"}, {"path": "aspnetcore/security/app-secrets.md"}, {"path": "aspnetcore/security/authentication", "recursive": true}, {"path": "aspnetcore/security/authorization", "recursive": true}, {"path": "aspnetcore/security/cors.md"}, {"path": "aspnetcore/security/cross-site-scripting.md"}, {"path": "aspnetcore/security/data-protection", "recursive": true}, {"path": "aspnetcore/test/integration-tests.md"}, {"path": "aspnetcore/test/load-tests.md"}]
+    },
+    {
+      "source_id": "twelve-factor-app",
+      "title": "The Twelve-Factor App",
+      "repo": "heroku/12factor",
+      "ref": "main",
+      "license": "MIT",
+      "tier": "foundational-classic",
+      "tracks": ["operability", "cloud-native", "application-design"],
+      "includes": [{"path": "LICENSE"}, {"path": "content/en", "recursive": true}]
+    }
   ]
 }

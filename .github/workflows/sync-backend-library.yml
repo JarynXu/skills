@@ -8,6 +8,11 @@ on:
       - "skills/backend-engineer/scripts/sync_offline_library.py"
       - ".github/workflows/sync-backend-library.yml"
   workflow_dispatch:
+    inputs:
+      source_ids:
+        description: "Optional space- or comma-separated source ids; empty syncs all sources"
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -32,8 +37,96 @@ jobs:
       - name: Install PDF extraction support
         run: python -m pip install pypdf
 
-      - name: Synchronize and checkpoint each source pack
+      - name: Select changed source packs
+        id: select
         env:
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+          MANUAL_SOURCES: ${{ inputs.source_ids }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          import os
+          import re
+          import subprocess
+          from pathlib import Path
+
+          path = "skills/backend-engineer/references/library/SOURCES.json"
+          current = json.loads(Path(path).read_text(encoding="utf-8"))
+          current_by_id = {item["source_id"]: item for item in current["sources"]}
+
+          if os.environ.get("EVENT_NAME") == "workflow_dispatch":
+              raw = os.environ.get("MANUAL_SOURCES", "").strip()
+              if raw:
+                  requested = [item for item in re.split(r"[\s,]+", raw) if item]
+                  unknown = sorted(set(requested) - set(current_by_id))
+                  if unknown:
+                      raise SystemExit(f"unknown source ids: {', '.join(unknown)}")
+                  changed = requested
+              else:
+                  changed = list(current_by_id)
+              removed = []
+          else:
+              before = os.environ.get("BEFORE_SHA", "")
+              previous_by_id = {}
+              if before and set(before) != {"0"}:
+                  try:
+                      previous_text = subprocess.check_output(
+                          ["git", "show", f"{before}:{path}"],
+                          text=True,
+                          stderr=subprocess.DEVNULL,
+                      )
+                      previous = json.loads(previous_text)
+                      previous_by_id = {item["source_id"]: item for item in previous["sources"]}
+                  except (subprocess.CalledProcessError, json.JSONDecodeError, KeyError):
+                      previous_by_id = {}
+
+              changed = [
+                  source_id
+                  for source_id, source in current_by_id.items()
+                  if previous_by_id.get(source_id) != source
+              ]
+              removed = sorted(set(previous_by_id) - set(current_by_id))
+
+          print("changed=" + " ".join(changed))
+          print("removed=" + " ".join(removed))
+          PY
+
+      - name: Remove deleted source packs
+        if: steps.select.outputs.removed != ''
+        env:
+          REMOVED: ${{ steps.select.outputs.removed }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          import shutil
+          from pathlib import Path
+
+          root = Path("skills/backend-engineer/references/library")
+          removed = os.environ["REMOVED"].split()
+          for source_id in removed:
+              shutil.rmtree(root / "originals" / source_id, ignore_errors=True)
+
+          lock_path = root / "SOURCES.lock.json"
+          if lock_path.exists():
+              lock = json.loads(lock_path.read_text(encoding="utf-8"))
+              for source_id in removed:
+                  lock.get("sources", {}).pop(source_id, None)
+              lock_path.write_text(
+                  json.dumps(lock, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+                  encoding="utf-8",
+              )
+          PY
+
+      - name: Synchronize changed source packs
+        if: steps.select.outputs.changed != ''
+        env:
+          CHANGED: ${{ steps.select.outputs.changed }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: bash
         run: |
@@ -41,17 +134,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          mapfile -t sources < <(python - <<'PY'
-          import json
-          from pathlib import Path
-          p = Path('skills/backend-engineer/references/library/SOURCES.json')
-          data = json.loads(p.read_text(encoding='utf-8'))
-          for item in data['sources']:
-              print(item['source_id'])
-          PY
-          )
-
-          for source in "${sources[@]}"; do
+          for source in $CHANGED; do
             echo "=== syncing ${source} ==="
             python skills/backend-engineer/scripts/sync_offline_library.py --source "${source}"
             python skills/backend-engineer/scripts/offline_library.py verify
@@ -67,6 +150,20 @@ jobs:
               git push origin HEAD:backend-library-rebuild
             fi
           done
+
+      - name: Commit deleted source packs
+        if: steps.select.outputs.removed != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A skills/backend-engineer/references/library/originals \
+            skills/backend-engineer/references/library/SOURCES.lock.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(backend-engineer): remove deleted teaching sources"
+            git push origin HEAD:backend-library-rebuild
+          fi
 
       - name: Verify complete offline library
         run: python skills/backend-engineer/scripts/offline_library.py verify
