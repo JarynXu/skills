@@ -1,6 +1,5 @@
 {
-  "derived_count": 0,
-  "derived_files": [],
+  "agent_ready": true,
   "file_count": 18,
   "files": [
     {
@@ -185,10 +184,191 @@
     }
   ],
   "license": "MIT OR Apache-2.0",
+  "processed_bytes": 98969,
+  "processed_count": 16,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 1336,
+      "derived_from": "README.md",
+      "local_git_sha": "8340836271473430ec7cc0530bda834c41668104",
+      "local_path": "README.md",
+      "searchable_text": true,
+      "sha256": "9aeced3e63f9077d70cd5a5f3cbb7c7ab6c7edaf5b2fd58bb5db74dd93c146f4",
+      "source_git_sha": "f6d7d8d34025b1915f01f80e8d0fc80d39825991",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 815,
+      "derived_from": "src/SUMMARY.md",
+      "local_git_sha": "989807913bd821b790d87f0f9732e5b5bf6b3b30",
+      "local_path": "src/SUMMARY.md",
+      "searchable_text": true,
+      "sha256": "10484ea98b7669c8e6d2decdeae6a9199305fe4bb49dce7aa1fc7e8ec67e368a",
+      "source_git_sha": "0c98324a6b96e18fe7d091f360c11a4e21474727",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 1673,
+      "derived_from": "src/about.md",
+      "local_git_sha": "f7f05162332bf68f7e0f0fa4ab460682bc1cac9f",
+      "local_path": "src/about.md",
+      "searchable_text": true,
+      "sha256": "a212fc4262d40481c86c5d6496607966971d71313a0e6c6ed4e8a17de69477a5",
+      "source_git_sha": "236116bef938accb2630256a076c5ec0d356c223",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 7577,
+      "derived_from": "src/checklist.md",
+      "local_git_sha": "a682480e04bf9716d27c9ffee67c3845abfa2b29",
+      "local_path": "src/checklist.md",
+      "searchable_text": true,
+      "sha256": "6045c80a5be5e8264088a31f8fbca8e5357c036e8bdcfca4acd0ca4e1aa0229d",
+      "source_git_sha": "8db9ef1967a756224694cb526ae79a6e074700c0",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 831,
+      "derived_from": "src/debuggability.md",
+      "local_git_sha": "d8da9318c5c59f37e664d11bd4c58ac4f3bbf4a4",
+      "local_path": "src/debuggability.md",
+      "searchable_text": true,
+      "sha256": "8e74390b391071bfd750f396734d32c92914e44d8438c2bc291f914df162442d",
+      "source_git_sha": "96d271914a4a28ed634e2caf4744e553fb38a5be",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 3357,
+      "derived_from": "src/dependability.md",
+      "local_git_sha": "e07ae950db18643bc72d9dd49f470bfe27b3eae2",
+      "local_path": "src/dependability.md",
+      "searchable_text": true,
+      "sha256": "2a1b90b147b3d88a5612516ca8ac5e79b16b7d736c9e6e1c8cdb070d66c42191",
+      "source_git_sha": "08f85ea6e7f1b9ab7e9e01c9ba186999d596ed96",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 9708,
+      "derived_from": "src/documentation.md",
+      "local_git_sha": "3a345f15c0a974532019d71180fa0478eff13d5a",
+      "local_path": "src/documentation.md",
+      "searchable_text": true,
+      "sha256": "c093b3435b14fc18159bcfd88a0d5c1d9a36c787e34cc8730b903fd52442e8f6",
+      "source_git_sha": "63ce31f211bee881e85db6dfbf2750026e68894f",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 1368,
+      "derived_from": "src/external-links.md",
+      "local_git_sha": "2f5691f60e1c7ba53a4e23025c0dcee46289f822",
+      "local_path": "src/external-links.md",
+      "searchable_text": true,
+      "sha256": "4c5263ff293c93733e57370aaeb03acaf6f070a008bec2dda4d335bf6aaf00f1",
+      "source_git_sha": "8ad325f104b2bc28e4ab2e0362e05900cc1eca50",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 7981,
+      "derived_from": "src/flexibility.md",
+      "local_git_sha": "8925242f59c7963d5f7d3725914db9754b0137bf",
+      "local_path": "src/flexibility.md",
+      "searchable_text": true,
+      "sha256": "8529bbf6a8f0c48e84103a62e9f5ee1d3a871f33e76c9e5713b90f89e9975326",
+      "source_git_sha": "e3c67920541fc245c2a4190fbee81df43d4c091f",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 7607,
+      "derived_from": "src/future-proofing.md",
+      "local_git_sha": "ed30da0a9ae37d0609f3fbadb59bdf0af5feb8fd",
+      "local_path": "src/future-proofing.md",
+      "searchable_text": true,
+      "sha256": "e7720d4a5fee4d4c94f95a81478aa0f88a66c00540dbc6fd2b04a227e2e9d251",
+      "source_git_sha": "e34edd525aa5e6abfc430c46cfea8a351d73184f",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 13735,
+      "derived_from": "src/interoperability.md",
+      "local_git_sha": "43143d17aea70ea6ab7cdb4ad51bce7830e3b26b",
+      "local_path": "src/interoperability.md",
+      "searchable_text": true,
+      "sha256": "0d34d1abb8e1c2e1b08eb8013b1c2517d4e1bd645fdf71e17da195bdda735343",
+      "source_git_sha": "7a505f4b5860dfd2046005130e4d44a371c049e2",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 4822,
+      "derived_from": "src/macros.md",
+      "local_git_sha": "8db9659016231268740696e012034400cfd7537f",
+      "local_path": "src/macros.md",
+      "searchable_text": true,
+      "sha256": "5c370510230fc18434a012c3e656dae1e0f33b49d563a3e333ee26a87211cc35",
+      "source_git_sha": "d65d17fb70563e98df935d477e56822dee1d88cb",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 15614,
+      "derived_from": "src/naming.md",
+      "local_git_sha": "f5b35536d7d55590a77190190d9989abc3dba3a1",
+      "local_path": "src/naming.md",
+      "searchable_text": true,
+      "sha256": "21e9f4ca4164c98e222a1386f9ad5d03fb143c0a764855f099f9c414300c3365",
+      "source_git_sha": "8bbeeb333685c1f4b15bec475958d5a077bd95d8",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 4100,
+      "derived_from": "src/necessities.md",
+      "local_git_sha": "812c3b5ff62638da72093f07b951c4812fa146b9",
+      "local_path": "src/necessities.md",
+      "searchable_text": true,
+      "sha256": "d274e7a2032a6b187146a248ae4f0c016b42672ceacf01709d894a392806b5d9",
+      "source_git_sha": "b1c0d3c1affd3e6da63963a87d314aaea0a58295",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 9246,
+      "derived_from": "src/predictability.md",
+      "local_git_sha": "f3c52d1f9c3b4f4347510ea733cff624c4489025",
+      "local_path": "src/predictability.md",
+      "searchable_text": true,
+      "sha256": "d8d48d4f13bb5576c74c88594ee3af2cd27d9dddb6219c3ee4179da660f0df1a",
+      "source_git_sha": "a044f0abf417160cfd6645944e6dcea33316e6f5",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 9199,
+      "derived_from": "src/type-safety.md",
+      "local_git_sha": "6c4449629c7ba4b7312ed59c9b7d2131bbed7639",
+      "local_path": "src/type-safety.md",
+      "searchable_text": true,
+      "sha256": "6eee3b013a7724e4029758cbb2a8ee0a6450b19967b4d86cafadfabaefeb9391",
+      "source_git_sha": "5315ee4b4cbfd17e5fabc501720508505342bd06",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
   "repo": "rust-lang/api-guidelines",
   "requested_ref": "master",
-  "retrieved_at": "2026-08-23T05:27:57+00:00",
-  "schema_version": 1,
+  "retrieved_at": "2026-08-23T06:25:12+00:00",
+  "schema_version": 2,
   "source_commit": "97a0969cb07fe4cabb0eed8a56234053f47d83dc",
   "source_id": "rust-api-guidelines",
   "source_tree": "5cff42a35b1c0d7d639bf9ade3b90ab351234d3b",
