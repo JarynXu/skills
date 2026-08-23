@@ -92,6 +92,15 @@
       "source_commit": "d79bd502ec7fa49335afa422f442af80ed0ab8f6",
       "total_original_bytes": 567579
     },
+    "kotlin-coding-conventions": {
+      "derived_count": 0,
+      "file_count": 3,
+      "repo": "JetBrains/kotlin-web-site",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T05:43:17+00:00",
+      "source_commit": "72a34b63180685b5f46f994b4b257d376907d739",
+      "total_original_bytes": 53190
+    },
     "kotlin-spec": {
       "derived_count": 0,
       "file_count": 6864,
