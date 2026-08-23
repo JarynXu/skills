@@ -151,7 +151,7 @@
       "file_count": 30,
       "repo": "OWASP/ASVS",
       "requested_ref": "v5.0.0",
-      "retrieved_at": "2026-08-23T04:58:40+00:00",
+      "retrieved_at": "2026-08-23T05:45:08+00:00",
       "source_commit": "936f29673daa69fe90e6fa706011f89aef201988",
       "total_original_bytes": 303071
     },

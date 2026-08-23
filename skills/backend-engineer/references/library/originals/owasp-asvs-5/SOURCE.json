@@ -307,7 +307,7 @@
   "license": "CC BY-SA 4.0",
   "repo": "OWASP/ASVS",
   "requested_ref": "v5.0.0",
-  "retrieved_at": "2026-08-23T04:58:40+00:00",
+  "retrieved_at": "2026-08-23T05:45:08+00:00",
   "schema_version": 1,
   "source_commit": "936f29673daa69fe90e6fa706011f89aef201988",
   "source_id": "owasp-asvs-5",
