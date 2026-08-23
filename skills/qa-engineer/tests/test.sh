@@ -41,6 +41,7 @@ python "$ROOT/scripts/inspect_test_system.py" "$TMP" --format text >/dev/null
 if python "$ROOT/scripts/inspect_test_system.py" "$TMP/missing" >/dev/null 2>&1; then
   echo "expected missing directory to fail" >&2; exit 1
 fi
+python "$ROOT/tests/test_control_plane.py"
 python "$ROOT/scripts/offline_library.py" verify
 python "$ROOT/scripts/offline_library.py" search "authorization matrix" --source owasp-cheat-sheet-series --limit 3 >/dev/null
 python "$ROOT/scripts/offline_library.py" search "Input Validation" --source owasp-cheat-sheet-series --limit 3 >/dev/null
@@ -67,6 +68,6 @@ for source in root.rglob('*.md'):
             continue
         assert (source.parent/target).resolve().exists(), f'broken link: {source} -> {target}'
         links += 1
-assert links >= 14, links
+assert links >= 16, links
 assert not list(root.rglob('README.md'))
 PY

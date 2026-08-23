@@ -2,6 +2,8 @@
 
 Select tools only after the target surface, stack, protocol, platform, environment, and risk are known. Existing project configuration and executable commands outrank this catalog.
 
+Before guessing how to run a suite, use [test-control-plane.md](test-control-plane.md) and `python scripts/plan_test_checks.py <project-root>` to derive read-only candidate commands from repository-owned scripts, wrappers, presets, artifacts, and CI evidence. For target selection, identities, fixtures, isolation, privacy, reset, platform matrices, and production-safe data handling, use [../practices/test-environments-and-data.md](../practices/test-environments-and-data.md).
+
 ## Web UI and browser
 
 - **Playwright:** multi-browser automation, network/context control, traces, screenshots/video, parallel workers, and modern end-to-end/component workflows.
@@ -11,11 +13,15 @@ Select tools only after the target surface, stack, protocol, platform, environme
 
 Choose from supported browser matrix, language, existing suite, component versus end-to-end need, remote grid, debugging, and team ownership. Use accessibility-first stable locators.
 
+Do not infer that a framework should be introduced merely because a browser surface exists. Inspect the existing package scripts, framework configuration, CI shards, browser projects, retries, trace/video policy, test IDs and environment setup first.
+
 ## Mobile, desktop, and devices
 
 - **Appium:** cross-platform mobile/native automation through WebDriver-compatible drivers.
 - Platform tools such as XCTest/XCUITest, Espresso/UI Automator, WinAppDriver or current Windows automation, and host-specific frameworks may provide deeper fidelity.
 - Device/browser farms provide matrix breadth; real devices remain necessary for hardware, lifecycle, power, driver, and performance mechanisms.
+
+Separate simulator breadth from real-device evidence. Record OS/device/runtime versions and reset state; device farms are remote mutable environments, not generic local test runners.
 
 ## API, protocol, and contract
 
@@ -24,6 +30,8 @@ Choose from supported browser matrix, language, existing suite, component versus
 - **Pact** and **Spring Cloud Contract:** consumer/provider contract workflows.
 - **Schemathesis** and schema-derived tools: generated API exploration; add domain oracles.
 - **WireMock**, MockServer, Mountebank, Hoverfly, and ecosystem equivalents: service virtualization.
+
+A collection or schema is not an oracle by itself. Verify business state, durable side effects, error semantics, permissions and compatibility. Treat collections that point at shared or production targets as external-state operations even when the command itself looks harmless.
 
 ## Language test ecosystems
 
@@ -35,6 +43,8 @@ Choose from supported browser matrix, language, existing suite, component versus
 - Rust: Cargo test, proptest/quickcheck, criterion, integration harnesses.
 - C/C++: GoogleTest/GoogleMock, Catch2, doctest, CTest, sanitizers and fuzzers.
 
+Use the repository's wrapper/task/CI entry point when it captures required setup. Generic language commands are fallback candidates, not proof of the project's intended suite topology.
+
 ## Performance and resilience
 
 - k6: scriptable protocol/load tests with CI and distributed options.
@@ -44,16 +54,24 @@ Choose from supported browser matrix, language, existing suite, component versus
 - Toxiproxy, Chaos Mesh, Litmus, Gremlin or platform fault injection: use only in authorized controlled scope.
 - Profilers and telemetry are required to explain bottlenecks; a load generator alone is insufficient.
 
+Treat every load/stress/soak/capacity or fault-injection entry point as target-dependent. Confirm workload model, target, credentials, data, generator capacity, thresholds, abort conditions and authorization before execution.
+
 ## Security and accessibility
 
 - OWASP ZAP and authorized DAST tools for dynamic web/API checks.
 - Ecosystem dependency, secret, SAST, container, and IaC scanners as triage inputs.
 - axe-core, Lighthouse, Pa11y, Accessibility Insights, browser/platform inspectors, and real assistive technologies for accessibility.
 
+A security tool installed in the repository is evidence of capability, not permission for invasive scanning. Automated accessibility rules cover only machine-detectable conditions; keyboard, focus, semantics, screen-reader and human usability evidence remain necessary where applicable.
+
 ## Reports and management
 
 Allure, JUnit XML, HTML reports, traces, screenshots, videos, logs, and dashboards organize evidence. Test-management systems may support cases, traceability, runs, and approvals. Do not make proprietary tool availability a correctness dependency; preserve exportable evidence and source control where practical.
 
+Inspect report completeness. A green dashboard can hide skipped tests, filters, retries, quarantines, missing shards, collection failures or artifact upload problems.
+
 ## Adoption rule
 
 Introduce a tool only when it closes a demonstrated evidence gap and its license, version, integration, data handling, runtime cost, false-positive behavior, ownership, maintenance, and exit path are acceptable. Do not add a second framework merely for personal preference.
+
+When adding deterministic planner support for a tool, require a repository signal strong enough to identify a safe candidate command and encode whether it needs a target, authorization or can mutate external state. Do not turn tool familiarity into implicit execution authority.
