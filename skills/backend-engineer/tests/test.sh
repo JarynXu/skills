@@ -51,20 +51,20 @@ if python "$ROOT/scripts/inspect_backend.py" "$TMP/missing" >/dev/null 2>&1; the
   exit 1
 fi
 
-# Curriculum files are first-class teaching entry points.
 for file in \
   "$ROOT/references/library/INDEX.md" \
   "$ROOT/references/library/SOURCES.json" \
   "$ROOT/references/library/curriculum/README.md" \
   "$ROOT/references/library/curriculum/languages.md" \
   "$ROOT/references/library/curriculum/go.md" \
+  "$ROOT/references/library/curriculum/kotlin.md" \
+  "$ROOT/references/library/curriculum/rust.md" \
   "$ROOT/references/library/curriculum/systems.md" \
   "$ROOT/references/library/curriculum/restricted-canon.md" \
   "$ROOT/references/library/curriculum/source-selection.md"; do
   test -s "$file"
 done
 
-# Offline source inventory must contain every baseline teaching pack.
 LIB_LIST="$(python "$ROOT/scripts/offline_library.py" list)"
 for source in \
   alibaba-p3c \
@@ -74,7 +74,10 @@ for source in \
   go-proverbs \
   uber-go-guide \
   python-peps \
+  rust-book \
   rust-api-guidelines \
+  kotlin-spec \
+  kotlin-coding-conventions \
   dotnet-csharp-conventions \
   node-best-practices \
   http-core-rfc911x \
@@ -92,12 +95,14 @@ done
 
 python "$ROOT/scripts/offline_library.py" verify | grep -q 'Verified'
 
-# Representative dictionary lookups prove that the library is useful without network access.
 python "$ROOT/scripts/offline_library.py" search 'ThreadPoolExecutor' --source alibaba-p3c --limit 5 | grep -q '并发处理.md'
 python "$ROOT/scripts/offline_library.py" search 'happens before' --source go-language --limit 5 | grep -q 'go_mem.html'
 python "$ROOT/scripts/offline_library.py" search 'Effective Go' --source go-official-guides --limit 5 | grep -q 'effective_go.html'
 python "$ROOT/scripts/offline_library.py" search 'share memory by communicating' --source go-proverbs --limit 5 >/dev/null
 python "$ROOT/scripts/offline_library.py" search 'Readability counts' --source python-peps --limit 5 | grep -q 'pep-0020.rst'
+python "$ROOT/scripts/offline_library.py" search 'ownership' --source rust-book --limit 10 | grep -q 'src/'
+python "$ROOT/scripts/offline_library.py" search 'overload resolution' --source kotlin-spec --limit 10 | grep -q 'docs/src/'
+python "$ROOT/scripts/offline_library.py" search 'Coding conventions' --source kotlin-coding-conventions --limit 5 | grep -q 'coding-conventions.md'
 python "$ROOT/scripts/offline_library.py" search 'Operation Object' --source openapi-specification --limit 5 | grep -q '3.2.0.md'
 python "$ROOT/scripts/offline_library.py" search 'deadline' --source grpc-guides --limit 5 | grep -q 'deadlines.md'
 python "$ROOT/scripts/offline_library.py" search 'transaction isolation' --source postgresql-core-docs --limit 5 | grep -q 'mvcc.sgml'
