@@ -5,7 +5,9 @@ on:
     branches: [backend-library-rebuild]
     paths:
       - "skills/backend-engineer/references/library/SOURCES.json"
+      - "skills/backend-engineer/references/library/CURATION.json"
       - "skills/backend-engineer/scripts/sync_offline_library.py"
+      - "skills/backend-engineer/scripts/prune_offline_library.py"
       - ".github/workflows/sync-backend-library.yml"
   workflow_dispatch:
     inputs:
@@ -56,8 +58,6 @@ jobs:
           catalog_path = Path("skills/backend-engineer/references/library/SOURCES.json")
           originals = Path("skills/backend-engineer/references/library/originals")
           sync_path = "skills/backend-engineer/scripts/sync_offline_library.py"
-          workflow_path = ".github/workflows/sync-backend-library.yml"
-
           current = json.loads(catalog_path.read_text(encoding="utf-8"))
           current_by_id = {item["source_id"]: item for item in current["sources"]}
           selected: list[str] = []
@@ -103,19 +103,13 @@ jobs:
                       add(source_id)
               removed = sorted(set(previous_by_id) - set(current_by_id))
 
-              # A synchronizer change can alter recursive curation semantics. Rebuild only
-              # source packs that actually use recursive includes, not the whole library.
+              # Changes to recursive-selection semantics require rebuilding only recursive packs.
               if sync_path in changed_files:
                   for source_id, source in current_by_id.items():
                       if any(bool(item.get("recursive")) for item in source.get("includes", [])):
                           add(source_id)
 
-              # A workflow-only change does not by itself require network synchronization.
-              if workflow_path in changed_files and len(changed_files) == 1:
-                  selected = []
-
-          # Repair incomplete historical packs. A SOURCE.json that names an original not
-          # present in Git is not a valid offline source and must be rebuilt from upstream.
+          # Repair any historical source whose manifest names files not actually present in Git.
           for source_id in current_by_id:
               manifest_path = originals / source_id / "SOURCE.json"
               if not manifest_path.is_file():
@@ -196,37 +190,22 @@ jobs:
             fi
           done
 
-      - name: Build processed Markdown from all installed originals
+      - name: Curate and build processed Markdown from all installed originals
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+          python skills/backend-engineer/scripts/prune_offline_library.py
           python skills/backend-engineer/scripts/sync_offline_library.py --process-existing
-          git add -A -f \
-            skills/backend-engineer/references/library/originals/*/SOURCE.json \
-            skills/backend-engineer/references/library/processed \
-            skills/backend-engineer/references/library/SOURCES.lock.json
-
-          if ! git diff --cached --quiet; then
-            git commit -m "chore(backend-engineer): build processed Markdown teaching layer"
-            git push origin HEAD:backend-library-rebuild
-          fi
-
-      - name: Commit removed source packs
-        if: steps.select.outputs.removed != ''
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A -f \
             skills/backend-engineer/references/library/originals \
             skills/backend-engineer/references/library/processed \
             skills/backend-engineer/references/library/SOURCES.lock.json
+
           if ! git diff --cached --quiet; then
-            git commit -m "chore(backend-engineer): remove deleted teaching sources"
+            git commit -m "chore(backend-engineer): curate processed Markdown teaching layer"
             git push origin HEAD:backend-library-rebuild
           fi
 
