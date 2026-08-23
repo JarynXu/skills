@@ -142,7 +142,7 @@
       "file_count": 56,
       "repo": "open-telemetry/opentelemetry-specification",
       "requested_ref": "main",
-      "retrieved_at": "2026-08-23T04:58:53+00:00",
+      "retrieved_at": "2026-08-23T05:45:40+00:00",
       "source_commit": "1377f53b2bc0683c45169b8f20fd973eb4d59419",
       "total_original_bytes": 2326875
     },
