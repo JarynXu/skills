@@ -1,0 +1,186 @@
+{
+  "catalog_git_sha": "71febb6837d9c42ed2edfc90c92a93311c918d11",
+  "schema_version": 1,
+  "sources": {
+    "alibaba-p3c": {
+      "derived_count": 1,
+      "file_count": 32,
+      "repo": "alibaba/p3c",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T04:56:15+00:00",
+      "source_commit": "6c59c8c36ecd8722c712d5685b8c3822c1c8b030",
+      "total_original_bytes": 1720258
+    },
+    "dotnet-csharp-conventions": {
+      "derived_count": 0,
+      "file_count": 3,
+      "repo": "dotnet/docs",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T04:56:34+00:00",
+      "source_commit": "b7779bffad7a68afea19963ca7cf64092c87eff3",
+      "total_original_bytes": 43261
+    },
+    "go-language": {
+      "derived_count": 0,
+      "file_count": 4,
+      "repo": "golang/go",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T04:56:22+00:00",
+      "source_commit": "c97cfcb37fced87a43a3dbab8983d6f76b8b84d1",
+      "total_original_bytes": 353714
+    },
+    "go-official-guides": {
+      "derived_count": 0,
+      "file_count": 6,
+      "repo": "golang/website",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T04:56:24+00:00",
+      "source_commit": "b02076ae6df08ee9d495fe4b283f88ac18e51012",
+      "total_original_bytes": 191957
+    },
+    "go-proverbs": {
+      "derived_count": 0,
+      "file_count": 3,
+      "repo": "jboursiquot/go-proverbs",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T04:56:26+00:00",
+      "source_commit": "4f144663856efcbac3ef61869f3d5d92f1a1534a",
+      "total_original_bytes": 6199
+    },
+    "google-styleguide": {
+      "derived_count": 0,
+      "file_count": 12,
+      "repo": "google/styleguide",
+      "requested_ref": "gh-pages",
+      "retrieved_at": "2026-08-23T04:56:20+00:00",
+      "source_commit": "1809c769de31ba388c755ad15dd057a9ba8531fd",
+      "total_original_bytes": 1082225
+    },
+    "grpc-guides": {
+      "derived_count": 0,
+      "file_count": 10,
+      "repo": "grpc/grpc.io",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T04:58:20+00:00",
+      "source_commit": "984427b74e9755fd69982b3c32c8dc52c5283a85",
+      "total_original_bytes": 79441
+    },
+    "http-core-rfc911x": {
+      "derived_count": 0,
+      "file_count": 4,
+      "repo": "httpwg/http-core",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T04:58:14+00:00",
+      "source_commit": "bde37f634681bd5462568b73aa722af9c9a3ef5e",
+      "total_original_bytes": 1644554
+    },
+    "kafka-core-docs": {
+      "derived_count": 0,
+      "file_count": 28,
+      "repo": "apache/kafka",
+      "requested_ref": "trunk",
+      "retrieved_at": "2026-08-23T04:58:30+00:00",
+      "source_commit": "d79bd502ec7fa49335afa422f442af80ed0ab8f6",
+      "total_original_bytes": 567579
+    },
+    "node-best-practices": {
+      "derived_count": 0,
+      "file_count": 561,
+      "repo": "goldbergyoni/nodebestpractices",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T04:58:11+00:00",
+      "source_commit": "dc3d60c29d5483d9ea99cf261bbd6203516a2ba7",
+      "total_original_bytes": 2053647
+    },
+    "openapi-specification": {
+      "derived_count": 0,
+      "file_count": 3,
+      "repo": "OAI/OpenAPI-Specification",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T04:58:16+00:00",
+      "source_commit": "46c1076ba6f9a7a09ecaa6b740ab603cf6cc9886",
+      "total_original_bytes": 309655
+    },
+    "opentelemetry-specification": {
+      "derived_count": 0,
+      "file_count": 56,
+      "repo": "open-telemetry/opentelemetry-specification",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T04:58:53+00:00",
+      "source_commit": "1377f53b2bc0683c45169b8f20fd973eb4d59419",
+      "total_original_bytes": 2326875
+    },
+    "owasp-asvs-5": {
+      "derived_count": 0,
+      "file_count": 30,
+      "repo": "OWASP/ASVS",
+      "requested_ref": "v5.0.0",
+      "retrieved_at": "2026-08-23T04:58:40+00:00",
+      "source_commit": "936f29673daa69fe90e6fa706011f89aef201988",
+      "total_original_bytes": 303071
+    },
+    "pact-specification": {
+      "derived_count": 0,
+      "file_count": 3,
+      "repo": "pact-foundation/pact-specification",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T04:58:41+00:00",
+      "source_commit": "2746817263962c3c470e2f16157153eb78c299bd",
+      "total_original_bytes": 10406
+    },
+    "postgresql-core-docs": {
+      "derived_count": 0,
+      "file_count": 6,
+      "repo": "postgres/postgres",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T04:58:24+00:00",
+      "source_commit": "f20c4278342f6afc44b856e98a0850f9dd2df0a8",
+      "total_original_bytes": 820550
+    },
+    "python-peps": {
+      "derived_count": 0,
+      "file_count": 4,
+      "repo": "python/peps",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T04:56:29+00:00",
+      "source_commit": "b4f8bb538cffe7bd1401d0f529e721caf4125482",
+      "total_original_bytes": 151639
+    },
+    "redis-protocol-specifications": {
+      "derived_count": 0,
+      "file_count": 8,
+      "repo": "redis/redis-specifications",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T04:58:33+00:00",
+      "source_commit": "1252427cdbc497f66a7f8550c6b5f2f35367dc92",
+      "total_original_bytes": 69890
+    },
+    "rust-api-guidelines": {
+      "derived_count": 0,
+      "file_count": 18,
+      "repo": "rust-lang/api-guidelines",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T04:56:33+00:00",
+      "source_commit": "97a0969cb07fe4cabb0eed8a56234053f47d83dc",
+      "total_original_bytes": 105170
+    },
+    "twelve-factor-app": {
+      "derived_count": 0,
+      "file_count": 17,
+      "repo": "heroku/12factor",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T04:58:56+00:00",
+      "source_commit": "1385d2c80bac38c25647651f6f5ec769561828dc",
+      "total_original_bytes": 35980
+    },
+    "uber-go-guide": {
+      "derived_count": 0,
+      "file_count": 3,
+      "repo": "uber-go/guide",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T04:56:27+00:00",
+      "source_commit": "1d60a91aa5e87d443002e23c21903c49489dbde5",
+      "total_original_bytes": 99931
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "derived_count": 0,
+  "derived_files": [],
+  "file_count": 3,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 1074,
+      "local_git_sha": "097371eebfa460303963e53e0a2606ca437e187b",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "99405a297a64d913d4f7feef5ffdcb5e6096f4923d9afb3e55fd420fe2c96ede",
+      "upstream_git_sha": "097371eebfa460303963e53e0a2606ca437e187b",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3997,
+      "local_git_sha": "598b217baed2f32c75dc5507117a915f339550dd",
+      "local_path": "README.md",
+      "searchable_text": true,
+      "sha256": "6d159642c4b78c1717b6b6ca2bd718f92ce345d71faef3d969ba64ca52ed0318",
+      "upstream_git_sha": "598b217baed2f32c75dc5507117a915f339550dd",
+      "upstream_path": "README.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1128,
+      "local_git_sha": "e0a7232b639e2409484170a509a85ee80c362261",
+      "local_path": "proverbs.go",
+      "searchable_text": true,
+      "sha256": "d312e65818849b94ab5d4cbbc1b56d69fbe35ea8436e6a9b4919775724668152",
+      "upstream_git_sha": "e0a7232b639e2409484170a509a85ee80c362261",
+      "upstream_path": "proverbs.go"
+    }
+  ],
+  "license": "MIT",
+  "repo": "jboursiquot/go-proverbs",
+  "requested_ref": "master",
+  "retrieved_at": "2026-08-23T04:56:26+00:00",
+  "schema_version": 1,
+  "source_commit": "4f144663856efcbac3ef61869f3d5d92f1a1534a",
+  "source_id": "go-proverbs",
+  "source_tree": "dd2d896d13970bd26e43c2ab91590c959088c2f0",
+  "source_url": "https://github.com/jboursiquot/go-proverbs/tree/4f144663856efcbac3ef61869f3d5d92f1a1534a",
+  "tier": "conceptual-canon",
+  "title": "Go Proverbs (Rob Pike talk material mirror)",
+  "total_original_bytes": 6199,
+  "tracks": [
+    "go"
+  ]
+}

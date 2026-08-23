@@ -1,0 +1,52 @@
+{
+  "derived_count": 0,
+  "derived_files": [],
+  "file_count": 3,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 18649,
+      "local_git_sha": "5b5176fd7083f7e19bbfdebde24148e562397c2f",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "243f341367f0ee35271c8924aaf5d075157c62538042e2f3c11ff9a1fcc5539c",
+      "upstream_git_sha": "5b5176fd7083f7e19bbfdebde24148e562397c2f",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1090,
+      "local_git_sha": "b17b032a43088ac7f3d2f3e34a2431c778a95e6f",
+      "local_path": "LICENSE-CODE",
+      "searchable_text": false,
+      "sha256": "91f7258203fd43ba6d6f7f72b644eaedee9e3430f035c053beb6f34052f045e2",
+      "upstream_git_sha": "b17b032a43088ac7f3d2f3e34a2431c778a95e6f",
+      "upstream_path": "LICENSE-CODE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 23522,
+      "local_git_sha": "95e678de57d6dfc4add6ae80cac341df74379cbb",
+      "local_path": "docs/csharp/fundamentals/coding-style/coding-conventions.md",
+      "searchable_text": true,
+      "sha256": "456ffe74bac3c98f7aabbc3f9bb2ede789213b2b3ee2d35895fe9bf0950edc96",
+      "upstream_git_sha": "95e678de57d6dfc4add6ae80cac341df74379cbb",
+      "upstream_path": "docs/csharp/fundamentals/coding-style/coding-conventions.md"
+    }
+  ],
+  "license": "CC BY 4.0 documentation; MIT code samples",
+  "repo": "dotnet/docs",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T04:56:34+00:00",
+  "schema_version": 1,
+  "source_commit": "b7779bffad7a68afea19963ca7cf64092c87eff3",
+  "source_id": "dotnet-csharp-conventions",
+  "source_tree": "164ecf9f09e56decbea8c75264484b388efa42e4",
+  "source_url": "https://github.com/dotnet/docs/tree/b7779bffad7a68afea19963ca7cf64092c87eff3",
+  "tier": "canonical-practice",
+  "title": ".NET / C# Coding Conventions",
+  "total_original_bytes": 43261,
+  "tracks": [
+    "csharp-dotnet"
+  ]
+}

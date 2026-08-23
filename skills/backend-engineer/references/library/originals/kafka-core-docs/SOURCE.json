@@ -1,0 +1,305 @@
+{
+  "derived_count": 0,
+  "derived_files": [],
+  "file_count": 28,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 11358,
+      "local_git_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "upstream_git_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 707,
+      "local_git_sha": "eaa0b8690d2269321ae0073dac4a3b8ac5c4564a",
+      "local_path": "NOTICE",
+      "searchable_text": true,
+      "sha256": "e10a1d2b5812b6eeac08ec087512bbf649739ca23cb7ee610702acb976f42936",
+      "upstream_git_sha": "eaa0b8690d2269321ae0073dac4a3b8ac5c4564a",
+      "upstream_path": "NOTICE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 947,
+      "local_git_sha": "261729f6b3d60c16bb6d721c6abb1dd52fe824fc",
+      "local_path": "docs/design/_index.md",
+      "searchable_text": true,
+      "sha256": "eecae6fecf5092d1a6e1765612fae82e315efef051df7472c138f5c837e2050c",
+      "upstream_git_sha": "261729f6b3d60c16bb6d721c6abb1dd52fe824fc",
+      "upstream_path": "docs/design/_index.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 77321,
+      "local_git_sha": "587f985f84279a0e2b14c98629d4b736dbf742d2",
+      "local_path": "docs/design/design.md",
+      "searchable_text": true,
+      "sha256": "60410c9c0e3b9f031a5da5b7241b0114345fdec15c72c6908d9e89424b8c6e6c",
+      "upstream_git_sha": "587f985f84279a0e2b14c98629d4b736dbf742d2",
+      "upstream_path": "docs/design/design.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 20548,
+      "local_git_sha": "70169e1793b66ac3c82c748a15dab9c751aff334",
+      "local_path": "docs/design/protocol.md",
+      "searchable_text": true,
+      "sha256": "b906f08000b5da48b466345dc5339298b3d48cff4a2d76ccb449fccddc475851",
+      "upstream_git_sha": "70169e1793b66ac3c82c748a15dab9c751aff334",
+      "upstream_path": "docs/design/protocol.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 965,
+      "local_git_sha": "6ec57d46e5bcadeef4e756a7b34b6402040cd620",
+      "local_path": "docs/operations/_index.md",
+      "searchable_text": true,
+      "sha256": "c4be908e4dcd039563a14e994c42e6331ce01f481bea07eb92488e2354fdf86f",
+      "upstream_git_sha": "6ec57d46e5bcadeef4e756a7b34b6402040cd620",
+      "upstream_path": "docs/operations/_index.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 51910,
+      "local_git_sha": "e04efc9d669816bf4472f8084837ca3bc0ecd1aa",
+      "local_path": "docs/operations/basic-kafka-operations.md",
+      "searchable_text": true,
+      "sha256": "81b2b59617362660383f86e2089cfacea95d79ec9efda9c42584c93c214e7864",
+      "upstream_git_sha": "e04efc9d669816bf4472f8084837ca3bc0ecd1aa",
+      "upstream_path": "docs/operations/basic-kafka-operations.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 6324,
+      "local_git_sha": "51de8380b4ff320d2a5575c238db0c13775f6523",
+      "local_path": "docs/operations/consumer-rebalance-protocol.md",
+      "searchable_text": true,
+      "sha256": "9695cb016fa49d74f18f7d6ee9c8e50c476e9026be54cc3103080519060a5a9b",
+      "upstream_git_sha": "51de8380b4ff320d2a5575c238db0c13775f6523",
+      "upstream_path": "docs/operations/consumer-rebalance-protocol.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2869,
+      "local_git_sha": "8e30de9572f7774ca097519b167c0da9eb0eee5e",
+      "local_path": "docs/operations/datacenters.md",
+      "searchable_text": true,
+      "sha256": "d9b0209c4c17b69d83d64ad49dd641f1372ec334e64421c0c2fb9e3b6e04db38",
+      "upstream_git_sha": "8e30de9572f7774ca097519b167c0da9eb0eee5e",
+      "upstream_path": "docs/operations/datacenters.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3109,
+      "local_git_sha": "2c7c34276a74827c852934cc98a2a78c6647e664",
+      "local_path": "docs/operations/eligible-leader-replicas.md",
+      "searchable_text": true,
+      "sha256": "68eee5ae2dbbecddae48a49cdfc3ed44df135a059a1096ce5b4ac9927857285f",
+      "upstream_git_sha": "2c7c34276a74827c852934cc98a2a78c6647e664",
+      "upstream_path": "docs/operations/eligible-leader-replicas.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 26362,
+      "local_git_sha": "e858d12cc53c1156f371232c18ff148700114e50",
+      "local_path": "docs/operations/geo-replication-(cross-cluster-data-mirroring).md",
+      "searchable_text": true,
+      "sha256": "19a55ee6ebe047ce093d479238b43abf3cdafc46f768ecb3f9fdf84c0f3deb2e",
+      "upstream_git_sha": "e858d12cc53c1156f371232c18ff148700114e50",
+      "upstream_path": "docs/operations/geo-replication-(cross-cluster-data-mirroring).md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 15153,
+      "local_git_sha": "d22b0b2f40ac2df187ba420745564cecb5b228f7",
+      "local_path": "docs/operations/hardware-and-os.md",
+      "searchable_text": true,
+      "sha256": "85231550acf47bf0e01e76c8d9c5104cf47d2443d0653e054baf8299e00f4d36",
+      "upstream_git_sha": "d22b0b2f40ac2df187ba420745564cecb5b228f7",
+      "upstream_path": "docs/operations/hardware-and-os.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2238,
+      "local_git_sha": "8dfca018572be74539acdce7ed2dca5efb086280",
+      "local_path": "docs/operations/java-version.md",
+      "searchable_text": true,
+      "sha256": "b54dc5dc9d8fb8fab69b6e32ffd75e8ed6eba8cfb44184afa3a359d13072f8f6",
+      "upstream_git_sha": "8dfca018572be74539acdce7ed2dca5efb086280",
+      "upstream_path": "docs/operations/java-version.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 18022,
+      "local_git_sha": "6af3245450b4e328874cdc8b14c5f47274b5de08",
+      "local_path": "docs/operations/kraft.md",
+      "searchable_text": true,
+      "sha256": "7bcd77fe02492f7ea4f9cddc66ff523057845e53c258859f3c6c66cd00c66936",
+      "upstream_git_sha": "6af3245450b4e328874cdc8b14c5f47274b5de08",
+      "upstream_path": "docs/operations/kraft.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 143780,
+      "local_git_sha": "7ff73ea7cdb2ea3d9f5ecaf443b64ebfd492abaf",
+      "local_path": "docs/operations/monitoring.md",
+      "searchable_text": true,
+      "sha256": "0de19448304a05153edac92656660d24bc1b97788cb0d99467867274894b0368",
+      "upstream_git_sha": "7ff73ea7cdb2ea3d9f5ecaf443b64ebfd492abaf",
+      "upstream_path": "docs/operations/monitoring.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 12382,
+      "local_git_sha": "e1e4222bc82f938d5c977a2fe8b579f2b5c8e2a3",
+      "local_path": "docs/operations/multi-tenancy.md",
+      "searchable_text": true,
+      "sha256": "35e17b7f4fd0842b3f8faf6fc89d4a366cfac031b9e54a78bba595d851da65e9",
+      "upstream_git_sha": "e1e4222bc82f938d5c977a2fe8b579f2b5c8e2a3",
+      "upstream_path": "docs/operations/multi-tenancy.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 10689,
+      "local_git_sha": "7d1559c692a6557f67b5607397cec9a9ad319ed6",
+      "local_path": "docs/operations/tiered-storage.md",
+      "searchable_text": true,
+      "sha256": "d2069033bd5cd04c1452952a8f628f75a35e75c43486eaf660d0ea0e2f09b473",
+      "upstream_git_sha": "7d1559c692a6557f67b5607397cec9a9ad319ed6",
+      "upstream_path": "docs/operations/tiered-storage.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3917,
+      "local_git_sha": "479dc5e4f66ca308e34b7017b82e0df059b3b7ca",
+      "local_path": "docs/operations/transaction-protocol.md",
+      "searchable_text": true,
+      "sha256": "50312cac99d7735f665239f3942f2005e40aa4b3e4e5e22a2041c7fc05b389da",
+      "upstream_git_sha": "479dc5e4f66ca308e34b7017b82e0df059b3b7ca",
+      "upstream_path": "docs/operations/transaction-protocol.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 973,
+      "local_git_sha": "4a7730fe853807b049cf7053fdc0546e3608d825",
+      "local_path": "docs/security/_index.md",
+      "searchable_text": true,
+      "sha256": "55505bc19f69607b26f7dfd96a13acf90c0151c71beb3860d83c58c52a716f69",
+      "upstream_git_sha": "4a7730fe853807b049cf7053fdc0546e3608d825",
+      "upstream_path": "docs/security/_index.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 49688,
+      "local_git_sha": "c22bf2d89cbd925dfe57c60aea0ae9269ce9d366",
+      "local_path": "docs/security/authentication-using-sasl.md",
+      "searchable_text": true,
+      "sha256": "35da3459d2e76aca69a2596059848ef709b35f059fafea23e5398263ccbe3c68",
+      "upstream_git_sha": "c22bf2d89cbd925dfe57c60aea0ae9269ce9d366",
+      "upstream_path": "docs/security/authentication-using-sasl.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 41405,
+      "local_git_sha": "965f9326ca956413f4d71ef1601d8a9176327397",
+      "local_path": "docs/security/authorization-and-acls.md",
+      "searchable_text": true,
+      "sha256": "80da5bb4748a913000faa0631998bd88c1454fa9e9500d59a205655b47158960",
+      "upstream_git_sha": "965f9326ca956413f4d71ef1601d8a9176327397",
+      "upstream_path": "docs/security/authorization-and-acls.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 24921,
+      "local_git_sha": "30dcad6451897023e92535a3502f1bf0e7f0a8ba",
+      "local_path": "docs/security/encryption-and-authentication-using-ssl.md",
+      "searchable_text": true,
+      "sha256": "5537ed07d15a03ff89697019cb9c1a2e312e93ec5f8fffa803f19ab5b65579b9",
+      "upstream_git_sha": "30dcad6451897023e92535a3502f1bf0e7f0a8ba",
+      "upstream_path": "docs/security/encryption-and-authentication-using-ssl.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4142,
+      "local_git_sha": "3b3450900239065463c8c9b01b817125f8f8847d",
+      "local_path": "docs/security/incorporating-security-features-in-a-running-cluster.md",
+      "searchable_text": true,
+      "sha256": "430bafff5be40b8e2a2a6f0f90624a0550e187fcdb493c0b4a8aad4bba6adf1c",
+      "upstream_git_sha": "3b3450900239065463c8c9b01b817125f8f8847d",
+      "upstream_path": "docs/security/incorporating-security-features-in-a-running-cluster.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7306,
+      "local_git_sha": "8aed20ed7e7f443952d733d2273f720d29f77a6f",
+      "local_path": "docs/security/listener-configuration.md",
+      "searchable_text": true,
+      "sha256": "1ee500a76d861e31477c65838f1ba772a126562179e8224947f4982713afe793",
+      "upstream_git_sha": "8aed20ed7e7f443952d733d2273f720d29f77a6f",
+      "upstream_path": "docs/security/listener-configuration.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 10202,
+      "local_git_sha": "2ebfda953838f5d36899ae9da6038b208004a92d",
+      "local_path": "docs/security/security-model-connect.md",
+      "searchable_text": true,
+      "sha256": "b103590acb0756ea9956ad8bd01587180372bea23778c2e952abff86b4a1cd7e",
+      "upstream_git_sha": "2ebfda953838f5d36899ae9da6038b208004a92d",
+      "upstream_path": "docs/security/security-model-connect.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2730,
+      "local_git_sha": "1e05a37c1202b88299930f23181a358bd660e0dc",
+      "local_path": "docs/security/security-model-streams.md",
+      "searchable_text": true,
+      "sha256": "58d700d1dde54f1fc0ee5e89d607fcf42a92e5ff0c1ad7e31f58e07ab5036652",
+      "upstream_git_sha": "1e05a37c1202b88299930f23181a358bd660e0dc",
+      "upstream_path": "docs/security/security-model-streams.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 15499,
+      "local_git_sha": "9b9d7929d7ad11670e44212f9bbca2411749f033",
+      "local_path": "docs/security/security-model.md",
+      "searchable_text": true,
+      "sha256": "8ba0b096726fb086c1d283ab65406992a23138439382dec33324729ac259d1c9",
+      "upstream_git_sha": "9b9d7929d7ad11670e44212f9bbca2411749f033",
+      "upstream_path": "docs/security/security-model.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2112,
+      "local_git_sha": "d68eeb482ee656151d0039f99be2203f7ddfe6bf",
+      "local_path": "docs/security/security-overview.md",
+      "searchable_text": true,
+      "sha256": "6dc5c207c0723f8dfde72a9ad7614afbf321aca4e5af41ec763d231381883385",
+      "upstream_git_sha": "d68eeb482ee656151d0039f99be2203f7ddfe6bf",
+      "upstream_path": "docs/security/security-overview.md"
+    }
+  ],
+  "license": "Apache-2.0",
+  "repo": "apache/kafka",
+  "requested_ref": "trunk",
+  "retrieved_at": "2026-08-23T04:58:30+00:00",
+  "schema_version": 1,
+  "source_commit": "d79bd502ec7fa49335afa422f442af80ed0ab8f6",
+  "source_id": "kafka-core-docs",
+  "source_tree": "0e22273b4026e2e43b9630b6d847e552907ee1be",
+  "source_url": "https://github.com/apache/kafka/tree/d79bd502ec7fa49335afa422f442af80ed0ab8f6",
+  "tier": "canonical-practice",
+  "title": "Apache Kafka Design and Operations Documentation",
+  "total_original_bytes": 567579,
+  "tracks": [
+    "messaging",
+    "event-streaming",
+    "distributed-systems",
+    "operations"
+  ]
+}

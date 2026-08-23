@@ -1,0 +1,194 @@
+{
+  "derived_count": 0,
+  "derived_files": [],
+  "file_count": 17,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 1056,
+      "local_git_sha": "486cfeb41ae7fed49e1400e1155315690566cd72",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "bffa134a9c134b41d3f33e0c76dd9a91cee1a4e67912216d441c6e7584970b71",
+      "upstream_git_sha": "486cfeb41ae7fed49e1400e1155315690566cd72",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2103,
+      "local_git_sha": "870a560962ca6d1da281e42a1d40396d6fed2ec1",
+      "local_path": "content/en/admin-processes.md",
+      "searchable_text": true,
+      "sha256": "fc496eaf191463a22fa4a04e4eca2bab35889f966688e024959ea320c310a7cd",
+      "upstream_git_sha": "870a560962ca6d1da281e42a1d40396d6fed2ec1",
+      "upstream_path": "content/en/admin-processes.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1474,
+      "local_git_sha": "9be3f1677dc9520ce7eb2a44123222139a11ee6b",
+      "local_path": "content/en/background.md",
+      "searchable_text": true,
+      "sha256": "be4ea69343efe10323b04edaaca8158be20ef04a5c82484a7d078e045569b527",
+      "upstream_git_sha": "9be3f1677dc9520ce7eb2a44123222139a11ee6b",
+      "upstream_path": "content/en/background.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2680,
+      "local_git_sha": "c8f59945ec1854421bcd6128b68b2639cd3b5702",
+      "local_path": "content/en/backing-services.md",
+      "searchable_text": true,
+      "sha256": "092e74d60e59001d0f70e39024c6bbac67188907f677431c1081b80f20b37695",
+      "upstream_git_sha": "c8f59945ec1854421bcd6128b68b2639cd3b5702",
+      "upstream_path": "content/en/backing-services.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2494,
+      "local_git_sha": "83525c1ec6406ed44edb5be006508818ec462649",
+      "local_path": "content/en/build-release-run.md",
+      "searchable_text": true,
+      "sha256": "f5eababf567dfe7a3ea7740d32372aeffb22fb660c4e296c8c4701b179bb517b",
+      "upstream_git_sha": "83525c1ec6406ed44edb5be006508818ec462649",
+      "upstream_path": "content/en/build-release-run.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1796,
+      "local_git_sha": "234ad6725f625df276c23f00be2dd2d38772e1c2",
+      "local_path": "content/en/codebase.md",
+      "searchable_text": true,
+      "sha256": "aafead6b0d15bd56a80521bd783094d5bf2d7381cf4dec2c15716ea8f2798e9a",
+      "upstream_git_sha": "234ad6725f625df276c23f00be2dd2d38772e1c2",
+      "upstream_path": "content/en/codebase.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2618,
+      "local_git_sha": "9e7426fcff5bd825f271405224a9e09dbed16131",
+      "local_path": "content/en/concurrency.md",
+      "searchable_text": true,
+      "sha256": "d4a22e2db87f45c04f78bcec5fe3dd69075359e9a76d724039ce110b0acfc996",
+      "upstream_git_sha": "9e7426fcff5bd825f271405224a9e09dbed16131",
+      "upstream_path": "content/en/concurrency.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3050,
+      "local_git_sha": "0bc603b827dba5d4a15871d6e4deab043e0b275e",
+      "local_path": "content/en/config.md",
+      "searchable_text": true,
+      "sha256": "eb1dd6799ee8a82ca0074727432138234f40841952392406aa05c76fb35fcd27",
+      "upstream_git_sha": "0bc603b827dba5d4a15871d6e4deab043e0b275e",
+      "upstream_path": "content/en/config.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2558,
+      "local_git_sha": "d53fd4cd8c5c7867c2217b5e87a7a4a663bb80c1",
+      "local_path": "content/en/dependencies.md",
+      "searchable_text": true,
+      "sha256": "636df45c364d8abc3fa2418be2e913dda1c97eca62c199048827bac2d91a8c87",
+      "upstream_git_sha": "d53fd4cd8c5c7867c2217b5e87a7a4a663bb80c1",
+      "upstream_path": "content/en/dependencies.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4527,
+      "local_git_sha": "e771d163c431e12729e73d10bd2aec3d960237c7",
+      "local_path": "content/en/dev-prod-parity.md",
+      "searchable_text": true,
+      "sha256": "0964d7249df65f78f7a50fa066f80f99ca1125c3e64a25d07582905292a20e6d",
+      "upstream_git_sha": "e771d163c431e12729e73d10bd2aec3d960237c7",
+      "upstream_path": "content/en/dev-prod-parity.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2734,
+      "local_git_sha": "4725ef581591be0705dbe408c5be9ff0f753dff7",
+      "local_path": "content/en/disposability.md",
+      "searchable_text": true,
+      "sha256": "8ee1f8a0acb60b75f1d2c761ba14234fd578d66c5c64a59347d48680bc09ee53",
+      "upstream_git_sha": "4725ef581591be0705dbe408c5be9ff0f753dff7",
+      "upstream_path": "content/en/disposability.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 998,
+      "local_git_sha": "eff1d33d42bdb516aa9f69e7c86f11ae5c08ea44",
+      "local_path": "content/en/intro.md",
+      "searchable_text": true,
+      "sha256": "21a1fc883d6fa0a6bfb577d63047294bb7cfe64921824d233c9dbdf2416713e3",
+      "upstream_git_sha": "eff1d33d42bdb516aa9f69e7c86f11ae5c08ea44",
+      "upstream_path": "content/en/intro.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2242,
+      "local_git_sha": "22e3404e73ddb98be18d511a938e0a34557d3a25",
+      "local_path": "content/en/logs.md",
+      "searchable_text": true,
+      "sha256": "7dcb48b93385aca9fb8a8087ba592f3c588bb3937ffee7ac1514ecb377932146",
+      "upstream_git_sha": "22e3404e73ddb98be18d511a938e0a34557d3a25",
+      "upstream_path": "content/en/logs.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1913,
+      "local_git_sha": "b12de8b159eeb029c370e6badffd445a8517ab7a",
+      "local_path": "content/en/port-binding.md",
+      "searchable_text": true,
+      "sha256": "21aba4d1b47a5cf15dfdb90ec6ef8473193dbbd7d84a563d5998e70cf90ff7ed",
+      "upstream_git_sha": "b12de8b159eeb029c370e6badffd445a8517ab7a",
+      "upstream_path": "content/en/port-binding.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2481,
+      "local_git_sha": "97d222a7db6b8a5fd59486a64903539a24492a04",
+      "local_path": "content/en/processes.md",
+      "searchable_text": true,
+      "sha256": "77f8721bde123f9f63e86f6ebb953ce77705582cce76b8d2e64272788ad429b7",
+      "upstream_git_sha": "97d222a7db6b8a5fd59486a64903539a24492a04",
+      "upstream_path": "content/en/processes.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1078,
+      "local_git_sha": "d8fbe2c5e32e67caa6d2bb93e8f592a9076bc5df",
+      "local_path": "content/en/toc.md",
+      "searchable_text": true,
+      "sha256": "3c92df2db9e68a068b362f66f26b71230091b309fd730d01227b809ea3e79333",
+      "upstream_git_sha": "d8fbe2c5e32e67caa6d2bb93e8f592a9076bc5df",
+      "upstream_path": "content/en/toc.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 178,
+      "local_git_sha": "49eb40fd534fb0a61605d8235694f6804fd19986",
+      "local_path": "content/en/who.md",
+      "searchable_text": true,
+      "sha256": "d6605812d19d8093d932873c1326dd534c37cddb246b27a96548120ce0b1c61a",
+      "upstream_git_sha": "49eb40fd534fb0a61605d8235694f6804fd19986",
+      "upstream_path": "content/en/who.md"
+    }
+  ],
+  "license": "MIT",
+  "repo": "heroku/12factor",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T04:58:56+00:00",
+  "schema_version": 1,
+  "source_commit": "1385d2c80bac38c25647651f6f5ec769561828dc",
+  "source_id": "twelve-factor-app",
+  "source_tree": "7dee0c2913c4bef99c01e230bba1db04c4565bec",
+  "source_url": "https://github.com/heroku/12factor/tree/1385d2c80bac38c25647651f6f5ec769561828dc",
+  "tier": "foundational-classic",
+  "title": "The Twelve-Factor App",
+  "total_original_bytes": 35980,
+  "tracks": [
+    "operability",
+    "cloud-native",
+    "application-design"
+  ]
+}

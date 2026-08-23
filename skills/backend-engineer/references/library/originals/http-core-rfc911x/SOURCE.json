@@ -1,0 +1,64 @@
+{
+  "derived_count": 0,
+  "derived_files": [],
+  "file_count": 4,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 804,
+      "local_git_sha": "db5e1ece585b8575f6568951b79a4a5a99b3c3e1",
+      "local_path": "README.md",
+      "searchable_text": true,
+      "sha256": "e28a791c4f4aa0e3369e99ce7f63bb29d2b4160a9aee99a723cdaf49771e80f8",
+      "upstream_git_sha": "db5e1ece585b8575f6568951b79a4a5a99b3c3e1",
+      "upstream_path": "README.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1143700,
+      "local_git_sha": "8f2bcefa61346fc8a0cf96084d2f0c0cd9afe87f",
+      "local_path": "rfc9110.html",
+      "searchable_text": true,
+      "sha256": "ea36a7cd34edf105aed7cf8c0a2446a5430d5d4d8c342c25057bd386d8f35849",
+      "upstream_git_sha": "8f2bcefa61346fc8a0cf96084d2f0c0cd9afe87f",
+      "upstream_path": "rfc9110.html"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 225264,
+      "local_git_sha": "f59974e932383b3b26e0d06f98e1a11261934886",
+      "local_path": "rfc9111.html",
+      "searchable_text": true,
+      "sha256": "8d1a5463f0225d2db86ad6225ebbcf1181bf14d13f6c1d2b271943a1a4fac29e",
+      "upstream_git_sha": "f59974e932383b3b26e0d06f98e1a11261934886",
+      "upstream_path": "rfc9111.html"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 274786,
+      "local_git_sha": "af559265a39b3bf1d7fc89885dbdd5c7b6c54238",
+      "local_path": "rfc9112.html",
+      "searchable_text": true,
+      "sha256": "d1c75f77711591ceb108f213d07e52135dfced0607b96e7bac2643ea5b69338d",
+      "upstream_git_sha": "af559265a39b3bf1d7fc89885dbdd5c7b6c54238",
+      "upstream_path": "rfc9112.html"
+    }
+  ],
+  "license": "IETF Trust Legal Provisions / RFC publication notices contained in each document; preserve exact notices",
+  "repo": "httpwg/http-core",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T04:58:14+00:00",
+  "schema_version": 1,
+  "source_commit": "bde37f634681bd5462568b73aa722af9c9a3ef5e",
+  "source_id": "http-core-rfc911x",
+  "source_tree": "5cb9b6346412dd5437c2028706dbc001b023dda3",
+  "source_url": "https://github.com/httpwg/http-core/tree/bde37f634681bd5462568b73aa722af9c9a3ef5e",
+  "tier": "canonical-standard",
+  "title": "IETF HTTP Core RFCs",
+  "total_original_bytes": 1644554,
+  "tracks": [
+    "http",
+    "api-design",
+    "caching"
+  ]
+}

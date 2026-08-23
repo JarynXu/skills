@@ -1,0 +1,104 @@
+{
+  "derived_count": 0,
+  "derived_files": [],
+  "file_count": 8,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 1454,
+      "local_git_sha": "8cea3f29d3373b9f3c7be1891007d0b0ae450ffd",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "a73171e38f736631465cec9e4165d569913432208ca7cfdbf4d4a3ab46f79236",
+      "upstream_git_sha": "8cea3f29d3373b9f3c7be1891007d0b0ae450ffd",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 140,
+      "local_git_sha": "a65ddc4f882eacaf71dd78609952e53b9d14792f",
+      "local_path": "README.md",
+      "searchable_text": true,
+      "sha256": "b6c288a99afb66bbbc0a9755dd63e585144a900217e0e615c6f43758ffd7bb55",
+      "upstream_git_sha": "a65ddc4f882eacaf71dd78609952e53b9d14792f",
+      "upstream_path": "README.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 52,
+      "local_git_sha": "2788ed1b20e4a502a504ec33f075acddd1a5548a",
+      "local_path": "protocol/README.md",
+      "searchable_text": true,
+      "sha256": "165338af493ec1bad3b70b4fae490e3d8f16acf9292dd5b2c009b24de88b332a",
+      "upstream_git_sha": "2788ed1b20e4a502a504ec33f075acddd1a5548a",
+      "upstream_path": "protocol/README.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 14851,
+      "local_git_sha": "2e9b6e890a6a04b54f804c5d00b6203be29ccd1a",
+      "local_path": "protocol/RESP2.md",
+      "searchable_text": true,
+      "sha256": "ff725bdb4b916ace3d35dc7ef2a0d4a425ca7c8aa107e9ca9be41705c94b3233",
+      "upstream_git_sha": "2e9b6e890a6a04b54f804c5d00b6203be29ccd1a",
+      "upstream_path": "protocol/RESP2.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 38875,
+      "local_git_sha": "6c48920c0c67c04c0b26518b79d13b33ed6a4ece",
+      "local_path": "protocol/RESP3.md",
+      "searchable_text": true,
+      "sha256": "0aeda1fbed16511e8202a47424af24999ad0a3dfc6243968f2a189109d8341bf",
+      "upstream_git_sha": "6c48920c0c67c04c0b26518b79d13b33ed6a4ece",
+      "upstream_path": "protocol/RESP3.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 0,
+      "local_git_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "local_path": "uri/README.md",
+      "searchable_text": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "upstream_git_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "upstream_path": "uri/README.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 10115,
+      "local_git_sha": "49af88cfe01f283449e989813dd5acce974c365e",
+      "local_path": "uri/redis.txt",
+      "searchable_text": true,
+      "sha256": "ac3e36a7c82a6dc89e7b03cd41588c9cdf328dcbad56aaf62e93d978b573c4e0",
+      "upstream_git_sha": "49af88cfe01f283449e989813dd5acce974c365e",
+      "upstream_path": "uri/redis.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4403,
+      "local_git_sha": "3f27b8068f12148b3d8ff8d99073c23a71484ffd",
+      "local_path": "uri/rediss.txt",
+      "searchable_text": true,
+      "sha256": "64a17d0cce5f55bd84dc4a397815de3a4f0675cc9624c047ea4b272d7c64b9c4",
+      "upstream_git_sha": "3f27b8068f12148b3d8ff8d99073c23a71484ffd",
+      "upstream_path": "uri/rediss.txt"
+    }
+  ],
+  "license": "BSD-3-Clause",
+  "repo": "redis/redis-specifications",
+  "requested_ref": "master",
+  "retrieved_at": "2026-08-23T04:58:33+00:00",
+  "schema_version": 1,
+  "source_commit": "1252427cdbc497f66a7f8550c6b5f2f35367dc92",
+  "source_id": "redis-protocol-specifications",
+  "source_tree": "a8078566b470dcbc3846da148a77b8429c6db6d1",
+  "source_url": "https://github.com/redis/redis-specifications/tree/1252427cdbc497f66a7f8550c6b5f2f35367dc92",
+  "tier": "canonical-standard",
+  "title": "Redis Protocol and URI Specifications",
+  "total_original_bytes": 69890,
+  "tracks": [
+    "cache",
+    "redis",
+    "protocol"
+  ]
+}

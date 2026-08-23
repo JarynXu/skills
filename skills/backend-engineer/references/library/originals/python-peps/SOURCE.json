@@ -1,0 +1,62 @@
+{
+  "derived_count": 0,
+  "derived_files": [],
+  "file_count": 4,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 50796,
+      "local_git_sha": "d14c9e97b120daecadcd4afe742af69ddc07a34c",
+      "local_path": "peps/pep-0008.rst",
+      "searchable_text": true,
+      "sha256": "6028935c6cb2c674d5f4d512c7ba6ce2923713b1c47ce1a78adc690db817fc5d",
+      "upstream_git_sha": "d14c9e97b120daecadcd4afe742af69ddc07a34c",
+      "upstream_path": "peps/pep-0008.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1648,
+      "local_git_sha": "5e0543dcfa2d156367d96799967241aedf589919",
+      "local_path": "peps/pep-0020.rst",
+      "searchable_text": true,
+      "sha256": "742999637cc96eef52e8148fdf65a6065a0953daee92bb48b8c739efcf6def07",
+      "upstream_git_sha": "5e0543dcfa2d156367d96799967241aedf589919",
+      "upstream_path": "peps/pep-0020.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 10581,
+      "local_git_sha": "9ef667588c3d57b35eb4eb32642b7e7acc6815c3",
+      "local_path": "peps/pep-0257.rst",
+      "searchable_text": true,
+      "sha256": "7db41c5aaea3bfde0463307c72b38d735dc604491cadd059d7f9fe94b8142c0e",
+      "upstream_git_sha": "9ef667588c3d57b35eb4eb32642b7e7acc6815c3",
+      "upstream_path": "peps/pep-0257.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 88614,
+      "local_git_sha": "df17858d269db1f7c93d3d64dea6788a4acbdb09",
+      "local_path": "peps/pep-0484.rst",
+      "searchable_text": true,
+      "sha256": "ddfe61c36a61b3ba926aaf23f4934ab17493a1cb7ea5d45497235b552c4a9f7c",
+      "upstream_git_sha": "df17858d269db1f7c93d3d64dea6788a4acbdb09",
+      "upstream_path": "peps/pep-0484.rst"
+    }
+  ],
+  "license": "PEP-specific; preserve each PEP's copyright/license declaration",
+  "repo": "python/peps",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T04:56:29+00:00",
+  "schema_version": 1,
+  "source_commit": "b4f8bb538cffe7bd1401d0f529e721caf4125482",
+  "source_id": "python-peps",
+  "source_tree": "f0901a8fe6e8e337e23cea174232d33130362173",
+  "source_url": "https://github.com/python/peps/tree/b4f8bb538cffe7bd1401d0f529e721caf4125482",
+  "tier": "canonical-standard",
+  "title": "Core Python Engineering PEPs",
+  "total_original_bytes": 151639,
+  "tracks": [
+    "python"
+  ]
+}

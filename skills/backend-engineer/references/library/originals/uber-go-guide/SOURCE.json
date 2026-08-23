@@ -1,0 +1,52 @@
+{
+  "derived_count": 0,
+  "derived_files": [],
+  "file_count": 3,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 10173,
+      "local_git_sha": "d9a10c0d8e868ebf8da0b3dc95bb0be634c34bfe",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "a6cba85bc92e0cff7a450b1d873c0eaa2e9fc96bf472df0247a26bec77bf3ff9",
+      "upstream_git_sha": "d9a10c0d8e868ebf8da0b3dc95bb0be634c34bfe",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2437,
+      "local_git_sha": "1d1ccd2c3a6d75dbc5b1be3dbb18c3d1e6dd5677",
+      "local_path": "README.md",
+      "searchable_text": true,
+      "sha256": "cccd7ce1e1f67a6fd4c6a9b9c8c09bb1463135595a35c320b79e96c315e6ab57",
+      "upstream_git_sha": "1d1ccd2c3a6d75dbc5b1be3dbb18c3d1e6dd5677",
+      "upstream_path": "README.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 87321,
+      "local_git_sha": "818eab696e2d8d0c161baf6e2c9195c241cf341a",
+      "local_path": "style.md",
+      "searchable_text": true,
+      "sha256": "9f29ffce482b9c31a6cd7aa82ec7e4333972ddaed10ffa8344e8bcb5348cc09a",
+      "upstream_git_sha": "818eab696e2d8d0c161baf6e2c9195c241cf341a",
+      "upstream_path": "style.md"
+    }
+  ],
+  "license": "Apache-2.0",
+  "repo": "uber-go/guide",
+  "requested_ref": "master",
+  "retrieved_at": "2026-08-23T04:56:27+00:00",
+  "schema_version": 1,
+  "source_commit": "1d60a91aa5e87d443002e23c21903c49489dbde5",
+  "source_id": "uber-go-guide",
+  "source_tree": "66774030d9447d8c0458ed083082ffb50304d999",
+  "source_url": "https://github.com/uber-go/guide/tree/1d60a91aa5e87d443002e23c21903c49489dbde5",
+  "tier": "practice-guide",
+  "title": "Uber Go Style Guide",
+  "total_original_bytes": 99931,
+  "tracks": [
+    "go"
+  ]
+}

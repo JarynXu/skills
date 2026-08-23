@@ -1,0 +1,86 @@
+{
+  "derived_count": 0,
+  "derived_files": [],
+  "file_count": 6,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 1198,
+      "local_git_sha": "0a397648dcd3c2177acc58bd7daecd11ad64be62",
+      "local_path": "COPYRIGHT",
+      "searchable_text": true,
+      "sha256": "3d6af92ff8a4c2cdf69afb1cf44edea727922f5cd0cf8b5f72b11cdecac8fdfd",
+      "upstream_git_sha": "0a397648dcd3c2177acc58bd7daecd11ad64be62",
+      "upstream_path": "COPYRIGHT"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 237508,
+      "local_git_sha": "9006b947e74cdffd4a77f94b936b8606afc448eb",
+      "local_path": "doc/src/sgml/ddl.sgml",
+      "searchable_text": true,
+      "sha256": "9e9c791cc963b560a657bee199b7462f7c64be7cbf257162b260c64ad07f7c7f",
+      "upstream_git_sha": "9006b947e74cdffd4a77f94b936b8606afc448eb",
+      "upstream_path": "doc/src/sgml/ddl.sgml"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 71070,
+      "local_git_sha": "55f39b0df2f2e6cedcd07c38548937a5ce4f15cc",
+      "local_path": "doc/src/sgml/indices.sgml",
+      "searchable_text": true,
+      "sha256": "2c132e861c91293f28377d4709d80d94dba16462fb96b280a74fa9a529d1ad26",
+      "upstream_git_sha": "55f39b0df2f2e6cedcd07c38548937a5ce4f15cc",
+      "upstream_path": "doc/src/sgml/indices.sgml"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 321539,
+      "local_git_sha": "32cb6fdbd7642e03e1fad3c5b4f6430ba2cec519",
+      "local_path": "doc/src/sgml/monitoring.sgml",
+      "searchable_text": true,
+      "sha256": "059fdcd9207569b03d5da3ce4538587d79e15f69889d2001d62862a09bb5795f",
+      "upstream_git_sha": "32cb6fdbd7642e03e1fad3c5b4f6430ba2cec519",
+      "upstream_path": "doc/src/sgml/monitoring.sgml"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 84596,
+      "local_git_sha": "9cb52302f23b5abae7efd3c6e25a5cb640181eef",
+      "local_path": "doc/src/sgml/mvcc.sgml",
+      "searchable_text": true,
+      "sha256": "3ea535b5f13fe79fbc33afc31e605d44ddd4e674ebd0ce98c109c80b22d4ea8a",
+      "upstream_git_sha": "9cb52302f23b5abae7efd3c6e25a5cb640181eef",
+      "upstream_path": "doc/src/sgml/mvcc.sgml"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 104639,
+      "local_git_sha": "ea8da01b7797fdcbfad8241e1012ffc4c48b7084",
+      "local_path": "doc/src/sgml/perform.sgml",
+      "searchable_text": true,
+      "sha256": "7763b3a75bf25e3a1b7444ecf84483a01d380cd1d12af8cfec87f3353ac2dcbc",
+      "upstream_git_sha": "ea8da01b7797fdcbfad8241e1012ffc4c48b7084",
+      "upstream_path": "doc/src/sgml/perform.sgml"
+    }
+  ],
+  "license": "PostgreSQL License",
+  "repo": "postgres/postgres",
+  "requested_ref": "master",
+  "retrieved_at": "2026-08-23T04:58:24+00:00",
+  "schema_version": 1,
+  "source_commit": "f20c4278342f6afc44b856e98a0850f9dd2df0a8",
+  "source_id": "postgresql-core-docs",
+  "source_tree": "79360cf4ac80fac95497bae8632bebfddeb14811",
+  "source_url": "https://github.com/postgres/postgres/tree/f20c4278342f6afc44b856e98a0850f9dd2df0a8",
+  "tier": "canonical-practice",
+  "title": "PostgreSQL Core Database Engineering Documentation",
+  "total_original_bytes": 820550,
+  "tracks": [
+    "sql",
+    "database",
+    "transactions",
+    "performance",
+    "operations"
+  ]
+}

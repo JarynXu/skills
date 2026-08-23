@@ -1,0 +1,323 @@
+{
+  "derived_count": 0,
+  "derived_files": [],
+  "file_count": 30,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 436,
+      "local_git_sha": "309d2b6f5df0808bfd3864b0205f1c5614e0f5c6",
+      "local_path": "5.0/en/0x00-Header.yaml",
+      "searchable_text": true,
+      "sha256": "b8950cf9f2f248e78c52ab3b7e29d7dd531d1db4f876218e88e83d4b8b405ca2",
+      "upstream_git_sha": "309d2b6f5df0808bfd3864b0205f1c5614e0f5c6",
+      "upstream_path": "5.0/en/0x00-Header.yaml"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2115,
+      "local_git_sha": "b6ad6346a23741c1d05fa0cbb4128ef96bdc3e50",
+      "local_path": "5.0/en/0x01-Frontispiece.md",
+      "searchable_text": true,
+      "sha256": "5ae28d95996f7d8c793f8a6dc55f2683ea3da97ca05e966ae4c584b47e75f41e",
+      "upstream_git_sha": "b6ad6346a23741c1d05fa0cbb4128ef96bdc3e50",
+      "upstream_path": "5.0/en/0x01-Frontispiece.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2786,
+      "local_git_sha": "4c0b8d3764706e570e54b01ff77a011539f4f400",
+      "local_path": "5.0/en/0x02-Preface.md",
+      "searchable_text": true,
+      "sha256": "fe6ac41f02478b23adbc2ec03bb9f2f8a9aafef5e6fcf7518892240869811dde",
+      "upstream_git_sha": "4c0b8d3764706e570e54b01ff77a011539f4f400",
+      "upstream_path": "5.0/en/0x02-Preface.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 21589,
+      "local_git_sha": "925ecb33b603de85101e2d907140eba680501e4a",
+      "local_path": "5.0/en/0x03-What-is-the-ASVS.md",
+      "searchable_text": true,
+      "sha256": "324bda52f0e6ebd4e1332a4e960be22dfb0890ec03cc7b460ce7c67776b36325",
+      "upstream_git_sha": "925ecb33b603de85101e2d907140eba680501e4a",
+      "upstream_path": "5.0/en/0x03-What-is-the-ASVS.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 5397,
+      "local_git_sha": "da84e85661189d89ba1bef5f943320cdd8cf00f6",
+      "local_path": "5.0/en/0x04-Assessment_and_Certification.md",
+      "searchable_text": true,
+      "sha256": "a425fd085d43a46c94398e559d57c800a5bfadb0c41e22bff38f59d4714c5aac",
+      "upstream_git_sha": "da84e85661189d89ba1bef5f943320cdd8cf00f6",
+      "upstream_path": "5.0/en/0x04-Assessment_and_Certification.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 8580,
+      "local_git_sha": "281d61a775e75dee7838343b396817fec55ebcbf",
+      "local_path": "5.0/en/0x05-For-Users-Of-4.0.md",
+      "searchable_text": true,
+      "sha256": "caaa6b7046b409aba5522e1aca948d2b80aa09fc08add66f046eeeb8b8f5fb79",
+      "upstream_git_sha": "281d61a775e75dee7838343b396817fec55ebcbf",
+      "upstream_path": "5.0/en/0x05-For-Users-Of-4.0.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 12968,
+      "local_git_sha": "2a85c331483ab8a17f184fe256fe6ef16ca10f43",
+      "local_path": "5.0/en/0x10-V1-Encoding-and-Sanitization.md",
+      "searchable_text": true,
+      "sha256": "8c0e36a42c3cbf711e2579eb68e1fea8090f52301cac7c400d7c392207b24ee7",
+      "upstream_git_sha": "2a85c331483ab8a17f184fe256fe6ef16ca10f43",
+      "upstream_path": "5.0/en/0x10-V1-Encoding-and-Sanitization.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7100,
+      "local_git_sha": "2b8bf8a6f0f61aae849f88fd8ba2eb5f996fde45",
+      "local_path": "5.0/en/0x11-V2-Validation-and-Business-Logic.md",
+      "searchable_text": true,
+      "sha256": "70ad0f68df22ddd825c2837e74999fa026851e75a3128372307685e2bb526969",
+      "upstream_git_sha": "2b8bf8a6f0f61aae849f88fd8ba2eb5f996fde45",
+      "upstream_path": "5.0/en/0x11-V2-Validation-and-Business-Logic.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 13546,
+      "local_git_sha": "3d94e02905effc5d508787c539e42e4301636be8",
+      "local_path": "5.0/en/0x12-V3-Web-Frontend-Security.md",
+      "searchable_text": true,
+      "sha256": "02de197d5aa55592cfa524e66d4aa15bd3e8955e23e76438ac413c94172488fc",
+      "upstream_git_sha": "3d94e02905effc5d508787c539e42e4301636be8",
+      "upstream_path": "5.0/en/0x12-V3-Web-Frontend-Security.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7087,
+      "local_git_sha": "470abc3ef7fea9af33291bf4bae48bf16ce1c3e2",
+      "local_path": "5.0/en/0x13-V4-API-and-Web-Service.md",
+      "searchable_text": true,
+      "sha256": "efcadbf5ad78fb977c96d3d30e9a1d02aaafd4d787112a529ac82788a990406b",
+      "upstream_git_sha": "470abc3ef7fea9af33291bf4bae48bf16ce1c3e2",
+      "upstream_path": "5.0/en/0x13-V4-API-and-Web-Service.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 5101,
+      "local_git_sha": "e8d601cefe4f7ae194e69f32afec6c47f8b231c5",
+      "local_path": "5.0/en/0x14-V5-File-Handling.md",
+      "searchable_text": true,
+      "sha256": "079a51123e5156a5ffc6329f266d49752cb60f6b780899484c3f1cfde3734ebb",
+      "upstream_git_sha": "e8d601cefe4f7ae194e69f32afec6c47f8b231c5",
+      "upstream_path": "5.0/en/0x14-V5-File-Handling.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 22549,
+      "local_git_sha": "d9fa0025ad5bc804447aa95d1985bacc7ed1970e",
+      "local_path": "5.0/en/0x15-V6-Authentication.md",
+      "searchable_text": true,
+      "sha256": "e1e0aaa15e48f7941560176d28eeb11ad3b9b4f9d323437c0e950b3a16cd2b23",
+      "upstream_git_sha": "d9fa0025ad5bc804447aa95d1985bacc7ed1970e",
+      "upstream_path": "5.0/en/0x15-V6-Authentication.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 8989,
+      "local_git_sha": "0124d000ac2a51f3e49cce2a8e89293fffefd36c",
+      "local_path": "5.0/en/0x16-V7-Session-Management.md",
+      "searchable_text": true,
+      "sha256": "4aec329f2642ae750fbe1abac5da7e8a7bcfec6fc331bb0a46916970f9c88236",
+      "upstream_git_sha": "0124d000ac2a51f3e49cce2a8e89293fffefd36c",
+      "upstream_path": "5.0/en/0x16-V7-Session-Management.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 5920,
+      "local_git_sha": "eef42095545b35a10c83b4dc2d20833c89daf618",
+      "local_path": "5.0/en/0x17-V8-Authorization.md",
+      "searchable_text": true,
+      "sha256": "60c188b1703cab2086841d8f1b4adc0ededf66ed38c676a11bb92347646b5330",
+      "upstream_git_sha": "eef42095545b35a10c83b4dc2d20833c89daf618",
+      "upstream_path": "5.0/en/0x17-V8-Authorization.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4130,
+      "local_git_sha": "d34dd16b3ed6591f836e76422294012a41ee5f18",
+      "local_path": "5.0/en/0x18-V9-Self-contained-Tokens.md",
+      "searchable_text": true,
+      "sha256": "5f14e09fb67892e805ad386959eb3a8bafca03271dbb502ccf7323e82b3f812c",
+      "upstream_git_sha": "d34dd16b3ed6591f836e76422294012a41ee5f18",
+      "upstream_path": "5.0/en/0x18-V9-Self-contained-Tokens.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 20669,
+      "local_git_sha": "e726216b4b061b13108404304ab8fe939aebb2bd",
+      "local_path": "5.0/en/0x19-V10-OAuth-and-OIDC.md",
+      "searchable_text": true,
+      "sha256": "2da443986ba40987bd0908bbd7da2372ab0d777701cc590f4eb0fdad6ae804ed",
+      "upstream_git_sha": "e726216b4b061b13108404304ab8fe939aebb2bd",
+      "upstream_path": "5.0/en/0x19-V10-OAuth-and-OIDC.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 11998,
+      "local_git_sha": "be70abcd6fa41f831174cb7d9989e5d389af0b18",
+      "local_path": "5.0/en/0x20-V11-Cryptography.md",
+      "searchable_text": true,
+      "sha256": "a64f3f2dc6f53565dfba66e40fd336b50eab6cdb530c2791f62db8b58202bacf",
+      "upstream_git_sha": "be70abcd6fa41f831174cb7d9989e5d389af0b18",
+      "upstream_path": "5.0/en/0x20-V11-Cryptography.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 5245,
+      "local_git_sha": "08013d3b6e9960c1c2bc90de311d41d15ac004e4",
+      "local_path": "5.0/en/0x21-V12-Secure-Communication.md",
+      "searchable_text": true,
+      "sha256": "62f7737e74172d3d2177bd838c1bc44461d0a70c37cfd09d9e4669252b480775",
+      "upstream_git_sha": "08013d3b6e9960c1c2bc90de311d41d15ac004e4",
+      "upstream_path": "5.0/en/0x21-V12-Secure-Communication.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7828,
+      "local_git_sha": "9bac566a4995baeb3a9d11f56c5ed0ac476ce9f2",
+      "local_path": "5.0/en/0x22-V13-Configuration.md",
+      "searchable_text": true,
+      "sha256": "f66ef1306eba07e04fcd0f23b52d082747f1b4fba0a19934167fb35507afba6d",
+      "upstream_git_sha": "9bac566a4995baeb3a9d11f56c5ed0ac476ce9f2",
+      "upstream_path": "5.0/en/0x22-V13-Configuration.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7285,
+      "local_git_sha": "1d56e04835140ee2f3ff7fda95a3d38a1c58e578",
+      "local_path": "5.0/en/0x23-V14-Data-Protection.md",
+      "searchable_text": true,
+      "sha256": "a9ba33b7c77379fed0f27fd019945e10fa143c63b8c4e4783b7cf587c9f56039",
+      "upstream_git_sha": "1d56e04835140ee2f3ff7fda95a3d38a1c58e578",
+      "upstream_path": "5.0/en/0x23-V14-Data-Protection.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 10222,
+      "local_git_sha": "4f8ee500f348a679845fdc1bacf9d316501d93d6",
+      "local_path": "5.0/en/0x24-V15-Secure-Coding-and-Architecture.md",
+      "searchable_text": true,
+      "sha256": "4c068e82b157159e9ab7099daecb40af4c2642ad791751f791a26785dead6b22",
+      "upstream_git_sha": "4f8ee500f348a679845fdc1bacf9d316501d93d6",
+      "upstream_path": "5.0/en/0x24-V15-Secure-Coding-and-Architecture.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 8174,
+      "local_git_sha": "4c55c9c4e7fe8d92534b8c820bf197009675ce97",
+      "local_path": "5.0/en/0x25-V16-Security-Logging-and-Error-Handling.md",
+      "searchable_text": true,
+      "sha256": "23b0c0d4a54cc62a53e8669cbd15bb97f323249e9d837d3055f95873b2ef1652",
+      "upstream_git_sha": "4c55c9c4e7fe8d92534b8c820bf197009675ce97",
+      "upstream_path": "5.0/en/0x25-V16-Security-Logging-and-Error-Handling.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 8738,
+      "local_git_sha": "cf25614600e98628c7ce7f4a423737126cfab8af",
+      "local_path": "5.0/en/0x26-V17-WebRTC.md",
+      "searchable_text": true,
+      "sha256": "29a55aed304efc92f6bf827aeee3323671d0521ddab823f8e6265018ce0ff2c0",
+      "upstream_git_sha": "cf25614600e98628c7ce7f4a423737126cfab8af",
+      "upstream_path": "5.0/en/0x26-V17-WebRTC.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 18404,
+      "local_git_sha": "146baa7b95c2dbb00db31d45f4fbecb1ec11fd6b",
+      "local_path": "5.0/en/0x90-Appendix-A_Glossary.md",
+      "searchable_text": true,
+      "sha256": "47fcc73dceb0eac6e9c2ec0d9494708040729cd0db2b92a63815de3113ded324",
+      "upstream_git_sha": "146baa7b95c2dbb00db31d45f4fbecb1ec11fd6b",
+      "upstream_path": "5.0/en/0x90-Appendix-A_Glossary.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3308,
+      "local_git_sha": "a0fdd1babb62bb0623643fb798de02d753c755ad",
+      "local_path": "5.0/en/0x91-Appendix-B_References.md",
+      "searchable_text": true,
+      "sha256": "426a9ce64b9aed6b38dc6ee075dc4c01ff43d032a92b72ae3cd833037e7190ec",
+      "upstream_git_sha": "a0fdd1babb62bb0623643fb798de02d753c755ad",
+      "upstream_path": "5.0/en/0x91-Appendix-B_References.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 23368,
+      "local_git_sha": "93f5cebec41b23c970a686db6aba8226ec486df5",
+      "local_path": "5.0/en/0x92-Appendix-C_Cryptography.md",
+      "searchable_text": true,
+      "sha256": "88444d807834c7a5a18edf0c4501aa41c455d5d8dc5586613f4ea29b46140248",
+      "upstream_git_sha": "93f5cebec41b23c970a686db6aba8226ec486df5",
+      "upstream_path": "5.0/en/0x92-Appendix-C_Cryptography.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4968,
+      "local_git_sha": "496dd5ba61300210f3966f337f43b8e117cff0b2",
+      "local_path": "5.0/en/0x93-Appendix-D_Recommendations.md",
+      "searchable_text": true,
+      "sha256": "7d3f24508fef17db099d5e937308c045845b6b9a89916c643f6328878ad02e6f",
+      "upstream_git_sha": "496dd5ba61300210f3966f337f43b8e117cff0b2",
+      "upstream_path": "5.0/en/0x93-Appendix-D_Recommendations.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 14693,
+      "local_git_sha": "88508b2fdca6ece3d882ed6fb2fa6f6fdb75886d",
+      "local_path": "5.0/en/0x94-Appendix-E_Contributors.md",
+      "searchable_text": true,
+      "sha256": "3617f329a90d5e897893773cd022fd7fe2223c62883f35588697f80d0427a221",
+      "upstream_git_sha": "88508b2fdca6ece3d882ed6fb2fa6f6fdb75886d",
+      "upstream_path": "5.0/en/0x94-Appendix-E_Contributors.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 20138,
+      "local_git_sha": "2d58298e6eda10e7204abb52722efbc840db2390",
+      "local_path": "LICENSE.md",
+      "searchable_text": true,
+      "sha256": "28a9529c7d0bb4dc51f4bf5c116a3d16ef247a052f7591466768ddf563fd1cf5",
+      "upstream_git_sha": "2d58298e6eda10e7204abb52722efbc840db2390",
+      "upstream_path": "LICENSE.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 9740,
+      "local_git_sha": "1e1b0e067f1424e4f99f58ff857665fa39da84c8",
+      "local_path": "README.md",
+      "searchable_text": true,
+      "sha256": "6a3ff85091efc170e6958b0faf55a02457d6e40e680f7bd7858cfe6f71c2cd67",
+      "upstream_git_sha": "1e1b0e067f1424e4f99f58ff857665fa39da84c8",
+      "upstream_path": "README.md"
+    }
+  ],
+  "license": "CC BY-SA 4.0",
+  "repo": "OWASP/ASVS",
+  "requested_ref": "v5.0.0",
+  "retrieved_at": "2026-08-23T04:58:40+00:00",
+  "schema_version": 1,
+  "source_commit": "936f29673daa69fe90e6fa706011f89aef201988",
+  "source_id": "owasp-asvs-5",
+  "source_tree": "47279cdaca8f58dcf52f55f320c3e35dfa905ea1",
+  "source_url": "https://github.com/OWASP/ASVS/tree/936f29673daa69fe90e6fa706011f89aef201988",
+  "tier": "canonical-standard",
+  "title": "OWASP Application Security Verification Standard 5.0",
+  "total_original_bytes": 303071,
+  "tracks": [
+    "security",
+    "testing"
+  ]
+}

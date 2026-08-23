@@ -1,60 +1,357 @@
 {
-  "schema_version": 1,
-  "source_id": "alibaba-p3c",
-  "title": "Alibaba Java Development Manual / P3C GitBook",
-  "owner": "Alibaba Group",
-  "source_repository": "https://github.com/alibaba/p3c",
-  "source_commit": "6c59c8c36ecd8722c712d5685b8c3822c1c8b030",
-  "source_tree": "fb76e07fd66b94022b5b3b076e2764b86f10de4a",
-  "license": "Apache-2.0",
-  "license_upstream_blob_sha": "3fed5b8f181be25a63dc21975592263f12be9742",
-  "license_local_blob_sha": "b5d53e0efe0f0affa3b43dd4756f3542961d3849",
-  "license_byte_exact": false,
-  "retrieved_date": "2026-08-23",
-  "inclusion_mode": "vendored-exact-text",
-  "notes": [
-    "The vendored GitBook is the historical 1.3.1-era manual. Its own README explicitly states that it is no longer synchronized with the latest manual.",
-    "The upstream pinned repository also contains Java开发手册(黄山版).pdf at blob 6ff47d6af208e8ca3666ff9457d098b3ccd20b91. The current GitHub connector cannot return binary blob bytes safely, so that PDF is not claimed as vendored in this checkpoint.",
-    "Text entries marked byte_exact=true were recreated in this repository and the resulting Git blob SHA equals the upstream blob SHA.",
-    "The license text is semantically unmodified but its local Git blob differs from upstream because the connector path normalized file-boundary bytes; it is therefore explicitly not marked byte-exact."
-  ],
-  "missing_binary_originals": [
+  "derived_count": 1,
+  "derived_files": [
     {
-      "path": "Java开发手册(黄山版).pdf",
-      "upstream_blob_sha": "6ff47d6af208e8ca3666ff9457d098b3ccd20b91",
-      "reason": "binary blob transport unavailable through the active connector"
-    },
-    {
-      "path": "p3c-gitbook/images/alibabaLevel.png",
-      "upstream_blob_sha": "4e43da61bc690e7471b3fcc24986ec7fb58be8fb",
-      "reason": "binary blob transport unavailable through the active connector"
+      "byte_exact": false,
+      "bytes": 147735,
+      "derivation": "pypdf text extraction; original PDF remains authoritative",
+      "derived_from": "Java开发手册(黄山版).pdf",
+      "local_git_sha": "5229d34d849ba7fb6846f0ec58689a65580de403",
+      "local_path": "derived/Java开发手册(黄山版).pdf.txt",
+      "searchable_text": true,
+      "sha256": "7dc767e8e5e6b529754e554724b55c6300b9a5bbb8e30be3ba04bb0eeebea0d7"
     }
   ],
+  "file_count": 32,
   "files": [
-    {"path":"p3c-gitbook/README.md","upstream_git_sha":"7eedbe35e6121703d5a45bda46f61f2e910d51ed","local_git_sha":"7eedbe35e6121703d5a45bda46f61f2e910d51ed","byte_exact":true},
-    {"path":"p3c-gitbook/SUMMARY.md","upstream_git_sha":"cae451f99f5c0a0e9fae20372bcf51ce04adffc3","local_git_sha":"cae451f99f5c0a0e9fae20372bcf51ce04adffc3","byte_exact":true},
-    {"path":"p3c-gitbook/编程规约/命名风格.md","upstream_git_sha":"2beabc4281a8ed578a01c3b2648003e963765732","local_git_sha":"2beabc4281a8ed578a01c3b2648003e963765732","byte_exact":true},
-    {"path":"p3c-gitbook/编程规约/常量定义.md","upstream_git_sha":"bc45018040d2992a4142182e6b521b44e412db95","local_git_sha":"bc45018040d2992a4142182e6b521b44e412db95","byte_exact":true},
-    {"path":"p3c-gitbook/编程规约/代码格式.md","upstream_git_sha":"6e34453b131a64f2dead3843825c70edefc6163c","local_git_sha":"6e34453b131a64f2dead3843825c70edefc6163c","byte_exact":true},
-    {"path":"p3c-gitbook/编程规约/OOP规范.md","upstream_git_sha":"52e5436e8a801aed05b5b264c01db6b4078b0501","local_git_sha":"52e5436e8a801aed05b5b264c01db6b4078b0501","byte_exact":true},
-    {"path":"p3c-gitbook/编程规约/集合处理.md","upstream_git_sha":"0127dffce09f36af227c30ef1fae0a90d1db61e4","local_git_sha":"0127dffce09f36af227c30ef1fae0a90d1db61e4","byte_exact":true},
-    {"path":"p3c-gitbook/编程规约/并发处理.md","upstream_git_sha":"b3f55ecd0feed9275b1d30bfcd1bd293a89d3f5d","local_git_sha":"b3f55ecd0feed9275b1d30bfcd1bd293a89d3f5d","byte_exact":true},
-    {"path":"p3c-gitbook/编程规约/控制语句.md","upstream_git_sha":"ecfcb617f1981c3c3a2981300774b1de0ac70e76","local_git_sha":"ecfcb617f1981c3c3a2981300774b1de0ac70e76","byte_exact":true},
-    {"path":"p3c-gitbook/编程规约/注释规约.md","upstream_git_sha":"39862db7e6c1a63927f4a7928ffd2eac9bb8251b","local_git_sha":"39862db7e6c1a63927f4a7928ffd2eac9bb8251b","byte_exact":true},
-    {"path":"p3c-gitbook/异常日志/异常处理.md","upstream_git_sha":"e9d5c5708043a731c285efbc4e66f82a226d8877","local_git_sha":"e9d5c5708043a731c285efbc4e66f82a226d8877","byte_exact":true},
-    {"path":"p3c-gitbook/异常日志/日志规约.md","upstream_git_sha":"a566cccb64b34838a47b1a3f3da1aa21146ccfbe","local_git_sha":"a566cccb64b34838a47b1a3f3da1aa21146ccfbe","byte_exact":true},
-    {"path":"p3c-gitbook/异常日志/其他.md","upstream_git_sha":"823b97f955ff9cf85caf2c9b9c0ff1566cbe608e","local_git_sha":"823b97f955ff9cf85caf2c9b9c0ff1566cbe608e","byte_exact":true},
-    {"path":"p3c-gitbook/单元测试.md","upstream_git_sha":"54fca9364e513dc67204f80d9b4f92b82709b734","local_git_sha":"54fca9364e513dc67204f80d9b4f92b82709b734","byte_exact":true},
-    {"path":"p3c-gitbook/安全规约.md","upstream_git_sha":"0b32dd12d7122865ccd0765d3fb43145a6dad45f","local_git_sha":"0b32dd12d7122865ccd0765d3fb43145a6dad45f","byte_exact":true},
-    {"path":"p3c-gitbook/MySQL数据库/建表规约.md","upstream_git_sha":"e8a7672b93b9ff5ade76b56a221f8c0da1b664eb","local_git_sha":"e8a7672b93b9ff5ade76b56a221f8c0da1b664eb","byte_exact":true},
-    {"path":"p3c-gitbook/MySQL数据库/索引规约.md","upstream_git_sha":"e838dcf2154fd71f1852331bf81e861d5135dc16","local_git_sha":"e838dcf2154fd71f1852331bf81e861d5135dc16","byte_exact":true},
-    {"path":"p3c-gitbook/MySQL数据库/SQL语句.md","upstream_git_sha":"388ab9c69bf0cd4cab1acab0f1748a0b366f505f","local_git_sha":"388ab9c69bf0cd4cab1acab0f1748a0b366f505f","byte_exact":true},
-    {"path":"p3c-gitbook/MySQL数据库/ORM映射.md","upstream_git_sha":"23472ef45424f7a4ff750b2b072dfd368a1565ba","local_git_sha":"23472ef45424f7a4ff750b2b072dfd368a1565ba","byte_exact":true},
-    {"path":"p3c-gitbook/工程结构/应用分层.md","upstream_git_sha":"60e0803454cf3a599f18335a4a5036876883468b","local_git_sha":"60e0803454cf3a599f18335a4a5036876883468b","byte_exact":true},
-    {"path":"p3c-gitbook/工程结构/二方库依赖.md","upstream_git_sha":"4f4dde630243dcbcdf6f74425105e52c34ea272b","local_git_sha":"4f4dde630243dcbcdf6f74425105e52c34ea272b","byte_exact":true},
-    {"path":"p3c-gitbook/工程结构/服务器.md","upstream_git_sha":"f09b4dc2213893832b903316c769711ca3ddd3ee","local_git_sha":"f09b4dc2213893832b903316c769711ca3ddd3ee","byte_exact":true},
-    {"path":"p3c-gitbook/版本历史.md","upstream_git_sha":"100142b7f7fb927d23f7c12d8e8823859d530749","local_git_sha":"100142b7f7fb927d23f7c12d8e8823859d530749","byte_exact":true},
-    {"path":"p3c-gitbook/本手册专有名词.md","upstream_git_sha":"d04853b3f6d9846be18068beb6e7e227dd2cce64","local_git_sha":"d04853b3f6d9846be18068beb6e7e227dd2cce64","byte_exact":true},
-    {"path":"license.txt","upstream_git_sha":"3fed5b8f181be25a63dc21975592263f12be9742","local_git_sha":"b5d53e0efe0f0affa3b43dd4756f3542961d3849","byte_exact":false}
+    {
+      "byte_exact": true,
+      "bytes": 1496687,
+      "local_git_sha": "6ff47d6af208e8ca3666ff9457d098b3ccd20b91",
+      "local_path": "Java开发手册(黄山版).pdf",
+      "searchable_text": false,
+      "sha256": "68463b8cc5f1ad8f9c4fcaaa7c468a46a7e603b23cd22f38414697782b404f1f",
+      "upstream_git_sha": "6ff47d6af208e8ca3666ff9457d098b3ccd20b91",
+      "upstream_path": "Java开发手册(黄山版).pdf"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3142,
+      "local_git_sha": "8f3363bd377015d7659de75c8899a0a88c5b70d2",
+      "local_path": "README.md",
+      "searchable_text": true,
+      "sha256": "06f4e6c27de86101f40b470c1c9615bcb1476e59802721ac562350d376506736",
+      "upstream_git_sha": "8f3363bd377015d7659de75c8899a0a88c5b70d2",
+      "upstream_path": "README.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 10896,
+      "local_git_sha": "3fed5b8f181be25a63dc21975592263f12be9742",
+      "local_path": "license.txt",
+      "searchable_text": true,
+      "sha256": "f91fd5eacbbe031c4f3ae83f5ecbbba726b5eea3d992d7e8fb2d8118bff86fee",
+      "upstream_git_sha": "3fed5b8f181be25a63dc21975592263f12be9742",
+      "upstream_path": "license.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 352,
+      "local_git_sha": "1a366fb0be2a438dddc9ea2e444bf91df11433a8",
+      "local_path": "p3c-gitbook/.gitignore",
+      "searchable_text": false,
+      "sha256": "bec3b8223bb28a4f9084476f0deb5aed83e8eb76e2164021cc8a28a73a15c50b",
+      "upstream_git_sha": "1a366fb0be2a438dddc9ea2e444bf91df11433a8",
+      "upstream_path": "p3c-gitbook/.gitignore"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2650,
+      "local_git_sha": "23472ef45424f7a4ff750b2b072dfd368a1565ba",
+      "local_path": "p3c-gitbook/MySQL数据库/ORM映射.md",
+      "searchable_text": true,
+      "sha256": "c0d1a4d01574f5b11f64b83481dd00917d391e93b617b8a81457d5823103f3e4",
+      "upstream_git_sha": "23472ef45424f7a4ff750b2b072dfd368a1565ba",
+      "upstream_path": "p3c-gitbook/MySQL数据库/ORM映射.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2974,
+      "local_git_sha": "388ab9c69bf0cd4cab1acab0f1748a0b366f505f",
+      "local_path": "p3c-gitbook/MySQL数据库/SQL语句.md",
+      "searchable_text": true,
+      "sha256": "65cb1e0bf2cd8835b70c8b8f7b9804ea83326bca2a500c927a6b222cc6fdd0db",
+      "upstream_git_sha": "388ab9c69bf0cd4cab1acab0f1748a0b366f505f",
+      "upstream_path": "p3c-gitbook/MySQL数据库/SQL语句.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4246,
+      "local_git_sha": "e8a7672b93b9ff5ade76b56a221f8c0da1b664eb",
+      "local_path": "p3c-gitbook/MySQL数据库/建表规约.md",
+      "searchable_text": true,
+      "sha256": "2f5b2c9f4934960bf797ed4601fc0fdc3fd36206c165b529d62f19ac4e8f9429",
+      "upstream_git_sha": "e8a7672b93b9ff5ade76b56a221f8c0da1b664eb",
+      "upstream_path": "p3c-gitbook/MySQL数据库/建表规约.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4520,
+      "local_git_sha": "e838dcf2154fd71f1852331bf81e861d5135dc16",
+      "local_path": "p3c-gitbook/MySQL数据库/索引规约.md",
+      "searchable_text": true,
+      "sha256": "d8457f9a11995275274f290e9f014d64872fac9df2e12c0b9c102bd7ce46e165",
+      "upstream_git_sha": "e838dcf2154fd71f1852331bf81e861d5135dc16",
+      "upstream_path": "p3c-gitbook/MySQL数据库/索引规约.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2622,
+      "local_git_sha": "7eedbe35e6121703d5a45bda46f61f2e910d51ed",
+      "local_path": "p3c-gitbook/README.md",
+      "searchable_text": true,
+      "sha256": "406ebf3ed98a27c8c62ac90e7e9a2fa526d607e666b8a17f13c22a3a8393f68d",
+      "upstream_git_sha": "7eedbe35e6121703d5a45bda46f61f2e910d51ed",
+      "upstream_path": "p3c-gitbook/README.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1322,
+      "local_git_sha": "cae451f99f5c0a0e9fae20372bcf51ce04adffc3",
+      "local_path": "p3c-gitbook/SUMMARY.md",
+      "searchable_text": true,
+      "sha256": "6c28c690eecd9283ce3dae151824158ce008b4746707a2e0b366bbce29eaa916",
+      "upstream_git_sha": "cae451f99f5c0a0e9fae20372bcf51ce04adffc3",
+      "upstream_path": "p3c-gitbook/SUMMARY.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 278,
+      "local_git_sha": "a50a4f109808138447320e5ab99c4a3c5c1710f3",
+      "local_path": "p3c-gitbook/book.json",
+      "searchable_text": true,
+      "sha256": "1b4884d40e0814c6c935b7e0db8481ec98f739cc02d5e9939c7f17f290b16a10",
+      "upstream_git_sha": "a50a4f109808138447320e5ab99c4a3c5c1710f3",
+      "upstream_path": "p3c-gitbook/book.json"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 12993,
+      "local_git_sha": "4e45a28fe914c7a9bdb50a2a2562cba23b67e35a",
+      "local_path": "p3c-gitbook/images/QRcode.jpg",
+      "searchable_text": false,
+      "sha256": "6e779ec8ba494f2da145b84d408d86e7db81c06fcb31728cba479d4410531c58",
+      "upstream_git_sha": "4e45a28fe914c7a9bdb50a2a2562cba23b67e35a",
+      "upstream_path": "p3c-gitbook/images/QRcode.jpg"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 103069,
+      "local_git_sha": "4e43da61bc690e7471b3fcc24986ec7fb58be8fb",
+      "local_path": "p3c-gitbook/images/alibabaLevel.png",
+      "searchable_text": false,
+      "sha256": "d4956df41e21ee416f7d4393ab17c7cdfcd5e9c2970a0fcc4e1b57659d5525e1",
+      "upstream_git_sha": "4e43da61bc690e7471b3fcc24986ec7fb58be8fb",
+      "upstream_path": "p3c-gitbook/images/alibabaLevel.png"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 47,
+      "local_git_sha": "6afab2a46455d9f7480f77fbfd086f7f20587fde",
+      "local_path": "p3c-gitbook/styles/website.css",
+      "searchable_text": false,
+      "sha256": "6dfe3622e211462c1f354fbca0d1cc6017cb49f4cd1ec7c393e28549679a4a9c",
+      "upstream_git_sha": "6afab2a46455d9f7480f77fbfd086f7f20587fde",
+      "upstream_path": "p3c-gitbook/styles/website.css"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 5533,
+      "local_git_sha": "54fca9364e513dc67204f80d9b4f92b82709b734",
+      "local_path": "p3c-gitbook/单元测试.md",
+      "searchable_text": true,
+      "sha256": "7095f5a1877a31d5cab8dd27f6167d3ed38c036572b47235f8818b51f10280b9",
+      "upstream_git_sha": "54fca9364e513dc67204f80d9b4f92b82709b734",
+      "upstream_path": "p3c-gitbook/单元测试.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2352,
+      "local_git_sha": "0b32dd12d7122865ccd0765d3fb43145a6dad45f",
+      "local_path": "p3c-gitbook/安全规约.md",
+      "searchable_text": true,
+      "sha256": "36bb891611701331c454b7c0b13f196faf9c9b7749dfdc72a48f80cff73e0d35",
+      "upstream_git_sha": "0b32dd12d7122865ccd0765d3fb43145a6dad45f",
+      "upstream_path": "p3c-gitbook/安全规约.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4062,
+      "local_git_sha": "4f4dde630243dcbcdf6f74425105e52c34ea272b",
+      "local_path": "p3c-gitbook/工程结构/二方库依赖.md",
+      "searchable_text": true,
+      "sha256": "5337da23703ddca29337b27269bc2d3138fe961ff95d7d5533f80655342a7e99",
+      "upstream_git_sha": "4f4dde630243dcbcdf6f74425105e52c34ea272b",
+      "upstream_path": "p3c-gitbook/工程结构/二方库依赖.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2921,
+      "local_git_sha": "60e0803454cf3a599f18335a4a5036876883468b",
+      "local_path": "p3c-gitbook/工程结构/应用分层.md",
+      "searchable_text": true,
+      "sha256": "42763882a8f94ee693180382bba3fbffa1d9c9c94202f5b06285959696a962e7",
+      "upstream_git_sha": "60e0803454cf3a599f18335a4a5036876883468b",
+      "upstream_path": "p3c-gitbook/工程结构/应用分层.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1716,
+      "local_git_sha": "f09b4dc2213893832b903316c769711ca3ddd3ee",
+      "local_path": "p3c-gitbook/工程结构/服务器.md",
+      "searchable_text": true,
+      "sha256": "79a8a4510d73b7aa37b3b40630271fd9873433f9e485fa5cf04728a641aff36b",
+      "upstream_git_sha": "f09b4dc2213893832b903316c769711ca3ddd3ee",
+      "upstream_path": "p3c-gitbook/工程结构/服务器.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2229,
+      "local_git_sha": "823b97f955ff9cf85caf2c9b9c0ff1566cbe608e",
+      "local_path": "p3c-gitbook/异常日志/其他.md",
+      "searchable_text": true,
+      "sha256": "dffa17e6b41cab7349546b001c11538460dbf56a4b048beae143c3b0837c85b8",
+      "upstream_git_sha": "823b97f955ff9cf85caf2c9b9c0ff1566cbe608e",
+      "upstream_path": "p3c-gitbook/异常日志/其他.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 5446,
+      "local_git_sha": "e9d5c5708043a731c285efbc4e66f82a226d8877",
+      "local_path": "p3c-gitbook/异常日志/异常处理.md",
+      "searchable_text": true,
+      "sha256": "0c4324d307afa7b4a6ccd64255a3de93dc77e0689850df30e058008cf580d507",
+      "upstream_git_sha": "e9d5c5708043a731c285efbc4e66f82a226d8877",
+      "upstream_path": "p3c-gitbook/异常日志/异常处理.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3559,
+      "local_git_sha": "a566cccb64b34838a47b1a3f3da1aa21146ccfbe",
+      "local_path": "p3c-gitbook/异常日志/日志规约.md",
+      "searchable_text": true,
+      "sha256": "94257bb4b3ec4d3880ba33478eabd124549361e7941f3ff0f138a9ad429222dc",
+      "upstream_git_sha": "a566cccb64b34838a47b1a3f3da1aa21146ccfbe",
+      "upstream_path": "p3c-gitbook/异常日志/日志规约.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1268,
+      "local_git_sha": "d04853b3f6d9846be18068beb6e7e227dd2cce64",
+      "local_path": "p3c-gitbook/本手册专有名词.md",
+      "searchable_text": true,
+      "sha256": "ed8dccfbefe390cd03c2924c7e5e322e3a6b1f23b01a46c7bf42575193c55040",
+      "upstream_git_sha": "d04853b3f6d9846be18068beb6e7e227dd2cce64",
+      "upstream_path": "p3c-gitbook/本手册专有名词.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1501,
+      "local_git_sha": "100142b7f7fb927d23f7c12d8e8823859d530749",
+      "local_path": "p3c-gitbook/版本历史.md",
+      "searchable_text": true,
+      "sha256": "d5ecd0c1a908e199fed3ad2ced4cd54aa75d4b1b14061173e1895841194dd4c3",
+      "upstream_git_sha": "100142b7f7fb927d23f7c12d8e8823859d530749",
+      "upstream_path": "p3c-gitbook/版本历史.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 8443,
+      "local_git_sha": "52e5436e8a801aed05b5b264c01db6b4078b0501",
+      "local_path": "p3c-gitbook/编程规约/OOP规范.md",
+      "searchable_text": true,
+      "sha256": "fcbf6feff4bba25cf7d340d9f6a8c58f40618191b601c680f04b03a614e19bb4",
+      "upstream_git_sha": "52e5436e8a801aed05b5b264c01db6b4078b0501",
+      "upstream_path": "p3c-gitbook/编程规约/OOP规范.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4517,
+      "local_git_sha": "6e34453b131a64f2dead3843825c70edefc6163c",
+      "local_path": "p3c-gitbook/编程规约/代码格式.md",
+      "searchable_text": true,
+      "sha256": "29140bfe8d46123938cdbb718fb5f8ea4b070814e263788cd9f465979461b497",
+      "upstream_git_sha": "6e34453b131a64f2dead3843825c70edefc6163c",
+      "upstream_path": "p3c-gitbook/编程规约/代码格式.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 6190,
+      "local_git_sha": "2beabc4281a8ed578a01c3b2648003e963765732",
+      "local_path": "p3c-gitbook/编程规约/命名风格.md",
+      "searchable_text": true,
+      "sha256": "a3c399ce7fedfd4506d8bbba5d72bac21de5f971ed32ee532c7d8aa213459e4e",
+      "upstream_git_sha": "2beabc4281a8ed578a01c3b2648003e963765732",
+      "upstream_path": "p3c-gitbook/编程规约/命名风格.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2380,
+      "local_git_sha": "bc45018040d2992a4142182e6b521b44e412db95",
+      "local_path": "p3c-gitbook/编程规约/常量定义.md",
+      "searchable_text": true,
+      "sha256": "402742b719258502bbd12568c342f87b2b15e4ce74b91313906d9e8b99b2dbdc",
+      "upstream_git_sha": "bc45018040d2992a4142182e6b521b44e412db95",
+      "upstream_path": "p3c-gitbook/编程规约/常量定义.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 6298,
+      "local_git_sha": "b3f55ecd0feed9275b1d30bfcd1bd293a89d3f5d",
+      "local_path": "p3c-gitbook/编程规约/并发处理.md",
+      "searchable_text": true,
+      "sha256": "902ea7550a95a0a21d92c7d281c5d7fd67a4979abdce936797ce3ed121dff667",
+      "upstream_git_sha": "b3f55ecd0feed9275b1d30bfcd1bd293a89d3f5d",
+      "upstream_path": "p3c-gitbook/编程规约/并发处理.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4480,
+      "local_git_sha": "ecfcb617f1981c3c3a2981300774b1de0ac70e76",
+      "local_path": "p3c-gitbook/编程规约/控制语句.md",
+      "searchable_text": true,
+      "sha256": "f2a67d9b363c718a46d580fffd18cf9eeec1afb966abeea268a7faf170088f36",
+      "upstream_git_sha": "ecfcb617f1981c3c3a2981300774b1de0ac70e76",
+      "upstream_path": "p3c-gitbook/编程规约/控制语句.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3803,
+      "local_git_sha": "39862db7e6c1a63927f4a7928ffd2eac9bb8251b",
+      "local_path": "p3c-gitbook/编程规约/注释规约.md",
+      "searchable_text": true,
+      "sha256": "fc180be97c41c5f0717ec93e0ee57a1392aa24234a4ed0f624317cc92e3cd00b",
+      "upstream_git_sha": "39862db7e6c1a63927f4a7928ffd2eac9bb8251b",
+      "upstream_path": "p3c-gitbook/编程规约/注释规约.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7762,
+      "local_git_sha": "0127dffce09f36af227c30ef1fae0a90d1db61e4",
+      "local_path": "p3c-gitbook/编程规约/集合处理.md",
+      "searchable_text": true,
+      "sha256": "892ab9719176d02f11ae419c07196b6b796780e817330c5d1997a4b812ec298c",
+      "upstream_git_sha": "0127dffce09f36af227c30ef1fae0a90d1db61e4",
+      "upstream_path": "p3c-gitbook/编程规约/集合处理.md"
+    }
+  ],
+  "license": "Apache-2.0 repository; preserve license and provenance for selected documentation",
+  "repo": "alibaba/p3c",
+  "requested_ref": "master",
+  "retrieved_at": "2026-08-23T04:56:15+00:00",
+  "schema_version": 1,
+  "source_commit": "6c59c8c36ecd8722c712d5685b8c3822c1c8b030",
+  "source_id": "alibaba-p3c",
+  "source_tree": "663b9d3b15c3ea572fbca2c205501103c6d3c36c",
+  "source_url": "https://github.com/alibaba/p3c/tree/6c59c8c36ecd8722c712d5685b8c3822c1c8b030",
+  "tier": "practice-guide",
+  "title": "Alibaba Java Development Manual / P3C",
+  "total_original_bytes": 1720258,
+  "tracks": [
+    "java",
+    "sql",
+    "testing",
+    "security",
+    "engineering-practice"
   ]
 }

@@ -1,0 +1,203 @@
+{
+  "derived_count": 0,
+  "derived_files": [],
+  "file_count": 18,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 10847,
+      "local_git_sha": "16fe87b06e802f094b3fbb0894b137bca2b16ef1",
+      "local_path": "LICENSE-APACHE",
+      "searchable_text": false,
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "upstream_git_sha": "16fe87b06e802f094b3fbb0894b137bca2b16ef1",
+      "upstream_path": "LICENSE-APACHE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1071,
+      "local_git_sha": "52d82415d8b60cd3c5858c8939fa0d8fae1aeca0",
+      "local_path": "LICENSE-MIT",
+      "searchable_text": false,
+      "sha256": "29662666b44dff84977b46e05642cdef910bc3a93a17b5fd86e632bafa59cf21",
+      "upstream_git_sha": "52d82415d8b60cd3c5858c8939fa0d8fae1aeca0",
+      "upstream_path": "LICENSE-MIT"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 987,
+      "local_git_sha": "f6d7d8d34025b1915f01f80e8d0fc80d39825991",
+      "local_path": "README.md",
+      "searchable_text": true,
+      "sha256": "fb1567bed8c1ab1361f577e1757178d0841e80250181b2c20a298ac6b86735fd",
+      "upstream_git_sha": "f6d7d8d34025b1915f01f80e8d0fc80d39825991",
+      "upstream_path": "README.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 461,
+      "local_git_sha": "0c98324a6b96e18fe7d091f360c11a4e21474727",
+      "local_path": "src/SUMMARY.md",
+      "searchable_text": true,
+      "sha256": "b3ad877e7824208a8c1c3b45762d75b8c89953ee34c224ba5c8ae5c2b0d43648",
+      "upstream_git_sha": "0c98324a6b96e18fe7d091f360c11a4e21474727",
+      "upstream_path": "src/SUMMARY.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1321,
+      "local_git_sha": "236116bef938accb2630256a076c5ec0d356c223",
+      "local_path": "src/about.md",
+      "searchable_text": true,
+      "sha256": "e46227c4909b81d97a992d5c5a26d0591a84b780e71c9bff523bd24c8b0c4ddf",
+      "upstream_git_sha": "236116bef938accb2630256a076c5ec0d356c223",
+      "upstream_path": "src/about.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7221,
+      "local_git_sha": "8db9ef1967a756224694cb526ae79a6e074700c0",
+      "local_path": "src/checklist.md",
+      "searchable_text": true,
+      "sha256": "6e8afb1f55d7f079b9c48f48925ca80d52de78ea27beb8d0e5fadf91123f23b2",
+      "upstream_git_sha": "8db9ef1967a756224694cb526ae79a6e074700c0",
+      "upstream_path": "src/checklist.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 471,
+      "local_git_sha": "96d271914a4a28ed634e2caf4744e553fb38a5be",
+      "local_path": "src/debuggability.md",
+      "searchable_text": true,
+      "sha256": "f6eb09d8246fe6aafc3c0e7b0003c5876455e78d7806d9b43905f1b4080d52fc",
+      "upstream_git_sha": "96d271914a4a28ed634e2caf4744e553fb38a5be",
+      "upstream_path": "src/debuggability.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2997,
+      "local_git_sha": "08f85ea6e7f1b9ab7e9e01c9ba186999d596ed96",
+      "local_path": "src/dependability.md",
+      "searchable_text": true,
+      "sha256": "e0e1c29e6b31ef0e13a2da17b7afa41f0f3fbf5aadae7ad51d39b9ae3caaddea",
+      "upstream_git_sha": "08f85ea6e7f1b9ab7e9e01c9ba186999d596ed96",
+      "upstream_path": "src/dependability.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 9348,
+      "local_git_sha": "63ce31f211bee881e85db6dfbf2750026e68894f",
+      "local_path": "src/documentation.md",
+      "searchable_text": true,
+      "sha256": "6ba5c33eef97d07710abd09098d02a6a6d200ee3173b96dad27bf47139742105",
+      "upstream_git_sha": "63ce31f211bee881e85db6dfbf2750026e68894f",
+      "upstream_path": "src/documentation.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1007,
+      "local_git_sha": "8ad325f104b2bc28e4ab2e0362e05900cc1eca50",
+      "local_path": "src/external-links.md",
+      "searchable_text": true,
+      "sha256": "5abb45809a28cb61ac91ddf92fd2fec72b6d2aa31a7f3155fd7c773cb36abe7d",
+      "upstream_git_sha": "8ad325f104b2bc28e4ab2e0362e05900cc1eca50",
+      "upstream_path": "src/external-links.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7623,
+      "local_git_sha": "e3c67920541fc245c2a4190fbee81df43d4c091f",
+      "local_path": "src/flexibility.md",
+      "searchable_text": true,
+      "sha256": "5565a393442c9dcaf73161584233060f4cb52f8de1b2c1abad5ccc95f61aed7d",
+      "upstream_git_sha": "e3c67920541fc245c2a4190fbee81df43d4c091f",
+      "upstream_path": "src/flexibility.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7245,
+      "local_git_sha": "e34edd525aa5e6abfc430c46cfea8a351d73184f",
+      "local_path": "src/future-proofing.md",
+      "searchable_text": true,
+      "sha256": "467184d9e5f3e0f949db6ca6a5f4232574e342ec76648e46424f39c8c23f3ad7",
+      "upstream_git_sha": "e34edd525aa5e6abfc430c46cfea8a351d73184f",
+      "upstream_path": "src/future-proofing.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 13372,
+      "local_git_sha": "7a505f4b5860dfd2046005130e4d44a371c049e2",
+      "local_path": "src/interoperability.md",
+      "searchable_text": true,
+      "sha256": "e795059bf83624252ee979c1e9672eb42600e0b7ea40a80026a975a2c0fb5d0d",
+      "upstream_git_sha": "7a505f4b5860dfd2046005130e4d44a371c049e2",
+      "upstream_path": "src/interoperability.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4469,
+      "local_git_sha": "d65d17fb70563e98df935d477e56822dee1d88cb",
+      "local_path": "src/macros.md",
+      "searchable_text": true,
+      "sha256": "02b743de7c7a714b04096fcbe214145ea81edf9261367063ecb618146e79df4c",
+      "upstream_git_sha": "d65d17fb70563e98df935d477e56822dee1d88cb",
+      "upstream_path": "src/macros.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 15261,
+      "local_git_sha": "8bbeeb333685c1f4b15bec475958d5a077bd95d8",
+      "local_path": "src/naming.md",
+      "searchable_text": true,
+      "sha256": "36b3fcb3705867fc96cb6346a86d0ad3ef9ad97fe5a2741d1afc68063001c63a",
+      "upstream_git_sha": "8bbeeb333685c1f4b15bec475958d5a077bd95d8",
+      "upstream_path": "src/naming.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3742,
+      "local_git_sha": "b1c0d3c1affd3e6da63963a87d314aaea0a58295",
+      "local_path": "src/necessities.md",
+      "searchable_text": true,
+      "sha256": "b471e4dcfb48fd9cee26075e97dfcb61ccfb1c2c4b89d21531a03d0da6760fe8",
+      "upstream_git_sha": "b1c0d3c1affd3e6da63963a87d314aaea0a58295",
+      "upstream_path": "src/necessities.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 8886,
+      "local_git_sha": "a044f0abf417160cfd6645944e6dcea33316e6f5",
+      "local_path": "src/predictability.md",
+      "searchable_text": true,
+      "sha256": "11e74c2710f3e9a62670e7e48d339404cbad3340e6cc10f7631ea57362ba61bf",
+      "upstream_git_sha": "a044f0abf417160cfd6645944e6dcea33316e6f5",
+      "upstream_path": "src/predictability.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 8841,
+      "local_git_sha": "5315ee4b4cbfd17e5fabc501720508505342bd06",
+      "local_path": "src/type-safety.md",
+      "searchable_text": true,
+      "sha256": "d2bfa67228eb1252e1f1e515e036766f3996c2e874dd7ba5ad1b4d8a566f51f5",
+      "upstream_git_sha": "5315ee4b4cbfd17e5fabc501720508505342bd06",
+      "upstream_path": "src/type-safety.md"
+    }
+  ],
+  "license": "MIT OR Apache-2.0",
+  "repo": "rust-lang/api-guidelines",
+  "requested_ref": "master",
+  "retrieved_at": "2026-08-23T04:56:33+00:00",
+  "schema_version": 1,
+  "source_commit": "97a0969cb07fe4cabb0eed8a56234053f47d83dc",
+  "source_id": "rust-api-guidelines",
+  "source_tree": "5cff42a35b1c0d7d639bf9ade3b90ab351234d3b",
+  "source_url": "https://github.com/rust-lang/api-guidelines/tree/97a0969cb07fe4cabb0eed8a56234053f47d83dc",
+  "tier": "canonical-practice",
+  "title": "Rust API Guidelines",
+  "total_original_bytes": 105170,
+  "tracks": [
+    "rust",
+    "api-design"
+  ]
+}
