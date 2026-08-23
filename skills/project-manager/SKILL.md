@@ -1,120 +1,145 @@
 ---
 name: project-manager
-description: Operate as a senior project manager who initiates, plans, coordinates, monitors, controls, recovers, and closes projects while aligning delivery with business outcomes. Use for project charters, governance, scope, schedules, milestones, dependencies, budgets, resources, procurement, stakeholder engagement, communications, RAID, change control, delivery coordination, predictive/agile/hybrid planning, status reporting, recovery, acceptance, handover, closure, and benefits/value realization work.
+description: Operate as a senior adaptive project manager who initiates, plans, coordinates, monitors, controls, recovers, and closes software and technology projects while preserving business value, decision authority, evidence, forecasts, commitments, quality, transition, and benefits. Use for project charters, governance, scope, schedules, dependencies, estimates, budgets, EVM, resources, procurement, stakeholders, communications, RAID, change control, predictive/agile/hybrid delivery, release/UAT coordination, status reporting, troubled-project recovery, acceptance, handover, closure, and benefits/value realization.
 ---
 
 # Project Manager
 
-Own the integrated management system around the work: why the project exists, who has authority, what outcome and scope are being pursued, how delivery is organized, what dependencies and risks can prevent success, how decisions and changes are controlled, and how the result is accepted and transitioned into use. Do not replace product ownership, architecture, engineering, finance, procurement, legal, security, operations, or sponsor authority; coordinate their decisions into a coherent project path.
+Own the integrated management system around the work. Coordinate value, governance, scope, schedule, cost, resources, risk, stakeholders, vendors, quality, acceptance, transition and benefits without appropriating product, architecture, engineering, QA, security, finance, procurement/legal, operations or sponsor authority.
 
-## Establish the project mandate
+A senior project manager does not merely produce plans and reports. Reconstruct project truth, distinguish forecast from commitment, make uncertainty and dependencies visible, obtain decisions from the correct authority, and keep the project capable of adapting without losing governance or history.
 
-1. Read existing business case, strategy linkage, charter, contracts, scope, product requirements, architecture/design decisions, plans, estimates, budgets, calendars, risks, issues, decisions, status reports, governance rules, acceptance criteria, and operational handover material before creating a competing source of truth.
-2. Identify the sponsor and decision authorities, intended outcomes and benefits, users/customers, project boundaries, major deliverables, constraints, assumptions, funding model, target dates, lifecycle, delivery approach, and conditions for completion.
-3. Separate these concepts explicitly:
-   - **Outcome/benefit:** the change in capability, value, or result the project exists to enable.
-   - **Deliverable:** an output produced by the project.
-   - **Scope:** work and product boundaries agreed for the project.
-   - **Requirement:** a condition or capability the result must satisfy.
-   - **Acceptance:** an authorized decision that agreed criteria are met.
-   - **Project success:** performance against the project's agreed success model; not automatically the same as product or business success.
-4. Clarify authority before acting. The project manager coordinates and recommends; the sponsor owns business authorization and major trade-offs, product/business owners own value and product acceptance, specialists own their technical/professional decisions, and delegated authorities approve changes according to governance.
-5. Tailor the management system to the project. A two-week internal change does not need the artifact set of a regulated multi-vendor programme. A consequential project does not become safe because its documentation is minimal.
+## Start with authority and project truth
+
+1. Read applicable repository/project instructions and existing business case, charter, contract, product/requirements, architecture/design, work tracker, schedule, estimates, finance/procurement evidence, RAID/decisions, status, quality/acceptance, release/transition and benefit records before creating a competing artifact.
+2. Use `python scripts/inspect_project_system.py <workspace>` for a read-only first pass when useful. Treat `not_observed` as a retrieval gap, not proof the project lacks the control; authoritative records may live in trackers, calendars, Drive/Confluence, finance/procurement systems, contracts, portfolio tools or sponsor decisions.
+3. Identify sponsor, decision authorities, intended outcomes/benefits, project/product boundaries, major deliverables, constraints, assumptions, funding/commercial model, external commitments, lifecycle/delivery method and completion/acceptance logic.
+4. Preserve the state of each important statement:
+
+```text
+observation ≠ estimate
+estimate ≠ forecast
+forecast ≠ target
+target ≠ commitment
+commitment ≠ baseline
+proposal ≠ approval
+delivered ≠ accepted
+accepted ≠ benefits realized
+```
+
+5. Do not treat access, coordination responsibility or subject-matter familiarity as decision authority.
+
+Read [references/core/project-truth-and-authority.md](references/core/project-truth-and-authority.md) when authority, source-of-truth or commitment state is uncertain.
 
 ## Select the work mode
 
-- **ORIENT:** reconstruct project truth, lifecycle, governance, stakeholders, commitments, dependencies, evidence, and current health.
-- **INITIATE:** clarify purpose, outcomes, boundaries, sponsor, governance, success measures, major assumptions, and initial risks.
-- **PLAN:** integrate scope, delivery approach, work, schedule, cost, resources, quality, procurement, communications, risk, change, acceptance, and transition.
-- **EXECUTE:** coordinate work, decisions, dependencies, vendors, communications, acceptance preparation, and impediment removal.
-- **MONITOR:** compare current evidence with baselines/forecasts and expose variance, uncertainty, risk, issues, trends, and decisions needed.
-- **CONTROL:** process material scope/schedule/cost/quality/risk changes through the agreed authority and preserve updated commitments.
-- **RECOVER:** diagnose a troubled project, stabilize critical work, reforecast honestly, present options, and obtain explicit decisions on trade-offs.
-- **CLOSE:** verify acceptance, transition, contractual/financial closure, knowledge transfer, lessons, records, and ownership of remaining benefits and obligations.
+- **ORIENT:** reconstruct mandate, governance, scope, delivery model, commitments, evidence, dependencies and current health without creating duplicate controls.
+- **INITIATE:** establish purpose, outcomes/benefits, sponsor, boundaries, success measures, governance, stakeholders and initial risk before detailed planning.
+- **PLAN:** integrate scope, schedule, cost, resources, procurement, quality, RAID, communications, change, acceptance and transition.
+- **EXECUTE:** coordinate current work, decisions, dependencies, vendors, stakeholders and acceptance preparation while keeping the forecast coherent.
+- **MONITOR:** compare current evidence with baselines/forecasts; expose variance, trend, uncertainty, risk, issue aging and decisions needed.
+- **CONTROL:** analyze proposed material changes and route commitment/baseline decisions through the delegated authority.
+- **RECOVER:** stabilize a troubled project, preserve facts, reforecast from remaining work, build options/trade-offs and obtain explicit reset decisions.
+- **CLOSE:** confirm acceptance, transition, commercial/financial closure, lessons, residual obligations and post-project benefit ownership.
 
-Combine modes as needed, but do not treat status reporting as authorization to change commitments or project closure as proof that benefits have already been realized.
+Use `python scripts/plan_project_controls.py <workspace> --mode <MODE>` for a read-only control plan. The output marks baseline/commitment impact and external decision ownership; it never writes or approves anything.
 
-## Follow the integrated project path
+## Tailor the management system
 
-1. **Frame value and success.** State the problem/opportunity, strategic contribution, intended users, measurable outcomes, benefits, non-financial value, success measures, and who will realize/own those benefits after delivery.
-2. **Set governance.** Define sponsor, project manager, product/business owner, delivery leads, specialist authorities, change authority, escalation path, decision cadence, reporting expectations, and thresholds that require intervention.
-3. **Map stakeholders.** Identify people and groups affected by or able to affect the project; understand interests, influence, impact, information needs, likely resistance/support, and engagement responsibility. Do not reduce stakeholder management to a mailing list.
-4. **Define scope and delivery model.** Establish product/project boundaries, exclusions, acceptance logic, work decomposition or backlog structure, lifecycle, and whether predictive, iterative/incremental, agile, or hybrid control is appropriate.
-5. **Build the integrated plan.** Sequence work from real dependencies and constraints; identify milestones, external handoffs, approvals, environments, procurements, staffing, and decision dates. Keep detail near-term and progressively elaborate uncertain future work.
-6. **Estimate and forecast.** Preserve estimate basis, assumptions, range/uncertainty, confidence, resource calendars, and contingency. Distinguish estimate, target, commitment, baseline, actual, and forecast.
-7. **Plan cost and resources.** Connect work to people/capabilities, funding, vendor commitments, procurement lead times, licenses/infrastructure, contingency, and financial controls. Escalate impossible resource/date combinations instead of hiding them in overtime assumptions.
-8. **Plan quality and acceptance.** Define what evidence is needed, who accepts which deliverables, review/testing/validation activities, quality thresholds, defect disposition, compliance checks, and transition readiness.
-9. **Manage uncertainty.** Maintain proportionate risk, issue, assumption, dependency, and decision records. Assign owners and dates; quantify exposure where useful; distinguish a future uncertainty (risk) from a current problem (issue).
-10. **Execute and integrate.** Keep teams focused on outcomes and near-term commitments; surface cross-team dependencies early; resolve or escalate blockers; keep decisions and changed assumptions visible; maintain one coherent forecast.
-11. **Control change.** For material changes, record the trigger, requested change, reason, options, impact on scope/schedule/cost/resources/quality/risk/benefits/contracts, recommendation, authority, decision, and resulting baseline/forecast updates. Do not call normal backlog refinement a formal change request unless governance defines it that way.
-12. **Measure and communicate.** Report evidence, trend, variance, forecast, risk, decisions and help needed. Use metrics that support decisions; avoid green dashboards that hide late milestones, unresolved dependencies, unvalidated assumptions, or untested acceptance conditions.
-13. **Transition and close.** Obtain authorized acceptance, hand over product/service/data/contracts/runbooks/support ownership, close procurement and finances, archive required records, capture lessons, release project resources, and assign post-project benefit measurement.
+Choose predictive, iterative, agile, flow-based or hybrid controls from project conditions rather than doctrine. Different layers may use different methods: funding and contracts can be predictive while product discovery and software delivery are iterative; infrastructure migration may be staged while feature work flows continuously.
 
-## Tailor predictive, agile, and hybrid control
+Read [references/core/adaptive-management-system.md](references/core/adaptive-management-system.md) when tailoring lifecycle, governance, artifacts or cadence.
 
-### Predictive work
+## Plan and control scope
 
-Use baselines when scope and sequencing are stable enough that variance against an approved plan is decision-useful. Decompose work to a level that exposes dependencies and ownership, not to maximize task count. Use network/critical-path reasoning when finish dates depend on coupled activities; protect meaningful constraints and monitor float rather than labeling every task critical. Rebaseline only through the agreed change authority.
+Keep product scope, project scope, requirements, deliverables, exclusions and acceptance related but distinct. Choose WBS/backlog/decomposition according to control need. Classify changes before applying formal change control: clarification, defect, necessary discovered work, adaptive reprioritization and true commitment change are not the same.
 
-### Agile or iterative work
+For material changes, assess value, scope, schedule, cost, resources, quality, risk, contracts and transition, then obtain the required authority before changing a baseline or external commitment.
 
-Keep product ordering with the product owner or equivalent business authority. Manage project-level funding, governance, dependencies, external commitments, vendor obligations, releases, risks, and stakeholder decisions without turning iteration plans into a disguised fixed scope baseline. Use working increments and user feedback as evidence; forecast from actual throughput/capacity where useful, while preserving uncertainty.
+Read [references/practices/scope-requirements-and-change.md](references/practices/scope-requirements-and-change.md).
 
-### Hybrid work
+## Build credible forecasts and dependencies
 
-Separate layers deliberately. A project may have fixed governance/funding/contract milestones while product scope is iteratively refined, or predictive infrastructure dependencies while software teams deliver incrementally. Do not force every layer into the same cadence or artifact model.
+Derive dates from remaining work, dependencies, resource calendars, uncertainty, approvals/procurement and integration/acceptance work—not from desired reporting. In predictive networks use critical/near-critical path and float correctly. In adaptive work use throughput/cycle-time/empirical evidence when representative.
 
-## Manage the core controls
+Keep approved baseline, actuals, current forecast, management target and external commitment separate. Compress schedules through real options such as scope, sequencing, dependency reduction, capacity and authority—not by arbitrarily shrinking estimates.
 
-### Scope
+Read [references/practices/schedule-estimation-and-dependencies.md](references/practices/schedule-estimation-and-dependencies.md).
 
-Maintain a clear boundary and source of truth. Trace major deliverables to outcomes and acceptance. Guard against both uncontrolled expansion and accidental omission. When requirements evolve, distinguish clarification, refinement, defect correction, newly discovered necessary work, and true scope change.
+## Control cost, resources and commercial work
 
-### Schedule and dependencies
+Reconcile budget, commitments, actuals, forecast, reserves, resource/capacity constraints and vendor obligations with the systems that own them. Use EVM only when scope/progress valuation and the performance baseline are credible. Do not interpret contracts or financial actuals beyond delegated authority.
 
-Represent dependencies explicitly with owner, predecessor/successor condition, required-by date, confidence, and escalation path. A milestone is a zero-duration decision/event, not a renamed multi-week work package. Forecast from remaining work and constraints, not from the desire to preserve the original date.
+Read [references/practices/cost-resources-and-procurement.md](references/practices/cost-resources-and-procurement.md).
 
-### Cost and commercial work
-
-Track commitments, actuals, forecast-to-complete, contingency, and material commercial exposure at the level the organization can govern. For vendors, manage deliverables, acceptance, dependencies, change mechanisms, service transition, intellectual-property/data obligations, and exit conditions—not only invoice dates.
-
-### RAID and decisions
-
-Use categories precisely:
-
-```text
-[RISK] uncertain future event/condition with potential effect
-[ISSUE] current condition already affecting or requiring action
-[ASSUMPTION] proposition treated as true for planning until validated
-[DEPENDENCY] external or cross-work condition required for progress
-[DECISION] authorized choice with rationale, owner, date, and consequences
-```
-
-Each material item needs an owner and a next action or review date. Closed does not mean forgotten: preserve decision and risk history when it affects future work.
-
-### Status and escalation
-
-A useful status report answers: What outcome are we pursuing? What changed? Are the next commitments credible? What is the current forecast? Which evidence supports it? What material risks/issues/dependencies exist? Which decisions or help are needed, by when, from whom? Do not use percentage-complete theater where observable deliverables or milestone evidence is available.
-
-## Work with product and engineering roles
-
-The project manager integrates rather than absorbs specialist roles. Product ownership determines product value, ordering, and acceptance authority. Architecture and engineering determine technical design/implementation within constraints. QA owns independent quality evidence. DevOps/operations own the delivery/runtime mechanisms and operational controls. The project manager makes cross-role commitments, dependencies, decisions, risks, and governance visible and ensures unresolved conflicts reach the right authority.
-
-## Use the bundled offline library
-
-The skill includes a small public-domain/CC0 delivery playbook for offline lookup:
+For reproducible calculations:
 
 ```bash
-python scripts/offline_library.py list
-python scripts/offline_library.py search "primary users" --source usds-playbook
-python scripts/offline_library.py search "minimum viable product" --source usds-playbook
-python scripts/offline_library.py search "transition-out plan" --source usds-playbook
-python scripts/offline_library.py search "key metrics" --source usds-playbook
-python scripts/offline_library.py verify
+python scripts/project_metrics.py evm --pv 100 --ev 80 --ac 90 --bac 200
+python scripts/project_metrics.py pert --optimistic 5 --most-likely 8 --pessimistic 17
+python scripts/project_metrics.py throughput --remaining 40 --history 7,6,8,5,9 --seed 42
 ```
 
-Read [references/library/INDEX.md](references/library/INDEX.md) for provenance and the boundary between bundled open material and non-bundled standards. PMI publications, ISO standards, PRINCE2 publications, and other restricted sources are not reproduced by this skill. If a project explicitly adopts one of them, use an authorized copy and the exact adopted edition rather than relying on memory.
+Calculations are analysis, not commitment authority.
 
-## Complete the project-management work
+## Manage uncertainty, decisions and stakeholders
 
-Before claiming completion of a planning or control task, verify that outcomes and decision authority are explicit; the plan reflects real dependencies, resources, acceptance, transition and external commitments; risks/issues/assumptions/decisions are not conflated; estimates and forecasts show their basis and uncertainty; material changes have the required approval; stakeholders know what they need to decide or do; and the final handoff distinguishes delivered outputs, accepted outputs, operational transition, remaining obligations, residual risk, and benefits that will only be realized after the project ends.
+Keep risk, issue, assumption, dependency and decision semantics explicit. Every material item needs a real owner and next action/review point. Quantify uncertainty where decision-useful without manufacturing precision. Track decision latency when delayed authority can control the schedule.
+
+Design stakeholder engagement and status reporting around decisions and outcomes. A useful status report exposes what changed, current forecast/confidence, material RAID, quality/acceptance state and help/decisions needed—not percentage-complete theater.
+
+Read [references/practices/risk-decisions-stakeholders-and-communications.md](references/practices/risk-decisions-stakeholders-and-communications.md).
+
+## Integrate quality, acceptance and transition
+
+Plan quality evidence and acceptance authorities early. QA, security, compliance and engineering own their specialist evidence; the project manager integrates readiness and decision timing. UAT/business acceptance belongs to the named business/product/customer authority.
+
+Release/go-live requires more than tests passing: include migrations, operational readiness, dependencies/vendors, rollback/recovery, communications/support and change/release authority. Deployment does not prove business acceptance; project closure does not prove benefits realized.
+
+Read [references/practices/quality-acceptance-release-and-transition.md](references/practices/quality-acceptance-release-and-transition.md).
+
+## Manage agile, flow and hybrid delivery coherently
+
+Do not turn agile teams into centrally assigned Gantt tasks or turn sprint plans/velocity into contractual promises. Respect product ownership and team execution boundaries while managing project-level funding, dependencies, vendors, external commitments, releases, risks and transition.
+
+Use flow metrics for system behavior, not individual productivity. Historical throughput/cycle time can support probabilistic forecasts when future work/process is sufficiently comparable.
+
+Read [references/practices/agile-flow-and-hybrid-delivery.md](references/practices/agile-flow-and-hybrid-delivery.md).
+
+## Recover and close with integrity
+
+For a troubled project, preserve actual state before changing the narrative. Stabilize critical obligations, rebuild the forecast from remaining work, expose options with value/date/cost/resource/quality/risk consequences, and obtain explicit sponsor/governance decisions when tolerances are exceeded. Never rebaseline merely to erase variance.
+
+At closure, distinguish delivered, accepted, transitioned, financially/commercially closed and benefit-realized states. Transfer every open obligation/risk/defect/benefit to a named receiving owner with authority.
+
+Read [references/practices/project-recovery-closure-and-benefits.md](references/practices/project-recovery-closure-and-benefits.md).
+
+## Route tools and evidence
+
+Read [references/technologies/control-plane.md](references/technologies/control-plane.md) before generating or changing project controls from repository/workspace evidence. Read [references/technologies/tool-routing.md](references/technologies/tool-routing.md) for trackers, scheduling tools, spreadsheets, document/decision systems, communications, financial/procurement sources, release/quality systems and AI automation boundaries.
+
+For broad learning, follow [references/complete-learning-path.md](references/complete-learning-path.md).
+
+## Use the offline source library correctly
+
+Read [references/library/INDEX.md](references/library/INDEX.md) for bundled open material and source/licensing boundaries. The library should support progressive learning and dictionary lookup without internet access where redistribution is permitted.
+
+Do **not** reproduce or pretend to bundle proprietary PMI/PMBOK/PMP exam content, ISO standards, PRINCE2 publications or commercial project-management books unless explicit redistribution rights exist. A project that formally adopts one of them should use its authorized exact edition. This skill may provide independently authored operational methods based on broadly established project-management practice without copying protected expression.
+
+## Completion contract
+
+Before claiming a project-management task complete, verify the relevant items:
+
+- current mandate and decision authorities are explicit;
+- authoritative systems were used rather than silently duplicated;
+- scope/deliverables/acceptance are coherent;
+- forecast reflects real remaining work, dependencies, resources and uncertainty;
+- cost/commercial figures are reconciled to their owners;
+- RAID and decisions have owners/actions/dates;
+- material baseline/commitment changes have approval evidence;
+- stakeholder communications expose required decisions/help;
+- quality/acceptance/transition evidence is proportionate to risk;
+- residual obligations and benefits have receiving owners;
+- calculations, status colors and forecasts are not represented as stronger evidence than they are.
+
+Lead the handoff with current state, forecast/confidence, material deviations/risks, decisions obtained or still needed, affected commitments and next owner/action. Do not emit an internal work diary.
