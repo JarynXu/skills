@@ -1,6 +1,8 @@
 # Backend tooling and evidence selection
 
-Use this reference when the task requires choosing build, test, migration, protocol, database, debugger, profiler, static-analysis, package/security, or observability tools. A tool is useful only when it closes a specific evidence gap in the real project.
+Use this reference when the task requires choosing build, test, migration, protocol, database, debugger, profiler, static-analysis, package/security, observability, network or system-runtime tools. A tool is useful only when it closes a specific evidence gap in the real project.
+
+For host/process resource questions, read [`system-runtime-diagnostics.md`](system-runtime-diagnostics.md). For DNS/TCP/TLS/HTTP/HTTP2/gRPC/WebSocket/proxy questions, read [`network-protocol-diagnostics.md`](network-protocol-diagnostics.md). `python scripts/plan_backend_diagnostics.py ...` can generate a non-executing symptom-oriented plan and marks invasive, privileged and sensitive candidates explicitly.
 
 ## Start from the question, not the tool
 
@@ -16,8 +18,9 @@ Map the uncertainty to the smallest evidence path:
 | Is a dependency reachable/compatible? | resolved graph, artifact inspection, integration/startup |
 | Why is it slow? | profile/trace/query plan/queue and saturation evidence |
 | Why is it leaking? | heap/allocation/native-memory/task/goroutine/handle evidence |
-| Why is it stuck? | thread/task/goroutine dumps, locks, event-loop/scheduler evidence |
+| Why is it stuck? | thread/task/goroutine dumps, locks, event-loop/scheduler/syscall evidence |
 | Is a migration safe? | schema diff/plan, representative data, lock/runtime behavior, rollback/recovery |
+| Is DNS/TLS/network the failing layer? | resolver/socket/TLS/protocol evidence from the failing namespace/path |
 | Is production healthy after change? | behavior-specific metrics/logs/traces, error/latency/saturation, business effect |
 
 Do not run a large suite or invasive profiler merely because it is familiar. Start with evidence capable of falsifying the current hypothesis.
@@ -26,7 +29,7 @@ Do not run a large suite or invasive profiler merely because it is familiar. Sta
 
 Use wrappers, package scripts, Make/task targets, CI commands, tool configuration and repository instructions before generic commands. A project may deliberately wrap Maven/Gradle/Cargo/pytest/dotnet/npm/CMake to inject profiles, generated code, containers, credentials or supported flags.
 
-`python scripts/plan_backend_checks.py <project-root>` can produce read-only candidate commands from detected repository evidence. Treat them as candidates requiring inspection, not as commands that must run.
+`python scripts/plan_backend_checks.py <project-root>` can produce read-only candidate verification commands from detected repository evidence. Treat them as candidates requiring inspection, not as commands that must run.
 
 ## Testing tools
 
@@ -51,9 +54,13 @@ A manual request is useful for diagnosis but should become an automated regressi
 
 ## Database and migration tools
 
-Use the actual database client and migration framework. Prefer read-only inspection first: schema metadata, migration history, locks/waits, query plans, row/cardinality estimates and representative data shape. For mutations, establish environment, transaction/lock behavior, backup/recovery, rollback/forward-fix and observability.
+Use the actual database client and migration framework. Prefer read-only inspection first: schema metadata, migration history, locks/waits, query plans, row/cardinality estimates and representative data shape. For mutations, establish environment, transaction/lock behavior, backup/recovery, rollback/forward-fix and observability. See [`database-tooling.md`](database-tooling.md) for product-specific evidence paths.
 
 `EXPLAIN`/query-plan evidence answers optimizer/access questions; it does not prove production latency without representative parameters/data/cache/concurrency. A generated migration file does not prove online execution safety.
+
+## Middleware and platform clients
+
+Use the platform-approved Redis/Kafka/RabbitMQ/NATS/search/object-storage/workflow tooling with read-only inspection first. See [`middleware-operations.md`](middleware-operations.md) for diagnostic routes and dangerous mutation boundaries. Resetting offsets, purging queues, deleting indexes/streams, changing policies or replaying workflows is not ordinary inspection.
 
 ## Static analysis, linters and formatters
 
