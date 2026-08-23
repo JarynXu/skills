@@ -1,0 +1,318 @@
+{
+  "derived_count": 0,
+  "derived_files": [],
+  "file_count": 29,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 1086,
+      "local_git_sha": "3e92463e6bd522a2a21e5f0a80d8089d6c4be20d",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "4ec89ffc81485b97fec584b2d4a961032eeffe834453894fd9c1274906cc744e",
+      "upstream_git_sha": "3e92463e6bd522a2a21e5f0a80d8089d6c4be20d",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 9249,
+      "local_git_sha": "e039788aeded7f1d8df2e069671b5461d5e53264",
+      "local_path": "docs/en/docs/advanced/advanced-dependencies.md",
+      "searchable_text": true,
+      "sha256": "f974f19e62ac242065fd8783e672e907f8b4b5738f06e0023a3d96c0d40ae754",
+      "upstream_git_sha": "e039788aeded7f1d8df2e069671b5461d5e53264",
+      "upstream_path": "docs/en/docs/advanced/advanced-dependencies.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3873,
+      "local_git_sha": "fcc9a149e1b00514817c75ccb52c2e8e8795fe73",
+      "local_path": "docs/en/docs/advanced/async-tests.md",
+      "searchable_text": true,
+      "sha256": "7c91b8abe4c26ec6eea35595df66788f8898c9fe444e501a0db6352857b37612",
+      "upstream_git_sha": "fcc9a149e1b00514817c75ccb52c2e8e8795fe73",
+      "upstream_path": "docs/en/docs/advanced/async-tests.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7985,
+      "local_git_sha": "485340afe2067c8ca2a03d70e4830a240ea085f5",
+      "local_path": "docs/en/docs/advanced/events.md",
+      "searchable_text": true,
+      "sha256": "33de759da943ea437830d8c744d8c0a3887f40c54f738886314575805216afab",
+      "upstream_git_sha": "485340afe2067c8ca2a03d70e4830a240ea085f5",
+      "upstream_path": "docs/en/docs/advanced/events.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4200,
+      "local_git_sha": "f64c0845fb72e8d700aad446a5fb2e233fd3c7c6",
+      "local_path": "docs/en/docs/advanced/middleware.md",
+      "searchable_text": true,
+      "sha256": "051ef9c6cd54a566be9192e0e4b6667b0e84604db7a3cffea8d970f874d72014",
+      "upstream_git_sha": "f64c0845fb72e8d700aad446a5fb2e233fd3c7c6",
+      "upstream_path": "docs/en/docs/advanced/middleware.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 23978,
+      "local_git_sha": "d975ddb53997c012f1de95226f2a3934c595e527",
+      "local_path": "docs/en/docs/async.md",
+      "searchable_text": true,
+      "sha256": "1d4397242a6b63f64dd5106e36999dff6deacdc79bb0bb157aae6cc36f8a2c44",
+      "upstream_git_sha": "d975ddb53997c012f1de95226f2a3934c595e527",
+      "upstream_path": "docs/en/docs/async.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1203,
+      "local_git_sha": "7bdef253e3ff3b214cb8e1556cb3ede7a2187253",
+      "local_path": "docs/en/docs/deployment/cloud.md",
+      "searchable_text": true,
+      "sha256": "5ea02d27559555ccd4b1c049db6e5a1ed44fe04549518e50f92a866beefac94c",
+      "upstream_git_sha": "7bdef253e3ff3b214cb8e1556cb3ede7a2187253",
+      "upstream_path": "docs/en/docs/deployment/cloud.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 18936,
+      "local_git_sha": "fc99c2247e17694f3dea7699f19460e35db6d805",
+      "local_path": "docs/en/docs/deployment/concepts.md",
+      "searchable_text": true,
+      "sha256": "cd6e86bb5725fed1807b343a17b302ea8b1106b9049326b63707de499e2ee606",
+      "upstream_git_sha": "fc99c2247e17694f3dea7699f19460e35db6d805",
+      "upstream_path": "docs/en/docs/deployment/concepts.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 28940,
+      "local_git_sha": "2acaeb41d187ebf215872e028cedc239d82cd6c1",
+      "local_path": "docs/en/docs/deployment/docker.md",
+      "searchable_text": true,
+      "sha256": "0337b98d51778755f59aa1b96ba319f0decc20136f3b3ff1b7547619a5c71100",
+      "upstream_git_sha": "2acaeb41d187ebf215872e028cedc239d82cd6c1",
+      "upstream_path": "docs/en/docs/deployment/docker.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1757,
+      "local_git_sha": "d9e7694736620482da7c59bc7d7808007d8c0850",
+      "local_path": "docs/en/docs/deployment/fastapicloud.md",
+      "searchable_text": true,
+      "sha256": "2b1367d719cb81aaff9bd51e1d75de96ddb5e376245b1ef78ba07fe54d3756c5",
+      "upstream_git_sha": "d9e7694736620482da7c59bc7d7808007d8c0850",
+      "upstream_path": "docs/en/docs/deployment/fastapicloud.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 14304,
+      "local_git_sha": "8280c1173dd492a753b68c1336d6f5bcc6be268e",
+      "local_path": "docs/en/docs/deployment/https.md",
+      "searchable_text": true,
+      "sha256": "96ab47d0bdd57399bc93fcf44877c6849e7f0513377273e25f783b5bb3117ad6",
+      "upstream_git_sha": "8280c1173dd492a753b68c1336d6f5bcc6be268e",
+      "upstream_path": "docs/en/docs/deployment/https.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1520,
+      "local_git_sha": "973d81151f6133911c68bb88329509690487c244",
+      "local_path": "docs/en/docs/deployment/index.md",
+      "searchable_text": true,
+      "sha256": "db01bbd0f4bc3cb78acaeec8a4a7ba94f11b4ca08acbd78d5f56f466cab0f1c0",
+      "upstream_git_sha": "973d81151f6133911c68bb88329509690487c244",
+      "upstream_path": "docs/en/docs/deployment/index.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 6603,
+      "local_git_sha": "210191516cfde4367e70f2aef55c6cedf6edf25f",
+      "local_path": "docs/en/docs/deployment/manually.md",
+      "searchable_text": true,
+      "sha256": "092f1a9a7b85634c20c2fd9a709f274201d109accdf620ccda12ff7be285c410",
+      "upstream_git_sha": "210191516cfde4367e70f2aef55c6cedf6edf25f",
+      "upstream_path": "docs/en/docs/deployment/manually.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 8379,
+      "local_git_sha": "a4d7b42ceab778570d0598d75f6e81e279a68a2c",
+      "local_path": "docs/en/docs/deployment/server-workers.md",
+      "searchable_text": true,
+      "sha256": "5b4bd1b6afe1c9ef70bd210aa101ce386f6c48ee9f8c97e4066ab667545b74da",
+      "upstream_git_sha": "a4d7b42ceab778570d0598d75f6e81e279a68a2c",
+      "upstream_path": "docs/en/docs/deployment/server-workers.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3510,
+      "local_git_sha": "6c03fac39c1228ceb75bb116828f5cd3944dc044",
+      "local_path": "docs/en/docs/deployment/versions.md",
+      "searchable_text": true,
+      "sha256": "be142679260fcd584d5b67d82099ef853ff095b0ba9b436d464794c08ab20432",
+      "upstream_git_sha": "6c03fac39c1228ceb75bb116828f5cd3944dc044",
+      "upstream_path": "docs/en/docs/deployment/versions.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4786,
+      "local_git_sha": "18c9bb6fe5db9f51769bb771f48b9fee4f4aab13",
+      "local_path": "docs/en/docs/tutorial/background-tasks.md",
+      "searchable_text": true,
+      "sha256": "7a34e7a4a7bd2cb9e0b465588b77cf007b0a5c8bdcf7530ff3619ff6b3642468",
+      "upstream_git_sha": "18c9bb6fe5db9f51769bb771f48b9fee4f4aab13",
+      "upstream_path": "docs/en/docs/tutorial/background-tasks.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 6915,
+      "local_git_sha": "d9a02d5b80f53c17370855e2447b005b9562bfab",
+      "local_path": "docs/en/docs/tutorial/dependencies/classes-as-dependencies.md",
+      "searchable_text": true,
+      "sha256": "ddfad2447ac9a678dc7a41d4985f6b958edb75812465accab0c3c46161029aa5",
+      "upstream_git_sha": "d9a02d5b80f53c17370855e2447b005b9562bfab",
+      "upstream_path": "docs/en/docs/tutorial/dependencies/classes-as-dependencies.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2954,
+      "local_git_sha": "82d4526b15b9ba7486c6dce41d25635a783a7c48",
+      "local_path": "docs/en/docs/tutorial/dependencies/dependencies-in-path-operation-decorators.md",
+      "searchable_text": true,
+      "sha256": "69f61187f2a466880ee6471070d6516965c25f4d749b1a202b84a790a8ec8b8c",
+      "upstream_git_sha": "82d4526b15b9ba7486c6dce41d25635a783a7c48",
+      "upstream_path": "docs/en/docs/tutorial/dependencies/dependencies-in-path-operation-decorators.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 12857,
+      "local_git_sha": "5574af5194e25b8c174308b6ddfa5b4cb760fa06",
+      "local_path": "docs/en/docs/tutorial/dependencies/dependencies-with-yield.md",
+      "searchable_text": true,
+      "sha256": "93f58ceecafff1967c39047657ae08a020d2452c84d795dc777901c35b8a0d17",
+      "upstream_git_sha": "5574af5194e25b8c174308b6ddfa5b4cb760fa06",
+      "upstream_path": "docs/en/docs/tutorial/dependencies/dependencies-with-yield.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1060,
+      "local_git_sha": "e02ac14db2e56167ee61f28abade45f082554953",
+      "local_path": "docs/en/docs/tutorial/dependencies/global-dependencies.md",
+      "searchable_text": true,
+      "sha256": "26fada3b3b65da1b47419a6d2c289630afabfccfd9ec80d4f8291702639d9e5f",
+      "upstream_git_sha": "e02ac14db2e56167ee61f28abade45f082554953",
+      "upstream_path": "docs/en/docs/tutorial/dependencies/global-dependencies.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 9771,
+      "local_git_sha": "0bf651adb645ee5ec0b01f3553e35e85a20463ec",
+      "local_path": "docs/en/docs/tutorial/dependencies/index.md",
+      "searchable_text": true,
+      "sha256": "83319cc87297bb0959c5721a112133e6a3cd19900163c348a8ee6cf4818cd21f",
+      "upstream_git_sha": "0bf651adb645ee5ec0b01f3553e35e85a20463ec",
+      "upstream_path": "docs/en/docs/tutorial/dependencies/index.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3820,
+      "local_git_sha": "34b0248e9db570870b91f9a7806d55997fa686df",
+      "local_path": "docs/en/docs/tutorial/dependencies/sub-dependencies.md",
+      "searchable_text": true,
+      "sha256": "fea74611e9d88f9d96a75f56925ffa5d8af0c90e0a2834f095736bbca066cdb1",
+      "upstream_git_sha": "34b0248e9db570870b91f9a7806d55997fa686df",
+      "upstream_path": "docs/en/docs/tutorial/dependencies/sub-dependencies.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 9156,
+      "local_git_sha": "ed661b03124ea54971fdb707ceeec39bb7e424bb",
+      "local_path": "docs/en/docs/tutorial/handling-errors.md",
+      "searchable_text": true,
+      "sha256": "c0cb7aeafe8ed3802396f2421755cf1e740000347305c515a2c828c0c41f4b1a",
+      "upstream_git_sha": "ed661b03124ea54971fdb707ceeec39bb7e424bb",
+      "upstream_path": "docs/en/docs/tutorial/handling-errors.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 8357,
+      "local_git_sha": "11a7d19faa780d356175c67dba44273e6e8da961",
+      "local_path": "docs/en/docs/tutorial/security/first-steps.md",
+      "searchable_text": true,
+      "sha256": "56a4f9201ff9a331bede5685a1a546f6bc536f75eb4aaeba5c1fb1fb8a49f8c7",
+      "upstream_git_sha": "11a7d19faa780d356175c67dba44273e6e8da961",
+      "upstream_path": "docs/en/docs/tutorial/security/first-steps.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4117,
+      "local_git_sha": "59a90a7e175e4189c47b1ca9a35937c62aa7be1b",
+      "local_path": "docs/en/docs/tutorial/security/get-current-user.md",
+      "searchable_text": true,
+      "sha256": "2463a415b23ebf2398040ca35a899de4ed7cd7888cb0f7d61f529c4be53f14a4",
+      "upstream_git_sha": "59a90a7e175e4189c47b1ca9a35937c62aa7be1b",
+      "upstream_path": "docs/en/docs/tutorial/security/get-current-user.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4548,
+      "local_git_sha": "6f460d627fd3030c87878994fb2ad9b9fc35fa54",
+      "local_path": "docs/en/docs/tutorial/security/index.md",
+      "searchable_text": true,
+      "sha256": "6c316110d145e16cc08e6e3caff00ebe7247470e85af3ce212d1ba3391092da8",
+      "upstream_git_sha": "6f460d627fd3030c87878994fb2ad9b9fc35fa54",
+      "upstream_path": "docs/en/docs/tutorial/security/index.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 10762,
+      "local_git_sha": "688150f4dde1040f14c994ccf9db1c539cf6de1f",
+      "local_path": "docs/en/docs/tutorial/security/oauth2-jwt.md",
+      "searchable_text": true,
+      "sha256": "09de4db00267448e11cbdc198154c6bf3ac4aa48cb88ecb87ee4e71d44d9272b",
+      "upstream_git_sha": "688150f4dde1040f14c994ccf9db1c539cf6de1f",
+      "upstream_path": "docs/en/docs/tutorial/security/oauth2-jwt.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 9589,
+      "local_git_sha": "72e08b19a8bc7d2c75f90668e677c754134efed2",
+      "local_path": "docs/en/docs/tutorial/security/simple-oauth2.md",
+      "searchable_text": true,
+      "sha256": "e739969712ebf1b5e0be194d009d2b970e8a727ad60e17e2ffad8acc4293d377",
+      "upstream_git_sha": "72e08b19a8bc7d2c75f90668e677c754134efed2",
+      "upstream_path": "docs/en/docs/tutorial/security/simple-oauth2.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 5624,
+      "local_git_sha": "1c9473cb8a685556e29510dd5c2253fa05bc778d",
+      "local_path": "docs/en/docs/tutorial/testing.md",
+      "searchable_text": true,
+      "sha256": "759b81a9967dc50ec405877a23bb362d202e5d483fe38ad2308cb32a88eb8eda",
+      "upstream_git_sha": "1c9473cb8a685556e29510dd5c2253fa05bc778d",
+      "upstream_path": "docs/en/docs/tutorial/testing.md"
+    }
+  ],
+  "license": "MIT",
+  "repo": "fastapi/fastapi",
+  "requested_ref": "master",
+  "retrieved_at": "2026-08-23T05:47:27+00:00",
+  "schema_version": 1,
+  "source_commit": "c3f316b7e814667e8ee81e03a7330d00ee61e45c",
+  "source_id": "fastapi-core-docs",
+  "source_tree": "99e67ce7923ae58e408d9eb0afaf2ef039bfa85f",
+  "source_url": "https://github.com/fastapi/fastapi/tree/c3f316b7e814667e8ee81e03a7330d00ee61e45c",
+  "tier": "canonical-practice",
+  "title": "FastAPI Core Backend Guidance",
+  "total_original_bytes": 229839,
+  "tracks": [
+    "python",
+    "fastapi",
+    "async",
+    "dependency-injection",
+    "security",
+    "testing",
+    "deployment"
+  ]
+}
