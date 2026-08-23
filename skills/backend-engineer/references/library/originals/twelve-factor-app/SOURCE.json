@@ -177,7 +177,7 @@
   "license": "MIT",
   "repo": "heroku/12factor",
   "requested_ref": "main",
-  "retrieved_at": "2026-08-23T04:58:56+00:00",
+  "retrieved_at": "2026-08-23T06:10:00+00:00",
   "schema_version": 1,
   "source_commit": "1385d2c80bac38c25647651f6f5ec769561828dc",
   "source_id": "twelve-factor-app",
