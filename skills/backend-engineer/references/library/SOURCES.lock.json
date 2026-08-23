@@ -157,15 +157,15 @@
       "total_original_bytes": 53190
     },
     "kotlin-spec": {
-      "agent_ready": false,
-      "file_count": 6864,
-      "processed_bytes": 0,
-      "processed_count": 0,
+      "agent_ready": true,
+      "file_count": 33,
+      "processed_bytes": 553623,
+      "processed_count": 29,
       "repo": "Kotlin/kotlin-spec",
       "requested_ref": "release",
-      "retrieved_at": "2026-08-23T05:42:58+00:00",
+      "retrieved_at": "2026-08-23T06:25:26+00:00",
       "source_commit": "2f7aa0524ec27e788dfacd550f144809f2e0254c",
-      "total_original_bytes": 176902441
+      "total_original_bytes": 608694
     },
     "node-best-practices": {
       "agent_ready": false,
