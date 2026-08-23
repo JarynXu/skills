@@ -267,13 +267,13 @@
       "total_original_bytes": 151639
     },
     "redis-protocol-specifications": {
-      "agent_ready": false,
+      "agent_ready": true,
       "file_count": 8,
-      "processed_bytes": 0,
-      "processed_count": 0,
+      "processed_bytes": 70942,
+      "processed_count": 7,
       "repo": "redis/redis-specifications",
       "requested_ref": "master",
-      "retrieved_at": "2026-08-23T05:45:00+00:00",
+      "retrieved_at": "2026-08-23T06:27:54+00:00",
       "source_commit": "1252427cdbc497f66a7f8550c6b5f2f35367dc92",
       "total_original_bytes": 69890
     },
