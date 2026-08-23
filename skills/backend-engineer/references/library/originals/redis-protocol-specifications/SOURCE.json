@@ -1,0 +1,185 @@
+{
+  "agent_ready": true,
+  "file_count": 8,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 1454,
+      "local_git_sha": "8cea3f29d3373b9f3c7be1891007d0b0ae450ffd",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "a73171e38f736631465cec9e4165d569913432208ca7cfdbf4d4a3ab46f79236",
+      "upstream_git_sha": "8cea3f29d3373b9f3c7be1891007d0b0ae450ffd",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 140,
+      "local_git_sha": "a65ddc4f882eacaf71dd78609952e53b9d14792f",
+      "local_path": "README.md",
+      "searchable_text": true,
+      "sha256": "b6c288a99afb66bbbc0a9755dd63e585144a900217e0e615c6f43758ffd7bb55",
+      "upstream_git_sha": "a65ddc4f882eacaf71dd78609952e53b9d14792f",
+      "upstream_path": "README.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 52,
+      "local_git_sha": "2788ed1b20e4a502a504ec33f075acddd1a5548a",
+      "local_path": "protocol/README.md",
+      "searchable_text": true,
+      "sha256": "165338af493ec1bad3b70b4fae490e3d8f16acf9292dd5b2c009b24de88b332a",
+      "upstream_git_sha": "2788ed1b20e4a502a504ec33f075acddd1a5548a",
+      "upstream_path": "protocol/README.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 14851,
+      "local_git_sha": "2e9b6e890a6a04b54f804c5d00b6203be29ccd1a",
+      "local_path": "protocol/RESP2.md",
+      "searchable_text": true,
+      "sha256": "ff725bdb4b916ace3d35dc7ef2a0d4a425ca7c8aa107e9ca9be41705c94b3233",
+      "upstream_git_sha": "2e9b6e890a6a04b54f804c5d00b6203be29ccd1a",
+      "upstream_path": "protocol/RESP2.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 38875,
+      "local_git_sha": "6c48920c0c67c04c0b26518b79d13b33ed6a4ece",
+      "local_path": "protocol/RESP3.md",
+      "searchable_text": true,
+      "sha256": "0aeda1fbed16511e8202a47424af24999ad0a3dfc6243968f2a189109d8341bf",
+      "upstream_git_sha": "6c48920c0c67c04c0b26518b79d13b33ed6a4ece",
+      "upstream_path": "protocol/RESP3.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 0,
+      "local_git_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "local_path": "uri/README.md",
+      "searchable_text": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "upstream_git_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "upstream_path": "uri/README.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 10115,
+      "local_git_sha": "49af88cfe01f283449e989813dd5acce974c365e",
+      "local_path": "uri/redis.txt",
+      "searchable_text": true,
+      "sha256": "ac3e36a7c82a6dc89e7b03cd41588c9cdf328dcbad56aaf62e93d978b573c4e0",
+      "upstream_git_sha": "49af88cfe01f283449e989813dd5acce974c365e",
+      "upstream_path": "uri/redis.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4403,
+      "local_git_sha": "3f27b8068f12148b3d8ff8d99073c23a71484ffd",
+      "local_path": "uri/rediss.txt",
+      "searchable_text": true,
+      "sha256": "64a17d0cce5f55bd84dc4a397815de3a4f0675cc9624c047ea4b272d7c64b9c4",
+      "upstream_git_sha": "3f27b8068f12148b3d8ff8d99073c23a71484ffd",
+      "upstream_path": "uri/rediss.txt"
+    }
+  ],
+  "license": "BSD-3-Clause",
+  "processed_bytes": 70942,
+  "processed_count": 7,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 492,
+      "derived_from": "README.md",
+      "local_git_sha": "fa10516896908f82bdece2b279d1be8710a96ed7",
+      "local_path": "README.md",
+      "searchable_text": true,
+      "sha256": "f5e9a9f09c8feeb80f8563cbce1e580362f6085dfcbb04676c6a098afb845785",
+      "source_git_sha": "a65ddc4f882eacaf71dd78609952e53b9d14792f",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 413,
+      "derived_from": "protocol/README.md",
+      "local_git_sha": "a1aa030acb32e6e89b9e2f5a23daa8ab296f6d0e",
+      "local_path": "protocol/README.md",
+      "searchable_text": true,
+      "sha256": "0b18f1924983efbf34079b19ae6b4e69376077e35a0e1e88d0587fc245e67f11",
+      "source_git_sha": "2788ed1b20e4a502a504ec33f075acddd1a5548a",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 15210,
+      "derived_from": "protocol/RESP2.md",
+      "local_git_sha": "3c828725e90c385cbe65419bdb31a0977588fd15",
+      "local_path": "protocol/RESP2.md",
+      "searchable_text": true,
+      "sha256": "c6ee17a26f03b1f6093a4818d01a5a845a7766d781b321b26b0cf09a29817cd7",
+      "source_git_sha": "2e9b6e890a6a04b54f804c5d00b6203be29ccd1a",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 39234,
+      "derived_from": "protocol/RESP3.md",
+      "local_git_sha": "0fc7140dbd8aeb48f000f8c5bb057405bf81114d",
+      "local_path": "protocol/RESP3.md",
+      "searchable_text": true,
+      "sha256": "fec11d1dd681632659b04494036e59dc0a74f8547cd2bc3ed1ae8e65f386120a",
+      "source_git_sha": "6c48920c0c67c04c0b26518b79d13b33ed6a4ece",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 356,
+      "derived_from": "uri/README.md",
+      "local_git_sha": "01f30a2d917f05f058c12f79a5d72adbd2d267e8",
+      "local_path": "uri/README.md",
+      "searchable_text": true,
+      "sha256": "9a14dd78f18785dec4b4470eb42ab9a620477d6a9f35c1466f5656650c1c81e8",
+      "source_git_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 10474,
+      "derived_from": "uri/redis.txt",
+      "local_git_sha": "aca1cc6b0b762755f6b4fb1e2e4bf8ae44dc9266",
+      "local_path": "uri/redis.txt.md",
+      "searchable_text": true,
+      "sha256": "9b31fea5202794c460566e0b2d41bf4df4f53c264fe86dc4c68701bec67806b7",
+      "source_git_sha": "49af88cfe01f283449e989813dd5acce974c365e",
+      "transform": "plain-text-to-markdown"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 4763,
+      "derived_from": "uri/rediss.txt",
+      "local_git_sha": "8f6d3487d98ea73b077a7c948a3c75019bffe2d7",
+      "local_path": "uri/rediss.txt.md",
+      "searchable_text": true,
+      "sha256": "89bf18f6494006fec71be801a1f63bb4a5c20f2bae04d7dddb9b300b09c9f6b7",
+      "source_git_sha": "3f27b8068f12148b3d8ff8d99073c23a71484ffd",
+      "transform": "plain-text-to-markdown"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "redis/redis-specifications",
+  "requested_ref": "master",
+  "retrieved_at": "2026-08-23T06:27:54+00:00",
+  "schema_version": 2,
+  "source_commit": "1252427cdbc497f66a7f8550c6b5f2f35367dc92",
+  "source_id": "redis-protocol-specifications",
+  "source_tree": "a8078566b470dcbc3846da148a77b8429c6db6d1",
+  "source_url": "https://github.com/redis/redis-specifications/tree/1252427cdbc497f66a7f8550c6b5f2f35367dc92",
+  "tier": "canonical-standard",
+  "title": "Redis Protocol and URI Specifications",
+  "total_original_bytes": 69890,
+  "tracks": [
+    "cache",
+    "redis",
+    "protocol"
+  ]
+}

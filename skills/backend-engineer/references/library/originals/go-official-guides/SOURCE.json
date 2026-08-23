@@ -1,0 +1,144 @@
+{
+  "agent_ready": true,
+  "derived_count": 0,
+  "derived_files": [],
+  "file_count": 6,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 1453,
+      "local_git_sha": "2a7cf70da6e498df9c11ab6a5eaa2ddd7af34da4",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+      "upstream_git_sha": "2a7cf70da6e498df9c11ab6a5eaa2ddd7af34da4",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 10178,
+      "local_git_sha": "1aebd11d7ef22123b09a3cc7e4014d3f8ecad263",
+      "local_path": "_content/blog/package-names.md",
+      "searchable_text": true,
+      "sha256": "b1e96f378f5a9a2b3b99469ba0cd718e154563e451722061d9495eb751983a52",
+      "upstream_git_sha": "1aebd11d7ef22123b09a3cc7e4014d3f8ecad263",
+      "upstream_path": "_content/blog/package-names.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 12771,
+      "local_git_sha": "b1f6aeebc3a188f96a4060de3a7ecf62ae09330c",
+      "local_path": "_content/doc/code.html",
+      "searchable_text": true,
+      "sha256": "2c0ef735c9c709ee6c10b6b49d10f094c6a8aa326a6cb5afde64f4f911fd1404",
+      "upstream_git_sha": "b1f6aeebc3a188f96a4060de3a7ecf62ae09330c",
+      "upstream_path": "_content/doc/code.html"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 37332,
+      "local_git_sha": "6cf2b90982b40b85ec5e285106a9a3358baa1b5b",
+      "local_path": "_content/doc/comment.md",
+      "searchable_text": true,
+      "sha256": "c6785a74749946634204859ff60833db87127872990ce17e7f80ae29b8b64d38",
+      "upstream_git_sha": "6cf2b90982b40b85ec5e285106a9a3358baa1b5b",
+      "upstream_path": "_content/doc/comment.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 17955,
+      "local_git_sha": "f7717c1b7af6575d73feefaf76134b31c8a684f9",
+      "local_path": "_content/doc/diagnostics.html",
+      "searchable_text": true,
+      "sha256": "a1ea481194066462e3fb6701f2fe859f87ae218ea237b6fc806742b439681fe1",
+      "upstream_git_sha": "f7717c1b7af6575d73feefaf76134b31c8a684f9",
+      "upstream_path": "_content/doc/diagnostics.html"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 112268,
+      "local_git_sha": "e13f48b061525e2d486024178fdb840d7461be6c",
+      "local_path": "_content/doc/effective_go.html",
+      "searchable_text": true,
+      "sha256": "9c6259ceaec348deabfcef9856955070da5370f3a95cf739b4d9c06b22544e0d",
+      "upstream_git_sha": "e13f48b061525e2d486024178fdb840d7461be6c",
+      "upstream_path": "_content/doc/effective_go.html"
+    }
+  ],
+  "license": "BSD-style repository license; preserve source notices",
+  "processed_bytes": 175417,
+  "processed_count": 5,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 10538,
+      "derived_from": "_content/blog/package-names.md",
+      "local_git_sha": "925fcbb81353d842c07e5e4c68e24196c7bd9308",
+      "local_path": "_content/blog/package-names.md",
+      "searchable_text": true,
+      "sha256": "b93dc751a66f702fbdc32d5723b9de9705a8f1e28900c0e1b5a5ae43acc55dbc",
+      "source_git_sha": "1aebd11d7ef22123b09a3cc7e4014d3f8ecad263",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 11141,
+      "derived_from": "_content/doc/code.html",
+      "local_git_sha": "04a154f43d30e51db5495190a1858de3ff6c1218",
+      "local_path": "_content/doc/code.html.md",
+      "searchable_text": true,
+      "sha256": "aabf0d821a3c0cd804a1a20da9ad8a3e72d4be9685e981373f67e2f7de2668d4",
+      "source_git_sha": "b1f6aeebc3a188f96a4060de3a7ecf62ae09330c",
+      "transform": "html-to-markdown:beautifulsoup+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 37685,
+      "derived_from": "_content/doc/comment.md",
+      "local_git_sha": "c02adddbaf9a210e579da8f32df5bfe4d32b58fe",
+      "local_path": "_content/doc/comment.md",
+      "searchable_text": true,
+      "sha256": "b44dd487d9132bec13e0772987a4f6536eaa5ef022f813073500d62f444e72ec",
+      "source_git_sha": "6cf2b90982b40b85ec5e285106a9a3358baa1b5b",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 16006,
+      "derived_from": "_content/doc/diagnostics.html",
+      "local_git_sha": "4286dd9adfdef6b798aeda692d02c381b8372cf2",
+      "local_path": "_content/doc/diagnostics.html.md",
+      "searchable_text": true,
+      "sha256": "24ef513399277d547706adb449a8cffc10648d34a7bd463fccbe58f693086b41",
+      "source_git_sha": "f7717c1b7af6575d73feefaf76134b31c8a684f9",
+      "transform": "html-to-markdown:beautifulsoup+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 100047,
+      "derived_from": "_content/doc/effective_go.html",
+      "local_git_sha": "9b582da75688f140821fbeb2b36b395a6652c110",
+      "local_path": "_content/doc/effective_go.html.md",
+      "searchable_text": true,
+      "sha256": "84f2832babee0eec02df65761c487daa777361f1fb4adef62be4866dcbaad1ad",
+      "source_git_sha": "e13f48b061525e2d486024178fdb840d7461be6c",
+      "transform": "html-to-markdown:beautifulsoup+markdownify"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "golang/website",
+  "requested_ref": "master",
+  "retrieved_at": "2026-08-23T05:27:14+00:00",
+  "schema_version": 2,
+  "source_commit": "b02076ae6df08ee9d495fe4b283f88ac18e51012",
+  "source_id": "go-official-guides",
+  "source_tree": "53a2967e14ce6bfe7c6bdd6480b6d3d3608c8fb2",
+  "source_url": "https://github.com/golang/website/tree/b02076ae6df08ee9d495fe4b283f88ac18e51012",
+  "tier": "canonical-practice",
+  "title": "Official Go Engineering Guides",
+  "total_original_bytes": 191957,
+  "tracks": [
+    "go",
+    "diagnostics"
+  ]
+}

@@ -1,0 +1,376 @@
+{
+  "agent_ready": true,
+  "derived_count": 0,
+  "derived_files": [],
+  "file_count": 17,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 1056,
+      "local_git_sha": "486cfeb41ae7fed49e1400e1155315690566cd72",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "bffa134a9c134b41d3f33e0c76dd9a91cee1a4e67912216d441c6e7584970b71",
+      "upstream_git_sha": "486cfeb41ae7fed49e1400e1155315690566cd72",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2103,
+      "local_git_sha": "870a560962ca6d1da281e42a1d40396d6fed2ec1",
+      "local_path": "content/en/admin-processes.md",
+      "searchable_text": true,
+      "sha256": "fc496eaf191463a22fa4a04e4eca2bab35889f966688e024959ea320c310a7cd",
+      "upstream_git_sha": "870a560962ca6d1da281e42a1d40396d6fed2ec1",
+      "upstream_path": "content/en/admin-processes.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1474,
+      "local_git_sha": "9be3f1677dc9520ce7eb2a44123222139a11ee6b",
+      "local_path": "content/en/background.md",
+      "searchable_text": true,
+      "sha256": "be4ea69343efe10323b04edaaca8158be20ef04a5c82484a7d078e045569b527",
+      "upstream_git_sha": "9be3f1677dc9520ce7eb2a44123222139a11ee6b",
+      "upstream_path": "content/en/background.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2680,
+      "local_git_sha": "c8f59945ec1854421bcd6128b68b2639cd3b5702",
+      "local_path": "content/en/backing-services.md",
+      "searchable_text": true,
+      "sha256": "092e74d60e59001d0f70e39024c6bbac67188907f677431c1081b80f20b37695",
+      "upstream_git_sha": "c8f59945ec1854421bcd6128b68b2639cd3b5702",
+      "upstream_path": "content/en/backing-services.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2494,
+      "local_git_sha": "83525c1ec6406ed44edb5be006508818ec462649",
+      "local_path": "content/en/build-release-run.md",
+      "searchable_text": true,
+      "sha256": "f5eababf567dfe7a3ea7740d32372aeffb22fb660c4e296c8c4701b179bb517b",
+      "upstream_git_sha": "83525c1ec6406ed44edb5be006508818ec462649",
+      "upstream_path": "content/en/build-release-run.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1796,
+      "local_git_sha": "234ad6725f625df276c23f00be2dd2d38772e1c2",
+      "local_path": "content/en/codebase.md",
+      "searchable_text": true,
+      "sha256": "aafead6b0d15bd56a80521bd783094d5bf2d7381cf4dec2c15716ea8f2798e9a",
+      "upstream_git_sha": "234ad6725f625df276c23f00be2dd2d38772e1c2",
+      "upstream_path": "content/en/codebase.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2618,
+      "local_git_sha": "9e7426fcff5bd825f271405224a9e09dbed16131",
+      "local_path": "content/en/concurrency.md",
+      "searchable_text": true,
+      "sha256": "d4a22e2db87f45c04f78bcec5fe3dd69075359e9a76d724039ce110b0acfc996",
+      "upstream_git_sha": "9e7426fcff5bd825f271405224a9e09dbed16131",
+      "upstream_path": "content/en/concurrency.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3050,
+      "local_git_sha": "0bc603b827dba5d4a15871d6e4deab043e0b275e",
+      "local_path": "content/en/config.md",
+      "searchable_text": true,
+      "sha256": "eb1dd6799ee8a82ca0074727432138234f40841952392406aa05c76fb35fcd27",
+      "upstream_git_sha": "0bc603b827dba5d4a15871d6e4deab043e0b275e",
+      "upstream_path": "content/en/config.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2558,
+      "local_git_sha": "d53fd4cd8c5c7867c2217b5e87a7a4a663bb80c1",
+      "local_path": "content/en/dependencies.md",
+      "searchable_text": true,
+      "sha256": "636df45c364d8abc3fa2418be2e913dda1c97eca62c199048827bac2d91a8c87",
+      "upstream_git_sha": "d53fd4cd8c5c7867c2217b5e87a7a4a663bb80c1",
+      "upstream_path": "content/en/dependencies.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4527,
+      "local_git_sha": "e771d163c431e12729e73d10bd2aec3d960237c7",
+      "local_path": "content/en/dev-prod-parity.md",
+      "searchable_text": true,
+      "sha256": "0964d7249df65f78f7a50fa066f80f99ca1125c3e64a25d07582905292a20e6d",
+      "upstream_git_sha": "e771d163c431e12729e73d10bd2aec3d960237c7",
+      "upstream_path": "content/en/dev-prod-parity.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2734,
+      "local_git_sha": "4725ef581591be0705dbe408c5be9ff0f753dff7",
+      "local_path": "content/en/disposability.md",
+      "searchable_text": true,
+      "sha256": "8ee1f8a0acb60b75f1d2c761ba14234fd578d66c5c64a59347d48680bc09ee53",
+      "upstream_git_sha": "4725ef581591be0705dbe408c5be9ff0f753dff7",
+      "upstream_path": "content/en/disposability.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 998,
+      "local_git_sha": "eff1d33d42bdb516aa9f69e7c86f11ae5c08ea44",
+      "local_path": "content/en/intro.md",
+      "searchable_text": true,
+      "sha256": "21a1fc883d6fa0a6bfb577d63047294bb7cfe64921824d233c9dbdf2416713e3",
+      "upstream_git_sha": "eff1d33d42bdb516aa9f69e7c86f11ae5c08ea44",
+      "upstream_path": "content/en/intro.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2242,
+      "local_git_sha": "22e3404e73ddb98be18d511a938e0a34557d3a25",
+      "local_path": "content/en/logs.md",
+      "searchable_text": true,
+      "sha256": "7dcb48b93385aca9fb8a8087ba592f3c588bb3937ffee7ac1514ecb377932146",
+      "upstream_git_sha": "22e3404e73ddb98be18d511a938e0a34557d3a25",
+      "upstream_path": "content/en/logs.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1913,
+      "local_git_sha": "b12de8b159eeb029c370e6badffd445a8517ab7a",
+      "local_path": "content/en/port-binding.md",
+      "searchable_text": true,
+      "sha256": "21aba4d1b47a5cf15dfdb90ec6ef8473193dbbd7d84a563d5998e70cf90ff7ed",
+      "upstream_git_sha": "b12de8b159eeb029c370e6badffd445a8517ab7a",
+      "upstream_path": "content/en/port-binding.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2481,
+      "local_git_sha": "97d222a7db6b8a5fd59486a64903539a24492a04",
+      "local_path": "content/en/processes.md",
+      "searchable_text": true,
+      "sha256": "77f8721bde123f9f63e86f6ebb953ce77705582cce76b8d2e64272788ad429b7",
+      "upstream_git_sha": "97d222a7db6b8a5fd59486a64903539a24492a04",
+      "upstream_path": "content/en/processes.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1078,
+      "local_git_sha": "d8fbe2c5e32e67caa6d2bb93e8f592a9076bc5df",
+      "local_path": "content/en/toc.md",
+      "searchable_text": true,
+      "sha256": "3c92df2db9e68a068b362f66f26b71230091b309fd730d01227b809ea3e79333",
+      "upstream_git_sha": "d8fbe2c5e32e67caa6d2bb93e8f592a9076bc5df",
+      "upstream_path": "content/en/toc.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 178,
+      "local_git_sha": "49eb40fd534fb0a61605d8235694f6804fd19986",
+      "local_path": "content/en/who.md",
+      "searchable_text": true,
+      "sha256": "d6605812d19d8093d932873c1326dd534c37cddb246b27a96548120ce0b1c61a",
+      "upstream_git_sha": "49eb40fd534fb0a61605d8235694f6804fd19986",
+      "upstream_path": "content/en/who.md"
+    }
+  ],
+  "license": "MIT",
+  "processed_bytes": 40598,
+  "processed_count": 16,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 2463,
+      "derived_from": "content/en/admin-processes.md",
+      "local_git_sha": "4f44fb9386bd4c58c3220aea16d285bd59e12ae8",
+      "local_path": "content/en/admin-processes.md",
+      "searchable_text": true,
+      "sha256": "32c5ac93fa4fc2f8f40bcc2a4ccdca9b598c64a63900277b843789cc4ce67317",
+      "source_git_sha": "870a560962ca6d1da281e42a1d40396d6fed2ec1",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 1828,
+      "derived_from": "content/en/background.md",
+      "local_git_sha": "2c943488e247175b0ac808389cc4870853b5b52c",
+      "local_path": "content/en/background.md",
+      "searchable_text": true,
+      "sha256": "2b62aae1ea4dc1918f59882b7c2fc87b98de08db42b40e49ecbc77c8ab1b54e8",
+      "source_git_sha": "9be3f1677dc9520ce7eb2a44123222139a11ee6b",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 3041,
+      "derived_from": "content/en/backing-services.md",
+      "local_git_sha": "0fa86f37feaf81a67a71c39596989c4f66610829",
+      "local_path": "content/en/backing-services.md",
+      "searchable_text": true,
+      "sha256": "84eed144ddfd7c007d0d89afcb6869433c389b161c2c78d61d2a29d6f4ddbed4",
+      "source_git_sha": "c8f59945ec1854421bcd6128b68b2639cd3b5702",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 2855,
+      "derived_from": "content/en/build-release-run.md",
+      "local_git_sha": "8d4264a631a8f0e7193e3dcffc2d8ff1dc7a97df",
+      "local_path": "content/en/build-release-run.md",
+      "searchable_text": true,
+      "sha256": "0e98ff9447063ec25039534b2b374af4180a4270dd4543519b4a542bb726d88d",
+      "source_git_sha": "83525c1ec6406ed44edb5be006508818ec462649",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 2148,
+      "derived_from": "content/en/codebase.md",
+      "local_git_sha": "b890fcc1c6911a155e6e2364ebbcc4e1e9b9e6f6",
+      "local_path": "content/en/codebase.md",
+      "searchable_text": true,
+      "sha256": "e65a0ebad2c4c4e73af99cb58db4aee0e85bb4c68cb4072c4a3b2cdf820624f1",
+      "source_git_sha": "234ad6725f625df276c23f00be2dd2d38772e1c2",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 2974,
+      "derived_from": "content/en/concurrency.md",
+      "local_git_sha": "163477d6fe779596341aefc709533d4905b19ab2",
+      "local_path": "content/en/concurrency.md",
+      "searchable_text": true,
+      "sha256": "2ed879f97ba6a66b1ad0e5fe32bb08673c35708ab274f70a4ee1847860cafa33",
+      "source_git_sha": "9e7426fcff5bd825f271405224a9e09dbed16131",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 3401,
+      "derived_from": "content/en/config.md",
+      "local_git_sha": "bc092bc14ba7a9f1968a6c5c96c29100cb1532c0",
+      "local_path": "content/en/config.md",
+      "searchable_text": true,
+      "sha256": "3ffe2aaada9e63912c4558c804da21906a1988453996a8bd2e31fd220128f6c1",
+      "source_git_sha": "0bc603b827dba5d4a15871d6e4deab043e0b275e",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 2915,
+      "derived_from": "content/en/dependencies.md",
+      "local_git_sha": "b0c528dd61090bfbf97e4d043b095e5a9155cf50",
+      "local_path": "content/en/dependencies.md",
+      "searchable_text": true,
+      "sha256": "9303ae1232b2de0fadd0fc9e1a1f20391b140cab70ce03161243b998b329e624",
+      "source_git_sha": "d53fd4cd8c5c7867c2217b5e87a7a4a663bb80c1",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 4887,
+      "derived_from": "content/en/dev-prod-parity.md",
+      "local_git_sha": "3638c90eae24fa5c2af88d7d016323155484eb33",
+      "local_path": "content/en/dev-prod-parity.md",
+      "searchable_text": true,
+      "sha256": "f0b670db5fc2c68d2fc3b501275a149113b341e9d17e001076a157ef49eb82bf",
+      "source_git_sha": "e771d163c431e12729e73d10bd2aec3d960237c7",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 3090,
+      "derived_from": "content/en/disposability.md",
+      "local_git_sha": "cd083d7ae31164b680ab7be8560bdf4127629ad2",
+      "local_path": "content/en/disposability.md",
+      "searchable_text": true,
+      "sha256": "f164e983cf2582790c128e8433f0948b20fd57045bcbb93afcb1ba2943bfc218",
+      "source_git_sha": "4725ef581591be0705dbe408c5be9ff0f753dff7",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 1348,
+      "derived_from": "content/en/intro.md",
+      "local_git_sha": "09d740872b95ee2be0228984576577489db8f03c",
+      "local_path": "content/en/intro.md",
+      "searchable_text": true,
+      "sha256": "1039dbd6628cf13967eb61c234bc13d63df97ea9b97755dbb44dde3f94ed492a",
+      "source_git_sha": "eff1d33d42bdb516aa9f69e7c86f11ae5c08ea44",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 2591,
+      "derived_from": "content/en/logs.md",
+      "local_git_sha": "8127127c53c95e6b900286b2d0247417051d190c",
+      "local_path": "content/en/logs.md",
+      "searchable_text": true,
+      "sha256": "bbfe1c412e6bb2bd968023e54977ce9c9cd28b01fe55674754e08ebbd737f968",
+      "source_git_sha": "22e3404e73ddb98be18d511a938e0a34557d3a25",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 2270,
+      "derived_from": "content/en/port-binding.md",
+      "local_git_sha": "7d78c7407ebcfa98b3f930e6c63d539650c3a760",
+      "local_path": "content/en/port-binding.md",
+      "searchable_text": true,
+      "sha256": "724af4d4ca66ee55b13cccf5563c7bb057b0b83d421ab69ee4d24df673635d1e",
+      "source_git_sha": "b12de8b159eeb029c370e6badffd445a8517ab7a",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 2835,
+      "derived_from": "content/en/processes.md",
+      "local_git_sha": "5fd1a5d7578460669d0ad29bba52e414dbfc5ac2",
+      "local_path": "content/en/processes.md",
+      "searchable_text": true,
+      "sha256": "3b0dcff33cebc8918b52c41380b43d6ae4f01f617442631b9eb4427d944ed1a1",
+      "source_git_sha": "97d222a7db6b8a5fd59486a64903539a24492a04",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 1426,
+      "derived_from": "content/en/toc.md",
+      "local_git_sha": "8ee0d97a9c37f7df419a48f39c01d8fc214419d0",
+      "local_path": "content/en/toc.md",
+      "searchable_text": true,
+      "sha256": "524084c1bc28c1cc5a1c08933ea7fdcf309e196b509afba40b04ec798df308e6",
+      "source_git_sha": "d8fbe2c5e32e67caa6d2bb93e8f592a9076bc5df",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 526,
+      "derived_from": "content/en/who.md",
+      "local_git_sha": "1747dca5d780e904029e7086d3b13c286e653823",
+      "local_path": "content/en/who.md",
+      "searchable_text": true,
+      "sha256": "1b101934397e06519ac938892229976f86b48784157521f897d8affddf9fc0ee",
+      "source_git_sha": "49eb40fd534fb0a61605d8235694f6804fd19986",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "heroku/12factor",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T06:10:00+00:00",
+  "schema_version": 2,
+  "source_commit": "1385d2c80bac38c25647651f6f5ec769561828dc",
+  "source_id": "twelve-factor-app",
+  "source_tree": "7dee0c2913c4bef99c01e230bba1db04c4565bec",
+  "source_url": "https://github.com/heroku/12factor/tree/1385d2c80bac38c25647651f6f5ec769561828dc",
+  "tier": "foundational-classic",
+  "title": "The Twelve-Factor App",
+  "total_original_bytes": 35980,
+  "tracks": [
+    "operability",
+    "cloud-native",
+    "application-design"
+  ]
+}

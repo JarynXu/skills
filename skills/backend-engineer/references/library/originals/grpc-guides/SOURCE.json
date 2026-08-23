@@ -1,0 +1,230 @@
+{
+  "agent_ready": true,
+  "derived_count": 0,
+  "derived_files": [],
+  "file_count": 10,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 19070,
+      "local_git_sha": "ca60a5b1d897062583c665cfc49471b2e4144b1a",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "9e3d1e4ba9165f24c03622be6cb83529b09d56201a6a51fb614506172c640201",
+      "upstream_git_sha": "ca60a5b1d897062583c665cfc49471b2e4144b1a",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 18269,
+      "local_git_sha": "381e0684c9aa9cee89cbaf35c4f73ea3956d50d0",
+      "local_path": "content/en/docs/guides/auth.md",
+      "searchable_text": true,
+      "sha256": "e681770dda99d2e275f9a13e100791ddde37b4b31df9600367ef72ccb2473947",
+      "upstream_git_sha": "381e0684c9aa9cee89cbaf35c4f73ea3956d50d0",
+      "upstream_path": "content/en/docs/guides/auth.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3080,
+      "local_git_sha": "85ae1da4aa57b13d14a5c52b7caa20e916017a3f",
+      "local_path": "content/en/docs/guides/cancellation.md",
+      "searchable_text": true,
+      "sha256": "e8bcdb5f933ad496e238d00effe0fef80eac9eb5dbf586a7001f51c0f2b7b59c",
+      "upstream_git_sha": "85ae1da4aa57b13d14a5c52b7caa20e916017a3f",
+      "upstream_path": "content/en/docs/guides/cancellation.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4703,
+      "local_git_sha": "f48f733f297efb9fd4eb4b4ccb0e922219fdeabf",
+      "local_path": "content/en/docs/guides/deadlines.md",
+      "searchable_text": true,
+      "sha256": "e310a0e5a4bdc8f353ef04a641336d9a51176ffaa0ba0ee8b8b1aad98263a900",
+      "upstream_git_sha": "f48f733f297efb9fd4eb4b4ccb0e922219fdeabf",
+      "upstream_path": "content/en/docs/guides/deadlines.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 6581,
+      "local_git_sha": "9295d75253a400a9531d96aab1f38f85dd635499",
+      "local_path": "content/en/docs/guides/error.md",
+      "searchable_text": true,
+      "sha256": "1975a8efc762d363c03b0843c4ad82064e8d39fb1c1bfdef71edd1eea52ac14e",
+      "upstream_git_sha": "9295d75253a400a9531d96aab1f38f85dd635499",
+      "upstream_path": "content/en/docs/guides/error.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2360,
+      "local_git_sha": "ded1452466696b846424522455aec6af0544a16e",
+      "local_path": "content/en/docs/guides/flow-control.md",
+      "searchable_text": true,
+      "sha256": "c980eb493053e30521607c0b53d8162cdbd1388747e2a169ef1891f0b21742db",
+      "upstream_git_sha": "ded1452466696b846424522455aec6af0544a16e",
+      "upstream_path": "content/en/docs/guides/flow-control.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4770,
+      "local_git_sha": "73cd1bbc7704b596262c6d3a0e2e2c924e6511b6",
+      "local_path": "content/en/docs/guides/health-checking.md",
+      "searchable_text": true,
+      "sha256": "4ffef7191734b5ef6816b3033b6825762eeedc5c777f439005b03d08153c20a1",
+      "upstream_git_sha": "73cd1bbc7704b596262c6d3a0e2e2c924e6511b6",
+      "upstream_path": "content/en/docs/guides/health-checking.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7564,
+      "local_git_sha": "9cf4b0b1fedc7b7009b6f80a2f6b0ac8580c6fa0",
+      "local_path": "content/en/docs/guides/keepalive.md",
+      "searchable_text": true,
+      "sha256": "9080d500583d263956b5ef03b8bdb327fb4aaa692b2629a030ec8d0f889882f2",
+      "upstream_git_sha": "9cf4b0b1fedc7b7009b6f80a2f6b0ac8580c6fa0",
+      "upstream_path": "content/en/docs/guides/keepalive.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 6814,
+      "local_git_sha": "913a5fbac743cbdca3e44dfc388a78ace7636feb",
+      "local_path": "content/en/docs/guides/retry.md",
+      "searchable_text": true,
+      "sha256": "616a29cad0d8e6c4aa500b0fd4efd1ae6544b8963ea404d701fe2c37cf76e01d",
+      "upstream_git_sha": "913a5fbac743cbdca3e44dfc388a78ace7636feb",
+      "upstream_path": "content/en/docs/guides/retry.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 6230,
+      "local_git_sha": "7b341379d7fa23e37fc983f100aa60c5b261a212",
+      "local_path": "content/en/docs/guides/status-codes.md",
+      "searchable_text": true,
+      "sha256": "766da331c0e79e138351e2d6183c473a0653a70d17208d9d67d97ae81d731af7",
+      "upstream_git_sha": "7b341379d7fa23e37fc983f100aa60c5b261a212",
+      "upstream_path": "content/en/docs/guides/status-codes.md"
+    }
+  ],
+  "license": "CC BY 4.0 documentation; Apache-2.0 code samples",
+  "processed_bytes": 63608,
+  "processed_count": 9,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 18627,
+      "derived_from": "content/en/docs/guides/auth.md",
+      "local_git_sha": "3722322f5fdaf6867520a36172946686b540659a",
+      "local_path": "content/en/docs/guides/auth.md",
+      "searchable_text": true,
+      "sha256": "04d6cccfbdd4464dbbfc8dbcb31033e67495388198d677240eb903c2c1e5149f",
+      "source_git_sha": "381e0684c9aa9cee89cbaf35c4f73ea3956d50d0",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 3446,
+      "derived_from": "content/en/docs/guides/cancellation.md",
+      "local_git_sha": "e8a2ef60fb4bdff1e4a363f9999750cbb89005a0",
+      "local_path": "content/en/docs/guides/cancellation.md",
+      "searchable_text": true,
+      "sha256": "500200d04599b202308f09aa183125f1c79ef365c6100aff77b6ae6d6a2922f9",
+      "source_git_sha": "85ae1da4aa57b13d14a5c52b7caa20e916017a3f",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 5064,
+      "derived_from": "content/en/docs/guides/deadlines.md",
+      "local_git_sha": "b5715e73c0b6a75cffd88c532f50ed57df9cd04c",
+      "local_path": "content/en/docs/guides/deadlines.md",
+      "searchable_text": true,
+      "sha256": "8027b94bea29f1b350b5c77a307329de3d247e7cf8074bcb8fe426453ad90134",
+      "source_git_sha": "f48f733f297efb9fd4eb4b4ccb0e922219fdeabf",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 6938,
+      "derived_from": "content/en/docs/guides/error.md",
+      "local_git_sha": "89b8ca085c9f24afca8a4064e873d739280ac0b9",
+      "local_path": "content/en/docs/guides/error.md",
+      "searchable_text": true,
+      "sha256": "dc7a7b0b07e68b3febe4b89b98d8f17679d95e8b8f3b6b8fa97e339b2f38054f",
+      "source_git_sha": "9295d75253a400a9531d96aab1f38f85dd635499",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 2718,
+      "derived_from": "content/en/docs/guides/flow-control.md",
+      "local_git_sha": "aa099b03ec214bf2397721184bcb770e1507bb37",
+      "local_path": "content/en/docs/guides/flow-control.md",
+      "searchable_text": true,
+      "sha256": "37d73bf0ab76ccc6863ba1257cfce1243ee157981a906706fc7f2db1c6d89c6c",
+      "source_git_sha": "ded1452466696b846424522455aec6af0544a16e",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 5137,
+      "derived_from": "content/en/docs/guides/health-checking.md",
+      "local_git_sha": "74c98cb75f076f61106bc517c93149d4673debb1",
+      "local_path": "content/en/docs/guides/health-checking.md",
+      "searchable_text": true,
+      "sha256": "d14927b79f16c3f55fb194d29e5215106d4a559657c795d8c45a702cda15d25f",
+      "source_git_sha": "73cd1bbc7704b596262c6d3a0e2e2c924e6511b6",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 7927,
+      "derived_from": "content/en/docs/guides/keepalive.md",
+      "local_git_sha": "9ac57ff42a5cf0900eee51422f1a41f48a5f4aa5",
+      "local_path": "content/en/docs/guides/keepalive.md",
+      "searchable_text": true,
+      "sha256": "c96640129a13525efea5481b0c78599d22d5431e61947bb1ca2739c43b46e756",
+      "source_git_sha": "9cf4b0b1fedc7b7009b6f80a2f6b0ac8580c6fa0",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 7161,
+      "derived_from": "content/en/docs/guides/retry.md",
+      "local_git_sha": "6c62bec22d3d535ae5cfa9fd8c9aaaa6c3f3a321",
+      "local_path": "content/en/docs/guides/retry.md",
+      "searchable_text": true,
+      "sha256": "de85c8c696052e99544e2ef079753a30eb9dfec1660a606ba00ea15f51bd9832",
+      "source_git_sha": "913a5fbac743cbdca3e44dfc388a78ace7636feb",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 6590,
+      "derived_from": "content/en/docs/guides/status-codes.md",
+      "local_git_sha": "64fa859727c6d994205303b467eb806a359d8261",
+      "local_path": "content/en/docs/guides/status-codes.md",
+      "searchable_text": true,
+      "sha256": "c030203a4504b189fef277c6178bf3624c0d03753757f9acb98c56c6c574cc7f",
+      "source_git_sha": "7b341379d7fa23e37fc983f100aa60c5b261a212",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "grpc/grpc.io",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T05:44:41+00:00",
+  "schema_version": 2,
+  "source_commit": "984427b74e9755fd69982b3c32c8dc52c5283a85",
+  "source_id": "grpc-guides",
+  "source_tree": "7edb9b317ac25bf375c386218123380170dc26d2",
+  "source_url": "https://github.com/grpc/grpc.io/tree/984427b74e9755fd69982b3c32c8dc52c5283a85",
+  "tier": "canonical-practice",
+  "title": "gRPC Core Engineering Guides",
+  "total_original_bytes": 79441,
+  "tracks": [
+    "rpc",
+    "distributed-systems",
+    "reliability",
+    "security"
+  ]
+}

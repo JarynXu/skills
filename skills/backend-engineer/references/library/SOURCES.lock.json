@@ -1,0 +1,394 @@
+{
+  "catalog_files": [
+    {
+      "git_blob_sha": "b1adc8fee00204340ba9d6b5861a072bc80c8ade",
+      "path": "SOURCES.json",
+      "sha256": "b87307254f462b8496010c4ad8b3e0a003d6530eb33a0212d0d3f2babeca47a8"
+    },
+    {
+      "git_blob_sha": "e7a6eea92a5d830d0cfa8d611e1d90a05bfd5406",
+      "path": "sources.d/language-canon.json",
+      "sha256": "aba72e2f43a7a09497c677391a4d1323831835824b574d51043b64a9a9da844a"
+    }
+  ],
+  "catalog_git_sha": "6119b9263ac1b38f85b3ebc41b16e5df5316d852",
+  "catalog_sha256": "e76a43fa670f8879796a317ce8409ed6fa7f3dd6d179f580cb246a3d0ad1c245",
+  "catalog_source_count": 34,
+  "schema_version": 2,
+  "sources": {
+    "alibaba-p3c": {
+      "agent_ready": true,
+      "file_count": 28,
+      "processed_bytes": 260813,
+      "processed_count": 27,
+      "repo": "alibaba/p3c",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T06:24:14+00:00",
+      "source_commit": "6c59c8c36ecd8722c712d5685b8c3822c1c8b030",
+      "total_original_bytes": 1603797
+    },
+    "aspnetcore-core-docs": {
+      "agent_ready": true,
+      "file_count": 207,
+      "processed_bytes": 2260398,
+      "processed_count": 116,
+      "repo": "dotnet/AspNetCore.Docs",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T06:32:01+00:00",
+      "source_commit": "6885b4c487beda992335631784c1dd31b301403b",
+      "total_original_bytes": 2391662
+    },
+    "cpython-runtime-docs": {
+      "agent_ready": true,
+      "file_count": 23,
+      "processed_bytes": 528729,
+      "processed_count": 22,
+      "repo": "python/cpython",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T06:24:31+00:00",
+      "source_commit": "526b2e0ede898f219a26014ef97e8914194ea2d7",
+      "total_original_bytes": 1008829
+    },
+    "csharp-language-standard": {
+      "agent_ready": true,
+      "file_count": 36,
+      "processed_bytes": 1912020,
+      "processed_count": 33,
+      "repo": "dotnet/csharpstandard",
+      "requested_ref": "draft-v8",
+      "retrieved_at": "2026-08-23T06:45:16+00:00",
+      "source_commit": "36c3f9a41c6a469ac748cb57fb5f1bb9b683c490",
+      "total_original_bytes": 1921139
+    },
+    "django-core-docs": {
+      "agent_ready": true,
+      "file_count": 36,
+      "processed_bytes": 808871,
+      "processed_count": 33,
+      "repo": "django/django",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T05:47:18+00:00",
+      "source_commit": "03988c5a5ba248c3b9b11ea96fd4fda5e98849aa",
+      "total_original_bytes": 860292
+    },
+    "dotnet-csharp-conventions": {
+      "agent_ready": true,
+      "file_count": 3,
+      "processed_bytes": 23908,
+      "processed_count": 1,
+      "repo": "dotnet/docs",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T05:43:20+00:00",
+      "source_commit": "b7779bffad7a68afea19963ca7cf64092c87eff3",
+      "total_original_bytes": 43261
+    },
+    "fastapi-core-docs": {
+      "agent_ready": true,
+      "file_count": 29,
+      "processed_bytes": 239197,
+      "processed_count": 28,
+      "repo": "fastapi/fastapi",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T05:47:27+00:00",
+      "source_commit": "c3f316b7e814667e8ee81e03a7330d00ee61e45c",
+      "total_original_bytes": 229839
+    },
+    "go-language": {
+      "agent_ready": true,
+      "file_count": 4,
+      "processed_bytes": 307516,
+      "processed_count": 3,
+      "repo": "golang/go",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T05:27:11+00:00",
+      "source_commit": "c97cfcb37fced87a43a3dbab8983d6f76b8b84d1",
+      "total_original_bytes": 353714
+    },
+    "go-official-guides": {
+      "agent_ready": true,
+      "file_count": 6,
+      "processed_bytes": 175417,
+      "processed_count": 5,
+      "repo": "golang/website",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T05:27:14+00:00",
+      "source_commit": "b02076ae6df08ee9d495fe4b283f88ac18e51012",
+      "total_original_bytes": 191957
+    },
+    "go-proverbs": {
+      "agent_ready": true,
+      "file_count": 3,
+      "processed_bytes": 4345,
+      "processed_count": 1,
+      "repo": "jboursiquot/go-proverbs",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T05:27:17+00:00",
+      "source_commit": "4f144663856efcbac3ef61869f3d5d92f1a1534a",
+      "total_original_bytes": 6199
+    },
+    "google-styleguide": {
+      "agent_ready": true,
+      "file_count": 12,
+      "processed_bytes": 953817,
+      "processed_count": 11,
+      "repo": "google/styleguide",
+      "requested_ref": "gh-pages",
+      "retrieved_at": "2026-08-23T05:27:08+00:00",
+      "source_commit": "1809c769de31ba388c755ad15dd057a9ba8531fd",
+      "total_original_bytes": 1082225
+    },
+    "grpc-guides": {
+      "agent_ready": true,
+      "file_count": 10,
+      "processed_bytes": 63608,
+      "processed_count": 9,
+      "repo": "grpc/grpc.io",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T05:44:41+00:00",
+      "source_commit": "984427b74e9755fd69982b3c32c8dc52c5283a85",
+      "total_original_bytes": 79441
+    },
+    "http-core-rfc911x": {
+      "agent_ready": true,
+      "file_count": 4,
+      "processed_bytes": 833401,
+      "processed_count": 4,
+      "repo": "httpwg/http-core",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T05:44:31+00:00",
+      "source_commit": "bde37f634681bd5462568b73aa722af9c9a3ef5e",
+      "total_original_bytes": 1644554
+    },
+    "kafka-core-docs": {
+      "agent_ready": true,
+      "file_count": 28,
+      "processed_bytes": 558053,
+      "processed_count": 26,
+      "repo": "apache/kafka",
+      "requested_ref": "trunk",
+      "retrieved_at": "2026-08-23T06:27:49+00:00",
+      "source_commit": "d79bd502ec7fa49335afa422f442af80ed0ab8f6",
+      "total_original_bytes": 567579
+    },
+    "kotlin-coding-conventions": {
+      "agent_ready": true,
+      "file_count": 3,
+      "processed_bytes": 42547,
+      "processed_count": 2,
+      "repo": "JetBrains/kotlin-web-site",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T05:43:17+00:00",
+      "source_commit": "72a34b63180685b5f46f994b4b257d376907d739",
+      "total_original_bytes": 53190
+    },
+    "kotlin-spec": {
+      "agent_ready": true,
+      "file_count": 33,
+      "processed_bytes": 553623,
+      "processed_count": 29,
+      "repo": "Kotlin/kotlin-spec",
+      "requested_ref": "release",
+      "retrieved_at": "2026-08-23T06:25:26+00:00",
+      "source_commit": "2f7aa0524ec27e788dfacd550f144809f2e0254c",
+      "total_original_bytes": 608694
+    },
+    "node-best-practices": {
+      "agent_ready": true,
+      "file_count": 76,
+      "processed_bytes": 458104,
+      "processed_count": 75,
+      "repo": "goldbergyoni/nodebestpractices",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T06:27:38+00:00",
+      "source_commit": "dc3d60c29d5483d9ea99cf261bbd6203516a2ba7",
+      "total_original_bytes": 451015
+    },
+    "node-runtime-docs": {
+      "agent_ready": true,
+      "file_count": 12,
+      "processed_bytes": 1158707,
+      "processed_count": 11,
+      "repo": "nodejs/node",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T05:43:29+00:00",
+      "source_commit": "eae0ca39be9c3de12498c45640845ccbd1178c32",
+      "total_original_bytes": 1311281
+    },
+    "openapi-specification": {
+      "agent_ready": true,
+      "file_count": 3,
+      "processed_bytes": 299035,
+      "processed_count": 2,
+      "repo": "OAI/OpenAPI-Specification",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T05:44:35+00:00",
+      "source_commit": "46c1076ba6f9a7a09ecaa6b740ab603cf6cc9886",
+      "total_original_bytes": 309655
+    },
+    "opentelemetry-specification": {
+      "agent_ready": true,
+      "file_count": 40,
+      "processed_bytes": 659824,
+      "processed_count": 39,
+      "repo": "open-telemetry/opentelemetry-specification",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T06:28:49+00:00",
+      "source_commit": "1377f53b2bc0683c45169b8f20fd973eb4d59419",
+      "total_original_bytes": 655816
+    },
+    "owasp-asvs-5": {
+      "agent_ready": true,
+      "file_count": 30,
+      "processed_bytes": 313078,
+      "processed_count": 29,
+      "repo": "OWASP/ASVS",
+      "requested_ref": "v5.0.0",
+      "retrieved_at": "2026-08-23T06:28:02+00:00",
+      "source_commit": "936f29673daa69fe90e6fa706011f89aef201988",
+      "total_original_bytes": 303071
+    },
+    "owasp-cheat-sheet-series": {
+      "agent_ready": true,
+      "file_count": 122,
+      "processed_bytes": 2522422,
+      "processed_count": 122,
+      "repo": "OWASP/CheatSheetSeries",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T06:28:33+00:00",
+      "source_commit": "6b8819da79e0537d072e04296ffa3adfc94ba881",
+      "total_original_bytes": 2479296
+    },
+    "pact-specification": {
+      "agent_ready": true,
+      "file_count": 3,
+      "processed_bytes": 10063,
+      "processed_count": 2,
+      "repo": "pact-foundation/pact-specification",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T06:28:37+00:00",
+      "source_commit": "2746817263962c3c470e2f16157153eb78c299bd",
+      "total_original_bytes": 10406
+    },
+    "postgresql-core-docs": {
+      "agent_ready": true,
+      "file_count": 6,
+      "processed_bytes": 542102,
+      "processed_count": 5,
+      "repo": "postgres/postgres",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T05:44:47+00:00",
+      "source_commit": "f20c4278342f6afc44b856e98a0850f9dd2df0a8",
+      "total_original_bytes": 820550
+    },
+    "python-peps": {
+      "agent_ready": true,
+      "file_count": 4,
+      "processed_bytes": 146595,
+      "processed_count": 4,
+      "repo": "python/peps",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T05:27:23+00:00",
+      "source_commit": "b4f8bb538cffe7bd1401d0f529e721caf4125482",
+      "total_original_bytes": 151639
+    },
+    "redis-protocol-specifications": {
+      "agent_ready": true,
+      "file_count": 8,
+      "processed_bytes": 70942,
+      "processed_count": 7,
+      "repo": "redis/redis-specifications",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T06:27:54+00:00",
+      "source_commit": "1252427cdbc497f66a7f8550c6b5f2f35367dc92",
+      "total_original_bytes": 69890
+    },
+    "rust-api-guidelines": {
+      "agent_ready": true,
+      "file_count": 18,
+      "processed_bytes": 98969,
+      "processed_count": 16,
+      "repo": "rust-lang/api-guidelines",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T06:25:12+00:00",
+      "source_commit": "97a0969cb07fe4cabb0eed8a56234053f47d83dc",
+      "total_original_bytes": 105170
+    },
+    "rust-book": {
+      "agent_ready": true,
+      "file_count": 116,
+      "processed_bytes": 1265669,
+      "processed_count": 113,
+      "repo": "rust-lang/book",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T06:25:04+00:00",
+      "source_commit": "917544888a55e4da7109bdba8c88c893c0da70f4",
+      "total_original_bytes": 1236983
+    },
+    "rust-nomicon": {
+      "agent_ready": true,
+      "file_count": 67,
+      "processed_bytes": 334996,
+      "processed_count": 65,
+      "repo": "rust-lang/nomicon",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T06:45:06+00:00",
+      "source_commit": "5791ca9f5d671328af7a8fe87b42ca90c7211d28",
+      "total_original_bytes": 324032
+    },
+    "rust-reference": {
+      "agent_ready": true,
+      "file_count": 125,
+      "processed_bytes": 1160577,
+      "processed_count": 123,
+      "repo": "rust-lang/reference",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T06:44:51+00:00",
+      "source_commit": "3b38834b39f732c64686f7c64aa29dcf3cd83ba5",
+      "total_original_bytes": 1128562
+    },
+    "spring-boot-docs": {
+      "agent_ready": true,
+      "file_count": 56,
+      "processed_bytes": 797884,
+      "processed_count": 56,
+      "repo": "spring-projects/spring-boot",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T05:47:08+00:00",
+      "source_commit": "c329ffa25dc160a90ebe5e4b006ad4cdf89d8683",
+      "total_original_bytes": 771472
+    },
+    "spring-framework-docs": {
+      "agent_ready": true,
+      "file_count": 410,
+      "processed_bytes": 2771410,
+      "processed_count": 410,
+      "repo": "spring-projects/spring-framework",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T05:46:55+00:00",
+      "source_commit": "91eb42645e26a7ef9382b4a655bcefe5c8682fee",
+      "total_original_bytes": 2626055
+    },
+    "twelve-factor-app": {
+      "agent_ready": true,
+      "file_count": 17,
+      "processed_bytes": 40598,
+      "processed_count": 16,
+      "repo": "heroku/12factor",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T06:10:00+00:00",
+      "source_commit": "1385d2c80bac38c25647651f6f5ec769561828dc",
+      "total_original_bytes": 35980
+    },
+    "uber-go-guide": {
+      "agent_ready": true,
+      "file_count": 3,
+      "processed_bytes": 90430,
+      "processed_count": 2,
+      "repo": "uber-go/guide",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T05:27:20+00:00",
+      "source_commit": "1d60a91aa5e87d443002e23c21903c49489dbde5",
+      "total_original_bytes": 99931
+    }
+  }
+}

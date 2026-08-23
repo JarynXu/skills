@@ -1,0 +1,23 @@
+> **Offline teaching derivative**  
+> Source: `spring-projects/spring-framework@91eb42645e26a7ef9382b4a655bcefe5c8682fee`  
+> Upstream path: `framework-docs/modules/ROOT/pages/data-access/transaction/tx-decl-vs-prog.adoc`  
+> Upstream Git blob: `ec5704aabc005962732b606a4754d9022cee7f76`  
+> Transform: `asciidoc-structural-to-markdown`  
+> This Markdown is generated for agent use. Consult `originals/` when exact upstream bytes matter.
+
+[[tx-decl-vs-prog]]
+# Choosing Between Programmatic and Declarative Transaction Management
+
+Programmatic transaction management is usually a good idea only if you have a small
+number of transactional operations. For example, if you have a web application that
+requires transactions only for certain update operations, you may not want to set up
+transactional proxies by using Spring or any other technology. In this case, using the
+`TransactionTemplate` may be a good approach. Being able to set the transaction name
+explicitly is also something that can be done only by using the programmatic approach
+to transaction management.
+
+On the other hand, if your application has numerous transactional operations,
+declarative transaction management is usually worthwhile. It keeps transaction
+management out of business logic and is not difficult to configure. When using the
+Spring Framework, rather than EJB CMT, the configuration cost of declarative transaction
+management is greatly reduced.

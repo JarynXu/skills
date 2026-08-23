@@ -1,0 +1,81 @@
+{
+  "agent_ready": true,
+  "derived_count": 0,
+  "derived_files": [],
+  "file_count": 3,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 11345,
+      "local_git_sha": "23b34fdff275c143d8a862afbb81995a82d30af5",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "4948367c65e1ce06690e2cadc6e86fce1a6a6db55ef874ce4b78c0f472ce5f13",
+      "upstream_git_sha": "23b34fdff275c143d8a862afbb81995a82d30af5",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2034,
+      "local_git_sha": "794f435c07a7597f0c387b2939f8aac96b9b9c9c",
+      "local_path": "SECURITY_CONSIDERATIONS.md",
+      "searchable_text": true,
+      "sha256": "2458872ea8d67cd7397c2d5d7cbc513e877ac61bcaac86bb68aa8e8b107716a6",
+      "upstream_git_sha": "794f435c07a7597f0c387b2939f8aac96b9b9c9c",
+      "upstream_path": "SECURITY_CONSIDERATIONS.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 296276,
+      "local_git_sha": "0b04a6acd6e0999b27d0f24750af23319f6881c1",
+      "local_path": "versions/3.2.0.md",
+      "searchable_text": true,
+      "sha256": "5282d73cdedf7019be39d58e4763ee3294cb0ecbbc336de1ffb1d7ae67850397",
+      "upstream_git_sha": "0b04a6acd6e0999b27d0f24750af23319f6881c1",
+      "upstream_path": "versions/3.2.0.md"
+    }
+  ],
+  "license": "Apache-2.0",
+  "processed_bytes": 299035,
+  "processed_count": 2,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 2401,
+      "derived_from": "SECURITY_CONSIDERATIONS.md",
+      "local_git_sha": "31c7f4182bf08c2b29e770b849131e8baf437549",
+      "local_path": "SECURITY_CONSIDERATIONS.md",
+      "searchable_text": true,
+      "sha256": "b09ab19bea8cb24a6e1588882f8e5b59876a323de45ad88efd25323b29824c6e",
+      "source_git_sha": "794f435c07a7597f0c387b2939f8aac96b9b9c9c",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 296634,
+      "derived_from": "versions/3.2.0.md",
+      "local_git_sha": "d3842f96095ec0c817139bf12025c8b6755bc289",
+      "local_path": "versions/3.2.0.md",
+      "searchable_text": true,
+      "sha256": "89b531e4ac54392a97cca5879c5306c50571cd48c14ed43dd579be88bf8d873d",
+      "source_git_sha": "0b04a6acd6e0999b27d0f24750af23319f6881c1",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "OAI/OpenAPI-Specification",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T05:44:35+00:00",
+  "schema_version": 2,
+  "source_commit": "46c1076ba6f9a7a09ecaa6b740ab603cf6cc9886",
+  "source_id": "openapi-specification",
+  "source_tree": "c12e44a946a05426d07b5bea6d54a6e1036669b6",
+  "source_url": "https://github.com/OAI/OpenAPI-Specification/tree/46c1076ba6f9a7a09ecaa6b740ab603cf6cc9886",
+  "tier": "canonical-standard",
+  "title": "OpenAPI Specification 3.2.0",
+  "total_original_bytes": 309655,
+  "tracks": [
+    "api-design",
+    "http"
+  ]
+}

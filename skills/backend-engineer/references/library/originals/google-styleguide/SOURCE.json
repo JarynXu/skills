@@ -1,52 +1,275 @@
 {
-  "schema_version": 1,
-  "source_id": "google-styleguide",
-  "title": "Google Style Guides (curated offline core)",
-  "owner": "Google",
-  "source_repository": "https://github.com/google/styleguide",
-  "source_commit": "1809c769de31ba388c755ad15dd057a9ba8531fd",
-  "source_tree": "0474238497db08091bb53a7b88d93a24e406f548",
-  "license": "CC-BY-3.0",
-  "license_upstream_blob_sha": "1a16e05564d2aaa880bbe9e506a0a0226d8742cc",
-  "license_local_blob_sha": "c4d5d5de669a671f6cd23e5f69873e84dd750698",
-  "license_byte_exact": false,
-  "retrieved_date": "2026-08-23",
-  "inclusion_mode": "vendored-exact-text-curated",
-  "notes": [
-    "This package vendors a role-relevant core subset of the upstream Google Style Guide repository rather than pretending to mirror every language artifact.",
-    "Each guidance file marked byte_exact=true was recreated in this repository and its Git blob SHA exactly equals the pinned upstream blob SHA.",
-    "The local license text preserves the CC BY 3.0 legal text but differs at file-boundary bytes from the upstream blob, so it is deliberately not marked byte-exact.",
-    "The upstream repository also contains Java, Python, TypeScript, Shell, HTML/CSS, Objective-C and additional Go guidance. They remain registered upstream material for future expansion; absence from this curated package is not represented as local availability.",
-    "Alibaba P3C is kept as a separate Java-focused package because its historical Chinese Java rules and provenance differ from Google's current style guides."
-  ],
+  "agent_ready": true,
+  "derived_count": 0,
+  "derived_files": [],
+  "file_count": 12,
   "files": [
     {
-      "path": "cppguide.html",
-      "upstream_git_sha": "9e849cc2f0cb13c3a4a9d9be428b4c9cf1a42c0b",
-      "local_git_sha": "9e849cc2f0cb13c3a4a9d9be428b4c9cf1a42c0b",
       "byte_exact": true,
-      "topic": "C++"
-    },
-    {
-      "path": "csharp-style.md",
-      "upstream_git_sha": "bae61c56b1797cf6cc52ea5f4019dc187fda61cb",
-      "local_git_sha": "bae61c56b1797cf6cc52ea5f4019dc187fda61cb",
-      "byte_exact": true,
-      "topic": "C#"
-    },
-    {
-      "path": "go/guide.md",
-      "upstream_git_sha": "46557bfb253c96330c064071523e8d951d2f89af",
-      "local_git_sha": "46557bfb253c96330c064071523e8d951d2f89af",
-      "byte_exact": true,
-      "topic": "Go"
-    },
-    {
-      "path": "LICENSE.txt",
+      "bytes": 19467,
+      "local_git_sha": "1a16e05564d2aaa880bbe9e506a0a0226d8742cc",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76",
       "upstream_git_sha": "1a16e05564d2aaa880bbe9e506a0a0226d8742cc",
-      "local_git_sha": "c4d5d5de669a671f6cd23e5f69873e84dd750698",
-      "byte_exact": false,
-      "topic": "license"
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 242543,
+      "local_git_sha": "9e849cc2f0cb13c3a4a9d9be428b4c9cf1a42c0b",
+      "local_path": "cppguide.html",
+      "searchable_text": true,
+      "sha256": "f681e8c1b71ed5f2420555a28b7e7120f46914cfa126e9d8ec5e6e9851512caf",
+      "upstream_git_sha": "9e849cc2f0cb13c3a4a9d9be428b4c9cf1a42c0b",
+      "upstream_path": "cppguide.html"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 20114,
+      "local_git_sha": "bae61c56b1797cf6cc52ea5f4019dc187fda61cb",
+      "local_path": "csharp-style.md",
+      "searchable_text": true,
+      "sha256": "1a3e393d03a19a3cc480b35b250d97535f808974ad8ccd9a495d4fc750207e3c",
+      "upstream_git_sha": "bae61c56b1797cf6cc52ea5f4019dc187fda61cb",
+      "upstream_path": "csharp-style.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 138723,
+      "local_git_sha": "bb70a09c9138ec8ce6e54606353311c714be9046",
+      "local_path": "go/best-practices.md",
+      "searchable_text": true,
+      "sha256": "e44180b492c3585b4a20bd44e7cb277a55a9f264ad352f33f287b639e9e75b56",
+      "upstream_git_sha": "bb70a09c9138ec8ce6e54606353311c714be9046",
+      "upstream_path": "go/best-practices.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 126130,
+      "local_git_sha": "831d83b8eed2e6f81b79478305be7847c2dfd9a0",
+      "local_path": "go/decisions.md",
+      "searchable_text": true,
+      "sha256": "3a0b54ef41aca49f8bf0a4d4ce2d0b4662721b52197256d121b6cc95616f4850",
+      "upstream_git_sha": "831d83b8eed2e6f81b79478305be7847c2dfd9a0",
+      "upstream_path": "go/decisions.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 19740,
+      "local_git_sha": "46557bfb253c96330c064071523e8d951d2f89af",
+      "local_path": "go/guide.md",
+      "searchable_text": true,
+      "sha256": "f12051c22045953c3688a85f9eba94f7cf61b6a769762671cdbf1ca4d2b3aa1b",
+      "upstream_git_sha": "46557bfb253c96330c064071523e8d951d2f89af",
+      "upstream_path": "go/guide.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 8565,
+      "local_git_sha": "e760a4556e86e40301fdea17a2a6b078bdd77c93",
+      "local_path": "go/index.md",
+      "searchable_text": true,
+      "sha256": "95f228a13481ffefab9da3303446484e2b22c6cffa34a273169c844ad33a3435",
+      "upstream_git_sha": "e760a4556e86e40301fdea17a2a6b078bdd77c93",
+      "upstream_path": "go/index.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 59078,
+      "local_git_sha": "a3f23a425b4957b8f5121f8cfb50ee6ce31d5966",
+      "local_path": "javaguide.html",
+      "searchable_text": true,
+      "sha256": "9cc671f4c74d8bb4ea4c93861f4ec0e88d0f21267c73abe46817c14bdeb6d6b2",
+      "upstream_git_sha": "a3f23a425b4957b8f5121f8cfb50ee6ce31d5966",
+      "upstream_path": "javaguide.html"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 150696,
+      "local_git_sha": "6eb579c582a386bd25649ba4e594b2026d333e2c",
+      "local_path": "jsguide.html",
+      "searchable_text": true,
+      "sha256": "302729a2a2ca6ff67056c916d6733a1b10194c61390113256612d2f320a04997",
+      "upstream_git_sha": "6eb579c582a386bd25649ba4e594b2026d333e2c",
+      "upstream_path": "jsguide.html"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 115828,
+      "local_git_sha": "69e202ee21e10fb88674f4467a147f5bcb65f4d1",
+      "local_path": "pyguide.md",
+      "searchable_text": true,
+      "sha256": "0bd17ead9e6d60b45502399ef4341a1b1b8de4595c0b58e9c272eb73f4827ef4",
+      "upstream_git_sha": "69e202ee21e10fb88674f4467a147f5bcb65f4d1",
+      "upstream_path": "pyguide.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 40209,
+      "local_git_sha": "86f692043c4fc4e7e8f94e5ccf559de84e807348",
+      "local_path": "shellguide.md",
+      "searchable_text": true,
+      "sha256": "af0e99572b65d9c64da0035a7d9fbc3c32d81dc7289ca41340d1078726a464bf",
+      "upstream_git_sha": "86f692043c4fc4e7e8f94e5ccf559de84e807348",
+      "upstream_path": "shellguide.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 141132,
+      "local_git_sha": "d96372f0328ea501fb09b8642948e893935ae8c1",
+      "local_path": "tsguide.html",
+      "searchable_text": true,
+      "sha256": "f175e2dbbea31bc40a73e757bbea11f53ad1580bd5d6aa4d10288fa6505832bb",
+      "upstream_git_sha": "d96372f0328ea501fb09b8642948e893935ae8c1",
+      "upstream_path": "tsguide.html"
     }
+  ],
+  "license": "CC BY 3.0",
+  "processed_bytes": 953817,
+  "processed_count": 11,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 212379,
+      "derived_from": "cppguide.html",
+      "local_git_sha": "3d486770944dd0dfe43fe0a3aa96eb3f4f600516",
+      "local_path": "cppguide.html.md",
+      "searchable_text": true,
+      "sha256": "2b65b3e261879ab217d813aa893bb9202979889a4be2cdd7468402c756fcfabd",
+      "source_git_sha": "9e849cc2f0cb13c3a4a9d9be428b4c9cf1a42c0b",
+      "transform": "html-to-markdown:beautifulsoup+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 20462,
+      "derived_from": "csharp-style.md",
+      "local_git_sha": "ddbbf7eb3e9318e14bc860566093f92adb27c7aa",
+      "local_path": "csharp-style.md",
+      "searchable_text": true,
+      "sha256": "b16ce57a8e5dba454cf38bb482bd21f45980f8ed952cfb5d54d4779a2e65004d",
+      "source_git_sha": "bae61c56b1797cf6cc52ea5f4019dc187fda61cb",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 139076,
+      "derived_from": "go/best-practices.md",
+      "local_git_sha": "cbb5f38310a8d24dc7dcfa2f8c8f293dc410e0c6",
+      "local_path": "go/best-practices.md",
+      "searchable_text": true,
+      "sha256": "fb5f0012d03d9ceebf3bf620578a8e656043ca85b82703f6cfff667343a43bbb",
+      "source_git_sha": "bb70a09c9138ec8ce6e54606353311c714be9046",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 126478,
+      "derived_from": "go/decisions.md",
+      "local_git_sha": "57d71f842a4f7e95fd86ebd11c91f425a993f7a9",
+      "local_path": "go/decisions.md",
+      "searchable_text": true,
+      "sha256": "50e55be668655d43b6a028fc0dfdc4ccc764f07c9c6ebd60765a366db4cfa38f",
+      "source_git_sha": "831d83b8eed2e6f81b79478305be7847c2dfd9a0",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 20084,
+      "derived_from": "go/guide.md",
+      "local_git_sha": "7a410198a12c8767427535d2716bdb6152301c72",
+      "local_path": "go/guide.md",
+      "searchable_text": true,
+      "sha256": "6e487a0393386c4d92dab78ae917d14ad168d9d0cdbc9587d8b12f2595366457",
+      "source_git_sha": "46557bfb253c96330c064071523e8d951d2f89af",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 8909,
+      "derived_from": "go/index.md",
+      "local_git_sha": "77f6bba8ce178edf8bb63da0c91e80d26aa44d16",
+      "local_path": "go/index.md",
+      "searchable_text": true,
+      "sha256": "b1cd95b32d7c7ed416744a2ea1d2a280dce648f239384145f176c0892b636df8",
+      "source_git_sha": "e760a4556e86e40301fdea17a2a6b078bdd77c93",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 42682,
+      "derived_from": "javaguide.html",
+      "local_git_sha": "087f30eda8543b8cf244e8edf065501b534bb595",
+      "local_path": "javaguide.html.md",
+      "searchable_text": true,
+      "sha256": "306e8e1b98480e3d0a3d5d744199141e2bdb04c1e702542622b058529171d8dc",
+      "source_git_sha": "a3f23a425b4957b8f5121f8cfb50ee6ce31d5966",
+      "transform": "html-to-markdown:beautifulsoup+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 120540,
+      "derived_from": "jsguide.html",
+      "local_git_sha": "87605f9373aa33d2d4fb01991c36227c0b9df179",
+      "local_path": "jsguide.html.md",
+      "searchable_text": true,
+      "sha256": "6aa2620da4638f98fc083bd1bec2dd17cc505ba3e9b9bfd072688040c6538bc8",
+      "source_git_sha": "6eb579c582a386bd25649ba4e594b2026d333e2c",
+      "transform": "html-to-markdown:beautifulsoup+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 115999,
+      "derived_from": "pyguide.md",
+      "local_git_sha": "eb40ee39e1aaab66fb54d5e50c0d429d1a41b375",
+      "local_path": "pyguide.md",
+      "searchable_text": true,
+      "sha256": "92a8a9fd6cc1e52f4e533fa0339aef2bb8f0456a42ff27b40a37fbbb6f0f9a48",
+      "source_git_sha": "69e202ee21e10fb88674f4467a147f5bcb65f4d1",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 40553,
+      "derived_from": "shellguide.md",
+      "local_git_sha": "57c332d30b62895bead31908c4392f39088cace1",
+      "local_path": "shellguide.md",
+      "searchable_text": true,
+      "sha256": "9c405191f773ee9af5161efead32c6bab7c3899dfa2d69928fe9b9afbcf5f555",
+      "source_git_sha": "86f692043c4fc4e7e8f94e5ccf559de84e807348",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 106655,
+      "derived_from": "tsguide.html",
+      "local_git_sha": "1dd4ee01968c9f1efbcf6cc5e6cc52c9be0320ac",
+      "local_path": "tsguide.html.md",
+      "searchable_text": true,
+      "sha256": "35c417ddfa4af6af15432f21dbc9a2e356771bb3f99c105db0fa70e5ec0d82ee",
+      "source_git_sha": "d96372f0328ea501fb09b8642948e893935ae8c1",
+      "transform": "html-to-markdown:beautifulsoup+markdownify"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "google/styleguide",
+  "requested_ref": "gh-pages",
+  "retrieved_at": "2026-08-23T05:27:08+00:00",
+  "schema_version": 2,
+  "source_commit": "1809c769de31ba388c755ad15dd057a9ba8531fd",
+  "source_id": "google-styleguide",
+  "source_tree": "0474238497db08091bb53a7b88d93a24e406f548",
+  "source_url": "https://github.com/google/styleguide/tree/1809c769de31ba388c755ad15dd057a9ba8531fd",
+  "tier": "practice-guide",
+  "title": "Google Style Guides",
+  "total_original_bytes": 1082225,
+  "tracks": [
+    "java",
+    "go",
+    "python",
+    "c-cpp",
+    "csharp-dotnet",
+    "node-typescript",
+    "shell"
   ]
 }

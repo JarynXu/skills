@@ -1,0 +1,15 @@
+> **Offline teaching derivative**  
+> Source: `spring-projects/spring-boot@c329ffa25dc160a90ebe5e4b006ad4cdf89d8683`  
+> Upstream path: `documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/messaging/index.adoc`  
+> Upstream Git blob: `d962d335b12790e251c31b58034a217b361f6038`  
+> Transform: `asciidoc-structural-to-markdown`  
+> This Markdown is generated for agent use. Consult `originals/` when exact upstream bytes matter.
+
+[[messaging]]
+# Messaging
+
+The Spring Framework provides extensive support for integrating with messaging systems, from simplified use of the JMS API using javadoc:org.springframework.jms.core.JmsClient[] to a complete infrastructure to receive messages asynchronously.
+Spring AMQP provides a similar feature set for the Advanced Message Queuing Protocol.
+Spring Boot also provides auto-configuration options for javadoc:org.springframework.amqp.rabbit.core.RabbitTemplate[] and RabbitMQ.
+Spring WebSocket natively includes support for STOMP messaging, and Spring Boot has support for that through starters and a small amount of auto-configuration.
+Spring Boot also has support for Apache Kafka and Apache Pulsar.

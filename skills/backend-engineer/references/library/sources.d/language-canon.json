@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "source_id": "rust-reference",
+      "title": "The Rust Reference",
+      "repo": "rust-lang/reference",
+      "ref": "master",
+      "license": "MIT OR Apache-2.0",
+      "tier": "canonical-standard",
+      "tracks": ["rust", "language-semantics", "unsafe", "abi", "concurrency"],
+      "includes": [
+        {"path": "LICENSE-MIT"},
+        {"path": "LICENSE-APACHE"},
+        {"path": "README.md"},
+        {"path": "src", "recursive": true}
+      ]
+    },
+    {
+      "source_id": "rust-nomicon",
+      "title": "The Rustonomicon",
+      "repo": "rust-lang/nomicon",
+      "ref": "master",
+      "license": "MIT OR Apache-2.0",
+      "tier": "advanced-canon",
+      "tracks": ["rust", "unsafe", "memory-model", "ffi", "concurrency"],
+      "includes": [
+        {"path": "LICENSE-MIT"},
+        {"path": "LICENSE-APACHE"},
+        {"path": "README.md"},
+        {"path": "src", "recursive": true}
+      ]
+    },
+    {
+      "source_id": "csharp-language-standard",
+      "title": "C# Language Standard Committee Working Text",
+      "repo": "dotnet/csharpstandard",
+      "ref": "draft-v8",
+      "license": "CC BY 4.0 standard text; MIT code samples",
+      "tier": "canonical-standard",
+      "tracks": ["csharp-dotnet", "language-semantics", "async", "generics", "concurrency"],
+      "includes": [
+        {"path": "LICENSE"},
+        {"path": "LICENSE-CODE"},
+        {"path": "README.md"},
+        {"path": "standard", "recursive": true}
+      ]
+    }
+  ]
+}

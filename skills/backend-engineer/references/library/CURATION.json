@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "rules": {
+    "node-best-practices": {
+      "reason": "Keep the canonical English corpus and remove translation duplicates so agent search does not return the same rule dozens of times.",
+      "keep_regex": [
+        "^LICENSE$",
+        "^README\\.md$",
+        "^sections/[^/]+/[^/.]+\\.md$"
+      ]
+    }
+  }
+}
