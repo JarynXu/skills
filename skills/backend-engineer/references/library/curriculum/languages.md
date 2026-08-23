@@ -1,86 +1,42 @@
 # Language learning tracks
 
-A backend engineer should learn each language through **semantics -> idioms -> engineering conventions -> tooling**, not by memorizing syntax or one company's style guide.
+A backend engineer should learn each language through **semantics -> runtime/resource model -> idioms and API design -> framework behavior -> tooling/diagnostics**, not by memorizing syntax or one company's style guide.
 
-## Go
+## Detailed tracks
 
-Use the detailed [`go.md`](go.md) path. The critical sequence is current specification and memory model, Effective Go with its age caveat, Go Proverbs as design heuristics, Google Go Guide/Decisions/Best Practices, Uber Go Style Guide, and official diagnostics guidance.
+- [Go](go.md) — language specification and memory model, Effective Go with its age caveat, Go Proverbs, Google/Uber production guidance, diagnostics.
+- [Java and JVM](java-jvm.md) — Java/JVM semantics, P3C and Google conventions, API/concurrency judgment, Spring behavior, build/test/JFR diagnostics.
+- [Kotlin](kotlin.md) — official Kotlin specification, conventions, JVM interop, coroutines/runtime behavior, framework use.
+- [Python](python.md) — Python/CPython semantics, PEPs, typing, asyncio/process models, Django/FastAPI, profiling and tracing.
+- [C# and .NET](csharp-dotnet.md) — C# standard semantics, CLR/resource lifetime, conventions, ASP.NET Core, data access and runtime diagnostics.
+- [Node.js and TypeScript](node-typescript.md) — event loop/process/I/O semantics, TypeScript static contracts, production practice, framework lifecycle, profiling.
+- [Rust](rust.md) — Rust Book, Reference, API Guidelines, Rustonomicon/unsafe invariants, async runtimes, Cargo and diagnostics.
+- [C and C++](c-cpp.md) — exact standard/compiler/ABI context, ownership/lifetime, undefined behavior, concurrency, native API boundaries and sanitizers/debuggers.
 
-## Java on the JVM
+## Cross-language rules
 
-Recommended sequence:
+Regardless of language, complete the same learning layers:
 
-1. Understand Java's type, exception, resource, concurrency, memory-model, class-loading, and runtime behavior from the JDK/JLS appropriate to the project's version. Formal Oracle/Java specification redistribution rights vary, so the library records these as authoritative sources rather than assuming the standard text can be mirrored.
-2. Read the bundled **Alibaba Java Development Manual / P3C** as a broad production-oriented practice guide, especially naming, collections, concurrency, exception/logging, tests, security, MySQL, and layering.
-3. Read the bundled **Google Java Style Guide** for a second, narrower organization convention and compare it with the project's formatter/checkstyle rules.
-4. For Spring/Jakarta/Quarkus/Micronaut, learn the actual framework version's transaction, dependency-injection, proxy, lifecycle, configuration, serialization, security, and test semantics before applying annotation folklore.
-5. Learn JVM diagnostics: JFR, `jcmd`, thread dumps, heap dumps/histograms, GC evidence, async-profiler, and JMH.
+1. **Normative semantics.** Know what the language/runtime actually guarantees and which behavior is implementation-specific.
+2. **Resource and concurrency model.** Know ownership, lifetime, cancellation, synchronization, process/thread/task behavior, and shutdown.
+3. **Idiomatic API design.** Learn the official/ecosystem conventions after semantics, and distinguish them from organization style.
+4. **Project truth.** Read formatter/linter/compiler/build configuration, supported versions, package/dependency rules, generated-code boundaries, and repository instructions.
+5. **Framework semantics.** Learn the real framework version's DI/lifecycle/transactions/security/serialization/testing behavior rather than annotation/decorator folklore.
+6. **Quality evidence.** Use language-appropriate unit/integration/property/fuzz/concurrency tools according to the failure mode being proved.
+7. **Diagnostics.** Know how to gather CPU, memory/allocation, GC/runtime, thread/task, lock, network, database and crash evidence without guessing.
 
-Do not treat P3C or Google Java Style as the Java language specification. Do not treat Effective Java or Java Concurrency in Practice as redistributable originals; see `restricted-canon.md`.
+## Authority order
 
-## Kotlin on the JVM
+When sources disagree, use this order as a default:
 
-Use the detailed [`kotlin.md`](kotlin.md) track. The baseline now includes the **official Kotlin Language Specification** and **official Kotlin Coding Conventions** rather than teaching Kotlin through Java guidance. Learn Kotlin/JVM interop and coroutine/runtime behavior only after the language model is clear.
+```text
+project/repository rules and configured automation
+> accepted product/architecture contracts
+> language/protocol/runtime specification
+> official framework/tool guidance for the installed version
+> adopted organization conventions
+> mature community/industry practice
+> generic skill defaults
+```
 
-## Python
-
-Recommended sequence:
-
-1. Python language/reference semantics for the project's supported version.
-2. Bundled **PEP 20** for compact design philosophy, **PEP 8** for coding style, **PEP 257** for docstrings, and **PEP 484** for the foundations of typing.
-3. Bundled **Google Python Style Guide** as a mature organization practice guide, not as a replacement for project formatter/linter/type-checker configuration.
-4. Learn environment and packaging truth from `pyproject.toml`, the selected build backend and lock/tooling.
-5. Learn pytest/unittest, Hypothesis where useful, type checking, Ruff/formatting if configured, asyncio/task behavior, process models, profiling, `tracemalloc`, and py-spy.
-
-Python style evolves with tooling. Prefer the project's formatter and static-analysis configuration when it intentionally differs from PEP 8 line-layout details.
-
-## C# and .NET
-
-Recommended sequence:
-
-1. Current C#/.NET language and runtime semantics for the target framework.
-2. Bundled Microsoft **.NET/C# Coding Conventions**.
-3. Bundled Google C# Style Guide as comparative organization guidance.
-4. Learn async/await and cancellation, `IDisposable`/`IAsyncDisposable`, nullable reference types, dependency-injection lifetimes, ASP.NET middleware order, options/configuration validation, EF Core query/tracking/transaction behavior, and background-service lifetime.
-5. Learn `dotnet` build/test/analyzers plus `dotnet-counters`, `dotnet-trace`, `dotnet-dump`, and BenchmarkDotNet.
-
-## Node.js and TypeScript
-
-Recommended sequence:
-
-1. JavaScript/TypeScript runtime semantics that matter to servers: event loop, promises, streams/backpressure, module system, memory, process lifecycle, and cancellation patterns available in the selected runtime.
-2. Bundled Google TypeScript/JavaScript guidance for language conventions.
-3. Bundled **Node.js Best Practices** for errors, project structure, security, testing, performance, and production operation. Treat it as community practice, not normative Node.js specification.
-4. Learn the project's package manager, TypeScript configuration, runtime schema validation, framework lifecycle, test runner, lint/typecheck, diagnostics, CPU/heap profiles, and event-loop delay.
-
-## Rust
-
-Use the detailed [`rust.md`](rust.md) track. The baseline includes the official **The Rust Programming Language** book as the primary teaching text and **Rust API Guidelines** as the public-design layer. Do not jump directly from syntax to Axum/Actix/Tokio without understanding ownership, traits, lifetimes and resource semantics.
-
-## C and C++
-
-Recommended sequence:
-
-1. The exact language standard/version and compiler/platform ABI required by the project.
-2. Bundled Google C++ Style Guide only when it is compatible with project policy; organization style is not the language standard.
-3. Learn ownership/lifetime, RAII, error behavior, concurrency/memory ordering, undefined behavior, integer/buffer bounds, ABI, alignment, endianness, allocators, and resource cleanup.
-4. Use warnings, compiler sanitizers, static analysis, fuzzing, debugger/core dumps, perf/eBPF/Valgrind-family tools as appropriate.
-
-The **C++ Core Guidelines** are important conceptual canon, but their current repository terms do not provide a clear unrestricted redistribution basis for this open community library; this library therefore records the work in `restricted-canon.md` rather than vendoring it.
-
-## Shell as a backend-adjacent language
-
-Backend engineers routinely write build, migration, diagnostic, CI and operational scripts. Use the bundled Google Shell Style Guide for conventions, but prefer a real application language when state, parsing, concurrency, error recovery, or portability makes shell brittle. Use ShellCheck and explicit strictness only with an understanding of the script's compatibility requirements.
-
-## Language-track completion rule
-
-A language track is not complete when an agent can merely produce compiling code. The agent should be able to distinguish:
-
-- normative language/runtime semantics;
-- official ecosystem idioms;
-- organization style preferences;
-- framework-specific behavior;
-- project-local rules;
-- diagnostic and testing evidence.
-
-When these disagree, the agent must identify the scope and authority of each source rather than applying the most famous rule mechanically.
+A language track is not complete when an agent can merely produce compiling code. It is complete when the agent can explain which rule comes from semantics, which from the framework, which from project policy, which is a convention, and what evidence would prove the behavior in the actual environment.

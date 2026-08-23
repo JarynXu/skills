@@ -6,7 +6,7 @@ A serious backend curriculum must acknowledge influential works even when this o
 
 - Do not copy or reconstruct protected text into this repository.
 - If the consuming organization owns or lawfully accesses a work, the agent may study that authorized copy in the relevant environment.
-- Use the bundled open standards and practice guides for day-to-day offline lookup.
+- Use bundled open standards and practice guides for day-to-day offline lookup.
 - Treat books as sources of mental models and judgment, then validate implementation behavior against current specifications, framework versions, and project evidence.
 
 ## Software design and architecture
@@ -33,7 +33,7 @@ Why know it: classic catalog of enterprise patterns for domain logic, data mappi
 
 Why know it: one of the strongest modern conceptual treatments of storage engines, replication, partitioning, transactions, consistency, distributed-system failure, stream/batch processing and data-system trade-offs.
 
-Pair with the bundled PostgreSQL, Kafka and other product specifications. The book explains models; product docs define actual guarantees.
+Pair with bundled PostgreSQL, Kafka and other product specifications. The book explains models; product docs define actual guarantees.
 
 ### Database Internals — Alex Petrov
 
@@ -75,7 +75,7 @@ Why know it: foundational reasoning about thread safety, publication, locking, c
 
 ### Effective Kotlin — Marcin Moskala
 
-Why know it: Kotlin-specific idioms, API design, safety and maintainability beyond Java conventions. Pair it with the **bundled official Kotlin Language Specification and Coding Conventions**, which define the authoritative/open baseline; the commercial book remains optional deeper reading.
+Why know it: Kotlin-specific idioms, API design, safety and maintainability beyond Java conventions. Pair it with the bundled official Kotlin Language Specification and Coding Conventions; the commercial book remains optional deeper reading.
 
 ## C and C++
 
@@ -91,7 +91,7 @@ Why know it: influential C++11/14 reasoning around type deduction, smart pointer
 
 Why know it: broad modern C++ safety and design guidance associated with Bjarne Stroustrup and Herb Sutter.
 
-Why not mirrored: the current repository terms are not a conventional unrestricted open-content grant suitable for silently incorporating the full work into this open community library. Record the source and use an authorized/current copy instead.
+Why not mirrored: the current repository terms are not treated as a conventional unrestricted open-content grant suitable for silently incorporating the full work into this open community library. Record the source and use an authorized/current copy instead.
 
 ### SEI CERT C / C++ Coding Standards
 
@@ -109,19 +109,20 @@ Why know it: practical item-based guidance for idiomatic and maintainable Python
 
 ## Go
 
-The core Go canon needed for ordinary engineering is represented by redistributable sources in this library: current specification/memory model, Effective Go, Go Proverbs mirror, Google Go guidance and Uber Go Guide.
+The core Go canon needed for ordinary engineering is represented by redistributable sources in this library: current specification/memory model, Effective Go, Go Proverbs, Google Go guidance and Uber Go Guide.
 
 Optional deeper commercial reading includes *The Go Programming Language* by Donovan/Kernighan and *Concurrency in Go* by Katherine Cox-Buday; obtain authorized copies separately.
 
 ## Rust
 
-### The Rust Programming Language
+The core official Rust canon is now intended to be fully represented by redistributable Rust-project sources in this library:
 
-The official Rust Book is now bundled byte-for-byte from `rust-lang/book` under its MIT/Apache-2.0 terms and is the primary teaching text in `rust.md`; it is no longer merely an external recommendation.
+- *The Rust Programming Language* — primary learning text;
+- *The Rust Reference* — exact language-semantics companion;
+- *Rust API Guidelines* — public API design guidance;
+- *The Rustonomicon* — advanced unsafe Rust, memory/aliasing/FFI/concurrency invariants.
 
-### The Rust Reference / The Rustonomicon
-
-Why know them: The Reference is the exact language-semantics companion when the Book intentionally teaches at a higher level; the Rustonomicon covers advanced unsafe Rust and invariants. They are official Rust-project works, but the current baseline source pack has not yet pinned and mirrored them. Until that is done, use an authorized/current official copy for deep reference questions.
+These are not restricted commercial works. When their source packs are present and `offline_library.py verify` passes, use the bundled processed Markdown rather than treating them as external-only recommendations.
 
 ## General engineering craft
 
@@ -139,4 +140,6 @@ Why know it: broad engineering judgment, automation, feedback, changeability and
 
 ## Formal standards that are authoritative but commonly restricted
 
-Examples include ISO/IEC language standards and other paid ISO/IEC documents. They may be the formal authority for conformance while their full text is not redistributable here. Record the exact standard number/edition required by the project and use a lawfully obtained copy for formal conformance work.
+Examples include ISO/IEC C and C++ language standards, some Java specification distributions, and other paid standards. They may be the formal authority for conformance while their full text is not redistributable here. Record the exact standard number/edition required by the project and use a lawfully obtained copy for formal conformance work.
+
+Do not confuse an openly available working text with a formally published paid standard: record its authority and version honestly in the curriculum and provenance manifest.

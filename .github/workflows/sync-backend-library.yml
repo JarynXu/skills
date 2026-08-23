@@ -5,8 +5,10 @@ on:
     branches: [backend-library-rebuild]
     paths:
       - "skills/backend-engineer/references/library/SOURCES.json"
+      - "skills/backend-engineer/references/library/sources.d/**"
       - "skills/backend-engineer/references/library/CURATION.json"
       - "skills/backend-engineer/scripts/sync_offline_library.py"
+      - "skills/backend-engineer/scripts/sync_library_catalogs.py"
       - "skills/backend-engineer/scripts/prune_offline_library.py"
       - ".github/workflows/sync-backend-library.yml"
   workflow_dispatch:
@@ -55,62 +57,110 @@ jobs:
           import subprocess
           from pathlib import Path
 
-          catalog_path = Path("skills/backend-engineer/references/library/SOURCES.json")
-          originals = Path("skills/backend-engineer/references/library/originals")
-          sync_path = "skills/backend-engineer/scripts/sync_offline_library.py"
-          current = json.loads(catalog_path.read_text(encoding="utf-8"))
-          current_by_id = {item["source_id"]: item for item in current["sources"]}
-          selected: list[str] = []
-          removed: list[str] = []
+          root = Path("skills/backend-engineer/references/library")
+          base_path = "skills/backend-engineer/references/library/SOURCES.json"
+          module_prefix = "skills/backend-engineer/references/library/sources.d/"
+          originals = root / "originals"
+          sync_core = "skills/backend-engineer/scripts/sync_offline_library.py"
+          sync_catalogs = "skills/backend-engineer/scripts/sync_library_catalogs.py"
 
-          def add(source_id: str) -> None:
-              if source_id in current_by_id and source_id not in selected:
+          def read_json(text: str, label: str):
+              try:
+                  data = json.loads(text)
+              except json.JSONDecodeError as exc:
+                  raise SystemExit(f"invalid catalog {label}: {exc}")
+              if data.get("schema_version") != 1 or not isinstance(data.get("sources"), list):
+                  raise SystemExit(f"invalid catalog schema: {label}")
+              return data
+
+          def current_catalog():
+              files = [root / "SOURCES.json"]
+              module_dir = root / "sources.d"
+              if module_dir.is_dir():
+                  files.extend(sorted(module_dir.glob("*.json")))
+              by_id = {}
+              for path in files:
+                  data = read_json(path.read_text(encoding="utf-8"), str(path))
+                  for source in data["sources"]:
+                      source_id = source["source_id"]
+                      if source_id in by_id:
+                          raise SystemExit(f"duplicate source id: {source_id}")
+                      by_id[source_id] = source
+              return by_id
+
+          def catalog_at(ref: str):
+              if not ref or set(ref) == {"0"}:
+                  return {}
+              paths = [base_path]
+              try:
+                  listing = subprocess.check_output(
+                      ["git", "ls-tree", "-r", "--name-only", ref, module_prefix.rstrip("/")],
+                      text=True,
+                      stderr=subprocess.DEVNULL,
+                  ).splitlines()
+                  paths.extend(sorted(path for path in listing if path.endswith(".json")))
+              except subprocess.CalledProcessError:
+                  pass
+              by_id = {}
+              for path in paths:
+                  try:
+                      text = subprocess.check_output(
+                          ["git", "show", f"{ref}:{path}"],
+                          text=True,
+                          stderr=subprocess.DEVNULL,
+                      )
+                  except subprocess.CalledProcessError:
+                      continue
+                  data = read_json(text, f"{ref}:{path}")
+                  for source in data["sources"]:
+                      source_id = source["source_id"]
+                      if source_id in by_id:
+                          raise SystemExit(f"duplicate source id at {ref}: {source_id}")
+                      by_id[source_id] = source
+              return by_id
+
+          current = current_catalog()
+          selected = []
+          removed = []
+
+          def add(source_id):
+              if source_id in current and source_id not in selected:
                   selected.append(source_id)
 
           if os.environ.get("EVENT_NAME") == "workflow_dispatch":
               raw = os.environ.get("MANUAL_SOURCES", "").strip()
               if raw:
                   requested = [item for item in re.split(r"[\s,]+", raw) if item]
-                  unknown = sorted(set(requested) - set(current_by_id))
+                  unknown = sorted(set(requested) - set(current))
                   if unknown:
-                      raise SystemExit(f"unknown source ids: {', '.join(unknown)}")
+                      raise SystemExit("unknown source ids: " + ", ".join(unknown))
                   for source_id in requested:
                       add(source_id)
               else:
-                  for source_id in current_by_id:
-                      add(source_id)
+                  selected = list(current)
           else:
               before = os.environ.get("BEFORE_SHA", "")
-              previous_by_id = {}
-              changed_files: list[str] = []
+              previous = catalog_at(before)
+              for source_id, source in current.items():
+                  if previous.get(source_id) != source:
+                      add(source_id)
+              removed = sorted(set(previous) - set(current))
+
+              changed_files = []
               if before and set(before) != {"0"}:
                   changed_files = subprocess.check_output(
                       ["git", "diff", "--name-only", before, "HEAD"], text=True
                   ).splitlines()
-                  try:
-                      previous_text = subprocess.check_output(
-                          ["git", "show", f"{before}:{catalog_path.as_posix()}"],
-                          text=True,
-                          stderr=subprocess.DEVNULL,
-                      )
-                      previous = json.loads(previous_text)
-                      previous_by_id = {item["source_id"]: item for item in previous["sources"]}
-                  except (subprocess.CalledProcessError, json.JSONDecodeError, KeyError):
-                      previous_by_id = {}
-
-              for source_id, source in current_by_id.items():
-                  if previous_by_id.get(source_id) != source:
-                      add(source_id)
-              removed = sorted(set(previous_by_id) - set(current_by_id))
-
-              # Changes to recursive-selection semantics require rebuilding only recursive packs.
-              if sync_path in changed_files:
-                  for source_id, source in current_by_id.items():
+              if sync_core in changed_files:
+                  for source_id, source in current.items():
                       if any(bool(item.get("recursive")) for item in source.get("includes", [])):
                           add(source_id)
+              # A catalog-orchestrator change alone does not require redownloading bytes.
+              if changed_files and set(changed_files) <= {sync_catalogs, ".github/workflows/sync-backend-library.yml"}:
+                  selected = []
 
-          # Repair any historical source whose manifest names files not actually present in Git.
-          for source_id in current_by_id:
+          # Repair historical incomplete packs rather than weakening verification.
+          for source_id in current:
               manifest_path = originals / source_id / "SOURCE.json"
               if not manifest_path.is_file():
                   add(source_id)
@@ -156,10 +206,7 @@ jobs:
               lock = json.loads(lock_path.read_text(encoding="utf-8"))
               for source_id in removed:
                   lock.get("sources", {}).pop(source_id, None)
-              lock_path.write_text(
-                  json.dumps(lock, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
-                  encoding="utf-8",
-              )
+              lock_path.write_text(json.dumps(lock, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
           PY
 
       - name: Synchronize selected source packs
@@ -175,13 +222,11 @@ jobs:
 
           for source in $CHANGED; do
             echo "=== syncing ${source} ==="
-            python skills/backend-engineer/scripts/sync_offline_library.py --source "${source}"
-
+            python skills/backend-engineer/scripts/sync_library_catalogs.py --source "${source}"
             git add -A -f \
               "skills/backend-engineer/references/library/originals/${source}" \
               "skills/backend-engineer/references/library/processed/${source}" \
               skills/backend-engineer/references/library/SOURCES.lock.json
-
             if git diff --cached --quiet; then
               echo "${source}: already current"
             else
@@ -190,7 +235,7 @@ jobs:
             fi
           done
 
-      - name: Curate and build processed Markdown from all installed originals
+      - name: Curate and build processed Markdown from installed originals
         shell: bash
         run: |
           set -euo pipefail
@@ -198,12 +243,11 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           python skills/backend-engineer/scripts/prune_offline_library.py
-          python skills/backend-engineer/scripts/sync_offline_library.py --process-existing
+          python skills/backend-engineer/scripts/sync_library_catalogs.py --process-existing
           git add -A -f \
             skills/backend-engineer/references/library/originals \
             skills/backend-engineer/references/library/processed \
             skills/backend-engineer/references/library/SOURCES.lock.json
-
           if ! git diff --cached --quiet; then
             git commit -m "chore(backend-engineer): curate processed Markdown teaching layer"
             git push origin HEAD:backend-library-rebuild

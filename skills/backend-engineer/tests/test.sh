@@ -54,17 +54,28 @@ fi
 for file in \
   "$ROOT/references/library/INDEX.md" \
   "$ROOT/references/library/SOURCES.json" \
+  "$ROOT/references/library/CURATION.json" \
   "$ROOT/references/library/curriculum/README.md" \
+  "$ROOT/references/library/curriculum/preprocessing.md" \
   "$ROOT/references/library/curriculum/languages.md" \
   "$ROOT/references/library/curriculum/go.md" \
+  "$ROOT/references/library/curriculum/java-jvm.md" \
   "$ROOT/references/library/curriculum/kotlin.md" \
+  "$ROOT/references/library/curriculum/python.md" \
+  "$ROOT/references/library/curriculum/csharp-dotnet.md" \
+  "$ROOT/references/library/curriculum/node-typescript.md" \
   "$ROOT/references/library/curriculum/rust.md" \
+  "$ROOT/references/library/curriculum/c-cpp.md" \
   "$ROOT/references/library/curriculum/systems.md" \
   "$ROOT/references/library/curriculum/frameworks.md" \
   "$ROOT/references/library/curriculum/restricted-canon.md" \
   "$ROOT/references/library/curriculum/source-selection.md"; do
   test -s "$file"
 done
+
+test -d "$ROOT/references/library/originals"
+test -d "$ROOT/references/library/processed"
+python "$ROOT/scripts/sync_library_catalogs.py" --list-source-ids > "$TMP/source-ids.txt"
 
 LIB_LIST="$(python "$ROOT/scripts/offline_library.py" list)"
 for source in \
@@ -77,10 +88,13 @@ for source in \
   python-peps \
   cpython-runtime-docs \
   rust-book \
+  rust-reference \
   rust-api-guidelines \
+  rust-nomicon \
   kotlin-spec \
   kotlin-coding-conventions \
   dotnet-csharp-conventions \
+  csharp-language-standard \
   node-runtime-docs \
   node-best-practices \
   http-core-rfc911x \
@@ -99,27 +113,32 @@ for source in \
   fastapi-core-docs \
   aspnetcore-core-docs \
   twelve-factor-app; do
+  grep -qx "$source" "$TMP/source-ids.txt"
   grep -q "^${source}[[:space:]]" <<<"$LIB_LIST"
+  grep -q "^${source}.*agent_ready=True" <<<"$LIB_LIST"
 done
 
-python "$ROOT/scripts/offline_library.py" verify | grep -q 'Verified'
+python "$ROOT/scripts/offline_library.py" verify | grep -q 'agent-ready Markdown'
 
-# Language canon.
-python "$ROOT/scripts/offline_library.py" search 'ThreadPoolExecutor' --source alibaba-p3c --limit 5 | grep -q '并发处理.md'
-python "$ROOT/scripts/offline_library.py" search 'happens before' --source go-language --limit 5 | grep -q 'go_mem.html'
-python "$ROOT/scripts/offline_library.py" search 'Effective Go' --source go-official-guides --limit 5 | grep -q 'effective_go.html'
+# Language canon: searches use processed Markdown by default.
+python "$ROOT/scripts/offline_library.py" search 'ThreadPoolExecutor' --source alibaba-p3c --limit 5 | grep -q '^processed:'
+python "$ROOT/scripts/offline_library.py" search 'happens before' --source go-language --limit 5 | grep -q 'go_mem.html.md'
+python "$ROOT/scripts/offline_library.py" search 'Effective Go' --source go-official-guides --limit 5 | grep -q 'effective_go.html.md'
 python "$ROOT/scripts/offline_library.py" search 'share memory by communicating' --source go-proverbs --limit 5 >/dev/null
-python "$ROOT/scripts/offline_library.py" search 'Readability counts' --source python-peps --limit 5 | grep -q 'pep-0020.rst'
-python "$ROOT/scripts/offline_library.py" search 'TaskGroup' --source cpython-runtime-docs --limit 10 | grep -q 'asyncio-task.rst'
-python "$ROOT/scripts/offline_library.py" search 'ownership' --source rust-book --limit 10 | grep -q 'src/'
-python "$ROOT/scripts/offline_library.py" search 'overload resolution' --source kotlin-spec --limit 10 | grep -q 'docs/src/'
+python "$ROOT/scripts/offline_library.py" search 'Readability counts' --source python-peps --limit 5 | grep -q 'pep-0020.rst.md'
+python "$ROOT/scripts/offline_library.py" search 'TaskGroup' --source cpython-runtime-docs --limit 10 | grep -q 'asyncio-task.rst.md'
+python "$ROOT/scripts/offline_library.py" search 'ownership' --source rust-book --limit 10 | grep -q 'processed:rust-book/'
+python "$ROOT/scripts/offline_library.py" search 'undefined behavior' --source rust-reference --limit 10 | grep -q 'processed:rust-reference/'
+python "$ROOT/scripts/offline_library.py" search 'aliasing' --source rust-nomicon --limit 10 | grep -q 'processed:rust-nomicon/'
+python "$ROOT/scripts/offline_library.py" search 'overload resolution' --source kotlin-spec --limit 10 | grep -q 'processed:kotlin-spec/'
 python "$ROOT/scripts/offline_library.py" search 'Coding conventions' --source kotlin-coding-conventions --limit 5 | grep -q 'coding-conventions.md'
+python "$ROOT/scripts/offline_library.py" search 'await' --source csharp-language-standard --limit 10 | grep -q 'processed:csharp-language-standard/standard/'
 python "$ROOT/scripts/offline_library.py" search 'AsyncLocalStorage' --source node-runtime-docs --limit 10 | grep -q 'async_context.md'
 
 # Protocol, data, security, testing, observability.
 python "$ROOT/scripts/offline_library.py" search 'Operation Object' --source openapi-specification --limit 5 | grep -q '3.2.0.md'
 python "$ROOT/scripts/offline_library.py" search 'deadline' --source grpc-guides --limit 5 | grep -q 'deadlines.md'
-python "$ROOT/scripts/offline_library.py" search 'transaction isolation' --source postgresql-core-docs --limit 5 | grep -q 'mvcc.sgml'
+python "$ROOT/scripts/offline_library.py" search 'transaction isolation' --source postgresql-core-docs --limit 5 | grep -q 'mvcc.sgml.md'
 python "$ROOT/scripts/offline_library.py" search 'authorization' --source owasp-asvs-5 --limit 5 >/dev/null
 python "$ROOT/scripts/offline_library.py" search 'SQL Injection' --source owasp-cheat-sheet-series --limit 10 >/dev/null
 python "$ROOT/scripts/offline_library.py" search 'SpanContext' --source opentelemetry-specification --limit 5 >/dev/null
@@ -131,7 +150,15 @@ python "$ROOT/scripts/offline_library.py" search 'atomic' --source django-core-d
 python "$ROOT/scripts/offline_library.py" search 'lifespan' --source fastapi-core-docs --limit 10 >/dev/null
 python "$ROOT/scripts/offline_library.py" search 'WebApplicationFactory' --source aspnetcore-core-docs --limit 10 | grep -q 'integration-tests.md'
 
-python "$ROOT/scripts/offline_library.py" read 'alibaba-p3c/p3c-gitbook/MySQL数据库/索引规约.md' --start 1 --end 8 | grep -q '索引规约'
+# Normal read is processed; exact original requires explicit opt-in.
+python "$ROOT/scripts/offline_library.py" read 'alibaba-p3c/p3c-gitbook/MySQL数据库/索引规约.md' --start 1 --end 8 | grep -q '# layer=processed'
+python "$ROOT/scripts/offline_library.py" read 'go-language/doc/go_mem.html' --original --start 1 --end 3 | grep -q '# layer=original'
+
+# Curation should have removed translation duplication from Node best practices.
+if find "$ROOT/references/library/originals/node-best-practices/sections" -type f -name '*.chinese.md' | grep -q .; then
+  echo "node-best-practices still contains translation duplicates" >&2
+  exit 1
+fi
 
 if python "$ROOT/scripts/offline_library.py" read '../escape' >/dev/null 2>&1; then
   echo "expected unsafe library path to fail" >&2
