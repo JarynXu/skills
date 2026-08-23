@@ -7,14 +7,6 @@ on:
         description: "Optional space- or comma-separated source ids; empty syncs every catalog source"
         required: false
         type: string
-  push:
-    branches: [devops-engineer-library-rebuild]
-    paths:
-      - ".github/workflows/sync-devops-library.yml"
-      - "skills/devops-engineer/references/library/SOURCES.json"
-      - "skills/devops-engineer/scripts/sync_library_catalogs.py"
-      - "skills/devops-engineer/scripts/sync_offline_library.py"
-      - "skills/devops-engineer/scripts/offline_library.py"
 
 permissions:
   contents: write
@@ -25,7 +17,6 @@ concurrency:
 
 jobs:
   sync:
-    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
@@ -36,6 +27,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Validate source catalog before network access
+        run: python skills/devops-engineer/tests/test_library_catalog.py
 
       - name: Install preprocessing dependencies
         run: python -m pip install pypdf beautifulsoup4 markdownify docutils
