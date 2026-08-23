@@ -1,0 +1,33 @@
+> **Offline teaching derivative**  
+> Source: `micronaut-projects/micronaut-core@428ddeb3ad2acdabef2027cc06af3bf46865956a`  
+> Upstream path: `src/main/docs/guide/ioc/injection/fieldInjection.adoc`  
+> Upstream Git blob: `8a5775a81b164b58bf5eaff9c90d96494a7b2e6c`  
+> Transform: `asciidoc-structural-to-markdown`  
+> This Markdown is generated for agent use. Consult `originals/` when exact upstream bytes matter.
+
+[.lang-kotlin.lang-java.lang-groovy]
+--
+You can inject non-final fields by annotating the field with `jakarta.inject.Inject`, for example:
+--
+
+[.lang-python]
+--
+You can inject Python attributes by using `typing.Annotated[]` and pas `jakarta.inject.Inject`, for example:
+--
+
+.Example of Field Injection
+snippet::io.micronaut.docs.ioc.injection.field.Vehicle[indent="0"]
+
+<1> The field is annotated with `jakarta.inject.Inject`.
+
+[.lang-kotlin]
+---
+NOTE: For Kotlin instead of an optional type (a type ending with `?`) you can use `lateinit var`
+---
+
+[.lang-kotlin.lang-java.lang-groovy]
+--
+Trying to inject a field that is declared `final` will result in a compilation error. Field injection should be seen as inferior to constructor injection as explained in the previous sections since it can result in the code being less-structured, harder to read and harder to test.
+
+WARNING: If the field is `private` scope or inaccessible then the field will be injected using the Java reflection API which is not recommended.
+--

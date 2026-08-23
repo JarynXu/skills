@@ -1,0 +1,191 @@
+{
+  "agent_ready": true,
+  "file_count": 8,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 1100,
+      "local_git_sha": "903d67495fc6c2017713c754cf16b8f179122ed2",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "e862bb5b904fb5513c3e14288d7a25a12eb0ecc7847a0a965d310e9a955e7cb9",
+      "upstream_git_sha": "903d67495fc6c2017713c754cf16b8f179122ed2",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 86540,
+      "local_git_sha": "239f4dd7dec9f9769ed0fc0ef0fe60922642d001",
+      "local_path": "doc/build/errors.rst",
+      "searchable_text": true,
+      "sha256": "c48263d61d8a638705a4b3c0c719ebed806d1257ce6a04e06bfefd0d31a18361",
+      "upstream_git_sha": "239f4dd7dec9f9769ed0fc0ef0fe60922642d001",
+      "upstream_path": "doc/build/errors.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 9820,
+      "local_git_sha": "2c68b5489a957eac5e46b6b737664c3c6fc4e84f",
+      "local_path": "doc/build/intro.rst",
+      "searchable_text": true,
+      "sha256": "f35d04744ec436cb3a1163e4aa2f183f1f52d1050a86e9f01e0c8b39b7979acc",
+      "upstream_git_sha": "2c68b5489a957eac5e46b6b737664c3c6fc4e84f",
+      "upstream_path": "doc/build/intro.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 47421,
+      "local_git_sha": "a0a541fb982583f086baf7f57f08f948872bb888",
+      "local_path": "doc/build/orm/basic_relationships.rst",
+      "searchable_text": true,
+      "sha256": "18074ed8dbcbf8d2d67450ad08c43f7c063ce6be744f2a27c9d137f79ca37d8c",
+      "upstream_git_sha": "a0a541fb982583f086baf7f57f08f948872bb888",
+      "upstream_path": "doc/build/orm/basic_relationships.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 32898,
+      "local_git_sha": "62b0168f1aa8249497c03a321d9395b4b3a22cdc",
+      "local_path": "doc/build/orm/cascades.rst",
+      "searchable_text": true,
+      "sha256": "889277975aad02d7f4238c56527270aa35a9569605f9986d17dc5c75395b575e",
+      "upstream_git_sha": "62b0168f1aa8249497c03a321d9395b4b3a22cdc",
+      "upstream_path": "doc/build/orm/cascades.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 43241,
+      "local_git_sha": "6985c4c34cb24bbc8fd1cd3c2cb92bddf1a93a8d",
+      "local_path": "doc/build/orm/extensions/asyncio.rst",
+      "searchable_text": true,
+      "sha256": "705116368fcc508dd587a3e8fc75707ba5ee89fecb08196f99aa118dcf54f248",
+      "upstream_git_sha": "6985c4c34cb24bbc8fd1cd3c2cb92bddf1a93a8d",
+      "upstream_path": "doc/build/orm/extensions/asyncio.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 46752,
+      "local_git_sha": "0c04e34b2ed23c147270fe14823ed83286b4e49c",
+      "local_path": "doc/build/orm/session_basics.rst",
+      "searchable_text": true,
+      "sha256": "fdaeee879d1c6eac1bd85b351cc19d35a7e8060f2f8eb15d98362fa1a74daed9",
+      "upstream_git_sha": "0c04e34b2ed23c147270fe14823ed83286b4e49c",
+      "upstream_path": "doc/build/orm/session_basics.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 27568,
+      "local_git_sha": "55ade3e5326221756ecee859a8cd88b661ae983c",
+      "local_path": "doc/build/orm/session_transaction.rst",
+      "searchable_text": true,
+      "sha256": "b11a8f1eb31b6bf052581ecc6ad14e5fe4a1aa6e2bbfa24cdceb8193d7d0542f",
+      "upstream_git_sha": "55ade3e5326221756ecee859a8cd88b661ae983c",
+      "upstream_path": "doc/build/orm/session_transaction.rst"
+    }
+  ],
+  "license": "MIT",
+  "processed_bytes": 270163,
+  "processed_count": 7,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 79437,
+      "derived_from": "doc/build/errors.rst",
+      "local_git_sha": "9cf34d92f6f01b770c9af0840c303fa409b89419",
+      "local_path": "doc/build/errors.rst.md",
+      "searchable_text": true,
+      "sha256": "36a6b448b03071eddef44ab10540a07024c75a19513fd3012447b229d40fae4b",
+      "source_git_sha": "239f4dd7dec9f9769ed0fc0ef0fe60922642d001",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 9239,
+      "derived_from": "doc/build/intro.rst",
+      "local_git_sha": "3ba49577300570e0a49658d6c84b2202ea7231cb",
+      "local_path": "doc/build/intro.rst.md",
+      "searchable_text": true,
+      "sha256": "3928dba3345b0ae32d30754a8372a454e5282e9b1764bdaf3ea353368863cc67",
+      "source_git_sha": "2c68b5489a957eac5e46b6b737664c3c6fc4e84f",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 43709,
+      "derived_from": "doc/build/orm/basic_relationships.rst",
+      "local_git_sha": "1c41f9c314a8a2c1f8f6b62ec9247d34bd2524ba",
+      "local_path": "doc/build/orm/basic_relationships.rst.md",
+      "searchable_text": true,
+      "sha256": "10dce2e68b287c355b276dcdb458910dbab1ceb76966271e6a143b7089447fff",
+      "source_git_sha": "a0a541fb982583f086baf7f57f08f948872bb888",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 30518,
+      "derived_from": "doc/build/orm/cascades.rst",
+      "local_git_sha": "8120202c6368005bc6505660bea0cf5c2a841e87",
+      "local_path": "doc/build/orm/cascades.rst.md",
+      "searchable_text": true,
+      "sha256": "bd0f182ba4c0851733c8f6ddabb7230a5bbb5bee6503bc767abca025a15cbbe3",
+      "source_git_sha": "62b0168f1aa8249497c03a321d9395b4b3a22cdc",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 38152,
+      "derived_from": "doc/build/orm/extensions/asyncio.rst",
+      "local_git_sha": "fd15aff4c7a0f5fc7c15b7cf39daca4d9beba146",
+      "local_path": "doc/build/orm/extensions/asyncio.rst.md",
+      "searchable_text": true,
+      "sha256": "1cffab83c939ba73efd26be90eb89d41fb176205084f5ba1b446f09168a59bcd",
+      "source_git_sha": "6985c4c34cb24bbc8fd1cd3c2cb92bddf1a93a8d",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 43451,
+      "derived_from": "doc/build/orm/session_basics.rst",
+      "local_git_sha": "a5683b32111371ede9d1a2df41525721a99c7388",
+      "local_path": "doc/build/orm/session_basics.rst.md",
+      "searchable_text": true,
+      "sha256": "3f1b4f1cc8cb4ca77dc3f4064dee8ca2710df597a5e7094e4d5b4a08f97c325e",
+      "source_git_sha": "0c04e34b2ed23c147270fe14823ed83286b4e49c",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 25657,
+      "derived_from": "doc/build/orm/session_transaction.rst",
+      "local_git_sha": "adecdb9a99faeea061b293f52ec6fc59dbed12e3",
+      "local_path": "doc/build/orm/session_transaction.rst.md",
+      "searchable_text": true,
+      "sha256": "becf23f984037e511d63cc8d7b6323721430f25badd719d112699d1728e1448f",
+      "source_git_sha": "55ade3e5326221756ecee859a8cd88b661ae983c",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "sqlalchemy/sqlalchemy",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T11:46:56+00:00",
+  "schema_version": 2,
+  "source_commit": "f35da7e2b9349a08b8de1f6bd3b07c8bf8616790",
+  "source_id": "sqlalchemy-core-docs",
+  "source_tree": "20f119e5dfb7fde7dd90a1f2f6ae78bbe52f0335",
+  "source_url": "https://github.com/sqlalchemy/sqlalchemy/tree/f35da7e2b9349a08b8de1f6bd3b07c8bf8616790",
+  "tier": "canonical-practice",
+  "title": "SQLAlchemy ORM and Transaction Guidance",
+  "total_original_bytes": 295340,
+  "tracks": [
+    "python",
+    "sqlalchemy",
+    "data",
+    "orm",
+    "transactions",
+    "async",
+    "concurrency",
+    "testing",
+    "diagnostics"
+  ]
+}

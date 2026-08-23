@@ -1,0 +1,317 @@
+{
+  "agent_ready": true,
+  "file_count": 14,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 1115,
+      "local_git_sha": "ecaeade5e070fd78dd2f2bdd0e1c5712bee8b025",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "fe53a42b19030ccc0d89f4562574ef274e7e4e31d455a6c58997f6e8a1d2350c",
+      "upstream_git_sha": "ecaeade5e070fd78dd2f2bdd0e1c5712bee8b025",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4291,
+      "local_git_sha": "b89b965f5f1630425fbc15ee9d5f788996386330",
+      "local_path": "content/application-context.md",
+      "searchable_text": true,
+      "sha256": "ccb5b0d045fc47871019241bc6009fc0e29c5efe5f1c3de36e6ca3f7a9ac359b",
+      "upstream_git_sha": "b89b965f5f1630425fbc15ee9d5f788996386330",
+      "upstream_path": "content/application-context.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 26701,
+      "local_git_sha": "0bc1cec08a7146ac075b7c8eb3f8befbb80ce379",
+      "local_path": "content/controllers.md",
+      "searchable_text": true,
+      "sha256": "7492e9ed446f171dba6117d96a423978fe729f8ee318e605be71c51d4ab93046",
+      "upstream_git_sha": "0bc1cec08a7146ac075b7c8eb3f8befbb80ce379",
+      "upstream_path": "content/controllers.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 18901,
+      "local_git_sha": "09328a99b842d15ef62000ccba5db66d696b9697",
+      "local_path": "content/deployment.md",
+      "searchable_text": true,
+      "sha256": "33220dab45d21d26ed6aa0339575483829fb88347c96411a8f6b3a7153e29f2b",
+      "upstream_git_sha": "09328a99b842d15ef62000ccba5db66d696b9697",
+      "upstream_path": "content/deployment.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 18169,
+      "local_git_sha": "6f632c8213be267a8c4bbd3815e4a7faacb4ec9c",
+      "local_path": "content/exception-filters.md",
+      "searchable_text": true,
+      "sha256": "e0b30cab44d05398f37291877b743bbb52c29b130708d8e1370c6ca6c2fbf539",
+      "upstream_git_sha": "6f632c8213be267a8c4bbd3815e4a7faacb4ec9c",
+      "upstream_path": "content/exception-filters.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 18777,
+      "local_git_sha": "d527c04a25dd75f7aa85343c028ce2cfd2655acc",
+      "local_path": "content/fundamentals/dependency-injection.md",
+      "searchable_text": true,
+      "sha256": "0436de87e0c7454ef4d0c1603d091177b338ee6fcf49091b64d989472c32ec13",
+      "upstream_git_sha": "d527c04a25dd75f7aa85343c028ce2cfd2655acc",
+      "upstream_path": "content/fundamentals/dependency-injection.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 14179,
+      "local_git_sha": "79b7828b7e04f09686368359c3e73cde8645a4ce",
+      "local_path": "content/fundamentals/execution-context.md",
+      "searchable_text": true,
+      "sha256": "f79b157f1da9c6f8e40356fd4a48caebe288e1a082f22d6d045e8cb06b145f7d",
+      "upstream_git_sha": "79b7828b7e04f09686368359c3e73cde8645a4ce",
+      "upstream_path": "content/fundamentals/execution-context.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 8850,
+      "local_git_sha": "3318cc661dcb6d6f7c3801b8eaeb895d61f82fbe",
+      "local_path": "content/fundamentals/lifecycle-events.md",
+      "searchable_text": true,
+      "sha256": "c25bfb030a40649cd25401cc3172b61cc1ec615a840c7f8207f5c08e8905ec19",
+      "upstream_git_sha": "3318cc661dcb6d6f7c3801b8eaeb895d61f82fbe",
+      "upstream_path": "content/fundamentals/lifecycle-events.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 13588,
+      "local_git_sha": "c13c4aed0159758a81277ecc059c799dfc848a13",
+      "local_path": "content/fundamentals/provider-scopes.md",
+      "searchable_text": true,
+      "sha256": "bd2a4001a1e4dcb79079eae62765aa713abdfc26ab2ad1775152752bba84dbe3",
+      "upstream_git_sha": "c13c4aed0159758a81277ecc059c799dfc848a13",
+      "upstream_path": "content/fundamentals/provider-scopes.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 21416,
+      "local_git_sha": "1721ee3cd64bf126e8cdc1fbe3f4ec8ea9a22771",
+      "local_path": "content/fundamentals/unit-testing.md",
+      "searchable_text": true,
+      "sha256": "7d10d542a1ec314e1d6a8d4ab20038a5d9f9722d6413fb2a9ed60dcd6a5a0a06",
+      "upstream_git_sha": "1721ee3cd64bf126e8cdc1fbe3f4ec8ea9a22771",
+      "upstream_path": "content/fundamentals/unit-testing.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 13431,
+      "local_git_sha": "313f89c667ff64821a53ad7a76342c07fe9d3ed9",
+      "local_path": "content/guards.md",
+      "searchable_text": true,
+      "sha256": "3659fec9096c08935007cf259326b516b6a2d4cb55cb94ab7b566e7c7fa6b92f",
+      "upstream_git_sha": "313f89c667ff64821a53ad7a76342c07fe9d3ed9",
+      "upstream_path": "content/guards.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 15585,
+      "local_git_sha": "8c9d31a1853a95291e8ef6d15351a7443b771d9c",
+      "local_path": "content/interceptors.md",
+      "searchable_text": true,
+      "sha256": "dd41eada2322d7523971777a43e78171ff1e5cfb2ddac30c915d944512897d34",
+      "upstream_git_sha": "8c9d31a1853a95291e8ef6d15351a7443b771d9c",
+      "upstream_path": "content/interceptors.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 20921,
+      "local_git_sha": "6e940954e266a82b6d183398c91486082964a544",
+      "local_path": "content/security/authentication.md",
+      "searchable_text": true,
+      "sha256": "736e2feafa4e64f39f4b9d9653f084d6e78f0ea9bec4fb4a9ecd459b3e5ed3c0",
+      "upstream_git_sha": "6e940954e266a82b6d183398c91486082964a544",
+      "upstream_path": "content/security/authentication.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 18282,
+      "local_git_sha": "5bcdedf2381b829c11b8d148ce239bb410ec7262",
+      "local_path": "content/security/authorization.md",
+      "searchable_text": true,
+      "sha256": "752ccffadbd4a36874df9af0cbfbfe578914962a1b5f23671dc69a4f27aadab4",
+      "upstream_git_sha": "5bcdedf2381b829c11b8d148ce239bb410ec7262",
+      "upstream_path": "content/security/authorization.md"
+    }
+  ],
+  "license": "MIT",
+  "processed_bytes": 217889,
+  "processed_count": 13,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 4659,
+      "derived_from": "content/application-context.md",
+      "local_git_sha": "066f9ad4a2bc4b2b4acb70f99be7e8b68a0c6a1f",
+      "local_path": "content/application-context.md",
+      "searchable_text": true,
+      "sha256": "55a9964cb23572e2c985e797980aee1a2321371c61703dce9e7d0b66065b9e2d",
+      "source_git_sha": "b89b965f5f1630425fbc15ee9d5f788996386330",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 27061,
+      "derived_from": "content/controllers.md",
+      "local_git_sha": "72a367c66aa66cd24a73ef5b3cdce6ca090ff1ab",
+      "local_path": "content/controllers.md",
+      "searchable_text": true,
+      "sha256": "49117bd57d6bc1361ff8bd206010b6aaf558991a879326c32ff3c5b6e6188697",
+      "source_git_sha": "0bc1cec08a7146ac075b7c8eb3f8befbb80ce379",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 19260,
+      "derived_from": "content/deployment.md",
+      "local_git_sha": "3b21830d9f3917b9fa4b24dfa8b9a675e1a74191",
+      "local_path": "content/deployment.md",
+      "searchable_text": true,
+      "sha256": "0c1762707068be9e120a194dc4c1069fd9a86e2e65b869bfdfe9c031ee91fa5d",
+      "source_git_sha": "09328a99b842d15ef62000ccba5db66d696b9697",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 18535,
+      "derived_from": "content/exception-filters.md",
+      "local_git_sha": "1ed3d85099253f8daebd7cccfa84bd5c5d7e6964",
+      "local_path": "content/exception-filters.md",
+      "searchable_text": true,
+      "sha256": "7f555eb647fe41ca50272f61571052f7df5e0b3b8e5550c276a688bec5db7a9a",
+      "source_git_sha": "6f632c8213be267a8c4bbd3815e4a7faacb4ec9c",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 19159,
+      "derived_from": "content/fundamentals/dependency-injection.md",
+      "local_git_sha": "c4546777e7e7c30aa3c46c4dcb93654f52f8e479",
+      "local_path": "content/fundamentals/dependency-injection.md",
+      "searchable_text": true,
+      "sha256": "25fcae17e5fc86175f6ccfb74978031e105570ef6a61c3b9a70e49c8f537bbac",
+      "source_git_sha": "d527c04a25dd75f7aa85343c028ce2cfd2655acc",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 14558,
+      "derived_from": "content/fundamentals/execution-context.md",
+      "local_git_sha": "ace9a3fb7642066fe8a1491227891c09df3295b5",
+      "local_path": "content/fundamentals/execution-context.md",
+      "searchable_text": true,
+      "sha256": "8c1d5abb797832cf2210cbbc24e41fffe3e6832cdbde6e14ee4c5ce7c9514dd8",
+      "source_git_sha": "79b7828b7e04f09686368359c3e73cde8645a4ce",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 9228,
+      "derived_from": "content/fundamentals/lifecycle-events.md",
+      "local_git_sha": "4a25674bb43f1865e6694cbe9f6fce04979d97df",
+      "local_path": "content/fundamentals/lifecycle-events.md",
+      "searchable_text": true,
+      "sha256": "7367ee107fa50b64125a07c495ea38da5400d67ec6b2907ac165ef2212e366e9",
+      "source_git_sha": "3318cc661dcb6d6f7c3801b8eaeb895d61f82fbe",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 13965,
+      "derived_from": "content/fundamentals/provider-scopes.md",
+      "local_git_sha": "62e68c6b691979a5c96b2a0cccb7d13c3730ae3e",
+      "local_path": "content/fundamentals/provider-scopes.md",
+      "searchable_text": true,
+      "sha256": "b5766e6330c02846caa1682e514e5901b60c5a7bddffef651f948a3c203c38f1",
+      "source_git_sha": "c13c4aed0159758a81277ecc059c799dfc848a13",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 21790,
+      "derived_from": "content/fundamentals/unit-testing.md",
+      "local_git_sha": "3fa47f92634ca10d64982af9a70aa0c145ecb053",
+      "local_path": "content/fundamentals/unit-testing.md",
+      "searchable_text": true,
+      "sha256": "0b33eba6fd733370cff547c9f5c41df2e52177e74c8e7d4dbb2185d5985f3df5",
+      "source_git_sha": "1721ee3cd64bf126e8cdc1fbe3f4ec8ea9a22771",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 13786,
+      "derived_from": "content/guards.md",
+      "local_git_sha": "943a794b55b2b53212708649e899e3658961cb16",
+      "local_path": "content/guards.md",
+      "searchable_text": true,
+      "sha256": "d945abb96f61cb8871e73da35b4a9eba3e14d802d2ad2e5efd117255e903ceeb",
+      "source_git_sha": "313f89c667ff64821a53ad7a76342c07fe9d3ed9",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 15946,
+      "derived_from": "content/interceptors.md",
+      "local_git_sha": "3fcac6948d38dcf59b6d36d7fab0fe7e808dbf58",
+      "local_path": "content/interceptors.md",
+      "searchable_text": true,
+      "sha256": "6d634f2733fea4f5dda786b499cf12c2c984714c35ec0add0f373973854b0dc2",
+      "source_git_sha": "8c9d31a1853a95291e8ef6d15351a7443b771d9c",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 21289,
+      "derived_from": "content/security/authentication.md",
+      "local_git_sha": "240f99faf5ede211fdd8a8ea24277ff56d07ba10",
+      "local_path": "content/security/authentication.md",
+      "searchable_text": true,
+      "sha256": "517f8a983842a7a3e5852f0a4cb93d31491d2f8ef90f24c6e45b1b44ba9cc9c3",
+      "source_git_sha": "6e940954e266a82b6d183398c91486082964a544",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 18653,
+      "derived_from": "content/security/authorization.md",
+      "local_git_sha": "27c7fb33b2410b8d7a0f47757d5bf3ce65d836f5",
+      "local_path": "content/security/authorization.md",
+      "searchable_text": true,
+      "sha256": "db083a30f218bdec187c25143b0eb96c6b24b0752b56002ce2d8ad256151c5b0",
+      "source_git_sha": "5bcdedf2381b829c11b8d148ce239bb410ec7262",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "nestjs/docs.nestjs.com",
+  "requested_ref": "master",
+  "retrieved_at": "2026-08-23T11:46:50+00:00",
+  "schema_version": 2,
+  "source_commit": "99b5603f17397a5ebfa1d82ca21820920c51220f",
+  "source_id": "nestjs-core-docs",
+  "source_tree": "85d86a5b581acda198c49d9243d2d07ef8f0be93",
+  "source_url": "https://github.com/nestjs/docs.nestjs.com/tree/99b5603f17397a5ebfa1d82ca21820920c51220f",
+  "tier": "canonical-practice",
+  "title": "NestJS Core Backend Guidance",
+  "total_original_bytes": 214206,
+  "tracks": [
+    "node-typescript",
+    "nestjs",
+    "lifecycle",
+    "dependency-injection",
+    "http",
+    "security",
+    "testing",
+    "error-handling",
+    "deployment"
+  ]
+}

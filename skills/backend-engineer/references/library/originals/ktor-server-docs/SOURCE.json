@@ -1,0 +1,352 @@
+{
+  "agent_ready": true,
+  "file_count": 15,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 11351,
+      "local_git_sha": "8541f77fc73d808b00e43deca333ad2feaeda291",
+      "local_path": "LICENSE.txt",
+      "searchable_text": true,
+      "sha256": "4c630cbc695842fbc05d28e5ad9be95c98e26b19f00ec6ab84398b6352885abd",
+      "upstream_git_sha": "8541f77fc73d808b00e43deca333ad2feaeda291",
+      "upstream_path": "LICENSE.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 9140,
+      "local_git_sha": "769d79426a3d081aa88496bc0c95baf7f700d3b1",
+      "local_path": "topics/db-connection-pooling-caching.md",
+      "searchable_text": true,
+      "sha256": "33bfc26e5018b57868d80501a9c2657c2f96845b0b10918790207acf18e07e5e",
+      "upstream_git_sha": "769d79426a3d081aa88496bc0c95baf7f700d3b1",
+      "upstream_path": "topics/db-connection-pooling-caching.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 12284,
+      "local_git_sha": "f01c71a5868949aa3eb513d35c05ea2e78fed1ea",
+      "local_path": "topics/db-persistence.md",
+      "searchable_text": true,
+      "sha256": "9eedff854fef90bcb2623e57f024ef089120387e16aa481e5012c9d5932450ef",
+      "upstream_git_sha": "f01c71a5868949aa3eb513d35c05ea2e78fed1ea",
+      "upstream_path": "topics/db-persistence.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 13898,
+      "local_git_sha": "d1f5273e9c28a96a2e0a9727128aa10ed56de0a9",
+      "local_path": "topics/server-application-structure.md",
+      "searchable_text": true,
+      "sha256": "bad58840bd516b0c1d2362a3182a7bdada64127c942d1f9ad7a1650a5f49bcc9",
+      "upstream_git_sha": "d1f5273e9c28a96a2e0a9727128aa10ed56de0a9",
+      "upstream_path": "topics/server-application-structure.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 14123,
+      "local_git_sha": "51afb1de7437b6f7cbd9e4b3a6ee38ceb37dc2d4",
+      "local_path": "topics/server-auth.md",
+      "searchable_text": true,
+      "sha256": "a6354a123df88799e05a545c74ccbc3ab6964a9e488dd6e48c80b19117c3e72c",
+      "upstream_git_sha": "51afb1de7437b6f7cbd9e4b3a6ee38ceb37dc2d4",
+      "upstream_path": "topics/server-auth.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3560,
+      "local_git_sha": "7fcfd430b31ed407546237a80da8b8cfb7c1a80f",
+      "local_path": "topics/server-dependency-injection.md",
+      "searchable_text": true,
+      "sha256": "f5bab2d1576167cdfdb6bfd4f2832be0213e5273fd9affa83bef8392c60dcf4d",
+      "upstream_git_sha": "7fcfd430b31ed407546237a80da8b8cfb7c1a80f",
+      "upstream_path": "topics/server-dependency-injection.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1315,
+      "local_git_sha": "25661b3791dd68235998cef719f498bc25d3f2fb",
+      "local_path": "topics/server-di-resource-lifecycle-management.md",
+      "searchable_text": true,
+      "sha256": "9da25458ab5f9e4a6494fd31b147ce30845df28bfcb8a89d003162c620d7a9ec",
+      "upstream_git_sha": "25661b3791dd68235998cef719f498bc25d3f2fb",
+      "upstream_path": "topics/server-di-resource-lifecycle-management.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2758,
+      "local_git_sha": "21ec7522b9df515a7129da19a58afd50c4202b05",
+      "local_path": "topics/server-http-request-lifecycle.md",
+      "searchable_text": true,
+      "sha256": "1735bfb43cdbcfbbca1b2fe90940ced73807ad9dc6ba4fc58709d09c1cc550bc",
+      "upstream_git_sha": "21ec7522b9df515a7129da19a58afd50c4202b05",
+      "upstream_path": "topics/server-http-request-lifecycle.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 10996,
+      "local_git_sha": "74dd641fe04bd4334e8e7548b9f7807838bf014c",
+      "local_path": "topics/server-jwt.md",
+      "searchable_text": true,
+      "sha256": "ab3ed214663e3c55a19e36db1d034a752907c0ec5434e3d5cf34cd7e080a2a56",
+      "upstream_git_sha": "74dd641fe04bd4334e8e7548b9f7807838bf014c",
+      "upstream_path": "topics/server-jwt.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 11332,
+      "local_git_sha": "20a669cefbe4df46d4f6b0c2e51e2c79d27035c7",
+      "local_path": "topics/server-opentelemetry.md",
+      "searchable_text": true,
+      "sha256": "94f71b3f9cbd4e214719b7e510e8fb6e41a24ef95910433523f2a7fdab23dfc0",
+      "upstream_git_sha": "20a669cefbe4df46d4f6b0c2e51e2c79d27035c7",
+      "upstream_path": "topics/server-opentelemetry.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 11927,
+      "local_git_sha": "0001622da32065ce0c02fea9af67ca1b4804fb06",
+      "local_path": "topics/server-requests.md",
+      "searchable_text": true,
+      "sha256": "b3b941a99a6580d797cd9758ec4b57735c6487431257412216f4df32a207b627",
+      "upstream_git_sha": "0001622da32065ce0c02fea9af67ca1b4804fb06",
+      "upstream_path": "topics/server-requests.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 10560,
+      "local_git_sha": "1603e1a912092ffbf98e070ee134d1bd91ccd574",
+      "local_path": "topics/server-responses.md",
+      "searchable_text": true,
+      "sha256": "4724e00216e24b8c12a1a42729f999b8d6098b9bb064fe1ce9a360d43c8581fd",
+      "upstream_git_sha": "1603e1a912092ffbf98e070ee134d1bd91ccd574",
+      "upstream_path": "topics/server-responses.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 12041,
+      "local_git_sha": "721d4710dcf36c1b7ef8afe428aebbda6c0432c0",
+      "local_path": "topics/server-routing.md",
+      "searchable_text": true,
+      "sha256": "ba3b9056016f42e2fb010134e1f5a7ab1e7ba671e68f8a5dc6a046418b6ee03b",
+      "upstream_git_sha": "721d4710dcf36c1b7ef8afe428aebbda6c0432c0",
+      "upstream_path": "topics/server-routing.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3267,
+      "local_git_sha": "2b4abf77f6c52cce3e58ab0179ff4e7f4fa9e4c4",
+      "local_path": "topics/server-status-pages.md",
+      "searchable_text": true,
+      "sha256": "2621b15ed6399141a226d2eb98409ec16ebe6b628fc8b1d4110f9247a770e52c",
+      "upstream_git_sha": "2b4abf77f6c52cce3e58ab0179ff4e7f4fa9e4c4",
+      "upstream_path": "topics/server-status-pages.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 14087,
+      "local_git_sha": "715717544d1db4eaa86cf2637ecd9aafde08f1d3",
+      "local_path": "topics/server-testing.md",
+      "searchable_text": true,
+      "sha256": "2fd03cdf5e8697b8caa92a7b8f4ca0851428558dde87a5d009106b1329a684a6",
+      "upstream_git_sha": "715717544d1db4eaa86cf2637ecd9aafde08f1d3",
+      "upstream_path": "topics/server-testing.md"
+    }
+  ],
+  "license": "Apache-2.0",
+  "processed_bytes": 147997,
+  "processed_count": 15,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 11674,
+      "derived_from": "LICENSE.txt",
+      "local_git_sha": "5bda875fd6cbd18da0fab5e4e35daf5f34b382c2",
+      "local_path": "LICENSE.txt.md",
+      "searchable_text": true,
+      "sha256": "05b43bf016e7ed50bd8b6e350651272bc81e6839a01e3c79b94f24884e45dc6f",
+      "source_git_sha": "8541f77fc73d808b00e43deca333ad2feaeda291",
+      "transform": "plain-text-to-markdown"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 9510,
+      "derived_from": "topics/db-connection-pooling-caching.md",
+      "local_git_sha": "4b64e4149f956274b74bd7ee3004d908559f2afb",
+      "local_path": "topics/db-connection-pooling-caching.md",
+      "searchable_text": true,
+      "sha256": "25e70f92480ac2c0b191981f9dd2905cacb51b8aa03ea8300c96ea89dd219862",
+      "source_git_sha": "769d79426a3d081aa88496bc0c95baf7f700d3b1",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 12644,
+      "derived_from": "topics/db-persistence.md",
+      "local_git_sha": "875bbbd5bf4bb9ab1c784534bb0b8518302d267b",
+      "local_path": "topics/db-persistence.md",
+      "searchable_text": true,
+      "sha256": "c4b51f097d4604fb4b038f40e76dd14ad69f7e82d4afa2a5d3cff396b56671f2",
+      "source_git_sha": "f01c71a5868949aa3eb513d35c05ea2e78fed1ea",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 14272,
+      "derived_from": "topics/server-application-structure.md",
+      "local_git_sha": "033d138bc463bd67fbab8f763876d5b00434be7d",
+      "local_path": "topics/server-application-structure.md",
+      "searchable_text": true,
+      "sha256": "4a6edf4af2fe998d57c27dc08ab818c2bdd53f6723c33a998ef666b605c5bd80",
+      "source_git_sha": "d1f5273e9c28a96a2e0a9727128aa10ed56de0a9",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 14462,
+      "derived_from": "topics/server-auth.md",
+      "local_git_sha": "a68dbe1cfe08527d70254a48f08b46339d3c4332",
+      "local_path": "topics/server-auth.md",
+      "searchable_text": true,
+      "sha256": "d3721bc53e36c7496f3979b0086ee60d718a8e2070d7dd7f2ee1ab21f17b9290",
+      "source_git_sha": "51afb1de7437b6f7cbd9e4b3a6ee38ceb37dc2d4",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 3938,
+      "derived_from": "topics/server-dependency-injection.md",
+      "local_git_sha": "abdc8e995d0c7df4f51e9202da9d37772444ca53",
+      "local_path": "topics/server-dependency-injection.md",
+      "searchable_text": true,
+      "sha256": "e8649b0fd300d14adae237db9b364a81a33d75c3bfb1b6a42e7d887fab8591a3",
+      "source_git_sha": "7fcfd430b31ed407546237a80da8b8cfb7c1a80f",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 1705,
+      "derived_from": "topics/server-di-resource-lifecycle-management.md",
+      "local_git_sha": "dd5164f25272118ebc9e892e181b239696f1c11c",
+      "local_path": "topics/server-di-resource-lifecycle-management.md",
+      "searchable_text": true,
+      "sha256": "f400a9fcfef6f7bed41fb068e13eb48e44f2c0859dae81c8f5b056b3111a9f65",
+      "source_git_sha": "25661b3791dd68235998cef719f498bc25d3f2fb",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 3139,
+      "derived_from": "topics/server-http-request-lifecycle.md",
+      "local_git_sha": "d08a196cdfc0069f51e17e0a584bf68ef250fd13",
+      "local_path": "topics/server-http-request-lifecycle.md",
+      "searchable_text": true,
+      "sha256": "4ae17910e98317510b68ccaed26a35156ba2699034414ae51c66137aa5356041",
+      "source_git_sha": "21ec7522b9df515a7129da19a58afd50c4202b05",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 11342,
+      "derived_from": "topics/server-jwt.md",
+      "local_git_sha": "24a8c5e0b1b1ec5fc88ba8aa83ccf845a084a750",
+      "local_path": "topics/server-jwt.md",
+      "searchable_text": true,
+      "sha256": "df2ab1ba7f15ef7417d115a8bffa89dcef12aac8a45eeb70238cdf4d17706cea",
+      "source_git_sha": "74dd641fe04bd4334e8e7548b9f7807838bf014c",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 11701,
+      "derived_from": "topics/server-opentelemetry.md",
+      "local_git_sha": "854aae963fea2a85851a39f0c64deb0c2d5b3f72",
+      "local_path": "topics/server-opentelemetry.md",
+      "searchable_text": true,
+      "sha256": "5be5b4fb01125b38e31e08da2c5e00551c1deea636f35f6884fb4616dc3d76de",
+      "source_git_sha": "20a669cefbe4df46d4f6b0c2e51e2c79d27035c7",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 12290,
+      "derived_from": "topics/server-requests.md",
+      "local_git_sha": "ad42c2043a9ced2e7d5e5f45fb1f8bdfc1b0326d",
+      "local_path": "topics/server-requests.md",
+      "searchable_text": true,
+      "sha256": "9c1ed448873925a5ea08c9e846871252c1c29cf255fbda8e338be1d392475915",
+      "source_git_sha": "0001622da32065ce0c02fea9af67ca1b4804fb06",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 10908,
+      "derived_from": "topics/server-responses.md",
+      "local_git_sha": "8e482ecefa0dbc6baa321dbb53d2d05d5afb59c9",
+      "local_path": "topics/server-responses.md",
+      "searchable_text": true,
+      "sha256": "d134e2359ff4cf28ab86e3de5d354b8659017bb7a6bc35404d543dfd4fbc3c67",
+      "source_git_sha": "1603e1a912092ffbf98e070ee134d1bd91ccd574",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 12330,
+      "derived_from": "topics/server-routing.md",
+      "local_git_sha": "da54151d32d30b8cffa9409b8bdce6be1378a793",
+      "local_path": "topics/server-routing.md",
+      "searchable_text": true,
+      "sha256": "2544522d00613c8fce1c120787884a91c854e0b02b106cf1810c2676ac7dfca2",
+      "source_git_sha": "721d4710dcf36c1b7ef8afe428aebbda6c0432c0",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 3636,
+      "derived_from": "topics/server-status-pages.md",
+      "local_git_sha": "50408fa64ba9775428b6388ffbe32e7ba4180bbd",
+      "local_path": "topics/server-status-pages.md",
+      "searchable_text": true,
+      "sha256": "9c8c970aebf4181bb3076efcf07b2101f8d10b729e610172e34cb74ed4ec2ae6",
+      "source_git_sha": "2b4abf77f6c52cce3e58ab0179ff4e7f4fa9e4c4",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 14446,
+      "derived_from": "topics/server-testing.md",
+      "local_git_sha": "24fdc82773268211404ca7d14436700dcd2017c1",
+      "local_path": "topics/server-testing.md",
+      "searchable_text": true,
+      "sha256": "8b015022cf7b6caca682689e775d113c66f12caedc50860b2bb0f5afac4853d3",
+      "source_git_sha": "715717544d1db4eaa86cf2637ecd9aafde08f1d3",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "ktorio/ktor-documentation",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T11:46:43+00:00",
+  "schema_version": 2,
+  "source_commit": "5803616c32b5f16050a8b1ae4653afa21603796e",
+  "source_id": "ktor-server-docs",
+  "source_tree": "74022a989f7e4c9d2b78e202e24448ae51fbe1db",
+  "source_url": "https://github.com/ktorio/ktor-documentation/tree/5803616c32b5f16050a8b1ae4653afa21603796e",
+  "tier": "canonical-practice",
+  "title": "Ktor Server Engineering Guidance",
+  "total_original_bytes": 142639,
+  "tracks": [
+    "kotlin",
+    "jvm",
+    "ktor",
+    "lifecycle",
+    "dependency-injection",
+    "http",
+    "routing",
+    "security",
+    "testing",
+    "data",
+    "observability",
+    "deployment"
+  ]
+}

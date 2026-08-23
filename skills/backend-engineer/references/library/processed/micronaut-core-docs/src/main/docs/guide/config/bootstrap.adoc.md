@@ -1,0 +1,33 @@
+> **Offline teaching derivative**  
+> Source: `micronaut-projects/micronaut-core@428ddeb3ad2acdabef2027cc06af3bf46865956a`  
+> Upstream path: `src/main/docs/guide/config/bootstrap.adoc`  
+> Upstream Git blob: `c718890fd4ed679eff43f39400b544702ae1c41f`  
+> Transform: `asciidoc-structural-to-markdown`  
+> This Markdown is generated for agent use. Consult `originals/` when exact upstream bytes matter.
+
+Most application configuration is stored in your configuration file (e.g `application.yml`), environment-specific files like `application-{environment}.{extension}`, environment and system properties, etc.
+These configure the application context.
+But during application startup, before the application context is created, a "bootstrap" context can be created to store configuration necessary to retrieve additional configuration for the main context. Typically, that additional configuration is in some remote source.
+
+The bootstrap context is enabled depending on the following conditions. The conditions are checked in the following order:
+
+- If The api:context.env.Environment#BOOTSTRAP_CONTEXT_PROPERTY[micronaut.bootstrap.context] system property is set, that value determines if the bootstrap context is enabled.
+- If The application context builder option api:context.ApplicationContextBuilder#bootstrapEnvironment[bootstrapEnvironment] is set, that value determines if the bootstrap context is enabled.
+- If a api:context.env.BootstrapPropertySourceLocator[] bean is present the bootstrap context is enabled. Normally this comes from the `micronaut-discovery-client` dependency. If you provide a custom api:discovery.config.ConfigurationClient[] for distributed configuration, make sure that dependency is present so the bootstrap/distributed configuration infrastructure is loaded.
+
+Configuration properties that must be present before application context configuration properties are resolved, for example when using distributed configuration, are stored in a bootstrap configuration file. Once it is determined the bootstrap context is enabled (as described above), the bootstrap configuration files are read using the same rules as regular application configuration.
+See the <<propertySource, property source>> documentation for the details. The only difference is the prefix (`bootstrap` instead of `application`).
+
+The file name prefix `bootstrap` is configurable with a system property [micronaut.bootstrap.name]({api}/io/micronaut/context/env/Environment.html#BOOTSTRAP_NAME_PROPERTY).
+
+NOTE: The bootstrap context configuration is carried over to the main context automatically, so it is not necessary for configuration properties to be duplicated in the main context. In addition, the bootstrap context configuration has a higher precedence than the main context, meaning if a configuration property appears in both contexts, then the value will be taken from the bootstrap context first.
+
+That means if a configuration property is needed in both places, it should go into the bootstrap context configuration.
+
+See the <<distributedConfiguration, distributed configuration>> section of the documentation for the list of integrations with common distributed configuration solutions.
+
+### Bootstrap Context Beans
+
+In order for a bean to be resolvable in the bootstrap context it must be annotated with ann:context.annotation.BootstrapContextCompatible[]. If any given bean is not annotated then it will not be able to be resolved in the bootstrap context. Typically, any bean that is participating in the process of retrieving distributed configuration needs to be annotated.
+
+For example, if you implement custom distributed configuration that is resolved during bootstrap, any supporting beans it depends on must be bootstrap-compatible, and the application must include the discovery client infrastructure, typically by adding the `io.micronaut.discovery:micronaut-discovery-client` dependency.

@@ -1,0 +1,15 @@
+> **Offline teaching derivative**  
+> Source: `micronaut-projects/micronaut-core@428ddeb3ad2acdabef2027cc06af3bf46865956a`  
+> Upstream path: `src/main/docs/guide/httpServer/plainTextResponses.adoc`  
+> Upstream Git blob: `8886cc12b00bf769fcc9e782d63a51da20211a09`  
+> Transform: `asciidoc-structural-to-markdown`  
+> This Markdown is generated for agent use. Consult `originals/` when exact upstream bytes matter.
+
+By default, a Micronaut Controller responds with content-type `application/json`. However, you can respond with content type `text/plain` by annotating the controller method with the ann:http.annotation.Produces[] annotation.
+
+snippet::io.micronaut.docs.http.server.response.textplain.TextPlainController[tags="classopening,method,classclosing", title="HTTP Response with text/plain Content-Type"]
+
+<1> The Controller endpoint specifies a response's Content-Type of `text/plain`.
+<2> The endpoint returns type `String`, and the implementation explicitly converts the data to a string using the `toString()` method.
+
+NOTE: Micronaut Framework 4.x `text/plain` responses are more restrictive about allowed types than Micronaut Framework 3.x. To return plain text responses for answers other than `java.lang.String`, manually call the object `toString()` method. Alternatively, set the `micronaut.http.legacy-text-conversion` configuration option to `true` to restore the old – but not recommended – Micronaut Framework 3.x behavior.

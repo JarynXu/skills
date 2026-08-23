@@ -1,0 +1,123 @@
+Instead of configuring a single port, you can also specify each listener manually.
+
+[configuration]
+----
+micronaut:
+  server:
+    netty:
+      listeners:
+        httpListener:
+          host: 127.0.0.1
+          port: 8086
+          ssl: false
+        httpsListener:
+          port: 8087
+          ssl: true
+----
+
+- `httpListener` is a listener name, and can be an arbitrary value
+- `host` is optional, and by default binds to all interfaces
+
+WARNING: If you specify listeners manually, other configuration such as `micronaut.server.port` will be ignored.
+
+SSL can be enabled or disabled for each listener individually. When enabled, the SSL will be configured <<https, as described above>>.
+
+The embedded server also supports binding to unix domain sockets using netty. This requires the following dependency:
+
+dependency:netty-transport-native-unix-common[groupId="io.netty",artifactId="netty-transport-native-unix-common"]
+
+The server must also be configured to <<serverConfiguration, use native transport>> (epoll or kqueue).
+
+[configuration]
+----
+micronaut:
+  server:
+    netty:
+      listeners:
+        unixListener:
+          family: UNIX
+          path: /run/micronaut.socket
+          ssl: true
+----
+
+- `unixListener` is a listener name, and can be an arbitrary value
+
+NOTE: To use an abstract domain socket instead of a normal one, prefix the path with a NUL character, like `"\0/run/micronaut.socket"`
+
+== systemd socket activation support
+
+The HTTP server can be configured to use an existing file descriptor. With this feature, you can use socket created by systemd and passed to the micronaut process:
+
+[configuration]
+----
+micronaut:
+  netty:
+    event-loops:
+      # use epoll transport
+      parent:
+        transport: epoll
+      default:
+        transport: epoll
+    listeners:
+      systemd:
+        fd: 3 # systemd passes the server socket as fd 3
+        bind: false # do not bind again, systemd already did this
+----
+
+Example `app.service` file:
+
+----
+[Unit]
+Description=Micronaut HTTP server with socket activation
+After=network.target app.socket
+Requires=app.socket
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/java -jar /app.jar
+----
+
+Example `app.socket` file:
+
+----
+[Socket]
+ListenStream=127.0.0.1:8080
+
+[Install]
+WantedBy=sockets.target
+----
+
+Now your Micronaut application can be started by a client connecting to `http://127.0.0.1:8080`.
+
+NOTE: The nio transport only supports `fd: 0` ("inetd style"), through the JDK `System.inheritedChannel()` API. If you
+wish to use the default `fd: 3` recommended by systemd, you must use the epoll transport.
+
+=== inetd-style socket activation
+
+systemd also supports inetd-style socket activation. In that mode, instead of passing a listening socket fd
+(`ServerSocketChannel`), systemd will pass an already accepted fd (`SocketChannel`) representing an individual TCP
+connection. systemd will start a new instance of the service for each new TCP connection.
+
+The Micronaut HTTP server supports this mode through the `accepted-fd` config option. An `accepted-fd` will be
+registered with the listener it is declared on, and essentially treated like a connection that was accepted by the
+listener. The netty parent channel will be set to the listener server socket, which is important to avoid a
+https://github.com/netty/netty/pull/12546[netty bug] in connection with HTTP/2.
+
+WARNING: Epoll does not support setting the parent channel, so HTTP/2 may not work with `accepted-fd` and epoll.
+
+[configuration]
+----
+micronaut:
+  netty:
+    listeners:
+      systemd:
+        accepted-fd: 0 # inetd-style socket activation typically uses fd 0 (stdin)
+        bind: false # do not bind, we only use the server channel as the parent
+----
+
+By setting `server-socket: false`, you can disable the parent channel entirely. This may save some slight startup time,
+but may cause problems with HTTP/2.
+
+WARNING: Because inetd-style socket activation typically uses fd 0, it hijacks stdin and stdout. You must take care to
+never emit any output on stdout, as this may corrupt the HTTP response, or even show up for the user. In particular,
+you must configure logback to log to `System.err` instead, and disable the Micronaut startup banner.

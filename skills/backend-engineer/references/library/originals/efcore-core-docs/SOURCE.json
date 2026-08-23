@@ -1,0 +1,254 @@
+{
+  "agent_ready": true,
+  "file_count": 11,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 18653,
+      "local_git_sha": "a2c95fc1559c88a47f83793422c3fc20424e1f21",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "9bbc1ea9fe5c96df01b311a2ac864d5b18fc87b9948bfd14770e4b44db755ee9",
+      "upstream_git_sha": "a2c95fc1559c88a47f83793422c3fc20424e1f21",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 31332,
+      "local_git_sha": "0993a99b114a89b1447d7969ff98a9e79db29295",
+      "local_path": "entity-framework/core/dbcontext-configuration/index.md",
+      "searchable_text": true,
+      "sha256": "c13a82b8aee3e36957a0af739f2d908a825ea744eadbdb021198b5c4b97c851a",
+      "upstream_git_sha": "0993a99b114a89b1447d7969ff98a9e79db29295",
+      "upstream_path": "entity-framework/core/dbcontext-configuration/index.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7265,
+      "local_git_sha": "a05ac400a68ad9fdfc587543dda43b64bb448151",
+      "local_path": "entity-framework/core/logging-events-diagnostics/diagnostic-listeners.md",
+      "searchable_text": true,
+      "sha256": "9802a6e8d9f2f9f4d665fc2a1874279b0588a7f45e55113315684e1d06a2fbb9",
+      "upstream_git_sha": "a05ac400a68ad9fdfc587543dda43b64bb448151",
+      "upstream_path": "entity-framework/core/logging-events-diagnostics/diagnostic-listeners.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 9834,
+      "local_git_sha": "9a5a1aac48f97946b073aa680a009b3dbaf831c2",
+      "local_path": "entity-framework/core/logging-events-diagnostics/metrics.md",
+      "searchable_text": true,
+      "sha256": "169b61df02db67d4bab43d193149ce73d99539f16a99a706fd578eb5c978cc5f",
+      "upstream_git_sha": "9a5a1aac48f97946b073aa680a009b3dbaf831c2",
+      "upstream_path": "entity-framework/core/logging-events-diagnostics/metrics.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 28371,
+      "local_git_sha": "596f0bb385afae2c9a5a87504f9341657c012407",
+      "local_path": "entity-framework/core/performance/advanced-performance-topics.md",
+      "searchable_text": true,
+      "sha256": "43d1db31770f3dbb29c605a7018e44c398d0aa95916ab1f2a8cf5efacee8f295",
+      "upstream_git_sha": "596f0bb385afae2c9a5a87504f9341657c012407",
+      "upstream_path": "entity-framework/core/performance/advanced-performance-topics.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 21790,
+      "local_git_sha": "f66fff559f8b4e6a243155ec9311b91c918c72d8",
+      "local_path": "entity-framework/core/performance/efficient-querying.md",
+      "searchable_text": true,
+      "sha256": "748cf701cabbc4d01651e7cdaba35f340559f345ecc3bb23b4661ddd5c8388ae",
+      "upstream_git_sha": "f66fff559f8b4e6a243155ec9311b91c918c72d8",
+      "upstream_path": "entity-framework/core/performance/efficient-querying.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 13024,
+      "local_git_sha": "87115a7336410226a70eab25ee7004487628ad18",
+      "local_path": "entity-framework/core/performance/performance-diagnosis.md",
+      "searchable_text": true,
+      "sha256": "4f583bf179e8f18d4fb86fe5900f168b75b517b0f147cfa45d4ce2b89d4667d4",
+      "upstream_git_sha": "87115a7336410226a70eab25ee7004487628ad18",
+      "upstream_path": "entity-framework/core/performance/performance-diagnosis.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 12702,
+      "local_git_sha": "213e6eb9b856c4ab934f4963ddda5d377c49dfef",
+      "local_path": "entity-framework/core/saving/concurrency.md",
+      "searchable_text": true,
+      "sha256": "1fcb54c088147b3b54f4f35061baabbcda33b97f32b6dda797fd9bd6184f6f02",
+      "upstream_git_sha": "213e6eb9b856c4ab934f4963ddda5d377c49dfef",
+      "upstream_path": "entity-framework/core/saving/concurrency.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7460,
+      "local_git_sha": "0ba4ef2dd951111d209466c727ae5a35b4fe645e",
+      "local_path": "entity-framework/core/saving/transactions.md",
+      "searchable_text": true,
+      "sha256": "a31be24f17ec7bec8d462f1306960d571dea99ab52fecfcdfa88333283f4a27a",
+      "upstream_git_sha": "0ba4ef2dd951111d209466c727ae5a35b4fe645e",
+      "upstream_path": "entity-framework/core/saving/transactions.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 16572,
+      "local_git_sha": "561969b24f58cf7a9d46e2593034079b92f924e8",
+      "local_path": "entity-framework/core/testing/choosing-a-testing-strategy.md",
+      "searchable_text": true,
+      "sha256": "21616c62b78be0fc5280bd8e5343f5bc50cdd9a6b2da0f0d576c750801790109",
+      "upstream_git_sha": "561969b24f58cf7a9d46e2593034079b92f924e8",
+      "upstream_path": "entity-framework/core/testing/choosing-a-testing-strategy.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 14686,
+      "local_git_sha": "2a563b996a12fc8e4427ffab325012c42bf5aaa2",
+      "local_path": "entity-framework/core/testing/testing-with-the-database.md",
+      "searchable_text": true,
+      "sha256": "281a65b8e3b685699b0920be9401819a13b9c81317342586895c33d842ce9784",
+      "upstream_git_sha": "2a563b996a12fc8e4427ffab325012c42bf5aaa2",
+      "upstream_path": "entity-framework/core/testing/testing-with-the-database.md"
+    }
+  ],
+  "license": "CC BY 4.0 documentation; preserve repository attribution",
+  "processed_bytes": 167032,
+  "processed_count": 10,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 31728,
+      "derived_from": "entity-framework/core/dbcontext-configuration/index.md",
+      "local_git_sha": "7b4e7d0bf6bff973d905a2bead3c19a5f7be9d09",
+      "local_path": "entity-framework/core/dbcontext-configuration/index.md",
+      "searchable_text": true,
+      "sha256": "b86cb2e4a7be1c84f231bd85db440f7159a4b9dec40e6a242f7842c8ee0c61ca",
+      "source_git_sha": "0993a99b114a89b1447d7969ff98a9e79db29295",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 7680,
+      "derived_from": "entity-framework/core/logging-events-diagnostics/diagnostic-listeners.md",
+      "local_git_sha": "dda6413cf443c5532e6bc057f3b77b37b21f874a",
+      "local_path": "entity-framework/core/logging-events-diagnostics/diagnostic-listeners.md",
+      "searchable_text": true,
+      "sha256": "d09c2f573f5a9ca651bb784e03b2995e9b8e47072f66c5b5756e26f6368aba42",
+      "source_git_sha": "a05ac400a68ad9fdfc587543dda43b64bb448151",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 10236,
+      "derived_from": "entity-framework/core/logging-events-diagnostics/metrics.md",
+      "local_git_sha": "d705bc8b38a648596c23639e23fe0ba2f441f7fa",
+      "local_path": "entity-framework/core/logging-events-diagnostics/metrics.md",
+      "searchable_text": true,
+      "sha256": "2e31cf7b05dc1e678244f63e69c9406254ac81706b8c94353c3ec2f31518d150",
+      "source_git_sha": "9a5a1aac48f97946b073aa680a009b3dbaf831c2",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 28778,
+      "derived_from": "entity-framework/core/performance/advanced-performance-topics.md",
+      "local_git_sha": "9ff5e7fae8528fe5c89c169cd735996effcbb819",
+      "local_path": "entity-framework/core/performance/advanced-performance-topics.md",
+      "searchable_text": true,
+      "sha256": "70217ef2834f8f3de42d81505508d7bf2e72edde9dba6f76f0e128ccc63fb18d",
+      "source_git_sha": "596f0bb385afae2c9a5a87504f9341657c012407",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 22188,
+      "derived_from": "entity-framework/core/performance/efficient-querying.md",
+      "local_git_sha": "2ee92ed04f30beaf6e5093e8c01917ee48954e35",
+      "local_path": "entity-framework/core/performance/efficient-querying.md",
+      "searchable_text": true,
+      "sha256": "437e9947b3d7ea54663a73d662c68860daf1b72c2cad4c124918347b8d31d2d7",
+      "source_git_sha": "f66fff559f8b4e6a243155ec9311b91c918c72d8",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 13425,
+      "derived_from": "entity-framework/core/performance/performance-diagnosis.md",
+      "local_git_sha": "16180ba6dcc02c7a2efe25511a9431b5bab27e2e",
+      "local_path": "entity-framework/core/performance/performance-diagnosis.md",
+      "searchable_text": true,
+      "sha256": "fb74a6608b3cb0be2845df4dbe2f846a90fa5dd610d1b36ff3837f3a55c233e2",
+      "source_git_sha": "87115a7336410226a70eab25ee7004487628ad18",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 13088,
+      "derived_from": "entity-framework/core/saving/concurrency.md",
+      "local_git_sha": "dd6a5e1318dc197df7970de2aabc67d71951dfef",
+      "local_path": "entity-framework/core/saving/concurrency.md",
+      "searchable_text": true,
+      "sha256": "77016a73ed1467305c78d8bab28ceb4c7a858c4e4c11e41ae829b3cab8ed5c9c",
+      "source_git_sha": "213e6eb9b856c4ab934f4963ddda5d377c49dfef",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 7847,
+      "derived_from": "entity-framework/core/saving/transactions.md",
+      "local_git_sha": "24833f433cb7b70131f5a0b71577e0c2f5f1f4c2",
+      "local_path": "entity-framework/core/saving/transactions.md",
+      "searchable_text": true,
+      "sha256": "d4a4619d93a751f144838ea12b9ce55d6c252d2f3095867575aa13339133bcb3",
+      "source_git_sha": "0ba4ef2dd951111d209466c727ae5a35b4fe645e",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 16975,
+      "derived_from": "entity-framework/core/testing/choosing-a-testing-strategy.md",
+      "local_git_sha": "b0264969f91ef3b45bd1c977a1a705c8212301e6",
+      "local_path": "entity-framework/core/testing/choosing-a-testing-strategy.md",
+      "searchable_text": true,
+      "sha256": "cba8a2b5d370aa727dfd52717b2423bc6f4cc95ef6d404d4f89c9b1e5ae1ed67",
+      "source_git_sha": "561969b24f58cf7a9d46e2593034079b92f924e8",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 15087,
+      "derived_from": "entity-framework/core/testing/testing-with-the-database.md",
+      "local_git_sha": "61f517badebb9cd7ad09bb11985ef03ff9e42e74",
+      "local_path": "entity-framework/core/testing/testing-with-the-database.md",
+      "searchable_text": true,
+      "sha256": "befd05d5833ae90fbe161f49cc362e1762235d51884b236ee7ff9f2f7e551631",
+      "source_git_sha": "2a563b996a12fc8e4427ffab325012c42bf5aaa2",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "dotnet/EntityFramework.Docs",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T11:47:00+00:00",
+  "schema_version": 2,
+  "source_commit": "a972d2b5c9f040c8accd286fe91ea01de69a5c17",
+  "source_id": "efcore-core-docs",
+  "source_tree": "cb8cc76e8b788fdd29f2781f8890f37fb3a86aef",
+  "source_url": "https://github.com/dotnet/EntityFramework.Docs/tree/a972d2b5c9f040c8accd286fe91ea01de69a5c17",
+  "tier": "canonical-practice",
+  "title": "Entity Framework Core Engineering Guidance",
+  "total_original_bytes": 181689,
+  "tracks": [
+    "csharp-dotnet",
+    "ef-core",
+    "data",
+    "orm",
+    "transactions",
+    "concurrency",
+    "testing",
+    "performance",
+    "diagnostics"
+  ]
+}

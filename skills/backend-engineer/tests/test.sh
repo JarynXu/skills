@@ -66,6 +66,7 @@ if python "$ROOT/scripts/inspect_backend.py" "$TMP/missing" >/dev/null 2>&1; the
 fi
 
 python "$ROOT/tests/test_control_plane.py"
+python "$ROOT/tests/test_framework_canon.py"
 
 for file in \
   "$ROOT/references/core/risk-and-verification.md" \

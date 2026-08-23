@@ -1,0 +1,360 @@
+{
+  "agent_ready": true,
+  "file_count": 16,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 1101,
+      "local_git_sha": "62b4345f408fd04605465118dc6d20ced8715d45",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "cfe55cac936c9bffdb22966e7ede7fe66473009a2cd30bb4c1cc00cd302dda27",
+      "upstream_git_sha": "62b4345f408fd04605465118dc6d20ced8715d45",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 14105,
+      "local_git_sha": "380467669ee0803e8aa4d25e5fd13af850ed5c0c",
+      "local_path": "content/tokio/topics/bridging.md",
+      "searchable_text": true,
+      "sha256": "c61db0f3cac78b0b2cb44c5516555692bc3c27fd726d077cec7fa0aa206e146d",
+      "upstream_git_sha": "380467669ee0803e8aa4d25e5fd13af850ed5c0c",
+      "upstream_path": "content/tokio/topics/bridging.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 6443,
+      "local_git_sha": "4ec0daa1472898290e11971215df9ffef89f080d",
+      "local_path": "content/tokio/topics/shutdown.md",
+      "searchable_text": true,
+      "sha256": "0f22ad873c15b3872c4152e9c264c370cdfea47711610701b7f71f23c33b2d60",
+      "upstream_git_sha": "4ec0daa1472898290e11971215df9ffef89f080d",
+      "upstream_path": "content/tokio/topics/shutdown.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 6212,
+      "local_git_sha": "58797f899ee0f80e6d12f0ca38d583a73e8734a6",
+      "local_path": "content/tokio/topics/testing.md",
+      "searchable_text": true,
+      "sha256": "ba6d3e2a01bd037cafe9797ccf6c8039a04bd6702dedc0eadaf418613514d6f1",
+      "upstream_git_sha": "58797f899ee0f80e6d12f0ca38d583a73e8734a6",
+      "upstream_path": "content/tokio/topics/testing.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 10580,
+      "local_git_sha": "72dcdb790bbbcd85e52f781414022f601f57bdb2",
+      "local_path": "content/tokio/topics/tracing.md",
+      "searchable_text": true,
+      "sha256": "4e9c4480eb33d2f29c8124a4f80b480a85c59c5bd463d7e12dc1202ca3ae0ce5",
+      "upstream_git_sha": "72dcdb790bbbcd85e52f781414022f601f57bdb2",
+      "upstream_path": "content/tokio/topics/tracing.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 28435,
+      "local_git_sha": "57216bab2b77fd49e62e6e7f0e573f37f0a11511",
+      "local_path": "content/tokio/tutorial/async.md",
+      "searchable_text": true,
+      "sha256": "95cd078fdd50d79bd014741fb71ef4199072492e9627b6d15e9ca683152f7df2",
+      "upstream_git_sha": "57216bab2b77fd49e62e6e7f0e573f37f0a11511",
+      "upstream_path": "content/tokio/tutorial/async.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 14961,
+      "local_git_sha": "f7a64503acf8c149f44fad69c2f0a8a24c4f6555",
+      "local_path": "content/tokio/tutorial/channels.md",
+      "searchable_text": true,
+      "sha256": "c43051f2b23be4cc9d54ef7fdb29e29b35c716b0843de4bc0c499eb5bc31e98a",
+      "upstream_git_sha": "f7a64503acf8c149f44fad69c2f0a8a24c4f6555",
+      "upstream_path": "content/tokio/tutorial/channels.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 16432,
+      "local_git_sha": "406a78acda56fcd2dbac68a91cfc59f724349c20",
+      "local_path": "content/tokio/tutorial/framing.md",
+      "searchable_text": true,
+      "sha256": "3dfab74769dfe042477e5fb75d76c8cd2df22bcb6329a08d23667777e93b2a69",
+      "upstream_git_sha": "406a78acda56fcd2dbac68a91cfc59f724349c20",
+      "upstream_path": "content/tokio/tutorial/framing.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7267,
+      "local_git_sha": "72ff89e1625f447740296723d69ecd098491073b",
+      "local_path": "content/tokio/tutorial/hello-tokio.md",
+      "searchable_text": true,
+      "sha256": "e780f9527ac8036aca0ad04e5ab392f38744cb1d82764b8473edf7f2685f85f2",
+      "upstream_git_sha": "72ff89e1625f447740296723d69ecd098491073b",
+      "upstream_path": "content/tokio/tutorial/hello-tokio.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 5552,
+      "local_git_sha": "3689823547f1455a77d051e9ef37cb012ad25894",
+      "local_path": "content/tokio/tutorial/index.md",
+      "searchable_text": true,
+      "sha256": "dee58069d7461759cfce34f94fa70905cbaf84987a9f7e1f6f066a59048ca180",
+      "upstream_git_sha": "3689823547f1455a77d051e9ef37cb012ad25894",
+      "upstream_path": "content/tokio/tutorial/index.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 14245,
+      "local_git_sha": "69527cb4f1f244841e7755c63e14046d8348b26d",
+      "local_path": "content/tokio/tutorial/io.md",
+      "searchable_text": true,
+      "sha256": "9e9e70908c37395d91a18b40cbe64d0b2cabed819a9ec650c1a0d9ce89164291",
+      "upstream_git_sha": "69527cb4f1f244841e7755c63e14046d8348b26d",
+      "upstream_path": "content/tokio/tutorial/io.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 23337,
+      "local_git_sha": "c27cab151dc8eed16e80aa1357b6651006da2ca3",
+      "local_path": "content/tokio/tutorial/select.md",
+      "searchable_text": true,
+      "sha256": "c2c40ed0fa37866f0f935fb7661754423e21174cb0ba15ff57713fab1afcfa1b",
+      "upstream_git_sha": "c27cab151dc8eed16e80aa1357b6651006da2ca3",
+      "upstream_path": "content/tokio/tutorial/select.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2783,
+      "local_git_sha": "437e4e4e319a957bd01132edc4fb7e94d26bf0a6",
+      "local_path": "content/tokio/tutorial/setup.md",
+      "searchable_text": true,
+      "sha256": "cd63522c6aa069455f411e24a975efae20e64c0ab88dd6bcc980d500b0131009",
+      "upstream_git_sha": "437e4e4e319a957bd01132edc4fb7e94d26bf0a6",
+      "upstream_path": "content/tokio/tutorial/setup.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 14054,
+      "local_git_sha": "771564c112456f4c2f8ed291b84bbad7185a7586",
+      "local_path": "content/tokio/tutorial/shared-state.md",
+      "searchable_text": true,
+      "sha256": "d1ae4a52c764e3f49b3e98cf6944ab6af5d36de689e408178ae0bb1c96d6cf2b",
+      "upstream_git_sha": "771564c112456f4c2f8ed291b84bbad7185a7586",
+      "upstream_path": "content/tokio/tutorial/shared-state.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 13825,
+      "local_git_sha": "8d2a3a9470defa58c2e14965a7824c17e39eec38",
+      "local_path": "content/tokio/tutorial/spawning.md",
+      "searchable_text": true,
+      "sha256": "e33cda27f527bb948586c4f371c89098c6e307e7aaff3d68a548e8a3c5c41f8d",
+      "upstream_git_sha": "8d2a3a9470defa58c2e14965a7824c17e39eec38",
+      "upstream_path": "content/tokio/tutorial/spawning.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 15644,
+      "local_git_sha": "34155d9e2cf18f8ed2892d894f706f161bd3dd9b",
+      "local_path": "content/tokio/tutorial/streams.md",
+      "searchable_text": true,
+      "sha256": "b1f93e1a8cb0c38a7d95cbb208a6b474d318eea24fe212e05f6d310bebac1d89",
+      "upstream_git_sha": "34155d9e2cf18f8ed2892d894f706f161bd3dd9b",
+      "upstream_path": "content/tokio/tutorial/streams.md"
+    }
+  ],
+  "license": "MIT",
+  "processed_bytes": 199160,
+  "processed_count": 15,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 14469,
+      "derived_from": "content/tokio/topics/bridging.md",
+      "local_git_sha": "8be4e46f13e948982e5092d7f446a3af07838556",
+      "local_path": "content/tokio/topics/bridging.md",
+      "searchable_text": true,
+      "sha256": "668e84a1321596bc0e75bf261d79557e2f34f7ca595d3b8dc2289072b6602564",
+      "source_git_sha": "380467669ee0803e8aa4d25e5fd13af850ed5c0c",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 6807,
+      "derived_from": "content/tokio/topics/shutdown.md",
+      "local_git_sha": "38fe3f54f6024ec81a231a3ce41aea8113f2fc3b",
+      "local_path": "content/tokio/topics/shutdown.md",
+      "searchable_text": true,
+      "sha256": "650ac3257c5c924a0f5981c3047542cda5ee08f56956b9ac35f8a397e1f2e722",
+      "source_git_sha": "4ec0daa1472898290e11971215df9ffef89f080d",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 6574,
+      "derived_from": "content/tokio/topics/testing.md",
+      "local_git_sha": "b817e5acdcd6aea088c26c28618799e029507d58",
+      "local_path": "content/tokio/topics/testing.md",
+      "searchable_text": true,
+      "sha256": "d4f83a64bd3370e6ad475a411ae8f65201c18cfa67a09ef047a22b80403ffbdb",
+      "source_git_sha": "58797f899ee0f80e6d12f0ca38d583a73e8734a6",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 10943,
+      "derived_from": "content/tokio/topics/tracing.md",
+      "local_git_sha": "c4b0ed4e6497f8a9dcef1bbb2a04dc9018ec4079",
+      "local_path": "content/tokio/topics/tracing.md",
+      "searchable_text": true,
+      "sha256": "c437d984e2abe7810b09893dad20e0ddc86a70b4e8b4ee340bcabbe3f7e58c87",
+      "source_git_sha": "72dcdb790bbbcd85e52f781414022f601f57bdb2",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 28660,
+      "derived_from": "content/tokio/tutorial/async.md",
+      "local_git_sha": "6024b31bf974615fcdbea6a9bfd782a9944718d3",
+      "local_path": "content/tokio/tutorial/async.md",
+      "searchable_text": true,
+      "sha256": "492ce3974c52edf4d2df46d15e14e6e987e83ff651923661db93a795b6d90702",
+      "source_git_sha": "57216bab2b77fd49e62e6e7f0e573f37f0a11511",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 15327,
+      "derived_from": "content/tokio/tutorial/channels.md",
+      "local_git_sha": "f9136a4c04f3690b278dd61d2a487d12438ae7c7",
+      "local_path": "content/tokio/tutorial/channels.md",
+      "searchable_text": true,
+      "sha256": "ce12a112ac50ed26814767161ca6df99faae6995db6a960a53f06740127e6f0e",
+      "source_git_sha": "f7a64503acf8c149f44fad69c2f0a8a24c4f6555",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 16796,
+      "derived_from": "content/tokio/tutorial/framing.md",
+      "local_git_sha": "44f682f7f8c9a31f822192a5795e590aff9291e9",
+      "local_path": "content/tokio/tutorial/framing.md",
+      "searchable_text": true,
+      "sha256": "01c6e08866fc01c2af499e440f408be263f5b61157d82c5ecd0303f69319e5d4",
+      "source_git_sha": "406a78acda56fcd2dbac68a91cfc59f724349c20",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 7636,
+      "derived_from": "content/tokio/tutorial/hello-tokio.md",
+      "local_git_sha": "976b4dc073dd9797d87d051e76af484e704713a1",
+      "local_path": "content/tokio/tutorial/hello-tokio.md",
+      "searchable_text": true,
+      "sha256": "13fb5186d0fa903c35b5afa0e59ccc6160b8c812b248144d760a93db1be81fbc",
+      "source_git_sha": "72ff89e1625f447740296723d69ecd098491073b",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 5915,
+      "derived_from": "content/tokio/tutorial/index.md",
+      "local_git_sha": "3dc209dde354cd80c867b9d63f60cc8aa8af9cb5",
+      "local_path": "content/tokio/tutorial/index.md",
+      "searchable_text": true,
+      "sha256": "42b47c13c8151dfb55168a4ce976861eaeb3ffb90629abc669f5aeb996052379",
+      "source_git_sha": "3689823547f1455a77d051e9ef37cb012ad25894",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 14601,
+      "derived_from": "content/tokio/tutorial/io.md",
+      "local_git_sha": "163e5d46b1918ae59353ad50b3a0ffe93202a30d",
+      "local_path": "content/tokio/tutorial/io.md",
+      "searchable_text": true,
+      "sha256": "2d78d80c28fd9b71c09717cb7313112f6a54809c83b0d86ff869faff9b5b1560",
+      "source_git_sha": "69527cb4f1f244841e7755c63e14046d8348b26d",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 23677,
+      "derived_from": "content/tokio/tutorial/select.md",
+      "local_git_sha": "958d04941d485fd32b364d7b49f85ad6406ca328",
+      "local_path": "content/tokio/tutorial/select.md",
+      "searchable_text": true,
+      "sha256": "a337cabffa49d5bfeb1dc7966d7e3953b0f50c6b3bd223defe95ae0b9ef9d2b7",
+      "source_git_sha": "c27cab151dc8eed16e80aa1357b6651006da2ca3",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 3146,
+      "derived_from": "content/tokio/tutorial/setup.md",
+      "local_git_sha": "9a8f8f36f0fc6c09dedf30d145e4ebd73255b632",
+      "local_path": "content/tokio/tutorial/setup.md",
+      "searchable_text": true,
+      "sha256": "32b941a8656877b2fbae12a4b4edbe6cab3ef0a5007fe58fed1982c1db792ae2",
+      "source_git_sha": "437e4e4e319a957bd01132edc4fb7e94d26bf0a6",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 14413,
+      "derived_from": "content/tokio/tutorial/shared-state.md",
+      "local_git_sha": "14deed3c5136a15591878a7fabce5b5175e8fa78",
+      "local_path": "content/tokio/tutorial/shared-state.md",
+      "searchable_text": true,
+      "sha256": "031189d20bcce4575a5eb22cb697d91b2f0565974a9153c6016593abfb394860",
+      "source_git_sha": "771564c112456f4c2f8ed291b84bbad7185a7586",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 14190,
+      "derived_from": "content/tokio/tutorial/spawning.md",
+      "local_git_sha": "7d85606b6bb4e08fe2242fc95a8f2772e4d0cc02",
+      "local_path": "content/tokio/tutorial/spawning.md",
+      "searchable_text": true,
+      "sha256": "e28bef062419261d8ee6bf5ff19ae4edc8975ad0f889fb10d130f167662d3ea7",
+      "source_git_sha": "8d2a3a9470defa58c2e14965a7824c17e39eec38",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 16006,
+      "derived_from": "content/tokio/tutorial/streams.md",
+      "local_git_sha": "fae8bf0af2543e1363515566d3a99e8095063918",
+      "local_path": "content/tokio/tutorial/streams.md",
+      "searchable_text": true,
+      "sha256": "d2d89c0143f5e06b29c0c4fdc3d27de3f37455968bea98003a9bd8a5b30cd48b",
+      "source_git_sha": "34155d9e2cf18f8ed2892d894f706f161bd3dd9b",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "tokio-rs/website",
+  "requested_ref": "master",
+  "retrieved_at": "2026-08-23T11:46:54+00:00",
+  "schema_version": 2,
+  "source_commit": "55335b4efd81aa676d038bd7320f7185642d39ea",
+  "source_id": "tokio-guides",
+  "source_tree": "dcefeb082320e4f26714940e8b65cf082efe59d6",
+  "source_url": "https://github.com/tokio-rs/website/tree/55335b4efd81aa676d038bd7320f7185642d39ea",
+  "tier": "canonical-practice",
+  "title": "Official Tokio Async Runtime Guides",
+  "total_original_bytes": 194976,
+  "tracks": [
+    "rust",
+    "tokio",
+    "async",
+    "concurrency",
+    "io",
+    "channels",
+    "shutdown",
+    "testing",
+    "diagnostics",
+    "observability"
+  ]
+}

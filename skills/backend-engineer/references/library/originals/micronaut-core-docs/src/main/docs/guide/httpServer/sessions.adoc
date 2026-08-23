@@ -1,0 +1,1 @@
+See the documentation for link:{micronautsessiondocs}[Micronaut Session] for information about supporting HTTP sessions in your applications.
