@@ -71,6 +71,7 @@ def main() -> int:
     required_concepts = (
         "Delegation and authority",
         "Knowledge readiness",
+        "Respect adjacent ownership",
         "Risk surface",
         "Map the change surface",
         "Choose evidence before mutation",

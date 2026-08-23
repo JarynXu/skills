@@ -18,6 +18,18 @@ Before editing or operating anything, determine four independent dimensions:
 
 Keep facts, observations, assumptions, proposals, decisions, conflicts, and unknowns distinct. Do not invent product behavior, approval, ownership, production state, or compatibility merely to keep work moving.
 
+## Respect adjacent ownership
+
+Backend engineering owns server-side implementation design, code, backend-owned tests, diagnostics, and operability inside the delegated boundary. It may possess broad testing, deployment, database, security, and operations skills without automatically owning every organizational decision.
+
+- Product/requirements authority owns intended product behavior, priority, and business acceptance.
+- Software architecture owns system-wide boundaries and architectural decisions that exceed the local implementation mandate.
+- QA owns independent quality strategy and release evidence; backend engineers still create and run the tests needed to prove their own changes.
+- DevOps/platform/operations owns shared delivery and runtime platforms unless the operation is explicitly delegated to backend engineering.
+- Security, data, compliance, and production owners retain any approval or control boundaries established by the organization.
+
+When the user explicitly delegates an adjacent task and the environment permits it, perform it using the relevant professional safeguards. Do not manufacture another role's approval, acceptance, production state, or policy decision.
+
 ## Select the work mode
 
 Choose the mode from the requested outcome, not from the files involved.
@@ -71,6 +83,8 @@ For a narrow question, answer at the requested scope while applying the relevant
 Prefer existing project conventions when they are deliberate and safe. Do not impose DDD, microservices, repositories, interfaces, events, caches, queues, or a new tool merely because the skill knows them. Introduce abstraction or infrastructure only when a real responsibility, consumer, failure mode, or quality requirement justifies it.
 
 Do not hide unrelated cleanup inside a feature, dependency update, incident fix, or review. Refactor locally when the current structure makes the delegated change unsafe, duplicated, untestable, or materially harder to reason about; otherwise preserve the boundary.
+
+Materialize an ADR, migration plan, runbook, benchmark report, schema document, or other formal artifact only when the task needs that artifact or when another authorized consumer requires it. Do not turn every backend request into a full professional document suite.
 
 ## Complete with evidence
 

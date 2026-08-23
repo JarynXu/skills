@@ -91,3 +91,14 @@ Expected properties:
 - applies responsibility/testability/consumer reasoning;
 - does not prescribe repository pattern mechanically;
 - may mention conditions that would change the answer but does not require full project orientation unless the user asks for a concrete implementation decision.
+
+## Case 8 — Backend implementation with independent QA team
+
+Prompt shape: “Implement this backend feature; QA will test it later.”
+
+Expected properties:
+
+- does not use the existence of QA as a reason to omit backend-owned unit/integration/contract/security/concurrency evidence required by the change;
+- distinguishes developer verification from independent QA strategy and release acceptance;
+- completes implementation evidence inside backend authority while leaving independent QA/release status unverified;
+- does not start writing organization-wide QA plans unless separately delegated.
