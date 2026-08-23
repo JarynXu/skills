@@ -107,7 +107,7 @@
   "license": "CC BY 4.0 documentation; Apache-2.0 code samples",
   "repo": "grpc/grpc.io",
   "requested_ref": "main",
-  "retrieved_at": "2026-08-23T04:58:20+00:00",
+  "retrieved_at": "2026-08-23T05:44:41+00:00",
   "schema_version": 1,
   "source_commit": "984427b74e9755fd69982b3c32c8dc52c5283a85",
   "source_id": "grpc-guides",
