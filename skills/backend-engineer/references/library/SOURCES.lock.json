@@ -20,6 +20,15 @@
       "source_commit": "b062727097e997bcb900e11503d3248daac903da",
       "total_original_bytes": 1008829
     },
+    "django-core-docs": {
+      "derived_count": 0,
+      "file_count": 36,
+      "repo": "django/django",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T05:47:18+00:00",
+      "source_commit": "03988c5a5ba248c3b9b11ea96fd4fda5e98849aa",
+      "total_original_bytes": 860292
+    },
     "dotnet-csharp-conventions": {
       "derived_count": 0,
       "file_count": 3,

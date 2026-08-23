@@ -1,0 +1,388 @@
+{
+  "derived_count": 0,
+  "derived_files": [],
+  "file_count": 36,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 1552,
+      "local_git_sha": "5f4f225dd282aa7e4361ec3c2750bbbaaed8ab1f",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "b846415d1b514e9c1dff14a22deb906d794bc546ca6129f950a18cd091e2a669",
+      "upstream_git_sha": "5f4f225dd282aa7e4361ec3c2750bbbaaed8ab1f",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 18581,
+      "local_git_sha": "d14482274db71a345fdc90b19ad68277b7aecfba",
+      "local_path": "docs/topics/async.txt",
+      "searchable_text": true,
+      "sha256": "491be9ad7b5f2a72252a5674da6085fa1729c964cfdcc43a45302ecaadc427a7",
+      "upstream_git_sha": "d14482274db71a345fdc90b19ad68277b7aecfba",
+      "upstream_path": "docs/topics/async.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 50073,
+      "local_git_sha": "13c86d3ec30e9796618858c29bcef2c74ed385b5",
+      "local_path": "docs/topics/auth/customizing.txt",
+      "searchable_text": true,
+      "sha256": "138b3588ce1d1e9e3c2aaf590fd64ba58a19aad8ceef8c11dd6b54b962ec8706",
+      "upstream_git_sha": "13c86d3ec30e9796618858c29bcef2c74ed385b5",
+      "upstream_path": "docs/topics/auth/customizing.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 71180,
+      "local_git_sha": "83925d009f18cb24fd47d31cb47ee52aba13d96a",
+      "local_path": "docs/topics/auth/default.txt",
+      "searchable_text": true,
+      "sha256": "74b36f483c836ecf1e770de14a1a509a1548cd67a64df6fc97b34f45d50662d1",
+      "upstream_git_sha": "83925d009f18cb24fd47d31cb47ee52aba13d96a",
+      "upstream_path": "docs/topics/auth/default.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3255,
+      "local_git_sha": "9e57ab92395545d208d22ce07501e800355d946d",
+      "local_path": "docs/topics/auth/index.txt",
+      "searchable_text": true,
+      "sha256": "d878f0e70b580e7d46d310ef932607901979ec0f6a5f705c8f3517c25337b84a",
+      "upstream_git_sha": "9e57ab92395545d208d22ce07501e800355d946d",
+      "upstream_path": "docs/topics/auth/index.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 32928,
+      "local_git_sha": "8cdafa16c7604cbc1fb9ed899daa827f639f7f34",
+      "local_path": "docs/topics/auth/passwords.txt",
+      "searchable_text": true,
+      "sha256": "00987b70a6a1b10bec5b8b8a2b3f8637104d39f415a7b41bb2101ddf5a9c5a99",
+      "upstream_git_sha": "8cdafa16c7604cbc1fb9ed899daa827f639f7f34",
+      "upstream_path": "docs/topics/auth/passwords.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 59490,
+      "local_git_sha": "9056f14e10fa54b97c35045f03b81b17aecee4b5",
+      "local_path": "docs/topics/cache.txt",
+      "searchable_text": true,
+      "sha256": "61899c11eee34679e4d4a41cb0bcc980addd91249bcf3e38a79122d5d62f75ea",
+      "upstream_git_sha": "9056f14e10fa54b97c35045f03b81b17aecee4b5",
+      "upstream_path": "docs/topics/cache.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 28610,
+      "local_git_sha": "be6234f4e0251e4b3c97e743856f295f0bfa2ee7",
+      "local_path": "docs/topics/db/aggregation.txt",
+      "searchable_text": true,
+      "sha256": "cde353287eaf48dc2a19fba38c7401169ca269fadbc2a7cd8804865d4ad68bc0",
+      "upstream_git_sha": "be6234f4e0251e4b3c97e743856f295f0bfa2ee7",
+      "upstream_path": "docs/topics/db/aggregation.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 199,
+      "local_git_sha": "321e539e4a371293ebf0509440fff65b10efa4c7",
+      "local_path": "docs/topics/db/examples/index.txt",
+      "searchable_text": true,
+      "sha256": "ad84e0349bde94e627764db1f359ed3ad1f40c00f3499d5033aaff6e7d5b0af1",
+      "upstream_git_sha": "321e539e4a371293ebf0509440fff65b10efa4c7",
+      "upstream_path": "docs/topics/db/examples/index.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 10883,
+      "local_git_sha": "f91489a42fd005ad03c1669d78087e7326325197",
+      "local_path": "docs/topics/db/examples/many_to_many.txt",
+      "searchable_text": true,
+      "sha256": "cac43618c13458a992087b4505a57e8178c7d2f0f2030cb117fff1895164b42a",
+      "upstream_git_sha": "f91489a42fd005ad03c1669d78087e7326325197",
+      "upstream_path": "docs/topics/db/examples/many_to_many.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 8138,
+      "local_git_sha": "455a9dd8300ba616a3fd3ca26bf1ff1295957921",
+      "local_path": "docs/topics/db/examples/many_to_one.txt",
+      "searchable_text": true,
+      "sha256": "daea81af0dd83bd36689a09ab140c9184f7e91ccddc09ba1218ea8edeeb38bd8",
+      "upstream_git_sha": "455a9dd8300ba616a3fd3ca26bf1ff1295957921",
+      "upstream_path": "docs/topics/db/examples/many_to_one.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 5649,
+      "local_git_sha": "ecb8a93a8212519d8e77a65500f8f3e43af00ebe",
+      "local_path": "docs/topics/db/examples/one_to_one.txt",
+      "searchable_text": true,
+      "sha256": "ed322f9a67f7faf5276d0843a08db7305fa3c463eabbbc1cd3da173be2bb5776",
+      "upstream_git_sha": "ecb8a93a8212519d8e77a65500f8f3e43af00ebe",
+      "upstream_path": "docs/topics/db/examples/one_to_one.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4393,
+      "local_git_sha": "36afb3aa13bfc51073a11f025f9481dc4397f2ec",
+      "local_path": "docs/topics/db/fetch-modes.txt",
+      "searchable_text": true,
+      "sha256": "46936fa9d7ab3f0396154cfbc49f963eef17c5c2b55a8b1112047287722449af",
+      "upstream_git_sha": "36afb3aa13bfc51073a11f025f9481dc4397f2ec",
+      "upstream_path": "docs/topics/db/fetch-modes.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 6858,
+      "local_git_sha": "9e91e0d8450ae960b86cf9ffbb7087c81a190313",
+      "local_path": "docs/topics/db/fixtures.txt",
+      "searchable_text": true,
+      "sha256": "721bccd34acb356d2ed02404b61a04f4750972e1cd53decda598218d6d76a2a1",
+      "upstream_git_sha": "9e91e0d8450ae960b86cf9ffbb7087c81a190313",
+      "upstream_path": "docs/topics/db/fixtures.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 509,
+      "local_git_sha": "6caf9f15e969fcbd11c7cbceca70e96e7c055023",
+      "local_path": "docs/topics/db/index.txt",
+      "searchable_text": true,
+      "sha256": "1eef34aa3c354505744398ca74bf007dc2185b473aab735c4318549fa7c0e17e",
+      "upstream_git_sha": "6caf9f15e969fcbd11c7cbceca70e96e7c055023",
+      "upstream_path": "docs/topics/db/index.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4350,
+      "local_git_sha": "75adb995c134a569a05b2fc7854e3380ba377aee",
+      "local_path": "docs/topics/db/instrumentation.txt",
+      "searchable_text": true,
+      "sha256": "b9ea7b3344802f8aaa74bee9b563c375c8f0a91c3c3e667646d3408764645764",
+      "upstream_git_sha": "75adb995c134a569a05b2fc7854e3380ba377aee",
+      "upstream_path": "docs/topics/db/instrumentation.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 16372,
+      "local_git_sha": "4766ca3870cff6f30386b8048fd5b1b80aeac097",
+      "local_path": "docs/topics/db/managers.txt",
+      "searchable_text": true,
+      "sha256": "ec2eafe1606af112e9cee71637d29151f151e8d8f4a6d1534c68bdad5a5b259a",
+      "upstream_git_sha": "4766ca3870cff6f30386b8048fd5b1b80aeac097",
+      "upstream_path": "docs/topics/db/managers.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 61925,
+      "local_git_sha": "45156d8a16efb3dfe1a06be2c706f41dd56efdef",
+      "local_path": "docs/topics/db/models.txt",
+      "searchable_text": true,
+      "sha256": "c066c8d7d04ddf457b476a8ab62a84e5fb14388f3788e9a2052447a53de17709",
+      "upstream_git_sha": "45156d8a16efb3dfe1a06be2c706f41dd56efdef",
+      "upstream_path": "docs/topics/db/models.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 31364,
+      "local_git_sha": "b5474ee9ebe513dca88667bd4b9cea893ee03023",
+      "local_path": "docs/topics/db/multi-db.txt",
+      "searchable_text": true,
+      "sha256": "65d37fae46a22ee40c72ed284888f9c7d675919b3d4f6bdc5f9265df52b61548",
+      "upstream_git_sha": "b5474ee9ebe513dca88667bd4b9cea893ee03023",
+      "upstream_path": "docs/topics/db/multi-db.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 19005,
+      "local_git_sha": "311c8252e1db0a0a885714d24b4d566e55983b9c",
+      "local_path": "docs/topics/db/optimization.txt",
+      "searchable_text": true,
+      "sha256": "cd4786ac384eb345451a460abe3643520b3ec0801f5ceae18c5af2ba8d8a7610",
+      "upstream_git_sha": "311c8252e1db0a0a885714d24b4d566e55983b9c",
+      "upstream_path": "docs/topics/db/optimization.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 78351,
+      "local_git_sha": "717dc388c59883178f26b804cb323dfea9ee026f",
+      "local_path": "docs/topics/db/queries.txt",
+      "searchable_text": true,
+      "sha256": "46203f2698b7588a6f901cbc470888b84cc60a1403c13fafbfbb2c0b486731f4",
+      "upstream_git_sha": "717dc388c59883178f26b804cb323dfea9ee026f",
+      "upstream_path": "docs/topics/db/queries.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 5874,
+      "local_git_sha": "7ec3854721711dbe8a1dd2e9a91b0df50d828400",
+      "local_path": "docs/topics/db/search.txt",
+      "searchable_text": true,
+      "sha256": "9be10ffa83b1f3773db73c3b4667bfc3f9fe0afe135a1bccd3187b8f48ab4f86",
+      "upstream_git_sha": "7ec3854721711dbe8a1dd2e9a91b0df50d828400",
+      "upstream_path": "docs/topics/db/search.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 15237,
+      "local_git_sha": "da26f433472bbb610ec8345c50e052f6c8ac198d",
+      "local_path": "docs/topics/db/sql.txt",
+      "searchable_text": true,
+      "sha256": "01dc51b33f716b7cb0e9cd206ce7b4f8d78f0fdca0669aede064d6c80b1b35fa",
+      "upstream_git_sha": "da26f433472bbb610ec8345c50e052f6c8ac198d",
+      "upstream_path": "docs/topics/db/sql.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3072,
+      "local_git_sha": "1be57702a32fdcc3b08117f383c851d46c4d6c3f",
+      "local_path": "docs/topics/db/tablespaces.txt",
+      "searchable_text": true,
+      "sha256": "b385f0df9a22d1d31a961c8acbcd269b6ea40d6b2ac34add8eea01ded96cfbe8",
+      "upstream_git_sha": "1be57702a32fdcc3b08117f383c851d46c4d6c3f",
+      "upstream_path": "docs/topics/db/tablespaces.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 28481,
+      "local_git_sha": "4733a95bf823e22fc9b9027bfdaffec8498c782b",
+      "local_path": "docs/topics/db/transactions.txt",
+      "searchable_text": true,
+      "sha256": "fce19bd320802338c10f437354a5c553cdcecede54063721e49a03f79d80c62a",
+      "upstream_git_sha": "4733a95bf823e22fc9b9027bfdaffec8498c782b",
+      "upstream_path": "docs/topics/db/transactions.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 16445,
+      "local_git_sha": "39673a3969903670bc9ea3995edc58f33ac657fc",
+      "local_path": "docs/topics/logging.txt",
+      "searchable_text": true,
+      "sha256": "725874b6a0ceed909ec35b302db688e952f7dea1cb10eb9166e06c1c65316202",
+      "upstream_git_sha": "39673a3969903670bc9ea3995edc58f33ac657fc",
+      "upstream_path": "docs/topics/logging.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 38400,
+      "local_git_sha": "285fb192cd52afbd3f12718145a3b2e4afdbca46",
+      "local_path": "docs/topics/migrations.txt",
+      "searchable_text": true,
+      "sha256": "41a189cd2a9be19997d92850f30052c9bcaf126bf268c1e5f1c28a8f75f7906e",
+      "upstream_git_sha": "285fb192cd52afbd3f12718145a3b2e4afdbca46",
+      "upstream_path": "docs/topics/migrations.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 18029,
+      "local_git_sha": "2935f21f67de194abc84bd1027cf2be3fb89c46e",
+      "local_path": "docs/topics/performance.txt",
+      "searchable_text": true,
+      "sha256": "b4cb9ddb0ec9ab38cc1f342571cc77d34ff7c960f34158dcf7e872308b407825",
+      "upstream_git_sha": "2935f21f67de194abc84bd1027cf2be3fb89c46e",
+      "upstream_path": "docs/topics/performance.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 19125,
+      "local_git_sha": "dbb7a2e477889e83cb7867e87a0b1b6877ce6859",
+      "local_path": "docs/topics/security.txt",
+      "searchable_text": true,
+      "sha256": "6486be9399f144080ea5e2a75164c06a0119a22213e9057d36322552ce9f1b04",
+      "upstream_git_sha": "dbb7a2e477889e83cb7867e87a0b1b6877ce6859",
+      "upstream_path": "docs/topics/security.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 15428,
+      "local_git_sha": "e66c71d63e3c73ee2f6098eb0d866a6b9b859081",
+      "local_path": "docs/topics/testing/_images/django_unittest_classes_hierarchy.graffle",
+      "searchable_text": false,
+      "sha256": "3dfe05d9b135614140d72eb3ec0c8580f19c60aa752cf28c92141eabde827ba7",
+      "upstream_git_sha": "e66c71d63e3c73ee2f6098eb0d866a6b9b859081",
+      "upstream_path": "docs/topics/testing/_images/django_unittest_classes_hierarchy.graffle"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 37750,
+      "local_git_sha": "0835aec9ba8c5a18f8c711bd2334e53071a8464a",
+      "local_path": "docs/topics/testing/_images/django_unittest_classes_hierarchy.pdf",
+      "searchable_text": false,
+      "sha256": "ffd33430253fc4b039c7b3e557ba2ad6461781d7de9db8b144030f0c723f92a9",
+      "upstream_git_sha": "0835aec9ba8c5a18f8c711bd2334e53071a8464a",
+      "upstream_path": "docs/topics/testing/_images/django_unittest_classes_hierarchy.pdf"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 8800,
+      "local_git_sha": "63fee82d996d1acc3fdbf2b95737fb129761a3f6",
+      "local_path": "docs/topics/testing/_images/django_unittest_classes_hierarchy.svg",
+      "searchable_text": false,
+      "sha256": "f28a294cbe40ac814321c33da87fd8af9821138cc8a95a9da3cdfe7418be6d56",
+      "upstream_git_sha": "63fee82d996d1acc3fdbf2b95737fb129761a3f6",
+      "upstream_path": "docs/topics/testing/_images/django_unittest_classes_hierarchy.svg"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 34434,
+      "local_git_sha": "6a334f0862478553beaf7b5067b2b4cfb3792a10",
+      "local_path": "docs/topics/testing/advanced.txt",
+      "searchable_text": true,
+      "sha256": "6276180c0829ff6074f7009136c28313352d987bea8d24eb60ad0174c3223dd8",
+      "upstream_git_sha": "6a334f0862478553beaf7b5067b2b4cfb3792a10",
+      "upstream_path": "docs/topics/testing/advanced.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1377,
+      "local_git_sha": "ef96895fb722a384f02a262dac2dc2f678a54d74",
+      "local_path": "docs/topics/testing/index.txt",
+      "searchable_text": true,
+      "sha256": "a7dd8f9c63bfe1d7f783734c17a7faae08f6d8f13cd7c49a32714d0ac264e63c",
+      "upstream_git_sha": "ef96895fb722a384f02a262dac2dc2f678a54d74",
+      "upstream_path": "docs/topics/testing/index.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 16211,
+      "local_git_sha": "2b3b9728382485035ff36637e694bf020684c059",
+      "local_path": "docs/topics/testing/overview.txt",
+      "searchable_text": true,
+      "sha256": "5d93d7bb7a79af85248b7a51bcaf18ee582813d1478205a88ad7f80b1f2a6fe3",
+      "upstream_git_sha": "2b3b9728382485035ff36637e694bf020684c059",
+      "upstream_path": "docs/topics/testing/overview.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 87964,
+      "local_git_sha": "944701cdef16b568ec411fd9176d4cbc572e932a",
+      "local_path": "docs/topics/testing/tools.txt",
+      "searchable_text": true,
+      "sha256": "94e7ec9c7916dafd87f41b36a77d25029e7f1a51073e02785de25a53d0d23ef3",
+      "upstream_git_sha": "944701cdef16b568ec411fd9176d4cbc572e932a",
+      "upstream_path": "docs/topics/testing/tools.txt"
+    }
+  ],
+  "license": "BSD-3-Clause",
+  "repo": "django/django",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T05:47:18+00:00",
+  "schema_version": 1,
+  "source_commit": "03988c5a5ba248c3b9b11ea96fd4fda5e98849aa",
+  "source_id": "django-core-docs",
+  "source_tree": "1afcf39f4d09f8b99b449903fa7822efb0dd162e",
+  "source_url": "https://github.com/django/django/tree/03988c5a5ba248c3b9b11ea96fd4fda5e98849aa",
+  "tier": "canonical-practice",
+  "title": "Django Core Backend Topics",
+  "total_original_bytes": 860292,
+  "tracks": [
+    "python",
+    "django",
+    "async",
+    "database",
+    "security",
+    "testing",
+    "performance"
+  ]
+}
