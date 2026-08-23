@@ -47,7 +47,7 @@
   "license": "PEP-specific; preserve each PEP's copyright/license declaration",
   "repo": "python/peps",
   "requested_ref": "main",
-  "retrieved_at": "2026-08-23T04:56:29+00:00",
+  "retrieved_at": "2026-08-23T05:27:23+00:00",
   "schema_version": 1,
   "source_commit": "b4f8bb538cffe7bd1401d0f529e721caf4125482",
   "source_id": "python-peps",
