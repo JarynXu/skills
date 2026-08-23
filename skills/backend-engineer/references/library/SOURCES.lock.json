@@ -173,6 +173,15 @@
       "source_commit": "97a0969cb07fe4cabb0eed8a56234053f47d83dc",
       "total_original_bytes": 105170
     },
+    "rust-book": {
+      "derived_count": 0,
+      "file_count": 144,
+      "repo": "rust-lang/book",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T05:27:52+00:00",
+      "source_commit": "917544888a55e4da7109bdba8c88c893c0da70f4",
+      "total_original_bytes": 2383975
+    },
     "twelve-factor-app": {
       "derived_count": 0,
       "file_count": 17,
