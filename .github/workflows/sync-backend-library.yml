@@ -1,20 +1,10 @@
 name: Sync backend offline library
 
 on:
-  push:
-    branches: [backend-library-rebuild]
-    paths:
-      - "skills/backend-engineer/references/library/SOURCES.json"
-      - "skills/backend-engineer/references/library/sources.d/**"
-      - "skills/backend-engineer/references/library/CURATION.json"
-      - "skills/backend-engineer/scripts/sync_offline_library.py"
-      - "skills/backend-engineer/scripts/sync_library_catalogs.py"
-      - "skills/backend-engineer/scripts/prune_offline_library.py"
-      - ".github/workflows/sync-backend-library.yml"
   workflow_dispatch:
     inputs:
       source_ids:
-        description: "Optional space- or comma-separated source ids; empty syncs all sources"
+        description: "Optional space- or comma-separated source ids; empty syncs every catalog source"
         required: false
         type: string
 
@@ -41,220 +31,46 @@ jobs:
       - name: Install preprocessing dependencies
         run: python -m pip install pypdf beautifulsoup4 markdownify docutils
 
-      - name: Select source packs that need synchronization
-        id: select
+      - name: Synchronize, preprocess, and verify
         env:
-          EVENT_NAME: ${{ github.event_name }}
-          BEFORE_SHA: ${{ github.event.before }}
-          MANUAL_SOURCES: ${{ inputs.source_ids }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          python - <<'PY' >> "$GITHUB_OUTPUT"
-          import json
-          import os
-          import re
-          import subprocess
-          from pathlib import Path
-
-          root = Path("skills/backend-engineer/references/library")
-          base_path = "skills/backend-engineer/references/library/SOURCES.json"
-          module_prefix = "skills/backend-engineer/references/library/sources.d/"
-          originals = root / "originals"
-          sync_core = "skills/backend-engineer/scripts/sync_offline_library.py"
-          sync_catalogs = "skills/backend-engineer/scripts/sync_library_catalogs.py"
-
-          def read_json(text: str, label: str):
-              try:
-                  data = json.loads(text)
-              except json.JSONDecodeError as exc:
-                  raise SystemExit(f"invalid catalog {label}: {exc}")
-              if data.get("schema_version") != 1 or not isinstance(data.get("sources"), list):
-                  raise SystemExit(f"invalid catalog schema: {label}")
-              return data
-
-          def current_catalog():
-              files = [root / "SOURCES.json"]
-              module_dir = root / "sources.d"
-              if module_dir.is_dir():
-                  files.extend(sorted(module_dir.glob("*.json")))
-              by_id = {}
-              for path in files:
-                  data = read_json(path.read_text(encoding="utf-8"), str(path))
-                  for source in data["sources"]:
-                      source_id = source["source_id"]
-                      if source_id in by_id:
-                          raise SystemExit(f"duplicate source id: {source_id}")
-                      by_id[source_id] = source
-              return by_id
-
-          def catalog_at(ref: str):
-              if not ref or set(ref) == {"0"}:
-                  return {}
-              paths = [base_path]
-              try:
-                  listing = subprocess.check_output(
-                      ["git", "ls-tree", "-r", "--name-only", ref, module_prefix.rstrip("/")],
-                      text=True,
-                      stderr=subprocess.DEVNULL,
-                  ).splitlines()
-                  paths.extend(sorted(path for path in listing if path.endswith(".json")))
-              except subprocess.CalledProcessError:
-                  pass
-              by_id = {}
-              for path in paths:
-                  try:
-                      text = subprocess.check_output(
-                          ["git", "show", f"{ref}:{path}"],
-                          text=True,
-                          stderr=subprocess.DEVNULL,
-                      )
-                  except subprocess.CalledProcessError:
-                      continue
-                  data = read_json(text, f"{ref}:{path}")
-                  for source in data["sources"]:
-                      source_id = source["source_id"]
-                      if source_id in by_id:
-                          raise SystemExit(f"duplicate source id at {ref}: {source_id}")
-                      by_id[source_id] = source
-              return by_id
-
-          current = current_catalog()
-          selected = []
-          removed = []
-
-          def add(source_id):
-              if source_id in current and source_id not in selected:
-                  selected.append(source_id)
-
-          if os.environ.get("EVENT_NAME") == "workflow_dispatch":
-              raw = os.environ.get("MANUAL_SOURCES", "").strip()
-              if raw:
-                  requested = [item for item in re.split(r"[\s,]+", raw) if item]
-                  unknown = sorted(set(requested) - set(current))
-                  if unknown:
-                      raise SystemExit("unknown source ids: " + ", ".join(unknown))
-                  for source_id in requested:
-                      add(source_id)
-              else:
-                  selected = list(current)
-          else:
-              before = os.environ.get("BEFORE_SHA", "")
-              previous = catalog_at(before)
-              for source_id, source in current.items():
-                  if previous.get(source_id) != source:
-                      add(source_id)
-              removed = sorted(set(previous) - set(current))
-
-              changed_files = []
-              if before and set(before) != {"0"}:
-                  changed_files = subprocess.check_output(
-                      ["git", "diff", "--name-only", before, "HEAD"], text=True
-                  ).splitlines()
-              if sync_core in changed_files:
-                  for source_id, source in current.items():
-                      if any(bool(item.get("recursive")) for item in source.get("includes", [])):
-                          add(source_id)
-              # A catalog-orchestrator change alone does not require redownloading bytes.
-              if changed_files and set(changed_files) <= {sync_catalogs, ".github/workflows/sync-backend-library.yml"}:
-                  selected = []
-
-          # Repair historical incomplete packs rather than weakening verification.
-          for source_id in current:
-              manifest_path = originals / source_id / "SOURCE.json"
-              if not manifest_path.is_file():
-                  add(source_id)
-                  continue
-              try:
-                  manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-              except json.JSONDecodeError:
-                  add(source_id)
-                  continue
-              for item in manifest.get("files", []):
-                  if not isinstance(item, dict):
-                      continue
-                  rel = item.get("local_path") or item.get("upstream_path")
-                  if isinstance(rel, str) and not (manifest_path.parent / rel).is_file():
-                      add(source_id)
-                      break
-
-          print("changed=" + " ".join(selected))
-          print("removed=" + " ".join(removed))
-          PY
-
-      - name: Remove deleted source packs
-        if: steps.select.outputs.removed != ''
-        env:
-          REMOVED: ${{ steps.select.outputs.removed }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          python - <<'PY'
-          import json
-          import os
-          import shutil
-          from pathlib import Path
-
-          root = Path("skills/backend-engineer/references/library")
-          removed = os.environ["REMOVED"].split()
-          for source_id in removed:
-              shutil.rmtree(root / "originals" / source_id, ignore_errors=True)
-              shutil.rmtree(root / "processed" / source_id, ignore_errors=True)
-
-          lock_path = root / "SOURCES.lock.json"
-          if lock_path.exists():
-              lock = json.loads(lock_path.read_text(encoding="utf-8"))
-              for source_id in removed:
-                  lock.get("sources", {}).pop(source_id, None)
-              lock_path.write_text(json.dumps(lock, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-          PY
-
-      - name: Synchronize selected source packs
-        if: steps.select.outputs.changed != ''
-        env:
-          CHANGED: ${{ steps.select.outputs.changed }}
+          SOURCE_IDS: ${{ inputs.source_ids }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          for source in $CHANGED; do
+          requested="${SOURCE_IDS//,/ }"
+          if [[ -n "${requested// /}" ]]; then
+            read -r -a sources <<< "$requested"
+          else
+            mapfile -t sources < <(python skills/backend-engineer/scripts/sync_library_catalogs.py --list-source-ids)
+          fi
+
+          for source in "${sources[@]}"; do
             echo "=== syncing ${source} ==="
-            python skills/backend-engineer/scripts/sync_library_catalogs.py --source "${source}"
-            git add -A -f \
-              "skills/backend-engineer/references/library/originals/${source}" \
-              "skills/backend-engineer/references/library/processed/${source}" \
-              skills/backend-engineer/references/library/SOURCES.lock.json
-            if git diff --cached --quiet; then
-              echo "${source}: already current"
-            else
-              git commit -m "chore(backend-engineer): sync ${source} teaching source"
-              git push origin HEAD:backend-library-rebuild
-            fi
+            python skills/backend-engineer/scripts/sync_library_catalogs.py --source "$source"
           done
 
-      - name: Curate and build processed Markdown from installed originals
+          python skills/backend-engineer/scripts/prune_offline_library.py
+          python skills/backend-engineer/scripts/sync_library_catalogs.py --process-existing
+          python skills/backend-engineer/scripts/offline_library.py verify
+          bash skills/backend-engineer/tests/test.sh
+
+      - name: Commit verified library atomically
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          python skills/backend-engineer/scripts/prune_offline_library.py
-          python skills/backend-engineer/scripts/sync_library_catalogs.py --process-existing
           git add -A -f \
             skills/backend-engineer/references/library/originals \
             skills/backend-engineer/references/library/processed \
             skills/backend-engineer/references/library/SOURCES.lock.json
-          if ! git diff --cached --quiet; then
-            git commit -m "chore(backend-engineer): curate processed Markdown teaching layer"
-            git push origin HEAD:backend-library-rebuild
+
+          if git diff --cached --quiet; then
+            echo "Offline library is already current."
+            exit 0
           fi
 
-      - name: Verify complete offline library
-        run: python skills/backend-engineer/scripts/offline_library.py verify
-
-      - name: Run backend-engineer teaching tests
-        run: bash skills/backend-engineer/tests/test.sh
+          git commit -m "chore(backend-engineer): sync verified offline library"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
