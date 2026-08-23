@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "source_id": "usds-playbook",
+  "title": "U.S. Digital Services Playbook — selected plays",
+  "owner": "United States Digital Service",
+  "source_repository": "https://github.com/usds/playbook",
+  "source_commit": "f5d71f1939efe87db9f0be414bcfa7c489e01c19",
+  "license": "Public domain in the United States; CC0-1.0 dedication worldwide",
+  "license_evidence_path": "README.md",
+  "retrieved_date": "2026-08-23",
+  "inclusion_mode": "selected-vendored-text",
+  "notes": [
+    "The four selected play files are byte-exact Git mirrors of the pinned upstream blobs.",
+    "README.md is included for offline provenance and license evidence. Its substantive text is preserved, but connector/file-boundary normalization changed the local Git blob SHA, so it is not marked byte-exact.",
+    "The Digital Services Playbook is practical delivery guidance, not a complete project-management standard."
+  ],
+  "files": [
+    {"path":"01.md","upstream_path":"_plays/01.md","upstream_git_sha":"2983381104066f4956323c318ea52d5ebb8e4630","local_git_sha":"2983381104066f4956323c318ea52d5ebb8e4630","byte_exact":true},
+    {"path":"04.md","upstream_path":"_plays/04.md","upstream_git_sha":"a4a59597a837f54831513ddaa95ee8a4fb425dd3","local_git_sha":"a4a59597a837f54831513ddaa95ee8a4fb425dd3","byte_exact":true},
+    {"path":"05.md","upstream_path":"_plays/05.md","upstream_git_sha":"f18850767044ac8593167bba9930100d12093e0e","local_git_sha":"f18850767044ac8593167bba9930100d12093e0e","byte_exact":true},
+    {"path":"12.md","upstream_path":"_plays/12.md","upstream_git_sha":"fdcbec58ae998ee5e29552164932ae0266799f6e","local_git_sha":"fdcbec58ae998ee5e29552164932ae0266799f6e","byte_exact":true},
+    {"path":"README.md","upstream_path":"README.md","upstream_git_sha":"b638105862412e2b2fbcaaded274740e4499456f","local_git_sha":"781277b9586916448829f9595e524614d8e27524","byte_exact":false}
+  ]
+}

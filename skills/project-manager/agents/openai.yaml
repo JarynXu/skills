@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Manager"
+  short_description: "Initiate, plan, coordinate, control, recover, and close projects"
+  default_prompt: "Use $project-manager to integrate this project's outcomes, governance, plan, dependencies, risks, decisions, delivery, and handoff."
