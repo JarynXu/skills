@@ -2,8 +2,8 @@
   "agent_ready": true,
   "curation": {
     "reason": "Keep the canonical English corpus and remove translation duplicates so agent search does not return the same rule dozens of times.",
-    "removed_originals": 485,
-    "removed_processed": 485,
+    "removed_originals": 0,
+    "removed_processed": 0,
     "rule_file": "CURATION.json"
   },
   "file_count": 76,
