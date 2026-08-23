@@ -19,7 +19,7 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
         with:
@@ -32,28 +32,44 @@ jobs:
       - name: Install PDF extraction support
         run: python -m pip install pypdf
 
-      - name: Synchronize pinned upstream sources
+      - name: Synchronize and checkpoint each source pack
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python skills/backend-engineer/scripts/sync_offline_library.py
-
-      - name: Verify byte-exact offline library
-        run: python skills/backend-engineer/scripts/offline_library.py verify
-
-      - name: Commit verified offline library
         shell: bash
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add \
-            skills/backend-engineer/references/library/originals \
-            skills/backend-engineer/references/library/SOURCES.lock.json
-          if git diff --cached --quiet; then
-            echo "Offline library is already current."
-          else
-            git commit -m "chore(backend-engineer): sync teaching library originals"
-            git push origin HEAD:backend-library-rebuild
-          fi
+
+          mapfile -t sources < <(python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('skills/backend-engineer/references/library/SOURCES.json')
+          data = json.loads(p.read_text(encoding='utf-8'))
+          for item in data['sources']:
+              print(item['source_id'])
+          PY
+          )
+
+          for source in "${sources[@]}"; do
+            echo "=== syncing ${source} ==="
+            python skills/backend-engineer/scripts/sync_offline_library.py --source "${source}"
+            python skills/backend-engineer/scripts/offline_library.py verify
+
+            git add \
+              "skills/backend-engineer/references/library/originals/${source}" \
+              skills/backend-engineer/references/library/SOURCES.lock.json
+
+            if git diff --cached --quiet; then
+              echo "${source}: already current"
+            else
+              git commit -m "chore(backend-engineer): sync ${source} teaching source"
+              git push origin HEAD:backend-library-rebuild
+            fi
+          done
+
+      - name: Verify complete offline library
+        run: python skills/backend-engineer/scripts/offline_library.py verify
 
       - name: Run backend-engineer teaching tests
         run: bash skills/backend-engineer/tests/test.sh
