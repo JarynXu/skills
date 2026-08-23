@@ -1,0 +1,48 @@
+> **Offline teaching derivative**  
+> Source: `spring-projects/spring-framework@91eb42645e26a7ef9382b4a655bcefe5c8682fee`  
+> Upstream path: `framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc`  
+> Upstream Git blob: `ae6f4eb34e7348ceac010cdb304ba8bbb40c13f3`  
+> Transform: `asciidoc-structural-to-markdown`  
+> This Markdown is generated for agent use. Consult `originals/` when exact upstream bytes matter.
+
+[[mvc-container-config]]
+# Servlet Config
+
+In a Servlet environment, you have the option of configuring the Servlet container
+programmatically as an alternative or in combination with a `web.xml` file.
+The following example registers a `DispatcherServlet`:
+
+include-code::./MyWebApplicationInitializer[tag=snippet,indent=0]
+
+`WebApplicationInitializer` is an interface provided by Spring MVC that ensures your
+implementation is detected and automatically used to initialize any Servlet 3 container.
+An abstract base class implementation of `WebApplicationInitializer` named
+`AbstractDispatcherServletInitializer` makes it even easier to register the
+`DispatcherServlet` by overriding methods to specify the servlet mapping and the
+location of the `DispatcherServlet` configuration.
+
+This is recommended for applications that use programmatic Spring configuration, as the
+following example shows:
+
+include-code::./MyWebAppInitializer[tag=snippet,indent=0]
+
+If you use XML-based Spring configuration, you should extend directly from
+`AbstractDispatcherServletInitializer`, as the following example shows:
+
+include-code::./MyXmlDispatcherServletInitializer[tag=snippet,indent=0]
+
+`AbstractDispatcherServletInitializer` also provides a convenient way to add `Filter`
+instances and have them be automatically mapped to the `DispatcherServlet`, as the
+following example shows:
+
+include-code::./MyFilterDispatcherServletInitializer[tag=snippet,indent=0]
+
+Each filter is added with a default name based on its concrete type and automatically
+mapped to the `DispatcherServlet`.
+
+The `isAsyncSupported` protected method of `AbstractDispatcherServletInitializer`
+provides a single place to enable async support on the `DispatcherServlet` and all
+filters mapped to it. By default, this flag is set to `true`.
+
+Finally, if you need to further customize the `DispatcherServlet` itself, you can
+override the `createDispatcherServlet` method.

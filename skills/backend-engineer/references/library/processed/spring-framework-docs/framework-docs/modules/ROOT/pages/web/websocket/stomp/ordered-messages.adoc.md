@@ -1,0 +1,31 @@
+> **Offline teaching derivative**  
+> Source: `spring-projects/spring-framework@91eb42645e26a7ef9382b4a655bcefe5c8682fee`  
+> Upstream path: `framework-docs/modules/ROOT/pages/web/websocket/stomp/ordered-messages.adoc`  
+> Upstream Git blob: `d56552286f2d54da2fe18611e9a0c9a993f4d8a7`  
+> Transform: `asciidoc-structural-to-markdown`  
+> This Markdown is generated for agent use. Consult `originals/` when exact upstream bytes matter.
+
+[[websocket-stomp-ordered-messages]]
+# Order of Messages
+
+Messages from the broker are published to the `clientOutboundChannel`, from where they are
+written to WebSocket sessions. As the channel is backed by a `ThreadPoolExecutor`, messages
+are processed in different threads, and the resulting sequence received by the client may
+not match the exact order of publication.
+
+To enable ordered publishing, set the `setPreservePublishOrder` flag as follows:
+
+include-code::./PublishOrderWebSocketConfiguration[tag=snippet,indent=0]
+
+When the flag is set, messages within the same client session are published to the
+`clientOutboundChannel` one at a time, so that the order of publication is guaranteed.
+Note that this incurs a small performance overhead, so you should enable it only if it is required.
+
+The same also applies to messages from the client, which are sent to the `clientInboundChannel`,
+from where they are handled according to their destination prefix. As the channel is backed by
+a `ThreadPoolExecutor`, messages are processed in different threads, and the resulting sequence
+of handling may not match the exact order in which they were received.
+
+To enable ordered receiving, set the `setPreserveReceiveOrder` flag as follows:
+
+include-code::./ReceiveOrderWebSocketConfiguration[tag=snippet,indent=0]

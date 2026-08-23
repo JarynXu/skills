@@ -1,0 +1,230 @@
+> **Offline teaching derivative**  
+> Source: `spring-projects/spring-framework@91eb42645e26a7ef9382b4a655bcefe5c8682fee`  
+> Upstream path: `framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/multipart-forms.adoc`  
+> Upstream Git blob: `c886714b8e0966b65de9c785da0b473ac3dca540`  
+> Transform: `asciidoc-structural-to-markdown`  
+> This Markdown is generated for agent use. Consult `originals/` when exact upstream bytes matter.
+
+[[webflux-multipart-forms]]
+# Multipart Content
+
+[.small]#[See equivalent in the Servlet stack](web/webmvc/mvc-controller/ann-methods/multipart-forms.adoc)#
+
+As explained in [Multipart Data](web/webflux/reactive-spring.adoc#webflux-multipart), `ServerWebExchange` provides access to multipart
+content. The best way to handle a file upload form (for example, from a browser) in a controller
+is through data binding to a [command object](web/webflux/controller/ann-methods/modelattrib-method-args.adoc),
+as the following example shows:
+
+--
+[tabs]
+======
+Java::
++
+```java,indent=0,subs="verbatim,quotes"
+	class MyForm {
+
+		private String name;
+
+		private FilePart file;
+
+		// ...
+
+	}
+
+	@Controller
+	public class FileUploadController {
+
+		@PostMapping("/form")
+		public String handleFormUpload(MyForm form, BindingResult errors) {
+			// ...
+		}
+
+	}
+```
+
+Kotlin::
++
+```kotlin,indent=0,subs="verbatim,quotes"
+	class MyForm(
+			private val name: String,
+			private val file: FilePart)
+
+	@Controller
+	class FileUploadController {
+
+		@PostMapping("/form")
+		fun handleFormUpload(form: MyForm, errors: BindingResult): String {
+			// ...
+		}
+
+	}
+```
+======
+--
+
+You can also submit multipart requests from non-browser clients in a RESTful service
+scenario. The following example uses a file along with JSON:
+
+[literal,subs="verbatim,quotes"]
+```
+POST /someUrl
+Content-Type: multipart/mixed
+
+--edt7Tfrdusa7r3lNQc79vXuhIIMlatb7PQg7Vp
+Content-Disposition: form-data; name="meta-data"
+Content-Type: application/json; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+{
+	"name": "value"
+}
+--edt7Tfrdusa7r3lNQc79vXuhIIMlatb7PQg7Vp
+Content-Disposition: form-data; name="file-data"; filename="file.properties"
+Content-Type: text/xml
+Content-Transfer-Encoding: 8bit
+... File Data ...
+```
+
+You can access individual parts with `@RequestPart`, as the following example shows:
+
+--
+[tabs]
+======
+Java::
++
+```java,indent=0,subs="verbatim,quotes"
+	@PostMapping("/")
+	public String handle(@RequestPart("meta-data") Part metadata, // <1>
+			@RequestPart("file-data") FilePart file) { // <2>
+		// ...
+	}
+```
+<1> Using `@RequestPart` to get the metadata.
+<2> Using `@RequestPart` to get the file.
+
+Kotlin::
++
+```kotlin,indent=0,subs="verbatim,quotes"
+	@PostMapping("/")
+	fun handle(@RequestPart("meta-data") metadata: Part, // <1>
+			@RequestPart("file-data") file: FilePart): String { // <2>
+		// ...
+	}
+```
+<1> Using `@RequestPart` to get the metadata.
+<2> Using `@RequestPart` to get the file.
+======
+--
+
+
+To deserialize the raw part content (for example, to JSON -- similar to `@RequestBody`),
+you can declare a concrete target `Object`, instead of `Part`, as the following example shows:
+
+--
+[tabs]
+======
+Java::
++
+```java,indent=0,subs="verbatim,quotes"
+	@PostMapping("/")
+	public String handle(@RequestPart("meta-data") MetaData metadata) { // <1>
+		// ...
+	}
+```
+<1> Using `@RequestPart` to get the metadata.
+
+Kotlin::
++
+```kotlin,indent=0,subs="verbatim,quotes"
+	@PostMapping("/")
+	fun handle(@RequestPart("meta-data") metadata: MetaData): String { // <1>
+		// ...
+	}
+```
+<1> Using `@RequestPart` to get the metadata.
+======
+--
+
+You can use `@RequestPart` in combination with `jakarta.validation.Valid` or Spring's
+`@Validated` annotation, which causes Standard Bean Validation to be applied. Validation
+errors lead to a `WebExchangeBindException` that results in a 400 (BAD_REQUEST) response.
+The exception contains a `BindingResult` with the error details and can also be handled
+in the controller method by declaring the argument with an async wrapper and then using
+error related operators:
+
+--
+[tabs]
+======
+Java::
++
+```java,indent=0,subs="verbatim,quotes"
+	@PostMapping("/")
+	public String handle(@Valid @RequestPart("meta-data") Mono<MetaData> metadata) {
+		// use one of the onError* operators...
+	}
+```
+
+Kotlin::
++
+```kotlin,indent=0,subs="verbatim,quotes"
+	@PostMapping("/")
+	fun handle(@Valid @RequestPart("meta-data") metadata: Mono<MetaData>): String {
+		// use one of the onError* operators...
+	}
+```
+======
+--
+
+If method validation applies because other parameters have `@Constraint` annotations,
+then `HandlerMethodValidationException` is raised instead. See the section on
+[Validation](web/webflux/controller/ann-validation.adoc).
+
+To access all multipart data as a `MultiValueMap`, you can use `@RequestBody`,
+as the following example shows:
+
+--
+[tabs]
+======
+Java::
++
+```java,indent=0,subs="verbatim,quotes"
+	@PostMapping("/")
+	public String handle(@RequestBody Mono<MultiValueMap<String, Part>> parts) { // <1>
+		// ...
+	}
+```
+<1> Using `@RequestBody`.
+
+Kotlin::
++
+```kotlin,indent=0,subs="verbatim,quotes"
+	@PostMapping("/")
+	fun handle(@RequestBody parts: Mono<MultiValueMap<String, Part>>): String { // <1>
+		// ...
+	}
+```
+<1> Using `@RequestBody`.
+======
+--
+
+
+[[partevent]]
+## `PartEvent`
+
+To access multipart data sequentially, in a streaming fashion, you can use `@RequestBody` with
+`Flux<PartEvent>` (or `Flow<PartEvent>` in Kotlin).
+Each part in a multipart HTTP message will produce at
+least one `PartEvent` containing both headers and a buffer with the contents of the part.
+
+- Form fields will produce a *single* `FormPartEvent`, containing the value of the field.
+- File uploads will produce *one or more* `FilePartEvent` objects, containing the filename used
+when uploading. If the file is large enough to be split across multiple buffers, the first
+`FilePartEvent` will be followed by subsequent events.
+
+
+For example:
+
+include-code::./PartEventController[tag=snippet,indent=0]
+
+Received part events can also be relayed to another service by using the `WebClient`.
+See [Multipart Data](web/webflux-webclient/client-body.adoc#webflux-client-body-multipart).

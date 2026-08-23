@@ -1,4 +1,5 @@
 {
+  "agent_ready": true,
   "derived_count": 0,
   "derived_files": [],
   "file_count": 4,
@@ -45,10 +46,59 @@
     }
   ],
   "license": "IETF Trust Legal Provisions / RFC publication notices contained in each document; preserve exact notices",
+  "processed_bytes": 833401,
+  "processed_count": 4,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 1143,
+      "derived_from": "README.md",
+      "local_git_sha": "137af0cce023f58d02d19b3fc93e30cdb8018e95",
+      "local_path": "README.md",
+      "searchable_text": true,
+      "sha256": "297ccf48033def22ad3c98fd38b06b211343b1b284c84e45dee8b935931a0aba",
+      "source_git_sha": "db5e1ece585b8575f6568951b79a4a5a99b3c3e1",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 591586,
+      "derived_from": "rfc9110.html",
+      "local_git_sha": "1cebbd2b90e2f988a234351c101cfabe8b00df98",
+      "local_path": "rfc9110.html.md",
+      "searchable_text": true,
+      "sha256": "c2c2f9b87638aad3d759c2f09e30d1c5bd274bb86536cb2cbebadd9452f0ab2c",
+      "source_git_sha": "8f2bcefa61346fc8a0cf96084d2f0c0cd9afe87f",
+      "transform": "html-to-markdown:beautifulsoup+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 108125,
+      "derived_from": "rfc9111.html",
+      "local_git_sha": "18a5a3b0f2e16e7a953e06d726be8758959fe30f",
+      "local_path": "rfc9111.html.md",
+      "searchable_text": true,
+      "sha256": "2f7feddad4af59c841c941e9d8c8cc50a18df80aa3cda2002c61f3f8e03ca13c",
+      "source_git_sha": "f59974e932383b3b26e0d06f98e1a11261934886",
+      "transform": "html-to-markdown:beautifulsoup+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 132547,
+      "derived_from": "rfc9112.html",
+      "local_git_sha": "217e80dd44c34850442f35b688b166fecd88f566",
+      "local_path": "rfc9112.html.md",
+      "searchable_text": true,
+      "sha256": "b2b3494218839b817eb2acbd622ccdcc15879d76392c7e9c4f5f52a762c400bc",
+      "source_git_sha": "af559265a39b3bf1d7fc89885dbdd5c7b6c54238",
+      "transform": "html-to-markdown:beautifulsoup+markdownify"
+    }
+  ],
+  "processing_warnings": [],
   "repo": "httpwg/http-core",
   "requested_ref": "main",
   "retrieved_at": "2026-08-23T05:44:31+00:00",
-  "schema_version": 1,
+  "schema_version": 2,
   "source_commit": "bde37f634681bd5462568b73aa722af9c9a3ef5e",
   "source_id": "http-core-rfc911x",
   "source_tree": "5cb9b6346412dd5437c2028706dbc001b023dda3",

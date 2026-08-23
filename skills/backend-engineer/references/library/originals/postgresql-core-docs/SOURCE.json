@@ -1,4 +1,5 @@
 {
+  "agent_ready": true,
   "derived_count": 0,
   "derived_files": [],
   "file_count": 6,
@@ -65,10 +66,70 @@
     }
   ],
   "license": "PostgreSQL License",
+  "processed_bytes": 542102,
+  "processed_count": 5,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 180399,
+      "derived_from": "doc/src/sgml/ddl.sgml",
+      "local_git_sha": "0dee7655031cbed0a4c793d5babbc2436f6df2ab",
+      "local_path": "doc/src/sgml/ddl.sgml.md",
+      "searchable_text": true,
+      "sha256": "728fd2118638aec02e411bbb39a436daa323ede1f2fa83d268c9973f1b347e4c",
+      "source_git_sha": "9006b947e74cdffd4a77f94b936b8606afc448eb",
+      "transform": "sgml-xml-structural-to-markdown"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 55151,
+      "derived_from": "doc/src/sgml/indices.sgml",
+      "local_git_sha": "1dd515c0cd675b91efebb805f73a3ef7e1cc2ab0",
+      "local_path": "doc/src/sgml/indices.sgml.md",
+      "searchable_text": true,
+      "sha256": "46fb1a58d8ed12306de6305668709a218851adbe069aa60df8da0cde40f69fcc",
+      "source_git_sha": "55f39b0df2f2e6cedcd07c38548937a5ce4f15cc",
+      "transform": "sgml-xml-structural-to-markdown"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 164070,
+      "derived_from": "doc/src/sgml/monitoring.sgml",
+      "local_git_sha": "b76de82e0ca45d1f2c0f8471a0d05258d4a8ba75",
+      "local_path": "doc/src/sgml/monitoring.sgml.md",
+      "searchable_text": true,
+      "sha256": "f4ded209f01d3c7e020d1ee66ed4408a861eeea8376287add5089c4821536475",
+      "source_git_sha": "32cb6fdbd7642e03e1fad3c5b4f6430ba2cec519",
+      "transform": "sgml-xml-structural-to-markdown"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 62245,
+      "derived_from": "doc/src/sgml/mvcc.sgml",
+      "local_git_sha": "25efa125726a5a277b4cfe3f3f813a210136e73d",
+      "local_path": "doc/src/sgml/mvcc.sgml.md",
+      "searchable_text": true,
+      "sha256": "0fd80355c357bae9b27806381c0a2a80e200ef6a52d995670de456f8feb4f3fd",
+      "source_git_sha": "9cb52302f23b5abae7efd3c6e25a5cb640181eef",
+      "transform": "sgml-xml-structural-to-markdown"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 80237,
+      "derived_from": "doc/src/sgml/perform.sgml",
+      "local_git_sha": "e9b76364723d4c35961aabe1c5f660a54ca482c0",
+      "local_path": "doc/src/sgml/perform.sgml.md",
+      "searchable_text": true,
+      "sha256": "9fa9a49f0b8528b84c0694e4d9065aca1ec5c1a9e82af4d3df9bec06224ad7f8",
+      "source_git_sha": "ea8da01b7797fdcbfad8241e1012ffc4c48b7084",
+      "transform": "sgml-xml-structural-to-markdown"
+    }
+  ],
+  "processing_warnings": [],
   "repo": "postgres/postgres",
   "requested_ref": "master",
   "retrieved_at": "2026-08-23T05:44:47+00:00",
-  "schema_version": 1,
+  "schema_version": 2,
   "source_commit": "f20c4278342f6afc44b856e98a0850f9dd2df0a8",
   "source_id": "postgresql-core-docs",
   "source_tree": "79360cf4ac80fac95497bae8632bebfddeb14811",

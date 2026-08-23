@@ -1,4 +1,5 @@
 {
+  "agent_ready": true,
   "derived_count": 0,
   "derived_files": [],
   "file_count": 3,
@@ -35,10 +36,37 @@
     }
   ],
   "license": "Apache-2.0 repository license",
+  "processed_bytes": 42547,
+  "processed_count": 2,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 6307,
+      "derived_from": "docs/topics/code-style-migration-guide.md",
+      "local_git_sha": "7f74d36e949bb7fe921aac1cd3970c0ab8a3a392",
+      "local_path": "docs/topics/code-style-migration-guide.md",
+      "searchable_text": true,
+      "sha256": "75802cef8c68f1194f3fb8852879abbc5ac9cc22b76b9a128e93c5ea2dd69de6",
+      "source_git_sha": "476b6d6618736afe11b8704c8979574f0feee284",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 36240,
+      "derived_from": "docs/topics/coding-conventions.md",
+      "local_git_sha": "33a2d5243fb799a52aa0f8a054fc26fdcf07aec0",
+      "local_path": "docs/topics/coding-conventions.md",
+      "searchable_text": true,
+      "sha256": "d458bf594944f27d5b6fbca3baba64447b6285220b208d2228386b94d848eeb6",
+      "source_git_sha": "1c40077daa2e692e31b44e9ea44a34afbf2843b1",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
   "repo": "JetBrains/kotlin-web-site",
   "requested_ref": "master",
   "retrieved_at": "2026-08-23T05:43:17+00:00",
-  "schema_version": 1,
+  "schema_version": 2,
   "source_commit": "72a34b63180685b5f46f994b4b257d376907d739",
   "source_id": "kotlin-coding-conventions",
   "source_tree": "02fef1e574cb309259a9e4ee452f8ae4a088bca2",

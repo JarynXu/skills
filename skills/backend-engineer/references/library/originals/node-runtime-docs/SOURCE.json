@@ -1,4 +1,5 @@
 {
+  "agent_ready": true,
   "derived_count": 0,
   "derived_files": [],
   "file_count": 12,
@@ -125,10 +126,136 @@
     }
   ],
   "license": "Node.js project permissive license and bundled third-party notices",
+  "processed_bytes": 1158707,
+  "processed_count": 11,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 31740,
+      "derived_from": "doc/api/async_context.md",
+      "local_git_sha": "f8a06a112c23fcd0931f532a56b48f4a9afa8c74",
+      "local_path": "doc/api/async_context.md",
+      "searchable_text": true,
+      "sha256": "fea02f0c8aecee8100e0cb235c87d7e4375a043f5c5e5de2a9da8e8619a0cb2e",
+      "source_git_sha": "372bf9231e869c80a0ac4b08894435eae9c7edbe",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 56655,
+      "derived_from": "doc/api/diagnostics_channel.md",
+      "local_git_sha": "73fb83ec3359d0c0e8796c09d1b6485a3ec0ed27",
+      "local_path": "doc/api/diagnostics_channel.md",
+      "searchable_text": true,
+      "sha256": "5d83c80736bee44b96b3825bbba0f2b1266d585def84dad417bce435ee6e154a",
+      "source_git_sha": "40d3372b5cf953557ee81f17965bd0191eb54f00",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 125318,
+      "derived_from": "doc/api/errors.md",
+      "local_git_sha": "674f72914f9d0648fce4c1d774c865e4a78e9985",
+      "local_path": "doc/api/errors.md",
+      "searchable_text": true,
+      "sha256": "a2fa5af9e3d6fd521d3907e2afc2617a4a5f0233c94827f042c51a9e5142b474",
+      "source_git_sha": "a248984d984b3a0eabe15bba5201d2127171a8b0",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 143981,
+      "derived_from": "doc/api/http.md",
+      "local_git_sha": "0e2ca814dad83b3bdda7b07fe3778b133d316368",
+      "local_path": "doc/api/http.md",
+      "searchable_text": true,
+      "sha256": "3c9377ba16a2faf5c442f57b985ef9e681c4fd5599db18026ee923bc8672ed7d",
+      "source_git_sha": "b9d2fe4320da50cd383f5aea52b3423b9ceedd89",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 173649,
+      "derived_from": "doc/api/http2.md",
+      "local_git_sha": "7f9a527df3a4bd24e6acc61d70675faa76e33a07",
+      "local_path": "doc/api/http2.md",
+      "searchable_text": true,
+      "sha256": "95bd538458a87d2747568c76324de8c09cc4c067d4f7028085b50f0bb4156ce0",
+      "source_git_sha": "7cf7a813c44373a9addcda801f49736b1f7fc87e",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 69868,
+      "derived_from": "doc/api/perf_hooks.md",
+      "local_git_sha": "c12b00628fcc97ab7273c6f150dae650c1fda11e",
+      "local_path": "doc/api/perf_hooks.md",
+      "searchable_text": true,
+      "sha256": "b073631af56a94bbbdd745b91f78874ba7b5ecd8ab9f1498aab82e85b63a4ed0",
+      "source_git_sha": "eb2076eb79210c9952ea78a9f72cfcadec9f8dc3",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 134804,
+      "derived_from": "doc/api/process.md",
+      "local_git_sha": "e06fabd20ea669288016ceb16794e106226b1293",
+      "local_path": "doc/api/process.md",
+      "searchable_text": true,
+      "sha256": "db65cc6f6b7e9034e455893651a7c358c84dec35f6906949d10d57bf0d169137",
+      "source_git_sha": "fe5ecbd3d45bb4f62779736768248ec29c95d408",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 24396,
+      "derived_from": "doc/api/report.md",
+      "local_git_sha": "27b5684ffe70422562a60cb13a7a36e7ebc3ce6e",
+      "local_path": "doc/api/report.md",
+      "searchable_text": true,
+      "sha256": "fcf5f0013ab1a8d67f41beedce191f8fc65af35e30d79ff193ddde1ed96f588f",
+      "source_git_sha": "a63a310ac677ae37b08fee455e0d4b88241853f7",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 160107,
+      "derived_from": "doc/api/stream.md",
+      "local_git_sha": "259d2ffb5dae1f68507ef4a61aa3a74d67f3b8a5",
+      "local_path": "doc/api/stream.md",
+      "searchable_text": true,
+      "sha256": "cc5d7472e92ec5732536335ac6fcf2cf7143cd8576b1aa6b26068a826334e584",
+      "source_git_sha": "3b2308851f0dd4d8e73c2fc502e39828c52d849e",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 169215,
+      "derived_from": "doc/api/test.md",
+      "local_git_sha": "2e6fd9b7aaf2aa9a870d6b6f3351a40b0fa8445c",
+      "local_path": "doc/api/test.md",
+      "searchable_text": true,
+      "sha256": "545a34436b96f6559c406190e7af00f261a1ce1fcdda7af2ec2e1d047b9cca40",
+      "source_git_sha": "573f2da98f9db1b131e7caf3a1d6498a72fe28f2",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 68974,
+      "derived_from": "doc/api/worker_threads.md",
+      "local_git_sha": "169f3e90dd18e33f22d75dfd81ac7b82323b2b5e",
+      "local_path": "doc/api/worker_threads.md",
+      "searchable_text": true,
+      "sha256": "e1bb66ba3c7c84ee776bcac857c0a7283838ce49caa0e8da93c7c33f39913d21",
+      "source_git_sha": "e7b6b19b355ca0a6577968c3922721487093bb56",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
   "repo": "nodejs/node",
   "requested_ref": "main",
   "retrieved_at": "2026-08-23T05:43:29+00:00",
-  "schema_version": 1,
+  "schema_version": 2,
   "source_commit": "eae0ca39be9c3de12498c45640845ccbd1178c32",
   "source_id": "node-runtime-docs",
   "source_tree": "b69d17e788ad66e4b9bfaa6810c560f99ba4633d",

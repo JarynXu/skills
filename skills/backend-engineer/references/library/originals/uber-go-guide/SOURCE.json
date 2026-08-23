@@ -1,4 +1,5 @@
 {
+  "agent_ready": true,
   "derived_count": 0,
   "derived_files": [],
   "file_count": 3,
@@ -35,10 +36,37 @@
     }
   ],
   "license": "Apache-2.0",
+  "processed_bytes": 90430,
+  "processed_count": 2,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 2775,
+      "derived_from": "README.md",
+      "local_git_sha": "794eb62e206d8797b3385c5f7a874e2f72e5ae65",
+      "local_path": "README.md",
+      "searchable_text": true,
+      "sha256": "195bca3bd492f2c938893f67f8351e27e0498ff948e7e12d81096e732ba4a132",
+      "source_git_sha": "1d1ccd2c3a6d75dbc5b1be3dbb18c3d1e6dd5677",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 87655,
+      "derived_from": "style.md",
+      "local_git_sha": "847d307a584db1e5a10c8e384d09502a7bdae8cb",
+      "local_path": "style.md",
+      "searchable_text": true,
+      "sha256": "1b6046bcf3f70353c3dbd28ee6917796ccb43b153ceb72b923659226506738e9",
+      "source_git_sha": "818eab696e2d8d0c161baf6e2c9195c241cf341a",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
   "repo": "uber-go/guide",
   "requested_ref": "master",
   "retrieved_at": "2026-08-23T05:27:20+00:00",
-  "schema_version": 1,
+  "schema_version": 2,
   "source_commit": "1d60a91aa5e87d443002e23c21903c49489dbde5",
   "source_id": "uber-go-guide",
   "source_tree": "66774030d9447d8c0458ed083082ffb50304d999",

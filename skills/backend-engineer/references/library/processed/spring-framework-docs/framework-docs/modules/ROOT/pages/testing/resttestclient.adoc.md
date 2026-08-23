@@ -1,0 +1,234 @@
+> **Offline teaching derivative**  
+> Source: `spring-projects/spring-framework@91eb42645e26a7ef9382b4a655bcefe5c8682fee`  
+> Upstream path: `framework-docs/modules/ROOT/pages/testing/resttestclient.adoc`  
+> Upstream Git blob: `731ce2dfc63deb52662ea62cdf7cb079d71abb8b`  
+> Transform: `asciidoc-structural-to-markdown`  
+> This Markdown is generated for agent use. Consult `originals/` when exact upstream bytes matter.
+
+[[resttestclient]]
+# RestTestClient
+
+`RestTestClient` is an HTTP client designed for testing server applications. It wraps
+Spring's [`RestClient`](integration/rest-clients.adoc#rest-restclient) and uses it to perform requests,
+but exposes a testing facade for verifying responses. `RestTestClient` can be used to
+perform end-to-end HTTP tests. It can also be used to test Spring MVC
+applications without a running server via MockMvc.
+
+
+[[resttestclient.setup]]
+## Setup
+
+To set up a `RestTestClient` you need to choose a server setup to bind to. This can be one
+of several MockMvc setup choices, or a connection to a live server.
+
+
+[[resttestclient.controller-config]]
+### Bind to Controller
+
+This setup allows you to test specific controller(s) via mock request and response objects,
+without a running server.
+
+[tabs]
+======
+Java::
++
+```java,indent=0,subs="verbatim,quotes"
+	RestTestClient client =
+			RestTestClient.bindToController(new TestController()).build();
+```
+
+Kotlin::
++
+```kotlin,indent=0,subs="verbatim,quotes"
+	val client = RestTestClient.bindToController(TestController()).build()
+```
+======
+
+[[resttestclient.context-config]]
+### Bind to `ApplicationContext`
+
+This setup allows you to load Spring configuration with Spring MVC
+infrastructure and controller declarations and use it to handle requests via mock request
+and response objects, without a running server.
+
+include-code::./RestClientContextTests[indent=0]
+
+
+[[resttestclient.fn-config]]
+### Bind to Router Function
+
+This setup allows you to test [functional endpoints](web/webmvc-functional.adoc) via
+mock request and response objects, without a running server.
+
+[tabs]
+======
+Java::
++
+```java,indent=0,subs="verbatim,quotes"
+	RouterFunction<?> route = ...
+	client = RestTestClient.bindToRouterFunction(route).build();
+```
+
+Kotlin::
++
+```kotlin,indent=0,subs="verbatim,quotes"
+	val route: RouterFunction<*> = ...
+	val client = RestTestClient.bindToRouterFunction(route).build()
+```
+======
+
+[[resttestclient.server-config]]
+### Bind to Server
+
+This setup connects to a running server to perform full, end-to-end HTTP tests:
+
+[tabs]
+======
+Java::
++
+```java,indent=0,subs="verbatim,quotes"
+	client = RestTestClient.bindToServer().baseUrl("http://localhost:8080").build();
+```
+
+Kotlin::
++
+```kotlin,indent=0,subs="verbatim,quotes"
+	client = RestTestClient.bindToServer().baseUrl("http://localhost:8080").build()
+```
+======
+
+
+[[resttestclient.client-config]]
+### Client Config
+
+In addition to the server setup options described earlier, you can also configure client
+options, including base URL, default headers, client filters, and others. These options
+are readily available following the initial `bindTo` call, as follows:
+
+[tabs]
+======
+Java::
++
+```java,indent=0,subs="verbatim,quotes"
+	client = RestTestClient.bindToController(new TestController())
+			.baseUrl("/test")
+			.build();
+```
+
+Kotlin::
++
+```kotlin,indent=0,subs="verbatim,quotes"
+	client = RestTestClient.bindToController(TestController())
+			.baseUrl("/test")
+			.build()
+```
+======
+
+
+[[resttestclient.tests]]
+## Writing Tests
+
+[`RestClient`](integration/rest-clients.adoc#rest-restclient) and `RestTestClient` have
+the same API up to the point of the call to `exchange()`. After that, `RestTestClient`
+provides two alternative ways to verify the response:
+
+1. <<resttestclient.workflow,Built-in Assertions>> extend the request workflow with a chain of expectations
+2. <<resttestclient.assertj,AssertJ Integration>> to verify the response via `assertThat()` statements
+
+TIP: See the [HTTP Message Conversion](integration/rest-clients.adoc#rest-message-conversion)
+section for examples on how to prepare a request with any content, including form data and multipart data.
+
+
+[[resttestclient.workflow]]
+### Built-in Assertions
+
+To use the built-in assertions, remain in the workflow after the call to `exchange()`, and
+use one of the expectation methods. For example:
+
+include-code::./RestClientWorkflowTests[tag=test,indent=0]
+
+
+If you would like for all expectations to be asserted even if one of them fails, you can
+use `expectAll(..)` instead of multiple chained `expect*(..)` calls. This feature is
+similar to the _soft assertions_ support in AssertJ and the `assertAll()` support in
+JUnit Jupiter.
+
+include-code::./RestClientWorkflowTests[tag=soft-assertions,indent=0]
+
+
+You can then choose to decode the response body through one of the following:
+
+* `expectBody(Class<T>)`: Decode to single object.
+* `expectBody()`: Decode to `byte[]` for <<resttestclient.json,JSON Content>> or an empty body.
+
+
+If the built-in assertions are insufficient, you can consume the object instead and
+perform any other assertions:
+
+include-code::./RestClientWorkflowTests[tag=consume,indent=0]
+
+Or you can exit the workflow and obtain a `EntityExchangeResult`:
+
+include-code::./RestClientWorkflowTests[tag=result,indent=0]
+
+
+TIP: When you need to decode to a target type with generics, look for the overloaded methods
+that accept {spring-framework-api}/core/ParameterizedTypeReference.html[`ParameterizedTypeReference`]
+instead of `Class<T>`.
+
+
+[[resttestclient.no-content]]
+#### No Content
+
+If the response is not expected to have content, you can assert that as follows:
+
+include-code::./NoContentTests[tag=emptyBody,indent=0]
+
+If you want to ignore the response content, the following releases the content without any assertions:
+
+include-code::./NoContentTests[tag=ignoreBody,indent=0]
+
+NOTE: Consuming the response body (for example, with `expectBody`) is required if your tests are running with
+leak detection for pooled buffers. Without that, the tool will report buffers being leaked.
+
+
+[[resttestclient.json]]
+#### JSON Content
+
+You can use `expectBody()` without a target type to perform assertions on the raw
+content rather than through higher level Object(s).
+
+To verify the full JSON content with https://jsonassert.skyscreamer.org[JSONAssert]:
+
+include-code::./JsonTests[tag=jsonBody,indent=0]
+
+
+To verify JSON content with https://github.com/jayway/JsonPath[JSONPath]:
+
+include-code::./JsonTests[tag=jsonPath,indent=0]
+
+
+[[resttestclient.multipart]]
+#### Multipart Content
+
+When testing endpoints that return multipart responses, you can decode the body to a
+`MultiValueMap<String, Part>` and assert individual parts using the `FormFieldPart`
+and `FilePart` subtypes.
+
+include-code::./MultipartTests[tag=multipart,indent=0]
+
+
+[[resttestclient.assertj]]
+### AssertJ Integration
+
+`RestTestClientResponse` is the main entry point for the AssertJ integration.
+It is an `AssertProvider` that wraps the `ResponseSpec` of an exchange in order to enable
+use of `assertThat()` statements. For example:
+
+include-code::./AssertJTests[tag=withSpec,indent=0]
+
+
+You can also use the built-in workflow first, and then obtain an `ExchangeResult` to wrap
+and continue with AssertJ. For example:
+
+include-code::./AssertJTests[tag=withResult,indent=0]

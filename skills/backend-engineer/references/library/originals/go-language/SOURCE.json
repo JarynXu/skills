@@ -1,4 +1,5 @@
 {
+  "agent_ready": true,
   "derived_count": 0,
   "derived_files": [],
   "file_count": 4,
@@ -45,10 +46,48 @@
     }
   ],
   "license": "BSD-3-Clause",
+  "processed_bytes": 307516,
+  "processed_count": 3,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 23891,
+      "derived_from": "doc/go_mem.html",
+      "local_git_sha": "55baf0d7d07ee936b03d00462e30afaa1e53fde8",
+      "local_path": "doc/go_mem.html.md",
+      "searchable_text": true,
+      "sha256": "cdd2e06bd4954904f1727931e254bf7815328b2529434b737bbfe7bcc61ccf11",
+      "source_git_sha": "8db7d65e7342a81a6127b4519ad77d5b6fa666a5",
+      "transform": "html-to-markdown:beautifulsoup+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 254548,
+      "derived_from": "doc/go_spec.html",
+      "local_git_sha": "0a150e3fec31468563b6e24fe0ddc03c083b7660",
+      "local_path": "doc/go_spec.html.md",
+      "searchable_text": true,
+      "sha256": "76a8bd0c4e2338a7a179e75201b88d85a96f8165f57ff081a1a90fc2ae2a322d",
+      "source_git_sha": "c55d4f8a37c569c875d52f01c8bd6121ac837dee",
+      "transform": "html-to-markdown:beautifulsoup+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 29077,
+      "derived_from": "doc/godebug.md",
+      "local_git_sha": "6b71314be9a4f138f2220bc3f8e075686c665393",
+      "local_path": "doc/godebug.md",
+      "searchable_text": true,
+      "sha256": "bae67027ed4b2372358246a84b627101fb1bfa617b737da13fc79a3ebc4e6783",
+      "source_git_sha": "144332729493c7dcbc7061a1e1b2cae3abb4ed15",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
   "repo": "golang/go",
   "requested_ref": "master",
   "retrieved_at": "2026-08-23T05:27:11+00:00",
-  "schema_version": 1,
+  "schema_version": 2,
   "source_commit": "c97cfcb37fced87a43a3dbab8983d6f76b8b84d1",
   "source_id": "go-language",
   "source_tree": "87fd6d063f23f40819b59acea184bbca35f2bb5e",

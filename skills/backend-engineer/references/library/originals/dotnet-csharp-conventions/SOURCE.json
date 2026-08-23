@@ -1,4 +1,5 @@
 {
+  "agent_ready": true,
   "derived_count": 0,
   "derived_files": [],
   "file_count": 3,
@@ -35,10 +36,26 @@
     }
   ],
   "license": "CC BY 4.0 documentation; MIT code samples",
+  "processed_bytes": 23908,
+  "processed_count": 1,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 23908,
+      "derived_from": "docs/csharp/fundamentals/coding-style/coding-conventions.md",
+      "local_git_sha": "e5d33ebf9b328f81adbce563dd3a22335ec8bc06",
+      "local_path": "docs/csharp/fundamentals/coding-style/coding-conventions.md",
+      "searchable_text": true,
+      "sha256": "3e32cfc0cd33ab53aa4d05608b73350d9b04d598a0ee3b79ea6a3bee4957e3f0",
+      "source_git_sha": "95e678de57d6dfc4add6ae80cac341df74379cbb",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
   "repo": "dotnet/docs",
   "requested_ref": "main",
   "retrieved_at": "2026-08-23T05:43:20+00:00",
-  "schema_version": 1,
+  "schema_version": 2,
   "source_commit": "b7779bffad7a68afea19963ca7cf64092c87eff3",
   "source_id": "dotnet-csharp-conventions",
   "source_tree": "164ecf9f09e56decbea8c75264484b388efa42e4",

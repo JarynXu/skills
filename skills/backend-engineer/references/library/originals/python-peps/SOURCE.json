@@ -1,4 +1,5 @@
 {
+  "agent_ready": true,
   "derived_count": 0,
   "derived_files": [],
   "file_count": 4,
@@ -45,10 +46,59 @@
     }
   ],
   "license": "PEP-specific; preserve each PEP's copyright/license declaration",
+  "processed_bytes": 146595,
+  "processed_count": 4,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 47842,
+      "derived_from": "peps/pep-0008.rst",
+      "local_git_sha": "11e6be243be1666b06f59d38c9d05e19d16ab861",
+      "local_path": "peps/pep-0008.rst.md",
+      "searchable_text": true,
+      "sha256": "8f6ed8287e32559906ed18274e510f762680bfa39efdd51d11aafb5bd1869088",
+      "source_git_sha": "d14c9e97b120daecadcd4afe742af69ddc07a34c",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 1940,
+      "derived_from": "peps/pep-0020.rst",
+      "local_git_sha": "ed028f52297f5a6083b58a2bcb336b9b8936740d",
+      "local_path": "peps/pep-0020.rst.md",
+      "searchable_text": true,
+      "sha256": "fc495f6cd00c604e81d949facbb3782c199737c9411f4992a93f6b71b53439ab",
+      "source_git_sha": "5e0543dcfa2d156367d96799967241aedf589919",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 10745,
+      "derived_from": "peps/pep-0257.rst",
+      "local_git_sha": "56558116260d10828badb3f229cdd20720b5011a",
+      "local_path": "peps/pep-0257.rst.md",
+      "searchable_text": true,
+      "sha256": "aebeaabe18caebbfd38f947b5ba15f4991cdf3a5add68089b4dfddc005cd5f12",
+      "source_git_sha": "9ef667588c3d57b35eb4eb32642b7e7acc6815c3",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 86068,
+      "derived_from": "peps/pep-0484.rst",
+      "local_git_sha": "3c6ac5aacbd68fd86d5634d11adad316b38dee86",
+      "local_path": "peps/pep-0484.rst.md",
+      "searchable_text": true,
+      "sha256": "6761e3e35f0fb10bb8a2a152dd4bef5d0ebb58bc9e087ff45618623ef76ca1d5",
+      "source_git_sha": "df17858d269db1f7c93d3d64dea6788a4acbdb09",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    }
+  ],
+  "processing_warnings": [],
   "repo": "python/peps",
   "requested_ref": "main",
   "retrieved_at": "2026-08-23T05:27:23+00:00",
-  "schema_version": 1,
+  "schema_version": 2,
   "source_commit": "b4f8bb538cffe7bd1401d0f529e721caf4125482",
   "source_id": "python-peps",
   "source_tree": "f0901a8fe6e8e337e23cea174232d33130362173",

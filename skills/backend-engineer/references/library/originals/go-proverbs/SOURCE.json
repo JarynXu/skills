@@ -1,4 +1,5 @@
 {
+  "agent_ready": true,
   "derived_count": 0,
   "derived_files": [],
   "file_count": 3,
@@ -35,10 +36,26 @@
     }
   ],
   "license": "MIT",
+  "processed_bytes": 4345,
+  "processed_count": 1,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 4345,
+      "derived_from": "README.md",
+      "local_git_sha": "c8855b64c6d3701bc61eff037cdba19b846868e6",
+      "local_path": "README.md",
+      "searchable_text": true,
+      "sha256": "cfb856bbe86acd00be35264c26a873f50839eb962140483cf93e15a7a86753d6",
+      "source_git_sha": "598b217baed2f32c75dc5507117a915f339550dd",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
   "repo": "jboursiquot/go-proverbs",
   "requested_ref": "master",
   "retrieved_at": "2026-08-23T05:27:17+00:00",
-  "schema_version": 1,
+  "schema_version": 2,
   "source_commit": "4f144663856efcbac3ef61869f3d5d92f1a1534a",
   "source_id": "go-proverbs",
   "source_tree": "dd2d896d13970bd26e43c2ab91590c959088c2f0",

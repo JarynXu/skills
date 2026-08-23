@@ -1,0 +1,129 @@
+> **Offline teaching derivative**  
+> Source: `spring-projects/spring-framework@91eb42645e26a7ef9382b4a655bcefe5c8682fee`  
+> Upstream path: `framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc`  
+> Upstream Git blob: `fd9df4e18045d5da0e1ef192d7f2b67e874eeeb6`  
+> Transform: `asciidoc-structural-to-markdown`  
+> This Markdown is generated for agent use. Consult `originals/` when exact upstream bytes matter.
+
+[[testcontext-ctx-management-groovy]]
+# Context Configuration with Groovy Scripts
+
+To load an `ApplicationContext` for your tests by using Groovy scripts that use the
+[Groovy Bean Definition DSL](languages/groovy.adoc#beans-factory-groovy), you can annotate
+your test class with `@ContextConfiguration` and configure the `locations` or `value`
+attribute with an array that contains the resource locations of Groovy scripts. Resource
+lookup semantics for Groovy scripts are the same as those described for
+[XML configuration files](testing/testcontext-framework/ctx-management/xml.adoc).
+
+.Enabling Groovy script support
+TIP: Support for using Groovy scripts to load an `ApplicationContext` in the Spring
+TestContext Framework is enabled automatically if Groovy is on the classpath.
+
+The following example shows how to specify Groovy configuration files:
+
+[tabs]
+======
+Java::
++
+```java,indent=0,subs="verbatim,quotes"
+	@ExtendWith(SpringExtension.class)
+	// ApplicationContext will be loaded from "/AppConfig.groovy" and
+	// "/TestConfig.groovy" in the root of the classpath
+	@ContextConfiguration({"/AppConfig.groovy", "/TestConfig.Groovy"}) <1>
+	class MyTest {
+		// class body...
+	}
+```
+<1> Specifying the location of Groovy configuration files.
+
+Kotlin::
++
+```kotlin,indent=0,subs="verbatim,quotes"
+	@ExtendWith(SpringExtension::class)
+	// ApplicationContext will be loaded from "/AppConfig.groovy" and
+	// "/TestConfig.groovy" in the root of the classpath
+	@ContextConfiguration("/AppConfig.groovy", "/TestConfig.Groovy") // <1>
+	class MyTest {
+		// class body...
+	}
+```
+<1> Specifying the location of Groovy configuration files.
+======
+
+
+If you omit both the `locations` and `value` attributes from the `@ContextConfiguration`
+annotation, the TestContext framework tries to detect a default Groovy script.
+Specifically, `GenericGroovyXmlContextLoader` and `GenericGroovyXmlWebContextLoader`
+detect a default location based on the name of the test class. If your class is named
+`com.example.MyTest`, the Groovy context loader loads your application context from
+`"classpath:com/example/MyTestContext.groovy"`. The following example shows how to use
+the default:
+
+[tabs]
+======
+Java::
++
+```java,indent=0,subs="verbatim,quotes"
+	@ExtendWith(SpringExtension.class)
+	// ApplicationContext will be loaded from
+	// "classpath:com/example/MyTestContext.groovy"
+	@ContextConfiguration // <1>
+	class MyTest {
+		// class body...
+	}
+```
+<1> Loading configuration from the default location.
+
+Kotlin::
++
+```kotlin,indent=0,subs="verbatim,quotes"
+	@ExtendWith(SpringExtension::class)
+	// ApplicationContext will be loaded from
+	// "classpath:com/example/MyTestContext.groovy"
+	@ContextConfiguration // <1>
+	class MyTest {
+		// class body...
+	}
+```
+<1> Loading configuration from the default location.
+======
+
+
+.Declaring XML configuration and Groovy scripts simultaneously
+[TIP]
+=====
+You can declare both XML configuration files and Groovy scripts simultaneously by using
+the `locations` or `value` attribute of `@ContextConfiguration`. If the path to a
+configured resource location ends with `.xml`, it is loaded by using an
+`XmlBeanDefinitionReader`. Otherwise, it is loaded by using a
+`GroovyBeanDefinitionReader`.
+
+The following listing shows how to combine both in an integration test:
+
+[tabs]
+======
+Java::
++
+```java,indent=0,subs="verbatim,quotes"
+	@ExtendWith(SpringExtension.class)
+	// ApplicationContext will be loaded from
+	// "/app-config.xml" and "/TestConfig.groovy"
+	@ContextConfiguration({ "/app-config.xml", "/TestConfig.groovy" })
+	class MyTest {
+		// class body...
+	}
+```
+
+Kotlin::
++
+```kotlin,indent=0,subs="verbatim,quotes"
+	@ExtendWith(SpringExtension::class)
+	// ApplicationContext will be loaded from
+	// "/app-config.xml" and "/TestConfig.groovy"
+	@ContextConfiguration("/app-config.xml", "/TestConfig.groovy")
+	class MyTest {
+		// class body...
+	}
+```
+======
+=====
