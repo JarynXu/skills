@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "policy": {
+    "purpose": "Build a local, progressive DevOps and platform-engineering curriculum from authoritative, redistributable delivery, runtime, observability, infrastructure, GitOps, and supply-chain sources.",
+    "selection_rules": [
+      "Prefer standards bodies, project owners, and primary upstream documentation over secondary tutorials or popularity alone.",
+      "Mirror only material that changes an operational, delivery, reliability, security, recovery, or platform-engineering decision.",
+      "Keep tool-specific material subordinate to the consuming project's configured version, organization policy, cloud account, cluster, state backend, and release process.",
+      "Pin every sync to the resolved upstream commit and verify downloaded Git blobs byte-for-byte.",
+      "Preprocess supported document formats into agent-ready Markdown while preserving exact originals and provenance.",
+      "Do not vendor MDX-only documentation until the preprocessing pipeline has an explicit tested MDX contract.",
+      "Do not vendor paid standards, proprietary vendor training, certification books, or ambiguous-license material."
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "docker-docs",
+      "title": "Docker Build, Runtime, Network, and Storage Guidance",
+      "repo": "docker/docs",
+      "ref": "main",
+      "license": "Apache-2.0",
+      "tier": "canonical-platform-guidance",
+      "tracks": ["containers", "build", "images", "secrets", "networking", "storage"],
+      "includes": [
+        {"path": "LICENSE"},
+        {"path": "content/manuals/build/building/best-practices.md"},
+        {"path": "content/manuals/build/building/base-images.md"},
+        {"path": "content/manuals/build/building/multi-stage.md"},
+        {"path": "content/manuals/build/building/multi-platform.md"},
+        {"path": "content/manuals/build/building/secrets.md"},
+        {"path": "content/manuals/engine/network/_index.md"},
+        {"path": "content/manuals/engine/network/port-publishing.md"},
+        {"path": "content/manuals/engine/storage/_index.md"},
+        {"path": "content/manuals/engine/storage/volumes.md"},
+        {"path": "content/manuals/engine/storage/bind-mounts.md"}
+      ]
+    },
+    {
+      "source_id": "kubernetes",
+      "title": "Kubernetes Workload and Operations Guidance",
+      "repo": "kubernetes/website",
+      "ref": "main",
+      "license": "CC-BY-4.0",
+      "tier": "canonical-platform-guidance",
+      "tracks": ["kubernetes", "workloads", "probes", "resources", "networking", "storage", "debugging", "kubeconfig"],
+      "includes": [
+        {"path": "LICENSE"},
+        {"path": "content/en/docs/concepts/configuration/organize-cluster-access-kubeconfig.md"},
+        {"path": "content/en/docs/concepts/workloads/pods/pod-lifecycle.md"},
+        {"path": "content/en/docs/concepts/configuration/manage-resources-containers.md"},
+        {"path": "content/en/docs/concepts/services-networking/service.md"},
+        {"path": "content/en/docs/concepts/storage/persistent-volumes.md"},
+        {"path": "content/en/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md"},
+        {"path": "content/en/docs/tasks/debug/debug-application/debug-running-pod.md"}
+      ]
+    },
+    {
+      "source_id": "kustomize",
+      "title": "Kustomize Configuration Composition Guidance",
+      "repo": "kubernetes-sigs/kustomize",
+      "ref": "master",
+      "license": "Apache-2.0",
+      "tier": "canonical-platform-guidance",
+      "tracks": ["kubernetes", "configuration", "rendering", "bases", "overlays"],
+      "includes": [
+        {"path": "LICENSE"},
+        {"path": "site/content/en/docs/_index.md"},
+        {"path": "site/content/en/docs/Overview", "recursive": true},
+        {"path": "site/content/en/docs/Concepts", "recursive": true}
+      ]
+    },
+    {
+      "source_id": "argo-cd",
+      "title": "Argo CD GitOps Core and Security Guidance",
+      "repo": "argoproj/argo-cd",
+      "ref": "master",
+      "license": "Apache-2.0",
+      "tier": "canonical-gitops-guidance",
+      "tracks": ["gitops", "reconciliation", "sync", "security", "architecture"],
+      "includes": [
+        {"path": "LICENSE"},
+        {"path": "docs/core_concepts.md"},
+        {"path": "docs/getting_started.md"},
+        {"path": "docs/security_considerations.md"},
+        {"path": "docs/operator-manual/architecture.md"}
+      ]
+    },
+    {
+      "source_id": "flux-gitops",
+      "title": "Flux GitOps Concepts and Operating Guidance",
+      "repo": "fluxcd/website",
+      "ref": "main",
+      "license": "Apache-2.0",
+      "tier": "canonical-gitops-guidance",
+      "tracks": ["gitops", "reconciliation", "sources", "controllers", "operations"],
+      "includes": [
+        {"path": "LICENSE"},
+        {"path": "content/en/flux/_index.md"},
+        {"path": "content/en/flux/concepts.md"},
+        {"path": "content/en/flux/get-started.md"},
+        {"path": "content/en/flux/faq.md"}
+      ]
+    },
+    {
+      "source_id": "github-actions",
+      "title": "GitHub Actions Delivery, Reuse, Security, and Troubleshooting Guidance",
+      "repo": "github/docs",
+      "ref": "main",
+      "license": "CC-BY-4.0",
+      "tier": "canonical-ci-guidance",
+      "tracks": ["ci-cd", "workflows", "security", "reuse", "deployment", "troubleshooting", "attestations"],
+      "includes": [
+        {"path": "LICENSE"},
+        {"path": "content/actions/index.md"},
+        {"path": "content/actions/how-tos/troubleshoot-workflows.md"},
+        {"path": "content/actions/how-tos/secure-your-work", "recursive": true},
+        {"path": "content/actions/how-tos/reuse-automations", "recursive": true},
+        {"path": "content/actions/how-tos/deploy", "recursive": true}
+      ]
+    },
+    {
+      "source_id": "prometheus-practices",
+      "title": "Prometheus Instrumentation and Alerting Practices",
+      "repo": "prometheus/docs",
+      "ref": "main",
+      "license": "Apache-2.0",
+      "tier": "canonical-observability-guidance",
+      "tracks": ["metrics", "instrumentation", "alerting", "histograms", "naming", "rules", "remote-write"],
+      "includes": [
+        {"path": "LICENSE"},
+        {"path": "NOTICE"},
+        {"path": "docs/practices", "recursive": true}
+      ]
+    },
+    {
+      "source_id": "opentelemetry",
+      "title": "OpenTelemetry Specification - Operational Telemetry Subset",
+      "repo": "open-telemetry/opentelemetry-specification",
+      "ref": "main",
+      "license": "Apache-2.0",
+      "tier": "canonical-observability-specification",
+      "tracks": ["observability", "metrics", "logs", "telemetry-failure", "instrumentation", "data-model"],
+      "includes": [
+        {"path": "LICENSE"},
+        {"path": "specification/README.md"},
+        {"path": "specification/overview.md"},
+        {"path": "specification/error-handling.md"},
+        {"path": "specification/metrics/data-model.md"},
+        {"path": "specification/logs/data-model.md"},
+        {"path": "specification/library-guidelines.md"}
+      ]
+    },
+    {
+      "source_id": "oci-runtime",
+      "title": "OCI Runtime Specification",
+      "repo": "opencontainers/runtime-spec",
+      "ref": "main",
+      "license": "Apache-2.0",
+      "tier": "canonical-container-specification",
+      "tracks": ["containers", "runtime", "lifecycle", "configuration"],
+      "includes": [
+        {"path": "LICENSE"},
+        {"path": "runtime.md"},
+        {"path": "config.md"}
+      ]
+    },
+    {
+      "source_id": "oci-image",
+      "title": "OCI Image Specification",
+      "repo": "opencontainers/image-spec",
+      "ref": "main",
+      "license": "Apache-2.0",
+      "tier": "canonical-container-specification",
+      "tracks": ["containers", "images", "manifests", "indexes", "layers", "artifacts"],
+      "includes": [
+        {"path": "LICENSE"},
+        {"path": "manifest.md"},
+        {"path": "image-index.md"},
+        {"path": "config.md"},
+        {"path": "layer.md"},
+        {"path": "artifacts-guidance.md"}
+      ]
+    },
+    {
+      "source_id": "slsa",
+      "title": "SLSA Build Track Basics",
+      "repo": "slsa-framework/slsa",
+      "ref": "main",
+      "license": "Community Specification License 1.0",
+      "tier": "canonical-supply-chain-specification",
+      "tracks": ["supply-chain", "provenance", "build-integrity", "attestations"],
+      "includes": [
+        {"path": "LICENSE.md"},
+        {"path": "spec/build-track-basics.md"}
+      ]
+    },
+    {
+      "source_id": "cosign",
+      "title": "Sigstore Cosign Signing, Verification, and Attestation Guidance",
+      "repo": "sigstore/cosign",
+      "ref": "main",
+      "license": "Apache-2.0",
+      "tier": "canonical-supply-chain-tool-guidance",
+      "tracks": ["supply-chain", "signing", "verification", "attestations", "oci", "keyless"],
+      "includes": [
+        {"path": "LICENSE"},
+        {"path": "doc/cosign.md"},
+        {"path": "doc/cosign_sign.md"},
+        {"path": "doc/cosign_verify.md"},
+        {"path": "doc/cosign_attest.md"},
+        {"path": "doc/cosign_verify-attestation.md"}
+      ]
+    }
+  ]
+}

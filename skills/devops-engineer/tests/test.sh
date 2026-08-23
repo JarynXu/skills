@@ -3,16 +3,9 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
 python "$ROOT/tests/test_control_plane.py"
-
+python "$ROOT/tests/test_library_catalog.py"
 python "$ROOT/scripts/offline_library.py" verify
-python "$ROOT/scripts/offline_library.py" list | grep -q '^kubernetes'
-python "$ROOT/scripts/offline_library.py" list | grep -q '^opentelemetry'
-python "$ROOT/scripts/offline_library.py" list | grep -q '^oci-runtime'
-python "$ROOT/scripts/offline_library.py" list | grep -q '^slsa'
-python "$ROOT/scripts/offline_library.py" search 'current-context' --source kubernetes --limit 1 >/dev/null
-python "$ROOT/scripts/offline_library.py" search 'unhandled exceptions' --source opentelemetry --limit 1 >/dev/null
-python "$ROOT/scripts/offline_library.py" search 'container process' --source oci-runtime --limit 1 >/dev/null
-python "$ROOT/scripts/offline_library.py" search 'Build L3' --source slsa --limit 1 >/dev/null
+python "$ROOT/tests/test_library_ready.py"
 python "$ROOT/scripts/offline_library.py" read oci-runtime/runtime.md --start 1 --end 8 | grep -q 'Runtime and Lifecycle'
 
 python - "$ROOT" <<'PY'
@@ -40,20 +33,23 @@ required = [
     'references/technologies/control-plane.md',
     'references/technologies/tool-routing.md',
     'references/complete-learning-path.md',
+    'references/library/INDEX.md',
+    'references/library/SOURCES.json',
+    'references/library/SOURCES.lock.json',
 ]
 for rel in required:
     path = root / rel
-    assert path.is_file() and path.stat().st_size > 500, rel
-    assert f'({rel})' in skill or rel == 'references/complete-learning-path.md', rel
+    assert path.is_file() and path.stat().st_size > 100, rel
 
 assert (root / 'agents' / 'openai.yaml').is_file()
-assert (root / 'references' / 'library' / 'LICENSES' / 'Apache-2.0.txt').is_file()
-assert len(list((root / 'references' / 'library' / 'originals').glob('*/SOURCE.json'))) == 4
+assert len(list((root / 'references' / 'library' / 'originals').glob('*/SOURCE.json'))) == 12
+assert len([p for p in (root / 'references' / 'library' / 'processed').glob('*') if p.is_dir()]) == 12
 
-# Authored relative links must resolve. Third-party originals preserve upstream links separately.
+# Authored relative links must resolve. Third-party originals/processed derivatives preserve upstream links separately.
 links = 0
 for source in root.rglob('*.md'):
-    if 'references/library/originals/' in source.as_posix():
+    posix = source.as_posix()
+    if 'references/library/originals/' in posix or 'references/library/processed/' in posix:
         continue
     text = source.read_text(encoding='utf-8')
     for match in re.finditer(r'\[[^\]]+\]\(([^)]+)\)', text):

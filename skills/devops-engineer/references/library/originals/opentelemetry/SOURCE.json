@@ -1,28 +1,167 @@
 {
-  "schema_version": 1,
-  "source_id": "opentelemetry",
-  "title": "OpenTelemetry Specification",
-  "owner": "OpenTelemetry Authors",
-  "source_repository": "https://github.com/open-telemetry/opentelemetry-specification",
-  "source_commit": "1377f53b2bc0683c45169b8f20fd973eb4d59419",
-  "license": "Apache-2.0",
-  "license_local_path": "../../LICENSES/Apache-2.0.txt",
-  "retrieved_date": "2026-08-23",
-  "inclusion_mode": "vendored-exact-text",
+  "agent_ready": true,
+  "file_count": 7,
   "files": [
     {
-      "path": "README.md",
-      "upstream_path": "specification/README.md",
-      "upstream_git_sha": "0e8c3560b8d398f1b0bc2a3b6981518cd7cbce3b",
-      "local_git_sha": "0e8c3560b8d398f1b0bc2a3b6981518cd7cbce3b",
-      "byte_exact": true
+      "byte_exact": true,
+      "bytes": 11357,
+      "local_git_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "upstream_git_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "upstream_path": "LICENSE"
     },
     {
-      "path": "error-handling.md",
-      "upstream_path": "specification/error-handling.md",
-      "upstream_git_sha": "659a47aa5bb075cd66e068c699841402b0d01daf",
+      "byte_exact": true,
+      "bytes": 3765,
+      "local_git_sha": "0e8c3560b8d398f1b0bc2a3b6981518cd7cbce3b",
+      "local_path": "specification/README.md",
+      "searchable_text": true,
+      "sha256": "00e6e8007f69ddde4c4a9af4fffad14e88cf53e89521169684105e8c54f7284b",
+      "upstream_git_sha": "0e8c3560b8d398f1b0bc2a3b6981518cd7cbce3b",
+      "upstream_path": "specification/README.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 6750,
       "local_git_sha": "659a47aa5bb075cd66e068c699841402b0d01daf",
-      "byte_exact": true
+      "local_path": "specification/error-handling.md",
+      "searchable_text": true,
+      "sha256": "443b9c553bc1cf4de02158b805b96086945ee8b1a1cfda8324210d7ed9d1c4c5",
+      "upstream_git_sha": "659a47aa5bb075cd66e068c699841402b0d01daf",
+      "upstream_path": "specification/error-handling.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 12236,
+      "local_git_sha": "5b9c445bfd6657768527269f22767760109bbac9",
+      "local_path": "specification/library-guidelines.md",
+      "searchable_text": true,
+      "sha256": "2272e2c7aeda09d1288058310a5b0601cde35315bfff62fb16b42cd20e35b549",
+      "upstream_git_sha": "5b9c445bfd6657768527269f22767760109bbac9",
+      "upstream_path": "specification/library-guidelines.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 20155,
+      "local_git_sha": "1e58b7f18fb547f45132b185f241f3b097f76bb0",
+      "local_path": "specification/logs/data-model.md",
+      "searchable_text": true,
+      "sha256": "3ee2c391a5d3262130582df89a3dc5a5640d837d010734ea79458fe3ece31173",
+      "upstream_git_sha": "1e58b7f18fb547f45132b185f241f3b097f76bb0",
+      "upstream_path": "specification/logs/data-model.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 62383,
+      "local_git_sha": "c574436dbf82a35b5afaf33ff4c222be7e72dd51",
+      "local_path": "specification/metrics/data-model.md",
+      "searchable_text": true,
+      "sha256": "33fc0b88a7574501db5bda1c52624d9a0095e258edce39590bef9b1dd04fb1ea",
+      "upstream_git_sha": "c574436dbf82a35b5afaf33ff4c222be7e72dd51",
+      "upstream_path": "specification/metrics/data-model.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 21240,
+      "local_git_sha": "f3f57084c87cd4cc2ce7417da84a571891ad2bd5",
+      "local_path": "specification/overview.md",
+      "searchable_text": true,
+      "sha256": "6b0b9825b6c06dc42b2bd26665bc695536e700beed337dde930b940e31b1e79e",
+      "upstream_git_sha": "f3f57084c87cd4cc2ce7417da84a571891ad2bd5",
+      "upstream_path": "specification/overview.md"
     }
+  ],
+  "license": "Apache-2.0",
+  "processed_bytes": 128856,
+  "processed_count": 6,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 4146,
+      "derived_from": "specification/README.md",
+      "local_git_sha": "892b1bf216b5d5c18f7895b1f36c0ee31724e6ad",
+      "local_path": "specification/README.md",
+      "searchable_text": true,
+      "sha256": "1e1eb9edf1ac84392b74ebe742b57e3fcaa8be226617f80cfefb6d522207b319",
+      "source_git_sha": "0e8c3560b8d398f1b0bc2a3b6981518cd7cbce3b",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 7137,
+      "derived_from": "specification/error-handling.md",
+      "local_git_sha": "ff6a58fa44ca450325182b67b1bdfa4b6262d0a7",
+      "local_path": "specification/error-handling.md",
+      "searchable_text": true,
+      "sha256": "b5611d9b158a39011c4fdf2f5585d0b095e1ef3372c25bbc18b4b0ab1f36f487",
+      "source_git_sha": "659a47aa5bb075cd66e068c699841402b0d01daf",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 12629,
+      "derived_from": "specification/library-guidelines.md",
+      "local_git_sha": "b34baa202a0ac7147258d29e9b5b2e581a450e8e",
+      "local_path": "specification/library-guidelines.md",
+      "searchable_text": true,
+      "sha256": "db5a449f3282afe8f4237716f5e784eaa891fa3dd843dfaf8057696da4de46f5",
+      "source_git_sha": "5b9c445bfd6657768527269f22767760109bbac9",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 20545,
+      "derived_from": "specification/logs/data-model.md",
+      "local_git_sha": "fb55d435d279344bca04da60873f16d8ff573230",
+      "local_path": "specification/logs/data-model.md",
+      "searchable_text": true,
+      "sha256": "4991d74c9407fe5fef5c579e87f848c252174b29fd74af2c88f2df479d2b5943",
+      "source_git_sha": "1e58b7f18fb547f45132b185f241f3b097f76bb0",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 62776,
+      "derived_from": "specification/metrics/data-model.md",
+      "local_git_sha": "e28d9ad76fe629b050a34edc4c946741b12689fa",
+      "local_path": "specification/metrics/data-model.md",
+      "searchable_text": true,
+      "sha256": "5482113ccdcbd4e96c4f448554ca40c1c69e18fb7c536f98560970a94785e672",
+      "source_git_sha": "c574436dbf82a35b5afaf33ff4c222be7e72dd51",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 21623,
+      "derived_from": "specification/overview.md",
+      "local_git_sha": "497c60c0eff73f25772a7fad304b65211257c19b",
+      "local_path": "specification/overview.md",
+      "searchable_text": true,
+      "sha256": "25659dd0046cfa10e1ef06b2eb2a9b908fb9ec86eb0ca020567ab3892f9ae944",
+      "source_git_sha": "f3f57084c87cd4cc2ce7417da84a571891ad2bd5",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "open-telemetry/opentelemetry-specification",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T17:02:52+00:00",
+  "schema_version": 2,
+  "source_commit": "1377f53b2bc0683c45169b8f20fd973eb4d59419",
+  "source_id": "opentelemetry",
+  "source_tree": "3f4752919cc03bdc84a5a21e809f947642969070",
+  "source_url": "https://github.com/open-telemetry/opentelemetry-specification/tree/1377f53b2bc0683c45169b8f20fd973eb4d59419",
+  "tier": "canonical-observability-specification",
+  "title": "OpenTelemetry Specification - Operational Telemetry Subset",
+  "total_original_bytes": 137886,
+  "tracks": [
+    "observability",
+    "metrics",
+    "logs",
+    "telemetry-failure",
+    "instrumentation",
+    "data-model"
   ]
 }

@@ -1,0 +1,146 @@
+{
+  "agent_ready": true,
+  "file_count": 6,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 11357,
+      "local_git_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "upstream_git_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2775,
+      "local_git_sha": "c403e9ae0d453b5813d15036c8dc1db5ca979abb",
+      "local_path": "doc/cosign.md",
+      "searchable_text": true,
+      "sha256": "11fd4285a19377eda13cc48b8261855657eb84cafcf6b7e560a98e756f88a133",
+      "upstream_git_sha": "c403e9ae0d453b5813d15036c8dc1db5ca979abb",
+      "upstream_path": "doc/cosign.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7221,
+      "local_git_sha": "612574c03306efb5216c9b13007b93f2de5d01e6",
+      "local_path": "doc/cosign_attest.md",
+      "searchable_text": true,
+      "sha256": "63ac704f8e1305c1fa46f65d887f944d1639e741bf3e8d4c4ef37dc7135988cb",
+      "upstream_git_sha": "612574c03306efb5216c9b13007b93f2de5d01e6",
+      "upstream_path": "doc/cosign_attest.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7981,
+      "local_git_sha": "2001c1d7a4b7eba04af2d516edb56b523b01854f",
+      "local_path": "doc/cosign_sign.md",
+      "searchable_text": true,
+      "sha256": "50973639b7c1545f583b0c2434d5b746147af3f0891cec4c84f0f5e1348919dd",
+      "upstream_git_sha": "2001c1d7a4b7eba04af2d516edb56b523b01854f",
+      "upstream_path": "doc/cosign_sign.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7860,
+      "local_git_sha": "b40850d06ce62a5e0e165c076a5e0297bfafa267",
+      "local_path": "doc/cosign_verify-attestation.md",
+      "searchable_text": true,
+      "sha256": "80213c71aa3f0fca1b715e864b2243cc1d71eef1c205a8365f19e21b25ad1035",
+      "upstream_git_sha": "b40850d06ce62a5e0e165c076a5e0297bfafa267",
+      "upstream_path": "doc/cosign_verify-attestation.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7432,
+      "local_git_sha": "05366b38b5d8e5120c3d8e1dc6190532f2deedbb",
+      "local_path": "doc/cosign_verify.md",
+      "searchable_text": true,
+      "sha256": "fb0563526b6b294b7f4f9643ac16b791d9f44d4948c7d05faa55194952b2f534",
+      "upstream_git_sha": "05366b38b5d8e5120c3d8e1dc6190532f2deedbb",
+      "upstream_path": "doc/cosign_verify.md"
+    }
+  ],
+  "license": "Apache-2.0",
+  "processed_bytes": 35022,
+  "processed_count": 5,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 3118,
+      "derived_from": "doc/cosign.md",
+      "local_git_sha": "1e208df5e79effa9e8b330442c2e1f6179c75576",
+      "local_path": "doc/cosign.md",
+      "searchable_text": true,
+      "sha256": "db9b936595434da442474be850b4d18b6aed873a760ad65237e4086c08490230",
+      "source_git_sha": "c403e9ae0d453b5813d15036c8dc1db5ca979abb",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 7571,
+      "derived_from": "doc/cosign_attest.md",
+      "local_git_sha": "f10c06fb58e0b9fc9ebfc65b0cbe3123aa12e4d2",
+      "local_path": "doc/cosign_attest.md",
+      "searchable_text": true,
+      "sha256": "700c8f7d8e053ed467b616ec7679c53e0f6472d3aa64b5def36dc1be9319f236",
+      "source_git_sha": "612574c03306efb5216c9b13007b93f2de5d01e6",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 8329,
+      "derived_from": "doc/cosign_sign.md",
+      "local_git_sha": "9e0f994048d8819b22c5f522a5618738957c2c46",
+      "local_path": "doc/cosign_sign.md",
+      "searchable_text": true,
+      "sha256": "2b5a22b8bcd1faf081b89a58d05348e1e333b3cc94da0272fd3c4a04d1f1c66d",
+      "source_git_sha": "2001c1d7a4b7eba04af2d516edb56b523b01854f",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 8222,
+      "derived_from": "doc/cosign_verify-attestation.md",
+      "local_git_sha": "8c11b2b8eaa715412b82576a9d32722ca52fe88f",
+      "local_path": "doc/cosign_verify-attestation.md",
+      "searchable_text": true,
+      "sha256": "4675a39cae8eee120d1aced93b7a4778c928efc58294a63645d3951d9cbcd214",
+      "source_git_sha": "b40850d06ce62a5e0e165c076a5e0297bfafa267",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 7782,
+      "derived_from": "doc/cosign_verify.md",
+      "local_git_sha": "558433dbc98cb0ba300ccf2239540c6c33375c17",
+      "local_path": "doc/cosign_verify.md",
+      "searchable_text": true,
+      "sha256": "fdcaa96f993d16910b29c5fb1a939bc66d14e0dceb1b0814055f37d8b06086ce",
+      "source_git_sha": "05366b38b5d8e5120c3d8e1dc6190532f2deedbb",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "sigstore/cosign",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T17:03:01+00:00",
+  "schema_version": 2,
+  "source_commit": "58aae9e112fa1de80594eed34667e920ac4d4a3b",
+  "source_id": "cosign",
+  "source_tree": "8d865540f0b17da24f2dd49a507c183a9b1a19d2",
+  "source_url": "https://github.com/sigstore/cosign/tree/58aae9e112fa1de80594eed34667e920ac4d4a3b",
+  "tier": "canonical-supply-chain-tool-guidance",
+  "title": "Sigstore Cosign Signing, Verification, and Attestation Guidance",
+  "total_original_bytes": 44626,
+  "tracks": [
+    "supply-chain",
+    "signing",
+    "verification",
+    "attestations",
+    "oci",
+    "keyless"
+  ]
+}

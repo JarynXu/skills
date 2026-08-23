@@ -1,21 +1,81 @@
 {
-  "schema_version": 1,
-  "source_id": "oci-runtime",
-  "title": "Open Container Initiative Runtime Specification",
-  "owner": "Open Container Initiative",
-  "source_repository": "https://github.com/opencontainers/runtime-spec",
-  "source_commit": "6999a89a76a0329f440d5740497bedb9dd431297",
-  "license": "Apache-2.0",
-  "license_local_path": "../../LICENSES/Apache-2.0.txt",
-  "retrieved_date": "2026-08-23",
-  "inclusion_mode": "vendored-exact-text",
+  "agent_ready": true,
+  "file_count": 3,
   "files": [
     {
-      "path": "runtime.md",
-      "upstream_path": "runtime.md",
-      "upstream_git_sha": "3e111c63bbe6c6cb72563f2e9497a8b1ebd5a005",
+      "byte_exact": true,
+      "bytes": 10767,
+      "local_git_sha": "bdc403653e0a053959f28d1d83f72aab72ff20ac",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "a964a27c435167bdd78827ff83e4bd4473eca53d583a39598d2f445894a9225d",
+      "upstream_git_sha": "bdc403653e0a053959f28d1d83f72aab72ff20ac",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 57114,
+      "local_git_sha": "4ca7b120b42026b29d199987b75fc59364755c5f",
+      "local_path": "config.md",
+      "searchable_text": true,
+      "sha256": "3d99d67f4e1a32c2581aee44cf3cbee51f5b335fa74af191d1f9df495f92ee0b",
+      "upstream_git_sha": "4ca7b120b42026b29d199987b75fc59364755c5f",
+      "upstream_path": "config.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 10065,
       "local_git_sha": "3e111c63bbe6c6cb72563f2e9497a8b1ebd5a005",
-      "byte_exact": true
+      "local_path": "runtime.md",
+      "searchable_text": true,
+      "sha256": "6236bfd0c5762cfcf1e86be084c07e767cb6dff35692959e6811cecf2d334d91",
+      "upstream_git_sha": "3e111c63bbe6c6cb72563f2e9497a8b1ebd5a005",
+      "upstream_path": "runtime.md"
     }
+  ],
+  "license": "Apache-2.0",
+  "processed_bytes": 67884,
+  "processed_count": 2,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 57466,
+      "derived_from": "config.md",
+      "local_git_sha": "b906cc2a9f817bd07f95af4ce37a8054046abc6d",
+      "local_path": "config.md",
+      "searchable_text": true,
+      "sha256": "3e56076f9583253fa314dfe259b58986658d437a2d8daef3fcc60bb15eddc675",
+      "source_git_sha": "4ca7b120b42026b29d199987b75fc59364755c5f",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 10418,
+      "derived_from": "runtime.md",
+      "local_git_sha": "e693c5b6c9d021d3dab686fe51001c879f9a2a93",
+      "local_path": "runtime.md",
+      "searchable_text": true,
+      "sha256": "b5282e7905d3ea37b3a16eacdaca7b6f5a2953061c4511096c4e8ffd2044fecb",
+      "source_git_sha": "3e111c63bbe6c6cb72563f2e9497a8b1ebd5a005",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "opencontainers/runtime-spec",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T17:02:54+00:00",
+  "schema_version": 2,
+  "source_commit": "6999a89a76a0329f440d5740497bedb9dd431297",
+  "source_id": "oci-runtime",
+  "source_tree": "a77eea4b98ce64d6ffe77edf0e16af1ebf275e54",
+  "source_url": "https://github.com/opencontainers/runtime-spec/tree/6999a89a76a0329f440d5740497bedb9dd431297",
+  "tier": "canonical-container-specification",
+  "title": "OCI Runtime Specification",
+  "total_original_bytes": 77946,
+  "tracks": [
+    "containers",
+    "runtime",
+    "lifecycle",
+    "configuration"
   ]
 }

@@ -1,0 +1,147 @@
+{
+  "catalog_files": [
+    {
+      "git_blob_sha": "cc212f420c5b98516a93dbf29017fdb256d7ac8b",
+      "path": "SOURCES.json",
+      "sha256": "6aaafa957da0d0f6d2a5632d9f5031a703a8aa3be382937f05e2471832030cde"
+    }
+  ],
+  "catalog_git_sha": "c235fd8ede6ca13ee87c5e72942937d5199f1013",
+  "catalog_sha256": "60c423701ab5dc9c26133196b7fdbc12c27aa8e9051c13cedb2c43f7caed3202",
+  "catalog_source_count": 12,
+  "schema_version": 2,
+  "sources": {
+    "argo-cd": {
+      "agent_ready": true,
+      "file_count": 5,
+      "processed_bytes": 23821,
+      "processed_count": 4,
+      "repo": "argoproj/argo-cd",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T17:02:32+00:00",
+      "source_commit": "f558a3c31030acf5398b555a4206a7980c76cae1",
+      "total_original_bytes": 33740
+    },
+    "cosign": {
+      "agent_ready": true,
+      "file_count": 6,
+      "processed_bytes": 35022,
+      "processed_count": 5,
+      "repo": "sigstore/cosign",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T17:03:01+00:00",
+      "source_commit": "58aae9e112fa1de80594eed34667e920ac4d4a3b",
+      "total_original_bytes": 44626
+    },
+    "docker-docs": {
+      "agent_ready": true,
+      "file_count": 11,
+      "processed_bytes": 158381,
+      "processed_count": 10,
+      "repo": "docker/docs",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T17:02:22+00:00",
+      "source_commit": "a3fd0352216480db9becce4878e8e79caae46a45",
+      "total_original_bytes": 166046
+    },
+    "flux-gitops": {
+      "agent_ready": true,
+      "file_count": 5,
+      "processed_bytes": 43903,
+      "processed_count": 4,
+      "repo": "fluxcd/website",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T17:02:34+00:00",
+      "source_commit": "9918483b116a58dd582bca5c93730b0acebb1ff2",
+      "total_original_bytes": 53873
+    },
+    "github-actions": {
+      "agent_ready": true,
+      "file_count": 46,
+      "processed_bytes": 251569,
+      "processed_count": 45,
+      "repo": "github/docs",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T17:02:45+00:00",
+      "source_commit": "4f8c3170cea7f72cf41fc976f5dbf4e8a0b8567f",
+      "total_original_bytes": 251780
+    },
+    "kubernetes": {
+      "agent_ready": true,
+      "file_count": 8,
+      "processed_bytes": 237569,
+      "processed_count": 7,
+      "repo": "kubernetes/website",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T17:02:25+00:00",
+      "source_commit": "ec9ee723dc1fe1d9cb81bf547a29d7f5a13cccb7",
+      "total_original_bytes": 253462
+    },
+    "kustomize": {
+      "agent_ready": true,
+      "file_count": 11,
+      "processed_bytes": 21685,
+      "processed_count": 10,
+      "repo": "kubernetes-sigs/kustomize",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T17:02:29+00:00",
+      "source_commit": "12f9e6391464b3ad9dd3fe8182049dc1b1772990",
+      "total_original_bytes": 29227
+    },
+    "oci-image": {
+      "agent_ready": true,
+      "file_count": 6,
+      "processed_bytes": 55488,
+      "processed_count": 5,
+      "repo": "opencontainers/image-spec",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T17:02:57+00:00",
+      "source_commit": "af26a05fba5ee648512f4ea3c9fda1fcc1b6d6dc",
+      "total_original_bytes": 65078
+    },
+    "oci-runtime": {
+      "agent_ready": true,
+      "file_count": 3,
+      "processed_bytes": 67884,
+      "processed_count": 2,
+      "repo": "opencontainers/runtime-spec",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T17:02:54+00:00",
+      "source_commit": "6999a89a76a0329f440d5740497bedb9dd431297",
+      "total_original_bytes": 77946
+    },
+    "opentelemetry": {
+      "agent_ready": true,
+      "file_count": 7,
+      "processed_bytes": 128856,
+      "processed_count": 6,
+      "repo": "open-telemetry/opentelemetry-specification",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T17:02:52+00:00",
+      "source_commit": "1377f53b2bc0683c45169b8f20fd973eb4d59419",
+      "total_original_bytes": 137886
+    },
+    "prometheus-practices": {
+      "agent_ready": true,
+      "file_count": 12,
+      "processed_bytes": 84657,
+      "processed_count": 10,
+      "repo": "prometheus/docs",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T17:02:49+00:00",
+      "source_commit": "6ee5b68a4660d0b4e7999c9ae8ddb025ca400aef",
+      "total_original_bytes": 92830
+    },
+    "slsa": {
+      "agent_ready": true,
+      "file_count": 2,
+      "processed_bytes": 23297,
+      "processed_count": 2,
+      "repo": "slsa-framework/slsa",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T17:02:59+00:00",
+      "source_commit": "1686afeba11a456e470235ecf50cfc0d2f9ecbc3",
+      "total_original_bytes": 22598
+    }
+  }
+}

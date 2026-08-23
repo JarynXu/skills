@@ -1,22 +1,190 @@
 {
-  "schema_version": 1,
-  "source_id": "kubernetes",
-  "title": "Kubernetes Documentation — kubeconfig",
-  "owner": "The Kubernetes Authors",
-  "source_repository": "https://github.com/kubernetes/website",
-  "source_commit": "ec9ee723dc1fe1d9cb81bf547a29d7f5a13cccb7",
-  "license": "CC-BY-4.0",
-  "license_source": "https://github.com/kubernetes/website/blob/ec9ee723dc1fe1d9cb81bf547a29d7f5a13cccb7/LICENSE",
-  "retrieved_date": "2026-08-23",
-  "inclusion_mode": "vendored-exact-text",
-  "attribution": "Kubernetes documentation, The Kubernetes Authors; unmodified excerpt from the pinned kubernetes/website revision.",
+  "agent_ready": true,
+  "file_count": 8,
   "files": [
     {
-      "path": "kubeconfig.md",
-      "upstream_path": "content/en/docs/concepts/configuration/organize-cluster-access-kubeconfig.md",
-      "upstream_git_sha": "87c4737ad765fce18997eb63309a5d8e2cab98bb",
+      "byte_exact": true,
+      "bytes": 18657,
+      "local_git_sha": "da6ab6cc8f333d7e89a99812866df8f24374d47c",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+      "upstream_git_sha": "da6ab6cc8f333d7e89a99812866df8f24374d47c",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 33492,
+      "local_git_sha": "f0c8adbd7aaecbf3a5af49fdc6db37c35dffa6b2",
+      "local_path": "content/en/docs/concepts/configuration/manage-resources-containers.md",
+      "searchable_text": true,
+      "sha256": "34371f30326f7f9f859a20d1edbcef5fc1cc007f92e38e420f0f043ef4cf2637",
+      "upstream_git_sha": "f0c8adbd7aaecbf3a5af49fdc6db37c35dffa6b2",
+      "upstream_path": "content/en/docs/concepts/configuration/manage-resources-containers.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 6900,
       "local_git_sha": "87c4737ad765fce18997eb63309a5d8e2cab98bb",
-      "byte_exact": true
+      "local_path": "content/en/docs/concepts/configuration/organize-cluster-access-kubeconfig.md",
+      "searchable_text": true,
+      "sha256": "3af1a97b48276ddd35a31bbf24962c78c5ae939754fe038f5eec20abc7c8b843",
+      "upstream_git_sha": "87c4737ad765fce18997eb63309a5d8e2cab98bb",
+      "upstream_path": "content/en/docs/concepts/configuration/organize-cluster-access-kubeconfig.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 45284,
+      "local_git_sha": "f38269db88267ec64b2027384345e3666a68fbad",
+      "local_path": "content/en/docs/concepts/services-networking/service.md",
+      "searchable_text": true,
+      "sha256": "124a280dfbc2dad83498c579e960e5d199ca612b727033e2a88da1103e1acb51",
+      "upstream_git_sha": "f38269db88267ec64b2027384345e3666a68fbad",
+      "upstream_path": "content/en/docs/concepts/services-networking/service.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 51240,
+      "local_git_sha": "ea0880a3f91d33553f6630a5f350330429a41cd1",
+      "local_path": "content/en/docs/concepts/storage/persistent-volumes.md",
+      "searchable_text": true,
+      "sha256": "b0da38869bc1cdb5ed19f6424c2ef0fedefb5e10fb3603450f56a6581db90069",
+      "upstream_git_sha": "ea0880a3f91d33553f6630a5f350330429a41cd1",
+      "upstream_path": "content/en/docs/concepts/storage/persistent-volumes.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 56711,
+      "local_git_sha": "da4d0f437e596a171022f427f0ec9e4696f9eef6",
+      "local_path": "content/en/docs/concepts/workloads/pods/pod-lifecycle.md",
+      "searchable_text": true,
+      "sha256": "a22f3a96a41e7613e61beb292fc28fa45b9f68e8f65e493e3e940ed1d35a8b51",
+      "upstream_git_sha": "da4d0f437e596a171022f427f0ec9e4696f9eef6",
+      "upstream_path": "content/en/docs/concepts/workloads/pods/pod-lifecycle.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 12848,
+      "local_git_sha": "41cae40fb94440d75d66c130cd853c382713f4c5",
+      "local_path": "content/en/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md",
+      "searchable_text": true,
+      "sha256": "158e1b10e7dbd1eb1d7db987d6843583ef3181a6a67e82682e3edd3bdef56038",
+      "upstream_git_sha": "41cae40fb94440d75d66c130cd853c382713f4c5",
+      "upstream_path": "content/en/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 28330,
+      "local_git_sha": "287d4d6d0b86376d4ef771d105edbf5d82dba972",
+      "local_path": "content/en/docs/tasks/debug/debug-application/debug-running-pod.md",
+      "searchable_text": true,
+      "sha256": "ec96ce1a6c370020a9162cae98aba5b1a04113365815613ecdb1f658cfa2e08f",
+      "upstream_git_sha": "287d4d6d0b86376d4ef771d105edbf5d82dba972",
+      "upstream_path": "content/en/docs/tasks/debug/debug-application/debug-running-pod.md"
     }
+  ],
+  "license": "CC-BY-4.0",
+  "processed_bytes": 237569,
+  "processed_count": 7,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 33885,
+      "derived_from": "content/en/docs/concepts/configuration/manage-resources-containers.md",
+      "local_git_sha": "6c088cb176dec87706ca3f5ffd329315c74baf77",
+      "local_path": "content/en/docs/concepts/configuration/manage-resources-containers.md",
+      "searchable_text": true,
+      "sha256": "adffdbb482b88a77683555e88b1bd297c0c96b42fadebba4a392261d21f55b49",
+      "source_git_sha": "f0c8adbd7aaecbf3a5af49fdc6db37c35dffa6b2",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 7305,
+      "derived_from": "content/en/docs/concepts/configuration/organize-cluster-access-kubeconfig.md",
+      "local_git_sha": "1fc868207746be04e88db743b8e1b63240713bdb",
+      "local_path": "content/en/docs/concepts/configuration/organize-cluster-access-kubeconfig.md",
+      "searchable_text": true,
+      "sha256": "95c13fa5efdcc686211cef101a3dc24b398b5bdf77a3cfaa496f4723fd1d48c2",
+      "source_git_sha": "87c4737ad765fce18997eb63309a5d8e2cab98bb",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 45663,
+      "derived_from": "content/en/docs/concepts/services-networking/service.md",
+      "local_git_sha": "5344756c15888bb191158b252fd2a8713473264f",
+      "local_path": "content/en/docs/concepts/services-networking/service.md",
+      "searchable_text": true,
+      "sha256": "5db02d16177f229173bbe87c5d7960feba211dd1d5e01f254d9cf85f8873d468",
+      "source_git_sha": "f38269db88267ec64b2027384345e3666a68fbad",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 51625,
+      "derived_from": "content/en/docs/concepts/storage/persistent-volumes.md",
+      "local_git_sha": "74ba59b008116aed7dae063a151e229cc819e55e",
+      "local_path": "content/en/docs/concepts/storage/persistent-volumes.md",
+      "searchable_text": true,
+      "sha256": "bd7497825c5a4383ef27cd1c6cffc8d7757ada7e7f39e29cd7eef97c71f3c3ed",
+      "source_git_sha": "ea0880a3f91d33553f6630a5f350330429a41cd1",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 57094,
+      "derived_from": "content/en/docs/concepts/workloads/pods/pod-lifecycle.md",
+      "local_git_sha": "0b872e653784ca730489060e77f36e5fb5bf705e",
+      "local_path": "content/en/docs/concepts/workloads/pods/pod-lifecycle.md",
+      "searchable_text": true,
+      "sha256": "e6b0bfffda3411c902e7d82cd6772f2d911095b8a09aa3fbad96b1bfd4035aa4",
+      "source_git_sha": "da4d0f437e596a171022f427f0ec9e4696f9eef6",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 13274,
+      "derived_from": "content/en/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md",
+      "local_git_sha": "db84ffb8e1f2183e4da20a883ab51fdc958dbecb",
+      "local_path": "content/en/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md",
+      "searchable_text": true,
+      "sha256": "89dc30edb10d2fb9033c2d56c6231cef09ec195032c1ec518f3703bfdc7f0791",
+      "source_git_sha": "41cae40fb94440d75d66c130cd853c382713f4c5",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 28723,
+      "derived_from": "content/en/docs/tasks/debug/debug-application/debug-running-pod.md",
+      "local_git_sha": "a43198eb2fc9d910f909c51ad4401c9c293bd00e",
+      "local_path": "content/en/docs/tasks/debug/debug-application/debug-running-pod.md",
+      "searchable_text": true,
+      "sha256": "bc73b5eb54eae46184b2e35efb680e65062ca31f98f83ba1196998d18bb0ecb8",
+      "source_git_sha": "287d4d6d0b86376d4ef771d105edbf5d82dba972",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "kubernetes/website",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T17:02:25+00:00",
+  "schema_version": 2,
+  "source_commit": "ec9ee723dc1fe1d9cb81bf547a29d7f5a13cccb7",
+  "source_id": "kubernetes",
+  "source_tree": "54132d6de23becf52a6dcbefa4c4b65b87bde01a",
+  "source_url": "https://github.com/kubernetes/website/tree/ec9ee723dc1fe1d9cb81bf547a29d7f5a13cccb7",
+  "tier": "canonical-platform-guidance",
+  "title": "Kubernetes Workload and Operations Guidance",
+  "total_original_bytes": 253462,
+  "tracks": [
+    "kubernetes",
+    "workloads",
+    "probes",
+    "resources",
+    "networking",
+    "storage",
+    "debugging",
+    "kubeconfig"
   ]
 }
