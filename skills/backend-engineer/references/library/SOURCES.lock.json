@@ -11,6 +11,15 @@
       "source_commit": "6c59c8c36ecd8722c712d5685b8c3822c1c8b030",
       "total_original_bytes": 1720258
     },
+    "aspnetcore-core-docs": {
+      "derived_count": 0,
+      "file_count": 7482,
+      "repo": "dotnet/AspNetCore.Docs",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T06:09:45+00:00",
+      "source_commit": "6885b4c487beda992335631784c1dd31b301403b",
+      "total_original_bytes": 114162538
+    },
     "cpython-runtime-docs": {
       "derived_count": 0,
       "file_count": 23,
