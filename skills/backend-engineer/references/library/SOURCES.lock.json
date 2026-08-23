@@ -155,6 +155,15 @@
       "source_commit": "936f29673daa69fe90e6fa706011f89aef201988",
       "total_original_bytes": 303071
     },
+    "owasp-cheat-sheet-series": {
+      "derived_count": 0,
+      "file_count": 122,
+      "repo": "OWASP/CheatSheetSeries",
+      "requested_ref": "master",
+      "retrieved_at": "2026-08-23T05:45:24+00:00",
+      "source_commit": "6b8819da79e0537d072e04296ffa3adfc94ba881",
+      "total_original_bytes": 2479296
+    },
     "pact-specification": {
       "derived_count": 0,
       "file_count": 3,
