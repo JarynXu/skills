@@ -14,15 +14,15 @@
       "total_original_bytes": 1603797
     },
     "aspnetcore-core-docs": {
-      "agent_ready": false,
-      "file_count": 7482,
-      "processed_bytes": 0,
-      "processed_count": 0,
+      "agent_ready": true,
+      "file_count": 207,
+      "processed_bytes": 2260398,
+      "processed_count": 116,
       "repo": "dotnet/AspNetCore.Docs",
       "requested_ref": "main",
-      "retrieved_at": "2026-08-23T06:09:45+00:00",
+      "retrieved_at": "2026-08-23T06:32:01+00:00",
       "source_commit": "6885b4c487beda992335631784c1dd31b301403b",
-      "total_original_bytes": 114162538
+      "total_original_bytes": 2391662
     },
     "cpython-runtime-docs": {
       "agent_ready": true,
