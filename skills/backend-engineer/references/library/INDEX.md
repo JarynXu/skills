@@ -9,9 +9,10 @@ Choose one mode:
 - **Learn the discipline:** read [`curriculum/README.md`](curriculum/README.md), then follow the applicable language, systems, and framework tracks.
 - **Learn one language well:** read [`curriculum/languages.md`](curriculum/languages.md). Detailed baseline tracks currently exist for [Go](curriculum/go.md), [Kotlin](curriculum/kotlin.md), and [Rust](curriculum/rust.md).
 - **Learn framework behavior:** read [`curriculum/frameworks.md`](curriculum/frameworks.md), then load only the official framework material selected by the real project stack.
-- **Solve a backend problem:** read [`curriculum/systems.md`](curriculum/systems.md), then search the local originals for the relevant standard or guide.
+- **Solve a backend problem:** read [`curriculum/systems.md`](curriculum/systems.md), then search the local processed Markdown for the relevant standard or guide.
 - **Understand important books or standards we cannot redistribute:** read [`curriculum/restricted-canon.md`](curriculum/restricted-canon.md).
-- **Inspect why a source is here and how it is maintained:** read [`curriculum/source-selection.md`](curriculum/source-selection.md) and `SOURCES.json`.
+- **Understand why a source is here:** read [`curriculum/source-selection.md`](curriculum/source-selection.md) and `SOURCES.json`.
+- **Understand how raw manuals become agent-ready:** read [`curriculum/preprocessing.md`](curriculum/preprocessing.md).
 
 ## Teaching model
 
@@ -25,19 +26,24 @@ The library distinguishes five kinds of material:
 
 A famous document is not automatically current truth. For example, **Effective Go is foundational but explicitly predates generics and modules**, so the Go track pairs it with the current language specification, memory model, Google Go decisions/best practices, and modern engineering guidance.
 
-## Offline originals
+## Two offline layers
 
-Redistributable source material lives under:
+Redistributable material is stored twice for different reasons:
 
 ```text
 originals/<source-id>/
 ├── SOURCE.json
 └── <byte-exact upstream files>
+
+processed/<source-id>/
+└── <agent-ready Markdown derived from the originals>
 ```
 
-`SOURCE.json` records the resolved upstream commit, source repository, license, teaching tier, tracks, upstream Git blob SHA, and local Git blob SHA. Generated extracts such as searchable text derived from a PDF are marked as derived rather than byte-exact originals.
+`originals/` is the provenance and audit layer. `SOURCE.json` records the resolved upstream commit, source repository, license, teaching tier, tracks, upstream Git blob SHA, local Git blob SHA, and processing map.
 
-The canonical source list is [`SOURCES.json`](SOURCES.json). The sync process resolves moving refs to immutable commits and verifies downloaded bytes against upstream Git blob identifiers before accepting them.
+`processed/` is the normal runtime layer. HTML, RST, SGML/XML, AsciiDoc, plain text and PDF material is converted to Markdown during synchronization. PDF output retains page boundaries. Every generated Markdown file carries its source commit, path, original blob SHA, and transform name.
+
+The skill must not make an Agent repeatedly clean HTML or extract a PDF during ordinary backend work. `offline_library.py verify` rejects processable source documents that lack Markdown derivatives.
 
 ## Offline commands
 
@@ -49,6 +55,13 @@ python scripts/offline_library.py search "memory model"
 python scripts/offline_library.py search "idempotency" --source openapi-specification
 python scripts/offline_library.py read go-official-guides/_content/doc/effective_go.html --start 1 --end 160
 python scripts/offline_library.py verify
+```
+
+`search` and `read` use **processed Markdown by default**. `read` automatically tries the generated `.md` form for an HTML/PDF/RST/SGML path. Use exact originals only when necessary:
+
+```bash
+python scripts/offline_library.py search "MUST" --source http-core-rfc911x --originals
+python scripts/offline_library.py read go-language/doc/go_mem.html --original --start 1 --end 80
 ```
 
 Search first when the agent already understands the subject. Follow the curriculum when the agent lacks the mental model or when several sources appear to disagree.

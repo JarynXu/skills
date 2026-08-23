@@ -70,7 +70,7 @@ Before vendoring exact text or binaries:
 5. reject or classify as `restricted-canon` if the repository cannot legally redistribute the desired work for its intended open/community use;
 6. keep third-party material in a source-specific directory so the repository root license does not appear to relicense it.
 
-The sync process should preserve byte-exact upstream files whenever possible. Any generated text extraction, normalization or translation must be labeled as derived.
+Byte-exact upstream files belong in `originals/`. Generated normalization, extraction, or conversion belongs in `processed/` and must be labeled as derived.
 
 ### 6. Agent usability
 
@@ -83,6 +83,14 @@ A good source must be teachable. Decide whether it should be:
 - used only when the detected stack selects it.
 
 Large documentation sites should be narrowed to the chapters that carry backend engineering decisions rather than mirrored indiscriminately.
+
+**Offline is not the same as agent-ready.** PDF, HTML, RST, SGML/XML and other non-runtime-friendly originals must be preprocessed into Markdown before the source is considered ready for normal skill use. Read [`preprocessing.md`](preprocessing.md) for the required evidence/teaching-layer model and quality gate.
+
+### 7. Size and signal budget
+
+Every recursive source selection should be treated as suspicious until inspected. A source pack that unexpectedly expands into thousands of files, generated assets, test fixtures, screenshots, site build output, vendored JavaScript/CSS, or unrelated examples has failed curation even when its license allows redistribution.
+
+The synchronizer enforces conservative default file and byte budgets. Exceed them only by an explicit source-level override accompanied by a curriculum reason. Prefer a smaller authoritative chapter set over a full documentation-site mirror.
 
 ## Adding a source
 
@@ -100,9 +108,10 @@ why the source is needed
 selected paths
 known age/scope caveats
 sources that complement or supersede it
+expected processed Markdown form
 ```
 
-Then add it to `SOURCES.json`, run the sync, inspect the generated diff and `SOURCE.json`, run `offline_library.py verify`, and exercise at least one realistic search/read task that proves an agent can actually retrieve the intended knowledge.
+Then add it to `SOURCES.json`, run the sync, inspect the generated diff and `SOURCE.json`, run `offline_library.py verify`, and exercise at least one realistic processed-layer search/read task that proves an agent can actually retrieve the intended knowledge without preprocessing it again.
 
 ## Updating a source
 
@@ -113,19 +122,21 @@ Never update a vendored source merely because upstream changed. Review:
 - semantic changes to rules or guarantees;
 - license changes;
 - whether the curriculum text or learning order must change;
-- whether project defaults should remain pinned to an older stable standard/version.
+- whether project defaults should remain pinned to an older stable standard/version;
+- whether preprocessing still preserves useful structure.
 
 For a protocol or framework with multiple active versions, the library may retain multiple versioned sources when backward compatibility work needs them.
 
 ## Removing a source
 
-Remove or demote material when it becomes misleading, abandoned, legally unsuitable, substantially superseded, or redundant. Preserve a short curriculum note when the historical source is still commonly cited so agents understand references encountered in older code or documentation.
+Remove or demote material when it becomes misleading, abandoned, legally unsuitable, substantially superseded, redundant, or too noisy for its learning value. Preserve a short curriculum note when the historical source is still commonly cited so agents understand references encountered in older code or documentation.
 
 ## What not to do
 
 - Do not equate a company style guide with a language specification.
 - Do not equate a certification syllabus with a complete professional discipline.
 - Do not mirror an entire vendor documentation site just because it is available.
+- Do not ship a PDF or image and call the skill offline-ready when an agent still has to extract it before use.
 - Do not teach architecture patterns without the forces and failure modes they address.
 - Do not hide conflicting advice; explain scope and authority.
-- Do not claim a source is offline unless its actual files and manifest are present and `verify` passes.
+- Do not claim a source is offline or agent-ready unless its originals, processed Markdown, manifest and `verify` result all agree.
