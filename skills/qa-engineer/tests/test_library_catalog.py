@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Static contract for the QA offline-source catalog."""
+"""Static contract for the QA offline-source catalog and discoverability routes."""
 from __future__ import annotations
 
 import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CATALOG = ROOT / "references" / "library" / "SOURCES.json"
+LIBRARY = ROOT / "references" / "library"
+CATALOG = LIBRARY / "SOURCES.json"
 EXPECTED = {
     "owasp-cheat-sheet-series": "OWASP/CheatSheetSeries",
     "playwright-test-docs": "microsoft/playwright",
@@ -73,7 +74,17 @@ def main() -> None:
         "docs/src/accessibility-testing-js.md",
     } <= playwright_paths
 
-    print("qa offline catalog contract passed")
+    # Source packs must be discoverable from the normal QA learning/lookup routes.
+    index = (LIBRARY / "INDEX.md").read_text(encoding="utf-8")
+    for source_id in EXPECTED:
+        assert f"`{source_id}`" in index, source_id
+    learning = (ROOT / "references" / "complete-learning-path.md").read_text(encoding="utf-8")
+    standards = (ROOT / "references" / "standards" / "index.md").read_text(encoding="utf-8")
+    assert "library/INDEX.md" in learning
+    assert "../library/INDEX.md" in standards
+    assert "sync-qa-library.yml" in standards
+
+    print("qa offline catalog and routing contract passed")
 
 
 if __name__ == "__main__":
