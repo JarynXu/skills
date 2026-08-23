@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "source_id": "opentelemetry",
+  "title": "OpenTelemetry Specification",
+  "owner": "OpenTelemetry Authors",
+  "source_repository": "https://github.com/open-telemetry/opentelemetry-specification",
+  "source_commit": "1377f53b2bc0683c45169b8f20fd973eb4d59419",
+  "license": "Apache-2.0",
+  "license_local_path": "../../LICENSES/Apache-2.0.txt",
+  "retrieved_date": "2026-08-23",
+  "inclusion_mode": "vendored-exact-text",
+  "files": [
+    {
+      "path": "README.md",
+      "upstream_path": "specification/README.md",
+      "upstream_git_sha": "0e8c3560b8d398f1b0bc2a3b6981518cd7cbce3b",
+      "local_git_sha": "0e8c3560b8d398f1b0bc2a3b6981518cd7cbce3b",
+      "byte_exact": true
+    },
+    {
+      "path": "error-handling.md",
+      "upstream_path": "specification/error-handling.md",
+      "upstream_git_sha": "659a47aa5bb075cd66e068c699841402b0d01daf",
+      "local_git_sha": "659a47aa5bb075cd66e068c699841402b0d01daf",
+      "byte_exact": true
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "DevOps Engineer"
+  short_description: "Build, release, operate, diagnose, and harden delivery platforms"
+  default_prompt: "Use $devops-engineer to own this delivery, infrastructure, release, or production-operations task through verified operational handoff."

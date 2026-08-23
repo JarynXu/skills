@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "source_id": "kubernetes",
+  "title": "Kubernetes Documentation — kubeconfig",
+  "owner": "The Kubernetes Authors",
+  "source_repository": "https://github.com/kubernetes/website",
+  "source_commit": "ec9ee723dc1fe1d9cb81bf547a29d7f5a13cccb7",
+  "license": "CC-BY-4.0",
+  "license_source": "https://github.com/kubernetes/website/blob/ec9ee723dc1fe1d9cb81bf547a29d7f5a13cccb7/LICENSE",
+  "retrieved_date": "2026-08-23",
+  "inclusion_mode": "vendored-exact-text",
+  "attribution": "Kubernetes documentation, The Kubernetes Authors; unmodified excerpt from the pinned kubernetes/website revision.",
+  "files": [
+    {
+      "path": "kubeconfig.md",
+      "upstream_path": "content/en/docs/concepts/configuration/organize-cluster-access-kubeconfig.md",
+      "upstream_git_sha": "87c4737ad765fce18997eb63309a5d8e2cab98bb",
+      "local_git_sha": "87c4737ad765fce18997eb63309a5d8e2cab98bb",
+      "byte_exact": true
+    }
+  ]
+}

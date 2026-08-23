@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "source_id": "oci-runtime",
+  "title": "Open Container Initiative Runtime Specification",
+  "owner": "Open Container Initiative",
+  "source_repository": "https://github.com/opencontainers/runtime-spec",
+  "source_commit": "6999a89a76a0329f440d5740497bedb9dd431297",
+  "license": "Apache-2.0",
+  "license_local_path": "../../LICENSES/Apache-2.0.txt",
+  "retrieved_date": "2026-08-23",
+  "inclusion_mode": "vendored-exact-text",
+  "files": [
+    {
+      "path": "runtime.md",
+      "upstream_path": "runtime.md",
+      "upstream_git_sha": "3e111c63bbe6c6cb72563f2e9497a8b1ebd5a005",
+      "local_git_sha": "3e111c63bbe6c6cb72563f2e9497a8b1ebd5a005",
+      "byte_exact": true
+    }
+  ]
+}
