@@ -338,7 +338,7 @@
   "license": "Apache-2.0 repository; preserve license and provenance for selected documentation",
   "repo": "alibaba/p3c",
   "requested_ref": "master",
-  "retrieved_at": "2026-08-23T04:56:15+00:00",
+  "retrieved_at": "2026-08-23T05:27:02+00:00",
   "schema_version": 1,
   "source_commit": "6c59c8c36ecd8722c712d5685b8c3822c1c8b030",
   "source_id": "alibaba-p3c",

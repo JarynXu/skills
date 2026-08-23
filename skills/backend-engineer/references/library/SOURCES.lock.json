@@ -1,5 +1,5 @@
 {
-  "catalog_git_sha": "71febb6837d9c42ed2edfc90c92a93311c918d11",
+  "catalog_git_sha": "3ee829233a5b99803bfe4fe92d3e7a3f91f3c82f",
   "schema_version": 1,
   "sources": {
     "alibaba-p3c": {
@@ -7,7 +7,7 @@
       "file_count": 32,
       "repo": "alibaba/p3c",
       "requested_ref": "master",
-      "retrieved_at": "2026-08-23T04:56:15+00:00",
+      "retrieved_at": "2026-08-23T05:27:02+00:00",
       "source_commit": "6c59c8c36ecd8722c712d5685b8c3822c1c8b030",
       "total_original_bytes": 1720258
     },
