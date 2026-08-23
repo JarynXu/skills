@@ -287,7 +287,7 @@
   "license": "Apache-2.0",
   "repo": "apache/kafka",
   "requested_ref": "trunk",
-  "retrieved_at": "2026-08-23T04:58:30+00:00",
+  "retrieved_at": "2026-08-23T05:44:55+00:00",
   "schema_version": 1,
   "source_commit": "d79bd502ec7fa49335afa422f442af80ed0ab8f6",
   "source_id": "kafka-core-docs",
