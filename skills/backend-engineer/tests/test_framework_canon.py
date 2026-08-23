@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Static contract checks for the curated backend framework canon catalog."""
+"""Contract and installed-library checks for curated backend framework canon."""
 
 from __future__ import annotations
 
@@ -7,7 +7,10 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CATALOG = ROOT / "references" / "library" / "sources.d" / "framework-canon.json"
+LIBRARY = ROOT / "references" / "library"
+CATALOG = LIBRARY / "sources.d" / "framework-canon.json"
+ORIGINALS = LIBRARY / "originals"
+PROCESSED = LIBRARY / "processed"
 
 EXPECTED_REPOS = {
     "quarkus-core-docs": "quarkusio/quarkus",
@@ -43,15 +46,39 @@ SUPPORTED_SUFFIXES = {
     ".pdf",
 }
 
+SEARCH_EXPECTATIONS = {
+    "quarkus-core-docs": ("transaction", "transaction.adoc.md"),
+    "micronaut-core-docs": ("graceful", "gracefulShutdown.adoc.md"),
+    "ktor-server-docs": ("dependency injection", "server-dependency-injection.md"),
+    "fastify-core-docs": ("lifecycle", "Lifecycle.md"),
+    "nestjs-core-docs": ("dependency injection", "dependency-injection.md"),
+    "gin-core-docs": ("middleware", "doc.md"),
+    "tokio-guides": ("graceful shutdown", "shutdown.md"),
+    "sqlalchemy-core-docs": ("AsyncSession", "asyncio.rst.md"),
+    "efcore-core-docs": ("concurrency", "concurrency.md"),
+    "celery-core-docs": ("idempotent", "tasks.rst.md"),
+}
+
 
 def require_track(sources: dict[str, dict], source_ids: set[str], track: str) -> None:
     assert any(track in sources[source_id]["tracks"] for source_id in source_ids), (
         track,
-        source_ids,
+        sorted(source_ids),
     )
 
 
-def main() -> None:
+def search_processed(source_id: str, query: str) -> list[Path]:
+    root = PROCESSED / source_id
+    needle = query.casefold()
+    matches: list[Path] = []
+    for path in sorted(root.rglob("*.md")):
+        text = path.read_text(encoding="utf-8", errors="replace")
+        if needle in text.casefold():
+            matches.append(path.relative_to(root))
+    return matches
+
+
+def validate_catalog() -> dict[str, dict]:
     payload = json.loads(CATALOG.read_text(encoding="utf-8"))
     assert payload.get("schema_version") == 1, payload
     entries = payload.get("sources")
@@ -129,12 +156,53 @@ def main() -> None:
     ):
         require_track(sources, all_ids, track)
 
-    # Explicitly deferred until the preprocessing/source-quality contract is strong enough.
+    # Explicitly deferred until preprocessing/source quality is strong enough.
     assert "express-core-docs" not in sources
     assert "axum-core-docs" not in sources
     assert "echo-core-docs" not in sources
 
+    return sources
+
+
+def validate_installed_library(sources: dict[str, dict]) -> None:
+    for source_id in sorted(sources):
+        manifest_path = ORIGINALS / source_id / "SOURCE.json"
+        assert manifest_path.is_file(), (source_id, "SOURCE.json missing")
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        assert manifest.get("source_id") == source_id, source_id
+        assert manifest.get("agent_ready") is True, (source_id, "agent_ready is not true")
+        processed_files = manifest.get("processed_files")
+        assert isinstance(processed_files, list) and processed_files, (
+            source_id,
+            "no processed Markdown declared",
+        )
+        source_root = PROCESSED / source_id
+        assert source_root.is_dir(), (source_id, "processed source directory missing")
+        for item in processed_files:
+            relative = item.get("path") or item.get("local_path")
+            assert isinstance(relative, str) and relative, (source_id, item)
+            assert (source_root / relative).is_file(), (
+                source_id,
+                "declared processed file missing",
+                relative,
+            )
+
+    for source_id, (query, expected_name) in SEARCH_EXPECTATIONS.items():
+        matches = search_processed(source_id, query)
+        assert matches, (source_id, "query produced no processed Markdown match", query)
+        assert any(path.name == expected_name for path in matches), (
+            source_id,
+            query,
+            expected_name,
+            [str(path) for path in matches[:10]],
+        )
+
+
+def main() -> None:
+    sources = validate_catalog()
     print("framework canon catalog contract passed")
+    validate_installed_library(sources)
+    print("framework canon offline readiness passed")
 
 
 if __name__ == "__main__":
