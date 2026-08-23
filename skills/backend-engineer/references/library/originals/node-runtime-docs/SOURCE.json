@@ -1,0 +1,147 @@
+{
+  "derived_count": 0,
+  "derived_files": [],
+  "file_count": 12,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 156386,
+      "local_git_sha": "67cd2feb69a9b610ee038d285c9c04bdd977e41b",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "6b85ee1983d01fa2cdcdd5d1a3053c6221fae41d6a54e43b416bf35969fc4128",
+      "upstream_git_sha": "67cd2feb69a9b610ee038d285c9c04bdd977e41b",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 31389,
+      "local_git_sha": "372bf9231e869c80a0ac4b08894435eae9c7edbe",
+      "local_path": "doc/api/async_context.md",
+      "searchable_text": true,
+      "sha256": "70b4633b4d19f7c6e8e925f0ede792baea3f879045cb3904dfbc30e6327d767d",
+      "upstream_git_sha": "372bf9231e869c80a0ac4b08894435eae9c7edbe",
+      "upstream_path": "doc/api/async_context.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 56298,
+      "local_git_sha": "40d3372b5cf953557ee81f17965bd0191eb54f00",
+      "local_path": "doc/api/diagnostics_channel.md",
+      "searchable_text": true,
+      "sha256": "f645fb5a7e0799902a2f61a49979ed992abf9b423cfe0072cc26cfb4de4bf2a0",
+      "upstream_git_sha": "40d3372b5cf953557ee81f17965bd0191eb54f00",
+      "upstream_path": "doc/api/diagnostics_channel.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 124974,
+      "local_git_sha": "a248984d984b3a0eabe15bba5201d2127171a8b0",
+      "local_path": "doc/api/errors.md",
+      "searchable_text": true,
+      "sha256": "7843e2bdab9ecaabc096052578fa4068ea2e805ec7b93612fca470138150143d",
+      "upstream_git_sha": "a248984d984b3a0eabe15bba5201d2127171a8b0",
+      "upstream_path": "doc/api/errors.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 143639,
+      "local_git_sha": "b9d2fe4320da50cd383f5aea52b3423b9ceedd89",
+      "local_path": "doc/api/http.md",
+      "searchable_text": true,
+      "sha256": "a1052929a857de4ab3194906a419d509e3a968717cbfe670ed1bb90e98724ce9",
+      "upstream_git_sha": "b9d2fe4320da50cd383f5aea52b3423b9ceedd89",
+      "upstream_path": "doc/api/http.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 173306,
+      "local_git_sha": "7cf7a813c44373a9addcda801f49736b1f7fc87e",
+      "local_path": "doc/api/http2.md",
+      "searchable_text": true,
+      "sha256": "d4835aa43c87126f2abd7e3c656acb50f0f7d0b7cb7c51a304169d67d4ce6f4e",
+      "upstream_git_sha": "7cf7a813c44373a9addcda801f49736b1f7fc87e",
+      "upstream_path": "doc/api/http2.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 69520,
+      "local_git_sha": "eb2076eb79210c9952ea78a9f72cfcadec9f8dc3",
+      "local_path": "doc/api/perf_hooks.md",
+      "searchable_text": true,
+      "sha256": "eaea88703307fa23af7ddbf8522f81111f5636d56175d3938ef291b55b60ac8a",
+      "upstream_git_sha": "eb2076eb79210c9952ea78a9f72cfcadec9f8dc3",
+      "upstream_path": "doc/api/perf_hooks.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 134459,
+      "local_git_sha": "fe5ecbd3d45bb4f62779736768248ec29c95d408",
+      "local_path": "doc/api/process.md",
+      "searchable_text": true,
+      "sha256": "0c528215b05fc2f742f7fb5610ff68db707c1678eda8087fb28a7e3247a82d63",
+      "upstream_git_sha": "fe5ecbd3d45bb4f62779736768248ec29c95d408",
+      "upstream_path": "doc/api/process.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 24052,
+      "local_git_sha": "a63a310ac677ae37b08fee455e0d4b88241853f7",
+      "local_path": "doc/api/report.md",
+      "searchable_text": true,
+      "sha256": "e9d5150dad694eb8c12313a359bc7be8d684fef1f5696144a07a6f0d6b99d9f1",
+      "upstream_git_sha": "a63a310ac677ae37b08fee455e0d4b88241853f7",
+      "upstream_path": "doc/api/report.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 159763,
+      "local_git_sha": "3b2308851f0dd4d8e73c2fc502e39828c52d849e",
+      "local_path": "doc/api/stream.md",
+      "searchable_text": true,
+      "sha256": "a89877de257189e2c47ad4a99eae550ea360a2fe12c8ffe09436a6570ad2b880",
+      "upstream_git_sha": "3b2308851f0dd4d8e73c2fc502e39828c52d849e",
+      "upstream_path": "doc/api/stream.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 168873,
+      "local_git_sha": "573f2da98f9db1b131e7caf3a1d6498a72fe28f2",
+      "local_path": "doc/api/test.md",
+      "searchable_text": true,
+      "sha256": "118b2784cd4928f10b95c2a9d2663539a1148ec80a41182a976fd145bfaf0b6c",
+      "upstream_git_sha": "573f2da98f9db1b131e7caf3a1d6498a72fe28f2",
+      "upstream_path": "doc/api/test.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 68622,
+      "local_git_sha": "e7b6b19b355ca0a6577968c3922721487093bb56",
+      "local_path": "doc/api/worker_threads.md",
+      "searchable_text": true,
+      "sha256": "7f9e1e6a6740e6ad604982ae127aa08d1db8120f5af85f16edce01a79a65a838",
+      "upstream_git_sha": "e7b6b19b355ca0a6577968c3922721487093bb56",
+      "upstream_path": "doc/api/worker_threads.md"
+    }
+  ],
+  "license": "Node.js project permissive license and bundled third-party notices",
+  "repo": "nodejs/node",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T05:43:29+00:00",
+  "schema_version": 1,
+  "source_commit": "eae0ca39be9c3de12498c45640845ccbd1178c32",
+  "source_id": "node-runtime-docs",
+  "source_tree": "b69d17e788ad66e4b9bfaa6810c560f99ba4633d",
+  "source_url": "https://github.com/nodejs/node/tree/eae0ca39be9c3de12498c45640845ccbd1178c32",
+  "tier": "canonical-standard",
+  "title": "Node.js Runtime and Diagnostics Documentation",
+  "total_original_bytes": 1311281,
+  "tracks": [
+    "node-typescript",
+    "runtime",
+    "async",
+    "streams",
+    "diagnostics",
+    "testing"
+  ]
+}

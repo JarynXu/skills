@@ -119,6 +119,15 @@
       "source_commit": "dc3d60c29d5483d9ea99cf261bbd6203516a2ba7",
       "total_original_bytes": 2053647
     },
+    "node-runtime-docs": {
+      "derived_count": 0,
+      "file_count": 12,
+      "repo": "nodejs/node",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T05:43:29+00:00",
+      "source_commit": "eae0ca39be9c3de12498c45640845ccbd1178c32",
+      "total_original_bytes": 1311281
+    },
     "openapi-specification": {
       "derived_count": 0,
       "file_count": 3,
