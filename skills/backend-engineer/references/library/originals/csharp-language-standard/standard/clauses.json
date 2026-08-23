@@ -1,0 +1,45 @@
+{
+  "FrontMatter": [
+    "foreword.md",
+    "introduction.md"
+  ],
+  "ScopeAndConformance": [
+    "scope.md",
+    "normative-references.md",
+    "terms-and-definitions.md",
+    "general-description.md",
+    "conformance.md"
+  ],
+  "LexicalStructure": [
+    "lexical-structure.md"
+  ],
+  "MainBody": [
+    "basic-concepts.md",
+    "types.md",
+    "variables.md",
+    "conversions.md",
+    "patterns.md",
+    "expressions.md",
+    "statements.md",
+    "namespaces.md",
+    "classes.md",
+    "structs.md",
+    "arrays.md",
+    "ranges.md",
+    "interfaces.md",
+    "enums.md",
+    "delegates.md",
+    "exceptions.md",
+    "attributes.md"
+  ],
+  "UnsafeClauses": [
+    "unsafe-code.md"
+  ],
+  "Annexes": [
+    "grammar.md",
+    "portability-issues.md",
+    "standard-library.md",
+    "documentation-comments.md",
+    "bibliography.md"
+  ]
+}

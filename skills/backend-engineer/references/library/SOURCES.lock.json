@@ -49,6 +49,17 @@
       "source_commit": "526b2e0ede898f219a26014ef97e8914194ea2d7",
       "total_original_bytes": 1008829
     },
+    "csharp-language-standard": {
+      "agent_ready": true,
+      "file_count": 36,
+      "processed_bytes": 1912020,
+      "processed_count": 33,
+      "repo": "dotnet/csharpstandard",
+      "requested_ref": "draft-v8",
+      "retrieved_at": "2026-08-23T06:45:16+00:00",
+      "source_commit": "36c3f9a41c6a469ac748cb57fb5f1bb9b683c490",
+      "total_original_bytes": 1921139
+    },
     "django-core-docs": {
       "agent_ready": true,
       "file_count": 36,
