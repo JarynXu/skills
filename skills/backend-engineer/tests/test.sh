@@ -51,11 +51,60 @@ if python "$ROOT/scripts/inspect_backend.py" "$TMP/missing" >/dev/null 2>&1; the
   exit 1
 fi
 
-# Offline library behavior must work with no network access.
-python "$ROOT/scripts/offline_library.py" list | grep -q 'alibaba-p3c'
+# Curriculum files are first-class teaching entry points.
+for file in \
+  "$ROOT/references/library/INDEX.md" \
+  "$ROOT/references/library/SOURCES.json" \
+  "$ROOT/references/library/curriculum/README.md" \
+  "$ROOT/references/library/curriculum/languages.md" \
+  "$ROOT/references/library/curriculum/go.md" \
+  "$ROOT/references/library/curriculum/systems.md" \
+  "$ROOT/references/library/curriculum/restricted-canon.md" \
+  "$ROOT/references/library/curriculum/source-selection.md"; do
+  test -s "$file"
+done
+
+# Offline source inventory must contain every baseline teaching pack.
+LIB_LIST="$(python "$ROOT/scripts/offline_library.py" list)"
+for source in \
+  alibaba-p3c \
+  google-styleguide \
+  go-language \
+  go-official-guides \
+  go-proverbs \
+  uber-go-guide \
+  python-peps \
+  rust-api-guidelines \
+  dotnet-csharp-conventions \
+  node-best-practices \
+  http-core-rfc911x \
+  openapi-specification \
+  grpc-guides \
+  postgresql-core-docs \
+  kafka-core-docs \
+  redis-protocol-specifications \
+  owasp-asvs-5 \
+  pact-specification \
+  opentelemetry-specification \
+  twelve-factor-app; do
+  grep -q "^${source}[[:space:]]" <<<"$LIB_LIST"
+done
+
 python "$ROOT/scripts/offline_library.py" verify | grep -q 'Verified'
+
+# Representative dictionary lookups prove that the library is useful without network access.
 python "$ROOT/scripts/offline_library.py" search 'ThreadPoolExecutor' --source alibaba-p3c --limit 5 | grep -q '并发处理.md'
+python "$ROOT/scripts/offline_library.py" search 'happens before' --source go-language --limit 5 | grep -q 'go_mem.html'
+python "$ROOT/scripts/offline_library.py" search 'Effective Go' --source go-official-guides --limit 5 | grep -q 'effective_go.html'
+python "$ROOT/scripts/offline_library.py" search 'share memory by communicating' --source go-proverbs --limit 5 >/dev/null
+python "$ROOT/scripts/offline_library.py" search 'Readability counts' --source python-peps --limit 5 | grep -q 'pep-0020.rst'
+python "$ROOT/scripts/offline_library.py" search 'Operation Object' --source openapi-specification --limit 5 | grep -q '3.2.0.md'
+python "$ROOT/scripts/offline_library.py" search 'deadline' --source grpc-guides --limit 5 | grep -q 'deadlines.md'
+python "$ROOT/scripts/offline_library.py" search 'transaction isolation' --source postgresql-core-docs --limit 5 | grep -q 'mvcc.sgml'
+python "$ROOT/scripts/offline_library.py" search 'authorization' --source owasp-asvs-5 --limit 5 >/dev/null
+python "$ROOT/scripts/offline_library.py" search 'SpanContext' --source opentelemetry-specification --limit 5 >/dev/null
 python "$ROOT/scripts/offline_library.py" read 'alibaba-p3c/p3c-gitbook/MySQL数据库/索引规约.md' --start 1 --end 8 | grep -q '索引规约'
+
 if python "$ROOT/scripts/offline_library.py" read '../escape' >/dev/null 2>&1; then
   echo "expected unsafe library path to fail" >&2
   exit 1

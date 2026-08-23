@@ -1,55 +1,69 @@
-# Backend offline reference library
+# Backend Engineering Library
 
-This directory contains source material bundled with the skill so normal agent use does not depend on internet access. Treat the library as evidence, not as authority over the consuming project's own rules.
+This library is the offline teaching and reference layer for `backend-engineer`. It is not a dump of links and it is not a single coding-standard bundle. Its job is to help an agent build a correct backend-engineering mental model, then retrieve exact guidance without rereading everything.
 
-## Use modes
+## Start here
 
-### Lookup
+Choose one mode:
 
-For a narrow question, search locally instead of reading every manual:
+- **Learn the discipline:** read [`curriculum/README.md`](curriculum/README.md), then follow the applicable language and systems tracks.
+- **Learn one language well:** read [`curriculum/languages.md`](curriculum/languages.md); for Go, use the detailed [`curriculum/go.md`](curriculum/go.md) track.
+- **Solve a backend problem:** read [`curriculum/systems.md`](curriculum/systems.md), then search the local originals for the relevant standard or guide.
+- **Understand important books or standards we cannot redistribute:** read [`curriculum/restricted-canon.md`](curriculum/restricted-canon.md).
+- **Inspect why a source is here and how it is maintained:** read [`curriculum/source-selection.md`](curriculum/source-selection.md) and `SOURCES.json`.
+
+## Teaching model
+
+The library distinguishes five kinds of material:
+
+1. **Canonical standard/specification** — defines language, protocol, or verification semantics. Read when correctness depends on exact meaning.
+2. **Canonical practice** — official or ecosystem-owner guidance for writing idiomatic, maintainable code.
+3. **Conceptual canon** — compact principles that shape judgment but do not replace specifications.
+4. **Practice guide** — mature organizational/community experience, useful after the fundamentals are understood.
+5. **Restricted canon** — important works that an expert should know but that are not mirrored because redistribution rights do not permit it or are unclear.
+
+A famous document is not automatically current truth. For example, **Effective Go is foundational but explicitly predates generics and modules**, so the Go track pairs it with the current language specification, memory model, Google Go decisions/best practices, and modern engineering guidance.
+
+## Offline originals
+
+Redistributable source material lives under:
+
+```text
+originals/<source-id>/
+├── SOURCE.json
+└── <byte-exact upstream files>
+```
+
+`SOURCE.json` records the resolved upstream commit, source repository, license, teaching tier, tracks, upstream Git blob SHA, and local Git blob SHA. Generated extracts such as searchable text derived from a PDF are marked as derived rather than byte-exact originals.
+
+The canonical source list is [`SOURCES.json`](SOURCES.json). The sync process resolves moving refs to immutable commits and verifies downloaded bytes against upstream Git blob identifiers before accepting them.
+
+## Offline commands
+
+From `skills/backend-engineer/`:
 
 ```bash
 python scripts/offline_library.py list
-python scripts/offline_library.py search "并发" --source alibaba-p3c
-python scripts/offline_library.py search "unique index" --limit 20
-python scripts/offline_library.py read alibaba-p3c/p3c-gitbook/MySQL数据库/索引规约.md
-```
-
-### Learn
-
-When the agent does not know the applicable body of knowledge, read a selected source sequentially from its native table of contents or index. For Alibaba P3C, begin with:
-
-```text
-originals/alibaba-p3c/p3c-gitbook/SUMMARY.md
-```
-
-Do not turn a complete-learning request into mandatory preload for ordinary tasks.
-
-### Verify
-
-Before trusting a vendored source after repository changes:
-
-```bash
+python scripts/offline_library.py search "memory model"
+python scripts/offline_library.py search "idempotency" --source openapi-specification
+python scripts/offline_library.py read go-official-guides/_content/doc/effective_go.html --lines 1:160
 python scripts/offline_library.py verify
 ```
 
-The verifier computes Git blob SHA-1 locally. Files marked `byte_exact=true` in each `SOURCE.json` must equal the pinned upstream Git blob SHA. No network access is used.
+Search first when the agent already understands the subject. Follow the curriculum when the agent lacks the mental model or when several sources appear to disagree.
 
-## Source registry
+## Authority order during real project work
 
-Each source lives under `originals/<source-id>/` and has a `SOURCE.json` containing provenance, exact upstream revision, license, local inclusion state, and any known omissions.
+The library teaches defaults; it does not override the project being changed. Apply guidance in this order:
 
-Current sources:
+```text
+project/repository instructions and configured tools
+> accepted product and architecture contracts
+> applicable language/protocol specification
+> official framework/tool documentation for the installed version
+> adopted organization conventions
+> mature industry practice in this library
+> generic skill defaults
+```
 
-- `alibaba-p3c`: historical P3C GitBook text, pinned to Alibaba commit `6c59c8c36ecd8722c712d5685b8c3822c1c8b030`. Its text files are byte-exact Git mirrors. The GitBook itself states that it is older than the current manual, so it must not be represented as the current Yellow Mountain edition.
-
-## Integrity and completeness language
-
-Use these terms precisely:
-
-- **byte-exact**: local Git blob SHA equals the pinned upstream blob SHA.
-- **normalized**: substantive text is preserved but byte representation differs; the local SHA is recorded separately.
-- **missing binary original**: the pinned source is known but cannot be transported through the active connector. It is not counted as vendored.
-- **restricted**: redistribution permission is absent or unclear; only independently authored operational guidance may be bundled.
-
-A source may be useful offline while still being historically old. Provenance and applicability are separate decisions.
+When a source conflicts with a newer specification or the real project's configured version, investigate the conflict instead of applying a rule mechanically.

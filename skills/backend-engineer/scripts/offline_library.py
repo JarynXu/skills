@@ -12,7 +12,13 @@ from pathlib import Path
 SKILL_ROOT = Path(__file__).resolve().parents[1]
 LIBRARY_ROOT = SKILL_ROOT / "references" / "library"
 ORIGINALS_ROOT = LIBRARY_ROOT / "originals"
-TEXT_SUFFIXES = {".md", ".txt", ".html", ".htm", ".xml", ".json", ".yaml", ".yml", ".rst", ".adoc", ".css", ".js", ".ts", ".py", ".java", ".go", ".rs", ".cs", ".c", ".cc", ".cpp", ".h", ".hpp"}
+TEXT_SUFFIXES = {
+    ".md", ".markdown", ".txt", ".html", ".htm", ".xml", ".sgml", ".rst", ".adoc",
+    ".json", ".yaml", ".yml", ".toml", ".ini", ".cfg", ".conf", ".properties",
+    ".css", ".js", ".ts", ".py", ".java", ".kt", ".kts", ".go", ".rs", ".cs",
+    ".c", ".cc", ".cpp", ".h", ".hpp", ".proto", ".sql", ".sh", ".bash", ".zsh",
+}
+TEXT_NAMES = {"license", "notice", "copying", "copyright", "readme", "changelog"}
 
 
 def source_manifests() -> list[tuple[Path, dict[str, object]]]:
@@ -41,28 +47,50 @@ def safe_target(source_root: Path, relative: str) -> Path:
     return target
 
 
+def manifest_entries(data: dict[str, object]):
+    for key in ("files", "derived_files"):
+        values = data.get(key, [])
+        if not isinstance(values, list):
+            continue
+        for item in values:
+            if isinstance(item, dict):
+                yield item
+
+
+def entry_path(item: dict[str, object]) -> str:
+    value = item.get("path") or item.get("local_path")
+    if not isinstance(value, str) or not value:
+        raise ValueError(f"manifest entry has no path: {item!r}")
+    return value
+
+
 def command_list(_: argparse.Namespace) -> int:
     manifests = source_manifests()
     if not manifests:
         print("No offline sources are installed.")
         return 1
     for _, data in manifests:
-        files = data.get("files", [])
-        missing = data.get("missing_binary_originals", [])
-        exact = sum(1 for item in files if item.get("byte_exact") is True)
+        files = data.get("files", []) if isinstance(data.get("files", []), list) else []
+        derived = data.get("derived_files", []) if isinstance(data.get("derived_files", []), list) else []
+        missing = data.get("missing_binary_originals", []) if isinstance(data.get("missing_binary_originals", []), list) else []
+        exact = sum(1 for item in files if isinstance(item, dict) and item.get("byte_exact") is True)
         print(
             f"{data.get('source_id')}\t{data.get('title')}\t"
             f"commit={data.get('source_commit')}\tfiles={len(files)}\t"
-            f"byte_exact={exact}\tmissing_binary={len(missing)}"
+            f"byte_exact={exact}\tderived={len(derived)}\tmissing_binary={len(missing)}"
         )
     return 0
+
+
+def is_text_path(path: Path) -> bool:
+    return path.suffix.lower() in TEXT_SUFFIXES or path.name.lower() in TEXT_NAMES
 
 
 def iter_text_files(source_root: Path):
     for path in sorted(source_root.rglob("*")):
         if not path.is_file() or path.name == "SOURCE.json":
             continue
-        if path.suffix.lower() not in TEXT_SUFFIXES:
+        if not is_text_path(path):
             continue
         yield path
 
@@ -115,7 +143,7 @@ def command_read(args: argparse.Namespace) -> int:
     if not target.is_file():
         print(f"ERROR: file not found: {args.path}", file=sys.stderr)
         return 2
-    if target.suffix.lower() not in TEXT_SUFFIXES:
+    if not is_text_path(target):
         print(f"ERROR: binary/non-text original cannot be printed: {args.path}", file=sys.stderr)
         return 2
     text = target.read_text(encoding="utf-8", errors="replace")
@@ -138,22 +166,28 @@ def command_verify(_: argparse.Namespace) -> int:
 
     for source_root, data in manifests:
         source_id = str(data.get("source_id", source_root.name))
-        for item in data.get("files", []):
-            relative = str(item["path"])
-            target = safe_target(source_root, relative)
+        for item in manifest_entries(data):
+            try:
+                relative = entry_path(item)
+                target = safe_target(source_root, relative)
+            except (ValueError, KeyError) as exc:
+                failures.append(f"{source_id}: invalid manifest entry: {exc}")
+                continue
             if not target.is_file():
                 failures.append(f"{source_id}/{relative}: missing")
                 continue
             actual = git_blob_sha(target.read_bytes())
             expected = str(item.get("local_git_sha") or item.get("upstream_git_sha") or "")
             checked += 1
-            if actual != expected:
-                failures.append(
-                    f"{source_id}/{relative}: local sha {actual} != expected {expected}"
-                )
+            if not expected:
+                failures.append(f"{source_id}/{relative}: manifest has no expected Git blob sha")
+            elif actual != expected:
+                failures.append(f"{source_id}/{relative}: local sha {actual} != expected {expected}")
             if item.get("byte_exact") is True:
                 upstream = str(item.get("upstream_git_sha") or "")
-                if actual != upstream:
+                if not upstream:
+                    failures.append(f"{source_id}/{relative}: byte-exact entry has no upstream sha")
+                elif actual != upstream:
                     failures.append(
                         f"{source_id}/{relative}: expected byte-exact upstream sha {upstream}, got {actual}"
                     )
@@ -162,7 +196,7 @@ def command_verify(_: argparse.Namespace) -> int:
         for failure in failures:
             print(f"ERROR: {failure}", file=sys.stderr)
         return 1
-    print(f"Verified {checked} vendored file(s) across {len(manifests)} source(s).")
+    print(f"Verified {checked} vendored/derived file(s) across {len(manifests)} source(s).")
     return 0
 
 
