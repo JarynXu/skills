@@ -187,7 +187,7 @@
   "license": "MIT OR Apache-2.0",
   "repo": "rust-lang/api-guidelines",
   "requested_ref": "master",
-  "retrieved_at": "2026-08-23T04:56:33+00:00",
+  "retrieved_at": "2026-08-23T05:27:57+00:00",
   "schema_version": 1,
   "source_commit": "97a0969cb07fe4cabb0eed8a56234053f47d83dc",
   "source_id": "rust-api-guidelines",
