@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "policy": {
+    "purpose": "Build a local, progressive quality-engineering curriculum from authoritative, redistributable testing sources.",
+    "selection_rules": [
+      "Prefer standards bodies, project owners, and mature open-source testing projects over popularity alone.",
+      "Mirror only material that teaches a QA decision, test mechanism, oracle, integration boundary, or verification practice.",
+      "Keep tool-specific material subordinate to the consuming project's configured version and test architecture.",
+      "Pin every sync to the resolved upstream commit and verify downloaded Git blobs byte-for-byte.",
+      "Preprocess supported document formats into agent-ready Markdown while preserving exact originals and provenance.",
+      "Do not vendor proprietary certification syllabi, paid standards, books, or ambiguous-license material."
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "owasp-cheat-sheet-series",
+      "title": "OWASP Cheat Sheet Series - QA Security Subset",
+      "repo": "OWASP/CheatSheetSeries",
+      "ref": "master",
+      "license": "CC-BY-SA-4.0",
+      "tier": "canonical-practice",
+      "tracks": ["security", "authorization", "api-testing", "input-validation"],
+      "includes": [
+        {"path": "LICENSE.md"},
+        {"path": "cheatsheets/Authorization_Regression_Testing_Cheat_Sheet.md"},
+        {"path": "cheatsheets/Authorization_Testing_Automation_Cheat_Sheet.md"},
+        {"path": "cheatsheets/REST_Assessment_Cheat_Sheet.md"},
+        {"path": "cheatsheets/Input_Validation_Cheat_Sheet.md"}
+      ]
+    },
+    {
+      "source_id": "playwright-test-docs",
+      "title": "Playwright Test Engineering Guidance",
+      "repo": "microsoft/playwright",
+      "ref": "main",
+      "license": "Apache-2.0",
+      "tier": "canonical-tool-guidance",
+      "tracks": ["browser", "e2e", "api-testing", "accessibility", "fixtures", "test-automation", "ci"],
+      "includes": [
+        {"path": "LICENSE"},
+        {"path": "docs/src/best-practices-js.md"},
+        {"path": "docs/src/actionability.md"},
+        {"path": "docs/src/test-fixtures-js.md"},
+        {"path": "docs/src/test-assertions-js.md"},
+        {"path": "docs/src/browser-contexts.md"},
+        {"path": "docs/src/auth.md"},
+        {"path": "docs/src/api-testing-js.md"},
+        {"path": "docs/src/accessibility-testing-js.md"},
+        {"path": "docs/src/ci-intro.md"}
+      ]
+    },
+    {
+      "source_id": "selenium-test-practices",
+      "title": "Selenium Test Practices",
+      "repo": "SeleniumHQ/seleniumhq.github.io",
+      "ref": "trunk",
+      "license": "Apache-2.0",
+      "tier": "canonical-tool-guidance",
+      "tracks": ["browser", "webdriver", "test-design", "automation-architecture", "isolation"],
+      "includes": [
+        {"path": "LICENSE"},
+        {"path": "website_and_docs/content/documentation/test_practices/_index.en.md"},
+        {"path": "website_and_docs/content/documentation/test_practices/overview.en.md"},
+        {"path": "website_and_docs/content/documentation/test_practices/design_strategies.en.md"},
+        {"path": "website_and_docs/content/documentation/test_practices/encouraged/_index.en.md"},
+        {"path": "website_and_docs/content/documentation/test_practices/encouraged/avoid_sharing_state.en.md"}
+      ]
+    },
+    {
+      "source_id": "pact-specification",
+      "title": "Pact Contract Verification Specification and Guidelines",
+      "repo": "pact-foundation/pact-specification",
+      "ref": "master",
+      "license": "MIT",
+      "tier": "canonical-specification",
+      "tracks": ["contract-testing", "consumer-driven-contracts", "verification", "compatibility"],
+      "includes": [
+        {"path": "LICENSE"},
+        {"path": "README.md"},
+        {"path": "implementation-guidelines", "recursive": true}
+      ]
+    },
+    {
+      "source_id": "pytest-core-docs",
+      "title": "pytest Core Testing Guidance",
+      "repo": "pytest-dev/pytest",
+      "ref": "main",
+      "license": "MIT",
+      "tier": "canonical-tool-guidance",
+      "tracks": ["python", "fixtures", "assertions", "parameterization", "failure-diagnostics", "test-selection"],
+      "includes": [
+        {"path": "LICENSE"},
+        {"path": "doc/en/how-to/assert.rst"},
+        {"path": "doc/en/how-to/fixtures.rst"},
+        {"path": "doc/en/how-to/parametrize.rst"},
+        {"path": "doc/en/how-to/failures.rst"},
+        {"path": "doc/en/how-to/mark.rst"},
+        {"path": "doc/en/how-to/monkeypatch.rst"},
+        {"path": "doc/en/how-to/logging.rst"}
+      ]
+    },
+    {
+      "source_id": "hypothesis-property-testing",
+      "title": "Hypothesis Property-Based Testing Guidance",
+      "repo": "HypothesisWorks/hypothesis",
+      "ref": "master",
+      "license": "MPL-2.0 repository license; preserve source notices",
+      "tier": "canonical-tool-guidance",
+      "tracks": ["property-based-testing", "generative-testing", "shrinking", "test-design"],
+      "includes": [
+        {"path": "LICENSE.txt"},
+        {"path": "README.md"},
+        {"path": "paper.md"},
+        {"path": "guides/strategies-that-shrink.rst"},
+        {"path": "guides/testing-hypothesis.rst"}
+      ]
+    },
+    {
+      "source_id": "testcontainers-core-docs",
+      "title": "Testcontainers Integration Testing Guidance",
+      "repo": "testcontainers/testcontainers-java",
+      "ref": "main",
+      "license": "MIT",
+      "tier": "canonical-tool-guidance",
+      "tracks": ["integration-testing", "real-dependencies", "containers", "test-environments", "isolation"],
+      "includes": [
+        {"path": "LICENSE"},
+        {"path": "docs/index.md"},
+        {"path": "docs/features/creating_container.md"},
+        {"path": "docs/features/configuration.md"},
+        {"path": "docs/features/networking.md"},
+        {"path": "docs/features/startup_and_waits.md"},
+        {"path": "docs/features/reuse.md"}
+      ]
+    },
+    {
+      "source_id": "owasp-wstg",
+      "title": "OWASP Web Security Testing Guide - QA-Focused Subset",
+      "repo": "OWASP/wstg",
+      "ref": "master",
+      "license": "CC-BY-SA-4.0",
+      "tier": "canonical-security-testing",
+      "tracks": ["security", "test-methodology", "authorization", "input-validation", "business-logic", "api-testing", "reporting"],
+      "includes": [
+        {"path": "LICENSE"},
+        {"path": "document/3-The_OWASP_Testing_Framework", "recursive": true},
+        {"path": "document/4-Web_Application_Security_Testing/05-Authorization_Testing", "recursive": true},
+        {"path": "document/4-Web_Application_Security_Testing/07-Input_Validation_Testing", "recursive": true},
+        {"path": "document/4-Web_Application_Security_Testing/10-Business_Logic_Testing", "recursive": true},
+        {"path": "document/4-Web_Application_Security_Testing/12-API_Testing", "recursive": true},
+        {"path": "document/5-Reporting", "recursive": true}
+      ]
+    }
+  ]
+}

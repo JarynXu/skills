@@ -1,0 +1,188 @@
+{
+  "agent_ready": true,
+  "file_count": 8,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 1091,
+      "local_git_sha": "c3f1657fce94589bd1ec7cead810639047f3d359",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "ca836a5f9ecca3b2f350230faa20a48fb8b145653b5568d784862df864706b9b",
+      "upstream_git_sha": "c3f1657fce94589bd1ec7cead810639047f3d359",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 19934,
+      "local_git_sha": "5564aa9ce83f3df710f137e0e2f1856f9966e2ab",
+      "local_path": "doc/en/how-to/assert.rst",
+      "searchable_text": true,
+      "sha256": "55a78e4ca71dedc852c0fdeb665ed1db0fcc54df464639ec3db5e671a98a7a7d",
+      "upstream_git_sha": "5564aa9ce83f3df710f137e0e2f1856f9966e2ab",
+      "upstream_path": "doc/en/how-to/assert.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 5514,
+      "local_git_sha": "878c869d5256b214d20267d6d54c46675e42b8c7",
+      "local_path": "doc/en/how-to/failures.rst",
+      "searchable_text": true,
+      "sha256": "ba73e9e559125013098d97d88b2243ff16c4eb359da0259700f2152cb959d61a",
+      "upstream_git_sha": "878c869d5256b214d20267d6d54c46675e42b8c7",
+      "upstream_path": "doc/en/how-to/failures.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 62068,
+      "local_git_sha": "0ffc0778f9f288aeb092bffd90273d749c38c246",
+      "local_path": "doc/en/how-to/fixtures.rst",
+      "searchable_text": true,
+      "sha256": "0c2fca477f8032b8f898756cb184b06490ea3ac44c047b0cb5f84b562269de92",
+      "upstream_git_sha": "0ffc0778f9f288aeb092bffd90273d749c38c246",
+      "upstream_path": "doc/en/how-to/fixtures.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 11073,
+      "local_git_sha": "25b4e9017e2573e10ec77c273d3375cec0530665",
+      "local_path": "doc/en/how-to/logging.rst",
+      "searchable_text": true,
+      "sha256": "ff86c74e98278193c546288a7c97ec7dcab138ff99cab35530517cb1293323ff",
+      "upstream_git_sha": "25b4e9017e2573e10ec77c273d3375cec0530665",
+      "upstream_path": "doc/en/how-to/logging.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3498,
+      "local_git_sha": "e22219414a080cbbe3199b18ca5a81ed86b6b052",
+      "local_path": "doc/en/how-to/mark.rst",
+      "searchable_text": true,
+      "sha256": "17c1df0164af6b068d4177a75846774eaa27c562cde5f9c752c08b6dede89ace",
+      "upstream_git_sha": "e22219414a080cbbe3199b18ca5a81ed86b6b052",
+      "upstream_path": "doc/en/how-to/mark.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 16231,
+      "local_git_sha": "642e965b618d61304d3745c679877a7050c3f42c",
+      "local_path": "doc/en/how-to/monkeypatch.rst",
+      "searchable_text": true,
+      "sha256": "633cd38c7964bfda5d0da796557a0d94b355a6ea3eb1ae760cb520d9194c3667",
+      "upstream_git_sha": "642e965b618d61304d3745c679877a7050c3f42c",
+      "upstream_path": "doc/en/how-to/monkeypatch.rst"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 10300,
+      "local_git_sha": "5de284727054632898135ab4b71e3f465cf08de5",
+      "local_path": "doc/en/how-to/parametrize.rst",
+      "searchable_text": true,
+      "sha256": "2aa4c2b4d4a0103be6971806c646d1d15307ed3a47dc8e2157a3a403d533df09",
+      "upstream_git_sha": "5de284727054632898135ab4b71e3f465cf08de5",
+      "upstream_path": "doc/en/how-to/parametrize.rst"
+    }
+  ],
+  "license": "MIT",
+  "processed_bytes": 115529,
+  "processed_count": 7,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 17886,
+      "derived_from": "doc/en/how-to/assert.rst",
+      "local_git_sha": "725b4b67430718b3d22edfb38225d297f7a2f2a7",
+      "local_path": "doc/en/how-to/assert.rst.md",
+      "searchable_text": true,
+      "sha256": "e4fb45605517269f02d6f0ef270c42345f4b9d9e2447918f082e8db2d31f29a0",
+      "source_git_sha": "5564aa9ce83f3df710f137e0e2f1856f9966e2ab",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 5087,
+      "derived_from": "doc/en/how-to/failures.rst",
+      "local_git_sha": "34acb369542d66cea9539f5f984eac8697c75708",
+      "local_path": "doc/en/how-to/failures.rst.md",
+      "searchable_text": true,
+      "sha256": "58505e666f0dfef21561819374dbf88ec6b5bddcbdf93a0220cd94b26209c8b6",
+      "source_git_sha": "878c869d5256b214d20267d6d54c46675e42b8c7",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 55338,
+      "derived_from": "doc/en/how-to/fixtures.rst",
+      "local_git_sha": "bd899dc705797785199b68f1d5142d5ba3f13747",
+      "local_path": "doc/en/how-to/fixtures.rst.md",
+      "searchable_text": true,
+      "sha256": "5206b139228c945e86f473fd03b74c06183bd3012f218f3d6a51d71c7245aad4",
+      "source_git_sha": "0ffc0778f9f288aeb092bffd90273d749c38c246",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 9948,
+      "derived_from": "doc/en/how-to/logging.rst",
+      "local_git_sha": "dd7285b9dc46b5d89678bd2472880b78bd800df1",
+      "local_path": "doc/en/how-to/logging.rst.md",
+      "searchable_text": true,
+      "sha256": "36facc0ceb0c0fbf86b4edff250d4d2c17b298c67b0c6f540b4302af6ee5cb3e",
+      "source_git_sha": "25b4e9017e2573e10ec77c273d3375cec0530665",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 2930,
+      "derived_from": "doc/en/how-to/mark.rst",
+      "local_git_sha": "3979c20757adbd79f710fea15e45567a04681ab7",
+      "local_path": "doc/en/how-to/mark.rst.md",
+      "searchable_text": true,
+      "sha256": "4965d5cf299ef2640ed1845a84e02463c188ae940edca6705fbf0097e1163141",
+      "source_git_sha": "e22219414a080cbbe3199b18ca5a81ed86b6b052",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 15091,
+      "derived_from": "doc/en/how-to/monkeypatch.rst",
+      "local_git_sha": "c969e373245370e4026f341f4ada6d0dfd5216c8",
+      "local_path": "doc/en/how-to/monkeypatch.rst.md",
+      "searchable_text": true,
+      "sha256": "02c40181c8550c509d7f88f03f47d92c61f652e17ba04b3b9ff754f324b040f4",
+      "source_git_sha": "642e965b618d61304d3745c679877a7050c3f42c",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 9249,
+      "derived_from": "doc/en/how-to/parametrize.rst",
+      "local_git_sha": "ccdbcc3117fda9b5bedc3b7c819dbb7f867381a0",
+      "local_path": "doc/en/how-to/parametrize.rst.md",
+      "searchable_text": true,
+      "sha256": "0fcf52640a0e728237268892dbd189eb37d3fe6f218f93c75bf6daaadfa1d182",
+      "source_git_sha": "5de284727054632898135ab4b71e3f465cf08de5",
+      "transform": "rst-to-html-to-markdown:docutils+markdownify"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "pytest-dev/pytest",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T13:04:44+00:00",
+  "schema_version": 2,
+  "source_commit": "df87db7b0462fb764ef73fa00561adf8ad047572",
+  "source_id": "pytest-core-docs",
+  "source_tree": "aa9326445d40ef16da9a674b0c34b64137b908a7",
+  "source_url": "https://github.com/pytest-dev/pytest/tree/df87db7b0462fb764ef73fa00561adf8ad047572",
+  "tier": "canonical-tool-guidance",
+  "title": "pytest Core Testing Guidance",
+  "total_original_bytes": 129709,
+  "tracks": [
+    "python",
+    "fixtures",
+    "assertions",
+    "parameterization",
+    "failure-diagnostics",
+    "test-selection"
+  ]
+}

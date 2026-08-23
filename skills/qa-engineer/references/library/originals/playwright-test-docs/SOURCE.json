@@ -1,0 +1,231 @@
+{
+  "agent_ready": true,
+  "file_count": 10,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 11601,
+      "local_git_sha": "df112373eb2e23e459bf93ec412be1764dc5a38b",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "45873d00a0dd243596deb4aa23b2493b3d1f0671921bf2538ea431d7380220eb",
+      "upstream_git_sha": "df112373eb2e23e459bf93ec412be1764dc5a38b",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 14491,
+      "local_git_sha": "f547e8850642f2806b88077d629cefdffa30f31b",
+      "local_path": "docs/src/accessibility-testing-js.md",
+      "searchable_text": true,
+      "sha256": "3b56f3227dde7679b333de98547421dd077bd3351375e7811d613bcf0f43cf04",
+      "upstream_git_sha": "f547e8850642f2806b88077d629cefdffa30f31b",
+      "upstream_path": "docs/src/accessibility-testing-js.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 6270,
+      "local_git_sha": "3510171e5c328c19fe1c249e991a68b7b60ef4cf",
+      "local_path": "docs/src/actionability.md",
+      "searchable_text": true,
+      "sha256": "539bd66c4463673e1781c1e61306a6765721189b611f2c88ae13369ea3228869",
+      "upstream_git_sha": "3510171e5c328c19fe1c249e991a68b7b60ef4cf",
+      "upstream_path": "docs/src/actionability.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 13243,
+      "local_git_sha": "63ac024af71bfe611a2382a3272d42477db2c3f8",
+      "local_path": "docs/src/api-testing-js.md",
+      "searchable_text": true,
+      "sha256": "76784da87684927bc8a1e35bd483f7702b06b19a9530fe467146ae399a042b1c",
+      "upstream_git_sha": "63ac024af71bfe611a2382a3272d42477db2c3f8",
+      "upstream_path": "docs/src/api-testing-js.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 26016,
+      "local_git_sha": "20d23d0247c9c5b8394e7b3526563870a82998b4",
+      "local_path": "docs/src/auth.md",
+      "searchable_text": true,
+      "sha256": "57741d5c122c460af28af03e4e67a22b65d1a155e89a5e46c7ccd18c9ed50b90",
+      "upstream_git_sha": "20d23d0247c9c5b8394e7b3526563870a82998b4",
+      "upstream_path": "docs/src/auth.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 19880,
+      "local_git_sha": "02e1e4db6baea68e725040646396e09a29584420",
+      "local_path": "docs/src/best-practices-js.md",
+      "searchable_text": true,
+      "sha256": "785e6244815ed457ceb0a9109e0ead34a114fd89b09c0689174a5b421eed8512",
+      "upstream_git_sha": "02e1e4db6baea68e725040646396e09a29584420",
+      "upstream_path": "docs/src/best-practices-js.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 6485,
+      "local_git_sha": "d34759c18549026d7cba3558ce8357d6e441c4c7",
+      "local_path": "docs/src/browser-contexts.md",
+      "searchable_text": true,
+      "sha256": "f9e36e74a5173fcd48a2ca22d4ee957f050b2e09c3e9b57887070efc43198b15",
+      "upstream_git_sha": "d34759c18549026d7cba3558ce8357d6e441c4c7",
+      "upstream_path": "docs/src/browser-contexts.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 15720,
+      "local_git_sha": "f39f11bef5ab4997ac8ec34cd1bd1bcd14bd6917",
+      "local_path": "docs/src/ci-intro.md",
+      "searchable_text": true,
+      "sha256": "2856ba1e3a5e0aa88952b77919a48472b3534f4b83b406d78c7694edb3e5fd6c",
+      "upstream_git_sha": "f39f11bef5ab4997ac8ec34cd1bd1bcd14bd6917",
+      "upstream_path": "docs/src/ci-intro.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 17472,
+      "local_git_sha": "69edc341e887f476488cfd27dfb6ec36851dd02e",
+      "local_path": "docs/src/test-assertions-js.md",
+      "searchable_text": true,
+      "sha256": "579674fc269a3a452e9988dea6909feb2217c330e2feb3bb410c593dc733a828",
+      "upstream_git_sha": "69edc341e887f476488cfd27dfb6ec36851dd02e",
+      "upstream_path": "docs/src/test-assertions-js.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 29253,
+      "local_git_sha": "0646574ab7d40e30f19176a33a2bcef5d4ad07e5",
+      "local_path": "docs/src/test-fixtures-js.md",
+      "searchable_text": true,
+      "sha256": "15d144de3bab5c34b884daa7a0917277689f9b3e1df1f5f181c0b6b11361d0ba",
+      "upstream_git_sha": "0646574ab7d40e30f19176a33a2bcef5d4ad07e5",
+      "upstream_path": "docs/src/test-fixtures-js.md"
+    }
+  ],
+  "license": "Apache-2.0",
+  "processed_bytes": 152087,
+  "processed_count": 9,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 14863,
+      "derived_from": "docs/src/accessibility-testing-js.md",
+      "local_git_sha": "67a9a37e662a1d2057e99b02a01e87be08f418b9",
+      "local_path": "docs/src/accessibility-testing-js.md",
+      "searchable_text": true,
+      "sha256": "88ec62f00bab42613d7104d2fb8951582612b2dbc3031af6c3c9b727121e5dce",
+      "source_git_sha": "f547e8850642f2806b88077d629cefdffa30f31b",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 6631,
+      "derived_from": "docs/src/actionability.md",
+      "local_git_sha": "7e6334279ecfdba4b87388f7e8ff3af6ec2bba57",
+      "local_path": "docs/src/actionability.md",
+      "searchable_text": true,
+      "sha256": "08cc0445d5f006654d5c56152d53aff7efcb71f92f89278f4946b5558152711e",
+      "source_git_sha": "3510171e5c328c19fe1c249e991a68b7b60ef4cf",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 13605,
+      "derived_from": "docs/src/api-testing-js.md",
+      "local_git_sha": "d3c58db8eabf6024d12c834ce5b28fbd22381622",
+      "local_path": "docs/src/api-testing-js.md",
+      "searchable_text": true,
+      "sha256": "2fe06d136b39bb9fd29836a85e50d0911284d01a4d34eb89028a6914a7920fe2",
+      "source_git_sha": "63ac024af71bfe611a2382a3272d42477db2c3f8",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 26368,
+      "derived_from": "docs/src/auth.md",
+      "local_git_sha": "6b233fbff7230818459216cbb5164df3596612b4",
+      "local_path": "docs/src/auth.md",
+      "searchable_text": true,
+      "sha256": "c10f77e69b033dd41efc86e2843c72ab3a6f8f050e32e029646967e0e9089d6c",
+      "source_git_sha": "20d23d0247c9c5b8394e7b3526563870a82998b4",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 20244,
+      "derived_from": "docs/src/best-practices-js.md",
+      "local_git_sha": "6d22f5bc1676db3c8060b01505e8284519658d46",
+      "local_path": "docs/src/best-practices-js.md",
+      "searchable_text": true,
+      "sha256": "8ffb4b7dba185e5dd8e9e843beb9c7fc70f6e51f215c1b3177bb67add910149c",
+      "source_git_sha": "02e1e4db6baea68e725040646396e09a29584420",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 6845,
+      "derived_from": "docs/src/browser-contexts.md",
+      "local_git_sha": "a779151580470129acb225f1f7bab97973e1f14a",
+      "local_path": "docs/src/browser-contexts.md",
+      "searchable_text": true,
+      "sha256": "8a1c7519178ff16436692b338ffdeb54b7d2c4bf5267e107b73fce3dcb7e4b98",
+      "source_git_sha": "d34759c18549026d7cba3558ce8357d6e441c4c7",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 16076,
+      "derived_from": "docs/src/ci-intro.md",
+      "local_git_sha": "bd87e91fa712b1714ac3c09d8d31e37c58164952",
+      "local_path": "docs/src/ci-intro.md",
+      "searchable_text": true,
+      "sha256": "100d6ef2967545bb4624e23ca2214f8d7ce0236d6be99ffa66fe550f0916142b",
+      "source_git_sha": "f39f11bef5ab4997ac8ec34cd1bd1bcd14bd6917",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 17838,
+      "derived_from": "docs/src/test-assertions-js.md",
+      "local_git_sha": "0c3a715baaf7c1656a96e4a54e3397c9da910075",
+      "local_path": "docs/src/test-assertions-js.md",
+      "searchable_text": true,
+      "sha256": "390424e06d54d735536e0852c7c724fc5706063f95512e15763b78e19a51a246",
+      "source_git_sha": "69edc341e887f476488cfd27dfb6ec36851dd02e",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 29617,
+      "derived_from": "docs/src/test-fixtures-js.md",
+      "local_git_sha": "a748ad4f769ae81085a22b235517a90dcd9091b1",
+      "local_path": "docs/src/test-fixtures-js.md",
+      "searchable_text": true,
+      "sha256": "e69877c9ddc692017e93013f6b7abd266bdc076f03576a3ca32528c0c465bfbe",
+      "source_git_sha": "0646574ab7d40e30f19176a33a2bcef5d4ad07e5",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "microsoft/playwright",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T13:04:36+00:00",
+  "schema_version": 2,
+  "source_commit": "d4e1023f6c03a8dced50eb3db88c2217e7c1a86a",
+  "source_id": "playwright-test-docs",
+  "source_tree": "bbd5c8be225c13f71db1b774ff112a9e34ab0d20",
+  "source_url": "https://github.com/microsoft/playwright/tree/d4e1023f6c03a8dced50eb3db88c2217e7c1a86a",
+  "tier": "canonical-tool-guidance",
+  "title": "Playwright Test Engineering Guidance",
+  "total_original_bytes": 160431,
+  "tracks": [
+    "browser",
+    "e2e",
+    "api-testing",
+    "accessibility",
+    "fixtures",
+    "test-automation",
+    "ci"
+  ]
+}
