@@ -2,6 +2,8 @@
 
 Use this reference when backend behavior depends on a cache, broker, search engine, object store, scheduler, workflow engine, configuration/discovery system, or gateway. Treat each product as an operational dependency with semantics, not a feature checkbox.
 
+When the task requires live broker/cache/search/object-store/workflow inspection or command-line diagnosis, route to [`middleware-operations.md`](middleware-operations.md). That reference separates read-only evidence from production-affecting actions such as purge/delete/reset/replay/configuration changes.
+
 ## Redis and distributed caches
 
 Clarify whether Redis is a cache, ephemeral coordination store, queue, rate limiter, session store, or authoritative data store. Define persistence and failover assumptions, key model, memory bounds and eviction, TTL, serialization, atomicity, cluster/slot behavior, hot keys, tenant isolation, and fallback. Use Lua or transactions only with understood atomic scope. Locks require leases and fencing where stale owners can cause harm.
