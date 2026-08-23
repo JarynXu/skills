@@ -1,19 +1,23 @@
 {
-  "catalog_git_sha": "3ee829233a5b99803bfe4fe92d3e7a3f91f3c82f",
-  "schema_version": 1,
+  "catalog_git_sha": "b1adc8fee00204340ba9d6b5861a072bc80c8ade",
+  "schema_version": 2,
   "sources": {
     "alibaba-p3c": {
-      "derived_count": 1,
-      "file_count": 32,
+      "agent_ready": true,
+      "file_count": 28,
+      "processed_bytes": 260813,
+      "processed_count": 27,
       "repo": "alibaba/p3c",
       "requested_ref": "master",
-      "retrieved_at": "2026-08-23T05:27:02+00:00",
+      "retrieved_at": "2026-08-23T06:24:14+00:00",
       "source_commit": "6c59c8c36ecd8722c712d5685b8c3822c1c8b030",
-      "total_original_bytes": 1720258
+      "total_original_bytes": 1603797
     },
     "aspnetcore-core-docs": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 7482,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "dotnet/AspNetCore.Docs",
       "requested_ref": "main",
       "retrieved_at": "2026-08-23T06:09:45+00:00",
@@ -21,8 +25,10 @@
       "total_original_bytes": 114162538
     },
     "cpython-runtime-docs": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 23,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "python/cpython",
       "requested_ref": "main",
       "retrieved_at": "2026-08-23T05:27:29+00:00",
@@ -30,8 +36,10 @@
       "total_original_bytes": 1008829
     },
     "django-core-docs": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 36,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "django/django",
       "requested_ref": "main",
       "retrieved_at": "2026-08-23T05:47:18+00:00",
@@ -39,8 +47,10 @@
       "total_original_bytes": 860292
     },
     "dotnet-csharp-conventions": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 3,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "dotnet/docs",
       "requested_ref": "main",
       "retrieved_at": "2026-08-23T05:43:20+00:00",
@@ -48,8 +58,10 @@
       "total_original_bytes": 43261
     },
     "fastapi-core-docs": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 29,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "fastapi/fastapi",
       "requested_ref": "master",
       "retrieved_at": "2026-08-23T05:47:27+00:00",
@@ -57,8 +69,10 @@
       "total_original_bytes": 229839
     },
     "go-language": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 4,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "golang/go",
       "requested_ref": "master",
       "retrieved_at": "2026-08-23T05:27:11+00:00",
@@ -66,8 +80,10 @@
       "total_original_bytes": 353714
     },
     "go-official-guides": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 6,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "golang/website",
       "requested_ref": "master",
       "retrieved_at": "2026-08-23T05:27:14+00:00",
@@ -75,8 +91,10 @@
       "total_original_bytes": 191957
     },
     "go-proverbs": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 3,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "jboursiquot/go-proverbs",
       "requested_ref": "master",
       "retrieved_at": "2026-08-23T05:27:17+00:00",
@@ -84,8 +102,10 @@
       "total_original_bytes": 6199
     },
     "google-styleguide": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 12,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "google/styleguide",
       "requested_ref": "gh-pages",
       "retrieved_at": "2026-08-23T05:27:08+00:00",
@@ -93,8 +113,10 @@
       "total_original_bytes": 1082225
     },
     "grpc-guides": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 10,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "grpc/grpc.io",
       "requested_ref": "main",
       "retrieved_at": "2026-08-23T05:44:41+00:00",
@@ -102,8 +124,10 @@
       "total_original_bytes": 79441
     },
     "http-core-rfc911x": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 4,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "httpwg/http-core",
       "requested_ref": "main",
       "retrieved_at": "2026-08-23T05:44:31+00:00",
@@ -111,8 +135,10 @@
       "total_original_bytes": 1644554
     },
     "kafka-core-docs": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 28,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "apache/kafka",
       "requested_ref": "trunk",
       "retrieved_at": "2026-08-23T05:44:55+00:00",
@@ -120,8 +146,10 @@
       "total_original_bytes": 567579
     },
     "kotlin-coding-conventions": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 3,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "JetBrains/kotlin-web-site",
       "requested_ref": "master",
       "retrieved_at": "2026-08-23T05:43:17+00:00",
@@ -129,8 +157,10 @@
       "total_original_bytes": 53190
     },
     "kotlin-spec": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 6864,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "Kotlin/kotlin-spec",
       "requested_ref": "release",
       "retrieved_at": "2026-08-23T05:42:58+00:00",
@@ -138,8 +168,10 @@
       "total_original_bytes": 176902441
     },
     "node-best-practices": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 561,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "goldbergyoni/nodebestpractices",
       "requested_ref": "master",
       "retrieved_at": "2026-08-23T05:44:26+00:00",
@@ -147,8 +179,10 @@
       "total_original_bytes": 2053647
     },
     "node-runtime-docs": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 12,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "nodejs/node",
       "requested_ref": "main",
       "retrieved_at": "2026-08-23T05:43:29+00:00",
@@ -156,8 +190,10 @@
       "total_original_bytes": 1311281
     },
     "openapi-specification": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 3,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "OAI/OpenAPI-Specification",
       "requested_ref": "main",
       "retrieved_at": "2026-08-23T05:44:35+00:00",
@@ -165,8 +201,10 @@
       "total_original_bytes": 309655
     },
     "opentelemetry-specification": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 56,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "open-telemetry/opentelemetry-specification",
       "requested_ref": "main",
       "retrieved_at": "2026-08-23T05:45:40+00:00",
@@ -174,8 +212,10 @@
       "total_original_bytes": 2326875
     },
     "owasp-asvs-5": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 30,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "OWASP/ASVS",
       "requested_ref": "v5.0.0",
       "retrieved_at": "2026-08-23T05:45:08+00:00",
@@ -183,8 +223,10 @@
       "total_original_bytes": 303071
     },
     "owasp-cheat-sheet-series": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 122,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "OWASP/CheatSheetSeries",
       "requested_ref": "master",
       "retrieved_at": "2026-08-23T05:45:24+00:00",
@@ -192,8 +234,10 @@
       "total_original_bytes": 2479296
     },
     "pact-specification": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 3,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "pact-foundation/pact-specification",
       "requested_ref": "master",
       "retrieved_at": "2026-08-23T05:45:29+00:00",
@@ -201,8 +245,10 @@
       "total_original_bytes": 10406
     },
     "postgresql-core-docs": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 6,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "postgres/postgres",
       "requested_ref": "master",
       "retrieved_at": "2026-08-23T05:44:47+00:00",
@@ -210,8 +256,10 @@
       "total_original_bytes": 820550
     },
     "python-peps": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 4,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "python/peps",
       "requested_ref": "main",
       "retrieved_at": "2026-08-23T05:27:23+00:00",
@@ -219,8 +267,10 @@
       "total_original_bytes": 151639
     },
     "redis-protocol-specifications": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 8,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "redis/redis-specifications",
       "requested_ref": "master",
       "retrieved_at": "2026-08-23T05:45:00+00:00",
@@ -228,8 +278,10 @@
       "total_original_bytes": 69890
     },
     "rust-api-guidelines": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 18,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "rust-lang/api-guidelines",
       "requested_ref": "master",
       "retrieved_at": "2026-08-23T05:27:57+00:00",
@@ -237,8 +289,10 @@
       "total_original_bytes": 105170
     },
     "rust-book": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 144,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "rust-lang/book",
       "requested_ref": "main",
       "retrieved_at": "2026-08-23T05:27:52+00:00",
@@ -246,8 +300,10 @@
       "total_original_bytes": 2383975
     },
     "spring-boot-docs": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 56,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "spring-projects/spring-boot",
       "requested_ref": "main",
       "retrieved_at": "2026-08-23T05:47:08+00:00",
@@ -255,8 +311,10 @@
       "total_original_bytes": 771472
     },
     "spring-framework-docs": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 410,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "spring-projects/spring-framework",
       "requested_ref": "main",
       "retrieved_at": "2026-08-23T05:46:55+00:00",
@@ -264,8 +322,10 @@
       "total_original_bytes": 2626055
     },
     "twelve-factor-app": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 17,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "heroku/12factor",
       "requested_ref": "main",
       "retrieved_at": "2026-08-23T06:10:00+00:00",
@@ -273,8 +333,10 @@
       "total_original_bytes": 35980
     },
     "uber-go-guide": {
-      "derived_count": 0,
+      "agent_ready": false,
       "file_count": 3,
+      "processed_bytes": 0,
+      "processed_count": 0,
       "repo": "uber-go/guide",
       "requested_ref": "master",
       "retrieved_at": "2026-08-23T05:27:20+00:00",
