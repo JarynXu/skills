@@ -35,7 +35,7 @@ For SQLx/Diesel/ORMs, inspect pool bounds, transaction lifetime, query compile/c
 Use Cargo/project configuration:
 
 - `cargo check`/build/test for the actual package/workspace/feature set;
-- `cargo fmt --check` and Clippy according to repository policy;
+- `cargo fmt -- --check` and `cargo clippy --all-targets` according to repository policy;
 - doctests where public API documentation examples are contractual;
 - property testing with proptest/quickcheck when invariants/input spaces justify it;
 - Testcontainers or disposable real dependencies for integration semantics;
