@@ -1,23 +1,71 @@
 {
-  "schema_version": 1,
-  "source_id": "slsa",
-  "title": "SLSA Specification — Build Track Basics",
-  "owner": "SLSA Working Group",
-  "source_repository": "https://github.com/slsa-framework/slsa",
-  "source_commit": "1686afeba11a456e470235ecf50cfc0d2f9ecbc3",
-  "license": "Community Specification License 1.0",
-  "license_source": "https://github.com/slsa-framework/slsa/blob/1686afeba11a456e470235ecf50cfc0d2f9ecbc3/LICENSE.md",
-  "retrieved_date": "2026-08-23",
-  "inclusion_mode": "vendored-exact-text",
-  "attribution": "SLSA Specification, SLSA Working Group, pinned source revision 1686afeba11a456e470235ecf50cfc0d2f9ecbc3. The bundled specification text is unmodified.",
-  "distribution_notice": "These materials are provided as-is. Implementers and users assume the risk of using the specification material; the contributors and licensees provide no implementation warranty. See the pinned Community Specification License 1.0 for complete terms.",
+  "agent_ready": true,
+  "file_count": 2,
   "files": [
     {
-      "path": "build-track-basics.md",
-      "upstream_path": "spec/build-track-basics.md",
-      "upstream_git_sha": "eccbc36b6b07c4f2e93ae86e2c8d8608f99516cc",
+      "byte_exact": true,
+      "bytes": 16129,
+      "local_git_sha": "1ad0319cab673441dd40e9a756e8ee72b0ee3198",
+      "local_path": "LICENSE.md",
+      "searchable_text": true,
+      "sha256": "f40b1d00369c21b963293189b4617b5de439a11858541c07c620984634fb63b7",
+      "upstream_git_sha": "1ad0319cab673441dd40e9a756e8ee72b0ee3198",
+      "upstream_path": "LICENSE.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 6469,
       "local_git_sha": "eccbc36b6b07c4f2e93ae86e2c8d8608f99516cc",
-      "byte_exact": true
+      "local_path": "spec/build-track-basics.md",
+      "searchable_text": true,
+      "sha256": "34b57d8975d02fde8519f857da3fb61bc184d110800d257e4228e0072547ff8f",
+      "upstream_git_sha": "eccbc36b6b07c4f2e93ae86e2c8d8608f99516cc",
+      "upstream_path": "spec/build-track-basics.md"
     }
+  ],
+  "license": "Community Specification License 1.0",
+  "processed_bytes": 23297,
+  "processed_count": 2,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 16467,
+      "derived_from": "LICENSE.md",
+      "local_git_sha": "cb626091820ad8c58ba7932ed377fa47a9b9c343",
+      "local_path": "LICENSE.md",
+      "searchable_text": true,
+      "sha256": "8ac2d46359c0d0841b07b949df691df2f69ff37e8cb1b5edaf230108e6be289e",
+      "source_git_sha": "1ad0319cab673441dd40e9a756e8ee72b0ee3198",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 6830,
+      "derived_from": "spec/build-track-basics.md",
+      "local_git_sha": "24e04c3b8880f5e3674daf3cae348353133b9ac7",
+      "local_path": "spec/build-track-basics.md",
+      "searchable_text": true,
+      "sha256": "0026d681431b23fb53502e2eb652d89c75e60615303ac4f96b1c9b311a855657",
+      "source_git_sha": "eccbc36b6b07c4f2e93ae86e2c8d8608f99516cc",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "slsa-framework/slsa",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T17:02:59+00:00",
+  "schema_version": 2,
+  "source_commit": "1686afeba11a456e470235ecf50cfc0d2f9ecbc3",
+  "source_id": "slsa",
+  "source_tree": "b13338de7ab6929f84706e90eef3a59e06812aaa",
+  "source_url": "https://github.com/slsa-framework/slsa/tree/1686afeba11a456e470235ecf50cfc0d2f9ecbc3",
+  "tier": "canonical-supply-chain-specification",
+  "title": "SLSA Build Track Basics",
+  "total_original_bytes": 22598,
+  "tracks": [
+    "supply-chain",
+    "provenance",
+    "build-integrity",
+    "attestations"
   ]
 }

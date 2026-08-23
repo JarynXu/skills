@@ -1,0 +1,124 @@
+{
+  "agent_ready": true,
+  "file_count": 5,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 11352,
+      "local_git_sha": "67e99b065bcd6ac93d93c8fe8e0a72c6296a5614",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "c996fc213c94f4a4a838407d355b081226caa7b103a4f239bb87fb8f1d8e3a60",
+      "upstream_git_sha": "67e99b065bcd6ac93d93c8fe8e0a72c6296a5614",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1294,
+      "local_git_sha": "628eeebd44c743df2f53ee1497197946c063e186",
+      "local_path": "docs/core_concepts.md",
+      "searchable_text": true,
+      "sha256": "cf388849164dfcd1a8a2b161a3fa1d9300a485747949f3f65ba16eabe6fe2778",
+      "upstream_git_sha": "628eeebd44c743df2f53ee1497197946c063e186",
+      "upstream_path": "docs/core_concepts.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 11080,
+      "local_git_sha": "c6da77455cdb3b6fb857bbe3797529c8223aeb4b",
+      "local_path": "docs/getting_started.md",
+      "searchable_text": true,
+      "sha256": "b681688b00a59fc7a0a76d95c1254cce8cd27c2cadbc6faefe44526f122fdee3",
+      "upstream_git_sha": "c6da77455cdb3b6fb857bbe3797529c8223aeb4b",
+      "upstream_path": "docs/getting_started.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1397,
+      "local_git_sha": "0c9d069624700cf5a6cf7d3fc4d923c038ec00e8",
+      "local_path": "docs/operator-manual/architecture.md",
+      "searchable_text": true,
+      "sha256": "222c95420cad310bffb0690bddb066b429d422412a99494fd59b376815cfecc9",
+      "upstream_git_sha": "0c9d069624700cf5a6cf7d3fc4d923c038ec00e8",
+      "upstream_path": "docs/operator-manual/architecture.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 8617,
+      "local_git_sha": "301f6fca223a19814db9a8e63f2366d7ae32b712",
+      "local_path": "docs/security_considerations.md",
+      "searchable_text": true,
+      "sha256": "be8c039aadbfa140010634155606ccb752416db5f3a01c43cabb87718a9c60b4",
+      "upstream_git_sha": "301f6fca223a19814db9a8e63f2366d7ae32b712",
+      "upstream_path": "docs/security_considerations.md"
+    }
+  ],
+  "license": "Apache-2.0",
+  "processed_bytes": 23821,
+  "processed_count": 4,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 1646,
+      "derived_from": "docs/core_concepts.md",
+      "local_git_sha": "c1923918d80ecd8f13411195cd98b0914def6284",
+      "local_path": "docs/core_concepts.md",
+      "searchable_text": true,
+      "sha256": "be66e8cc23fdff20740bf789c2328cc1b31d209302b4aee28e71f84dc0bcb43a",
+      "source_git_sha": "628eeebd44c743df2f53ee1497197946c063e186",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 11434,
+      "derived_from": "docs/getting_started.md",
+      "local_git_sha": "b852fd79a4e0bfd2dc6dc15b5c6dcfe28aa9646e",
+      "local_path": "docs/getting_started.md",
+      "searchable_text": true,
+      "sha256": "97afb856dc2292f9daa97b0ae99842d9fd6d7632aff49fab2c510fa9e06c255c",
+      "source_git_sha": "c6da77455cdb3b6fb857bbe3797529c8223aeb4b",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 1763,
+      "derived_from": "docs/operator-manual/architecture.md",
+      "local_git_sha": "306bddfe2293e09d439ad8d727d59bffb358c0e9",
+      "local_path": "docs/operator-manual/architecture.md",
+      "searchable_text": true,
+      "sha256": "c2afbb1dcbb7997ea2c407a67a03afe4e8c077a604c747e96ef1b4e4c952b70b",
+      "source_git_sha": "0c9d069624700cf5a6cf7d3fc4d923c038ec00e8",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 8978,
+      "derived_from": "docs/security_considerations.md",
+      "local_git_sha": "fc5798d2d8bf12de8b996286e37efaa196b197c8",
+      "local_path": "docs/security_considerations.md",
+      "searchable_text": true,
+      "sha256": "4a52bc86ae28c5150cd40694affa2f6606b8d0fe66c5b1ecd6b91726bb7223d6",
+      "source_git_sha": "301f6fca223a19814db9a8e63f2366d7ae32b712",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "argoproj/argo-cd",
+  "requested_ref": "master",
+  "retrieved_at": "2026-08-23T17:02:32+00:00",
+  "schema_version": 2,
+  "source_commit": "f558a3c31030acf5398b555a4206a7980c76cae1",
+  "source_id": "argo-cd",
+  "source_tree": "6793c1aaa78ef5f5fdeaf49f55826eea346cb3db",
+  "source_url": "https://github.com/argoproj/argo-cd/tree/f558a3c31030acf5398b555a4206a7980c76cae1",
+  "tier": "canonical-gitops-guidance",
+  "title": "Argo CD GitOps Core and Security Guidance",
+  "total_original_bytes": 33740,
+  "tracks": [
+    "gitops",
+    "reconciliation",
+    "sync",
+    "security",
+    "architecture"
+  ]
+}

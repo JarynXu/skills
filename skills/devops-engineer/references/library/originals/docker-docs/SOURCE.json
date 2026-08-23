@@ -1,0 +1,251 @@
+{
+  "agent_ready": true,
+  "file_count": 11,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 11309,
+      "local_git_sha": "f8971197c6f5ba9d1c7b9d8f4b6198ec5a885596",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "089009c932d3cc296355e429fa9d6faf80ac89597da866e2424b4ea09add64b1",
+      "upstream_git_sha": "f8971197c6f5ba9d1c7b9d8f4b6198ec5a885596",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4718,
+      "local_git_sha": "85886a53839aeef0e20ae61aba6e313c9bde695a",
+      "local_path": "content/manuals/build/building/base-images.md",
+      "searchable_text": true,
+      "sha256": "bec96a6c2540457299ebb28c10fe49e0957c3da33fb37b83367bf519a9361904",
+      "upstream_git_sha": "85886a53839aeef0e20ae61aba6e313c9bde695a",
+      "upstream_path": "content/manuals/build/building/base-images.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 32937,
+      "local_git_sha": "f9485bb7f337175577c48c95a2ee7c972d2a3fe5",
+      "local_path": "content/manuals/build/building/best-practices.md",
+      "searchable_text": true,
+      "sha256": "f98529bc0cf592880207e9c983bd067ce104a1206a183485c3664adac93d37dd",
+      "upstream_git_sha": "f9485bb7f337175577c48c95a2ee7c972d2a3fe5",
+      "upstream_path": "content/manuals/build/building/best-practices.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 17038,
+      "local_git_sha": "8ffae449a5dbd9b4a117b42beeb9262e00602255",
+      "local_path": "content/manuals/build/building/multi-platform.md",
+      "searchable_text": true,
+      "sha256": "c4b727cebc6fd9866d20e18a0b391d3fc1b9f897d210953993ce73cbb23afbf4",
+      "upstream_git_sha": "8ffae449a5dbd9b4a117b42beeb9262e00602255",
+      "upstream_path": "content/manuals/build/building/multi-platform.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7227,
+      "local_git_sha": "04ac6ec2a5a641463af28f53e33cc7e866d68fca",
+      "local_path": "content/manuals/build/building/multi-stage.md",
+      "searchable_text": true,
+      "sha256": "0b36c21cda1b8bad13782b0d3af515027e4331038a93b9893eb4b47927bcb08a",
+      "upstream_git_sha": "04ac6ec2a5a641463af28f53e33cc7e866d68fca",
+      "upstream_path": "content/manuals/build/building/multi-stage.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 9418,
+      "local_git_sha": "8d2c535c7cd0d01cfcc0b2e47d99fc15fac600e4",
+      "local_path": "content/manuals/build/building/secrets.md",
+      "searchable_text": true,
+      "sha256": "562d4a3203159ee6b9193a16643eef54e813feb74b9476014fc2685b0947549e",
+      "upstream_git_sha": "8d2c535c7cd0d01cfcc0b2e47d99fc15fac600e4",
+      "upstream_path": "content/manuals/build/building/secrets.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 15161,
+      "local_git_sha": "e68950cc595b952fee8e7b3bbe196929e05adf42",
+      "local_path": "content/manuals/engine/network/_index.md",
+      "searchable_text": true,
+      "sha256": "dc84241e996635fb2d8f4394284bd29f54705c1ac62046d59c87b596df227da9",
+      "upstream_git_sha": "e68950cc595b952fee8e7b3bbe196929e05adf42",
+      "upstream_path": "content/manuals/engine/network/_index.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 14191,
+      "local_git_sha": "c51d7d2b3ac2360985fccaf685872e9ca279d90a",
+      "local_path": "content/manuals/engine/network/port-publishing.md",
+      "searchable_text": true,
+      "sha256": "1af80b5e413b706df7ce2e0be2e865dfa122fdf6df43401e8e7c69ec232e0be6",
+      "upstream_git_sha": "c51d7d2b3ac2360985fccaf685872e9ca279d90a",
+      "upstream_path": "content/manuals/engine/network/port-publishing.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4727,
+      "local_git_sha": "f6c63bfb5ac2d440e33fccb1f3d8ea5c6c7e3a07",
+      "local_path": "content/manuals/engine/storage/_index.md",
+      "searchable_text": true,
+      "sha256": "a306a56683616b6caebfcdbc558dd8e054cf31a15a4a5565d431ea518de988d3",
+      "upstream_git_sha": "f6c63bfb5ac2d440e33fccb1f3d8ea5c6c7e3a07",
+      "upstream_path": "content/manuals/engine/storage/_index.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 20296,
+      "local_git_sha": "e32c87137ad7af73de886597aec6f58352cfbdf5",
+      "local_path": "content/manuals/engine/storage/bind-mounts.md",
+      "searchable_text": true,
+      "sha256": "54d5cadcf8b034421be918a8bde8381b0c29ab437573d5ca74852310392365d9",
+      "upstream_git_sha": "e32c87137ad7af73de886597aec6f58352cfbdf5",
+      "upstream_path": "content/manuals/engine/storage/bind-mounts.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 29024,
+      "local_git_sha": "1a7184c1ba92c7af897b68211105846c19c25131",
+      "local_path": "content/manuals/engine/storage/volumes.md",
+      "searchable_text": true,
+      "sha256": "4c285d997b9519ade9c8db2e49294e2c3b07b7b6b7422050822a909103a717fb",
+      "upstream_git_sha": "1a7184c1ba92c7af897b68211105846c19c25131",
+      "upstream_path": "content/manuals/engine/storage/volumes.md"
+    }
+  ],
+  "license": "Apache-2.0",
+  "processed_bytes": 158381,
+  "processed_count": 10,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 5090,
+      "derived_from": "content/manuals/build/building/base-images.md",
+      "local_git_sha": "9f74f902339965d95dbccb419fb44842a4d92e6f",
+      "local_path": "content/manuals/build/building/base-images.md",
+      "searchable_text": true,
+      "sha256": "6553693bf5aed2f0dda87a380c8314bfa4c50082d6a3bda8c95c09a09c1e061e",
+      "source_git_sha": "85886a53839aeef0e20ae61aba6e313c9bde695a",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 33312,
+      "derived_from": "content/manuals/build/building/best-practices.md",
+      "local_git_sha": "98b3008508189085d4b6c23a7ec058e4fa5e34b4",
+      "local_path": "content/manuals/build/building/best-practices.md",
+      "searchable_text": true,
+      "sha256": "2a2bd11bc850ef4556da9613e6e904529f5fa8dfa19de860659c0cf0edcdf544",
+      "source_git_sha": "f9485bb7f337175577c48c95a2ee7c972d2a3fe5",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 17413,
+      "derived_from": "content/manuals/build/building/multi-platform.md",
+      "local_git_sha": "b052f2e96899e1987f45771d1c5fd2943e243884",
+      "local_path": "content/manuals/build/building/multi-platform.md",
+      "searchable_text": true,
+      "sha256": "bd7d81c9c91c89671b1f77599ddf06c1ed0d40b51944e632009a61a4c4bbd6bb",
+      "source_git_sha": "8ffae449a5dbd9b4a117b42beeb9262e00602255",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 7531,
+      "derived_from": "content/manuals/build/building/multi-stage.md",
+      "local_git_sha": "0c8daf1d57fa91ecd1a840fe1dd034dbb97c13ae",
+      "local_path": "content/manuals/build/building/multi-stage.md",
+      "searchable_text": true,
+      "sha256": "ca93e757b1843e5c1950519c84506b9264e3b3821dde461a7859e6dc4bfd1ffc",
+      "source_git_sha": "04ac6ec2a5a641463af28f53e33cc7e866d68fca",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 9786,
+      "derived_from": "content/manuals/build/building/secrets.md",
+      "local_git_sha": "be2e863be346ef32d86073f41c4f6505820918a4",
+      "local_path": "content/manuals/build/building/secrets.md",
+      "searchable_text": true,
+      "sha256": "0996e1fdfe9dbd787a126d7a1fa0fd203f37c7f7280166d5df9154bdb578913f",
+      "source_git_sha": "8d2c535c7cd0d01cfcc0b2e47d99fc15fac600e4",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 15528,
+      "derived_from": "content/manuals/engine/network/_index.md",
+      "local_git_sha": "dace7bbda11423902f2ca333d7db7d89c92c1800",
+      "local_path": "content/manuals/engine/network/_index.md",
+      "searchable_text": true,
+      "sha256": "696a97564af9414c2bb1208ff3375412e549d9fd86a7663f7df716d1ae4ce29c",
+      "source_git_sha": "e68950cc595b952fee8e7b3bbe196929e05adf42",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 14567,
+      "derived_from": "content/manuals/engine/network/port-publishing.md",
+      "local_git_sha": "4137b244de7a9a37b31a53cd7b51f4b1a0dea689",
+      "local_path": "content/manuals/engine/network/port-publishing.md",
+      "searchable_text": true,
+      "sha256": "6447cc9ea3c9d72874ff4d95739b7ca9376aad5d8e7153d8a7c8a45149a42b2a",
+      "source_git_sha": "c51d7d2b3ac2360985fccaf685872e9ca279d90a",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 5094,
+      "derived_from": "content/manuals/engine/storage/_index.md",
+      "local_git_sha": "01fee04e56202ade915291f77b913f1b1f7f5e1f",
+      "local_path": "content/manuals/engine/storage/_index.md",
+      "searchable_text": true,
+      "sha256": "2f7502f0d902a96698e78db88c41e652693f74ca86a71a8a6d798679787c27b4",
+      "source_git_sha": "f6c63bfb5ac2d440e33fccb1f3d8ea5c6c7e3a07",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 20668,
+      "derived_from": "content/manuals/engine/storage/bind-mounts.md",
+      "local_git_sha": "0322ecb45550371270e6dff6349fec178c8d595e",
+      "local_path": "content/manuals/engine/storage/bind-mounts.md",
+      "searchable_text": true,
+      "sha256": "26824e6816ce354c939d17e093a246abb59fe5328cda945f5e707c32545f6d84",
+      "source_git_sha": "e32c87137ad7af73de886597aec6f58352cfbdf5",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 29392,
+      "derived_from": "content/manuals/engine/storage/volumes.md",
+      "local_git_sha": "1ed7a52d5cf116d2f3f238b339541bd43d8b398a",
+      "local_path": "content/manuals/engine/storage/volumes.md",
+      "searchable_text": true,
+      "sha256": "6c9a06dbb2684c5be01f8c3525cbeb141dab25e78b3fe66ff49b8b5ce3ebe9fb",
+      "source_git_sha": "1a7184c1ba92c7af897b68211105846c19c25131",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "docker/docs",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T17:02:22+00:00",
+  "schema_version": 2,
+  "source_commit": "a3fd0352216480db9becce4878e8e79caae46a45",
+  "source_id": "docker-docs",
+  "source_tree": "6f6076ba1d54e9f7145bee54ec6b4c0b5fcc95c6",
+  "source_url": "https://github.com/docker/docs/tree/a3fd0352216480db9becce4878e8e79caae46a45",
+  "tier": "canonical-platform-guidance",
+  "title": "Docker Build, Runtime, Network, and Storage Guidance",
+  "total_original_bytes": 166046,
+  "tracks": [
+    "containers",
+    "build",
+    "images",
+    "secrets",
+    "networking",
+    "storage"
+  ]
+}

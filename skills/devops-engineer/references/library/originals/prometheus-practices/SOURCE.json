@@ -1,0 +1,262 @@
+{
+  "agent_ready": true,
+  "file_count": 12,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 11357,
+      "local_git_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "upstream_git_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 388,
+      "local_git_sha": "756e87f8e8388be882c8500ad360d3c6dd25a6e2",
+      "local_path": "NOTICE",
+      "searchable_text": true,
+      "sha256": "6fa92bb37cbf5fb7b09e08c5f60e652ed52df750b3cdcf4d64cdde51fb788633",
+      "upstream_git_sha": "756e87f8e8388be882c8500ad360d3c6dd25a6e2",
+      "upstream_path": "NOTICE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3419,
+      "local_git_sha": "933985792e2d31fbf50d280488bca092de5ca2ab",
+      "local_path": "docs/practices/alerting.md",
+      "searchable_text": true,
+      "sha256": "2df77104b4764de91fb3792ee81db29e54dd50db301b669eca4d0591da409786",
+      "upstream_git_sha": "933985792e2d31fbf50d280488bca092de5ca2ab",
+      "upstream_path": "docs/practices/alerting.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2664,
+      "local_git_sha": "5b4f6dbf3cea22591392fdfe996be55e167cd0bf",
+      "local_path": "docs/practices/consoles.md",
+      "searchable_text": true,
+      "sha256": "9f2fb71086d3a97cc087b872f56c6f10242d930725d633743dd009c5b171c6e1",
+      "upstream_git_sha": "5b4f6dbf3cea22591392fdfe996be55e167cd0bf",
+      "upstream_path": "docs/practices/consoles.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 32251,
+      "local_git_sha": "3d6ecb1d20ff017b0c63539b7d5631920694d9f2",
+      "local_path": "docs/practices/histograms.md",
+      "searchable_text": true,
+      "sha256": "ebe64305d7d6156ca6b7021604c84eb5eab1868f35510089670ffe6fe387dcd2",
+      "upstream_git_sha": "3d6ecb1d20ff017b0c63539b7d5631920694d9f2",
+      "upstream_path": "docs/practices/histograms.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 62,
+      "local_git_sha": "021e1dfb54a41a0f954c54cea27f8e7173c15c59",
+      "local_path": "docs/practices/index.md",
+      "searchable_text": true,
+      "sha256": "eba3d5908a7f4dce9f2285d812821b50ba3b0d80035bcb31913f1cbb6f85d437",
+      "upstream_git_sha": "021e1dfb54a41a0f954c54cea27f8e7173c15c59",
+      "upstream_path": "docs/practices/index.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 12028,
+      "local_git_sha": "dfb5573d39fd5d3c15956add788edffddb5de2ce",
+      "local_path": "docs/practices/instrumentation.md",
+      "searchable_text": true,
+      "sha256": "8f7f26690b5b1d590729183acbbae519786a958986bd76c2ba236ca9d4a35dfb",
+      "upstream_git_sha": "dfb5573d39fd5d3c15956add788edffddb5de2ce",
+      "upstream_path": "docs/practices/instrumentation.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7658,
+      "local_git_sha": "0c6f006006b7eb3563e1d9e810dc67e1c34152f1",
+      "local_path": "docs/practices/naming.md",
+      "searchable_text": true,
+      "sha256": "685f22e7d9af8b5845c0cbcdfc675074a9221d2ef9c99193c4d629d415d7f1f1",
+      "upstream_git_sha": "0c6f006006b7eb3563e1d9e810dc67e1c34152f1",
+      "upstream_path": "docs/practices/naming.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3067,
+      "local_git_sha": "86015d4ff5be84ba045ead40e13b438fa5b8d074",
+      "local_path": "docs/practices/pushing.md",
+      "searchable_text": true,
+      "sha256": "0eec9dd6f0c0f86a3486076b32490395de761f4c14b697a19046a9171f94a0ee",
+      "upstream_git_sha": "86015d4ff5be84ba045ead40e13b438fa5b8d074",
+      "upstream_path": "docs/practices/pushing.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 5145,
+      "local_git_sha": "27e1aa34859e008543f5ed000ce2f71a08ec0cea",
+      "local_path": "docs/practices/remote_write.md",
+      "searchable_text": true,
+      "sha256": "9c34492c0f726928abf3560a000bf6857fff3786e1b6eb0d5077a41a0bcecc44",
+      "upstream_git_sha": "27e1aa34859e008543f5ed000ce2f71a08ec0cea",
+      "upstream_path": "docs/practices/remote_write.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4926,
+      "local_git_sha": "a33956c0e4041b76e05b5366a70afe06ad438d14",
+      "local_path": "docs/practices/rules.md",
+      "searchable_text": true,
+      "sha256": "a386474678af95403daeb946be81e680f99ab27c450803138d28cac6705c3b84",
+      "upstream_git_sha": "a33956c0e4041b76e05b5366a70afe06ad438d14",
+      "upstream_path": "docs/practices/rules.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 9865,
+      "local_git_sha": "2189ed99e138fb2ad4ff8bb9bbbea3195ba1c392",
+      "local_path": "docs/practices/the_zen.md",
+      "searchable_text": true,
+      "sha256": "d004c92df986972a8fca1bc6c9fb6f6b92419265030a48120c1cff315b26eb27",
+      "upstream_git_sha": "2189ed99e138fb2ad4ff8bb9bbbea3195ba1c392",
+      "upstream_path": "docs/practices/the_zen.md"
+    }
+  ],
+  "license": "Apache-2.0",
+  "processed_bytes": 84657,
+  "processed_count": 10,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 3776,
+      "derived_from": "docs/practices/alerting.md",
+      "local_git_sha": "748f460c87e9b2ed67775b325ab196a295eb2270",
+      "local_path": "docs/practices/alerting.md",
+      "searchable_text": true,
+      "sha256": "b23a92cb81148a8ed83a566dce5d6adc01cee8c1792d2d84fca9acd0bfa0c57b",
+      "source_git_sha": "933985792e2d31fbf50d280488bca092de5ca2ab",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 3021,
+      "derived_from": "docs/practices/consoles.md",
+      "local_git_sha": "417e0f4918ca15d11fb77c62bae728a785dfdcab",
+      "local_path": "docs/practices/consoles.md",
+      "searchable_text": true,
+      "sha256": "cd0c1bbadedab535527d6a95c407663f435e49293b768db45656847b0f8ec4c2",
+      "source_git_sha": "5b4f6dbf3cea22591392fdfe996be55e167cd0bf",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 32609,
+      "derived_from": "docs/practices/histograms.md",
+      "local_git_sha": "cf0b4af91b80956091bc94c86a4627929b68c07c",
+      "local_path": "docs/practices/histograms.md",
+      "searchable_text": true,
+      "sha256": "6461133fcb113892aad7dbaa880660c460e885d27893c116b3f311ce7306d044",
+      "source_git_sha": "3d6ecb1d20ff017b0c63539b7d5631920694d9f2",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 416,
+      "derived_from": "docs/practices/index.md",
+      "local_git_sha": "0d4be15eee9545f4a74d91f9614a14e614ba2b40",
+      "local_path": "docs/practices/index.md",
+      "searchable_text": true,
+      "sha256": "102bc622f5d5dda83e546d5eee8dc5dbfcf1b55d23ba20a62f213ebcd50aa4fd",
+      "source_git_sha": "021e1dfb54a41a0f954c54cea27f8e7173c15c59",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 12392,
+      "derived_from": "docs/practices/instrumentation.md",
+      "local_git_sha": "4c7956fc01312c5bc5f796aa85eef910eeee26bc",
+      "local_path": "docs/practices/instrumentation.md",
+      "searchable_text": true,
+      "sha256": "d772c0a16a33a85ce57634a3b777646251356fc60762cf297e1e272a43d2f04f",
+      "source_git_sha": "dfb5573d39fd5d3c15956add788edffddb5de2ce",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 8013,
+      "derived_from": "docs/practices/naming.md",
+      "local_git_sha": "390ffddd3cecd46ea9a287ee88a1a5cd739e88b7",
+      "local_path": "docs/practices/naming.md",
+      "searchable_text": true,
+      "sha256": "3499ada9180d5b191b773a0add7a3d38b267000d9bf4f46df0093002343bca13",
+      "source_git_sha": "0c6f006006b7eb3563e1d9e810dc67e1c34152f1",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 3423,
+      "derived_from": "docs/practices/pushing.md",
+      "local_git_sha": "1a3664b8e833819c420ffd2ce99a0ae0d25e118a",
+      "local_path": "docs/practices/pushing.md",
+      "searchable_text": true,
+      "sha256": "1282a9632ee56251844ef4042b1c1853e352ee7f047b4396c8f0a1818b711b72",
+      "source_git_sha": "86015d4ff5be84ba045ead40e13b438fa5b8d074",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 5506,
+      "derived_from": "docs/practices/remote_write.md",
+      "local_git_sha": "d9ba5fe2aea0213f25fdedbb99b5ba9d25e6b532",
+      "local_path": "docs/practices/remote_write.md",
+      "searchable_text": true,
+      "sha256": "a73de5ce2bae2dff57bbcbabc53db8dfff4678974280426a1e1ef8840b56e804",
+      "source_git_sha": "27e1aa34859e008543f5ed000ce2f71a08ec0cea",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 5280,
+      "derived_from": "docs/practices/rules.md",
+      "local_git_sha": "c8af9d3da24bc68019ccdd5df066f909f70c6edc",
+      "local_path": "docs/practices/rules.md",
+      "searchable_text": true,
+      "sha256": "aa45bfbe79748e27dd8f93b11d9d9fcaf7636e5c8ef53807473895b9f5ba094d",
+      "source_git_sha": "a33956c0e4041b76e05b5366a70afe06ad438d14",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 10221,
+      "derived_from": "docs/practices/the_zen.md",
+      "local_git_sha": "6cd56a0fdd6b8c73fbdc7a5c7b0cb4c0f5712f70",
+      "local_path": "docs/practices/the_zen.md",
+      "searchable_text": true,
+      "sha256": "15e998495dc16d3508f9cc029c59cc4698b01461285d326677cc3dda3a2d5204",
+      "source_git_sha": "2189ed99e138fb2ad4ff8bb9bbbea3195ba1c392",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "prometheus/docs",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T17:02:49+00:00",
+  "schema_version": 2,
+  "source_commit": "6ee5b68a4660d0b4e7999c9ae8ddb025ca400aef",
+  "source_id": "prometheus-practices",
+  "source_tree": "6a0751788ac0880aa3f2d8964f45afa344b506e4",
+  "source_url": "https://github.com/prometheus/docs/tree/6ee5b68a4660d0b4e7999c9ae8ddb025ca400aef",
+  "tier": "canonical-observability-guidance",
+  "title": "Prometheus Instrumentation and Alerting Practices",
+  "total_original_bytes": 92830,
+  "tracks": [
+    "metrics",
+    "instrumentation",
+    "alerting",
+    "histograms",
+    "naming",
+    "rules",
+    "remote-write"
+  ]
+}

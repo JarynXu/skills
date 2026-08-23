@@ -1,0 +1,146 @@
+{
+  "agent_ready": true,
+  "file_count": 6,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 11358,
+      "local_git_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "upstream_git_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 603,
+      "local_git_sha": "49b8c634ee026e027e503d884fe3afda34a83f05",
+      "local_path": "artifacts-guidance.md",
+      "searchable_text": true,
+      "sha256": "2c716295bf463cdde920511a0e8fd1498091ade4d782ae6c48ad04a202795803",
+      "upstream_git_sha": "49b8c634ee026e027e503d884fe3afda34a83f05",
+      "upstream_path": "artifacts-guidance.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 15474,
+      "local_git_sha": "904d74912e2776faec37f9d8d9b68f86400c90fb",
+      "local_path": "config.md",
+      "searchable_text": true,
+      "sha256": "2b9dffcd8087aed0ad30f4dcf6ff63daf1a82dd4d63a50c839c9bc5819fc9a97",
+      "upstream_git_sha": "904d74912e2776faec37f9d8d9b68f86400c90fb",
+      "upstream_path": "config.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 8287,
+      "local_git_sha": "7cd44ea2e3665482a20fe7e416e10d794f2f3412",
+      "local_path": "image-index.md",
+      "searchable_text": true,
+      "sha256": "78684cc6b8833ec440cb6526d431f322d3ffefbb2e4f4d5a38a397e6e657884a",
+      "upstream_git_sha": "7cd44ea2e3665482a20fe7e416e10d794f2f3412",
+      "upstream_path": "image-index.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 15348,
+      "local_git_sha": "ce7bd560cd05d76a704818d3fd8f0335f184c313",
+      "local_path": "layer.md",
+      "searchable_text": true,
+      "sha256": "e4bcea539746c5a63d707d9b7d1dab55990a7d2dc33a2d181d87b7636aa8092f",
+      "upstream_git_sha": "ce7bd560cd05d76a704818d3fd8f0335f184c313",
+      "upstream_path": "layer.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 14008,
+      "local_git_sha": "7a0ef73406543b15c1253d7f0c961b89158dea79",
+      "local_path": "manifest.md",
+      "searchable_text": true,
+      "sha256": "3327bef0ca31d1418f88c155d38a411aafc0bd0017c86b2b9bb63be98f1414f9",
+      "upstream_git_sha": "7a0ef73406543b15c1253d7f0c961b89158dea79",
+      "upstream_path": "manifest.md"
+    }
+  ],
+  "license": "Apache-2.0",
+  "processed_bytes": 55488,
+  "processed_count": 5,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 965,
+      "derived_from": "artifacts-guidance.md",
+      "local_git_sha": "ecac7e20498a542766262af4daa610a53f8cee7b",
+      "local_path": "artifacts-guidance.md",
+      "searchable_text": true,
+      "sha256": "ae7df8c2b62362cac320fd94beb0094f142677216ae8b2157fdd7e5016944dbc",
+      "source_git_sha": "49b8c634ee026e027e503d884fe3afda34a83f05",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 15824,
+      "derived_from": "config.md",
+      "local_git_sha": "aa1fc676503b91391f1f560da3bea277d6790a76",
+      "local_path": "config.md",
+      "searchable_text": true,
+      "sha256": "38349e59c572ece4c86a4c6180d30d194132aa03de212766c02952a96660c6fb",
+      "source_git_sha": "904d74912e2776faec37f9d8d9b68f86400c90fb",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 8642,
+      "derived_from": "image-index.md",
+      "local_git_sha": "a129d13a966a3cb8f3f38afd3b81c52af849ca76",
+      "local_path": "image-index.md",
+      "searchable_text": true,
+      "sha256": "9963b67ea2d339ff134735cbce74279655f53d077171a51263a3e463740bba26",
+      "source_git_sha": "7cd44ea2e3665482a20fe7e416e10d794f2f3412",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 15697,
+      "derived_from": "layer.md",
+      "local_git_sha": "1c66e702f6473524a4cd892a4891e05b6f3b3407",
+      "local_path": "layer.md",
+      "searchable_text": true,
+      "sha256": "662e2cd50550b8d208aa4cd33a8769d52867d64ad51f155bc16eb306107d3e92",
+      "source_git_sha": "ce7bd560cd05d76a704818d3fd8f0335f184c313",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 14360,
+      "derived_from": "manifest.md",
+      "local_git_sha": "08caf2cb0031f262743c3db854ce38a975e10a8a",
+      "local_path": "manifest.md",
+      "searchable_text": true,
+      "sha256": "e62fbf24e0b8a52f0ff3d44bc3b90d8bb268b46d5b2a15f9cab1d869131de8f7",
+      "source_git_sha": "7a0ef73406543b15c1253d7f0c961b89158dea79",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "opencontainers/image-spec",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T17:02:57+00:00",
+  "schema_version": 2,
+  "source_commit": "af26a05fba5ee648512f4ea3c9fda1fcc1b6d6dc",
+  "source_id": "oci-image",
+  "source_tree": "97944477e60051c34262e9eeb7b1d6be915daff0",
+  "source_url": "https://github.com/opencontainers/image-spec/tree/af26a05fba5ee648512f4ea3c9fda1fcc1b6d6dc",
+  "tier": "canonical-container-specification",
+  "title": "OCI Image Specification",
+  "total_original_bytes": 65078,
+  "tracks": [
+    "containers",
+    "images",
+    "manifests",
+    "indexes",
+    "layers",
+    "artifacts"
+  ]
+}

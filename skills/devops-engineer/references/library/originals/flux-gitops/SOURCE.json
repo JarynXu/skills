@@ -1,0 +1,124 @@
+{
+  "agent_ready": true,
+  "file_count": 5,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 11357,
+      "local_git_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "upstream_git_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7774,
+      "local_git_sha": "de450c660c69d6544cf0e0480b3bf2b29e915ae6",
+      "local_path": "content/en/flux/_index.md",
+      "searchable_text": true,
+      "sha256": "d9ddb7028e503a0a4e52524e407f8c81be81be04b7b411170be333db705fd6d3",
+      "upstream_git_sha": "de450c660c69d6544cf0e0480b3bf2b29e915ae6",
+      "upstream_path": "content/en/flux/_index.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7008,
+      "local_git_sha": "49e445b61e03b5740a3b32e3af711e367c7281d3",
+      "local_path": "content/en/flux/concepts.md",
+      "searchable_text": true,
+      "sha256": "679a0116e8d6feb7edb9308da53363288026a1e0ce1fb2b5c6b0bbb627b9c0d2",
+      "upstream_git_sha": "49e445b61e03b5740a3b32e3af711e367c7281d3",
+      "upstream_path": "content/en/flux/concepts.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 18519,
+      "local_git_sha": "2c620cbd7320985027e79fdc3785063d9fcac486",
+      "local_path": "content/en/flux/faq.md",
+      "searchable_text": true,
+      "sha256": "032b01fe1337ba61220e77c80b59f3d1447871de1835a8c277db6a38247f26dd",
+      "upstream_git_sha": "2c620cbd7320985027e79fdc3785063d9fcac486",
+      "upstream_path": "content/en/flux/faq.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 9215,
+      "local_git_sha": "645584444499d991676430c70d95b1eb86a0559b",
+      "local_path": "content/en/flux/get-started.md",
+      "searchable_text": true,
+      "sha256": "2008533f7182ce54c59221e61c56517741d03ba3b945ceb7b4b618c5eadfb9c1",
+      "upstream_git_sha": "645584444499d991676430c70d95b1eb86a0559b",
+      "upstream_path": "content/en/flux/get-started.md"
+    }
+  ],
+  "license": "Apache-2.0",
+  "processed_bytes": 43903,
+  "processed_count": 4,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 8129,
+      "derived_from": "content/en/flux/_index.md",
+      "local_git_sha": "547534cc3e5edea9ab368d0d5aa220c91db09221",
+      "local_path": "content/en/flux/_index.md",
+      "searchable_text": true,
+      "sha256": "11fdcde514112eadf06ed8d7bc4b95515ffcb208c153fbb2d3b2ab704d948482",
+      "source_git_sha": "de450c660c69d6544cf0e0480b3bf2b29e915ae6",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 7360,
+      "derived_from": "content/en/flux/concepts.md",
+      "local_git_sha": "b40310cec7fbdd24ae5a7aa0ec1456f2f1966625",
+      "local_path": "content/en/flux/concepts.md",
+      "searchable_text": true,
+      "sha256": "ed78fd06385933a2430919e841cb78c8b091e6ec5382b579a453827f2ffc58eb",
+      "source_git_sha": "49e445b61e03b5740a3b32e3af711e367c7281d3",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 18870,
+      "derived_from": "content/en/flux/faq.md",
+      "local_git_sha": "05d71b5b2297f1630ff4c7fa1dfde68ca377c84c",
+      "local_path": "content/en/flux/faq.md",
+      "searchable_text": true,
+      "sha256": "55f5104828d6afb1a46d0eb4458d6d289225e5da7272239abd8198d6e21bb009",
+      "source_git_sha": "2c620cbd7320985027e79fdc3785063d9fcac486",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 9544,
+      "derived_from": "content/en/flux/get-started.md",
+      "local_git_sha": "2fc96b6d9579599e4727a35608beba3a4815c14e",
+      "local_path": "content/en/flux/get-started.md",
+      "searchable_text": true,
+      "sha256": "1e38ed7f38d350c12eab5e2256d4c799764a7e398b6120c901ec6d1479779782",
+      "source_git_sha": "645584444499d991676430c70d95b1eb86a0559b",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "fluxcd/website",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T17:02:34+00:00",
+  "schema_version": 2,
+  "source_commit": "9918483b116a58dd582bca5c93730b0acebb1ff2",
+  "source_id": "flux-gitops",
+  "source_tree": "8fa2c9e461d712a8ee45140a5928bb8d4008b8df",
+  "source_url": "https://github.com/fluxcd/website/tree/9918483b116a58dd582bca5c93730b0acebb1ff2",
+  "tier": "canonical-gitops-guidance",
+  "title": "Flux GitOps Concepts and Operating Guidance",
+  "total_original_bytes": 53873,
+  "tracks": [
+    "gitops",
+    "reconciliation",
+    "sources",
+    "controllers",
+    "operations"
+  ]
+}

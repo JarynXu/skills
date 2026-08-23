@@ -1,0 +1,250 @@
+{
+  "agent_ready": true,
+  "file_count": 11,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 11357,
+      "local_git_sha": "8dada3edaf50dbc082c9a125058f25def75e625a",
+      "local_path": "LICENSE",
+      "searchable_text": true,
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+      "upstream_git_sha": "8dada3edaf50dbc082c9a125058f25def75e625a",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 241,
+      "local_git_sha": "dd0df214e549710b8413330e7d027cbd4fa2c3eb",
+      "local_path": "site/content/en/docs/Concepts/_index.md",
+      "searchable_text": true,
+      "sha256": "087eb65d2b0a2140fc8460ecf3a3904990a3d5937ccd2532f875a2311fa7c7a9",
+      "upstream_git_sha": "dd0df214e549710b8413330e7d027cbd4fa2c3eb",
+      "upstream_path": "site/content/en/docs/Concepts/_index.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 86,
+      "local_git_sha": "b5ea9b4e6caff313d71a01fc10c7d189490800c3",
+      "local_path": "site/content/en/docs/Concepts/bases.md",
+      "searchable_text": true,
+      "sha256": "1ba05b4b40c50c99b2edbdb3639119583419a6dc8ad100453a244a442ed2df88",
+      "upstream_git_sha": "b5ea9b4e6caff313d71a01fc10c7d189490800c3",
+      "upstream_path": "site/content/en/docs/Concepts/bases.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 101,
+      "local_git_sha": "fbc1990177ba6330bc37e72a7588d44f915a6fb5",
+      "local_path": "site/content/en/docs/Concepts/components.md",
+      "searchable_text": true,
+      "sha256": "9f9ad5cb2e9b78f8fb14764c4c03625f616f346f5a9b82533fa6eb4be6ee916e",
+      "upstream_git_sha": "fbc1990177ba6330bc37e72a7588d44f915a6fb5",
+      "upstream_path": "site/content/en/docs/Concepts/components.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 98,
+      "local_git_sha": "4950eca02f37702fdef2161934a2a505157ce522",
+      "local_path": "site/content/en/docs/Concepts/functions.md",
+      "searchable_text": true,
+      "sha256": "ddce8545375c6319a10171071d5fa5d05c162716fe1d7059a80a6d55a2b2685d",
+      "upstream_git_sha": "4950eca02f37702fdef2161934a2a505157ce522",
+      "upstream_path": "site/content/en/docs/Concepts/functions.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 100,
+      "local_git_sha": "d1590e4f2bfb30c71e5c4b0cb5faebfc6bbd222d",
+      "local_path": "site/content/en/docs/Concepts/generator.md",
+      "searchable_text": true,
+      "sha256": "ea56a79617154ba969731f32788bf5434dde76078761b6742ecd0f29a19e93ab",
+      "upstream_git_sha": "d1590e4f2bfb30c71e5c4b0cb5faebfc6bbd222d",
+      "upstream_path": "site/content/en/docs/Concepts/generator.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 9103,
+      "local_git_sha": "5d9e40f8c0dde551737fe95596e2165e1caa13b0",
+      "local_path": "site/content/en/docs/Concepts/kustomization_file.md",
+      "searchable_text": true,
+      "sha256": "5c7c1de71b80d025e624d18e8632918dd2cc131e95f15209fda8e8b50af2364d",
+      "upstream_git_sha": "5d9e40f8c0dde551737fe95596e2165e1caa13b0",
+      "upstream_path": "site/content/en/docs/Concepts/kustomization_file.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3595,
+      "local_git_sha": "057fce9043ebd48ee45b17af46869fe75b336e8a",
+      "local_path": "site/content/en/docs/Concepts/local-config.md",
+      "searchable_text": true,
+      "sha256": "54fa613a1574a639cabeee16344114fcaf485a1aa86d8e413b15daf0b62d4818",
+      "upstream_git_sha": "057fce9043ebd48ee45b17af46869fe75b336e8a",
+      "upstream_path": "site/content/en/docs/Concepts/local-config.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 107,
+      "local_git_sha": "ddec5b8f7a182c04e5f9d7c8bc8c6a479555cf57",
+      "local_path": "site/content/en/docs/Concepts/transformers.md",
+      "searchable_text": true,
+      "sha256": "72a39fb7f2ad1ffaa3bfae168ffc88e11b9e15a966509c99b683a1aca4ac90ce",
+      "upstream_git_sha": "ddec5b8f7a182c04e5f9d7c8bc8c6a479555cf57",
+      "upstream_path": "site/content/en/docs/Concepts/transformers.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3217,
+      "local_git_sha": "384797b2f568685cf80cbd8d807099108cac26a6",
+      "local_path": "site/content/en/docs/Overview/_index.md",
+      "searchable_text": true,
+      "sha256": "2c816e57d5de2ad5ab4716f4cf3d3919449d3beb87b10cf2f4f87f9216735514",
+      "upstream_git_sha": "384797b2f568685cf80cbd8d807099108cac26a6",
+      "upstream_path": "site/content/en/docs/Overview/_index.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1222,
+      "local_git_sha": "f2a1761e146e6390b0e4e3070ef194234173a6db",
+      "local_path": "site/content/en/docs/_index.md",
+      "searchable_text": true,
+      "sha256": "bb3fea1c458d06c3e620f6507539e3f90f63783e360ceddd5715643a1b2004b0",
+      "upstream_git_sha": "f2a1761e146e6390b0e4e3070ef194234173a6db",
+      "upstream_path": "site/content/en/docs/_index.md"
+    }
+  ],
+  "license": "Apache-2.0",
+  "processed_bytes": 21685,
+  "processed_count": 10,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 618,
+      "derived_from": "site/content/en/docs/Concepts/_index.md",
+      "local_git_sha": "4b21d2aec570120cfcfe1c6e067040f427b46a48",
+      "local_path": "site/content/en/docs/Concepts/_index.md",
+      "searchable_text": true,
+      "sha256": "7c9f8cdcc7371be458bf40ae58b1bd390a98cd9a62847953b1294de0bb320c46",
+      "source_git_sha": "dd0df214e549710b8413330e7d027cbd4fa2c3eb",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 465,
+      "derived_from": "site/content/en/docs/Concepts/bases.md",
+      "local_git_sha": "39a6a5a559bcf3e096c24ea763fb0a2955207587",
+      "local_path": "site/content/en/docs/Concepts/bases.md",
+      "searchable_text": true,
+      "sha256": "ea4ba838614cf2984455e138131910abe5a6c4bec71f9d580001ff4d68e7eac9",
+      "source_git_sha": "b5ea9b4e6caff313d71a01fc10c7d189490800c3",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 485,
+      "derived_from": "site/content/en/docs/Concepts/components.md",
+      "local_git_sha": "4fecf56d0b14429f9613581a7ba4713f6e8e5d36",
+      "local_path": "site/content/en/docs/Concepts/components.md",
+      "searchable_text": true,
+      "sha256": "d828cf358923481a4b7b62a6fb5e2c14092a0c549784d01654332192d9efea9c",
+      "source_git_sha": "fbc1990177ba6330bc37e72a7588d44f915a6fb5",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 481,
+      "derived_from": "site/content/en/docs/Concepts/functions.md",
+      "local_git_sha": "a976e43ee5b3aa44dd08638273510988cdaf9c14",
+      "local_path": "site/content/en/docs/Concepts/functions.md",
+      "searchable_text": true,
+      "sha256": "2eaa8a4a357348d21e715490b8b9d36bb88e098e2330042fc08e6f1cfde634fc",
+      "source_git_sha": "4950eca02f37702fdef2161934a2a505157ce522",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 484,
+      "derived_from": "site/content/en/docs/Concepts/generator.md",
+      "local_git_sha": "e6d624fd31195c5668d8754ef5dd6049de0e3942",
+      "local_path": "site/content/en/docs/Concepts/generator.md",
+      "searchable_text": true,
+      "sha256": "e44c5d876d87c41eaf2ed56f4df106af7bb4937b1272639b38e43bd52a2923d8",
+      "source_git_sha": "d1590e4f2bfb30c71e5c4b0cb5faebfc6bbd222d",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 9494,
+      "derived_from": "site/content/en/docs/Concepts/kustomization_file.md",
+      "local_git_sha": "57be65de8a5134ca469fe45ac2f832cef033e625",
+      "local_path": "site/content/en/docs/Concepts/kustomization_file.md",
+      "searchable_text": true,
+      "sha256": "0bf3c875dd632129dff97d218cf16e2a570878fceae8ee837fdae73011402aa3",
+      "source_git_sha": "5d9e40f8c0dde551737fe95596e2165e1caa13b0",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 3981,
+      "derived_from": "site/content/en/docs/Concepts/local-config.md",
+      "local_git_sha": "9fe058ed64f2664dd951c52523dc588eccb78d88",
+      "local_path": "site/content/en/docs/Concepts/local-config.md",
+      "searchable_text": true,
+      "sha256": "5d545992155e014c4c506c120d46abacd84c1fdcfb72a94e1596a275d7b4be1c",
+      "source_git_sha": "057fce9043ebd48ee45b17af46869fe75b336e8a",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 493,
+      "derived_from": "site/content/en/docs/Concepts/transformers.md",
+      "local_git_sha": "f2d858a3acd414b1fb245afd69a4757ff8d27be4",
+      "local_path": "site/content/en/docs/Concepts/transformers.md",
+      "searchable_text": true,
+      "sha256": "cb8d8e8360254a6c54e9f7447101342408bd17537849b6f07b311c8b5c408a4d",
+      "source_git_sha": "ddec5b8f7a182c04e5f9d7c8bc8c6a479555cf57",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 3596,
+      "derived_from": "site/content/en/docs/Overview/_index.md",
+      "local_git_sha": "adcc947d3194b6ac725685c03caa32fe50f21008",
+      "local_path": "site/content/en/docs/Overview/_index.md",
+      "searchable_text": true,
+      "sha256": "14c3b4455e8be4121bca4ce2279fc578648fdd8bfd33d2fac50d6fa426bc3169",
+      "source_git_sha": "384797b2f568685cf80cbd8d807099108cac26a6",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 1588,
+      "derived_from": "site/content/en/docs/_index.md",
+      "local_git_sha": "99b96fedbea7c053162ebbdb35858eb55f711715",
+      "local_path": "site/content/en/docs/_index.md",
+      "searchable_text": true,
+      "sha256": "1a6b8c91cb7013f86235b9b22c6d4107829e252e528543033e4211b5e1a64d88",
+      "source_git_sha": "f2a1761e146e6390b0e4e3070ef194234173a6db",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "kubernetes-sigs/kustomize",
+  "requested_ref": "master",
+  "retrieved_at": "2026-08-23T17:02:29+00:00",
+  "schema_version": 2,
+  "source_commit": "12f9e6391464b3ad9dd3fe8182049dc1b1772990",
+  "source_id": "kustomize",
+  "source_tree": "86c79207d9b055cb275b59bbfc98bd551a5b8adc",
+  "source_url": "https://github.com/kubernetes-sigs/kustomize/tree/12f9e6391464b3ad9dd3fe8182049dc1b1772990",
+  "tier": "canonical-platform-guidance",
+  "title": "Kustomize Configuration Composition Guidance",
+  "total_original_bytes": 29227,
+  "tracks": [
+    "kubernetes",
+    "configuration",
+    "rendering",
+    "bases",
+    "overlays"
+  ]
+}
