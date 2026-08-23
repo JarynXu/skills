@@ -1,0 +1,590 @@
+{
+  "derived_count": 0,
+  "derived_files": [],
+  "file_count": 56,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 11359,
+      "local_git_sha": "823c1c8e9820bcc35d561f04d1cc972323162769",
+      "local_path": "LICENSE.txt",
+      "searchable_text": true,
+      "sha256": "7200000367e0e8b47822d563a5ddd2dd3a97cc05b32bd7dbcc7b4eeb92b76628",
+      "upstream_git_sha": "823c1c8e9820bcc35d561f04d1cc972323162769",
+      "upstream_path": "LICENSE.txt"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1740,
+      "local_git_sha": "34926876d7c56a7da8584e779e38eb85ec1262a9",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/auditing.adoc",
+      "searchable_text": false,
+      "sha256": "75690fcd1ffd825991a7755fa1219c0e4db34b590685c2ed00167d342c8f0431",
+      "upstream_git_sha": "34926876d7c56a7da8584e779e38eb85ec1262a9",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/auditing.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2491,
+      "local_git_sha": "6c1051cc6b2a6b8f2beec5217825719e7dd0934b",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/cloud-foundry.adoc",
+      "searchable_text": false,
+      "sha256": "f14ca3d8432d6a9ddebab475166389f661a58eaef0058d41aca4661c5568aaa9",
+      "upstream_git_sha": "6c1051cc6b2a6b8f2beec5217825719e7dd0934b",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/cloud-foundry.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 955,
+      "local_git_sha": "42de3196240ce5883d5235f3658a261fca29a13f",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/enabling.adoc",
+      "searchable_text": false,
+      "sha256": "d7e618a65bbcd43c662d3e03e220f7eb103df3cca71da134a6e461b79c957980",
+      "upstream_git_sha": "42de3196240ce5883d5235f3658a261fca29a13f",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/enabling.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 64240,
+      "local_git_sha": "6943f9ac0a385d92e304060e171e4945d1d34c65",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/endpoints.adoc",
+      "searchable_text": false,
+      "sha256": "50108631e63948888434e27c692250d1043922f6a10984fb75e59895ae4e21d1",
+      "upstream_git_sha": "6943f9ac0a385d92e304060e171e4945d1d34c65",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/endpoints.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1420,
+      "local_git_sha": "6fc12027434e051b2f87238153e086c2bb109a38",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/http-exchanges.adoc",
+      "searchable_text": false,
+      "sha256": "e307be44b8d47799c5d317dd770665ce2f7e0cdc89205c3854c7ae2eb9238091",
+      "upstream_git_sha": "6fc12027434e051b2f87238153e086c2bb109a38",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/http-exchanges.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 363,
+      "local_git_sha": "3c05673e8739b796ce72d1c67f234cfa114fdfc1",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/index.adoc",
+      "searchable_text": false,
+      "sha256": "81b05c377e01a033cc620896dd82633f352606d9d9e944bcc6ad610705c51a9e",
+      "upstream_git_sha": "3c05673e8739b796ce72d1c67f234cfa114fdfc1",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/index.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2884,
+      "local_git_sha": "0672e88747afeb1e202ff2d9efb27dec34c426e1",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/jmx.adoc",
+      "searchable_text": false,
+      "sha256": "5cd67bd673ad819a2859ee99b6ebc2177f0a56b1a65cea7558eebceaa2d0e84d",
+      "upstream_git_sha": "0672e88747afeb1e202ff2d9efb27dec34c426e1",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/jmx.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3132,
+      "local_git_sha": "4158839d638f51fefb9459cf0dd85854a9ddbf20",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/loggers.adoc",
+      "searchable_text": false,
+      "sha256": "4bb63e8f3eb962f155c8e2de0639f7bba5ec0921ca922354044e54ed55f2c6d8",
+      "upstream_git_sha": "4158839d638f51fefb9459cf0dd85854a9ddbf20",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/loggers.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 51686,
+      "local_git_sha": "e34188a17df82045830bcb5d3a97ffe4c2f54ee8",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/metrics.adoc",
+      "searchable_text": false,
+      "sha256": "0d8f51d6823376485c3647ac7c073ed0eb4556a90506a5bef61219d67fc2f1a1",
+      "upstream_git_sha": "e34188a17df82045830bcb5d3a97ffe4c2f54ee8",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/metrics.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 5274,
+      "local_git_sha": "aed5a2acf0e4ce120f661225f3352a9ff5f71414",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/monitoring.adoc",
+      "searchable_text": false,
+      "sha256": "310cdb2ce792729b4f1c5ace8366cf66b796f25436151efe4c46c7712283bcb0",
+      "upstream_git_sha": "aed5a2acf0e4ce120f661225f3352a9ff5f71414",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/monitoring.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 22573,
+      "local_git_sha": "6e2efcb04110b7c333bd25d7a2076366a8c34f38",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/observability.adoc",
+      "searchable_text": false,
+      "sha256": "a7beeee0637a2bc512871ead2edfa056b624fac05ac8a7486413379aa4c0f9e7",
+      "upstream_git_sha": "6e2efcb04110b7c333bd25d7a2076366a8c34f38",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/observability.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1598,
+      "local_git_sha": "2a0f73b5cc478803926c163e72a25eb213c0edd0",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/process-monitoring.adoc",
+      "searchable_text": false,
+      "sha256": "a449b4628c0f386e772ee27f4876ec3ff8fbd47e8e4492d09d21c914902240b2",
+      "upstream_git_sha": "2a0f73b5cc478803926c163e72a25eb213c0edd0",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/process-monitoring.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 10084,
+      "local_git_sha": "72c7cb0d6fac415dfc268c4725bad7d72c3d6326",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/tracing.adoc",
+      "searchable_text": false,
+      "sha256": "c926309ea0a3a3f2a24678c43f2da5227c5ccdf7759a66ea60571982a6b06a12",
+      "upstream_git_sha": "72c7cb0d6fac415dfc268c4725bad7d72c3d6326",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/actuator/tracing.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 96,
+      "local_git_sha": "b6e87cc5fd5073595e561992b3d60a27619c9ca2",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/data/index.adoc",
+      "searchable_text": false,
+      "sha256": "78dd52191d5bd4eda4b91d05ad10050401dcfb1269334a26f67036d43336124d",
+      "upstream_git_sha": "b6e87cc5fd5073595e561992b3d60a27619c9ca2",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/data/index.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 39104,
+      "local_git_sha": "25df9e9104ccddce3b9d9dd68439ab8446281f53",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/data/nosql.adoc",
+      "searchable_text": false,
+      "sha256": "1c69578bdf5c53930c06fc5b63c842f6e2339d62c6765e7cad5f0e3a34cc1fdb",
+      "upstream_git_sha": "25df9e9104ccddce3b9d9dd68439ab8446281f53",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/data/nosql.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 29136,
+      "local_git_sha": "4b87a7e1ea4065eee63609393a2ed11318cb4e08",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/data/sql.adoc",
+      "searchable_text": false,
+      "sha256": "afbd8573dde00d0518b0a0c397a6fc27c056c432c5eb60b38cdefa194dfe2711",
+      "upstream_git_sha": "4b87a7e1ea4065eee63609393a2ed11318cb4e08",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/data/sql.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 668,
+      "local_git_sha": "cc26b17f57914380521bd8138e6bf36ded0f40b6",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/aop.adoc",
+      "searchable_text": false,
+      "sha256": "1ae1148139dcb69d045c9abd973a7a16103d5b9a33ca1e070e2e761d3498210d",
+      "upstream_git_sha": "cc26b17f57914380521bd8138e6bf36ded0f40b6",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/aop.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 23624,
+      "local_git_sha": "496364b53a4e3bf468b1bba18fdeaf30cc0e83dc",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/dev-services.adoc",
+      "searchable_text": false,
+      "sha256": "0b80ab59606aad76c9155201ae9fcf08263961ecce75e777bf06b1d67d0bb6a0",
+      "upstream_git_sha": "496364b53a4e3bf468b1bba18fdeaf30cc0e83dc",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/dev-services.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 26940,
+      "local_git_sha": "366d85912fa8147a1ee4b921dff4c71eee809a1d",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/developing-auto-configuration.adoc",
+      "searchable_text": false,
+      "sha256": "3ca85f85653315a115b26cbae1ed5330b4d7b8abb1c28abd679477174223fd5f",
+      "upstream_git_sha": "366d85912fa8147a1ee4b921dff4c71eee809a1d",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/developing-auto-configuration.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 74688,
+      "local_git_sha": "1f3ab5cec2d83cb52e7fd6288ee7a80014563eff",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/external-config.adoc",
+      "searchable_text": false,
+      "sha256": "c29a4e1d7a946d6dce7e7770ce848bbb3ff0649221dddfcab7f0ea743d2b0ee0",
+      "upstream_git_sha": "1f3ab5cec2d83cb52e7fd6288ee7a80014563eff",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/external-config.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 339,
+      "local_git_sha": "6c901400c153617554c4568e8223723880c64564",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/index.adoc",
+      "searchable_text": false,
+      "sha256": "085e9d6694fa6f1f1df3254060e943be430f85536d5cb44c36400fa150ddb983",
+      "upstream_git_sha": "6c901400c153617554c4568e8223723880c64564",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/index.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1456,
+      "local_git_sha": "a0e15b4862cbd3fad3720cfab9a828d19a586f6c",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/internationalization.adoc",
+      "searchable_text": false,
+      "sha256": "e32cec28cdda3f3bb611f8e8eec11e7299d66375a7c5c74f2eb897f8d8a92044",
+      "upstream_git_sha": "a0e15b4862cbd3fad3720cfab9a828d19a586f6c",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/internationalization.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 5942,
+      "local_git_sha": "58453d340445ad0e830a49d915876e3f1ecd2ffe",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/json.adoc",
+      "searchable_text": false,
+      "sha256": "689790eeea2ffb6e5491938b0a25504578135189d3b4b1d05e9fd97e1588c218",
+      "upstream_git_sha": "58453d340445ad0e830a49d915876e3f1ecd2ffe",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/json.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 9633,
+      "local_git_sha": "d7215bff67616a1c3e4d77283bb3baa974d986a2",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/kotlin.adoc",
+      "searchable_text": false,
+      "sha256": "349e4c281eced908105e150f8edf40464d3834b55d66f666a62417c5445723b1",
+      "upstream_git_sha": "d7215bff67616a1c3e4d77283bb3baa974d986a2",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/kotlin.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 38899,
+      "local_git_sha": "64676c943345734fa7e59e9aab32e58d7661dad3",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/logging.adoc",
+      "searchable_text": false,
+      "sha256": "29ad818a12e042a013607e76055919c5c2c41a32aec5d806faa478bf378d9050",
+      "upstream_git_sha": "64676c943345734fa7e59e9aab32e58d7661dad3",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/logging.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 7983,
+      "local_git_sha": "79ecbffb0ec3630b4831b5963b00b315bf637f6a",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/profiles.adoc",
+      "searchable_text": false,
+      "sha256": "56ed1373b02113e993dd422adc540f06b6ee87e8052a18707f4cd7d58336b68f",
+      "upstream_git_sha": "79ecbffb0ec3630b4831b5963b00b315bf637f6a",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/profiles.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 28814,
+      "local_git_sha": "52c49407eb8a1e9285e6530cfcb6ffbecb5a02a0",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/spring-application.adoc",
+      "searchable_text": false,
+      "sha256": "04dfd63e9da52f4f74913158e3b1cd31ca6c634ad7deffd465555d336b9e878a",
+      "upstream_git_sha": "52c49407eb8a1e9285e6530cfcb6ffbecb5a02a0",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/spring-application.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 9293,
+      "local_git_sha": "c3e14b6dcbaafe85cc47001eaa9cb953b34c8285",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/ssl.adoc",
+      "searchable_text": false,
+      "sha256": "5852ee2edad595749cf6fb33d86198e9f364bfb2127a867ae950c0fc27ca969e",
+      "upstream_git_sha": "c3e14b6dcbaafe85cc47001eaa9cb953b34c8285",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/ssl.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 11101,
+      "local_git_sha": "8f0aa2e76566d73eb07db2e42da1fce7bb0afabc",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/task-execution-and-scheduling.adoc",
+      "searchable_text": false,
+      "sha256": "0e018c5c33d290cbc680823606c651609344bd5d31b163be9345f82b900a3b58",
+      "upstream_git_sha": "8f0aa2e76566d73eb07db2e42da1fce7bb0afabc",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/features/task-execution-and-scheduling.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 18645,
+      "local_git_sha": "1718f0abaa7debeb2c0a242969936187e43db51e",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/messaging/amqp.adoc",
+      "searchable_text": false,
+      "sha256": "a1659ea6390b34951e591736cad676ebf7d89b9a6d7a8791a818d74ffbd7bdbb",
+      "upstream_git_sha": "1718f0abaa7debeb2c0a242969936187e43db51e",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/messaging/amqp.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 714,
+      "local_git_sha": "d962d335b12790e251c31b58034a217b361f6038",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/messaging/index.adoc",
+      "searchable_text": false,
+      "sha256": "01a14ddeeb69b6d9e23de23118f9a03a96fb50bb7f35a8a60052ee6689ebc920",
+      "upstream_git_sha": "d962d335b12790e251c31b58034a217b361f6038",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/messaging/index.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 11684,
+      "local_git_sha": "7253d001b4b0f9e467fb3266fba28f92cb50a8ca",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/messaging/jms.adoc",
+      "searchable_text": false,
+      "sha256": "21ccfa24ff6930293ca276df0e1058ea523bd9b3742bcc50d17bfaf8349a9a5c",
+      "upstream_git_sha": "7253d001b4b0f9e467fb3266fba28f92cb50a8ca",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/messaging/jms.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 9328,
+      "local_git_sha": "9e02b5b664d6dd0ea7adb0314e107f3d86521528",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/messaging/kafka.adoc",
+      "searchable_text": false,
+      "sha256": "154c84c17331370f97355cf3b1da56d5f036d8a5e9311df4f5e9f24fa4d6e85e",
+      "upstream_git_sha": "9e02b5b664d6dd0ea7adb0314e107f3d86521528",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/messaging/kafka.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 11507,
+      "local_git_sha": "e518cb2e7433503d58d59751fd1721a10dc46a24",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/messaging/pulsar.adoc",
+      "searchable_text": false,
+      "sha256": "5c105da663e08aa7deb3779b949926a5413a1258df2d11c4eba35f813292fd11",
+      "upstream_git_sha": "e518cb2e7433503d58d59751fd1721a10dc46a24",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/messaging/pulsar.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4335,
+      "local_git_sha": "41d944b3ef12a06360e364f9f939a3a868828df6",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/messaging/rsocket.adoc",
+      "searchable_text": false,
+      "sha256": "ac1b175bff3d9cf03168dab8d0264d5508e55ca56a13a2afab2d5156e957dd63",
+      "upstream_git_sha": "41d944b3ef12a06360e364f9f939a3a868828df6",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/messaging/rsocket.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2677,
+      "local_git_sha": "395f6c98c626e424dd8df2b51768a0d29125f2f2",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/messaging/spring-integration.adoc",
+      "searchable_text": false,
+      "sha256": "9c57166d33e01c5dc49ac8b4efe056890df7138eed14263091f69fbb29ad0b28",
+      "upstream_git_sha": "395f6c98c626e424dd8df2b51768a0d29125f2f2",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/messaging/spring-integration.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 821,
+      "local_git_sha": "21b631611a51b5af9c41546e423dc9e1d117ad46",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/messaging/websockets.adoc",
+      "searchable_text": false,
+      "sha256": "23ba07ad00b95f5f39bf82e0ed26862a8adeee3cddf97839135e4e47ab377445",
+      "upstream_git_sha": "21b631611a51b5af9c41546e423dc9e1d117ad46",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/messaging/websockets.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 331,
+      "local_git_sha": "a4392ce6b7287955176bfa787e525dc22ae4fced",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/security/index.adoc",
+      "searchable_text": false,
+      "sha256": "c1b0bba084db6a7f7f41b8b38956efcd8372f2c1db1d48a3a903f8a19b8fc857",
+      "upstream_git_sha": "a4392ce6b7287955176bfa787e525dc22ae4fced",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/security/index.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 13897,
+      "local_git_sha": "524af65add5e193bae70e19b1535c760f9177947",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/security/oauth2.adoc",
+      "searchable_text": false,
+      "sha256": "f429b6e7cf25fa102fbefc4c60deda4a8383a93b2a024655cb1a4a55c1846e77",
+      "upstream_git_sha": "524af65add5e193bae70e19b1535c760f9177947",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/security/oauth2.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 4270,
+      "local_git_sha": "144a1240b9befe737d46af55987d1a555767951e",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/security/saml2.adoc",
+      "searchable_text": false,
+      "sha256": "63270dc4b7678b1f1d32bd90faa68bc9417d6eb35135535aefce9053c08bc402",
+      "upstream_git_sha": "144a1240b9befe737d46af55987d1a555767951e",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/security/saml2.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1292,
+      "local_git_sha": "855bcb2492f92ca7f2350bdecf31fe68abab8453",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/testing/index.adoc",
+      "searchable_text": false,
+      "sha256": "8f732460b579702846d72caf51f14f0865ba8d4174ff37c8aad3cae9b5325916",
+      "upstream_git_sha": "855bcb2492f92ca7f2350bdecf31fe68abab8453",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/testing/index.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1047,
+      "local_git_sha": "4dcea8e3251b4d5c4cf7c7f48062d0c8c557c8ae",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/testing/spring-applications.adoc",
+      "searchable_text": false,
+      "sha256": "e56f1bb66920bca75d4c3e07eca815d78b440e3b4171f62d140c5860ac103165",
+      "upstream_git_sha": "4dcea8e3251b4d5c4cf7c7f48062d0c8c557c8ae",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/testing/spring-applications.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 83277,
+      "local_git_sha": "e4e4e19ddf4504e34919519cc10e1c96b240ebee",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/testing/spring-boot-applications.adoc",
+      "searchable_text": false,
+      "sha256": "c3ddee2e25274de740b2e4ab8f568e3cf22f07fa44125cfc44d4069c4b49c637",
+      "upstream_git_sha": "e4e4e19ddf4504e34919519cc10e1c96b240ebee",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/testing/spring-boot-applications.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 3012,
+      "local_git_sha": "9d00d5e08b4ff10f8c740cb0621447fa0b952570",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/testing/test-modules.adoc",
+      "searchable_text": false,
+      "sha256": "679462a9c20a8ba842c3cd20a0ead9fed65e2be9670d1639c72e774421d61edb",
+      "upstream_git_sha": "9d00d5e08b4ff10f8c740cb0621447fa0b952570",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/testing/test-modules.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1098,
+      "local_git_sha": "69a8c6d5d85f089e15066ce77e5e4f91ed709c44",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/testing/test-scope-dependencies.adoc",
+      "searchable_text": false,
+      "sha256": "fa8e3b9b6ba590ce0146b22b833a29e242613f26878d5c343ba81eee04a747fc",
+      "upstream_git_sha": "69a8c6d5d85f089e15066ce77e5e4f91ed709c44",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/testing/test-scope-dependencies.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2333,
+      "local_git_sha": "e94323cea6a18a43513448eec5bce1064f6ae305",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/testing/test-utilities.adoc",
+      "searchable_text": false,
+      "sha256": "389c0ce2a63856a6876945dcf76046c8a8ed76b80ca84788c80b38513af54315",
+      "upstream_git_sha": "e94323cea6a18a43513448eec5bce1064f6ae305",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/testing/test-utilities.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 19768,
+      "local_git_sha": "a0bb6cd9f07374461fc7de367524dbb249284406",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/testing/testcontainers.adoc",
+      "searchable_text": false,
+      "sha256": "7a9d4a3e72cdd0307be5abd8b2d1d2cda68831dbde719ddcf3e67409978af0ca",
+      "upstream_git_sha": "a0bb6cd9f07374461fc7de367524dbb249284406",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/testing/testcontainers.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2329,
+      "local_git_sha": "87ed9bd09bde5987f9d0d39c8f088d0cc9ad8983",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/web/graceful-shutdown.adoc",
+      "searchable_text": false,
+      "sha256": "a3e8a573365e53d784613c280bd00131b1807d53fdc795b94fa802ff983a2942",
+      "upstream_git_sha": "87ed9bd09bde5987f9d0d39c8f088d0cc9ad8983",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/web/graceful-shutdown.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 547,
+      "local_git_sha": "552c321215a5ee6c6786d6c6afdb6eee52ff8461",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/web/index.adoc",
+      "searchable_text": false,
+      "sha256": "8cc341bd5fbbf6bb82fd492dd93e506d3ca5ecb8448f24eb7cd03ea67bbf87e5",
+      "upstream_git_sha": "552c321215a5ee6c6786d6c6afdb6eee52ff8461",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/web/index.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 20958,
+      "local_git_sha": "390f82507da79e748eb16e267c2c2bc65e6b43d9",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/web/reactive.adoc",
+      "searchable_text": false,
+      "sha256": "0e8f5a66d0198780009ca07756bd7822633f98f4f6acf7be98083533ad784254",
+      "upstream_git_sha": "390f82507da79e748eb16e267c2c2bc65e6b43d9",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/web/reactive.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 48963,
+      "local_git_sha": "8c98c194f8cb34cb424936ffac96b273fbbef0f3",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/web/servlet.adoc",
+      "searchable_text": false,
+      "sha256": "62bbb93cb4e4ae71301f31ca6c110cc4a82641d2f504a05349626caf3ca25eb1",
+      "upstream_git_sha": "8c98c194f8cb34cb424936ffac96b273fbbef0f3",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/web/servlet.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 8521,
+      "local_git_sha": "0add65c8a45c6156f705746d2a457fc81d45f37c",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/web/spring-graphql.adoc",
+      "searchable_text": false,
+      "sha256": "651902e5735ce77f32d24808ae7ee95dbb90ca99780db0096852231a492c0028",
+      "upstream_git_sha": "0add65c8a45c6156f705746d2a457fc81d45f37c",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/web/spring-graphql.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1878,
+      "local_git_sha": "21f2b89753dfe6fa0b48ae2b54c34a17abdfb0cf",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/web/spring-hateoas.adoc",
+      "searchable_text": false,
+      "sha256": "480cd5036563ad1763c39db68b9a4f02746c1000300f1c27e15ca9b34e777a8e",
+      "upstream_git_sha": "21f2b89753dfe6fa0b48ae2b54c34a17abdfb0cf",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/web/spring-hateoas.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 8930,
+      "local_git_sha": "86c46862ea19d96a3f8afc6e8a80238271f5fa0b",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/web/spring-security.adoc",
+      "searchable_text": false,
+      "sha256": "68038693a7f7bddfa74adb2a9066126e8acd5018e7b852eb0c22f7705b3fc67f",
+      "upstream_git_sha": "86c46862ea19d96a3f8afc6e8a80238271f5fa0b",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/web/spring-security.adoc"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1795,
+      "local_git_sha": "04f8530679f70ef517543a325f84231f36b0a8eb",
+      "local_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/web/spring-session.adoc",
+      "searchable_text": false,
+      "sha256": "e43ad9440cc8c74414fad956ac40ec2bdd7f895746a5a1b88dd26b4199f5dd58",
+      "upstream_git_sha": "04f8530679f70ef517543a325f84231f36b0a8eb",
+      "upstream_path": "documentation/spring-boot-docs/src/docs/antora/modules/reference/pages/web/spring-session.adoc"
+    }
+  ],
+  "license": "Apache-2.0",
+  "repo": "spring-projects/spring-boot",
+  "requested_ref": "main",
+  "retrieved_at": "2026-08-23T05:47:08+00:00",
+  "schema_version": 1,
+  "source_commit": "c329ffa25dc160a90ebe5e4b006ad4cdf89d8683",
+  "source_id": "spring-boot-docs",
+  "source_tree": "005feffba8a381f602345a19b30f56ecbf6cd4e2",
+  "source_url": "https://github.com/spring-projects/spring-boot/tree/c329ffa25dc160a90ebe5e4b006ad4cdf89d8683",
+  "tier": "canonical-practice",
+  "title": "Spring Boot Reference Documentation",
+  "total_original_bytes": 771472,
+  "tracks": [
+    "java",
+    "kotlin",
+    "spring-boot",
+    "configuration",
+    "data",
+    "messaging",
+    "security",
+    "testing",
+    "observability"
+  ]
+}

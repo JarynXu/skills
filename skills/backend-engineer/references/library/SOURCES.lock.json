@@ -218,6 +218,15 @@
       "source_commit": "917544888a55e4da7109bdba8c88c893c0da70f4",
       "total_original_bytes": 2383975
     },
+    "spring-boot-docs": {
+      "derived_count": 0,
+      "file_count": 56,
+      "repo": "spring-projects/spring-boot",
+      "requested_ref": "main",
+      "retrieved_at": "2026-08-23T05:47:08+00:00",
+      "source_commit": "c329ffa25dc160a90ebe5e4b006ad4cdf89d8683",
+      "total_original_bytes": 771472
+    },
     "spring-framework-docs": {
       "derived_count": 0,
       "file_count": 410,
