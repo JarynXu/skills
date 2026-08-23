@@ -14,7 +14,7 @@ permissions:
 
 concurrency:
   group: backend-library-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   sync:
@@ -40,10 +40,7 @@ jobs:
       - name: Verify byte-exact offline library
         run: python skills/backend-engineer/scripts/offline_library.py verify
 
-      - name: Run backend-engineer tests
-        run: bash skills/backend-engineer/tests/test.sh
-
-      - name: Commit generated offline library
+      - name: Commit verified offline library
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
@@ -53,7 +50,10 @@ jobs:
             skills/backend-engineer/references/library/SOURCES.lock.json
           if git diff --cached --quiet; then
             echo "Offline library is already current."
-            exit 0
+          else
+            git commit -m "chore(backend-engineer): sync teaching library originals"
+            git push origin HEAD:backend-library-rebuild
           fi
-          git commit -m "chore(backend-engineer): sync teaching library originals"
-          git push origin HEAD:backend-library-rebuild
+
+      - name: Run backend-engineer teaching tests
+        run: bash skills/backend-engineer/tests/test.sh

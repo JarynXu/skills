@@ -5,7 +5,7 @@ Use this route when the agent lacks a broad backend mental model or must take ow
 This path has two complementary layers:
 
 - the skill-authored references teach **how to reason and act** as a backend owner;
-- `library/` teaches **the underlying language, protocol, database, security, testing, and production canon** from pinned original sources.
+- `library/` teaches **the underlying language, protocol, database, security, testing, framework, and production canon** from pinned original sources.
 
 ## Phase 1 — Learn the role and decision model
 
@@ -23,16 +23,17 @@ This path has two complementary layers:
 ## Phase 2 — Learn the canon behind the role
 
 11. Read `library/curriculum/README.md` to understand the teaching tiers and learning sequence.
-12. Read the active language track in `library/curriculum/languages.md`; for Go, follow `library/curriculum/go.md` in order from specification and memory model through Effective Go, Go Proverbs, modern Google/Uber guidance, and diagnostics.
+12. Read the active language track in `library/curriculum/languages.md`; follow a detailed track where one exists (`go.md`, `kotlin.md`, `rust.md`) instead of learning from style rules alone.
 13. Read `library/curriculum/systems.md` for HTTP/API semantics, data/transactions, distributed failure, security verification, testing, observability, and production operation.
 14. Read only the applicable local originals. Use `python scripts/offline_library.py search ...` when a dictionary lookup is sufficient; read a complete source when the curriculum marks it as foundational.
 15. Read `library/curriculum/restricted-canon.md` to recognize influential books/standards that are intentionally not copied into the open repository. Obtain authorized copies only when deeper study is needed.
 
 ## Phase 3 — Specialize in the project stack
 
-16. Read only the applicable sections of `technologies/languages-and-frameworks.md` and `technologies/middleware.md`.
-17. Read the installed framework/database/broker/runtime documentation selected by project evidence and version. The offline library provides durable fundamentals and selected canonical product material; it does not pretend to mirror every version of every framework.
-18. Use `standards/index.md` for recurring lookup and `standards/sources.md` before adding or updating external guidance.
+16. Read `library/curriculum/frameworks.md` to learn the common questions that must be answered for lifecycle, dependency/configuration, concurrency, transactions, protocol behavior, security, testing, and production operation.
+17. Read only the applicable sections of `technologies/languages-and-frameworks.md` and `technologies/middleware.md`.
+18. Read the installed framework/database/broker/runtime documentation selected by project evidence and version. The offline library provides durable fundamentals and curated canonical product material; it does not pretend to mirror every version of every framework.
+19. Use `standards/index.md` for recurring lookup and `standards/sources.md` before adding or updating external guidance.
 
 ## Return to the real project
 
