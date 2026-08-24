@@ -15,6 +15,18 @@ For each surface or flow increment, determine:
 
 Let these relationships determine layout and hierarchy. Do not start from a fashionable component arrangement or a fixed page template.
 
+## Route deeper visual knowledge
+
+Load only the additional reference justified by the current design decision:
+
+- Read [visual-direction-and-taste.md](visual-direction-and-taste.md) when establishing a new visual direction, exploring alternatives, or diagnosing a usable design that still feels generic or visually uncommitted.
+- Read [visual-craft.md](visual-craft.md) when typography, color, spacing, density, surfaces, imagery, iconography, or finishing details materially determine the result.
+- Read [motion-and-physicality.md](motion-and-physicality.md) when transitions, gestures, overlays, direct manipulation, animated state, or perceived responsiveness matter.
+- Read [visual-anti-patterns.md](visual-anti-patterns.md) when auditing generic, over-styled, incoherent, or recognizably default-generated visual treatment.
+- Read [apple-design-language.md](apple-design-language.md) only when the requested or evidence-supported direction is explicitly Apple-like, iOS/macOS-native, Apple.com-inspired, or calls for that family of restraint, material depth, and physical motion.
+
+These references provide design knowledge, not a mandate to produce every described effect. Preserve the product model, interface-system authority, accessibility requirements, and task scope.
+
 ## Structure information and flow
 
 - Make the surface identity and primary task quickly understandable.
