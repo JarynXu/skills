@@ -15,6 +15,21 @@ For each surface or flow increment, determine:
 
 Let these relationships determine layout and hierarchy. Do not start from a fashionable component arrangement or a fixed page template.
 
+## Route deeper visual knowledge
+
+Load only the additional reference justified by the current design decision:
+
+- Read [visual-direction-and-taste.md](visual-direction-and-taste.md) when establishing a new visual direction or diagnosing a usable design that still feels generic or visually uncommitted.
+- Read [visual-exploration.md](visual-exploration.md) when alternatives should be deliberately generated and compared before commitment.
+- Read [visual-language-families.md](visual-language-families.md) when choosing or adapting a broad language such as quiet technical, enterprise operational, editorial, expressive consumer, premium restrained, or data analytical.
+- Read [visual-craft.md](visual-craft.md) when spacing, density, surfaces, imagery, iconography, or finishing details materially determine the result.
+- Read [typography-color-and-palette.md](typography-color-and-palette.md) when selecting or materially changing typography or color foundations, including analytical/data palettes.
+- Read [motion-and-physicality.md](motion-and-physicality.md) when transitions, gestures, overlays, direct manipulation, animated state, or perceived responsiveness matter.
+- Read [visual-anti-patterns.md](visual-anti-patterns.md) when auditing generic, over-styled, incoherent, or recognizably default-generated visual treatment.
+- Read [apple-design-language.md](apple-design-language.md) only when the requested or evidence-supported direction is explicitly Apple-like, iOS/macOS-native, Apple.com-inspired, or calls for that family of restraint, material depth, and physical motion.
+
+These references provide design knowledge, not a mandate to produce every described effect. Preserve the product model, interface-system authority, accessibility requirements, and task scope. Load only the references that affect the current decision; do not preload the visual library merely to browse it.
+
 ## Structure information and flow
 
 - Make the surface identity and primary task quickly understandable.
