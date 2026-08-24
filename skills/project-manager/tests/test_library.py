@@ -1,0 +1,115 @@
+#!/usr/bin/env python3
+"""Contracts for the project-manager source-backed offline curriculum."""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+from urllib.parse import urlparse
+
+ROOT = Path(__file__).resolve().parents[1]
+LIBRARY = ROOT / "references" / "library"
+CATALOG = LIBRARY / "SOURCES.json"
+LOCK = LIBRARY / "SOURCES.lock.json"
+ORIGINALS = LIBRARY / "originals"
+PROCESSED = LIBRARY / "processed"
+
+EXPECTED = {
+    "usds-playbook",
+    "scrum-guide-2020",
+    "open-guide-to-kanban-2025-7",
+    "gao-agile-assessment",
+    "gao-schedule-assessment",
+    "gao-cost-estimating",
+    "pm2-project-management",
+}
+URL_HOSTS = {"scrumguides.org", "kanbanguides.org", "www.gao.gov", "pm2.europa.eu"}
+SEMANTIC_CHECKS = {
+    "usds-playbook": [("primary users",), ("agile", "iterative")],
+    "scrum-guide-2020": [("sprint goal",), ("definition of done",)],
+    "open-guide-to-kanban-2025-7": [("work in progress", "work in process"), ("improving flow", "flow")],
+    "gao-agile-assessment": [("agile", "best practices"), ("monitoring", "control")],
+    "gao-schedule-assessment": [("critical path",), ("schedule risk",)],
+    "gao-cost-estimating": [("earned value management",), ("work breakdown structure",)],
+    "pm2-project-management": [("governance",), ("project lifecycle", "project life cycle")],
+}
+
+
+def text_for(source_id: str) -> str:
+    root = PROCESSED / source_id
+    parts: list[str] = []
+    for path in sorted(root.rglob("*.md")):
+        parts.append(path.read_text(encoding="utf-8", errors="replace").lower())
+    return "\n".join(parts)
+
+
+def main() -> None:
+    catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
+    assert catalog["schema_version"] == 1
+    sources = catalog["sources"]
+    ids = {source["source_id"] for source in sources}
+    assert ids == EXPECTED, (ids, EXPECTED)
+    assert len(ids) == len(sources) == 7
+
+    for source in sources:
+        assert source.get("license"), source["source_id"]
+        assert source.get("tier"), source["source_id"]
+        assert source.get("tracks"), source["source_id"]
+        includes = source.get("includes")
+        assert isinstance(includes, list) and includes, source["source_id"]
+        kind = source.get("kind", "github")
+        if kind == "url":
+            assert source.get("version"), source["source_id"]
+            for include in includes:
+                parsed = urlparse(include["url"])
+                assert parsed.scheme == "https", include
+                assert parsed.hostname in URL_HOSTS, include
+                assert include["path"].lower().endswith(".pdf"), include
+        else:
+            assert source.get("repo") == "usds/playbook"
+            assert len(str(source.get("ref", ""))) == 40
+
+    assert (LIBRARY / "curriculum.md").stat().st_size > 3000
+    assert (LIBRARY / "restricted-canon.md").stat().st_size > 2500
+
+    lock = json.loads(LOCK.read_text(encoding="utf-8"))
+    assert lock["catalog_source_count"] == 7, lock
+    assert set(lock["sources"]) == EXPECTED, lock
+
+    manifests = list(ORIGINALS.glob("*/SOURCE.json"))
+    assert len(manifests) == 7, [p.parent.name for p in manifests]
+    for source_id in sorted(EXPECTED):
+        manifest_path = ORIGINALS / source_id / "SOURCE.json"
+        assert manifest_path.is_file(), source_id
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        assert manifest.get("agent_ready") is True, source_id
+        assert int(manifest.get("file_count", 0)) >= 1, source_id
+        assert int(manifest.get("processed_count", 0)) >= 1, source_id
+        assert (PROCESSED / source_id).is_dir(), source_id
+        if source_id != "usds-playbook":
+            assert manifest.get("source_kind") == "url", source_id
+            for item in manifest["files"]:
+                assert len(str(item.get("sha256", ""))) == 64, (source_id, item)
+                assert str(item.get("source_url", "")).startswith("https://"), (source_id, item)
+        else:
+            assert manifest.get("source_kind") == "github", manifest
+
+        corpus = text_for(source_id)
+        assert corpus.strip(), source_id
+        for alternatives in SEMANTIC_CHECKS[source_id]:
+            assert any(term in corpus for term in alternatives), (source_id, alternatives)
+
+    index = (LIBRARY / "INDEX.md").read_text(encoding="utf-8")
+    curriculum = (LIBRARY / "curriculum.md").read_text(encoding="utf-8")
+    restricted = (LIBRARY / "restricted-canon.md").read_text(encoding="utf-8")
+    for source_id in EXPECTED:
+        assert source_id in index, source_id
+    for term in ("Scrum", "Kanban", "GAO", "PM²", "USDS"):
+        assert term in curriculum, term
+    for term in ("PMBOK", "PRINCE2", "ISO 21502"):
+        assert term in restricted, term
+
+    print("project-manager offline curriculum passed")
+
+
+if __name__ == "__main__":
+    main()
