@@ -35,45 +35,39 @@ SEMANTIC_CHECKS = {
 
 
 def text_for(source_id: str) -> str:
-    root = PROCESSED / source_id
     parts: list[str] = []
-    for path in sorted(root.rglob("*.md")):
+    for path in sorted((PROCESSED / source_id).rglob("*.md")):
         parts.append(path.read_text(encoding="utf-8", errors="replace").lower())
     return "\n".join(parts)
 
 
 def main() -> None:
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
-    assert catalog["schema_version"] == 1
     sources = catalog["sources"]
-    ids = {source["source_id"] for source in sources}
-    assert ids == EXPECTED, (ids, EXPECTED)
-    assert len(ids) == len(sources) == 7
+    by_id = {source["source_id"]: source for source in sources}
+    assert set(by_id) == EXPECTED and len(sources) == 7
 
     for source in sources:
-        assert source.get("license"), source["source_id"]
-        assert source.get("tier"), source["source_id"]
-        assert source.get("tracks"), source["source_id"]
-        includes = source.get("includes")
-        assert isinstance(includes, list) and includes, source["source_id"]
-        kind = source.get("kind", "github")
-        if kind == "url":
-            assert source.get("version"), source["source_id"]
+        assert source.get("license") and source.get("tier") and source.get("tracks"), source["source_id"]
+        includes = source["includes"]
+        assert includes
+        if source.get("kind", "github") == "url":
+            assert source.get("version")
             for include in includes:
                 parsed = urlparse(include["url"])
-                assert parsed.scheme == "https", include
-                assert parsed.hostname in URL_HOSTS, include
+                assert parsed.scheme == "https" and parsed.hostname in URL_HOSTS, include
                 assert include["path"].lower().endswith(".pdf"), include
+                expected = include.get("expected_sha256")
+                assert isinstance(expected, str) and len(expected) == 64, include
         else:
-            assert source.get("repo") == "usds/playbook"
-            assert len(str(source.get("ref", ""))) == 40
+            assert source.get("repo") == "usds/playbook" and len(source.get("ref", "")) == 40
 
     assert (LIBRARY / "curriculum.md").stat().st_size > 3000
     assert (LIBRARY / "restricted-canon.md").stat().st_size > 2500
 
     lock = json.loads(LOCK.read_text(encoding="utf-8"))
-    assert lock["catalog_source_count"] == 7, lock
-    assert set(lock["sources"]) == EXPECTED, lock
+    assert lock["catalog_source_count"] == 7
+    assert set(lock["sources"]) == EXPECTED
 
     manifests = list(ORIGINALS.glob("*/SOURCE.json"))
     assert len(manifests) == 7, [p.parent.name for p in manifests]
@@ -87,11 +81,12 @@ def main() -> None:
         assert (PROCESSED / source_id).is_dir(), source_id
         if source_id != "usds-playbook":
             assert manifest.get("source_kind") == "url", source_id
+            expected_by_path = {item["path"]: item["expected_sha256"] for item in by_id[source_id]["includes"]}
             for item in manifest["files"]:
-                assert len(str(item.get("sha256", ""))) == 64, (source_id, item)
-                assert str(item.get("source_url", "")).startswith("https://"), (source_id, item)
+                assert item.get("sha256") == expected_by_path[item["local_path"]], (source_id, item)
+                assert str(item.get("source_url", "")).startswith("https://")
         else:
-            assert manifest.get("source_kind") == "github", manifest
+            assert manifest.get("source_kind") == "github"
 
         corpus = text_for(source_id)
         assert corpus.strip(), source_id

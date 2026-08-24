@@ -41,6 +41,9 @@ def main() -> None:
             for include in source["includes"]:
                 assert include["path"].endswith(".pdf")
                 module.validate_public_https_url(include["url"])
+                expected = include.get("expected_sha256")
+                assert isinstance(expected, str) and len(expected) == 64, (source["source_id"], include)
+                int(expected, 16)
         else:
             assert source["repo"] == "usds/playbook"
             assert len(source["ref"]) == 40
