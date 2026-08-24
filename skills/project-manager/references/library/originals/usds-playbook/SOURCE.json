@@ -116,7 +116,7 @@
   "processing_warnings": [],
   "repo": "usds/playbook",
   "requested_ref": "f5d71f1939efe87db9f0be414bcfa7c489e01c19",
-  "retrieved_at": "2026-08-24T00:30:16+00:00",
+  "retrieved_at": "2026-08-24T00:35:07+00:00",
   "schema_version": 2,
   "source_commit": "f5d71f1939efe87db9f0be414bcfa7c489e01c19",
   "source_id": "usds-playbook",

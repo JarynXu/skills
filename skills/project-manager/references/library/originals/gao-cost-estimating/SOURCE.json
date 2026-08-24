@@ -16,7 +16,7 @@
     }
   ],
   "license": "U.S. Government work; preserve report notices and third-party material attributions",
-  "license_notes": "The report is a U.S. Government publication. Embedded third-party material, trademarks, or credited images are not relicensed by this repository.",
+  "license_notes": "Embedded third-party material, trademarks, or credited images are not relicensed by this repository.",
   "processed_bytes": 1050446,
   "processed_count": 1,
   "processed_files": [
@@ -42,7 +42,7 @@
   "processing_warnings": [
     "gao-20-195g-cost-estimating.pdf: pages without extractable text: 476"
   ],
-  "retrieved_at": "2026-08-24T00:30:39+00:00",
+  "retrieved_at": "2026-08-24T00:35:25+00:00",
   "schema_version": 2,
   "source_id": "gao-cost-estimating",
   "source_kind": "url",
