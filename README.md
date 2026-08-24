@@ -105,4 +105,6 @@ The output should include every directory under `skills/` that contains a valid 
 
 ## License
 
-MIT
+Repository-authored material is available under the [MIT License](LICENSE) to the extent the repository has the right to license it. Vendored or source-derived third-party material retains its original license, public-domain status, attribution requirements, and disclaimers; it is not relicensed under MIT merely by being included here.
+
+See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), `THIRD_PARTY_LICENSES/`, and the `SOURCES.json` / `SOURCE.json` provenance records inside offline reference libraries for source-specific terms.
