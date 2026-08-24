@@ -1,0 +1,61 @@
+{
+  "agent_ready": true,
+  "file_count": 1,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 4816832,
+      "content_type": "application/pdf",
+      "local_git_sha": "d93b8ff3ba7e148bbac6a04545ca91abd54a007b",
+      "local_path": "gao-16-89g-schedule-assessment.pdf",
+      "resolved_url": "https://www.gao.gov/assets/gao-16-89g.pdf",
+      "searchable_text": false,
+      "sha256": "ab3257eb8fe500d286a001c12d74dd074cdbf105003efb072f3370410235bfce",
+      "source_url": "https://www.gao.gov/assets/gao-16-89g.pdf",
+      "upstream_path": "gao-16-89g-schedule-assessment.pdf"
+    }
+  ],
+  "license": "U.S. Government work; preserve report notices and third-party material attributions",
+  "license_notes": "The report is a U.S. Government publication. Embedded third-party material, trademarks, or credited images are not relicensed by this repository.",
+  "processed_bytes": 598341,
+  "processed_count": 1,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 598341,
+      "derived_from": "gao-16-89g-schedule-assessment.pdf",
+      "empty_text_pages": [
+        2
+      ],
+      "local_git_sha": "aeadba3b564886dd41b4bb6d08d4765512799839",
+      "local_path": "gao-16-89g-schedule-assessment.pdf.md",
+      "page_count": 240,
+      "searchable_text": true,
+      "sha256": "addd2d1a8d94d10b528fc1514fdc48414f5b34d7e3bffe0475f55e9338ecdd3c",
+      "source_sha256": "ab3257eb8fe500d286a001c12d74dd074cdbf105003efb072f3370410235bfce",
+      "transform": "pdf-to-page-structured-markdown:pypdf",
+      "warnings": [
+        "pages without extractable text: 2"
+      ]
+    }
+  ],
+  "processing_warnings": [
+    "gao-16-89g-schedule-assessment.pdf: pages without extractable text: 2"
+  ],
+  "retrieved_at": "2026-08-24T00:30:30+00:00",
+  "schema_version": 2,
+  "source_id": "gao-schedule-assessment",
+  "source_kind": "url",
+  "tier": "canonical-schedule-guide",
+  "title": "GAO Schedule Assessment Guide: Best Practices for Project Schedules",
+  "total_original_bytes": 4816832,
+  "tracks": [
+    "schedule",
+    "critical-path",
+    "dependencies",
+    "baseline",
+    "schedule-risk",
+    "earned-value"
+  ],
+  "version": "GAO-16-89G"
+}

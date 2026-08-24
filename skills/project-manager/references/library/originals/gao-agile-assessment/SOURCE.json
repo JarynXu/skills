@@ -1,0 +1,62 @@
+{
+  "agent_ready": true,
+  "file_count": 1,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 30276491,
+      "content_type": "application/pdf",
+      "local_git_sha": "d71aba38802148c44ab4ad90a0e610371fb31b15",
+      "local_path": "gao-24-105506-agile-assessment.pdf",
+      "resolved_url": "https://www.gao.gov/assets/d24105506.pdf",
+      "searchable_text": false,
+      "sha256": "b36fff9503c469a668807834d03ce122436d8dd010f86e8dcb1b9498800d3a1d",
+      "source_url": "https://www.gao.gov/assets/d24105506.pdf",
+      "upstream_path": "gao-24-105506-agile-assessment.pdf"
+    }
+  ],
+  "license": "U.S. Government work; preserve report notices and third-party material attributions",
+  "license_notes": "The report is a U.S. Government publication. Embedded third-party material, trademarks, or credited images are not relicensed by this repository.",
+  "processed_bytes": 714690,
+  "processed_count": 1,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 714690,
+      "derived_from": "gao-24-105506-agile-assessment.pdf",
+      "empty_text_pages": [
+        324
+      ],
+      "local_git_sha": "a90275cf9919f53516846a1f3d9cdfdb2dc37ec5",
+      "local_path": "gao-24-105506-agile-assessment.pdf.md",
+      "page_count": 324,
+      "searchable_text": true,
+      "sha256": "19af1c974605b8cdf1a382ce127187a65261e9175202bd6828f8faabb13ee403",
+      "source_sha256": "b36fff9503c469a668807834d03ce122436d8dd010f86e8dcb1b9498800d3a1d",
+      "transform": "pdf-to-page-structured-markdown:pypdf",
+      "warnings": [
+        "pages without extractable text: 324"
+      ]
+    }
+  ],
+  "processing_warnings": [
+    "gao-24-105506-agile-assessment.pdf: pages without extractable text: 324"
+  ],
+  "retrieved_at": "2026-08-24T00:30:20+00:00",
+  "schema_version": 2,
+  "source_id": "gao-agile-assessment",
+  "source_kind": "url",
+  "tier": "canonical-assessment-guide",
+  "title": "GAO Agile Assessment Guide: Best Practices for Adoption and Implementation",
+  "total_original_bytes": 30276491,
+  "tracks": [
+    "agile",
+    "adoption",
+    "execution",
+    "program-monitoring",
+    "control",
+    "metrics",
+    "governance"
+  ],
+  "version": "GAO-24-105506; reissued 2023-12-15"
+}

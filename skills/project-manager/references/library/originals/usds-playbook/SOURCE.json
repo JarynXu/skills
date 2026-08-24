@@ -1,24 +1,136 @@
 {
-  "schema_version": 1,
-  "source_id": "usds-playbook",
-  "title": "U.S. Digital Services Playbook — selected plays",
-  "owner": "United States Digital Service",
-  "source_repository": "https://github.com/usds/playbook",
-  "source_commit": "f5d71f1939efe87db9f0be414bcfa7c489e01c19",
-  "license": "Public domain in the United States; CC0-1.0 dedication worldwide",
-  "license_evidence_path": "README.md",
-  "retrieved_date": "2026-08-23",
-  "inclusion_mode": "selected-vendored-text",
-  "notes": [
-    "The four selected play files are byte-exact Git mirrors of the pinned upstream blobs.",
-    "README.md is included for offline provenance and license evidence. Its substantive text is preserved, but connector/file-boundary normalization changed the local Git blob SHA, so it is not marked byte-exact.",
-    "The Digital Services Playbook is practical delivery guidance, not a complete project-management standard."
-  ],
+  "agent_ready": true,
+  "file_count": 5,
   "files": [
-    {"path":"01.md","upstream_path":"_plays/01.md","upstream_git_sha":"2983381104066f4956323c318ea52d5ebb8e4630","local_git_sha":"2983381104066f4956323c318ea52d5ebb8e4630","byte_exact":true},
-    {"path":"04.md","upstream_path":"_plays/04.md","upstream_git_sha":"a4a59597a837f54831513ddaa95ee8a4fb425dd3","local_git_sha":"a4a59597a837f54831513ddaa95ee8a4fb425dd3","byte_exact":true},
-    {"path":"05.md","upstream_path":"_plays/05.md","upstream_git_sha":"f18850767044ac8593167bba9930100d12093e0e","local_git_sha":"f18850767044ac8593167bba9930100d12093e0e","byte_exact":true},
-    {"path":"12.md","upstream_path":"_plays/12.md","upstream_git_sha":"fdcbec58ae998ee5e29552164932ae0266799f6e","local_git_sha":"fdcbec58ae998ee5e29552164932ae0266799f6e","byte_exact":true},
-    {"path":"README.md","upstream_path":"README.md","upstream_git_sha":"b638105862412e2b2fbcaaded274740e4499456f","local_git_sha":"781277b9586916448829f9595e524614d8e27524","byte_exact":false}
+    {
+      "byte_exact": true,
+      "bytes": 4982,
+      "local_git_sha": "b638105862412e2b2fbcaaded274740e4499456f",
+      "local_path": "README.md",
+      "searchable_text": true,
+      "sha256": "b065a677a0a25b96c6532123140a932fabc933644440e226ba1672fab7f0cac3",
+      "upstream_git_sha": "b638105862412e2b2fbcaaded274740e4499456f",
+      "upstream_path": "README.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 1692,
+      "local_git_sha": "2983381104066f4956323c318ea52d5ebb8e4630",
+      "local_path": "_plays/01.md",
+      "searchable_text": true,
+      "sha256": "3ae222d51cade3efda62c46775d24ec5055d58ce28796d50b37fd5df4817245e",
+      "upstream_git_sha": "2983381104066f4956323c318ea52d5ebb8e4630",
+      "upstream_path": "_plays/01.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2139,
+      "local_git_sha": "a4a59597a837f54831513ddaa95ee8a4fb425dd3",
+      "local_path": "_plays/04.md",
+      "searchable_text": true,
+      "sha256": "855d31e547af74d160ed598cb50f85ab4b250b007368de50bc8e2a0c3156039b",
+      "upstream_git_sha": "a4a59597a837f54831513ddaa95ee8a4fb425dd3",
+      "upstream_path": "_plays/04.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2148,
+      "local_git_sha": "f18850767044ac8593167bba9930100d12093e0e",
+      "local_path": "_plays/05.md",
+      "searchable_text": true,
+      "sha256": "0587471c01360d9d2a0776f31fbefe93d2d83c8384a5ea95314d5e47f6191e5f",
+      "upstream_git_sha": "f18850767044ac8593167bba9930100d12093e0e",
+      "upstream_path": "_plays/05.md"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 2182,
+      "local_git_sha": "fdcbec58ae998ee5e29552164932ae0266799f6e",
+      "local_path": "_plays/12.md",
+      "searchable_text": true,
+      "sha256": "b1cb8dea34474d63bda5107cb5d5d6af981fd0795d090536298f6b6e22399ebe",
+      "upstream_git_sha": "fdcbec58ae998ee5e29552164932ae0266799f6e",
+      "upstream_path": "_plays/12.md"
+    }
+  ],
+  "license": "U.S. public domain / CC0-1.0 dedication per upstream README",
+  "processed_bytes": 14845,
+  "processed_count": 5,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 5319,
+      "derived_from": "README.md",
+      "local_git_sha": "f69a4a960cf8fc420387fb3704f0aad71a7b3a3f",
+      "local_path": "README.md",
+      "searchable_text": true,
+      "sha256": "8d556b97c802db10bd6447d41b677d75bbf312c8e1494fabf9bd453d96684397",
+      "source_git_sha": "b638105862412e2b2fbcaaded274740e4499456f",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 2033,
+      "derived_from": "_plays/01.md",
+      "local_git_sha": "68e54f70c79fe8676199b2145438136be7e94739",
+      "local_path": "_plays/01.md",
+      "searchable_text": true,
+      "sha256": "b05eff5ea2e2571882eb1c9a50c660a570c8f4b40cf7b086e1bf4489bbbc1916",
+      "source_git_sha": "2983381104066f4956323c318ea52d5ebb8e4630",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 2480,
+      "derived_from": "_plays/04.md",
+      "local_git_sha": "4f4f05328de8dfc6a1e0bd79646925d07db1f388",
+      "local_path": "_plays/04.md",
+      "searchable_text": true,
+      "sha256": "6ddf7ba494f464f831bdf34e8e6dffd5c120c5482e4e7f3ebeb7be1d5824323e",
+      "source_git_sha": "a4a59597a837f54831513ddaa95ee8a4fb425dd3",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 2490,
+      "derived_from": "_plays/05.md",
+      "local_git_sha": "34538e9772b2f1551a7cbc329d83aba3b9ea14fe",
+      "local_path": "_plays/05.md",
+      "searchable_text": true,
+      "sha256": "917b66992a375d6bb1fc81a74876221e5ddaf1a76f1bcfef5c3fc6a7947e0d13",
+      "source_git_sha": "f18850767044ac8593167bba9930100d12093e0e",
+      "transform": "markdown-normalize"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 2523,
+      "derived_from": "_plays/12.md",
+      "local_git_sha": "8803b0ba4692283364296e2ea8892407fdb6f3ce",
+      "local_path": "_plays/12.md",
+      "searchable_text": true,
+      "sha256": "7e3910924e2156ec183917e14a1b138af6d1d22177354dcadd18aaf756ecde52",
+      "source_git_sha": "fdcbec58ae998ee5e29552164932ae0266799f6e",
+      "transform": "markdown-normalize"
+    }
+  ],
+  "processing_warnings": [],
+  "repo": "usds/playbook",
+  "requested_ref": "f5d71f1939efe87db9f0be414bcfa7c489e01c19",
+  "retrieved_at": "2026-08-24T00:30:16+00:00",
+  "schema_version": 2,
+  "source_commit": "f5d71f1939efe87db9f0be414bcfa7c489e01c19",
+  "source_id": "usds-playbook",
+  "source_kind": "github",
+  "source_tree": "aba87e71cb2bee8457dbfe516dc893664c0e4963",
+  "source_url": "https://github.com/usds/playbook/tree/f5d71f1939efe87db9f0be414bcfa7c489e01c19",
+  "tier": "canonical-delivery-practice",
+  "title": "U.S. Digital Services Playbook — selected delivery plays",
+  "total_original_bytes": 13143,
+  "tracks": [
+    "users",
+    "iterative-delivery",
+    "contracting",
+    "metrics",
+    "transition"
   ]
 }

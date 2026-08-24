@@ -1,0 +1,153 @@
+{
+  "catalog_git_sha": "9d8312588683eccdd4fd407782faef62bd9021b7",
+  "catalog_sha256": "e0618679967a6f91ab3d563f2a8a33eb292a2f779eb2e2ff7da96b3a6807bff8",
+  "catalog_source_count": 7,
+  "schema_version": 3,
+  "sources": {
+    "gao-agile-assessment": {
+      "agent_ready": true,
+      "file_count": 1,
+      "files": [
+        {
+          "path": "gao-24-105506-agile-assessment.pdf",
+          "resolved_url": "https://www.gao.gov/assets/d24105506.pdf",
+          "sha256": "b36fff9503c469a668807834d03ce122436d8dd010f86e8dcb1b9498800d3a1d",
+          "source_url": "https://www.gao.gov/assets/d24105506.pdf"
+        }
+      ],
+      "processed_bytes": 714690,
+      "processed_count": 1,
+      "repo": null,
+      "requested_ref": null,
+      "retrieved_at": "2026-08-24T00:30:20+00:00",
+      "source_commit": null,
+      "source_kind": "url",
+      "total_original_bytes": 30276491,
+      "version": "GAO-24-105506; reissued 2023-12-15"
+    },
+    "gao-cost-estimating": {
+      "agent_ready": true,
+      "file_count": 1,
+      "files": [
+        {
+          "path": "gao-20-195g-cost-estimating.pdf",
+          "resolved_url": "https://www.gao.gov/assets/gao-20-195g.pdf",
+          "sha256": "3da138baff731d39b2962d3ea1e3bba19415fe9b67171807d1a1492feca770a9",
+          "source_url": "https://www.gao.gov/assets/gao-20-195g.pdf"
+        }
+      ],
+      "processed_bytes": 1050446,
+      "processed_count": 1,
+      "repo": null,
+      "requested_ref": null,
+      "retrieved_at": "2026-08-24T00:30:39+00:00",
+      "source_commit": null,
+      "source_kind": "url",
+      "total_original_bytes": 6662016,
+      "version": "GAO-20-195G"
+    },
+    "gao-schedule-assessment": {
+      "agent_ready": true,
+      "file_count": 1,
+      "files": [
+        {
+          "path": "gao-16-89g-schedule-assessment.pdf",
+          "resolved_url": "https://www.gao.gov/assets/gao-16-89g.pdf",
+          "sha256": "ab3257eb8fe500d286a001c12d74dd074cdbf105003efb072f3370410235bfce",
+          "source_url": "https://www.gao.gov/assets/gao-16-89g.pdf"
+        }
+      ],
+      "processed_bytes": 598341,
+      "processed_count": 1,
+      "repo": null,
+      "requested_ref": null,
+      "retrieved_at": "2026-08-24T00:30:30+00:00",
+      "source_commit": null,
+      "source_kind": "url",
+      "total_original_bytes": 4816832,
+      "version": "GAO-16-89G"
+    },
+    "open-guide-to-kanban-2025-7": {
+      "agent_ready": true,
+      "file_count": 1,
+      "files": [
+        {
+          "path": "open-guide-to-kanban-2025.7.pdf",
+          "resolved_url": "https://kanbanguides.org/open-guide-to-kanban/2025.7/pdf/open-guide-to-kanban.en.pdf",
+          "sha256": "63399d242fdacd2d1a44090d94004f5935f71160885cf9b6c637927be5d20a80",
+          "source_url": "https://kanbanguides.org/open-guide-to-kanban/2025.7/pdf/open-guide-to-kanban.en.pdf"
+        }
+      ],
+      "processed_bytes": 46792,
+      "processed_count": 1,
+      "repo": null,
+      "requested_ref": null,
+      "retrieved_at": "2026-08-24T00:30:18+00:00",
+      "source_commit": null,
+      "source_kind": "url",
+      "total_original_bytes": 326954,
+      "version": "2025.7"
+    },
+    "pm2-project-management": {
+      "agent_ready": true,
+      "file_count": 2,
+      "files": [
+        {
+          "path": "pm2-project-management-highlights-2025.pdf",
+          "resolved_url": "https://pm2.europa.eu/document/download/c5093dea-044c-4334-9e49-3b6d56c2afd5_en?filename=PM%C2%B2-PM_Highlights_edition2025.v.1.0.pdf",
+          "sha256": "423c8636e71cea28336b79f00cfc7df6b7fd59a1e2706817b5c04cd6053b0239",
+          "source_url": "https://pm2.europa.eu/document/download/c5093dea-044c-4334-9e49-3b6d56c2afd5_en?filename=PM%C2%B2-PM_Highlights_edition2025.v.1.0.pdf"
+        },
+        {
+          "path": "pm2-guide-v3.1-change-note.pdf",
+          "resolved_url": "https://pm2.europa.eu/system/files/2023-12/ChangeNote.from_.v3.01-v3.1.pdf",
+          "sha256": "11a6b4cbf1a0e6a502ecb01777d079f0315b63808d30f195b2395292d5730513",
+          "source_url": "https://pm2.europa.eu/system/files/2023-12/ChangeNote.from_.v3.01-v3.1.pdf"
+        }
+      ],
+      "processed_bytes": 36256,
+      "processed_count": 2,
+      "repo": null,
+      "requested_ref": null,
+      "retrieved_at": "2026-08-24T00:30:54+00:00",
+      "source_commit": null,
+      "source_kind": "url",
+      "total_original_bytes": 9592427,
+      "version": "PM² Highlights 2025 + PM² Guide v3.1 change note"
+    },
+    "scrum-guide-2020": {
+      "agent_ready": true,
+      "file_count": 1,
+      "files": [
+        {
+          "path": "scrum-guide-2020.pdf",
+          "resolved_url": "https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf",
+          "sha256": "ed83eb2378459c9e5da5e695844a24c3770fba33687cafaf0a0683ad5070b3ec",
+          "source_url": "https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf"
+        }
+      ],
+      "processed_bytes": 30260,
+      "processed_count": 1,
+      "repo": null,
+      "requested_ref": null,
+      "retrieved_at": "2026-08-24T00:30:17+00:00",
+      "source_commit": null,
+      "source_kind": "url",
+      "total_original_bytes": 254353,
+      "version": "2020-11"
+    },
+    "usds-playbook": {
+      "agent_ready": true,
+      "file_count": 5,
+      "processed_bytes": 14845,
+      "processed_count": 5,
+      "repo": "usds/playbook",
+      "requested_ref": "f5d71f1939efe87db9f0be414bcfa7c489e01c19",
+      "retrieved_at": "2026-08-24T00:30:16+00:00",
+      "source_commit": "f5d71f1939efe87db9f0be414bcfa7c489e01c19",
+      "source_kind": "github",
+      "total_original_bytes": 13143,
+      "version": null
+    }
+  }
+}
