@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the structure and frontmatter of every public skill in this repository."""
+"""Validate public skill structure, frontmatter, and repository discovery metadata."""
 
 from __future__ import annotations
 
@@ -9,7 +9,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS_DIR = ROOT / "skills"
+README = ROOT / "README.md"
 NAME_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+README_SKILL_ROW_RE = re.compile(r"^\| \[`([^`]+)`\]\(skills/([^/]+)/\) \|", re.MULTILINE)
 
 
 def parse_frontmatter(path: Path) -> dict[str, str]:
@@ -33,6 +35,51 @@ def parse_frontmatter(path: Path) -> dict[str, str]:
         if sep:
             data[key.strip()] = value.strip().strip('"\'')
     return data
+
+
+def validate_readme(skill_names: set[str]) -> list[str]:
+    errors: list[str] = []
+    if not README.is_file():
+        return ["README.md: missing repository README"]
+
+    try:
+        text = README.read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        return [f"README.md: cannot read: {exc}"]
+
+    start_marker = "## Available skills"
+    start = text.find(start_marker)
+    if start < 0:
+        return ["README.md: missing '## Available skills' section"]
+    section_start = start + len(start_marker)
+    next_heading = text.find("\n## ", section_start)
+    section = text[section_start:] if next_heading < 0 else text[section_start:next_heading]
+
+    rows = README_SKILL_ROW_RE.findall(section)
+    readme_names: list[str] = []
+    for label, target in rows:
+        if label != target:
+            errors.append(
+                f"README.md: skill table label {label!r} points to skills/{target}/; label and target must match"
+            )
+        readme_names.append(label)
+
+    if len(readme_names) != len(set(readme_names)):
+        duplicates = sorted({name for name in readme_names if readme_names.count(name) > 1})
+        errors.append("README.md: duplicate skill table entries: " + ", ".join(duplicates))
+
+    readme_set = set(readme_names)
+    missing = sorted(skill_names - readme_set)
+    extra = sorted(readme_set - skill_names)
+    if missing:
+        errors.append("README.md: missing skill table entries: " + ", ".join(missing))
+    if extra:
+        errors.append("README.md: skill table lists unknown skills: " + ", ".join(extra))
+
+    if readme_names != sorted(readme_names):
+        errors.append("README.md: Available skills entries must be sorted by skill name")
+
+    return errors
 
 
 def main() -> int:
@@ -98,13 +145,15 @@ def main() -> int:
         else:
             seen[name] = path
 
+    errors.extend(validate_readme(set(seen)))
+
     if errors:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)
         return 1
 
     names = ", ".join(sorted(seen))
-    print(f"Validated {len(seen)} skill(s): {names}")
+    print(f"Validated {len(seen)} skill(s): {names}; README discovery table is synchronized")
     return 0
 
 
