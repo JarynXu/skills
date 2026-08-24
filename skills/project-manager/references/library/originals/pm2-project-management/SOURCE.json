@@ -1,0 +1,80 @@
+{
+  "agent_ready": true,
+  "file_count": 2,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 9281856,
+      "content_type": "application/pdf",
+      "local_git_sha": "d183c25c1d5925fb839479564bc9006e30245ee9",
+      "local_path": "pm2-project-management-highlights-2025.pdf",
+      "resolved_url": "https://pm2.europa.eu/document/download/c5093dea-044c-4334-9e49-3b6d56c2afd5_en?filename=PM%C2%B2-PM_Highlights_edition2025.v.1.0.pdf",
+      "searchable_text": false,
+      "sha256": "423c8636e71cea28336b79f00cfc7df6b7fd59a1e2706817b5c04cd6053b0239",
+      "source_url": "https://pm2.europa.eu/document/download/c5093dea-044c-4334-9e49-3b6d56c2afd5_en?filename=PM%C2%B2-PM_Highlights_edition2025.v.1.0.pdf",
+      "upstream_path": "pm2-project-management-highlights-2025.pdf"
+    },
+    {
+      "byte_exact": true,
+      "bytes": 310571,
+      "content_type": "application/pdf",
+      "local_git_sha": "1137eb89c4b93f82129733dd8401e7afd96f8e3e",
+      "local_path": "pm2-guide-v3.1-change-note.pdf",
+      "resolved_url": "https://pm2.europa.eu/system/files/2023-12/ChangeNote.from_.v3.01-v3.1.pdf",
+      "searchable_text": false,
+      "sha256": "11a6b4cbf1a0e6a502ecb01777d079f0315b63808d30f195b2395292d5730513",
+      "source_url": "https://pm2.europa.eu/system/files/2023-12/ChangeNote.from_.v3.01-v3.1.pdf",
+      "upstream_path": "pm2-guide-v3.1-change-note.pdf"
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "license_notes": null,
+  "processed_bytes": 36256,
+  "processed_count": 2,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 30121,
+      "derived_from": "pm2-project-management-highlights-2025.pdf",
+      "empty_text_pages": [],
+      "local_git_sha": "3b3ac6410a8493feef42076cbd005cb0afc1321f",
+      "local_path": "pm2-project-management-highlights-2025.pdf.md",
+      "page_count": 14,
+      "searchable_text": true,
+      "sha256": "807bf9dc2a0de303522a5597d03fb2e7c7c6012685be6ef5f7e2c7517b1e9b78",
+      "source_sha256": "423c8636e71cea28336b79f00cfc7df6b7fd59a1e2706817b5c04cd6053b0239",
+      "transform": "pdf-to-page-structured-markdown:pypdf"
+    },
+    {
+      "byte_exact": false,
+      "bytes": 6135,
+      "derived_from": "pm2-guide-v3.1-change-note.pdf",
+      "empty_text_pages": [],
+      "local_git_sha": "f0be081addb3b3afc2f50dac4e38c5f14bb32d69",
+      "local_path": "pm2-guide-v3.1-change-note.pdf.md",
+      "page_count": 2,
+      "searchable_text": true,
+      "sha256": "3eafd95a4657efa36e16a5b8cca795b6f0ff751fd783c095d9b59de423f03a9f",
+      "source_sha256": "11a6b4cbf1a0e6a502ecb01777d079f0315b63808d30f195b2395292d5730513",
+      "transform": "pdf-to-page-structured-markdown:pypdf"
+    }
+  ],
+  "processing_warnings": [],
+  "retrieved_at": "2026-08-24T00:35:33+00:00",
+  "schema_version": 2,
+  "source_id": "pm2-project-management",
+  "source_kind": "url",
+  "tier": "canonical-open-methodology",
+  "title": "European Commission PM² Project Management Methodology — official highlights and v3.1 change note",
+  "total_original_bytes": 9592427,
+  "tracks": [
+    "governance",
+    "lifecycle",
+    "phases",
+    "artifacts",
+    "mindsets",
+    "tailoring",
+    "monitor-control"
+  ],
+  "version": "PM² Highlights 2025 + PM² Guide v3.1 change note"
+}

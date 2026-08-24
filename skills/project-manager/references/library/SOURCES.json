@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "policy": {
+    "purpose": "Build an offline, progressive project-management curriculum from authoritative and redistributable sources without substituting secondary summaries for official material.",
+    "selection_rules": [
+      "Prefer official standards, methodology owners, audit institutions, and public-sector delivery bodies over popularity alone.",
+      "Treat processed Markdown as the agent teaching layer and originals as the evidence layer.",
+      "Pin GitHub sources to reviewed revisions and URL sources to explicit version labels plus reviewed SHA-256 hashes.",
+      "Use broad guides only when they teach durable management mechanisms such as governance, schedule, cost, risk, flow, value, acceptance, or control.",
+      "Do not vendor proprietary PMI, ISO, PRINCE2, certification-course, or commercial-book text without explicit redistribution rights."
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "usds-playbook",
+      "title": "U.S. Digital Services Playbook — selected delivery plays",
+      "kind": "github",
+      "repo": "usds/playbook",
+      "ref": "f5d71f1939efe87db9f0be414bcfa7c489e01c19",
+      "license": "U.S. public domain / CC0-1.0 dedication per upstream README",
+      "tier": "canonical-delivery-practice",
+      "tracks": ["users", "iterative-delivery", "contracting", "metrics", "transition"],
+      "includes": [
+        {"path": "README.md"}, {"path": "_plays/01.md"}, {"path": "_plays/04.md"}, {"path": "_plays/05.md"}, {"path": "_plays/12.md"}
+      ]
+    },
+    {
+      "source_id": "scrum-guide-2020",
+      "title": "The Scrum Guide",
+      "kind": "url",
+      "version": "2020-11",
+      "license": "CC-BY-SA-4.0",
+      "tier": "canonical-framework",
+      "tracks": ["agile", "scrum", "empiricism", "accountabilities", "events", "artifacts"],
+      "includes": [{
+        "url": "https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf",
+        "path": "scrum-guide-2020.pdf",
+        "expected_sha256": "ed83eb2378459c9e5da5e695844a24c3770fba33687cafaf0a0683ad5070b3ec"
+      }]
+    },
+    {
+      "source_id": "open-guide-to-kanban-2025-7",
+      "title": "Open Guide to Kanban — In the Context of Knowledge Work",
+      "kind": "url",
+      "version": "2025.7",
+      "license": "CC-BY-SA-4.0",
+      "tier": "canonical-flow-framework",
+      "tracks": ["kanban", "flow", "wip", "workflow", "metrics", "value"],
+      "includes": [{
+        "url": "https://kanbanguides.org/open-guide-to-kanban/2025.7/pdf/open-guide-to-kanban.en.pdf",
+        "path": "open-guide-to-kanban-2025.7.pdf",
+        "expected_sha256": "63399d242fdacd2d1a44090d94004f5935f71160885cf9b6c637927be5d20a80"
+      }]
+    },
+    {
+      "source_id": "gao-agile-assessment",
+      "title": "GAO Agile Assessment Guide: Best Practices for Adoption and Implementation",
+      "kind": "url",
+      "version": "GAO-24-105506; reissued 2023-12-15",
+      "license": "U.S. Government work; preserve report notices and third-party material attributions",
+      "license_notes": "Embedded third-party material, trademarks, or credited images are not relicensed by this repository.",
+      "tier": "canonical-assessment-guide",
+      "tracks": ["agile", "adoption", "execution", "program-monitoring", "control", "metrics", "governance"],
+      "max_bytes": 100000000,
+      "includes": [{
+        "url": "https://www.gao.gov/assets/d24105506.pdf",
+        "path": "gao-24-105506-agile-assessment.pdf",
+        "expected_sha256": "b36fff9503c469a668807834d03ce122436d8dd010f86e8dcb1b9498800d3a1d"
+      }]
+    },
+    {
+      "source_id": "gao-schedule-assessment",
+      "title": "GAO Schedule Assessment Guide: Best Practices for Project Schedules",
+      "kind": "url",
+      "version": "GAO-16-89G",
+      "license": "U.S. Government work; preserve report notices and third-party material attributions",
+      "license_notes": "Embedded third-party material, trademarks, or credited images are not relicensed by this repository.",
+      "tier": "canonical-schedule-guide",
+      "tracks": ["schedule", "critical-path", "dependencies", "baseline", "schedule-risk", "earned-value"],
+      "max_bytes": 100000000,
+      "includes": [{
+        "url": "https://www.gao.gov/assets/gao-16-89g.pdf",
+        "path": "gao-16-89g-schedule-assessment.pdf",
+        "expected_sha256": "ab3257eb8fe500d286a001c12d74dd074cdbf105003efb072f3370410235bfce"
+      }]
+    },
+    {
+      "source_id": "gao-cost-estimating",
+      "title": "GAO Cost Estimating and Assessment Guide",
+      "kind": "url",
+      "version": "GAO-20-195G",
+      "license": "U.S. Government work; preserve report notices and third-party material attributions",
+      "license_notes": "Embedded third-party material, trademarks, or credited images are not relicensed by this repository.",
+      "tier": "canonical-cost-guide",
+      "tracks": ["cost", "estimating", "wbs", "risk", "sensitivity", "earned-value", "baseline", "forecast"],
+      "max_bytes": 120000000,
+      "includes": [{
+        "url": "https://www.gao.gov/assets/gao-20-195g.pdf",
+        "path": "gao-20-195g-cost-estimating.pdf",
+        "expected_sha256": "3da138baff731d39b2962d3ea1e3bba19415fe9b67171807d1a1492feca770a9"
+      }]
+    },
+    {
+      "source_id": "pm2-project-management",
+      "title": "European Commission PM² Project Management Methodology — official highlights and v3.1 change note",
+      "kind": "url",
+      "version": "PM² Highlights 2025 + PM² Guide v3.1 change note",
+      "license": "CC-BY-4.0",
+      "tier": "canonical-open-methodology",
+      "tracks": ["governance", "lifecycle", "phases", "artifacts", "mindsets", "tailoring", "monitor-control"],
+      "includes": [
+        {
+          "url": "https://pm2.europa.eu/document/download/c5093dea-044c-4334-9e49-3b6d56c2afd5_en?filename=PM%C2%B2-PM_Highlights_edition2025.v.1.0.pdf",
+          "path": "pm2-project-management-highlights-2025.pdf",
+          "expected_sha256": "423c8636e71cea28336b79f00cfc7df6b7fd59a1e2706817b5c04cd6053b0239"
+        },
+        {
+          "url": "https://pm2.europa.eu/system/files/2023-12/ChangeNote.from_.v3.01-v3.1.pdf",
+          "path": "pm2-guide-v3.1-change-note.pdf",
+          "expected_sha256": "11a6b4cbf1a0e6a502ecb01777d079f0315b63808d30f195b2395292d5730513"
+        }
+      ]
+    }
+  ]
+}

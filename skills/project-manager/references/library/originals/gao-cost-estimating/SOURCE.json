@@ -1,0 +1,63 @@
+{
+  "agent_ready": true,
+  "file_count": 1,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 6662016,
+      "content_type": "application/pdf",
+      "local_git_sha": "67025c89d7a69823e93b3b44f16bb574a91ff22a",
+      "local_path": "gao-20-195g-cost-estimating.pdf",
+      "resolved_url": "https://www.gao.gov/assets/gao-20-195g.pdf",
+      "searchable_text": false,
+      "sha256": "3da138baff731d39b2962d3ea1e3bba19415fe9b67171807d1a1492feca770a9",
+      "source_url": "https://www.gao.gov/assets/gao-20-195g.pdf",
+      "upstream_path": "gao-20-195g-cost-estimating.pdf"
+    }
+  ],
+  "license": "U.S. Government work; preserve report notices and third-party material attributions",
+  "license_notes": "Embedded third-party material, trademarks, or credited images are not relicensed by this repository.",
+  "processed_bytes": 1050446,
+  "processed_count": 1,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 1050446,
+      "derived_from": "gao-20-195g-cost-estimating.pdf",
+      "empty_text_pages": [
+        476
+      ],
+      "local_git_sha": "f219eaf2f54ac838d5af9f230ec16cb7f32f48ff",
+      "local_path": "gao-20-195g-cost-estimating.pdf.md",
+      "page_count": 476,
+      "searchable_text": true,
+      "sha256": "a53707df464e9e6579fbccc4ca656e1b2a835a4d1b6e7132cc21d5b24d397c3e",
+      "source_sha256": "3da138baff731d39b2962d3ea1e3bba19415fe9b67171807d1a1492feca770a9",
+      "transform": "pdf-to-page-structured-markdown:pypdf",
+      "warnings": [
+        "pages without extractable text: 476"
+      ]
+    }
+  ],
+  "processing_warnings": [
+    "gao-20-195g-cost-estimating.pdf: pages without extractable text: 476"
+  ],
+  "retrieved_at": "2026-08-24T00:35:25+00:00",
+  "schema_version": 2,
+  "source_id": "gao-cost-estimating",
+  "source_kind": "url",
+  "tier": "canonical-cost-guide",
+  "title": "GAO Cost Estimating and Assessment Guide",
+  "total_original_bytes": 6662016,
+  "tracks": [
+    "cost",
+    "estimating",
+    "wbs",
+    "risk",
+    "sensitivity",
+    "earned-value",
+    "baseline",
+    "forecast"
+  ],
+  "version": "GAO-20-195G"
+}

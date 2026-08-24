@@ -1,0 +1,54 @@
+{
+  "agent_ready": true,
+  "file_count": 1,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 254353,
+      "content_type": "application/pdf",
+      "local_git_sha": "d13496f1e1e9680d57a5ee7c8c4e1db9bb635a72",
+      "local_path": "scrum-guide-2020.pdf",
+      "resolved_url": "https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf",
+      "searchable_text": false,
+      "sha256": "ed83eb2378459c9e5da5e695844a24c3770fba33687cafaf0a0683ad5070b3ec",
+      "source_url": "https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf",
+      "upstream_path": "scrum-guide-2020.pdf"
+    }
+  ],
+  "license": "CC-BY-SA-4.0",
+  "license_notes": null,
+  "processed_bytes": 30260,
+  "processed_count": 1,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 30260,
+      "derived_from": "scrum-guide-2020.pdf",
+      "empty_text_pages": [],
+      "local_git_sha": "77315629c6462905ffba4e034f3ca98ac985bb17",
+      "local_path": "scrum-guide-2020.pdf.md",
+      "page_count": 14,
+      "searchable_text": true,
+      "sha256": "4678518dd0a3bc71e747deb14cf4500bd74159c04ae4168a62e7809701728a20",
+      "source_sha256": "ed83eb2378459c9e5da5e695844a24c3770fba33687cafaf0a0683ad5070b3ec",
+      "transform": "pdf-to-page-structured-markdown:pypdf"
+    }
+  ],
+  "processing_warnings": [],
+  "retrieved_at": "2026-08-24T00:35:07+00:00",
+  "schema_version": 2,
+  "source_id": "scrum-guide-2020",
+  "source_kind": "url",
+  "tier": "canonical-framework",
+  "title": "The Scrum Guide",
+  "total_original_bytes": 254353,
+  "tracks": [
+    "agile",
+    "scrum",
+    "empiricism",
+    "accountabilities",
+    "events",
+    "artifacts"
+  ],
+  "version": "2020-11"
+}

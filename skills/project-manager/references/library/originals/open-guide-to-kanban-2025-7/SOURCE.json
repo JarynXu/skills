@@ -1,0 +1,54 @@
+{
+  "agent_ready": true,
+  "file_count": 1,
+  "files": [
+    {
+      "byte_exact": true,
+      "bytes": 326954,
+      "content_type": "application/pdf",
+      "local_git_sha": "f29b99f55deb763a643041ffa4d342f16a67d332",
+      "local_path": "open-guide-to-kanban-2025.7.pdf",
+      "resolved_url": "https://kanbanguides.org/open-guide-to-kanban/2025.7/pdf/open-guide-to-kanban.en.pdf",
+      "searchable_text": false,
+      "sha256": "63399d242fdacd2d1a44090d94004f5935f71160885cf9b6c637927be5d20a80",
+      "source_url": "https://kanbanguides.org/open-guide-to-kanban/2025.7/pdf/open-guide-to-kanban.en.pdf",
+      "upstream_path": "open-guide-to-kanban-2025.7.pdf"
+    }
+  ],
+  "license": "CC-BY-SA-4.0",
+  "license_notes": null,
+  "processed_bytes": 46792,
+  "processed_count": 1,
+  "processed_files": [
+    {
+      "byte_exact": false,
+      "bytes": 46792,
+      "derived_from": "open-guide-to-kanban-2025.7.pdf",
+      "empty_text_pages": [],
+      "local_git_sha": "38e3448f9ab6e112efa0424916f08905469d04bd",
+      "local_path": "open-guide-to-kanban-2025.7.pdf.md",
+      "page_count": 13,
+      "searchable_text": true,
+      "sha256": "354c2388f4ace9a0b984c9f97d076eb45e1ebd56ffb43735e04f799c31eb4aec",
+      "source_sha256": "63399d242fdacd2d1a44090d94004f5935f71160885cf9b6c637927be5d20a80",
+      "transform": "pdf-to-page-structured-markdown:pypdf"
+    }
+  ],
+  "processing_warnings": [],
+  "retrieved_at": "2026-08-24T00:35:08+00:00",
+  "schema_version": 2,
+  "source_id": "open-guide-to-kanban-2025-7",
+  "source_kind": "url",
+  "tier": "canonical-flow-framework",
+  "title": "Open Guide to Kanban — In the Context of Knowledge Work",
+  "total_original_bytes": 326954,
+  "tracks": [
+    "kanban",
+    "flow",
+    "wip",
+    "workflow",
+    "metrics",
+    "value"
+  ],
+  "version": "2025.7"
+}
