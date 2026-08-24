@@ -22,7 +22,10 @@ Load only the additional reference justified by the current design decision:
 - Read [visual-direction-and-taste.md](visual-direction-and-taste.md) when establishing a new visual direction or diagnosing a usable design that still feels generic or visually uncommitted.
 - Read [visual-exploration.md](visual-exploration.md) when alternatives should be deliberately generated and compared before commitment.
 - Read [visual-language-families.md](visual-language-families.md) when choosing or adapting a broad language such as quiet technical, enterprise operational, editorial, expressive consumer, premium restrained, or data analytical.
-- Read [visual-craft.md](visual-craft.md) when spacing, density, surfaces, imagery, iconography, or finishing details materially determine the result.
+- Read [composition-and-art-direction.md](composition-and-art-direction.md) when a frame needs a strong primary visual, editorial or campaign staging, image/type integration, multi-panel composition, visual sequence, or clearer control of eye flow.
+- Read [imagery-and-photography.md](imagery-and-photography.md) when photography, generated imagery, illustration, product rendering, portraits, reference images, or image-led surfaces materially determine the result.
+- Read [information-graphics.md](information-graphics.md) when charts, diagrams, dashboards, technical visuals, knowledge graphics, scale comparisons, or other visual explanation must communicate a relationship accurately.
+- Read [visual-craft.md](visual-craft.md) when typography, color, spacing, density, surfaces, iconography, or finishing details materially determine the result.
 - Read [typography-color-and-palette.md](typography-color-and-palette.md) when selecting or materially changing typography or color foundations, including analytical/data palettes.
 - Read [motion-and-physicality.md](motion-and-physicality.md) when transitions, gestures, overlays, direct manipulation, animated state, or perceived responsiveness matter.
 - Read [visual-anti-patterns.md](visual-anti-patterns.md) when auditing generic, over-styled, incoherent, or recognizably default-generated visual treatment.
