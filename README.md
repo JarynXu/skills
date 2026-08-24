@@ -10,10 +10,12 @@ Each skill lives in its own directory under `skills/` and can be discovered and 
 |---|---|
 | [`backend-engineer`](skills/backend-engineer/) | Senior polyglot backend engineering for designing, building, reviewing, testing, debugging, hardening, migrating, and operating production server-side systems. |
 | [`designer`](skills/designer/) | Senior product, interaction, visual, and design-system practice for creating or evolving coherent interfaces, auditing designs, operating Figma or Pen safely, and preparing implementable handoff. |
+| [`devops-engineer`](skills/devops-engineer/) | Senior DevOps and platform engineering for CI/CD, containers, Kubernetes/GitOps, infrastructure as code, configuration and identity, observability, release controls, recovery, and software supply-chain systems. |
 | [`drawio`](skills/drawio/) | Create, edit, repair, inspect, validate, lay out, route, style, and export native editable diagrams.net/draw.io files with bundled XML references and deterministic Python tooling. |
 | [`frontend-audit`](skills/frontend-audit/) | Audit and remediate frontend product experiences across web and desktop applications, including product truth, UX, accessibility, responsiveness, state handling, component-system compliance, and frontend architecture. |
 | [`frontend-engineer`](skills/frontend-engineer/) | Act as the frontend owner who can understand, build, debug, review, audit, remediate, and verify production frontends through tested handoff. |
 | [`product`](skills/product/) | 建立、逆向重建、审查、规范化并持续维护产品定义库，覆盖产品定义、业务流程与规则、产品和技术边界，以及面向 UX、UI、架构、开发、数据和 QA 的交接。 |
+| [`project-manager`](skills/project-manager/) | Senior adaptive project management for governance, scope, schedule, cost, resources, procurement, RAID, stakeholders, predictive/agile/hybrid delivery, recovery, acceptance, closure, and benefits. |
 | [`qa-engineer`](skills/qa-engineer/) | Senior quality engineering for risk-based strategy, functional and non-functional testing, automation, defect diagnosis, UAT facilitation, production validation, and release evidence. |
 | [`skill-creator`](skills/skill-creator/) | Design, create, audit, refactor, and validate portable Agent Skills as professional behavior systems. |
 | [`software-architect`](skills/software-architect/) | Discover, design, document, evaluate, and steward software architectures from system drivers through implementation conformance. |
