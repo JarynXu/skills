@@ -1,17 +1,6 @@
-name: Build Project Manager offline library
+name: Sync Project Manager offline library
 
 on:
-  push:
-    branches:
-      - project-manager-library-rebuild
-    paths:
-      - "skills/project-manager/references/library/SOURCES.json"
-      - "skills/project-manager/scripts/sync_project_library.py"
-      - "skills/project-manager/scripts/sync_offline_library_core.py"
-      - "skills/project-manager/scripts/offline_library.py"
-      - "skills/project-manager/scripts/offline_library_core.py"
-      - "skills/project-manager/tests/test_library_sync.py"
-      - ".github/workflows/sync-project-manager-library.yml"
   workflow_dispatch:
     inputs:
       source_ids:
