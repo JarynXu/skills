@@ -3,6 +3,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
 python "$ROOT/tests/test_control_plane.py"
+python "$ROOT/tests/test_library_sync.py"
 python "$ROOT/tests/test_library.py"
 python "$ROOT/scripts/offline_library.py" verify
 python "$ROOT/scripts/offline_library.py" list | grep -q '^usds-playbook'

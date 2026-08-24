@@ -10,6 +10,7 @@ on:
       - "skills/project-manager/scripts/sync_offline_library_core.py"
       - "skills/project-manager/scripts/offline_library.py"
       - "skills/project-manager/scripts/offline_library_core.py"
+      - "skills/project-manager/tests/test_library_sync.py"
       - ".github/workflows/sync-project-manager-library.yml"
   workflow_dispatch:
     inputs:
@@ -43,6 +44,7 @@ jobs:
 
       - name: Validate catalog before network access
         run: |
+          python skills/project-manager/tests/test_library_sync.py
           python skills/project-manager/scripts/sync_project_library.py --print-catalog >/dev/null
           count="$(python skills/project-manager/scripts/sync_project_library.py --list-source-ids | wc -l)"
           test "$count" -eq 7
