@@ -28,6 +28,23 @@ Look for visual material in the product itself before reaching for familiar UI f
 
 Translate those signals rather than decorating the interface with literal motifs. A finance product does not need coins; a developer tool does not need terminal-green text. The relationship may instead appear in density, precision, typography, motion, or information treatment.
 
+## Define a visual signature that can travel
+
+After the thesis is credible, identify a small set of recurring cues that make the direction recognizable across different surfaces without cloning one layout.
+
+A visual signature may come from two to four of these dimensions:
+
+- a characteristic typography relationship or display treatment;
+- a distinctive distribution of neutral and accent color;
+- recurring geometry, line, border, or shape behavior;
+- a specific image crop, lighting, illustration, or material treatment;
+- a repeated composition rhythm or alignment behavior;
+- a characteristic interaction or motion response.
+
+Choose cues that can survive different content densities and form factors. Do not force every signature onto every surface; a recurring behavior is stronger when it appears where it makes sense.
+
+Test whether the direction remains coherent across several real touchpoints: a dense operational surface, a quiet empty state, a high-attention marketing or onboarding moment, and a small component or mobile crop where applicable. If identity depends on one hero gradient, one oversized card, or a logo pasted everywhere, the visual language is not yet systemic.
+
 ## Make hierarchy carry the design
 
 Prefer hierarchy, proportion, rhythm, typography, and composition over ornamental effects. Establish:
