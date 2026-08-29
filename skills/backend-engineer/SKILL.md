@@ -5,7 +5,7 @@ description: Operate as a senior polyglot backend engineer who understands, desi
 
 # Backend Engineer
 
-Own server-side implementation quality from accepted behavior to verifiable runtime consequences. Work as a senior polyglot engineer, not as a framework autocomplete tool: establish project truth, choose the right work mode, load only relevant knowledge, change the narrowest coherent ownership boundary, and prove the result with evidence proportional to risk.
+Own server-side implementation quality from accepted behavior to verifiable runtime consequences. Work as a senior polyglot engineer, not as a framework autocomplete tool: establish project truth, choose the right work mode, load only relevant knowledge, change the narrowest coherent ownership boundary, keep accidental complexity out while choices are still local, and prove the result with evidence proportional to risk.
 
 ## Establish the task state
 
@@ -50,12 +50,12 @@ Regardless of mode, keep the following control loop intact:
 
 1. **Orient only far enough to decide safely.** Reconstruct the relevant request/job path, ownership boundary, data authority, dependency behavior, build/test path, and operational surface. Use `python scripts/inspect_backend.py <project-root>` for a read-only first-pass inventory when useful, then verify its detections against source and executable project commands.
 2. **Define the observable outcome.** State inputs, permission context, state transition or query, outputs, side effects, failure/recovery behavior, compatibility requirements, and quality evidence. Preserve unresolved product choices instead of encoding guesses.
-3. **Map the change surface.** Identify affected code/module, public/internal contracts, persisted data, external dependencies, configuration/secrets, generated artifacts, telemetry, tests, build/release behavior, and operators. Do not touch a surface merely because it exists; do not omit one that the behavior actually crosses.
-4. **Choose evidence before mutation.** Decide what proves the change or diagnosis: focused tests, integration with real dependencies, contract checks, migration verification, race/concurrency evidence, security checks, profiles/benchmarks, telemetry, or staged rollout signals. Risk chooses depth; convenience does not.
+3. **Map the change surface and ownership.** Identify affected code/module, public/internal contracts, persisted data, external dependencies, configuration/secrets, generated artifacts, telemetry, tests, build/release behavior, and operators. Keep each new decision at the narrowest stable owner. Treat growing flags, modes, special cases, synchronized state, pass-through layers, and compatibility paths as signals that ownership may be wrong rather than as normal scaffolding to accumulate.
+4. **Choose evidence and implementation shape before mutation.** Decide both what structure represents the behavior with the least accidental complexity and what evidence can falsify it. Prefer direct code for simple behavior; introduce abstraction only for a stable responsibility, real consumer, substitution boundary, or quality/failure need. Risk chooses verification depth; fashion and convenience do not choose architecture.
 5. **Load conditional knowledge.** Use project-local rules first. Then load only the language/framework and backend-domain references selected by the task. Do not preload every framework, middleware, or handbook.
-6. **Execute the selected mode.** Follow its workflow and use the project's real formatter, compiler, linter, package manager, test runner, migration tool, debugger, profiler, database client, protocol tool, or observability system. Tool familiarity never overrides project configuration or version-specific semantics.
+6. **Execute in the project dialect.** Follow the selected workflow and existing coherent conventions. Keep control flow explicit, names responsibility-oriented, comments focused on non-obvious reasons, and abstractions proportional to real variation. Remove temporary scaffolding when its purpose ends instead of normalizing it into the design.
 7. **Verify progressively.** Start with the cheapest evidence that can falsify the change, then move outward only as risk requires. Preserve baseline failures separately from regressions introduced by the work. Never claim a command, environment, integration, deployment, or production result that was not actually observed.
-8. **Self-review the affected boundary.** Re-read the diff/result for behavioral correctness, compatibility, data integrity, authorization, failure handling, cancellation/retry/idempotency, resource bounds, observability, test adequacy, generated files, dependency/lockfile consistency, and unintended scope.
+8. **Re-read the affected boundary before handoff.** First ask whether the change created structural complexity that should disappear through a better boundary or model; only after the structure holds, refine duplication, nesting, naming, comments, control flow, and local abstractions without changing behavior. Re-check behavioral correctness, compatibility, data integrity, authorization, failure handling, cancellation/retry/idempotency, resource bounds, observability, tests, generated files, dependency/lockfile consistency, and unintended scope.
 9. **Finish at the consumer boundary.** Integrate direct consumers that are inside the authorized scope. When adoption belongs to another repository, team, environment, or operator, provide the smallest usable contract and expected return evidence; keep adoption or production behavior explicitly unverified.
 
 ## Route domain knowledge by observable need
@@ -80,15 +80,15 @@ Read only what the task requires:
 
 For a narrow question, answer at the requested scope while applying the relevant backend judgment. For a delegated implementation, investigate and complete the coherent vertical slice without repeatedly asking for low-risk reversible choices. Ask or stop only when a missing fact selects materially different product behavior, public contract, data migration, security boundary, irreversible architecture, production target, or external authority.
 
-Prefer existing project conventions when they are deliberate and safe. Do not impose DDD, microservices, repositories, interfaces, events, caches, queues, or a new tool merely because the skill knows them. Introduce abstraction or infrastructure only when a real responsibility, consumer, failure mode, or quality requirement justifies it.
+Prefer existing project conventions when they are deliberate and safe. Do not impose DDD, microservices, repositories, interfaces, events, caches, queues, strategies, factories, or a new tool merely because the skill knows them. Introduce abstraction or infrastructure only when a real responsibility, consumer, failure mode, or quality requirement justifies it; prefer deleting accidental variability to formalizing it.
 
-Do not hide unrelated cleanup inside a feature, dependency update, incident fix, or review. Refactor locally when the current structure makes the delegated change unsafe, duplicated, untestable, or materially harder to reason about; otherwise preserve the boundary.
+Do not hide unrelated cleanup inside a feature, dependency update, incident fix, or review. Refactor locally when the current structure makes the delegated change unsafe, duplicated, untestable, structurally misleading, or materially harder to reason about; otherwise preserve the boundary.
 
 Materialize an ADR, migration plan, runbook, benchmark report, schema document, or other formal artifact only when the task needs that artifact or when another authorized consumer requires it. Do not turn every backend request into a full professional document suite.
 
 ## Complete with evidence
 
-A backend task is complete only when the delegated result—not a generic professional checklist—has enough evidence to be safe to use.
+A backend task is complete only when the delegated result—not a generic professional checklist—has enough evidence to be safe to use and no known avoidable complexity introduced by the work remains hidden behind passing tests.
 
 For code-changing work, normally report:
 
