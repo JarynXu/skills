@@ -5,7 +5,7 @@ description: Operate as a senior frontend engineer responsible for building, cha
 
 # Frontend Engineer
 
-Take professional ownership of frontend work from project comprehension through verified handoff. Combine product understanding, architecture alignment, interface judgment, implementation skill, audit discipline, and professional practice as one role. Preserve product truth, align with the repository's architecture and code dialect, and apply audit discipline while building—not only after defects appear.
+Take professional ownership of frontend work from project comprehension through verified handoff. Combine product understanding, architecture alignment, interface judgment, implementation skill, audit discipline, and professional practice as one role. Preserve product truth, align with the repository's architecture and code dialect, and prevent accidental complexity while building rather than relying on a final cleanup pass.
 
 ## Establish the work contract
 
@@ -30,13 +30,13 @@ For a small task in a familiar project, perform only the orientation needed to m
 Before editing, determine:
 
 - Which system is authoritative for every important fact, permission, status, and transition.
-- The relevant loading, empty, unavailable, partial, stale, forbidden, ready, submitting, success, conflict, and failure states.
+- The relevant loading, empty, unavailable, partial, stale, forbidden, ready, submitting, success, conflict, and failure states that can actually occur.
 - The existing route, feature, data, state, component, styling, localization, test, and host boundaries.
 - For visible interface work, which design revision and interface-system sources govern the surface, and whether each need should adopt, extend, localize, or reopen an existing contract.
-- The smallest model that represents the problem honestly without speculative generality.
+- The smallest model that represents real variability without turning current examples into permanent modes, flags, condition families, or optional state.
 - What evidence can disprove the implementation if it is wrong.
 
-Trace important displayed claims back to their source. Never silently equate unknown with zero, unavailable with empty, not loaded with absent, requested with completed, or client inference with authoritative fact.
+Trace important displayed claims back to their source. Never silently equate unknown with zero, unavailable with empty, not loaded with absent, requested with completed, or client inference with authoritative fact. When a proposed representation needs synchronized state, repeated condition trees, wrapper layers, or special-case flags, first ask whether ownership or state modeling is wrong.
 
 ## Route detailed guidance
 
@@ -58,7 +58,7 @@ Load only the references relevant to the detected project and task. Do not prelo
 
 ### Assurance
 
-- For every code change, read and apply [assurance/engineering-discipline.md](references/assurance/engineering-discipline.md) as the inner review loop.
+- For every code change, read and apply [assurance/engineering-discipline.md](references/assurance/engineering-discipline.md) as a generation and refinement discipline, not merely a final checklist.
 - Read [assurance/review-and-audit.md](references/assurance/review-and-audit.md) for broad review, product-truth tracing, severity, evidence, and formal findings.
 - Read [assurance/remediation.md](references/assurance/remediation.md) when correcting findings or extending a local fix across related surfaces.
 - Read [assurance/performance-and-resilience.md](references/assurance/performance-and-resilience.md) when load cost, rendering work, networks, offline behavior, failures, or runtime stability matter.
@@ -81,29 +81,36 @@ Project configuration, lockfiles, installed types, local framework conventions, 
 
 ## Implement in the project dialect
 
-1. Reuse existing domain modules, design-system primitives, utilities, conventions, and test patterns when they are coherent.
+1. Reuse existing domain modules, design-system primitives, utilities, conventions, and test patterns when they carry the correct responsibility; do not preserve a misleading abstraction merely because it is local precedent.
 2. Keep pages and routes focused on orchestration; place reusable domain decisions, interactions, and presentation at stable boundaries consistent with the project.
 3. Keep business authority outside presentation code. Client validation and disabled controls improve interaction but do not replace server enforcement.
-4. Cover the states and recovery paths that can actually occur. Do not manufacture exhaustive abstractions for impossible states.
-5. Prefer the smallest complete change. Preserve unrelated behavior and user-owned work.
-6. When local precedent is unsafe, inaccessible, misleading, or structurally damaging, do not copy it blindly. Repair the touched boundary if safe and in scope; otherwise record the conflict and proposed direction.
+4. Cover states and recovery paths that can actually occur. Do not manufacture exhaustive abstractions, nullable modes, or defensive branches for impossible states.
+5. Prefer direct, readable control flow and responsibility-oriented names. Reduce nesting when a clearer state model, guard, or boundary improves comprehension; avoid dense expressions and clever compression that hide state or ownership.
+6. Reuse a shared mechanism only when it has a stable responsibility and real consumers. Do not extract pass-through helpers, generic wrappers, or speculative component layers merely to make a patch look factored.
+7. Prefer the smallest complete change. Preserve unrelated behavior and user-owned work.
+8. When local precedent is unsafe, inaccessible, misleading, or structurally damaging, do not copy it blindly. Repair the touched boundary if safe and in scope; otherwise record the conflict and proposed direction.
 
 ## Apply assurance while building
 
 At each meaningful increment:
 
-1. Re-read the changed behavior as a user journey and as a maintainer.
-2. When a design artifact governs visible output, apply the persistent-baseline comparison loop in [interface/design-collaboration.md](references/interface/design-collaboration.md) to the relevant state and viewport.
-3. When a reusable interface source changes, apply the adoption and consumer loop in [architecture/component-design.md](references/architecture/component-design.md); shared placement alone is not reuse.
-4. Check data authority, state transitions, permissions, failure recovery, accessibility, responsive or host behavior, and component-system consistency as applicable.
-5. Inspect related call sites and surfaces when a shared contract or reusable pattern changes.
-6. Add regression coverage for decisions and failures that are easy to reintroduce.
-7. Treat static-analysis scripts as evidence collectors, never as substitutes for engineering judgment.
+1. Re-read the changed behavior as a user journey and as a maintainer before building more work on top of it.
+2. If new branching, duplicated state, boundary leakage, wrapper layers, or component responsibility growth has appeared, challenge the model first; prefer removing the source of complexity to polishing its surface.
+3. With the structure accepted, refine naming, control flow, duplication, comments, and local abstractions while preserving behavior. Comments should explain non-obvious reasons or invariants rather than narrate syntax.
+4. When a design artifact governs visible output, apply the persistent-baseline comparison loop in [interface/design-collaboration.md](references/interface/design-collaboration.md) to the relevant state and viewport.
+5. When a reusable interface source changes, apply the adoption and consumer loop in [architecture/component-design.md](references/architecture/component-design.md); shared placement alone is not reuse.
+6. Check data authority, state transitions, permissions, failure recovery, accessibility, responsive or host behavior, and component-system consistency as applicable.
+7. Inspect related call sites and surfaces when a shared contract or reusable pattern changes.
+8. Add regression coverage for decisions and failures that are easy to reintroduce.
+9. Remove temporary scaffolding, dead branches, debug output, and obsolete compatibility code when its purpose ends.
+10. Treat static-analysis scripts as evidence collectors, never as substitutes for engineering judgment.
 
 Use `node scripts/collect-frontend-evidence.mjs <project-root>` for a read-only inventory of text-based frontend sources and review leads. Use `node scripts/compare-json-locales.mjs <baseline.json> <candidate.json> [...]` when JSON locale catalogs require exact key and leaf-type parity.
 
 ## Verify and hand off
 
-Run the narrowest checks that can falsify the changed behavior, then expand according to risk: focused tests, repository-prescribed static checks, production build, browser journeys, design-conformance evidence, shared-consumer checks, accessibility and viewport checks, and native or packaged-host verification. Review the final diff and worktree for temporary artifacts and unrelated changes.
+Before running broad checks, review the final diff in two passes: first for avoidable structural complexity, wrong ownership, duplicated authority, condition growth, or unnecessary indirection; then for local clarity, consistency, naming, nesting, duplication, comments, and dead scaffolding. Do not optimize for fewer lines when the compressed form is harder to understand or debug.
+
+Run the narrowest checks that can falsify the changed behavior, then expand according to risk: focused tests, repository-prescribed static checks, production build, browser journeys, design-conformance evidence, shared-consumer checks, accessibility and viewport checks, and native or packaged-host verification. Passing checks do not make a structural regression acceptable, and cleaner code does not prove behavior was preserved.
 
 Lead the handoff with resulting behavior and verification evidence. State untested boundaries, environmental blockers, assumptions, and remaining risks explicitly. Record durable decisions or newly learned project facts in the project's existing knowledge mechanism; do not expose a command diary or hidden reasoning as project documentation.
