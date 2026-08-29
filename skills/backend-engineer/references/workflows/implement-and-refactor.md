@@ -1,6 +1,6 @@
 # Implement and refactor backend changes
 
-Use this workflow for BUILD, REFACTOR, and most HARDEN work. The goal is a coherent backend increment whose behavior, integration, tests, and operability agree.
+Use this workflow for BUILD, REFACTOR, and most HARDEN work. The goal is a coherent backend increment whose behavior, integration, tests, operability, and implementation quality agree.
 
 ## Frame the change before editing
 
@@ -45,9 +45,24 @@ Inspect the closest existing implementation that performs comparable work. Deter
 
 Prefer the existing project pattern when it carries the correct responsibility. Do not copy a pattern whose semantics are wrong for the new behavior.
 
-## Choose the implementation shape
+## Choose the implementation shape without importing complexity debt
 
 Use direct code for simple behavior. Add an abstraction only when there is a real stable responsibility, multiple consumers, substitution boundary, policy/mechanism separation, or test/operational need.
+
+Treat new structural complexity as a design signal, not a normal implementation by-product. Before adding a mode, flag, discriminator, parallel branch, helper layer, compatibility path, wrapper, adapter, or new indirection, ask what responsibility or real variability requires it and whether moving the responsibility to a better boundary makes the mechanism unnecessary. Prefer eliminating accidental branches over polishing them after they spread.
+
+Watch for complexity growth across the change, not only inside one function:
+
+- one concern expressed through growing mode/flag combinations;
+- repeated condition trees that indicate a missing responsibility boundary;
+- helpers or wrappers that merely move complexity without naming a stable concept;
+- compatibility code with no explicit coexistence or removal boundary;
+- transport, persistence, vendor, or framework details leaking into domain/application decisions;
+- one file or class accumulating unrelated reasons to change;
+- duplicated state or authority maintained in parallel;
+- abstractions created for hypothetical reuse rather than an actual consumer or substitution need.
+
+Do not mechanically replace every conditional with a strategy object or every large file with more files. The goal is the smallest structure that represents the real responsibilities and variability honestly.
 
 For domain-heavy behavior:
 
@@ -91,6 +106,18 @@ Prefer a small sequence of complete increments over broad scaffolding. A slice m
 
 Do not leave knowingly fake implementations behind a public contract unless the partial state is intentionally gated and safe.
 
+While implementing, keep the code in the project's established dialect and make the simplest clear expression of the chosen design:
+
+- reduce nesting when guard clauses, decomposition, or a clearer state model improves the path;
+- remove duplicated mechanics and redundant intermediate abstractions;
+- name variables, functions, types, and boundaries by responsibility rather than construction history;
+- keep related logic together without merging distinct responsibilities;
+- prefer explicit readable control flow over dense one-liners or clever expressions;
+- keep comments for non-obvious invariants, tradeoffs, hazards, and reasons rather than narrating visible syntax;
+- remove temporary scaffolding, dead branches, debug output, and obsolete compatibility paths when their purpose has ended.
+
+Do not optimize for line count. A shorter implementation is worse when it hides state, merges responsibilities, obscures failure behavior, or becomes harder to debug or extend.
+
 ## Refactor with a behavioral anchor
 
 Before structural refactoring, establish one of:
@@ -103,6 +130,19 @@ Before structural refactoring, establish one of:
 - another explicit correctness oracle.
 
 Separate mechanical movement/renaming from behavior changes when it improves reviewability. Refactor only the area needed to give the delegated change a coherent home. Stop when the code is understandable and the requested change no longer depends on accidental coupling.
+
+## Self-review before external review
+
+Before considering implementation complete, re-read the affected diff as its author and as the next maintainer. Repair problems already visible from the current implementation context rather than intentionally handing them to a later reviewer.
+
+Check in this order:
+
+1. **Structure:** Did the change introduce avoidable modes, flags, branches, helpers, compatibility layers, duplicated authority, boundary leakage, or file/class responsibility growth? If so, reconsider the structure before polishing it.
+2. **Expression:** With the structure accepted, can nesting, duplication, naming, control flow, comments, or local abstractions be made clearer without changing behavior?
+3. **Restraint:** Did simplification become clever compression, premature abstraction, unrelated cleanup, or loss of a useful boundary? Restore clarity and scope when it did.
+4. **Behavior:** Confirm that the refinement preserved the intended contracts, side effects, errors, ordering, concurrency semantics, and observability.
+
+This is an inner quality loop, not a substitute for an independent review when the change's risk, size, or structural consequence warrants one.
 
 ## Use project-native engineering tools
 
