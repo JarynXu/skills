@@ -1,6 +1,6 @@
 # Backend engineering decision model
 
-Use this reference to turn requirements and architecture into an implementable, verifiable increment without either under-designing consequential behavior or manufacturing unnecessary layers.
+Use this reference to turn requirements and architecture into an implementable, verifiable increment without either under-designing consequential behavior or manufacturing unnecessary layers. The implementation model should make invalid complexity harder to create, not rely on a later cleanup pass to discover it.
 
 ## Define the vertical outcome
 
@@ -29,6 +29,8 @@ A useful default separation is:
 
 Use only the distinctions that carry real responsibility. A simple CRUD endpoint may not need rich domain objects. A complex invariant should not be buried in a controller, ORM callback, queue consumer, or SQL fragment merely to avoid a domain layer.
 
+When a proposed change creates repeated mode checks, nullable states, scattered special cases, duplicated authority, pass-through helpers, or wrappers whose only purpose is routing around an existing boundary, treat that shape as evidence that the responsibility allocation may be wrong. Reallocate the concept before turning accidental variation into a permanent abstraction.
+
 ## Select the narrowest stable ownership boundary
 
 Place behavior where it can be changed and verified without coordinating unrelated consumers. Consider:
@@ -42,6 +44,8 @@ Place behavior where it can be changed and verified without coordinating unrelat
 - latency and availability coupling.
 
 Prefer a modular monolith when boundaries are still evolving and one deployment can meet requirements. Use separate services when independent ownership, deployment, scaling, trust, data authority, or fault isolation justifies the distributed cost. Do not use network boundaries as a substitute for modular design.
+
+For each new abstraction or branch family, ask two separate questions: what real responsibility or variability does it encode, and could a better ownership boundary make the mechanism disappear? Keep the abstraction only when it reduces cognitive load after this question, not merely because it makes the current patch look organized.
 
 ## Design the change at the point of consequence
 
@@ -71,11 +75,15 @@ A coherent increment has no knowingly false completion boundary. Depending on th
 - telemetry, configuration, and operational controls;
 - compatibility, rollout, and rollback support.
 
+Choose the simplest clear expression of the accepted model. Prefer explicit control flow over clever compression, responsibility-oriented names over construction-history names, and comments about invariants or reasons over narration of syntax. Remove temporary scaffolding as soon as its purpose ends. Do not optimize for line count when the shorter form hides state, failure behavior, or responsibility.
+
 Do not merge a public contract with placeholder behavior unless the partial state is intentionally feature-gated and safe. Do not create an abstraction whose only consumer is hypothetical.
 
 ## Regulate refactoring
 
-Refactor when current structure makes the requested behavior unsafe, duplicated, untestable, or materially harder to change. Preserve behavior with characterization tests or runtime evidence before structural change. Separate mechanical moves from semantic changes when that improves reviewability. Stop when the requested capability has a coherent home; do not make one feature pay for a codebase-wide idealization.
+Refactor when current structure makes the requested behavior unsafe, duplicated, untestable, structurally misleading, or materially harder to change. Preserve behavior with characterization tests or runtime evidence before structural change. Separate mechanical moves from semantic changes when that improves reviewability.
+
+When refactoring is authorized, prefer transformations that delete a source of complexity over transformations that merely redistribute it: remove obsolete modes, collapse duplicate state, move decisions to the owning boundary, delete redundant wrappers, and make invariants explicit. Stop when the requested capability has a coherent home; do not make one feature pay for a codebase-wide idealization.
 
 ## Carry implementation evidence into handoff
 
