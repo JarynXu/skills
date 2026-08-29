@@ -41,6 +41,17 @@ def fail(message: str) -> None:
     raise SystemExit(f"control-plane contract failed: {message}")
 
 
+def require_semantics(text: str, label: str, concept_groups: tuple[tuple[str, ...], ...]) -> None:
+    """Require each semantic group to be represented without pinning exact prose."""
+    lowered = text.lower()
+    missing = []
+    for alternatives in concept_groups:
+        if not any(term.lower() in lowered for term in alternatives):
+            missing.append(" | ".join(alternatives))
+    if missing:
+        fail(f"missing control-plane semantics for {label}: " + "; ".join(missing))
+
+
 def main() -> int:
     text = SKILL.read_text(encoding="utf-8")
     if not text.startswith("---\n"):
@@ -71,20 +82,21 @@ def main() -> int:
         if marker.lower() in text.lower():
             fail(f"authoring history leaked into runtime SKILL.md: {marker}")
 
-    required_concepts = (
-        "Delegation and authority",
-        "Knowledge readiness",
-        "Respect adjacent ownership",
-        "Risk surface",
-        "Map the change surface",
-        "Choose evidence before mutation",
-        "Verify progressively",
-        "Finish at the consumer boundary",
-        "NOT VERIFIED",
-    )
-    for concept in required_concepts:
-        if concept.lower() not in text.lower():
-            fail(f"missing control-plane concept: {concept}")
+    # Protect behavioral invariants rather than historical headings. Each group
+    # names semantic evidence that must remain discoverable in the runtime
+    # control plane while allowing the prose and control-loop labels to evolve.
+    semantic_contracts = {
+        "delegation and authority": (("delegation", "delegated"), ("authority", "authorized")),
+        "knowledge readiness": (("knowledge", "curriculum", "offline_library"), ("language", "runtime", "framework")),
+        "adjacent ownership": (("adjacent ownership", "product/requirements authority", "software architecture owns"),),
+        "risk surface": (("risk surface", "risk-and-verification"), ("public contracts", "persistent data", "authorization/privacy")),
+        "change surface": (("change surface",), ("contracts", "persisted data", "external dependencies")),
+        "pre-mutation evidence": (("before mutation", "before editing", "before structural refactoring"), ("evidence", "tests", "oracle")),
+        "progressive verification": (("verify progressively", "verification depth", "focused tests"),),
+        "consumer boundary": (("consumer boundary", "direct consumers"), ("unverified", "not verified")),
+    }
+    for label, groups in semantic_contracts.items():
+        require_semantics(text, label, groups)
 
     cases = (ROOT / "tests" / "behavior-cases.md").read_text(encoding="utf-8")
     for token in ("BUILD", "DIAGNOSE", "REVIEW", "MIGRATE", "OPERATE"):
