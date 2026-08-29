@@ -16,7 +16,7 @@ trigger/input
 -> telemetry
 ```
 
-Identify the owner of each step and the smallest module/service boundary that can implement it. Preserve unresolved product behavior as an open decision; do not encode a guess into a public contract.
+Identify the owner of each step and the smallest module/service boundary that can implement it without introducing parallel authority or incidental variability. Preserve unresolved product behavior as an open decision; do not encode a guess into a public contract or a temporary flag that quietly becomes permanent.
 
 Use the change-surface model from `../core/risk-and-verification.md` to decide which of these are affected:
 
@@ -43,26 +43,15 @@ Inspect the closest existing implementation that performs comparable work. Deter
 - what code is generated and what source owns it;
 - what formatter/linter/typechecker/compiler actually enforces.
 
-Prefer the existing project pattern when it carries the correct responsibility. Do not copy a pattern whose semantics are wrong for the new behavior.
+Prefer the existing project pattern when it carries the correct responsibility. Do not copy a pattern whose semantics are wrong for the new behavior, and do not preserve an accidental abstraction merely because it already exists nearby.
 
-## Choose the implementation shape without importing complexity debt
+## Choose the implementation shape
 
 Use direct code for simple behavior. Add an abstraction only when there is a real stable responsibility, multiple consumers, substitution boundary, policy/mechanism separation, or test/operational need.
 
-Treat new structural complexity as a design signal, not a normal implementation by-product. Before adding a mode, flag, discriminator, parallel branch, helper layer, compatibility path, wrapper, adapter, or new indirection, ask what responsibility or real variability requires it and whether moving the responsibility to a better boundary makes the mechanism unnecessary. Prefer eliminating accidental branches over polishing them after they spread.
+Treat a new mode, flag, discriminator, repeated condition tree, wrapper, helper layer, compatibility path, nullable state, or duplicated state as evidence to examine the model before accepting the mechanism. Ask what real variability or responsibility it represents and whether moving that responsibility to a better boundary removes the mechanism entirely. Prefer deleting accidental branches over formalizing them.
 
-Watch for complexity growth across the change, not only inside one function:
-
-- one concern expressed through growing mode/flag combinations;
-- repeated condition trees that indicate a missing responsibility boundary;
-- helpers or wrappers that merely move complexity without naming a stable concept;
-- compatibility code with no explicit coexistence or removal boundary;
-- transport, persistence, vendor, or framework details leaking into domain/application decisions;
-- one file or class accumulating unrelated reasons to change;
-- duplicated state or authority maintained in parallel;
-- abstractions created for hypothetical reuse rather than an actual consumer or substitution need.
-
-Do not mechanically replace every conditional with a strategy object or every large file with more files. The goal is the smallest structure that represents the real responsibilities and variability honestly.
+Watch the whole change rather than one function. A locally tidy helper is still harmful when it spreads a wrong-layer decision, hides duplicated authority, or lets one file/class accumulate unrelated reasons to change. Conversely, do not replace every conditional with a strategy object or split every large file mechanically; the target is the smallest structure that represents real responsibilities honestly.
 
 For domain-heavy behavior:
 
@@ -88,7 +77,7 @@ For every I/O or state-changing edge, decide the applicable behavior for:
 - shutdown/restart;
 - reconciliation or compensation.
 
-Do not add a retry before identifying idempotency and the failure classification. Do not hold a database transaction or lock across slow remote I/O unless the design explicitly requires and tolerates it.
+Do not add a retry before identifying idempotency and the failure classification. Do not hold a database transaction or lock across slow remote I/O unless the design explicitly requires and tolerates it. Do not introduce fallback branches merely to make impossible or undefined states appear handled; fix the state model or preserve the uncertainty explicitly.
 
 ## Implement a coherent vertical slice
 
@@ -106,17 +95,18 @@ Prefer a small sequence of complete increments over broad scaffolding. A slice m
 
 Do not leave knowingly fake implementations behind a public contract unless the partial state is intentionally gated and safe.
 
-While implementing, keep the code in the project's established dialect and make the simplest clear expression of the chosen design:
+Write the code in the project's established dialect while the design is still fresh:
 
-- reduce nesting when guard clauses, decomposition, or a clearer state model improves the path;
-- remove duplicated mechanics and redundant intermediate abstractions;
-- name variables, functions, types, and boundaries by responsibility rather than construction history;
+- make control flow explicit and reduce nesting when a guard, clearer state model, or responsibility split improves comprehension;
+- remove duplicated mechanics instead of preserving them behind differently named helpers;
+- name variables, functions, types, and boundaries by responsibility or domain meaning rather than construction history;
 - keep related logic together without merging distinct responsibilities;
-- prefer explicit readable control flow over dense one-liners or clever expressions;
-- keep comments for non-obvious invariants, tradeoffs, hazards, and reasons rather than narrating visible syntax;
-- remove temporary scaffolding, dead branches, debug output, and obsolete compatibility paths when their purpose has ended.
+- keep comments for non-obvious invariants, tradeoffs, hazards, and reasons rather than narrating syntax;
+- remove temporary scaffolding, dead branches, debug output, and expired compatibility paths when their purpose ends.
 
-Do not optimize for line count. A shorter implementation is worse when it hides state, merges responsibilities, obscures failure behavior, or becomes harder to debug or extend.
+Prefer clarity over brevity. Fewer lines are not an improvement when they hide state, failure behavior, ordering, or ownership.
+
+After each meaningful increment, re-read the changed path before building further. If the increment already shows branching growth, boundary leakage, duplicated state, unnecessary indirection, or confusing expression, correct it while the change is local instead of allowing later work to depend on it.
 
 ## Refactor with a behavioral anchor
 
@@ -129,20 +119,7 @@ Before structural refactoring, establish one of:
 - runtime traces/log evidence;
 - another explicit correctness oracle.
 
-Separate mechanical movement/renaming from behavior changes when it improves reviewability. Refactor only the area needed to give the delegated change a coherent home. Stop when the code is understandable and the requested change no longer depends on accidental coupling.
-
-## Self-review before external review
-
-Before considering implementation complete, re-read the affected diff as its author and as the next maintainer. Repair problems already visible from the current implementation context rather than intentionally handing them to a later reviewer.
-
-Check in this order:
-
-1. **Structure:** Did the change introduce avoidable modes, flags, branches, helpers, compatibility layers, duplicated authority, boundary leakage, or file/class responsibility growth? If so, reconsider the structure before polishing it.
-2. **Expression:** With the structure accepted, can nesting, duplication, naming, control flow, comments, or local abstractions be made clearer without changing behavior?
-3. **Restraint:** Did simplification become clever compression, premature abstraction, unrelated cleanup, or loss of a useful boundary? Restore clarity and scope when it did.
-4. **Behavior:** Confirm that the refinement preserved the intended contracts, side effects, errors, ordering, concurrency semantics, and observability.
-
-This is an inner quality loop, not a substitute for an independent review when the change's risk, size, or structural consequence warrants one.
+Refactor toward a clearer ownership model, not toward movement for its own sake. Prefer changes that remove a source of complexity: collapse duplicated state, relocate a decision to its owner, eliminate obsolete modes or branches, remove pass-through wrappers, and make invariants explicit. Separate mechanical movement/renaming from behavior changes when it improves reviewability. Stop when the delegated capability has a coherent home and the remaining structure reflects real complexity rather than implementation history.
 
 ## Use project-native engineering tools
 
@@ -163,13 +140,15 @@ Read `../technologies/languages-and-frameworks.md`, `../practices/build-dependen
 
 Before claiming completion:
 
-1. run focused tests closest to the change;
-2. run the project checks that can catch compile/type/style/generated/lockfile inconsistencies;
-3. exercise the real integration mechanism for each consequential external surface;
-4. run deeper security/concurrency/migration/performance/resilience evidence selected by risk;
-5. inspect the final diff and runtime/telemetry consequences.
+1. re-read the final diff for avoidable structural complexity before judging local polish;
+2. with the structure accepted, refine naming, nesting, duplication, control flow, comments, and local abstractions without changing behavior;
+3. run focused tests closest to the change;
+4. run the project checks that can catch compile/type/style/generated/lockfile inconsistencies;
+5. exercise the real integration mechanism for each consequential external surface;
+6. run deeper security/concurrency/migration/performance/resilience evidence selected by risk;
+7. inspect runtime/telemetry consequences and the worktree for unintended scope.
 
-A passing inner test does not excuse a missing outer mechanism. A failing unrelated broad suite does not erase valid focused evidence; record both accurately.
+A passing test does not excuse a structural regression. A visually cleaner diff does not excuse changed semantics. A failing unrelated broad suite does not erase valid focused evidence; record both accurately.
 
 ## Handoff
 
