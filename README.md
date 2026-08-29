@@ -9,6 +9,7 @@ Each skill lives in its own directory under `skills/` and can be discovered and 
 | Skill | Description |
 |---|---|
 | [`backend-engineer`](skills/backend-engineer/) | Senior polyglot backend engineering for designing, building, reviewing, testing, debugging, hardening, migrating, and operating production server-side systems. |
+| [`code-quality-review`](skills/code-quality-review/) | Independent structural and implementation-quality review for complexity growth, ownership, abstraction health, maintainability, and behavior-preserving refinement. |
 | [`designer`](skills/designer/) | Senior product, interaction, visual, and design-system practice for creating or evolving coherent interfaces, auditing designs, operating Figma or Pen safely, and preparing implementable handoff. |
 | [`devops-engineer`](skills/devops-engineer/) | Senior DevOps and platform engineering for CI/CD, containers, Kubernetes/GitOps, infrastructure as code, configuration and identity, observability, release controls, recovery, and software supply-chain systems. |
 | [`drawio`](skills/drawio/) | Create, edit, repair, inspect, validate, lay out, route, style, and export native editable diagrams.net/draw.io files with bundled XML references and deterministic Python tooling. |
