@@ -4,17 +4,23 @@ A growing collection of reusable skills for AI coding agents.
 
 Each skill lives in its own directory under `skills/` and can be discovered and installed independently with the open `skills` CLI.
 
+This working branch uses the original V1 collection plus four additions (18 skills total). See [V1 restoration](docs/v1-restoration.md) for preserved versions and verification scope. The standalone [maintainable-design skill](skills/maintainable-design/) is separate from the preserved `feature/skills-maintainability` optimization branch.
+
 ## Available skills
 
 | Skill | Description |
 |---|---|
 | [`backend-engineer`](skills/backend-engineer/) | Senior polyglot backend engineering for designing, building, reviewing, testing, debugging, hardening, migrating, and operating production server-side systems. |
 | [`code-review`](skills/code-review/) | Independent code review for structural complexity, ownership, abstraction health, maintainability, clarity, consistency, correctness risks, and behavior-preserving refinement. |
+| [`coremail`](skills/coremail/) | Operate the local Coremail CMClient mailbox through its loopback HTTP SDK. |
 | [`designer`](skills/designer/) | Senior product, interaction, visual, and design-system practice for creating or evolving coherent interfaces, auditing designs, operating Figma or Pen safely, and preparing implementable handoff. |
 | [`devops-engineer`](skills/devops-engineer/) | Senior DevOps and platform engineering for CI/CD, containers, Kubernetes/GitOps, infrastructure as code, configuration and identity, observability, release controls, recovery, and software supply-chain systems. |
 | [`drawio`](skills/drawio/) | Create, edit, repair, inspect, validate, lay out, route, style, and export native editable diagrams.net/draw.io files with bundled XML references and deterministic Python tooling. |
 | [`frontend-audit`](skills/frontend-audit/) | Audit and remediate frontend product experiences across web and desktop applications, including product truth, UX, accessibility, responsiveness, state handling, component-system compliance, and frontend architecture. |
 | [`frontend-engineer`](skills/frontend-engineer/) | Act as the frontend owner who can understand, build, debug, review, audit, remediate, and verify production frontends through tested handoff. |
+| [`maintainable-design`](skills/maintainable-design/) | Implement, refactor and review maintainable code with useful contracts, clear ownership and dependable defaults. |
+| [`natural-writing`](skills/natural-writing/) | 撰写、改写和审查面向读者的自然语言，处理空泛评价、虚假推理、机械结构和语义受损。 |
+| [`presentation`](skills/presentation/) | Plan, create, revise and review presentations, slide decks and speaker notes. |
 | [`product`](skills/product/) | 建立、逆向重建、审查、规范化并持续维护产品定义库，覆盖产品定义、业务流程与规则、产品和技术边界，以及面向 UX、UI、架构、开发、数据和 QA 的交接。 |
 | [`project-manager`](skills/project-manager/) | Senior adaptive project management for governance, scope, schedule, cost, resources, procurement, RAID, stakeholders, predictive/agile/hybrid delivery, recovery, acceptance, closure, and benefits. |
 | [`qa-engineer`](skills/qa-engineer/) | Senior quality engineering for risk-based strategy, functional and non-functional testing, automation, defect diagnosis, UAT facilitation, production validation, and release evidence. |

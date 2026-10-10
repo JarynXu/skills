@@ -1,0 +1,4 @@
+interface:
+  display_name: "Maintainable Design"
+  short_description: "Build clear, maintainable code from the start"
+  default_prompt: "Use $maintainable-design to implement this change with clear responsibilities, useful contracts, and dependable defaults."
