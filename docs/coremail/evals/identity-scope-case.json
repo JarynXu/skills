@@ -1,0 +1,19 @@
+{
+  "request": "我是许安，an.xu@work.example.invalid 是我的工作邮箱，an@home.example.invalid 是我的私人邮箱。请只从工作账户 an.xu@work.example.invalid 的这些邮件里找出本封正文提到我的邮件，并列出要我做的事。不发送邮件。",
+  "sources": {
+    "listAccount": {
+      "code": 0,
+      "var": [
+        {"AccountID": 61, "AccountName": "team@work.example.invalid", "SharedAccount": true},
+        {"AccountID": 62, "AccountName": "an.xu@work.example.invalid", "Offline": false},
+        {"AccountID": 63, "AccountName": "an@home.example.invalid", "Offline": false}
+      ]
+    },
+    "exportedMails": [
+      {"Account": "an.xu@work.example.invalid", "ID": 601, "Body": "请 an@home.example.invalid 在周三确认出席名单。"},
+      {"Account": "an.xu@work.example.invalid", "ID": 602, "Body": "an.xu@work.example.invalid 的审批事项已移交陈明，许安无需处理。"},
+      {"Account": "an.xu@work.example.invalid", "ID": 603, "Body": "请 team@work.example.invalid 更新部门公告。"},
+      {"Account": "an@home.example.invalid", "ID": 701, "Body": "请 an.xu@work.example.invalid 办理会员续费。"}
+    ]
+  }
+}

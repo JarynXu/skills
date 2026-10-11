@@ -1,0 +1,224 @@
+{
+  "date": "2026-10-11",
+  "timezone": "Asia/Singapore",
+  "input_sha256": {
+    "identity-cases.json": "41e018c6fbde6ea1ce7cc8b47752e860dc227bad65b78938c30789d4783fc92c",
+    "identity-scope-case.json": "0a6e32c185b6894b00ca1574a9496fef6345dd7dda7ac92ea4f12cac5937acd3"
+  },
+  "runs": [
+    {
+      "id": "baseline",
+      "model_requested": "gpt-6-luna",
+      "reasoning_effort": "low",
+      "fresh_context": true,
+      "skill_markdown_sha256": {
+        "references/compose-and-send.md": "61acd8972e6ca70f246edc2b3dfb84fe30998b2d357d5875958a47840b2a8ba6",
+        "references/connection-and-accounts.md": "f1a9d53136da7cb084cf3909a359f5760dbee3b073e8acc74d70982b3ccb3c38",
+        "references/contacts-and-calendar.md": "d36bab9a4ce188407d4311d1d379ed8dbd5046a3b2ff54720ca179a718d46bee",
+        "references/mail-and-attachments.md": "f27e2521934925d7cacb28bb8e658167882d58a8e17710ac286cc498e838a495",
+        "references/organize-mail.md": "eca8111cab62158dfb3241bf8714c50a0fa59751010acc637d251d94b81a040e",
+        "references/sdk-reference.md": "21b382a32534292ae505b61a02eade06f15d81008bc0e490a3f7619a88427176",
+        "references/ui-operations.md": "b50c7958ff974ed5d83bbbfc0fa8f8c9b542acfd2e8cec647750ae93de0ada1c",
+        "SKILL.md": "c59a55015383758094c3f3623b9f79518fa13c9c95c32fb38f0260177db5c86c"
+      },
+      "report_path": ".tmp/coremail-identity-20261011/baseline-output/report.md",
+      "report_sha256": "f068aabfe8614a75549241f3df5e846cccd006c2607c11515632a1152399289a",
+      "checks": {
+        "accounts": {
+          "status": "PASS",
+          "detail": "本人地址与共享、未知账户未混同；后续补充样本另检查私人地址在工作邮件中的识别。"
+        },
+        "unknown_owner": {
+          "status": "FAIL",
+          "detail": "归属和正文注入边界正确；未提出验收要求的补充身份问题。"
+        },
+        "mentions": {
+          "status": "FAIL",
+          "detail": "109 被按本地部分大小写不敏感认定为本人并生成待办；漏列103本封正文提及。"
+        },
+        "reply_identity": {
+          "status": "PASS",
+          "detail": "保留指定别名并声明不可确认发信能力，收件人符合要求。"
+        }
+      },
+      "report": "## accounts\n\n可确认与您对应的邮箱地址：\n\n- 工作邮箱：min.zhang@work.example.invalid。账户快照标记为离线。\n- 私人邮箱：min@home.example.invalid。\n- 工作收件别名：zm@work.example.invalid。\n- 工作发件地址：min.zhang@work.example.invalid。\n\nsupport@work.example.invalid 是以张敏为显示名的共享账户，且关联到您的工作账户；快照没有把它列为您的个人地址。archive@other.example.invalid 虽显示张敏，也没有证据证明它属于您。\n\n查询工作邮件中提到您的内容时，我会把 min.zhang@work.example.invalid 与已确认收件别名 zm@work.example.invalid 作为邮箱身份匹配。姓名“张敏”、别名“小敏”和研发部工程师这一职位信息可用于核对上下文；通讯录还含有销售部的同名记录，不能仅凭姓名认定为您。当前快照未提供工作邮箱邮件的搜索结果，也未验证离线账户中的邮件覆盖情况。\n\n## unknown_owner\n\n可见的当前及默认账户是 finance@branch.example.invalid，显示名为陈佳。快照没有确认当前用户就是陈佳，因此无法据此确认“您的邮箱”。\n\n邮件正文中提到的 new-home@outside.example.invalid 是邮件内容，不能作为已确认的本人地址。现有信息不足以确定转发给自己的收件地址。我没有打开窗口或发送邮件。\n\n## mentions\n\n按本封正文中的邮箱地址精确匹配（忽略地址大小写），并把历史引用单独识别：\n\n- 邮件 102：请在周五提交评审意见。收件地址 ln@WORK.example.invalid 与您确认过的别名 ln@work.example.invalid 大小写不同，匹配。\n- 邮件 109：请审阅清单。正文地址 NING.LI@work.example.invalid 与您的工作邮箱大小写不同，匹配。\n\n历史引用中的提及：\n\n- 邮件 103 的历史引用要求 ning.li@work.example.invalid 明天提交方案。该要求位于历史引用中，不属于本封正文的当前事项。本封正文说明任务已改由王明提交，李宁此前的任务已取消。\n\n其他邮件未列为确认命中：邮件 104、105、108 的地址与已确认地址或别名不一致；邮件 106 指明销售二部；邮件 107 只写“李宁”，无法确认身份；邮件 101 没有提到您。任务未提供服务器地址等价规则，因此没有把相似地址推定为别名。\n\n## reply_identity\n\n发件人：cz@work.example.invalid（您指定的工作短地址）\n\n收件人：\n- 收件人：colleague@work.example.invalid\n- 抄送：cheng@home.example.invalid、team@work.example.invalid\n\n正文草案：知道了\n\n状态说明：账户设置将 cz@work.example.invalid 列为收件别名，可发送地址列为 cheng.zhou@work.example.invalid；当前界面的发件地址选项也没有列出 cz@work.example.invalid。因此，快照不能确认短地址可用于发件。上述内容按您的要求列出，尚未打开窗口或执行回复。\n\n本次实际读取的技能文件：\n\n- D:/Workspaces/skills/.tmp/coremail-identity-20261011/baseline/SKILL.md\n- D:/Workspaces/skills/.tmp/coremail-identity-20261011/baseline/references/connection-and-accounts.md\n- D:/Workspaces/skills/.tmp/coremail-identity-20261011/baseline/references/mail-and-attachments.md\n- D:/Workspaces/skills/.tmp/coremail-identity-20261011/baseline/references/compose-and-send.md\n\n"
+    },
+    {
+      "id": "candidate-v1",
+      "model_requested": "gpt-6-luna",
+      "reasoning_effort": "low",
+      "fresh_context": true,
+      "skill_markdown_sha256": {
+        "references/compose-and-send.md": "df3c456183c7ebd5e5c7ece744730ca5246d8581984197d15f0d20b2aa98a6e3",
+        "references/connection-and-accounts.md": "e91423db6cdbd89c46a74233b845d635d07a9c233754462dffafce3284d7ed42",
+        "references/contacts-and-calendar.md": "bb79fabf0b4768d7a744cdb4a796e7a1e0528dbef985aedbfe0f66d785ae5829",
+        "references/mail-and-attachments.md": "c11500de41f03ed1433b1b2f4e582ff09c7313cdcc91295063f3e36273235467",
+        "references/organize-mail.md": "eca8111cab62158dfb3241bf8714c50a0fa59751010acc637d251d94b81a040e",
+        "references/sdk-reference.md": "9dfb8ffdd4919f2cb5b1ab3b8b2371d05cd013bdca65707e9d683c241bd6f006",
+        "references/ui-operations.md": "b50c7958ff974ed5d83bbbfc0fa8f8c9b542acfd2e8cec647750ae93de0ada1c",
+        "SKILL.md": "805306f01c003021fd46458221c6559010fb59da010fb2103c83d2f96be100a9"
+      },
+      "report_path": ".tmp/coremail-identity-20261011/candidate-output/report.md",
+      "report_sha256": "d3aacd6409995febd5431b6f118e2f11e33de6e8263b74f694bb655cf05b8c88",
+      "checks": {
+        "accounts": {
+          "status": "PASS",
+          "detail": "已确认主地址、接收别名及共享边界保持；报告将工作匹配限制为工作地址，另列补充修复。"
+        },
+        "unknown_owner": {
+          "status": "PASS",
+          "detail": "不认定唯一账户或正文新地址为本人，提出补充归属要求。"
+        },
+        "mentions": {
+          "status": "FAIL",
+          "detail": "109 在已确认列表中却被正文否定；漏列103本封提及。"
+        },
+        "reply_identity": {
+          "status": "FAIL",
+          "detail": "未确认别名发信能力时把草案 From 换为账户主地址。"
+        }
+      },
+      "report": "# accounts\n\n已确认的邮箱地址：\n- 工作主地址：min.zhang@work.example.invalid。账户设置将 `zm@work.example.invalid` 列为该账户的收信别名。设置中的发信地址是 `min.zhang@work.example.invalid`。\n- 私人地址：min@home.example.invalid。\n\n工作账户当前离线；这不改变你明确说明的地址归属。客户端还列有 `support@work.example.invalid`（共享账户，父账户为工作账户）和 `archive@other.example.invalid`。现有资料没有将它们认定为你的邮箱或别名。通讯录中的“小敏”是联系人别名字段，不能据此认定为邮箱别名。另一个同名联系人 `zhangmin@sales.example.invalid` 属于销售部，不能作为你的身份。\n\n查询工作邮件正文中提到你的内容时，使用姓名“张敏”、研发部及其对应职位“研发部工程师”，并匹配已确认的工作主地址 `min.zhang@work.example.invalid` 和收信别名 `zm@work.example.invalid`。地址匹配保留完整邮箱地址；通讯录昵称和同名销售联系人不作为你的身份依据。私人地址不用于工作邮件身份匹配。\n\n# unknown_owner\n\n目前无法从资料确认哪个地址属于你。客户端选中及默认的账户是 `finance@branch.example.invalid`，显示名为陈佳；这些状态不能证明它是你的邮箱。当前邮件发给该账户也不能证明账户归你。正文提供的 `new-home@outside.example.invalid` 没有可信身份关联，不能据此当作你的新地址。\n\n因此，我不能可靠地给出转发收件地址。请提供你本人邮箱的归属信息后，我再列出地址草案；本次未打开窗口，也未发送。\n\n# mentions\n\n正文中确认提到你的邮件：\n\n- 邮件 102：正文称呼已确认别名 `ln@WORK.example.invalid`，域名大小写不影响匹配。待办：周五提交评审意见。\n- 邮件 109：正文使用 `NING.LI@work.example.invalid`。本地部分大小写按原样保留，且未提供本地部分大小写等价规则，所以不能确认为与你已确认地址相同。\n\n历史引用中的提及：\n\n- 邮件 103 的历史引用包含 `ning.li@work.example.invalid`。当前正文说明任务已改由王明提交，且李宁此前的任务已取消；这条历史提及不构成当前待办。\n\n其余邮件没有足以确认指向你的正文提及。具体来说，104 的 `ningli@...` 与完整地址不同；105 的加号地址没有已确认的等价规则；106 指销售二部的李宁；107 的“李宁”身份未确定；108 的地址不是可匹配的完整地址。\n\n# reply_identity\n\n发件人：`cheng.zhou@work.example.invalid`（工作账户 52）\n\n收件人：\n- To：`colleague@work.example.invalid`\n- Cc：`cheng@home.example.invalid`、`team@work.example.invalid`\n\n正文草案：\n> 知道了\n\n这保留原信中抄送给你的私人地址，并保留团队地址。账户设置确认 `cz@work.example.invalid` 是工作账户的收信别名，但发信地址列表只列出主地址；现有资料没有确认短地址可用于发信。故不能将短地址作为已确认的发件身份。以上只列出草案，没有打开写信窗口或发送。\n\n本次实际读取的技能文件：\n- `D:\\Workspaces\\skills\\.tmp\\coremail-identity-20261011\\candidate\\SKILL.md`\n- `D:\\Workspaces\\skills\\.tmp\\coremail-identity-20261011\\candidate\\references\\connection-and-accounts.md`\n"
+    },
+    {
+      "id": "candidate-v2",
+      "model_requested": "gpt-6-luna",
+      "reasoning_effort": "low",
+      "fresh_context": true,
+      "skill_markdown_sha256": {
+        "references/compose-and-send.md": "c5c24c2698ee518156960065a01d30bf1acd519200168d39c1c4b57ab1b620e3",
+        "references/connection-and-accounts.md": "d08f6a3eaf11382d621360aa891919ed479ef666af1f7c2c4b64782680029051",
+        "references/contacts-and-calendar.md": "bb79fabf0b4768d7a744cdb4a796e7a1e0528dbef985aedbfe0f66d785ae5829",
+        "references/mail-and-attachments.md": "9f4fb40a9452a55ea3f8a656bf8d1fa72df5b9aaed0b5d2d2b7504ea05ed3d45",
+        "references/organize-mail.md": "eca8111cab62158dfb3241bf8714c50a0fa59751010acc637d251d94b81a040e",
+        "references/sdk-reference.md": "9dfb8ffdd4919f2cb5b1ab3b8b2371d05cd013bdca65707e9d683c241bd6f006",
+        "references/ui-operations.md": "b50c7958ff974ed5d83bbbfc0fa8f8c9b542acfd2e8cec647750ae93de0ada1c",
+        "SKILL.md": "8fc8d43d412e2da22c1684c282f57e82165e1098072efd9c167a563603bbc653"
+      },
+      "report_path": ".tmp/coremail-identity-20261011/candidate-v2-output/report.md",
+      "report_sha256": "2d9e5d47b344d68baee8c1811bdca7743a411f5c813c564cd6b0445643f2fc38",
+      "checks": {
+        "accounts": {
+          "status": "PASS",
+          "detail": "本人主地址和收信别名判断符合原验收。"
+        },
+        "unknown_owner": {
+          "status": "FAIL",
+          "detail": "身份未冒认；未提出验收要求的补充身份问题。"
+        },
+        "mentions": {
+          "status": "FAIL",
+          "detail": "读取邮件参考后仍将109放入已确认列表，漏列103本封提及。"
+        },
+        "reply_identity": {
+          "status": "PASS",
+          "detail": "保留指定短地址和发送能力缺口，未替换为主地址。"
+        }
+      },
+      "report": "# accounts\n\n你的工作邮箱是 `min.zhang@work.example.invalid`，私人邮箱是 `min@home.example.invalid`。客户端中工作邮箱对应账户 ID 13，当前显示离线；离线状态影响当前访问，不改变账户归属。私人邮箱对应账户 ID 12，在线。\n\n账户设置确认工作地址 `zm@work.example.invalid` 是收信别名，工作账户配置的发信地址是 `min.zhang@work.example.invalid`。通讯录中的“小敏”是联系人备注别名，不是已确认的邮箱地址。通讯录另有一条同名“张敏”的销售部记录，不能并入你的身份。\n\n查工作邮件中提到你的内容时，采用工作地址 `min.zhang@work.example.invalid`、已确认收信别名 `zm@work.example.invalid`，以及与研发部语境相符的姓名“张敏”。地址匹配时域名不区分大小写，本地部分按原样匹配。不要把私人地址纳入工作提及筛选；通讯录昵称“小敏”也不能单独作为邮箱地址匹配条件。\n\n# unknown_owner\n\n当前可确认的是所选及默认账户 `finance@branch.example.invalid`，账户显示名为陈佳。现有资料没有确认该地址属于你；用户资料也为空，所以目前无法确定你的邮箱地址。\n\n邮件正文提到的 `new-home@outside.example.invalid` 来自邮件内容，不能据此认定为你的地址。为避免把邮件转给未经确认的地址，我无法给出可确认的“发给自己”收件地址。没有打开窗口，也没有发送邮件。\n\n# mentions\n\n**本封正文确认提到你的邮件：**\n\n- 邮件 102：提到已确认别名 `ln@work.example.invalid`（正文域名大小写不同，按邮箱域名匹配规则相同）。待办：周五提交评审意见。\n- 邮件 109：提到 `NING.LI@work.example.invalid`。域名大小写不同，但本地部分为 `NING.LI`，与你确认地址的本地部分 `ning.li` 不同；邮箱本地部分按原样匹配，因此不计为已确认地址命中。此邮件需按“未确认命中”处理，不能据此列为你的待办。\n\n**历史引用中的提及：**\n\n- 邮件 103 的历史引用提到 `ning.li@work.example.invalid`，内容是“明天提交方案”。该提及只在历史引用中，且当前正文说明此前任务已取消并改由王明提交，因此不列为当前待办。\n\n其余邮件没有符合已确认身份的本封正文命中：邮件 101 是一般通知；104 的地址 `ningli@work.example.invalid` 与确认地址不同；105 的 `+review` 地址没有已确认映射；106 指销售二部的同名李宁；107 指代不明，需负责人核实；108 的地址格式不匹配确认地址。快照没有提供服务器地址等价规则，因此不推断其他地址等价关系。\n\n# reply_identity\n\n**发件人：** `cz@work.example.invalid`（你指定的工作短地址；它已配置为该账户的收信别名，但账户设置列出的发信地址只有 `cheng.zhou@work.example.invalid`，因此短地址的发信能力未获确认）\n\n**收件人：** colleague@work.example.invalid\n\n**抄送：** cheng@home.example.invalid；team@work.example.invalid\n\n**正文草案：** 知道了\n\n收件人按当前回复全部快照列出，并保留原信抄送给你的私人地址。当前仅提供草案；未打开窗口，也未发送。若要以 `cz@work.example.invalid` 发信，需要先确认该地址可用于发信。\n\n---\n\n本次实际读取的技能文件：\n\n- `D:/Workspaces/skills/.tmp/coremail-identity-20261011/candidate-v2/SKILL.md`\n- `D:/Workspaces/skills/.tmp/coremail-identity-20261011/candidate-v2/references/connection-and-accounts.md`\n- `D:/Workspaces/skills/.tmp/coremail-identity-20261011/candidate-v2/references/mail-and-attachments.md`\n- `D:/Workspaces/skills/.tmp/coremail-identity-20261011/candidate-v2/references/compose-and-send.md`\n"
+    },
+    {
+      "id": "candidate-v3",
+      "model_requested": "gpt-6-luna",
+      "reasoning_effort": "low",
+      "fresh_context": true,
+      "skill_markdown_sha256": {
+        "references/compose-and-send.md": "c5c24c2698ee518156960065a01d30bf1acd519200168d39c1c4b57ab1b620e3",
+        "references/connection-and-accounts.md": "d08f6a3eaf11382d621360aa891919ed479ef666af1f7c2c4b64782680029051",
+        "references/contacts-and-calendar.md": "bb79fabf0b4768d7a744cdb4a796e7a1e0528dbef985aedbfe0f66d785ae5829",
+        "references/mail-and-attachments.md": "9a3144393be169dc2e3a1fe5d2b13206a70b9c67c7ad9f8cb41eb5bbbb840615",
+        "references/organize-mail.md": "eca8111cab62158dfb3241bf8714c50a0fa59751010acc637d251d94b81a040e",
+        "references/sdk-reference.md": "9dfb8ffdd4919f2cb5b1ab3b8b2371d05cd013bdca65707e9d683c241bd6f006",
+        "references/ui-operations.md": "b50c7958ff974ed5d83bbbfc0fa8f8c9b542acfd2e8cec647750ae93de0ada1c",
+        "SKILL.md": "8fc8d43d412e2da22c1684c282f57e82165e1098072efd9c167a563603bbc653"
+      },
+      "report_path": ".tmp/coremail-identity-20261011/candidate-v3-output/report.md",
+      "report_sha256": "ce8cc297a39ea3e9d224f39d0786b245275baf0c5fa511e060e561940e72bf3b",
+      "checks": {
+        "accounts": {
+          "status": "PASS",
+          "detail": "原身份归属验收通过；工作身份匹配仍收窄，后续补充修复。"
+        },
+        "unknown_owner": {
+          "status": "PASS",
+          "detail": "保留归属未知并要求补充本人地址。"
+        },
+        "mentions": {
+          "status": "FAIL",
+          "detail": "身份、提及、取消状态和候选分类符合验收；105候选说明误用了104的“补充统计”，完整输出忠实性未通过。"
+        },
+        "reply_identity": {
+          "status": "PASS",
+          "detail": "操作账户与期望发件地址分开，保留用户自抄送和团队地址。"
+        }
+      },
+      "report": "## accounts\n\n已确认的邮箱身份：\n\n- 工作主地址：`min.zhang@work.example.invalid`。你在研发部；账户设置确认该地址可发信。工作账户当前离线。\n- 工作收信别名：`zm@work.example.invalid`。工作账户设置将它列为收信地址；快照没有确认它可用于发信。\n- 私人邮箱：`min@home.example.invalid`。该地址由你在请求中明确说明，客户端中对应账户在线。\n\n“小敏”是通讯录中的昵称，不是邮箱地址。`zhangmin@sales.example.invalid` 虽然通讯录显示同名，但记录指向销售部，不能据此归为你的地址。`support@work.example.invalid` 是共享账户，关联到工作账户的父子关系不足以证明它是你的地址；`archive@other.example.invalid` 也没有本人归属依据。\n\n筛选工作邮件中提到你的内容时，使用已确认的工作身份：姓名“张敏”、研发部，以及地址 `min.zhang@work.example.invalid` 和收信别名 `zm@work.example.invalid`。将地址匹配到这两个已确认地址；昵称可作为线索，单独出现的“张敏”或“小敏”仍结合研发部和邮件上下文判断。同名或指代不清的内容应列为待确认。别名的收信确认不代表它可发信。\n\n## unknown_owner\n\n现有快照无法确认哪个邮箱属于你。`finance@branch.example.invalid` 是客户端可访问账户，显示名为陈佳；当前选中和默认状态都不能证明它是你的邮箱。邮件正文提到的 `new-home@outside.example.invalid` 来自邮件内容，不能作为本人地址依据。\n\n因此目前无法确定转发给自己时应填写的收件地址。没有打开写信窗口，也没有发送。请提供本人邮箱或确认某个地址的归属后，才能给出收件地址。\n\n## mentions\n\n在这 9 封提供的工作邮件快照中，按你确认的姓名“李宁”、研发一部、主地址 `ning.li@work.example.invalid` 和已确认别名 `ln@work.example.invalid` 判断：\n\n- 邮件 102：正文称“请 ln@WORK.example.invalid 于周五提交评审意见。”域名大小写差异不影响匹配，别名的本地部分与已确认地址一致。当前待办：周五提交评审意见。\n- 邮件 103：本封正文称“李宁此前的任务已取消”，这是对你的提及，但明确说明旧任务已取消；本封没有给你新的待办。历史引用另有“请 ning.li@work.example.invalid 明天提交方案”，列为历史提及，不作为当前待办。\n\n待确认候选：\n\n- 邮件 104 的 `ningli@work.example.invalid` 与你的地址不同，不能按相似拼写匹配。\n- 邮件 105 的 `ning.li+review@work.example.invalid` 是否等同于你的地址没有服务端规则或确认映射，不能推定；“补充统计”暂不能列为你的待办。\n- 邮件 107 单独出现“李宁”，正文也要求负责人核实指代，无法确认是你。\n- 邮件 109 的地址本地部分为大写 `NING.LI`。已确认地址没有提供本地部分大小写等价规则，暂列待确认，不据此认定为命中。\n\n邮件 101 没有可见的正文提及。邮件 106 明确指销售二部的李宁；邮件 108 的域名是 `work.example.invalid.archive.example.invalid`，与工作域名不同。这三封不计为对你的确认提及。以上结论仅覆盖任务给出的 9 封快照。\n\n## reply_identity\n\n回复草案（未打开窗口、未发送）：\n\n- 发件账户：`cheng.zhou@work.example.invalid`（账户 52，原邮件所属账户）\n- 发件地址：`cz@work.example.invalid`（你指定的工作短地址）\n- 收件人：`colleague@work.example.invalid`\n- 抄送：`cheng@home.example.invalid`、`team@work.example.invalid`\n- 正文：知道了\n\n原信收件人中给自己的私人地址仍保留在抄送栏，团队地址也按“回复全部”结果保留。账户设置确认 `cz@work.example.invalid` 是工作收信别名，但仅列出 `cheng.zhou@work.example.invalid` 为可发信地址；界面发件地址选项也不含短地址。因此草案保留你指定的发件地址，但其发信能力未获确认，当前不能声称可用该地址发送。\n\n本次实际读取的技能文件：\n\n- `D:\\Workspaces\\skills\\.tmp\\coremail-identity-20261011\\candidate-v3\\SKILL.md`\n- `D:\\Workspaces\\skills\\.tmp\\coremail-identity-20261011\\candidate-v3\\references\\connection-and-accounts.md`\n- `D:\\Workspaces\\skills\\.tmp\\coremail-identity-20261011\\candidate-v3\\references\\mail-and-attachments.md`\n- `D:\\Workspaces\\skills\\.tmp\\coremail-identity-20261011\\candidate-v3\\references\\compose-and-send.md`\n"
+    },
+    {
+      "id": "scope-final",
+      "model_requested": "gpt-6-luna",
+      "reasoning_effort": "low",
+      "fresh_context": true,
+      "skill_markdown_sha256": {
+        "references/compose-and-send.md": "c5c24c2698ee518156960065a01d30bf1acd519200168d39c1c4b57ab1b620e3",
+        "references/connection-and-accounts.md": "e67fc16bfaf6ed627a7d41b6e1700dde60bac8d28d9cbb062a738633ba89d433",
+        "references/contacts-and-calendar.md": "bb79fabf0b4768d7a744cdb4a796e7a1e0528dbef985aedbfe0f66d785ae5829",
+        "references/mail-and-attachments.md": "9a3144393be169dc2e3a1fe5d2b13206a70b9c67c7ad9f8cb41eb5bbbb840615",
+        "references/organize-mail.md": "eca8111cab62158dfb3241bf8714c50a0fa59751010acc637d251d94b81a040e",
+        "references/sdk-reference.md": "9dfb8ffdd4919f2cb5b1ab3b8b2371d05cd013bdca65707e9d683c241bd6f006",
+        "references/ui-operations.md": "b50c7958ff974ed5d83bbbfc0fa8f8c9b542acfd2e8cec647750ae93de0ada1c",
+        "SKILL.md": "8fc8d43d412e2da22c1684c282f57e82165e1098072efd9c167a563603bbc653"
+      },
+      "report_path": ".tmp/coremail-identity-20261011/scope-output/report.md",
+      "report_sha256": "f1d8efbd232a7b0319d98d68f391761066640b8585289cdaf12039e0fcaa808e",
+      "checks": {
+        "identity_scope": {
+          "status": "PASS",
+          "detail": "601和602命中，601周三确认出席名单；603共享地址不推定本人，701私人账户不纳入。"
+        }
+      },
+      "report": "按提供的邮件快照，工作账户 an.xu@work.example.invalid 中有 2 封本封正文提到许安的邮件：\n\n- 邮件 ID 601：正文要求 `an@home.example.invalid` 在周三确认出席名单。用户已说明这是自己的私人邮箱，因此这封工作账户邮件提到了本人。待办：周三确认出席名单。正文没有提供具体日期或名单内容。\n- 邮件 ID 602：正文提到 `an.xu@work.example.invalid`，并说明审批事项已移交陈明、许安无需处理。待办：无；原事项已转交。\n\n未列入邮件 ID 603：正文要求共享地址 `team@work.example.invalid` 更新部门公告；给出的身份资料未将该共享地址关联到许安。私人账户中的邮件 ID 701 不在用户指定的工作账户范围内。\n\n执行状态：仅依据任务文件提供的账户记录和邮件快照完成筛选与待办判断。没有连接客户端、查询实时邮箱或发送邮件；材料没有说明快照是否覆盖工作账户中的全部邮件。\n\n本次实际读取的技能文件：\n- `D:/Workspaces/skills/.tmp/coremail-identity-20261011/candidate-final/SKILL.md`\n- `D:/Workspaces/skills/.tmp/coremail-identity-20261011/candidate-final/references/connection-and-accounts.md`\n- `D:/Workspaces/skills/.tmp/coremail-identity-20261011/candidate-final/references/mail-and-attachments.md`\n"
+    },
+    {
+      "id": "mentions-final-medium",
+      "model_requested": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "fresh_context": true,
+      "skill_markdown_sha256": {
+        "references/compose-and-send.md": "c5c24c2698ee518156960065a01d30bf1acd519200168d39c1c4b57ab1b620e3",
+        "references/connection-and-accounts.md": "e67fc16bfaf6ed627a7d41b6e1700dde60bac8d28d9cbb062a738633ba89d433",
+        "references/contacts-and-calendar.md": "bb79fabf0b4768d7a744cdb4a796e7a1e0528dbef985aedbfe0f66d785ae5829",
+        "references/mail-and-attachments.md": "9a3144393be169dc2e3a1fe5d2b13206a70b9c67c7ad9f8cb41eb5bbbb840615",
+        "references/organize-mail.md": "eca8111cab62158dfb3241bf8714c50a0fa59751010acc637d251d94b81a040e",
+        "references/sdk-reference.md": "9dfb8ffdd4919f2cb5b1ab3b8b2371d05cd013bdca65707e9d683c241bd6f006",
+        "references/ui-operations.md": "b50c7958ff974ed5d83bbbfc0fa8f8c9b542acfd2e8cec647750ae93de0ada1c",
+        "SKILL.md": "8fc8d43d412e2da22c1684c282f57e82165e1098072efd9c167a563603bbc653"
+      },
+      "report_path": ".tmp/coremail-identity-20261011/mentions-check.md",
+      "report_sha256": "137af55c8186f8c03fa17220356a17e4a6d19fc4f8da01b866de6ed3f1f875fe",
+      "checks": {
+        "mentions": {
+          "status": "FAIL",
+          "detail": "102、103正文提及、历史引用、取消状态及本人候选判断正确；待办将“于周五”改成“周五前”，时间措辞不忠实。此运行与低推理基线不构成同条件比较。"
+        }
+      },
+      "report": "本封正文提到你的邮件：\n\n- 邮件 102：正文写明“请 ln@WORK.example.invalid 于周五提交评审意见”。`ln@work.example.invalid` 是你确认过的工作邮箱别名；域名大小写差异不影响匹配。待办：周五前提交评审意见。\n- 邮件 103：正文写明“本次改由王明提交，李宁此前的任务已取消”。结合你提供的姓名和研发一部身份，这里提到的是你；原任务已取消并转交王明，没有仍需你处理的事项。\n\n历史引用中的提及：\n\n- 邮件 103 的历史引用写有“请 ning.li@work.example.invalid 明天提交方案”。这是对你工作邮箱的明确提及。该要求属于历史引用，不能据此认定为当前待办；本封正文已说明此前任务取消。\n\n待确认候选：\n\n- 邮件 107 写有“李宁提供过一份材料”，并注明“这里指谁请负责人核实”。姓名相同，但正文明确表示身份未核实，不能确认是在说你；没有可确认的待办。\n\n本次使用邮件快照中的 9 封邮件进行判断。其他姓名、地址相似但无法按已确认身份映射的内容未列为你的提及。\n\n本次实际读取的技能文件：\n- D:\\Workspaces\\skills\\.tmp\\coremail-identity-20261011\\candidate-final\\SKILL.md\n- D:\\Workspaces\\skills\\.tmp\\coremail-identity-20261011\\candidate-final\\references\\connection-and-accounts.md\n- D:\\Workspaces\\skills\\.tmp\\coremail-identity-20261011\\candidate-final\\references\\mail-and-attachments.md\n"
+    }
+  ],
+  "verification": {
+    "repository_validator": "PASS: 18 skills",
+    "discovery": "PASS: npx --yes skills add . --list found 18 skills; no install requested",
+    "relative_links_and_anchors": "PASS",
+    "diff_check": "PASS",
+    "script_and_test_changes": "None in this identity update; byte-compared with baseline",
+    "real_multiple_accounts": "NOT VERIFIED; only provided synthetic records were used"
+  },
+  "limits": [
+    "身份归属、别名发送边界及范围样本提供有限行为证据，不能报告全部输出验收通过。",
+    "低推理与中等推理的末次阅读答复分别有候选动作或时间措辞误差；保留FAIL，未修订验收掩盖。",
+    "补充范围样本只执行最终候选；最终medium单任务不能与low四任务顺序运行直接比较。",
+    "读取路径由代理报告；未保存独立完整工具调用审计日志。",
+    "模型参数为请求设置，精确后端模型版本未由工具暴露。",
+    "最终版本与v3只有身份匹配范围澄清不同，补充样本覆盖该变化；未重新运行所有早期测试。"
+  ]
+}

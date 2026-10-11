@@ -1,5 +1,7 @@
 # V1 collection with additions
 
+This note records the restoration at commit `25ff78d`. Subsequent skill changes have their own validation records, including [Coremail](coremail/validation-2026-10-11.md).
+
 The working directory remains the existing skills repository. The active branch is `feature/skills-v1-plus-additions`, based on V1 `de77253cde775bc624f5de90d33a9a19d2d96464`.
 
 ## Active content
