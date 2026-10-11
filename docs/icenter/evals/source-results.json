@@ -1,0 +1,138 @@
+{
+  "runAt": "2026-10-11T01:40:43.670Z",
+  "node": "v26.8.1",
+  "source": "original-package/icenter/scripts",
+  "scope": "Isolated source-module reproductions. No real iCenter process, network connection, UI action, or message sending.",
+  "reproduced": 12,
+  "probeFailures": 0,
+  "sourceUnchanged": true,
+  "sourceHashes": {
+    "contacts.js": "f104bf0a7e40511187dcc2e4ffa774a0726d702254a39f17df99bf7d57cd13e8",
+    "messages.js": "cb71829e9c28a7040eeb36e83ac21b443f9c50b49bb663dadd1c7aeb7b0e5f11",
+    "lib/connect.js": "5717781905a3fd06e022faa8f4fddadfc3584e07ec1517a865a18e1768be95d7",
+    "lib/cdp-client.js": "bbef0f15a56a1c06405ec008d76e7ccb83dacbb978287eb0896444bb1a4131c8",
+    "groups.js": "9cfc45b3ba521962ebe14707ecc5994db469f03c61cc32a156837af46cfba665"
+  },
+  "results": [
+    {
+      "name": "partial_name_accepts_wrong_current_chat",
+      "status": "reproduced",
+      "evidence": {
+        "success": true,
+        "chatName": "Project A - Test"
+      }
+    },
+    {
+      "name": "same_name_single_and_group_are_collapsed",
+      "status": "reproduced",
+      "evidence": {
+        "inputCount": 2,
+        "outputCount": 1,
+        "returned": [
+          {
+            "name": "Same name",
+            "type": "single"
+          }
+        ]
+      }
+    },
+    {
+      "name": "read_failure_is_returned_as_empty_messages",
+      "status": "reproduced",
+      "evidence": {
+        "inputError": "NO_MESSAGE_LIST",
+        "returned": []
+      }
+    },
+    {
+      "name": "editor_clear_is_reported_as_send_success_without_message_confirmation",
+      "status": "reproduced",
+      "evidence": {
+        "fixture": "empty editor; no sent-message acknowledgement supplied",
+        "returned": {
+          "success": true,
+          "message": "Fixture only",
+          "sent": true
+        }
+      }
+    },
+    {
+      "name": "switched_chat_messages_are_labeled_as_original_chat",
+      "status": "reproduced",
+      "evidence": {
+        "actualFixtureChat": "B after first poll",
+        "event": {
+          "message": {
+            "sender": "User",
+            "senderId": "u1",
+            "time": "10:00",
+            "content": "Only present in chat B"
+          },
+          "group": "A",
+          "timestamp": "2026-10-11T01:40:43.223Z"
+        }
+      }
+    },
+    {
+      "name": "message_dedup_ignores_sender_id_and_content_after_100_chars",
+      "status": "reproduced",
+      "evidence": {
+        "newDistinctMessages": 1,
+        "reported": 0
+      }
+    },
+    {
+      "name": "idle_timeout_expires_during_continuous_new_messages",
+      "status": "reproduced",
+      "evidence": {
+        "maxIdleMs": 2,
+        "lastMessageTick": 2,
+        "exitTick": 3
+      }
+    },
+    {
+      "name": "successful_connection_json_followed_by_log_cannot_be_parsed",
+      "status": "reproduced",
+      "evidence": {
+        "childExitCode": 0,
+        "logsCapturedOnStdout": true,
+        "error": "Failed to parse connect.ps1 output as JSON:"
+      }
+    },
+    {
+      "name": "cdp_protocol_error_resolves_as_undefined",
+      "status": "reproduced",
+      "evidence": {
+        "responseContainedError": true,
+        "promise": "resolved",
+        "result": "undefined"
+      }
+    },
+    {
+      "name": "websocket_connection_error_leaves_command_pending",
+      "status": "reproduced",
+      "evidence": {
+        "outcome": "pending_after_50ms"
+      }
+    },
+    {
+      "name": "websocket_close_leaves_inflight_command_pending",
+      "status": "reproduced",
+      "evidence": {
+        "outcome": "pending_after_50ms",
+        "retainedPendingCount": 1
+      }
+    },
+    {
+      "name": "group_toggle_labels_are_treated_as_enabled_states",
+      "status": "reproduced",
+      "evidence": {
+        "fixture": "labels only; no enabled-state evidence",
+        "returned": {
+          "allowShareQr": true,
+          "muted": true
+        }
+      }
+    }
+  ]
+}

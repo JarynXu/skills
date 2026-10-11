@@ -1,0 +1,118 @@
+{
+  "date": "2026-10-11",
+  "environment": {
+    "platform": "Windows",
+    "node": "26.8.1",
+    "python": "3.14.6",
+    "client": "12.1.0.662"
+  },
+  "files": {
+    "skills/icenter/evals/acceptance.md": "a94f6a626aec0efe597343af9442565731c6821779df5e5dce81623646d4fb77",
+    "skills/icenter/references/collaboration-and-apps.md": "5e6c7c69b2afc123036393c556c9e07d109be23984981c2909d60f715bc8b3dc",
+    "skills/icenter/references/compose-and-send.md": "598031da4a3bb33e0755d3d0e94c5ead11d690abf13f89667f28f9fcff94ad7e",
+    "skills/icenter/references/connection-and-identity.md": "2ad33d808acc92e3c84b93a79472d7a7af451cd6beb8143129260dbfe9132651",
+    "skills/icenter/references/contacts-and-groups.md": "1ed6986df5527f322d0d3c438d3939b07448630330956cc989fa2176ea365201",
+    "skills/icenter/references/files-and-collections.md": "238afb6b3233efeba846c0f9af863e9e2ec8939a283f2b1ad6262d52370d1172",
+    "skills/icenter/references/messages.md": "9dde7db8c601ae16b2ced271d9b08c1a78834d9d255250be3a763c2124df6b7d",
+    "skills/icenter/references/monitoring.md": "37761e0987f63654c80c824ce27c3fb66de9ded50a6a21ec59f918527b3a18ee",
+    "skills/icenter/references/tools.md": "2b1a186dea8b0a4fa124cac95034b7e0327aa59797427568c43ce857b1c3fe3c",
+    "skills/icenter/references/ui-and-settings.md": "999e7f2991d9c4217f4e8dfb142ddab604ab1337928768e07096621c2e2d17bb",
+    "skills/icenter/scripts/cdp.cjs": "a6666796d4b32c9be647429d94d5099dadc9f561c308e4b0d6c94ad4950d9f7f",
+    "skills/icenter/scripts/client.cjs": "4f57704ccbc8abe3a54cfa5dc09ab12d816db540497ec13f47f4114f884d390a",
+    "skills/icenter/scripts/connection.ps1": "dd5fbcf1274ef97fb66a3a0ebf07ae6ebd7f0eb58b9a63c5cd85adc4bf5998b4",
+    "skills/icenter/scripts/contracts.cjs": "6f28ea11cfb363f74992f2ba7635ed628cec46e3246f1525e78856f118e3dac6",
+    "skills/icenter/scripts/icenter.cjs": "8b82d07b0b99ce6c72bbb75adcf92c6ac48ce1da847f144e5ca5e739417c123c",
+    "skills/icenter/scripts/page.cjs": "53ee271454d426c7395f1804b92ac7cf001c7272833316061918cf1e7d62abc9",
+    "skills/icenter/SKILL.md": "884a1c708198e2cb3c5a47d3520612839a230030fe960b49d15672ca9ffea0bb",
+    "skills/icenter/tests/cdp.test.cjs": "db1a3a4207a78ff86fb51cab2770ef365c48a3d87373b12b0b8e4970a6dd0618",
+    "skills/icenter/tests/cli.test.cjs": "d20c9ec4a5bea69185fe87b12459d9d2a6b97da11b4ab3711a2f9f60c1220e2d",
+    "skills/icenter/tests/client.test.cjs": "999701ba46defbc51e55aa6182c80e8b20b0fb9856d7fd37d3f4041c8664978e",
+    "skills/icenter/tests/contracts.test.cjs": "bcfa660171aaa86e769e67a171fde8546de82be5ba3a38b5b959b675b8effe3b",
+    "skills/icenter/tests/page.test.cjs": "d3b51a1464e46646eed915160e3c97fa637eb0f706197d929ee6f09e35a22862",
+    "skills/icenter/tests/test.sh": "17dc842eae9bc56d99989165e60f2c33357741837312508fb55051d3d1efe775"
+  },
+  "checks": {
+    "icenter_tests": {
+      "command": "node --test skills/icenter/tests/*.test.cjs",
+      "exitCode": 0,
+      "passed": 41,
+      "failed": 0,
+      "evidence": "icenter-tests.txt"
+    },
+    "repository_validator": {
+      "command": "python scripts/validate_repository.py",
+      "exitCode": 0,
+      "skillCount": 19
+    },
+    "discovery": {
+      "command": "npx skills add . --list",
+      "exitCode": 0,
+      "skillCount": 19,
+      "includesIcenter": true
+    },
+    "repository_runner": {
+      "command": "bash scripts/test_all.sh",
+      "exitCode": 1,
+      "failure": "Existing backend-engineer Windows path assertion: expected processed:rust-book/, actual processed:rust-book\\src\\..."
+    },
+    "individual_entries": [
+      {
+        "skill": "svg",
+        "exitCode": 0
+      },
+      {
+        "skill": "icenter",
+        "exitCode": 0
+      },
+      {
+        "skill": "qa-engineer",
+        "exitCode": 0
+      },
+      {
+        "skill": "coremail",
+        "exitCode": 0
+      },
+      {
+        "skill": "frontend-engineer",
+        "exitCode": 0
+      },
+      {
+        "skill": "drawio",
+        "exitCode": 0
+      },
+      {
+        "skill": "devops-engineer",
+        "exitCode": 0
+      },
+      {
+        "skill": "project-manager",
+        "exitCode": 0
+      }
+    ]
+  },
+  "live": {
+    "source": "tool outputs and ignored local live-results.json",
+    "accountCount": 1,
+    "recipientScope": "authorized self conversation",
+    "textMessagesSent": 1,
+    "fileMessagesSent": 1,
+    "fileBytes": 281,
+    "textRoundtripExact": true,
+    "messageTransfer": "client-confirmed",
+    "fileTransfer": "client-confirmed",
+    "independentRecipientReceiptVerified": false,
+    "draftGuardVerified": true,
+    "ownTestDraftRemoved": true,
+    "watchObservedTextMessage": true,
+    "checkpointResumeVerified": true,
+    "restoredWithoutDebugPort": true
+  },
+  "behavior": {
+    "model": "gpt-6-luna",
+    "reasoning": "medium",
+    "isolatedRuns": 2,
+    "evidence": "behavior-results.md",
+    "scope": "offline decisions, not autonomous live execution",
+    "allAcceptanceDetailsObserved": false
+  }
+}
