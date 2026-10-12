@@ -119,7 +119,7 @@ def command_search(args: argparse.Namespace) -> int:
             for number, line in enumerate(lines, start=1):
                 if not pattern.search(line):
                     continue
-                rel = path.relative_to(root)
+                rel = path.relative_to(root).as_posix()
                 layer = "original" if args.originals else "processed"
                 print(f"{layer}:{rel}:{number}: {line[:500]}")
                 matches += 1
@@ -161,7 +161,7 @@ def command_read(args: argparse.Namespace) -> int:
     start = max(1, args.start)
     end = args.end if args.end is not None else len(lines)
     end = min(len(lines), max(start, end))
-    print(f"# layer={layer} path={target.relative_to(LIBRARY_ROOT)}")
+    print(f"# layer={layer} path={target.relative_to(LIBRARY_ROOT).as_posix()}")
     for number in range(start, end + 1):
         print(f"{number:>6}  {lines[number - 1]}")
     return 0
