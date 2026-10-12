@@ -66,50 +66,19 @@ npx skills add https://github.com/JarynXu/skills/tree/main/skills/svg
 
 ```text
 .
-├── skills/
-│   ├── svg/
-│   │   ├── SKILL.md
-│   │   ├── examples/
-│   │   ├── scripts/
-│   │   └── tests/
-│   └── another-skill/
-│       └── SKILL.md
-├── scripts/
-│   ├── validate_repository.py
-│   └── test_all.sh
-├── templates/
-│   └── skill/
-│       └── SKILL.template.md
-└── .github/workflows/
-    └── validate-skills.yml
+├── AGENTS.md               # Rules entry point
+├── CONTRIBUTING.md         # Package, Git, verification, and release contracts
+├── skills/<name>/          # Independently installable skill packages
+├── docs/                   # Maintainer documentation and verification records
+├── scripts/                # Repository checks
+├── templates/              # Authoring scaffolding
+├── THIRD_PARTY_LICENSES/   # Redistributed material's license texts
+└── .github/workflows/      # Validation and library maintenance automation
 ```
 
-## Add another skill
+## Contributing
 
-1. Use [`skill-creator`](skills/skill-creator/) to define the target behavior, authority boundaries, implementation structure, and validation contract.
-2. Initialize `skills/<skill-name>/` with the installed skill creator's initializer.
-3. Use lowercase letters, digits, and hyphens for `<skill-name>`.
-4. Set the YAML frontmatter `name` to exactly the directory name.
-5. Add only the references, scripts, assets, metadata, and tests required by the behavior contract.
-6. If the skill has executable tests, expose them as `skills/<skill-name>/tests/test.sh`.
-7. Run the repository checks:
-
-```bash
-python scripts/validate_repository.py
-bash scripts/test_all.sh
-```
-
-Use [`templates/skill/SKILL.template.md`](templates/skill/SKILL.template.md) only as a packaging fallback when the installed initializer is unavailable; it does not replace the `skill-creator` design workflow.
-
-## Local CLI check
-
-From the repository root:
-
-```bash
-npx skills add . --list
-```
-
-The output should include every directory under `skills/` that contains a valid `SKILL.md`.
+Read [CONTRIBUTING.md](CONTRIBUTING.md) for package layout, resource ownership, version control, required commands, and release boundaries. Use [skill-creator](skills/skill-creator/SKILL.md) for skill design and validation methods.
 
 ## License
 

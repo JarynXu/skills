@@ -23,9 +23,10 @@ Organize the body by stable domain responsibilities and decision relationships. 
 | Repeated deterministic operation | `scripts/` | Give explicit inputs and failure behavior; test by execution. |
 | Material copied or transformed into output | `assets/` | Do not load it as context unless its semantics must be read. |
 | Optional host metadata | `agents/` or host-designated location | Never make it a correctness dependency. |
-| Authoring history and test runs | outside the skill | Keep maintenance scaffolding out of runtime context. |
+| Reusable tests and evaluation fixtures | repository-designated maintenance location | Keep them outside ordinary runtime routing; do not expose expected outcomes to the evaluated agent. |
+| Authoring history and test runs | repository documentation or transient run storage | Retain what is needed to reproduce or assess a claim; keep maintenance records out of runtime context. |
 
-Follow the host repository's frontmatter and directory conventions. For portable open Agent Skills, default to only `name` and `description` unless a more specific contract requires otherwise.
+Follow the host repository's package and resource-location contracts. Scaffolding supplies file syntax; choose the workflow from the task's responsibilities. A template does not justify mandatory planning sections, a fixed sequence, or a test directory.
 
 ## Route by observable need
 
@@ -89,10 +90,12 @@ Keep this relationship in the runtime control flow. Do not force the agent to na
 - Do not depend on agent-specific hooks when explicit instructions and portable resources suffice.
 - Isolate a necessary host integration and state its fallback or dependency clearly.
 - Add scripts only for deterministic repeated work; treat audit output as evidence unless the entire rule is mechanically decidable.
-- Exclude README files, changelogs, installation guides, experiment diaries, raw conversations, and hidden reasoning traces from the skill package.
+- Keep authoring records, experiment diaries, raw conversations, and hidden reasoning traces out of runtime instructions. Follow the host repository's rules for maintenance documentation and package contents.
 
 ## Update existing skills by cause
 
 Inspect actual use, current sources, and observed failures before rewriting. Preserve behavior that already satisfies the target contract. Correct the closest false model, boundary, route, mechanism, or verification rule and stop at the smallest coherent change.
 
 Do not retain compatibility prose that preserves a misleading model unless an external constraint truly requires it. When a temporary compatibility layer is necessary, state its boundary and residual risk outside the stable domain model.
+
+When reviews repeatedly find a defect that can be prevented at a local decision, inspect the instruction or contract governing that decision. Move the useful constraint there; preserve final review for cross-cutting relationships and evidence unavailable during generation. Repeating the same warning at the end does not establish that it will affect execution.

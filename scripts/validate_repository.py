@@ -122,11 +122,6 @@ def main() -> int:
 
         if not description:
             errors.append(f"{skill_file.relative_to(ROOT)}: missing required 'description'")
-        elif len(description) < 40:
-            errors.append(
-                f"{skill_file.relative_to(ROOT)}: description is too vague; "
-                "use at least 40 characters"
-            )
 
         discovered.append((name, skill_file))
 

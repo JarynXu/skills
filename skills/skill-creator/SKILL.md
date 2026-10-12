@@ -33,6 +33,8 @@ Start from realistic tasks, not a desired folder tree. Identify:
 
 Use at least one concrete task and one meaningfully different or boundary task when the behavior is nontrivial. Stop eliciting examples once the stable behavior and important variation are understood; do not require the user to design the skill for you.
 
+For a new skill or a change to triggers, decisions, resources, or completion claims, read [validation.md](references/validation.md) before implementation. Select the acceptance properties and evidence for the affected contract at this point. A wording or formatting correction with unchanged meaning can use a source comparison and affected package checks; read the validation method when the impact is uncertain.
+
 ### 2. Model the professional capability
 
 Read [behavior-model.md](references/behavior-model.md) when creating a professional skill, substantially changing its responsibility model, or untangling role, autonomy, knowledge, and artifacts.
@@ -74,26 +76,23 @@ Do not make a partial task generate the profession's complete artifact system. T
 
 ### 5. Validate behavior, not packaging alone
 
-Read [validation.md](references/validation.md) for new skills, substantial behavioral changes, suspected regressions, or any claim that a complex skill is complete.
+Every skill change requires verification of its affected contract. Execute the verification selected before implementation and the host repository's required checks. Follow the validation reference for method selection, task execution, comparisons, failure diagnosis, and reporting.
 
-Validate in proportion to risk:
+Use evidence that can expose a violation of the claimed behavior. Package inspection, executable resource checks, and model-task evaluation answer different questions. A keyword match or a successful tool test cannot establish that an agent selected or followed a rule.
 
-1. Check frontmatter, naming, links, resource layout, and repository discovery.
-2. Execute deterministic scripts and exercise templates or assets through their real use path.
-3. Forward-test nontrivial behavior with fresh task context that does not reveal the intended answer or fix.
-4. Judge observable properties against the behavioral contract, including restraint and boundary behavior, rather than rewarding a plausible-looking artifact.
+Reuse checks that cover the affected risk. Add a script, fixture, or independent run when it supplies needed evidence; a skill does not need a test script merely to satisfy the verification obligation. Keep evidence for unchanged behavior within its original scope.
 
-Classify failures before editing: knowledge, routing, execution, contract, validation, or overfitting. Repair the closest causal layer. Add prose only when evidence shows a knowledge gap.
+Record what ran and what it demonstrated. Missing access or execution facilities leave the relevant claim unverified; describe the missing evidence and next valid action instead of substituting an easier check or declaring completion.
 
 ### 6. Finish at the task boundary
 
 Stop when the requested skill change satisfies its behavioral contract with evidence and no undisclosed blocking defect remains. Do not expand a local improvement into a complete professional ontology, extra documentation set, or unrelated cleanup.
 
-Report what changed, what was verified, and any material uncertainty. Never claim the skill is correct solely because a validator exited successfully.
+Report what changed, what was verified, and any material uncertainty. Distinguish a completed edit from a validated capability. When required evidence cannot be obtained within the task's authority or environment, deliver the reviewable candidate and state the validation gap. Never claim the skill is correct solely because a validator exited successfully.
 
 ## Completion standard
 
-A skill is ready only when the available evidence supports all applicable claims below:
+A skill is ready only when the available evidence supports the applicable claims below. For an update, assess changed properties and their affected consumers. Reuse prior evidence for unchanged properties without presenting it as a new execution. Report readiness only within the demonstrated scope.
 
 - its description triggers the intended task family without relying on body text;
 - its runtime instructions encode stable professional judgment rather than role-play, artifact inventories, or accumulated reminders;
