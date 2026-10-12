@@ -36,7 +36,7 @@ async function select(client, scope, apply) {
     if (status.activeChatId === scope.chatId) return { ...result, state: 'selected' };
     await delay(200);
   }
-  throw new ClientError('SELECTION_UNKNOWN', 'The client did not confirm the selected conversation. Inspect the UI before retrying.');
+  throw new ClientError('SELECTION_UNKNOWN', 'The client did not confirm the selected conversation. Inspect its state through CDP before retrying.');
 }
 
 async function sendText(client, scope, text, apply, { timeoutMs = 15000, pollMs = 300 } = {}) {

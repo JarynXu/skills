@@ -7,7 +7,7 @@ function pageOperation(operation, input = {}) {
     if (operation === 'identify') return { ok: true, value: { role } };
     if (role !== 'main') fail('WRONG_WINDOW', 'The target is not the iCenter main window.');
     const version = require(process.resourcesPath + '/app.asar/package.json').version;
-    if (version !== '12.1.0') fail('UNSUPPORTED_VERSION', `No verified script adapter for iCenter ${version}. Use the client UI.`);
+    if (version !== '12.1.0') fail('UNSUPPORTED_VERSION', `No verified script adapter for iCenter ${version}. Inspect the page through CDP.`);
     const state = document.querySelector('#app')?.__vue_app__?.config?.globalProperties?.$store?.state;
     if (!state?.userInfo || !state.chatInfo || !state.messageInfo) fail('UNSUPPORTED_SCHEMA', 'The iCenter store schema is unavailable.');
     const accountId = state.userInfo.userId;
@@ -33,7 +33,7 @@ function pageOperation(operation, input = {}) {
     const visible = element => !!element?.getClientRects().length && getComputedStyle(element).visibility !== 'hidden';
     if (operation === 'select') {
       const rows = [...document.querySelectorAll('li.ChatInfo')].filter(el => el.dataset.id === input.chatId && visible(el));
-      if (rows.length !== 1) fail('CHAT_NOT_VISIBLE', 'Locate the exact conversation in the client UI, then retry.');
+      if (rows.length !== 1) fail('CHAT_NOT_VISIBLE', 'Locate the exact conversation through CDP DOM inspection, then retry.');
       if (input.apply && chatId !== input.chatId) rows[0].click();
       return { ok: true, value: { accountId, chat: matches[0], state: input.apply ? 'selection-requested' : 'preview' } };
     }
@@ -64,7 +64,7 @@ function pageOperation(operation, input = {}) {
     const sendControls = [...composer.querySelectorAll('.Send')].filter(visible);
     if (sendControls.length !== 1 || editor.getAttribute('contenteditable') !== 'true') fail('EDITOR_UNAVAILABLE', 'The plain-text composer is unavailable.');
     const activeChat = state.chatInfo.chatList.find(chat => chat.chatRoomUri === input.chatId);
-    // 严格接受空白编辑器；富对象、空格草稿及引用都交回界面处理。
+    // 严格接受空白编辑器；富对象、空格草稿及引用保留给 CDP 草稿处理。
     if (editor.textContent.length || editor.querySelector('*:not(br)') || activeChat.messageReplyInfo) fail('DRAFT_PRESENT', 'An existing draft or reply is present. Preserve it and resolve its disposition before sending.');
     const beforeIds = messages.map(message => message.id);
     if (!input.apply) return { ok: true, value: { state: 'preview', accountId, chat: matches[0], text: input.text } };

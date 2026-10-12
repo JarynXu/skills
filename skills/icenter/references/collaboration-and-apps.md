@@ -1,5 +1,26 @@
 # 协作与应用
 
+## 12.1.0 的操作路径
+
+使用 [RendererSession](ui-and-settings.md#页面工作流工具) 操作主导航，等待目标页面就绪。页面内嵌的 iframe 用 `Page.getFrameTree` 定位；独立窗口用 `targets --all` 定位。不能把主窗口的 DOM 查询结果当成嵌入网页的结果。
+
+| 能力 | 当前页面契约 |
+|---|---|
+| 会议列表与历史 | `.Menu .Meeting` → `.Meeting`、`.MeetingList`。列表组件的 `myConfList` 与会议页的 `callRecords` 是不同集合。`openMeetingHistory()` 打开历史；日期、发起人和搜索条件由 `.Meeting` 页面控件设置。 |
+| 预约、加入、拨号和即时会议 | `.MeetingList` 的 `openAppiontment()`、`openJoinMeeting()`、`openDial()` 打开对应准备界面。`openMeetingImmediately()` 涉及发起会议，不能作为预览调用。预约可能进入 `.ScheduleMeetingClass` 或 `.Calendar` 的嵌入网页；提交前核对实际表单。 |
+| 会议详情、修改、取消和分享 | 从实际会议记录进入详情；会议 ID、confUri 与 callId 不互换。详情提供二维码、转发、修改和取消入口。修改和取消是否通知成员以当前表单为准。 |
+| 音视频、共享与远程控制 | 会话编辑器 `.Phone`、`.Video` 对应通信入口。会议窗口按角色重新定位；`meetingInfo.hasMeetingCall`、`isUsingDataConfDesktopShare`、`isUsingRemoteControl` 是不同状态。不能通过改这些字段发起功能或伪造结果。 |
+| 设备与会议设置 | `.Meeting` 页面支持音频测试、加入时麦克风/摄像头、进出提醒等；真实设备由客户端返回的 `audioInputList`、`audioOutputList` 及选中项判断。测试音频、开启设备和修改设置需要当前任务覆盖。 |
+| 直播、预约与回放 | `.MeetingList.showLiveList()` 进入直播。直播详情包含预约、进入、编辑、取消、二维码、参与人、回放、下载和数据导出；主持、管理与观众权限不同。`LiveDetail`、`LiveQRCode`、`LiveDownDetail` 等是功能组件线索，不是假定可调用的全局 API。 |
+| 直播福袋等企业扩展 | 直播详情按权限提供福袋列表、获奖记录、指定参与人及导出。核对活动与参与范围；不在研究功能时创建活动、抽奖或通知成员。 |
+| 短信 | `.Menu .SMS` → `#iCenterWebSms`；嵌入 iframe 为 `.WebSmsContentClass`。在 frame 的 CDP 上下文读取收件人、正文、费用提示和提交结果。iframe 尚未加载或认证失败时报告该状态。 |
+| 兴小助与智能客服 | `.Menu .IGPT`、`.Menu .Help`。页面可能含 iframe，当前会话也可能是机器人或数字员工。区分阅读与向服务提交数据，不把切换服务视为已完成提问。 |
+| 工作台、收藏和部分云盘页面 | 当前菜单处理方法调用 `shell.openExternal`，打开系统默认浏览器。它们没有因此成为 iCenter 的 CDP target。需要该浏览器已建立的 CDP 和有效认证；不具备时报告连接缺口，不能要求 computer use。 |
+
+表中的打开方法只在当前页面存在、方法已核对且动作未越过授权时调用。方法返回不表示页面加载、提交或外部操作成功。不得为让研究结果看似齐全而发起通话、会议、短信、直播或企业应用写入。
+
+## 对象、输入与验收
+
 客户端主导航和会话工具栏是能力发现入口。功能由版本、企业部署和账户权限决定；下表提供操作契约，入口缺失时报告当前不可用。不能把按钮存在写成执行成功。
 
 | 能力 | 操作与验收 |
@@ -15,4 +36,4 @@
 
 会议邀请、通话、短信和共享可能影响其他人。沿用用户已给的范围，缺少决定目标或外部影响的输入时补足该项。不能为验证技能而邀请真实群成员、拨打未授权号码或开启录制。
 
-这些能力采用客户端界面路径。当前命令行适配器不提供会议管理、短信发送或企业应用写入接口。
+当前专用命令不封装会议管理、短信发送或企业应用写入。按上述页面路径和当前表单完成 CDP 操作；弹窗、iframe、webview 与外部浏览器保留各自连接及登录边界。

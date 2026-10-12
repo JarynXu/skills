@@ -17,7 +17,7 @@ function localUrl(value, protocol) {
   return url;
 }
 
-async function listTargets(port, timeoutMs = 5000) {
+async function listTargets(port, timeoutMs = 5000, { allPages = false } = {}) {
   if (!Number.isInteger(port) || port < 1 || port > 65535) throw new ClientError('INVALID_PORT', 'Port must be between 1 and 65535.');
   let response;
   try {
@@ -29,13 +29,13 @@ async function listTargets(port, timeoutMs = 5000) {
   let targets;
   try { targets = await response.json(); } catch { throw new ClientError('CDP_BAD_RESPONSE', 'CDP discovery returned invalid JSON.'); }
   if (!Array.isArray(targets)) throw new ClientError('CDP_BAD_RESPONSE', 'CDP discovery must return an array.');
-  return targets.filter(target => target.type === 'page' && target.url === 'app://./index.html')
+  return targets.filter(target => allPages ? ['page', 'webview'].includes(target.type) : target.type === 'page' && target.url === 'app://./index.html')
     .map(target => {
       if (typeof target.id !== 'string' || typeof target.webSocketDebuggerUrl !== 'string') {
         throw new ClientError('CDP_BAD_RESPONSE', 'A page target has no identity or endpoint.');
       }
       localUrl(target.webSocketDebuggerUrl, 'ws:');
-      return { id: target.id, title: target.title, url: target.url, webSocketDebuggerUrl: target.webSocketDebuggerUrl };
+      return { id: target.id, type: target.type, title: target.title, url: target.url, webSocketDebuggerUrl: target.webSocketDebuggerUrl };
     });
 }
 

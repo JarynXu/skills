@@ -5,11 +5,12 @@ const { execFileSync } = require('node:child_process');
 const { parseArgs } = require('node:util');
 const { randomUUID } = require('node:crypto');
 const { TextDecoder } = require('node:util');
-const { ClientError } = require('./cdp.cjs');
+const { ClientError, CdpClient, listTargets } = require('./cdp.cjs');
 const { connect, discover, select, sendText, watch } = require('./client.cjs');
 
 const optionsByCommand = {
-  connections: [], targets: ['port'], status: ['port', 'target-id'],
+  connections: [], connect: ['executable', 'instance-pid', 'restart'], targets: ['port', 'all'], status: ['port', 'target-id'],
+  cdp: ['port', 'target-id', 'method', 'params-file', 'apply'],
   chats: ['port', 'target-id', 'account', 'query'],
   select: ['port', 'target-id', 'account', 'chat', 'apply'],
   read: ['port', 'target-id', 'account', 'chat', 'limit'],
@@ -26,22 +27,67 @@ const required = (values, key) => {
   return values[key];
 };
 
+function prepareConnection(action, values = {}) {
+  if (process.platform !== 'win32') throw new ClientError('UNSUPPORTED_PLATFORM', 'Connection preparation requires Windows PowerShell; use an explicit CDP port on other hosts.');
+  const args = ['-NoProfile', '-NonInteractive', '-File', path.join(__dirname, 'connection.ps1'), '-Action', action];
+  if (values.executable) args.push('-ExecutablePath', values.executable);
+  if (values['instance-pid']) args.push('-InstancePid', String(integer(values['instance-pid'], 'instance-pid', 1, 2147483647)));
+  if (values.restart) args.push('-Restart');
+  let raw;
+  try { raw = execFileSync('powershell.exe', args, { encoding: 'utf8', timeout: action === 'probe' ? 15000 : 50000, windowsHide: true }); }
+  catch (error) {
+    if (!error.stdout) throw new ClientError('CONNECTION_SETUP', 'Connection preparation did not finish.', { cause: error.message });
+    raw = error.stdout;
+  }
+  const result = JSON.parse(raw.replace(/^\uFEFF/, ''));
+  if (result.error) throw new ClientError(result.error.code, result.error.message, result.error.details);
+  return result;
+}
+
 async function main(argv) {
   const command = argv[0];
   if (!command || command === '--help' || command === 'help') {
-    output({ commands: optionsByCommand, defaults: { limit: 50, watchDurationSeconds: 60, watchIdleSeconds: 30 }, note: 'select/send preview by default; --apply executes. All IDs come from the observed client. See references/tools.md.' });
+    output({ commands: optionsByCommand, defaults: { limit: 50, watchDurationSeconds: 60, watchIdleSeconds: 30 }, note: 'connect prepares the client; --restart allows restarting the selected instance. select/send/cdp preview by default; --apply executes. All IDs come from the observed client. See references/tools.md.' });
     return;
   }
   if (!Object.hasOwn(optionsByCommand, command)) throw new ClientError('UNKNOWN_COMMAND', `Unknown command: ${command}`);
-  const schema = Object.fromEntries(optionsByCommand[command].map(key => [key, { type: key === 'apply' ? 'boolean' : 'string' }]));
+  const schema = Object.fromEntries(optionsByCommand[command].map(key => [key, { type: ['apply', 'all', 'restart'].includes(key) ? 'boolean' : 'string' }]));
   const { values } = parseArgs({ args: argv.slice(1), options: schema, allowPositionals: false, strict: true });
   if (command === 'connections') {
-    if (process.platform !== 'win32') throw new ClientError('UNSUPPORTED_PLATFORM', 'Connection discovery requires Windows PowerShell; use an explicit CDP port on other hosts.');
-    const raw = execFileSync('powershell.exe', ['-NoProfile', '-NonInteractive', '-File', path.join(__dirname, 'connection.ps1'), '-Action', 'probe'], { encoding: 'utf8', timeout: 15000, windowsHide: true });
-    output(JSON.parse(raw.replace(/^\uFEFF/, ''))); return;
+    output(prepareConnection('probe')); return;
+  }
+  if (command === 'connect') {
+    const prepared = prepareConnection('ensure', values);
+    let client;
+    try {
+      client = await connect(prepared.port);
+      try { output({ ...prepared, targetId: client.targetId, clientState: 'signed-in', ...(await client.call('status')) }); }
+      catch (error) {
+        if (!['NOT_SIGNED_IN', 'UNSUPPORTED_VERSION', 'UNSUPPORTED_SCHEMA'].includes(error.code)) throw error;
+        output({ ...prepared, targetId: client.targetId, clientState: error.code === 'NOT_SIGNED_IN' ? 'not-signed-in' : 'adapter-unavailable', adapterError: { code: error.code, message: error.message } });
+      }
+    } catch (error) {
+      error.details = { ...error.details, connection: prepared }; throw error;
+    } finally { client?.close(); }
+    return;
   }
   const port = integer(required(values, 'port'), 'port', 1, 65535);
-  if (command === 'targets') { output({ targets: (await discover(port)).map(({ id, role }) => ({ id, role })) }); return; }
+  if (command === 'targets') {
+    output({ targets: values.all ? (await listTargets(port, 5000, { allPages: true })).map(({ id, type, title, url }) => ({ id, type, title, url })) : (await discover(port)).map(({ id, role }) => ({ id, role })) }); return;
+  }
+  if (command === 'cdp') {
+    const targetId = required(values, 'target-id'), method = required(values, 'method');
+    if (!/^[A-Za-z]\w*\.[A-Za-z]\w*$/.test(method)) throw new ClientError('INVALID_ARGUMENT', 'method must be a CDP Domain.command name.');
+    const params = values['params-file'] ? JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(await fs.readFile(values['params-file']))) : {};
+    if (!params || typeof params !== 'object' || Array.isArray(params)) throw new ClientError('INVALID_ARGUMENT', 'CDP parameters must be a JSON object.');
+    const target = (await listTargets(port, 5000, { allPages: true })).find(page => page.id === targetId);
+    if (!target) throw new ClientError('TARGET_NOT_FOUND', 'Rediscover the intended page target before executing.');
+    if (!values.apply) { output({ state: 'preview', targetId, method, params }); return; }
+    const client = await CdpClient.connect(target.webSocketDebuggerUrl);
+    try { output({ state: 'executed', targetId, method, result: await client.send(method, params) }); }
+    finally { client.close(); }
+    return;
+  }
   const scope = command === 'status' ? {} : { accountId: required(values, 'account') };
   if (['select', 'read', 'send', 'watch'].includes(command)) scope.chatId = required(values, 'chat');
   const limit = command === 'read' ? integer(values.limit ?? '50', 'limit', 1, 10000) : null;
