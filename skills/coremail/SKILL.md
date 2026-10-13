@@ -1,6 +1,6 @@
 ---
 name: coremail
-description: 操作 Coremail CMClient 客户端，处理多账户、本人邮箱与别名识别、邮件检索与阅读、附件、写信回复转发、发送与草稿、文件夹和标签、邮件状态、通讯录、日历、存档及客户端设置。用户需要自己的 Coremail 邮箱、与本人有关的邮件、联系人、日程或客户端操作时使用；按任务选择本机 HTTP SDK 或可观察的客户端界面。
+description: 操作 Coremail CMClient 客户端，处理多账户、本人邮箱与别名识别、邮件检索与阅读、附件、写信回复转发、发送与草稿、文件夹和标签、邮件状态、通讯录、日历、存档及客户端设置。用户需要自己的 Coremail 邮箱、与本人有关的邮件、联系人、日程或客户端操作时使用；通过本机 HTTP SDK、CEF CDP 和随包原生脚本执行，不要求 computer-use 插件。
 ---
 
 # Coremail
@@ -18,13 +18,13 @@ description: 操作 Coremail CMClient 客户端，处理多账户、本人邮箱
 
 ## 选择操作入口
 
-1. 读取当前任务对应的参考文件。身份识别提供后续判断的输入；涉及提及筛选还需读取邮件参考，涉及回复或发送还需读取写信参考。选择 SDK 已声明的接口处理结构化任务；需要界面时读取界面操作参考。
+1. 读取当前任务对应的参考文件。身份识别提供后续判断的输入；涉及提及筛选还需读取邮件参考，涉及回复或发送还需读取写信参考。选择 SDK 已声明的接口处理结构化任务；其余能力使用随包的 CEF 或原生适配器。
 2. 检查客户端连接，识别账户及目标对象。保持 `AccountID`、`FID`、邮件 ID、标签 ID 的来源；跨账户不得复用对象 ID。
 3. 检查相关状态和参数。批量操作先确定命中集合、遗漏边界及预期变化。发送前核对发件账户、收件人、内容和附件。
-4. 执行授权动作。SDK 缺少所需接口时检查客户端中的对应能力；不猜接口、控件或快捷键。
+4. 执行授权动作。SDK 缺少所需接口时按[程序接口](references/client-interfaces.md)发现 CEF 页面和消息桥，或按[原生适配器](references/native-interface.md)处理当前窗口；不猜接口、控件或快捷键。
 5. 从返回值、后续查询、文件或界面状态核对结果。失败、部分成功、未知状态各自保留；超时后核对已有副作用，再决定是否重试。
 
-SDK 连接失败不能证明客户端失效。具备可观察界面时按用户目标选择界面路径；需要恢复 SDK 时按连接参考处理。
+客户端主体使用 wxWidgets，内嵌页面使用 CEF，CDP 不能操作所有原生控件。技能不假设宿主提供桌面控制工具。连接缺失时完成获准的准备，不把“未开启”当作放弃连接的理由。SDK 恢复见连接参考，CDP 启动与进程归属见程序接口。登录、锁屏或缺少必要重启授权时保留具体阻塞。
 
 ## 按任务加载
 
@@ -36,7 +36,9 @@ SDK 连接失败不能证明客户端失效。具备可观察界面时按用户�
 | 文件夹、标签、移动、删除、已读、旗标、待办等整理 | [邮件整理](references/organize-mail.md) |
 | 联系人、组织通讯录、群组、日程查询或维护 | [通讯录与日程](references/contacts-and-calendar.md) |
 | 构造 SDK 请求、解析结果、诊断参数或返回异常 | [SDK 协议](references/sdk-reference.md) |
-| SDK 未覆盖、需要界面、客户端设置、存档或其他客户端能力 | [界面操作](references/ui-operations.md) |
+| 首次准备 CDP、版本、编辑器、阅读页、日历消息桥 | [程序接口](references/client-interfaces.md) |
+| 托盘窗口、原生表单、确认框、系统设置、热键、标签栏 | [原生适配器](references/native-interface.md) |
+| SDK 未覆盖、存档或其他客户端能力及作用边界 | [客户端能力](references/ui-operations.md)；再按所需入口加载程序或原生参考 |
 
 参考文件提供操作依据，不扩大当前任务。
 
@@ -46,6 +48,9 @@ SDK 连接失败不能证明客户端失效。具备可观察界面时按用户�
 
 ```text
 python scripts/enable_sdk.py
+python scripts/connect.py status
+node scripts/client.cjs targets --pid <当前CMClient进程号>
+powershell.exe -NoProfile -File scripts/native.ps1 -Action windows
 python scripts/coremail.py call listAccount
 python scripts/coremail.py list-mails --params "<查询参数.json>" --page-size 100 --max-pages 20
 python scripts/coremail.py call startCompose --params "<写信参数.json>"
@@ -55,7 +60,7 @@ python scripts/coremail.py export --params "<读取参数.json>" --out "<新的�
 
 `call` 使用 SDK 的接口名和参数。邮箱写入及打开写信窗口默认预览；加 `--apply` 执行。导出辅助命令管理用户指定的本地输出。预览成功不表示动作发生，命令退出成功也不替代结果验证。
 
-`coremail.py` 的成功结果写到标准输出，失败 JSON 写到标准错误并返回非零退出码。读取原始 `call` 结果中的 `code` 和 `var`；`status: preview` 表示未调用写入。详情与覆盖状态见对应参考。
+SDK 使用 Python 标准库。CEF 工具需要带内置 WebSocket 的 Node.js（22.4 或更高）；原生工具使用 Windows 自带的 PowerShell 5.1。没有 npm 安装步骤。工具成功结果写到标准输出，失败返回非零退出码。读取 SDK 的 `code` 和 `var`；`preview` 表示未执行，`dispatched` 表示已交给客户端。详情与覆盖状态见对应参考。
 
 ## 完成依据
 
