@@ -1,0 +1,3 @@
+interface:
+  display_name: "任务分发与协调"
+  short_description: "分派已收到的任务，维护专用池容量、目录占用与完成证据"

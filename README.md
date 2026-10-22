@@ -4,7 +4,7 @@ A growing collection of reusable skills for AI coding agents.
 
 Each skill lives in its own directory under `skills/` and can be discovered and installed independently with the open `skills` CLI.
 
-This working branch uses the original V1 collection plus five additions (19 skills total). See [V1 restoration](docs/v1-restoration.md) for preserved versions and verification scope. The standalone [maintainable-design skill](skills/maintainable-design/) is separate from the preserved `feature/skills-maintainability` optimization branch.
+This collection contains 21 skills. See [V1 restoration](docs/v1-restoration.md) for preserved versions and verification scope. The standalone [maintainable-design skill](skills/maintainable-design/) is separate from the preserved `feature/skills-maintainability` optimization branch.
 
 ## Available skills
 
@@ -15,6 +15,7 @@ This working branch uses the original V1 collection plus five additions (19 skil
 | [`coremail`](skills/coremail/) | Operate Coremail accounts, mail, attachments, contacts, calendars, and settings through the local SDK, CEF CDP, and bundled Windows controls. |
 | [`designer`](skills/designer/) | Senior product, interaction, visual, and design-system practice for creating or evolving coherent interfaces, auditing designs, operating Figma or Pen safely, and preparing implementable handoff. |
 | [`devops-engineer`](skills/devops-engineer/) | Senior DevOps and platform engineering for CI/CD, containers, Kubernetes/GitOps, infrastructure as code, configuration and identity, observability, release controls, recovery, and software supply-chain systems. |
+| [`dispatcher`](skills/dispatcher/) | Assign authorized work to existing agent sessions, manage capacity and workspace ownership, and track delivery and completion. |
 | [`drawio`](skills/drawio/) | Create, edit, repair, inspect, validate, lay out, route, style, and export native editable diagrams.net/draw.io files with bundled XML references and deterministic Python tooling. |
 | [`frontend-audit`](skills/frontend-audit/) | Audit and remediate frontend product experiences across web and desktop applications, including product truth, UX, accessibility, responsiveness, state handling, component-system compliance, and frontend architecture. |
 | [`frontend-engineer`](skills/frontend-engineer/) | Act as the frontend owner who can understand, build, debug, review, audit, remediate, and verify production frontends through tested handoff. |
@@ -29,6 +30,9 @@ This working branch uses the original V1 collection plus five additions (19 skil
 | [`software-architect`](skills/software-architect/) | Discover, design, document, evaluate, and steward software architectures from system drivers through implementation conformance. |
 | [`svg`](skills/svg/) | Create, edit, repair, validate, and optimize standalone SVG files with deterministic layout and parse/render verification. |
 | [`vision`](skills/vision/) | Describe, analyze, or OCR images using an external vision API when the underlying model lacks native image understanding. |
+| [`watcher`](skills/watcher/) | Collect and persist external events, wake a configured agent session, and retain delivery and recovery evidence. |
+
+The [automation composition example](docs/automation/composition.md) connects iCenter, watcher, and dispatcher through their public interfaces, with separate state and migration boundaries.
 
 ## Install
 

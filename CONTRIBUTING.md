@@ -61,7 +61,7 @@ bash scripts/test_all.sh
 npx skills add . --list
 ```
 
-The validator checks entry metadata and the README discovery table; it is not a complete link or behavior validator. The test runner executes existing `skills/<name>/tests/test.sh` entries from the repository root. Add such an entry only when executable checks are warranted. The discovery command lists skills without installing them. A successful command supports only the properties that command inspected.
+The validator checks entry metadata and the README discovery table; it is not a complete link or behavior validator. The test runner executes existing `skills/<name>/tests/test.sh` entries from the repository root and repository composition checks in `scripts/tests/*.test.cjs`. Add such checks only when executable evidence is warranted. The discovery command lists skills without installing them. A successful command supports only the properties that command inspected.
 
 Include the change's source revision or pending diff, actual verification, and material gaps in the handoff. Keep package checks, resource execution, and model-task results distinguishable. Reuse existing evidence for unchanged behavior with its original scope; a new editing session does not invalidate it.
 
