@@ -66,7 +66,7 @@ class RendererSession {
   async run(task, ...args) {
     if (typeof task !== 'function') throw new ClientError('INVALID_ARGUMENT', 'Renderer tasks must be functions.');
     const result = await this.connection.send('Runtime.evaluate', {
-      expression: `(async()=>{try{return {ok:true,value:await (${task.toString()})((${rendererTools.toString()})(${JSON.stringify(this.scope)}),...${JSON.stringify(args)})};}catch(error){return {ok:false,error:{code:error.code||'RENDERER_FAILED',message:error.message}};}})()`,
+      expression: `(async()=>{try{return {ok:true,value:await (${task.toString()})((${rendererTools.toString()})(JSON.parse(${JSON.stringify(JSON.stringify(this.scope))})),...JSON.parse(${JSON.stringify(JSON.stringify(args))}))};}catch(error){return {ok:false,error:{code:error.code||'RENDERER_FAILED',message:error.message}};}})()`,
       returnByValue: true, awaitPromise: true,
     });
     if (result.exceptionDetails) throw new ClientError('EVALUATION_FAILED', result.exceptionDetails.exception?.description || result.exceptionDetails.text);

@@ -18,7 +18,7 @@ This working branch uses the original V1 collection plus five additions (19 skil
 | [`drawio`](skills/drawio/) | Create, edit, repair, inspect, validate, lay out, route, style, and export native editable diagrams.net/draw.io files with bundled XML references and deterministic Python tooling. |
 | [`frontend-audit`](skills/frontend-audit/) | Audit and remediate frontend product experiences across web and desktop applications, including product truth, UX, accessibility, responsiveness, state handling, component-system compliance, and frontend architecture. |
 | [`frontend-engineer`](skills/frontend-engineer/) | Act as the frontend owner who can understand, build, debug, review, audit, remediate, and verify production frontends through tested handoff. |
-| [`icenter`](skills/icenter/) | Prepare a local CDP connection and operate iCenter accounts, conversations, messages, files, monitoring, meetings and client pages through dependency-free CDP tools. |
+| [`icenter`](skills/icenter/) | Operate iCenter accounts, messages, files, monitoring, meetings and applications through dependency-free SDK/API tools over CDP, with page or optional desktop tools selected for the task. |
 | [`maintainable-design`](skills/maintainable-design/) | Implement, refactor and review maintainable code with useful contracts, clear ownership and dependable defaults. |
 | [`natural-writing`](skills/natural-writing/) | 撰写、改写和审查面向读者的自然语言，处理空泛评价、虚假推理、机械结构和语义受损。 |
 | [`presentation`](skills/presentation/) | Plan, create, revise and review presentations, slide decks and speaker notes. |

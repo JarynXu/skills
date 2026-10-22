@@ -1,6 +1,6 @@
 # 连接与身份
 
-本技能的运行不要求 computer use。启动、发现与实例重启由本机进程工具负责；客户端任务使用 CDP。需要用户完成认证时说明认证状态，等待其完成，不索取密码或把认证界面当成通用 DOM 表单处理。
+包内工具的运行不要求 computer use。启动、发现与实例重启由本机进程工具负责；SDK 和页面工具通过 CDP 连接客户端。本参考说明这条连接路径，其他操作方式按[入口中的选择规则](../SKILL.md#选择操作方式)决定。需要用户完成认证时说明认证状态，等待其完成，不索取密码或把认证界面当成通用 DOM 表单处理。
 
 ## 连接准备
 
@@ -14,7 +14,7 @@ node "<技能目录>/scripts/icenter.cjs" connect --executable "<实际iCenter.e
 node "<技能目录>/scripts/icenter.cjs" connections
 ```
 
-`connections` 仅探测主进程 PID、程序路径、版本和命令行中的端口，不建立连接，也不完成连接准备。不要因返回 `port:0` 就转用桌面工具或把启动工作交给用户。
+`connections` 仅探测主进程 PID、程序路径、版本和命令行中的端口，不建立连接，也不完成连接准备。`port:0` 不证明 CDP 不可用。所选路径需要 CDP 时，继续执行连接准备；已有授权覆盖的启动和重启由工具完成。
 
 ## 运行中的实例
 
@@ -50,50 +50,20 @@ node "<技能目录>/scripts/icenter.cjs" connect --instance-pid <已确认PID> 
 
 同一实例切换账户会使旧会话 ID、消息游标及操作计划失效。专用业务命令执行时传入 `--account`，通用 CDP 动作在当前页面核对相同身份。跨账户重新查询目标。多个实例登录同一账户时，草稿仍各自独立。
 
-本人邮箱需要读取本人资料或[通讯录搜索](contacts-and-groups.md#1210-搜索路径)返回的邮箱字段。登录 SIP、数字工号与企业邮箱的前缀可能不同。搜索结果的 unionID 可以与登录关联字段核对，不能从姓名或 SIP 后缀推导邮箱。搜索命中、本人映射和邮箱取值分别保留依据。
+本人邮箱需要读取本人资料或[联系人接口](contacts-and-groups.md#联系人及身份)返回的邮箱字段。登录 SIP、数字工号与企业邮箱的前缀可能不同。搜索结果的 unionID 可以与登录关联字段核对，不能从姓名或 SIP 后缀推导邮箱。搜索命中、本人映射和邮箱取值分别保留依据。
 
 邮箱字段存在不代表已取得地址。先去除字段首尾空白，检查是否包含完整地址；空值、占位符、脱敏值和无法识别的格式保留为未取得。搜索摘要缺少地址时读取本人资料详情。详情仍为空时说明客户端没有返回可用地址，不能改写成“本人没有邮箱”。多个地址保留原字段及来源，不能自行指定主邮箱或宣称全部别名。
 
-### 12.1.0 本人资料详情
+### 12.1.0 本人资料接口
 
-`#UserHead` 的点击处理打开当前账户资料卡。实际资料位于 `.userZteExternalDivClass`，不是旧的 `showUserDetail` 布尔值。组件 `_getContactInfo` 的 `getContactInfo_ing` 表示请求尚在进行；`cardId`、`unionID` 和 `contactInfo.accountId` 用于核对所查对象。详情字段在 `userdetail` 中，以每项的 `code` 和 `value` 读取；当前模型的属性不一定能通过对象枚举或直接 JSON 序列化取得。
+本人资料使用 contacts.getEmployeeInfo、contacts.getUserInfoV2FromICenter 或独立应用 profile.getUserInfoWeb。先用 sdk-describe 或 web-describe 核对当前参数与响应；工号保留前导零。网页账户由应用当前主体接口核对，不能把一次指定工号的资料查询当作登录证明。
 
-下面读取已登录账户的资料。前提是没有用户已打开的资料卡；保留已有资料卡时先检查其对象，不把它当作本次创建的窗口关闭。`expectedUnionId` 来自本次登录状态。
+读取响应中的账号、工号及关联身份，与当前登录资料核对，再取邮箱字段。DTO、字段投影及数据覆盖按[联系人接口](contacts-and-groups.md)处理。网页响应结构未知时使用 web-call 的 --view shape 查询字段结构，不返回字段值；随后选择本次需要的非认证字段。
 
-```javascript
-await ui.click('#UserHead', { apply: true });
-try {
-  const profile = await ui.run(async (tools, expectedUnionId) => {
-    const deadline = Date.now() + 10000;
-    let card;
-    do {
-      try {
-        card = tools.component('.userZteExternalDivClass', '_getContactInfo');
-        if (!card.getContactInfo_ing) break;
-      } catch (error) {
-        if (error.code !== 'COMPONENT_NOT_UNIQUE') throw error;
-      }
-      await new Promise(resolve => setTimeout(resolve, 150));
-    } while (Date.now() < deadline);
-    tools.check();
-    if (!card || card.getContactInfo_ing) return { state: 'pending' };
-    if (!expectedUnionId || card.unionID !== expectedUnionId) throw Error('Profile identity is not verified');
-    const values = card.userdetail.filter(item => item.code === 'email').map(item => String(item.value ?? '').trim());
-    return { state: 'loaded', cardId: card.cardId, unionId: card.unionID,
-      emails: values.map(value => ({
-        state: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? 'candidate' : 'unavailable', value,
-      })) };
-  }, expectedUnionId);
-  console.log(JSON.stringify(profile));
-} finally {
-  await ui.run(tools => tools.component('.Menu', 'closeUserDetail').closeUserDetail());
-}
-```
-
-格式检查用于筛掉空值和占位符，不证明地址可投递。脱敏地址、多个地址或其他格式需要检查原字段，不能靠替换字符补足。资料卡的“编辑个人资料”会打开系统浏览器，按[跨页面连接](ui-and-settings.md)处理，不是主窗口内的编辑弹窗。
+格式检查用于筛掉空值和占位符，不证明地址可投递。脱敏地址、多个地址及其他格式保留原字段及来源，不能靠替换字符补足。资料卡用于用户要求的页面展示；资料查询和编辑使用已适配接口。
 
 ## 版本与失败
 
-CDP 传输与专用版本适配器分别判断。当前专用适配器面向 iCenter 12.1.0；字段不匹配时拒绝该适配操作，不返回假空列表。CDP 仍可用时通过 DOM、可访问性树和实际页面状态完成任务；DOM 路径也无法验证目标或结果时报告具体阻塞，不换用桌面自动化。
+CDP 传输与专用版本适配器分别判断。当前专用适配器面向 iCenter 12.1.0；字段不匹配时拒绝该适配操作，不返回假空列表。CDP 仍可用时核对实际加载状态、接口及版本。按任务选择已有接口或经核对的页面路径；维护适配需要相应版本证据，不是完成每次任务的前提。缺少有效身份时保留阻塞，不能换工具绕过。
 
 连接拒绝、认证未完成、多页面、账户变化和版本不兼容各自报告。建立 CDP 连接不能证明消息已发送或后台监控仍在运行。

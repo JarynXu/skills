@@ -1,9 +1,11 @@
 const fs = require('node:fs/promises');
 const path = require('node:path');
 const { ClientError } = require('./cdp.cjs');
+const { downloadSdkFile } = require('./sdk-attachments.cjs');
 
 // session 由调用方持有；下载期间保留它的账户、会话和连接。
 async function downloadFile(session, { messageId, outputPath, apply = false, timeoutMs = 15000 }) {
+  if(typeof session.invoke==='function')return downloadSdkFile(session,arguments[1]);
   if (!session.scope?.chatId || typeof messageId !== 'string' || !messageId || typeof outputPath !== 'string' || !path.isAbsolute(outputPath) || !Number.isInteger(timeoutMs) || timeoutMs < 1) {
     throw new ClientError('INVALID_ARGUMENT', 'A conversation-bound session, message ID, absolute output path and positive timeout are required.');
   }

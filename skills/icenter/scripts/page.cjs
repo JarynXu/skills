@@ -53,6 +53,9 @@ function pageOperation(operation, input = {}) {
         transfer, clientTransferStatus: message.msgTransStatus, readStatus: message.readStatus };
     });
     if (new Set(messages.map(m => m.id)).size !== messages.length) fail('INVALID_MESSAGE_IDENTITY', 'The loaded message IDs are duplicated.');
+    const activeChat = state.chatInfo.chatList.find(chat => chat.chatRoomUri === input.chatId);
+    const latestId = activeChat.lastMessageBriefInfo?.msgId;
+    if ((operation === 'send' || input.requireReady === true) && latestId && !messages.some(message => message.id === latestId)) fail('MESSAGE_SCOPE_MISMATCH', 'The target latest message is not loaded yet; sending must wait for its history.');
     if (operation === 'read') return { ok: true, value: { accountId, chatId, coverage: 'loaded-message-window', messages } };
     if (operation !== 'send') fail('UNKNOWN_OPERATION', 'Unsupported page operation.');
     if (typeof input.text !== 'string' || !input.text.trim()) fail('EMPTY_MESSAGE', 'A nonempty plain-text message is required.');
@@ -63,7 +66,6 @@ function pageOperation(operation, input = {}) {
     const composer = editor.closest('.MessageEditor');
     const sendControls = [...composer.querySelectorAll('.Send')].filter(visible);
     if (sendControls.length !== 1 || editor.getAttribute('contenteditable') !== 'true') fail('EDITOR_UNAVAILABLE', 'The plain-text composer is unavailable.');
-    const activeChat = state.chatInfo.chatList.find(chat => chat.chatRoomUri === input.chatId);
     // 严格接受空白编辑器；富对象、空格草稿及引用保留给 CDP 草稿处理。
     if (editor.textContent.length || editor.querySelector('*:not(br)') || activeChat.messageReplyInfo) fail('DRAFT_PRESENT', 'An existing draft or reply is present. Preserve it and resolve its disposition before sending.');
     const beforeIds = messages.map(message => message.id);

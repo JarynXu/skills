@@ -38,6 +38,12 @@ test('页面任务核对主窗口、登录账户与绑定会话', async () => {
   f.context.process.argv = ['IS_Image_WINDOW'];
   await assert.rejects(f.session.run(t => t.check()), { code: 'WRONG_WINDOW' });
 });
+
+test('页面任务参数保留 JSON 特殊键，不改变对象原型',async()=>{
+  const f=fixture();
+  const result=await f.session.run((_tools,value)=>({own:Object.hasOwn(value,'__proto__'),inherited:value.injected??null}),JSON.parse('{"__proto__":{"injected":"data"}}'));
+  assert.deepEqual(JSON.parse(JSON.stringify(result)),{own:true,inherited:null});
+});
 test('同次任务重新检查替换后的应用，不能使用旧账户引用', async () => {
   const f = fixture();
   await assert.rejects(f.session.run(t => {

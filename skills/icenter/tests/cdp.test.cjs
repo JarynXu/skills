@@ -68,6 +68,14 @@ test('页面异常不能被当作空值', async () => {
 test('CDP 端点限制在回环地址', () => {
   assert.throws(() => new CdpClient('ws://example.com/devtools/page/1'), { code: 'INVALID_ENDPOINT' });
 });
+
+test('JSON 参数保留 __proto__ 为数据，不转成 JavaScript 原型',async()=>{
+  const vm=require('node:vm');
+  const client=Object.create(CdpClient.prototype);
+  client.send=async(method,params)=>({result:{value:vm.runInNewContext(params.expression)}});
+  const result=await client.evaluate(value=>({own:Object.hasOwn(value,'__proto__'),inherited:value.injected??null,data:value.__proto__.injected}),JSON.parse('{"__proto__":{"injected":"data"}}'));
+  assert.deepEqual(JSON.parse(JSON.stringify(result)),{own:true,inherited:null,data:'data'});
+});
 test('真实 HTTP 发现路径过滤非主页面并保留多目标', async t => {
   const server = http.createServer((req, res) => {
     assert.equal(req.url, '/json/list');

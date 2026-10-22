@@ -7,6 +7,7 @@ const { randomUUID } = require('node:crypto');
 const { TextDecoder } = require('node:util');
 const { ClientError, CdpClient, listTargets } = require('./cdp.cjs');
 const { connect, discover, select, sendText, watch } = require('./client.cjs');
+const { SdkSession } = require('./sdk.cjs');
 
 const optionsByCommand = {
   connections: [], connect: ['executable', 'instance-pid', 'restart'], targets: ['port', 'all'], status: ['port', 'target-id'],
@@ -14,7 +15,21 @@ const optionsByCommand = {
   chats: ['port', 'target-id', 'account', 'query'],
   select: ['port', 'target-id', 'account', 'chat', 'apply'],
   read: ['port', 'target-id', 'account', 'chat', 'limit'],
-  send: ['port', 'target-id', 'account', 'chat', 'text-file', 'apply'],
+  history: ['port','target-id','account','chat','union-id','limit','before-id'],
+  'read-ids': ['port', 'target-id', 'account', 'chat', 'message-id'],
+  'sdk-info': ['port', 'target-id', 'account'],
+  'sdk-list': ['query','types','all'],
+  'sdk-enum': ['name'],
+  'sdk-type': ['port','target-id','account','type'],
+  'sdk-check': ['port','target-id','account','all'],
+  'sdk-describe': ['port','target-id','account','service','method'],
+  'sdk-call': ['port','target-id','account','service','method','args-file','field','apply'],
+  'web-list': ['app','query','all','types'],
+  'web-type': ['app','type'],
+  'web-describe': ['port','target-id','account','app','method'],
+  'web-call': ['port','target-id','account','app','method','args-file','field','view','timeout-ms','output-file','apply'],
+  'send-file': ['port','target-id','account','chat','file','apply'],
+  send: ['port', 'target-id', 'account', 'chat', 'text-file', 'mark-origin', 'apply'],
   watch: ['port', 'target-id', 'account', 'chat', 'duration-seconds', 'idle-seconds', 'checkpoint'],
 };
 const output = value => process.stdout.write(JSON.stringify(value) + '\n');
@@ -51,7 +66,7 @@ async function main(argv) {
     return;
   }
   if (!Object.hasOwn(optionsByCommand, command)) throw new ClientError('UNKNOWN_COMMAND', `Unknown command: ${command}`);
-  const schema = Object.fromEntries(optionsByCommand[command].map(key => [key, { type: ['apply', 'all', 'restart'].includes(key) ? 'boolean' : 'string' }]));
+  const schema = Object.fromEntries(optionsByCommand[command].map(key => [key, { type: ['apply', 'all', 'restart', 'mark-origin','types'].includes(key) ? 'boolean' : 'string', ...(['message-id','field'].includes(key) ? { multiple: true } : {}) }]));
   const { values } = parseArgs({ args: argv.slice(1), options: schema, allowPositionals: false, strict: true });
   if (command === 'connections') {
     output(prepareConnection('probe')); return;
@@ -71,7 +86,58 @@ async function main(argv) {
     } finally { client?.close(); }
     return;
   }
+  if (command === 'sdk-list') {
+    const catalog = SdkSession.catalog(values.query || '');
+    output(values.types ? { clientVersion:catalog.clientVersion,types:catalog.types.filter(key=>key.includes(values.query || '')),enums:Object.keys(catalog.enums).filter(key=>key.includes(values.query || '')) } :
+      !values.query&&!values.all?{clientVersion:catalog.clientVersion,status:catalog.status,services:Object.fromEntries([...new Set(catalog.operations.map(operation=>operation.service))].map(service=>[service,catalog.operations.filter(operation=>operation.service===service).length]))}:
+      { clientVersion:catalog.clientVersion,status:catalog.status,operations:catalog.operations.map(({service,method,validation})=>({service,method,validation})) });
+    return;
+  }
+  if (command === 'sdk-enum') {
+    const key = required(values,'name'), value = SdkSession.catalog().enums[key];
+    if (!Object.hasOwn(SdkSession.catalog().enums,key)) throw new ClientError('UNKNOWN_SDK_ENUM','The enum is not registered.');
+    output({clientVersion:'12.1.0',name:key,values:value.values}); return;
+  }
+  if(command==='web-list'){
+    const catalog=SdkSession.webCatalog(),apps=Object.entries(catalog.apps).filter(([name])=>!values.app||name===values.app);
+    if(values.app&&!Object.hasOwn(catalog.apps,values.app))throw new ClientError('UNKNOWN_WEB_APP','The application is not registered.');
+    const query=(values.query||'').toLowerCase();
+    output(values.types?{apps:Object.fromEntries(apps.map(([name])=>[name,SdkSession.webTypes(name).filter(type=>type.toLowerCase().includes(query))]))}:
+      !values.app&&!values.query&&!values.all?{clientVersion:catalog.clientVersion,apps:Object.fromEntries(apps.map(([name,app])=>[name,{operations:Object.keys(app.methods).length,schemas:app.schemaCount||0}]))}:
+      {clientVersion:catalog.clientVersion,operations:apps.flatMap(([app,value])=>Object.entries(value.methods).filter(([method])=>(app+'.'+method).toLowerCase().includes(query)).map(([method,definition])=>values.all?{app,method,...definition}:{app,method,effect:definition.effect,response:definition.response||'json',validation:definition.validation}))});
+    return;
+  }
+  if(command==='web-type'){output(SdkSession.webType(required(values,'app'),required(values,'type')));return;}
   const port = integer(required(values, 'port'), 'port', 1, 65535);
+  if(['web-describe','web-call'].includes(command)){
+    const accountId=required(values,'account'),app=required(values,'app'),method=required(values,'method');
+    const args=command==='web-call'?JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(await fs.readFile(required(values,'args-file')))):undefined;
+    const session=await SdkSession.connect({port,targetId:values['target-id'],accountId,timeoutMs:60000});
+    try{output(command==='web-describe'?await session.describeWeb(app,method):await session.invokeWeb(app,method,args,{apply:!!values.apply,...(values.field?{fields:values.field}:{}),...(values['timeout-ms']?{requestTimeoutMs:integer(values['timeout-ms'],'timeout-ms',1000,45000)}:{}),...(values['output-file']?{outputFile:values['output-file']}:{}),...(values.view?{view:values.view}:{})}));}
+    finally{session.close();}
+    return;
+  }
+  if (['send-file','history','sdk-check','sdk-describe','sdk-type','sdk-call'].includes(command)) {
+    const accountId = required(values,'account');
+    let args;
+    if (command === 'sdk-call') {
+      args = JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(await fs.readFile(required(values,'args-file'))));
+      if (!Array.isArray(args)) throw new ClientError('INVALID_SDK_ARGUMENTS','The argument file must contain a JSON array.');
+    }
+    const session = await SdkSession.connect({port,targetId:values['target-id'],accountId});
+    try {
+      if(command==='send-file')output(await session.sendFile({chatId:required(values,'chat'),filePath:required(values,'file'),apply:!!values.apply}));
+      else if (command === 'history') output(await session.history({chatId:required(values,'chat'),unionId:values['union-id']||'',limit:integer(values.limit??'50','limit',1,200),beforeId:values['before-id']||''}));
+      else if (command === 'sdk-check') {
+        const result=await session.check();
+        output(values.all?result:{accountId:result.accountId,total:result.operations.length,matched:result.operations.filter(operation=>operation.state==='contract-matched').length,unmatched:result.operations.filter(operation=>operation.state!=='contract-matched'),executedBusinessOperations:result.executedBusinessOperations,verification:result.verification});
+      }
+      else if (command === 'sdk-type') output(await session.describeType(required(values,'type')));
+      else if (command === 'sdk-describe') output(await session.describe(required(values,'service'),required(values,'method')));
+      else output(await session.invoke(required(values,'service'),required(values,'method'),args,{apply:!!values.apply,...(values.field?{fields:values.field}:{})}));
+    } finally { session.close(); }
+    return;
+  }
   if (command === 'targets') {
     output({ targets: values.all ? (await listTargets(port, 5000, { allPages: true })).map(({ id, type, title, url }) => ({ id, type, title, url })) : (await discover(port)).map(({ id, role }) => ({ id, role })) }); return;
   }
@@ -89,7 +155,7 @@ async function main(argv) {
     return;
   }
   const scope = command === 'status' ? {} : { accountId: required(values, 'account') };
-  if (['select', 'read', 'send', 'watch'].includes(command)) scope.chatId = required(values, 'chat');
+  if (['select', 'read', 'read-ids', 'send', 'watch'].includes(command)) scope.chatId = required(values, 'chat');
   const limit = command === 'read' ? integer(values.limit ?? '50', 'limit', 1, 10000) : null;
   let text;
   if (command === 'send') {
@@ -133,7 +199,9 @@ async function main(argv) {
       result.messages = result.messages.slice(-limit);
       output({ ...result, loadedCount, returnedCount: result.messages.length });
     }
-    if (command === 'send') output(await sendText(client, scope, text, !!values.apply));
+    if (command === 'read-ids') output(await client.call('read-by-ids', { ...scope, messageIds: required(values, 'message-id') }));
+    if (command === 'sdk-info') output(await client.call('sdk-info', scope));
+    if (command === 'send') output(await sendText(client, scope, text, !!values.apply, { markOrigin: !!values['mark-origin'] }));
     if (command === 'watch') {
       const controller = new AbortController(); const stop = () => controller.abort();
       process.once('SIGINT', stop); process.once('SIGTERM', stop);

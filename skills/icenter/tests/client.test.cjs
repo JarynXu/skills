@@ -1,7 +1,10 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const { ClientError } = require('../scripts/cdp.cjs');
-const { sendText, watch } = require('../scripts/client.cjs');
+const { callPage, sendText, watch } = require('../scripts/client.cjs');
+const { nativePageOperation } = require('../scripts/native-page.cjs');
+const { inspectOrigin, markAutomation } = require('../scripts/message-origin.cjs');
+const { sendReply } = require('../scripts/conversation-send.cjs');
 const scope = { accountId: 'self', chatId: 'peer' };
 const message = (id, transfer = 'confirmed') => ({ id, senderId: 'self', text: 'hello', transfer });
 const options = { timeoutMs: 30, pollMs: 1 };
@@ -42,6 +45,54 @@ test('发送命令断连与确认期间切换会话都报告未知', async () =>
 });
 test('两个新增同文消息不能任取一个确认发送', async () => {
   await assert.rejects(sendText({ call: async op => op === 'send' ? { beforeIds: [] } : { ...scope, messages: [message('a'), message('b')] } }, scope, 'hello', true, options), { code: 'SEND_UNKNOWN' });
+});
+test('直发能力取得核对后的回执，保留其他会话及草稿，不调用编辑器流程', async () => {
+  let calls = 0;
+  const client = { call: () => assert.fail('The direct sender must not access the editor.'),
+    sendTextDirect: async (recipient, text, apply) => {
+      calls++; assert.deepEqual(recipient, scope); assert.equal(text, 'hello'); assert.equal(apply, true);
+      return { ...scope, state: 'client-confirmed', message: message('direct-id'), transport: 'client-sdk' };
+    } };
+  assert.deepEqual(await sendReply(client, scope, 'hello'), { messageId: 'direct-id', transport: 'client-sdk' });
+  assert.equal(calls, 1);
+});
+test('直发回执不符、结果缺失和 SDK 错误都不转入旧流程或重发', async () => {
+  const confirmation = { ...scope, state: 'client-confirmed', message: message('direct-id') };
+  const results = [undefined, { state: 'pending' }, { beforeIds: [] }, { ...confirmation, chatId: 'other' },
+    { ...confirmation, message: { ...message('id'), senderId: 'other' } }, { ...confirmation, message: { ...message('id'), text: 'other' } },
+    { ...confirmation, message: message('id', 'pending') }];
+  for (const result of results) {
+    let sends = 0;
+    await assert.rejects(sendText({ sendTextDirect: async () => { sends++; return result; }, call: () => assert.fail('No legacy fallback.') }, scope, 'hello', true), { code: 'SEND_UNKNOWN' });
+    assert.equal(sends, 1);
+  }
+  for (const [source, expected] of [['SEND_FAILED', 'SEND_FAILED'], ['CDP_DISCONNECTED', 'SEND_UNKNOWN']]) {
+    let sends = 0;
+    await assert.rejects(sendText({ sendTextDirect: async () => { sends++; throw new ClientError(source, 'test'); }, call: () => assert.fail('No legacy fallback.') }, scope, 'hello', true), { code: expected });
+    assert.equal(sends, 1);
+  }
+  await assert.rejects(sendText({ sendTextDirect: async () => { throw new ClientError('SDK_OPERATION_FAILED', 'lost after acceptance', { phase: 'send-requested', acceptedId: 'accepted-id' }); } }, scope, 'hello', true),
+    error => error.code === 'SEND_UNKNOWN' && error.details.acceptedId === 'accepted-id');
+});
+test('来源标记需要显式选择，发送核对完整正文含标记', async () => {
+  let sent;
+  const client = { sendTextDirect: async (_recipient, text, apply) => {
+    sent = text;
+    return apply ? { ...scope, state: 'client-confirmed', message: { ...message('id'), text } } : { state: 'preview', text };
+  } };
+  await sendText(client, scope, 'hello', true); assert.equal(sent, 'hello');
+  await sendText(client, scope, 'hello', true, { markOrigin: true }); assert.equal(inspectOrigin(sent).kind, 'automation-marked');
+  await assert.rejects(sendText(client, scope, 'hello', true, { markOrigin: 'yes' }), { code: 'INVALID_ARGUMENT' });
+});
+test('SDK 与窗口读取附加来源信息，证据正文和覆盖字段保留原值', async () => {
+  const text = markAutomation('hello');
+  const result = await callPage({ evaluate: async (fn, op, input) => {
+    assert.equal(fn, nativePageOperation); assert.equal(op, 'read-by-ids'); assert.deepEqual(input, scope);
+    return { ok: true, value: { ...scope, missingIds: ['missing'], messages: [{ ...message('id'), text }] } };
+  } }, 'read-by-ids', scope);
+  assert.equal(result.messages[0].text, text); assert.equal(result.messages[0].origin.kind, 'automation-marked');
+  assert.equal(result.messages[0].origin.sampleEligible, false); assert.equal(Object.hasOwn(result.messages[0].origin, 'body'), false);
+  assert.deepEqual(result.missingIds, ['missing']);
 });
 test('监控输出成功后保存检查点，空闲时间随新消息重置', async () => {
   const events = []; const saved = []; let reads = 0; let emitted = false;

@@ -1,13 +1,19 @@
 const { setTimeout: delay } = require('node:timers/promises');
 const { ClientError, CdpClient, listTargets } = require('./cdp.cjs');
 const { pageOperation } = require('./page.cjs');
+const { nativePageOperation } = require('./native-page.cjs');
+const { withMessageOrigin, markAutomation } = require('./message-origin.cjs');
 const { MessageCursor, requireScope } = require('./contracts.cjs');
 
 async function callPage(connection, operation, input = {}) {
-  const result = await connection.evaluate(pageOperation, operation, input);
+  const native = ['send-sdk', 'read-by-ids', 'sdk-info'].includes(operation);
+  const result = await connection.evaluate(native ? nativePageOperation : pageOperation, operation === 'send-sdk' ? 'send' : operation, input);
   if (!result || typeof result.ok !== 'boolean') throw new ClientError('INVALID_CLIENT_RESULT', 'The client returned an invalid operation result.');
   if (!result.ok) throw new ClientError(result.error.code, result.error.message, result.error.details);
-  return result.value;
+  const value = result.value;
+  if (Array.isArray(value?.messages)) return { ...value, messages: value.messages.map(withMessageOrigin) };
+  if (value?.message) return { ...value, message: withMessageOrigin(value.message) };
+  return value;
 }
 
 async function discover(port) {
@@ -23,8 +29,9 @@ async function discover(port) {
 async function connect(port, targetId) {
   const targets = (await discover(port)).filter(target => target.role === 'main' && (!targetId || target.id === targetId));
   if (targets.length !== 1) throw new ClientError('MAIN_WINDOW_NOT_UNIQUE', 'Select one iCenter main-window target.', { candidates: targets.map(t => ({ id: t.id, role: t.role })) });
-  const connection = await CdpClient.connect(targets[0].webSocketDebuggerUrl);
-  return { targetId: targets[0].id, call: (operation, input) => callPage(connection, operation, input), close: () => connection.close() };
+  const connection = await CdpClient.connect(targets[0].webSocketDebuggerUrl,{timeoutMs:20000});
+  return { targetId: targets[0].id, call: (operation, input) => callPage(connection, operation, input),
+    sendTextDirect: (scope, text, apply) => callPage(connection, 'send-sdk', { ...scope, text, apply }), close: () => connection.close() };
 }
 
 async function select(client, scope, apply) {
@@ -39,16 +46,27 @@ async function select(client, scope, apply) {
   throw new ClientError('SELECTION_UNKNOWN', 'The client did not confirm the selected conversation. Inspect its state through CDP before retrying.');
 }
 
-async function sendText(client, scope, text, apply, { timeoutMs = 15000, pollMs = 300 } = {}) {
+async function sendText(client, scope, text, apply, { timeoutMs = 15000, pollMs = 300, markOrigin = false } = {}) {
+  if (typeof markOrigin !== 'boolean') throw new ClientError('INVALID_ARGUMENT', 'markOrigin must be a boolean.');
+  if (markOrigin) text = markAutomation(text);
+  const direct = typeof client.sendTextDirect === 'function';
   let submitted;
-  try { submitted = await client.call('send', { ...scope, text, apply }); }
+  try { submitted = direct ? await client.sendTextDirect(scope, text, apply) : await client.call('send', { ...scope, text, apply }); }
   catch (error) {
+    if (error.code === 'SEND_FAILED') throw error;
     if (apply && error.details?.phase !== 'not-edited') {
-      throw new ClientError('SEND_UNKNOWN', 'The send operation did not finish reliably. Inspect the draft and history; do not send again automatically.', { cause: error.code, phase: error.details?.phase || 'unknown', ...scope });
+      throw new ClientError('SEND_UNKNOWN', 'The send operation did not finish reliably. Inspect the draft and history; do not send again automatically.', { ...error.details, cause: error.code, phase: error.details?.phase || 'unknown', ...scope });
     }
     throw error;
   }
   if (!apply) return submitted;
+  if (submitted?.state === 'client-confirmed') {
+    if (submitted.accountId !== scope.accountId || submitted.chatId !== scope.chatId || typeof submitted.message?.id !== 'string' || !submitted.message.id || submitted.message.senderId !== scope.accountId || submitted.message.text !== text || submitted.message.transfer !== 'confirmed') {
+      throw new ClientError('SEND_UNKNOWN', 'The SDK confirmation does not match the requested message; reconcile without resending.', scope);
+    }
+    return submitted;
+  }
+  if (direct || !Array.isArray(submitted?.beforeIds)) throw new ClientError('SEND_UNKNOWN', 'The send returned no valid confirmation; reconcile without resending.', scope);
   const beforeIds = new Set(submitted.beforeIds);
   const deadline = Date.now() + timeoutMs;
   let observed = null;

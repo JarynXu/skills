@@ -108,7 +108,7 @@ class CdpClient {
 
   async evaluate(fn, ...args) {
     const response = await this.send('Runtime.evaluate', {
-      expression: `(${fn.toString()})(...${JSON.stringify(args)})`,
+      expression: `(${fn.toString()})(...JSON.parse(${JSON.stringify(JSON.stringify(args))}))`,
       returnByValue: true,
       awaitPromise: true,
     });

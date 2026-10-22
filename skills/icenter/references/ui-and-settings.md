@@ -1,8 +1,10 @@
-# CDP 页面与设置
+# 页面、桌面与设置
+
+操作方式遵循[选择操作方式](../SKILL.md#选择操作方式)。本参考提供页面和桌面路径的定位、执行及验证方法。设置偏好有 settings 服务，语言切换有 client.switchLanguage；已适配的数据任务可以使用[客户端接口](client-api.md)，不需要打开设置窗口。
 
 ## 页面定位与操作
 
-所有客户端页面交互经过 CDP。专用命令未覆盖功能时使用通用 `cdp` 命令；版本适配器失败不阻止 CDP 的 DOM 和输入操作。不要改用桌面截图、坐标点击或桌面键盘工具。
+CDP 可以检查和操作客户端页面。接口未覆盖或不兼容时，核对当前 DOM、身份、控件作用和结果，再完成已授权的页面动作。已确认可用的页面路径不以新增 SDK 适配为前提。视觉任务使用当前页面截图核对显示效果。
 
 ```text
 node "<技能目录>/scripts/icenter.cjs" targets --port <端口> --all
@@ -44,9 +46,17 @@ try {
 
 ## 文件与非 DOM 对话框
 
-文件发送先检查当前页面是否存在对应 `input[type=file]`，有证据的节点可使用 `DOM.setFileInputFiles`。Electron 原生文件选择框不属于网页 DOM，CDP 不能给任意原生对话框键入路径。
+文件发送优先使用[文件接口](files-and-collections.md)。所选路径需要页面文件输入时，检查对应 `input[type=file]`，有证据的节点可使用 `DOM.setFileInputFiles`。Electron 原生文件选择框不属于网页 DOM，CDP 不能给任意原生对话框键入路径。
 
-12.1.0 的文件与图片按钮使用原生选择框。已核实的后续处理方法、无对话框发送和指定路径下载见[文件与收藏](files-and-collections.md)。其他原生能力需要检查当前控件调用的桥接及参数契约。不能猜私有 SDK、安装外部模块、修改厂商程序或绕过认证。没有可验证的 CDP 路径时说明该功能受阻。
+12.1.0 的文件与图片按钮使用原生选择框。已核实的后续处理方法、无对话框发送和指定路径下载见[文件与收藏](files-and-collections.md)。其他原生能力可检查当前控件调用的桥接及参数契约，或使用下述桌面路径。不能猜私有 SDK、修改厂商程序或绕过认证。缺少可验证的接口和可用桌面工具时，说明受阻的功能。
+
+## 可选桌面操作
+
+原生窗口、系统对话框及桌面显示不一定出现在 CDP 页面中。宿主具有 computer use 或系统自动化能力时，遵守该工具的使用规则，核对当前客户端实例、窗口、目标对象和操作权限。动作基于当前控件或画面；窗口移动、切换或弹窗后重新定位，不沿用旧坐标。
+
+保留用户草稿、选择及进行中的操作。跨工具切换仍使用原账户和对象身份；只有显示名称或无法确认当前窗口归属时，不执行有外部副作用的动作。宿主要求用户处理的认证、隐私和系统授权继续交由用户。
+
+结果按任务核对：显示截断、遮挡和布局检查实际画面；保存、发送、下载等核对对应数据、文件或明确回执。工具返回点击完成只证明输入已发出。没有桌面工具时，继续完成可用接口或 CDP 覆盖的部分，报告剩余限制；不把桌面能力加入包内工具的运行依赖。
 
 ## 页面工作流工具
 
@@ -81,17 +91,17 @@ try {
 
 `targets --all` 不能列出所有 iframe。通过 `Page.getFrameTree` 取得当前 frame ID；读取前核对 iframe 的来源、当前用途和登录主体。跨来源 iframe 的 DOM 不能由父页面 `document` 直接读取。在同一个 CDP 连接中调用 [Page.createIsolatedWorld](https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-createIsolatedWorld)，参数为 `{frameId, worldName:'icenter-task'}`，用返回的 `executionContextId` 作为 `Runtime.evaluate` 的 `contextId`。该上下文读取对应 frame 的 DOM，不拥有主窗口的 Node/Vue 状态。页面导航后重建上下文。iframe 停留在 `about:blank` 时报告未加载，不能把空白视为没有业务数据。
 
-webview 或独立窗口可能有自己的 target。重新发现并核对角色、URL 和来源。外部浏览器需要该浏览器的 CDP 连接；iCenter 的端口不自动覆盖它。不能通过读出令牌或向另一来源注入认证来代替登录。没有该连接或认证时保留受阻状态，完成不依赖它的部分。
+webview 或独立窗口可能有自己的 target。重新发现并核对角色、URL 和来源。外部浏览器的页面协议操作需要该浏览器的连接；iCenter 的端口不自动覆盖它。没有该连接时，可按任务选用宿主支持的浏览器或桌面工具；仍需核对来源和登录主体。不能通过读出令牌或向另一来源注入认证来代替登录。缺少有效认证或可核对的操作路径时保留受阻状态。
 
 ## 客户端设置
 
-12.1.0 的系统设置在主窗口内。用 `ui.click('#MenuSystemSetting', {text:'设置', apply:true})` 打开菜单，再点 `#settingDetailShow .SystemSetting`（文本“系统设置”）。等 `#SystemSettingDetail` 可见后定位其菜单。通知入口为 `.NotificationText`，另有 `.GeneralText`、`.ShortcutKeyText`、`.AbnormityText`。关闭入口为 `#SystemSettingDetail .SystemSettingDetailClose#close`。
+12.1.0 的系统设置在主窗口内。需要展示或诊断该页面时，菜单为 `#MenuSystemSetting`，系统设置为 `#settingDetailShow .SystemSetting`，根元素为 `#SystemSettingDetail`。通知入口为 `.NotificationText`，另有 `.GeneralText`、`.ShortcutKeyText`、`.AbnormityText`。关闭入口为 `#SystemSettingDetail .SystemSettingDetailClose#close`。偏好修改使用客户端接口。
 
 通知的当前状态可从 `.MessageAudioSetting .CheckBox`、`.MessageFlashSetting .CheckBox` 是否包含 `CheckBoxSelect` 读取。相应登录状态字段为 `$store.state.settingInfo.messageTipsAudio`、`messageTipsFlash`。核对两种观察是否一致；不点击开关来判断原值。通知开关调用 `setMessageTipsAudio`、`setMessageTipsFlash`，它们是切换动作，不能当成幂等赋值重试。
 
 通用页涵盖 Excel 粘贴形式、会议外网、语言、翻译语言、历史同步、缓存目录和缓存清理；快捷键页涵盖发送消息、显示主窗口、截图；异常诊断页有崩溃收集设置。修改目录可能迁移文件并重启，清理缓存可能删除本地数据。这些动作不属于读取设置。版本菜单、日志上传、注销和退出位于 `#settingDetailShow`，各自有独立副作用。
 
-通过 CDP 操作个人头像或设置控件，读取资料、版本和设置项。区分个人资料、在线状态、通知、快捷键、消息显示、文件保存位置、音视频设备、企业策略和安全选项。
+资料、版本和偏好使用客户端接口读取。CDP 的头像或设置控件用于核对显示状态。个人资料、在线状态、通知、快捷键、消息显示、文件保存位置、音视频设备、企业策略和安全选项保留各自契约。
 
 读取与修改是不同动作。按用户目标改动对应项，记录原值，检查保存后的值。不能按菜单含有“免打扰”判断当前已开启；读取开关、选中态或设置值。宿主禁止操作的安全、隐私、权限和认证界面交给用户处理，不改用另一种工具绕过限制。
 
