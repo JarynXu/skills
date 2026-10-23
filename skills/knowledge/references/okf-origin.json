@@ -1,0 +1,11 @@
+{
+  "upstream": "https://github.com/GoogleCloudPlatform/open-knowledge-format",
+  "commit": "ad30107c31c06aec8a7d5636e0d1058118604e6f",
+  "path": "SPEC.md",
+  "version": "0.2",
+  "sha256": "26aa5da029278939f914e578107242d9607d4f2dc5fe153272b82f9ed1030101",
+  "license": "Apache-2.0",
+  "license_path": "OKF-LICENSE.txt",
+  "modified": false,
+  "note": "Original specification copied unchanged; consuming-project policies are separate."
+}

@@ -4,7 +4,7 @@ A growing collection of reusable skills for AI coding agents.
 
 Each skill lives in its own directory under `skills/` and can be discovered and installed independently with the open `skills` CLI.
 
-This collection contains 21 skills. See [V1 restoration](docs/v1-restoration.md) for preserved versions and verification scope. The standalone [maintainable-design skill](skills/maintainable-design/) is separate from the preserved `feature/skills-maintainability` optimization branch.
+This collection contains 22 skills. See [V1 restoration](docs/v1-restoration.md) for preserved versions and verification scope. The standalone [maintainable-design skill](skills/maintainable-design/) is separate from the preserved `feature/skills-maintainability` optimization branch.
 
 ## Available skills
 
@@ -20,6 +20,7 @@ This collection contains 21 skills. See [V1 restoration](docs/v1-restoration.md)
 | [`frontend-audit`](skills/frontend-audit/) | Audit and remediate frontend product experiences across web and desktop applications, including product truth, UX, accessibility, responsiveness, state handling, component-system compliance, and frontend architecture. |
 | [`frontend-engineer`](skills/frontend-engineer/) | Act as the frontend owner who can understand, build, debug, review, audit, remediate, and verify production frontends through tested handoff. |
 | [`icenter`](skills/icenter/) | Operate iCenter accounts, messages, files, monitoring, meetings and applications through dependency-free SDK/API tools over CDP, with page or optional desktop tools selected for the task. |
+| [`knowledge`](skills/knowledge/) | 主动检索项目背景、识别开发与排障中的知识变化，按证据取舍、更新和组织长期知识；无需用户点名，读写遵循任务权限。 |
 | [`maintainable-design`](skills/maintainable-design/) | Implement, refactor and review maintainable code with useful contracts, clear ownership and dependable defaults. |
 | [`natural-writing`](skills/natural-writing/) | 撰写、改写和审查面向读者的自然语言，处理空泛评价、虚假推理、机械结构和语义受损。 |
 | [`presentation`](skills/presentation/) | Plan, create, revise and review presentations, slide decks and speaker notes. |

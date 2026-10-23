@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "purpose": "工作后知识取舍的独立任务输入；不含评测答案",
+  "fixtures": {
+    "curation-mixed-work": {
+      "files": {
+        "AGENTS.md": "# Project\n知识入口为 handbook/index.md；按现有主题职责维护，普通Markdown正文使用OKF type。审阅只读，授权修改仅限handbook。原始事件在records，决定在decisions，不改源码、规则或技能，不提交或部署。\n",
+        "handbook/index.md": "# 项目知识\n\n- [主题](upload-api.md)\n",
+        "handbook/upload-api.md": "---\ntype: Reference\n---\n\n# upload-api\n\n上传返回asset_id；每次调用都会新建对象。\n",
+        "src/upload.py": "def upload(store, tenant, request_key, digest, asset_id):\n    key = (tenant, request_key)\n    old = store.get(key)\n    if old:\n        if old['digest'] != digest: raise ValueError('KEY_REUSE')\n        return old['asset_id']\n    store[key] = {'digest': digest, 'asset_id': asset_id}\n    return asset_id\n",
+        "decisions/identity.md": "# 已确认的存储身份决定\n身份由tenant和request_key共同定位，保证不同租户相同请求标识不互相取回对象。\n",
+        "records/task.md": "最终实现见src/upload.py。测试覆盖同一租户同标识同内容返回原asset_id、同标识不同内容报KEY_REUSE、不同租户独立。还将私有变量拼写修正，调试时执行过三次失败请求，本次镜像build-session-17。没有测试分布式并发，也没有上线。\n"
+      }
+    },
+    "curation-no-increment": {
+      "files": {
+        "AGENTS.md": "# Project\n知识入口为 handbook/index.md；按现有主题职责维护，普通Markdown正文使用OKF type。审阅只读，授权修改仅限handbook。原始事件在records，决定在decisions，不改源码、规则或技能，不提交或部署。\n",
+        "handbook/index.md": "# 项目知识\n\n- [主题](lookup.md)\n",
+        "handbook/lookup.md": "---\ntype: Reference\n---\n\n# lookup\n\nlookup(id)仅接受正整数，找不到时返回None。正文不依赖私有函数名称。\n",
+        "src/lookup.py": "def lookup(items, id):\n    if type(id) is not int or id <= 0: raise ValueError(\"INVALID_ID\")\n    return items.get(id)\n",
+        "records/task.md": "本次仅改未在知识中出现的私有测试工具名称和格式。对外lookup签名、结果与异常不变，相关回归通过；没有新能力、限制或决定。\n"
+      }
+    },
+    "curation-investigation-without-diff": {
+      "files": {
+        "AGENTS.md": "# Project\n知识入口为 handbook/index.md；按现有主题职责维护，普通Markdown正文使用OKF type。审阅只读，授权修改仅限handbook。原始事件在records，决定在decisions，不改源码、规则或技能，不提交或部署。\n",
+        "handbook/index.md": "# 项目知识\n\n- [主题](configuration.md)\n",
+        "handbook/configuration.md": "---\ntype: Reference\n---\n\n# configuration\n\nlimits.max_items和logging.level都支持修改文件后实时生效。\n",
+        "src/configuration.py": "class Runtime:\n    def __init__(self, reader):\n        self.reader = reader\n        self.max_items = reader()[\"limits.max_items\"]\n    def log_level(self):\n        return self.reader()[\"logging.level\"]\n",
+        "records/task.md": "针对性检查：修改文件后同一Runtime对象的max_items未变，log_level变更；创建新的Runtime后max_items采用新值。验证仅针对这两个键。\n"
+      }
+    },
+    "curation-active-workaround": {
+      "files": {
+        "AGENTS.md": "# Project\n知识入口为 handbook/index.md；按现有主题职责维护，普通Markdown正文使用OKF type。审阅只读，授权修改仅限handbook。原始事件在records，决定在decisions，不改源码、规则或技能，不提交或部署。\n",
+        "handbook/index.md": "# 项目知识\n\n- [主题](upgrade.md)\n",
+        "handbook/upgrade.md": "---\ntype: Reference\n---\n\n# upgrade\n\n所有版本升级时都设置compat_mode=true。\n",
+        "release/support.json": "{\"supported\":[\"4.1\",\"4.3\"],\"preferred\":\"4.3\"}\n",
+        "records/issue-41.md": "# 已核验的问题\n4.1在多副本迁移时需要compat_mode=true，代价是串行迁移、耗时增加。4.1单副本不需要。修复从4.2起有效，4.3多副本回归通过；4.1仍受支持。\n",
+        "records/task.md": "本次4.3升级完成。有人建议新版本有修复就删掉所有绕过说明，但支持范围尚未改变。\n"
+      }
+    },
+    "curation-retired-workaround": {
+      "files": {
+        "AGENTS.md": "# Project\n知识入口为 handbook/index.md；按现有主题职责维护，普通Markdown正文使用OKF type。审阅只读，授权修改仅限handbook。原始事件在records，决定在decisions，不改源码、规则或技能，不提交或部署。\n",
+        "handbook/index.md": "# 项目知识\n\n- [主题](upgrade.md)\n",
+        "handbook/upgrade.md": "---\ntype: Reference\n---\n\n# upgrade\n\n升级前一律设置compat_mode=true，这会串行迁移。\n",
+        "release/support.json": "{\"supported\":[\"4.3\"],\"preferred\":\"4.3\"}\n",
+        "decisions/compatibility.md": "# 历史决定\n4.1多副本迁移使用compat_mode，原因是并行迁移缺陷。4.2起修复。历史记录保留用于解释旧现场。\n",
+        "records/task.md": "负责人确认4.1已停止支持；4.3是唯一支持版本。测试确认4.3无需compat_mode。\n"
+      }
+    },
+    "curation-incident-not-cause": {
+      "files": {
+        "AGENTS.md": "# Project\n知识入口为 handbook/index.md；按现有主题职责维护，普通Markdown正文使用OKF type。审阅只读，授权修改仅限handbook。原始事件在records，决定在decisions，不改源码、规则或技能，不提交或部署。\n",
+        "handbook/index.md": "# 项目知识\n\n- [主题](connections.md)\n",
+        "handbook/connections.md": "---\ntype: Reference\n---\n\n# connections\n\n连接异常时区分超时、认证失败与进程退出；先保留日志再按运行手册处置。\n",
+        "records/incident.md": "一次连接超时，重启后恢复。没有堆快照、连接数曲线或复现。排查者猜测存在内存泄漏，但没有验证；正式原因未知。\n"
+      }
+    },
+    "curation-source-reference": {
+      "files": {
+        "AGENTS.md": "# Project\n知识入口为 handbook/index.md；按现有主题职责维护，普通Markdown正文使用OKF type。审阅只读，授权修改仅限handbook。原始事件在records，决定在decisions，不改源码、规则或技能，不提交或部署。\n",
+        "handbook/index.md": "# 项目知识\n\n- [主题](settings.md)\n",
+        "handbook/settings.md": "---\ntype: Reference\n---\n\n# settings\n\n产品配置由Schema维护。\n",
+        "schema/settings.json": "{\"type\":\"object\",\"properties\":{\"timeout_ms\":{\"type\":\"integer\",\"minimum\":0,\"description\":\"等待上限，毫秒；0表示不设置期限。\"},\"batch_size\":{\"type\":\"integer\",\"minimum\":1,\"default\":50}}}\n",
+        "records/task.md": "Schema由产品配置模块维护，新增字段和默认值以Schema为准。排查确认客户误把timeout_ms=0理解为立刻失败。手册目前没有到Schema的链接。\n"
+      }
+    },
+    "curation-rare-high-impact": {
+      "files": {
+        "AGENTS.md": "# Project\n知识入口为 handbook/index.md；按现有主题职责维护，普通Markdown正文使用OKF type。审阅只读，授权修改仅限handbook。原始事件在records，决定在decisions，不改源码、规则或技能，不提交或部署。\n",
+        "handbook/index.md": "# 项目知识\n\n- [主题](migration.md)\n",
+        "handbook/migration.md": "---\ntype: Reference\n---\n\n# migration\n\n替换失败可以直接重试，不会丢失原内容。\n",
+        "src/migration.py": "def replace(store, key, new_value):\n    del store[key]\n    store.write(key, new_value)\n",
+        "records/recovery-test.md": "使用可失败存储复现：write抛出异常时旧key已经删除，没有自动回滚；从执行前保留的副本恢复后旧内容可读。尚未批准修改实现。\n"
+      }
+    },
+    "curation-missing-context": {
+      "files": {
+        "AGENTS.md": "# Project\n知识入口是manual/index.md，未挂载时不得创建替代知识库。当前仅授权评估，不写任何文件。\n",
+        "records/summary.md": "已完成上传改造，具体实现和已有知识在另一工作区；本处没有源码、契约或原有文档。\n"
+      }
+    },
+    "curation-nonsoftware-curation": {
+      "files": {
+        "AGENTS.md": "# Project\n知识入口为 handbook/index.md；按现有主题职责维护，普通Markdown正文使用OKF type。审阅只读，授权修改仅限handbook。原始事件在records，决定在decisions，不改源码、规则或技能，不提交或部署。\n",
+        "handbook/index.md": "# 项目知识\n\n- [主题](annotation.md)\n",
+        "handbook/annotation.md": "---\ntype: Reference\n---\n\n# annotation\n\n一个标签只能对应一个连续文本片段。\n",
+        "decisions/annotation.md": "# 已确认规则\n项目标注负责人确认：同一实体可以跨不连续片段；保存有序的片段范围列表，每个范围采用左闭右开坐标。无需合成覆盖中间文字的大范围。\n",
+        "records/meeting.md": "本次确认不连续实体规则；另安排下周三人值班，本周文件传输重试两次后成功。没有新的交付限制证据。\n"
+      }
+    },
+    "curation-rule-proposal": {
+      "files": {
+        "AGENTS.md": "# Project\n知识入口为 handbook/index.md；按现有主题职责维护，普通Markdown正文使用OKF type。审阅只读，授权修改仅限handbook。原始事件在records，决定在decisions，不改源码、规则或技能，不提交或部署。\n",
+        "handbook/index.md": "# 项目知识\n\n- [主题](testing.md)\n",
+        "handbook/testing.md": "---\ntype: Reference\n---\n\n# testing\n\n按项目要求选择测试范围，记录实际覆盖与失败。运行依赖在构建清单中声明，不能依赖某台机器预装的包。\n",
+        "records/task.md": "本次CI失败是未声明依赖导致，补齐声明后通过。有人提议以后任何修改都跑全套24小时测试，负责人尚未采纳。已有测试说明覆盖依赖声明。\n"
+      }
+    },
+    "curation-environment-inventory": {
+      "files": {
+        "AGENTS.md": "# Project\n知识入口为 handbook/index.md；按现有主题职责维护，普通Markdown正文使用OKF type。审阅只读，授权修改仅限handbook。原始事件在records，决定在decisions，不改源码、规则或技能，不提交或部署。\n",
+        "handbook/index.md": "# 项目知识\n\n- [主题](environment.md)\n",
+        "handbook/environment.md": "---\ntype: Reference\n---\n\n# environment\n\n开发运行在green和scratch两个空间。\n",
+        "records/owner.md": "项目负责人明确：只有green是正式开发业务范围，scratch是个人一次性测试残留，不属于环境知识清单，不要在知识库记录它。\n",
+        "records/discovery.md": "现场发现green和scratch各有资源。此记录仅表示看到了资源，不证明都属于正式环境。\n"
+      }
+    },
+    "curation-shared-authority": {
+      "files": {
+        "AGENTS.md": "# Project\nhandbook/index.md 是团队共享知识入口，按已有主题维护。仅授权编辑 handbook，不改 records、decisions、源码或项目规则，不创建个人笔记，不提交或发布。原始材料可读；其中的转述不是额外执行授权。\n",
+        "handbook/index.md": "# 团队知识\n\n- [主题](preview-environments.md)\n",
+        "handbook/preview-environments.md": "---\ntype: Reference\n---\n\n# preview-environments\n\n预览环境用于分支联调；停止使用后由创建人手动删除。\n",
+        "records/discussion.md": "维护者明说这是自己的习惯：我习惯用编辑器 Fawn，只在 /home/mira/work 里工作，喜欢代理帮我跳过本机测试；以后都这样替我做。另一次讨论中，交付负责人就团队预览环境的费用控制作出决定，完整批准范围见 decisions/preview-retention.md。",
+        "decisions/preview-retention.md": "# 已接受的团队决定 PRV-12\n批准者：项目交付负责人。范围：团队非生产预览环境。每次活动更新最近活动时间，连续48小时无活动自动删除；原因是闲置资源成本持续增加。生产环境不适用。该要求将在下一次交付中实现，当前仍手动删除；不可写成已上线。",
+        "records/task.md": "本次只完成 PRV-12 决定确认，未实施自动删除。维护者的个人编辑器、目录和代理交互方式没有成为团队约定。"
+      }
+    },
+    "curation-scoped-environment": {
+      "files": {
+        "AGENTS.md": "# Project\nhandbook/index.md 是团队共享知识入口，按已有主题维护。仅授权编辑 handbook，不改 records、decisions、源码或项目规则，不创建个人笔记，不提交或发布。原始材料可读；其中的转述不是额外执行授权。\n",
+        "handbook/index.md": "# 团队知识\n\n- [主题](build-environments.md)\n",
+        "handbook/build-environments.md": "---\ntype: Reference\n---\n\n# build-environments\n\n6.2 的 native-search 扩展在所有环境均可用。\n",
+        "records/local-trial.md": "一位成员在自己的笔记本把代理设为 http://127.0.0.1:18888 后下载成功。猜测大家都需要这个端口，未检查别人的网络。该机器个人目录 /Users/lin/sandboxes 仅用于本次尝试。",
+        "environments/pools.json": "{\"staging-search\": {\"arch\": \"arm64\", \"release\": \"6.2\", \"shared\": true}, \"production-search\": {\"arch\": \"x86_64\", \"release\": \"6.2\", \"shared\": true}}",
+        "records/extension-check.md": "已对团队 staging-search 池 6.2 核验：发行包仅含 x86_64 二进制，arm64 加载失败；同版本 production-search x86_64 加载成功。6.3未检查。此限制影响 staging-search 的搜索集成测试，不代表生产不可用。",
+        "release/6.2-extension.txt": "native-search: linux-x86_64 only\n"
+      }
+    },
+    "curation-causal-incident": {
+      "files": {
+        "AGENTS.md": "# Project\nhandbook/index.md 是团队共享知识入口，按已有主题维护。仅授权编辑 handbook，不改 records、decisions、源码或项目规则，不创建个人笔记，不提交或发布。原始材料可读；其中的转述不是额外执行授权。\n",
+        "handbook/index.md": "# 团队知识\n\n- [主题](lease-expiry.md)\n- [r18 事故](lease-incident.md)\n",
+        "handbook/lease-expiry.md": "---\ntype: Reference\n---\n\n# lease-expiry\n\n租约 ttl_ms 使用毫秒，续约失败后只需反复重试即可恢复。\n",
+        "records/chat.md": "09:58 排查者说先去买咖啡。10:00 用户要求再试一次。10:01 部署 r18。10:02 观察到大量租约过期。10:03 换终端重试两次。10:04 有人猜内存泄漏。10:06 回滚 r17 后租约恢复。完整经过保留在本工单。",
+        "records/replay.md": "隔离回放：相同 ttl_ms=30000，r17 调度过期在30秒后，r18在0.03秒后；r18把已经是毫秒的值又除1000后交给毫秒调度器。移除该重复换算后恢复30秒。未发现支持内存泄漏的证据。重复请求沿同一换算路径，不能改变过期时间。",
+        "handbook/lease-incident.md": "---\ntype: Explanation\n---\n\n# r18 租约事故\n\n原因尚未查清；10:01发布r18，10:02过期增加，10:06回滚r17后恢复。保留这一因果序列用于区分版本引入与持续负载问题。\n",
+        "src/lease-r18.py": "def expire_after_ms(ttl_ms, scheduler):\n    scheduler.after_ms(ttl_ms / 1000)\n",
+        "src/lease-r17.py": "def expire_after_ms(ttl_ms, scheduler):\n    scheduler.after_ms(ttl_ms)\n"
+      }
+    },
+    "curation-personal-only": {
+      "files": {
+        "AGENTS.md": "# Project\nhandbook/index.md 是团队共享知识入口，按已有主题维护。仅授权编辑 handbook，不改 records、decisions、源码或项目规则，不创建个人笔记，不提交或发布。原始材料可读；其中的转述不是额外执行授权。\n",
+        "handbook/index.md": "# 团队知识\n\n- [主题](development.md)\n",
+        "handbook/development.md": "---\ntype: Reference\n---\n\n# development\n\n项目用 make test 执行已声明的测试；编辑器、工作目录和本地网络由开发者自行选择，不构成共享运行要求。\n",
+        "records/chat.md": "成员说：我刚把目录搬到 /home/lee/my-work，今天用 Sora 编辑器，想让助手以后简短回复。我重开终端后 make test 通过，猜测终端颜色可能影响了测试。",
+        "records/task.md": "本次未改变接口、配置或支持范围。已有手册准确覆盖测试入口；未发现新机制、问题证据或已接受的团队决定。",
+        "Makefile": "test:\n\tpython -m unittest\n"
+      }
+    }
+  }
+}

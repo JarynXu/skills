@@ -1,0 +1,6 @@
+interface:
+  display_name: "Knowledge"
+  short_description: "Find project context and maintain durable knowledge"
+  default_prompt: "Use $knowledge to find relevant project facts, identify durable knowledge changes, and maintain only the affected content within the task's authority."
+policy:
+  allow_implicit_invocation: true

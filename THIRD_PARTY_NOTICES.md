@@ -29,6 +29,10 @@ The libraries include material under multiple terms, including Apache-2.0, MIT, 
 
 The skills also maintain restricted-canon/source maps for important proprietary or non-redistributable standards and books. Those works are referenced for learning context but are not intentionally vendored without confirmed redistribution rights.
 
+## Open Knowledge Format reference
+
+The `knowledge` skill preserves the Open Knowledge Format 0.2 specification from `GoogleCloudPlatform/open-knowledge-format` without modification. Its resolved commit, SHA-256 and source path are in `skills/knowledge/references/okf-origin.json`. The upstream Apache-2.0 license is included at `skills/knowledge/references/OKF-LICENSE.txt`; the specification is not relicensed under this repository's MIT license. The format reference is optional and does not make OKF a requirement for every consuming project.
+
 ## No endorsement
 
 Bundling or referencing a third-party source does not imply endorsement by the source owner, and the repository does not claim ownership of third-party trademarks or protected material.
