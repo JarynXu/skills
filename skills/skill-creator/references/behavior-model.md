@@ -17,6 +17,14 @@ and proves completion with <evidence>.
 
 Do not begin with “the skill contains knowledge about X” or “the skill produces documents Y and Z.” Knowledge and artifacts matter only when they cause or carry the target behavior.
 
+## Bound the promised capability
+
+Define the supported task range by intended outcomes and relevant variation. Each promised outcome needs a usable route through required inputs, judgment or action, failure handling, and completion evidence. Naming a capability or listing an operation does not supply that route. Unavailable or unverified routes limit the capability claim; do not declare the skill complete while deferring work needed for its stated scope.
+
+Progressive disclosure changes what an agent loads for a task, not what the skill supports. Establish coverage before distributing details among resources. Keep each route discoverable through the runtime entry using the routing method in [implementation.md](implementation.md). This does not require a separate capability catalog or a reference file for every operation.
+
+Keep completeness bounded by the task family the skill promises. An environment's full feature set is not automatically the skill's scope; inspect the relevant capabilities without expanding into unrelated work.
+
 ## Separate orthogonal dimensions
 
 Avoid compressing several independent decisions into one role label. Model the following dimensions separately whenever each can vary without changing the others:

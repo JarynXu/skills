@@ -26,6 +26,7 @@ A mature skill must help an agent determine what matters, make domain-appropriat
 Start from realistic tasks, not a desired folder tree. Identify:
 
 - which user expressions and situations should trigger the skill;
+- which outcomes it promises and which supported variations it must handle;
 - what an unassisted agent would likely miss, mishandle, overproduce, or do inconsistently;
 - what the skilled agent must notice, decide, do, avoid, and verify;
 - which decisions it may make, which it may propose, and which require another authority;
@@ -60,7 +61,7 @@ Choose the smallest structure that can reliably cause the target behavior:
 - use `assets/` for material copied or transformed into outputs;
 - keep optional agent or UI metadata under `agents/` and out of the correctness path.
 
-Read [implementation.md](references/implementation.md) before creating files, reorganizing a complex skill, adding resources, or setting output contracts.
+Read [implementation.md](references/implementation.md) before choosing execution mechanisms, creating files, reorganizing a complex skill, adding resources, or setting output contracts.
 
 Set freedom according to failure risk. Use principles where contextual judgment is essential, structured fields or parameterized patterns where shape matters, and deterministic tooling where variation is unsafe. Do not substitute emphatic prose for a lower-freedom mechanism.
 

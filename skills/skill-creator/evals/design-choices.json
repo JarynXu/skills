@@ -1,0 +1,50 @@
+{
+  "purpose": "Observe skill authors choosing execution mechanisms, covering a bounded capability and justifying additional resources. These cases assess authored files, not a live application's behavior.",
+  "cases": [
+    {
+      "id": "table-analysis",
+      "task": "Create the portable table-analysis skill for analysts who need to find records, calculate exact totals and export matching records from LedgerView. Use the supplied capability reference. Deliver the skill files and any supporting resources you judge necessary. The reference is a synthetic product contract; the application is unavailable in this exercise. Report what you actually checked and any remaining validation limits.",
+      "files": {
+        "capabilities.md": "# LedgerView capabilities\n\nThe signed-in application provides `ledger tables --json` (IDs, names and revisions), `ledger query --table ID --revision REV --where EXPR --columns LIST --json` (all matching records, exact decimal values and the source revision), `ledger aggregate --table ID --revision REV --where EXPR --sum COLUMN --json` (exact decimal sum and matching count), and `ledger export --table ID --revision REV --where EXPR --output PATH --json` (output path, revision, row count and checksum). The expression syntax accepts column comparisons combined with AND/OR. A changed revision returns `revision_conflict` without producing an export. Permission failures return `access_denied`. The application already handles session authentication.\n\nThe desktop grid supports selecting a table, applying filters and exporting. Displayed amounts are rounded to two decimal places. Only visible rows are present in the rendered grid; scrolling replaces them. A host may provide a desktop interaction tool. No host capability is guaranteed by installation of the skill.\n\nThe requested skill covers record lookup, exact totals and filtered exports. It does not edit source data or administer access.\n"
+      },
+      "acceptance": [
+        "The authored skill supplies usable routes for lookup, exact totals and filtered exports within the requested scope.",
+        "Exact records and calculations use the declared full-data contract; rounded visible grid contents are not treated as complete or exact data.",
+        "Completion uses the appropriate revision and export result evidence; conflict, unavailable access and unavailable tools do not become successful results.",
+        "No hard-coded product-wide hierarchy bans visual tools when a different task would require them.",
+        "Added resources have a demonstrated role; the skill does not add mandatory installation or duplicate authentication without a need.",
+        "The final report distinguishes source/package inspection from unperformed live application validation."
+      ]
+    },
+    {
+      "id": "screen-review",
+      "task": "Create the portable screen-review skill for reviewing how a poster looks in its final rendered display. Users care about overlapping or clipped text, contrast and visual hierarchy. Use the supplied capability reference. Deliver the skill files and any supporting resources you judge necessary. This is an offline authoring exercise; no application, screenshots or visual tool are available to execute the review. Report the work performed and its validation limits.",
+      "files": {
+        "capabilities.md": "# FrameDesk capabilities\n\n`frame describe ID --json` returns element IDs, text strings, declared colors, intended bounding boxes and requested fonts. It does not expose final glyph positions, font fallback, clipping, computed overlap or actual raster pixels.\n\n`frame render ID --output PATH --json` creates the final rendered PNG and returns its location and source revision. A separate image-viewing capability is needed to inspect those pixels. Some hosts provide that capability; others only support text tools. The application GUI also displays the final rendered poster. No API reports a reliable visual-quality score.\n\nThe requested skill reviews an existing poster and gives findings. Editing, publishing and building a new renderer are outside scope.\n"
+      },
+      "acceptance": [
+        "The authored skill requires rendered visual evidence for claims about final appearance; source metadata is supporting context.",
+        "The skill handles the lack of a viewing capability as a concrete limit on the visual conclusion, rather than substituting a metadata-based pass.",
+        "The route does not treat structured output as inherently sufficient or prohibit the available visual mechanism.",
+        "The skill stays in the requested review scope and does not add a renderer, publishing workflow or unnecessary runtime dependency.",
+        "The final report does not claim an actual poster was reviewed or that future model judgments have been validated."
+      ]
+    },
+    {
+      "id": "package-maintenance",
+      "task": "Complete the supplied data-package skill. Its public scope is inspecting a dataset package, creating one from selected files, verifying it and resuming an interrupted creation. The current entry is insufficient for users. Use the product reference to decide what should remain in the main entry, what should be loaded by task and which proposed supporting mechanisms are necessary. Deliver the changed skill files. The application is unavailable; do not represent proposed client checks as executed.",
+      "files": {
+        "skills/data-package/SKILL.md": "---\nname: data-package\ndescription: Create, inspect, verify and resume AtlasPack dataset packages.\n---\n\n# Dataset packages\n\nAtlasPack can inspect packages, create packages, verify them and resume interrupted work. Select the relevant operation. Run `pack create --files FILES --output PATH` to create a package. Other workflows will be documented later.\n",
+        "capabilities.md": "# AtlasPack capabilities\n\nAn installed `pack` executable supplies four supported operations:\n- `pack inspect PATH --json`: package identity, manifest, schema version and state.\n- `pack create --files FILE1 FILE2 --output PATH --json`: package identity, output location and status; interruption returns a job ID.\n- `pack verify PATH --json`: manifest validation, checksum mismatches and unsupported-version errors.\n- `pack resume JOB_ID --json`: resumes the application's existing job; an unknown job returns `job_not_found`.\n\nEvery completed write returns a package ID. Verification is a separate operation. The application owns resumable jobs and handles their persistence. Supported operations do not require plugins.\n\nA previous proposal suggested a JavaScript wrapper, an npm dependency for command execution and a second JSON file tracking job states. That proposal has no implementation or additional requirement attached to it. Deletion, scheduled runs and remote upload are outside the requested skill scope.\n"
+      },
+      "acceptance": [
+        "Inspect, create, verify and resume each have an actionable route with the relevant inputs, results and limits; promised routes are not deferred as future documentation.",
+        "Task selection and shared boundaries remain discoverable from the main entry. Conditional resources, if used, have observable load conditions and valid links.",
+        "The skill distinguishes creation completion from verification and handles unknown jobs without inventing recovery success.",
+        "The proposed wrapper, npm dependency and duplicate job store are omitted unless the output demonstrates a need not met by the stated native contract.",
+        "No extra lifecycle subsystem, unrestricted future capability catalog or out-of-scope operation is made mandatory.",
+        "The report separates actual local checks from unperformed application or model-behavior validation."
+      ]
+    }
+  ]
+}

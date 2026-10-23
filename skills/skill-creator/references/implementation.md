@@ -13,6 +13,18 @@ Make `SKILL.md` the runtime control plane, not a table of contents or a summary 
 
 Organize the body by stable domain responsibilities and decision relationships. Do not mirror the author's research order, the sequence of tools used during development, or the reference directory tree.
 
+## Select mechanisms by the task contract
+
+Identify the intended operation, the state needed to perform it, and the evidence required to judge its result before choosing a mechanism. Inspect the capabilities and guarantees of available mechanisms. Prefer a path that expresses the intended operation explicitly, exposes the relevant state and results, and reduces ambiguous inference or indirect manipulation. A tool's name or output format alone does not establish those properties.
+
+Use each mechanism for the portion of the contract it can fulfill. Check the combined path when a task needs several forms of evidence or interaction. Selection follows task requirements and observed support; do not impose a universal technology hierarchy or assume the skill's installation supplies every host capability. A fallback must preserve the required outcome, authority and evidence, or report the resulting limitation.
+
+## Justify added mechanisms and resources
+
+Inspect existing tools, host capabilities and maintained resources before adding a dependency, script, state store or workflow step. Identify the unmet requirement or demonstrated reliability benefit the addition serves, who will use it, and what maintenance it introduces. Reuse an existing capability when its contract meets the need; verify that contract rather than inferring support from availability.
+
+Compare the total execution, coordination and maintenance burden. An addition can be worthwhile when it makes the required behavior dependable or removes work from consumers. Dependency count, file count and a preference for custom implementation do not establish that benefit. Remove an addition that has no necessary consumer or effect on the requested outcome.
+
 ## Place each concern once
 
 | Concern | Default location | Design rule |
