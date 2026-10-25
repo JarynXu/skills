@@ -12,7 +12,7 @@ If several callers can wait on one activity, define whether one caller's cancell
 
 ## Make state transitions atomic enough
 
-Model the states that affect behavior and the permitted transitions, including failure and shutdown. Establish where each transition becomes observable and which invariant it preserves. Choose synchronization around that invariant rather than around individual fields merely because they can race.
+Model the states that affect behavior and the permitted transitions, including failure and shutdown. Before adding synchronization, identify the actors sharing mutable state and an allowed interleaving that can violate an invariant. An operation-private synchronous value with no escaping references does not need a lock for an unspecified competitor. Shared state that can change between a check and its use needs a boundary that preserves the guarantee through the effect, not repeated checks that leave the same gap; see [CWE-367](https://cwe.mitre.org/data/definitions/367.html). Establish where each transition becomes observable and choose synchronization around its invariant rather than around isolated fields.
 
 Keep callbacks and dependency calls outside a held lock when their permitted behavior could reenter or wait for the same owner. If a callback may run synchronously, the caller's state must already be ready for it. Do not rely on a scheduler order the contract does not provide.
 

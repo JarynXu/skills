@@ -1,0 +1,32 @@
+# Protection decisions and validation ownership — 2026-10-25
+
+## Source and bounded change
+
+The completed design work was first checkpointed in `0ad4b1190202da8d77814cdcaa6fa404a4842b56`. That commit contains the eleven previously completed design, integration, discovery, evaluation, and verification files. Knowledge's separate completed refinement was already committed and clean; it and other agents' work are outside this change.
+
+The existing design skills already asked for evidence and coherent contracts. This revision makes protection decisions explicit at those decision points: identify a credible failure path and the uncovered guarantee; weigh impact, exposure, attacker control, and complexity without treating absence of incidents as safety. `design-judgment` owns that tradeoff. `maintainable-design` places validation and error handling at the responsible boundaries, permits reliance on still-valid internal invariants, and recognizes new trust boundaries or intervening state changes. Existing foundation and concurrency references illustrate the distinction. Naming, change-locality guidance, and the context-sensitive reference are unchanged.
+
+The existing authorization paragraph was also clarified: routine authorized corrections do not need renewed approval merely because they touch a safeguard; materially broader commitments still need a decision. No universal validation count, ban on catches, or single-use-helper rule was introduced. No application code was provided or refactored, and these edits do not establish the cause of any particular project's over-defensive behavior.
+
+The scoped primary references were inspected on this date: [OWASP input validation](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html) distinguishes validated input, authorization, output-context protections, and trust boundaries; [CWE-367](https://cwe.mitre.org/data/definitions/367.html) describes check/use invalidation. They support those specific distinctions, not a complete security assessment.
+
+## Bounded behavioral comparison
+
+Reusable tasks and criteria are in [protection-decisions.json](../../skills/design-judgment/evals/protection-decisions.json). A separate author prepared P1–P4 without reading the candidate. The implementer received them after the first runtime edit was frozen. Two fresh agents read the same four assigned runtime files, using the checkpoint snapshot or first candidate, and answered the same four tasks in order. Each arm used one batch and inherited settings without overrides; the exact served model version was not independently recorded. Both confirmed complete reads. Expected criteria and other-arm outputs were withheld. The implementer reviewed complete answers nonblind against the criteria fixed before the runs.
+
+- P1: both arms removed redundant immutable-plan checks while preserving required row-error context, original cause, and termination. Both passed.
+- P2: both proposed correct independent-message plugin validation before rendering and avoided inventing a prohibition on extra fields. The previous arm also proposed a valid-message-then-invalid-message test. The first candidate omitted that explicit sequence test, so its test-proposal coverage is partial rather than a full pass. The omission does not demonstrate that its proposed handler skips later validation.
+- P3: both distinguished operation-private synchronous state from the shared `await` gap, proposed a final check/decrement without an intervening yield, and retained attempt-recording failure semantics. Both passed.
+- P4: both retained required document authorization and rejected incident-count reasoning. Both ended with unqualified approval language about later optimization or relocation, exceeding the distinction between local authorized corrections and materially broader changes. The security decision passed, but the shared scope criterion was partial.
+
+No measured improvement was established by that comparison. Rather than adding a test-specific runtime instruction, the final candidate clarifies the existing authorization paragraph in terms of effects and granted scope. P5 was then added to exercise an authorized one-call-site helper extraction versus a separately deployed authorization service; it is a post-finding case, not a held-out first-comparison task. One fresh agent read the final candidate and answered P4 and P5, retaining authorization, allowing ordinary local cleanup without another approval, and escalating the service redesign. Both targeted checks passed. The original P2 test-coverage limitation remains recorded; it was not erased by the narrower recheck.
+
+These are ten offline responses with explicit skill activation, authored scenarios, single samples, shared context within each batch, and nonblind model review. They do not verify automatic triggering, real refactor execution, production security, or general model improvement. Suggested implementation tests in the answers were not executed.
+
+## Repository and source checks
+
+- Repository validator and cached Node 22 `npx --no-install skills add . --list`: passed for 23 skills; repeated on the final candidate. Nothing was installed.
+- `bash scripts/test_all.sh`: ran on the first candidate and exited 1 at the existing `skills/backend-engineer/scripts/offline_library.py:124` `BrokenPipeError`, after the adapter, diagnostic, control-plane, catalog, routing, and readiness checks passed. Later suites were not reached. The subsequent authorization-only wording change was covered by the targeted model recheck and final structural checks; the unrelated failing suite was not rerun or repaired for that wording edit.
+- Final scoped UTF-8, whitespace, final-newline, relative-link, JSON, diff, and frozen-runtime checks passed. The naming section, context-sensitive reference, and change-locality guidance remained unchanged. Structural checks are not behavioral evidence.
+
+Snapshots, first and final candidate hashes, command logs, answer-only prompts, and selected exact answer excerpts with judgments are retained in `.tmp/design-protection-20261025/`. The excerpt record does not claim to be a full response transcript. No temporary outputs are included in the commit. No global or repository Git identity settings were changed; the approved identity is supplied per commit command. There was no push, publication, installation, or cloud-repository operation.

@@ -33,13 +33,13 @@ Make state ownership and transitions explicit. Model legal states and combinatio
 
 Use the same quality standard inside and outside an API. Convenient public use does not justify tangled internals; clean internals do not justify shifting bookkeeping to every caller. Keep internal helpers, state transitions, and failure handling cohesive enough to maintain locally.
 
-For uncertain decomposition, abstraction, invariant, or composition boundaries, read [Foundations](references/foundations.md). It develops the reasoning model without prescribing a layer count or design pattern.
+For uncertain decomposition, abstraction, validation ownership, or invariant and composition boundaries, read [Foundations](references/foundations.md). It develops the reasoning model without prescribing a layer count or design pattern.
 
 ## Make contracts compose
 
-Check both sides of an interaction: the caller must establish the dependency's preconditions, and the dependency's actual guarantees must support the caller's assumptions. Matching types or method names is insufficient.
+Check both sides of an interaction: establish preconditions at the boundary responsible for accepting the value, and verify that the dependency's actual guarantees support its caller. Internal code can rely on an established invariant while its validity is preserved; do not repeat input checks at every helper merely because failure is imaginable. A new trust boundary, transformation, or state change may invalidate that guarantee and require validation or synchronization again. Matching types, method names, or an “internal” source label is insufficient.
 
-Include partial effects, concurrent interference, completion, ordering, and retained resources where relevant. Individually correct components can still compose incorrectly. Put genuinely system-wide obligations at the composition boundary rather than making every leaf understand the entire application.
+Include partial effects, concurrent interference, completion, ordering, and retained resources where relevant. Individually correct components can still compose incorrectly. Put genuinely system-wide obligations at the composition boundary rather than making every leaf understand the entire application. Place error handling where it can enforce the failure contract, recover, clean up, or add useful context; propagate failures otherwise instead of disguising them as successful defaults. Judge a check, catch, or helper by the guarantee or clarity it supplies, not its syntax or use count.
 
 Keep alternative backends behaviorally substitutable for the supported contract. For example, an in-memory replacement and a remote implementation must agree on meaningful identity, ordering, consistency, error, and lifecycle semantics that their callers rely on. If a difference matters, represent it as an explicit capability or contract distinction rather than a hidden backend branch in each caller.
 

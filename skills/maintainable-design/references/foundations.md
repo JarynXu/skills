@@ -24,6 +24,10 @@ A precondition states what must be true before an operation. A guarantee states 
 
 For a synchronous sequential operation, check that a caller establishes the precondition and that the resulting guarantee is strong enough for its next step. For concurrent operations, also establish what interference is allowed, which state belongs to whom, and when an observation is valid. A statement about a value at one instant is not automatically a guarantee for a later operation.
 
+A private immutable value constructed from checked primitives can carry its established invariants through internal helpers; repeating the same range checks and substituting defaults in each helper can obscure defects rather than recover from them. The same-shaped value decoded from a queue or supplied by a plugin has not thereby satisfied the receiving operation's contract. Validate at that boundary before relying on it. If mutable state or a transformation can invalidate a property, check or enforce the relevant property at use rather than assuming an earlier check still applies.
+
+Keep protections for distinct obligations distinct. A valid resource identifier does not establish permission to access it, and a valid input does not make an output safe in every context. [OWASP's input-validation guidance](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html) explains these boundaries; it is not a rule to validate everything only once or a complete security assessment.
+
 Separate failure classification from effects. A timeout may mean the caller stopped waiting while the effect is still pending or already committed. A usable contract gives the caller a meaningful next action: observe a result, retry idempotently, reconcile an uncertain outcome, or report a terminal failure. Choose mechanisms that make that action dependable.
 
 ## Ownership and composition
