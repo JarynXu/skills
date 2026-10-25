@@ -1,0 +1,41 @@
+{
+  "name": "change-locality",
+  "purpose": "Bounded decomposition decisions: distinguish scattered business-rule ownership from legitimate boundary changes and one-time migration cost.",
+  "cases": [
+    {
+      "id": "C1",
+      "prompt": "A checkout service currently uses:\nshipmentOffer(o):\n  priority = o.tier == \"plus\" && o.zone == \"metro\" && o.hour < 16\n  return priority\n    ? { service: \"PRIORITY\", etaDays: 1, fee: 0 }\n    : { service: \"ECONOMY\", etaDays: 3, fee: 5 }\nThe quote endpoint reads fee, fulfillment reads service, and the confirmation email reads etaDays.\nA proposed cleanup replaces shipmentOffer with chooseService.ts, estimateArrival.ts, and calculateShippingFee.ts. Each contains its own copy of the priority expression and returns only its named value. The reviewer likes the smaller files and narrower functions.\nThe next ticket says: standard-tier metro orders with merchandise subtotal of at least $100 also receive the priority offer; on Fridays the cutoff becomes 14:00 for everyone. The carrier integration and email wording are unchanged.\nDescribe the patch you would make, whether you would accept or modify the cleanup, and the tests you would add. Identify which parts should own the relevant decisions and which callers must change. Alternative structures are welcome; explain their tradeoffs.",
+      "acceptance": [
+        "Identifies eligibility and the resulting shipping offer as a cohesive business decision rather than assigning ownership by output field or consumer.",
+        "Avoids maintaining the new tier/subtotal/day rules independently in three implementations.",
+        "Accepts retaining the function, introducing a policy result, or keeping narrow wrappers backed by one authoritative decision.",
+        "Does not require combining endpoint, fulfillment integration, and email renderer.",
+        "Tests tier/subtotal and cutoff boundaries, including Friday, and consistency among returned offer fields."
+      ]
+    },
+    {
+      "id": "C2",
+      "prompt": "An export system has these boundaries:\nExportPolicy.authorize(actor, scope) determines accessible records and row limits.\nHTTP route: format = parseEnum(request.format, [\"csv\"]); plan = ExportPolicy.authorize(actor, scope); enqueue({format, plan}).\nDatabase: jobs.format has CHECK(format IN ('csv')).\nWorker: encoder = encoders[job.format]; encoder.write(fetchAuthorizedRows(job.plan)).\nCSV encoder: escapes fields and writes comma-separated records.\nDownload handler: contentType = mimeByFormat[job.format].\nWeb form: formatOptions = [\"csv\"].\nThe ticket adds NDJSON exports for the same users, records, and limits. Each record must occupy one JSON line. Downloads must use application/x-ndjson. Existing queued CSV jobs must continue working during deployment.\nA proposed patch changes six production files and adds an encoder and migration. A reviewer says this proves excessive fragmentation and suggests moving authorization, HTTP handling, persistence, encoding, and downloads into ExportManager.ts.\nGive a bounded implementation and rollout plan. Explain what you would consolidate, if anything, and what evidence would make the current boundaries worth retaining. Include the checks needed to establish correctness.",
+      "acceptance": [
+        "Distinguishes one feature crossing necessary interfaces from duplication of one business rule.",
+        "Preserves authoritative authorization and row-limit enforcement; adding a format must not change access.",
+        "Accounts for format validation, persistence compatibility, encoder registration, MIME selection, and discoverability.",
+        "Identifies deployment sequencing or compatible rollout needed to avoid producing unsupported jobs.",
+        "Allows a shared format definition or registry where useful without requiring a universal manager or eliminating necessary adapters.",
+        "Includes NDJSON correctness, CSV regression, access/limit preservation, and compatibility checks."
+      ]
+    },
+    {
+      "id": "C3",
+      "prompt": "Four weeks ago, pricing.ts was split into eight modules. That commit touched ten production files, moved code without changing behavior, and passed characterization tests.\nCurrent excerpts:\neligible(c) in couponEligibility.ts:\n  return c.goods - c.giftCards >= 250\ndiscount(c) in couponValue.ts:\n  base = c.goods - c.giftCards\n  return base >= 250 ? base * 0.10 : 0\ntax.ts calculates tax from goods minus the supplied discount.\nreceipt.ts renders a supplied pricing result.\nSubsequent changes:\n- “Raise coupon threshold from 200 to 250”: couponEligibility, couponValue, their tests.\n- “Exclude gift cards from coupon spend”: the same pair and their tests.\n- “Update tax rate”: taxRates and tax tests.\n- “French receipts”: receipt translations and rendering tests.\nThe next ticket raises the coupon threshold to 300 and caps the discount at 25. Tax treatment and presentation stay unchanged. A maintainer proposes reverting the entire split because its original migration touched so many files.\nPropose the next patch and any structural adjustment. Explain what the history establishes, what it does not establish, and how you would test the result.",
+      "acceptance": [
+        "Separates the initial movement/import cost from evidence of subsequent recurring change coupling.",
+        "Uses repeated predicates and change history together to identify coupon-rule ownership rather than co-change counts alone.",
+        "Produces coherent threshold/cap implementation with eligibility and value consistent.",
+        "Allows selective merging, a cohesive coupon policy, or retained interfaces delegating to one authoritative implementation.",
+        "Retains independently changing tax and presentation responsibilities unless additional evidence warrants changes.",
+        "Tests threshold edges, gift-card exclusion, cap behavior, and unchanged tax/rendering contracts."
+      ]
+    }
+  ]
+}

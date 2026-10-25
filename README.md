@@ -4,7 +4,7 @@ A growing collection of reusable skills for AI coding agents.
 
 Each skill lives in its own directory under `skills/` and can be discovered and installed independently with the open `skills` CLI.
 
-This collection contains 22 skills. See [V1 restoration](docs/v1-restoration.md) for preserved versions and verification scope. The standalone [maintainable-design skill](skills/maintainable-design/) is separate from the preserved `feature/skills-maintainability` optimization branch.
+This collection contains 23 skills. See [V1 restoration](docs/v1-restoration.md) for preserved versions and verification scope. The standalone [maintainable-design skill](skills/maintainable-design/) is separate from the preserved `feature/skills-maintainability` optimization branch.
 
 ## Available skills
 
@@ -13,6 +13,7 @@ This collection contains 22 skills. See [V1 restoration](docs/v1-restoration.md)
 | [`backend-engineer`](skills/backend-engineer/) | Senior polyglot backend engineering for designing, building, reviewing, testing, debugging, hardening, migrating, and operating production server-side systems. |
 | [`code-review`](skills/code-review/) | Independent code review for structural complexity, ownership, abstraction health, maintainability, clarity, consistency, correctness risks, and behavior-preserving refinement. |
 | [`coremail`](skills/coremail/) | Operate Coremail accounts, mail, attachments, contacts, calendars, and settings through the local SDK, CEF CDP, and bundled Windows controls. |
+| [`design-judgment`](skills/design-judgment/) | Make context-sensitive choices about concepts, naming, abstractions, configuration, and interactions, with explicit tradeoffs and evidence. |
 | [`designer`](skills/designer/) | Senior product, interaction, visual, and design-system practice for creating or evolving coherent interfaces, auditing designs, operating Figma or Pen safely, and preparing implementable handoff. |
 | [`devops-engineer`](skills/devops-engineer/) | Senior DevOps and platform engineering for CI/CD, containers, Kubernetes/GitOps, infrastructure as code, configuration and identity, observability, release controls, recovery, and software supply-chain systems. |
 | [`dispatcher`](skills/dispatcher/) | Assign authorized work to existing agent sessions, manage capacity and workspace ownership, and track delivery and completion. |

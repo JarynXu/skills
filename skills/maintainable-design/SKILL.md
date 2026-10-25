@@ -11,6 +11,8 @@ Keep the effort proportional to the task. A small change may need only a clear l
 
 ## Start with useful behavior
 
+When a choice among plausible designs depends on user goals, project vocabulary, compatibility, or competing costs, use `design-judgment` if available to resolve that choice. Apply the result here through concrete responsibilities, contracts, ownership, and checks. This skill remains usable independently: establish the relevant goal and constraints before optimizing maintenance, and make any tradeoff with required behavior explicit.
+
 Identify what callers need to accomplish and what the implementation should make dependable. Choose the responsibility, model, and contract that support that behavior before choosing mechanisms.
 
 State the relevant preconditions, guarantees, invariants, and failure semantics. Include ownership, permitted interference, timing, and resource bounds when they affect correct use. A contract is an obligation the implementation must satisfy, not a description that makes an inconvenient implementation somebody else's problem.
@@ -19,7 +21,11 @@ Absorb avoidable coordination, validation, and lifecycle work into the component
 
 ## Put knowledge and responsibility together
 
-Keep a rule with the state and decisions it governs. Separate domain knowledge from transport, storage, scheduling, and vendor mechanisms when they change for different reasons. Apply this at the level of functions, types, fields, and packages, not just directories.
+Keep a business rule or invariant under a coherent owner with the state and decisions it governs, even if its implementation spans files. Separate domain knowledge from transport, storage, scheduling, and vendor mechanisms when they change for different reasons. Apply this at the level of functions, types, fields, and packages, not just directories.
+
+Before a nontrivial split or reorganization, trace a representative business change grounded in the request, code, tests, or history through both the current and proposed structures. Compare which decisions must change together, where a maintainer must look, and which edits require coordination to prevent inconsistency. Use this evidence to choose the boundary; do not invent future requirements to justify it. A small local edit needs no separate analysis document.
+
+Distinguish one-time migration work from recurring change burden. A many-file refactor is not itself shotgun surgery; investigate whether one evolving decision requires scattered, synchronized edits because its knowledge lacks a coherent owner. File count alone cannot establish this: a real contract change can legitimately affect several boundaries. Keep unrelated reasons to change separate, and retain or recombine cohesive code when splitting adds coordination without a compensating benefit.
 
 Let an abstraction express a meaningful concept, invariant, or substitution boundary. A wrapper that merely renames calls, spreads one decision across layers, or requires callers to know the wrapped implementation may add work without adding a useful guarantee.
 
@@ -27,7 +33,7 @@ Make state ownership and transitions explicit. Model legal states and combinatio
 
 Use the same quality standard inside and outside an API. Convenient public use does not justify tangled internals; clean internals do not justify shifting bookkeeping to every caller. Keep internal helpers, state transitions, and failure handling cohesive enough to maintain locally.
 
-For uncertain abstraction, invariant, or composition boundaries, read [Foundations](references/foundations.md). It develops the reasoning model without prescribing a layer count or design pattern.
+For uncertain decomposition, abstraction, invariant, or composition boundaries, read [Foundations](references/foundations.md). It develops the reasoning model without prescribing a layer count or design pattern.
 
 ## Make contracts compose
 
@@ -69,6 +75,6 @@ Make focused improvements within the related scope. If the needed correction exc
 
 Inspect implementations and authoritative API semantics when needed to establish that a contract is real. Local reasoning depends on trustworthy boundaries; it is not a reason to avoid checking uncertain guarantees.
 
-Choose checks for the changed risk: legal state transitions, composition assumptions, failure and partial effects, concurrent interleavings, ownership, or equivalent backend behavior. Exercise the actual mechanism when a substitute would remove the property being tested.
+Choose checks for the changed risk: legal state transitions, composition assumptions, failure and partial effects, concurrent interleavings, ownership, or equivalent backend behavior. Exercise the actual mechanism when a substitute would remove the property being tested. After reorganization, retrace the selected change against the resulting structure and consumers; preserved behavior alone does not establish improved change locality.
 
 Report the resulting behavior and useful verification with their limits. Do not turn tests into a claim that the design can never fail, or add mandatory paperwork to a simple change. Leave callers and maintainers with a clearer model and less unnecessary knowledge to reconstruct.

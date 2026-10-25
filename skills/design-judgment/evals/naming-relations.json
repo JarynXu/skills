@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "name": "naming-relations",
+  "purpose": "Bounded held-out activated-skill offline behavior comparison for semantic naming relationships.",
+  "created_at_utc": "2026-10-22T17:16:16Z",
+  "logical_session_id": "s_0e2ed62fa4c97eda6f147536",
+  "freeze": {
+    "cases_authored_before_candidate_view": true,
+    "criteria_shared_with_implementer_before_runs": true,
+    "candidate_frozen_before_implementer_received_prompts": true,
+    "source": "Implementer's authorization message in the evaluation conversation.",
+    "candidate_changed_during_runs": false
+  },
+  "protocol": {
+    "fresh_agents": 2,
+    "fork_turns": "none",
+    "model_override": false,
+    "reasoning_effort_override": false,
+    "model_identity": "Inherited defaults; exact model version not independently recorded.",
+    "scenario_order": [
+      2,
+      1,
+      3
+    ],
+    "batched_per_arm": true,
+    "generations_per_arm": 1,
+    "instructions": "Read the two complete files assigned to the arm through the Local plugin using the existing logical session. Apply their guidance to the three scenarios in the stated order. Return about 150 words per scenario. Do not critique the skill or discuss test methodology. No external sources, unrelated reads, writes, installations, publication, extra agents, or session lifecycle changes. Read any remainder before answering.",
+    "scenario_prompts_identical_across_arms": true,
+    "evaluator_criteria_sent_to_response_agents": false,
+    "other_arm_outputs_sent_to_response_agents": false,
+    "repeated_responses": 0,
+    "metadata_followup": "Each agent confirmed the completeness of its original reads afterward, with no additional read, response rerun, or session change."
+  },
+  "cases": [
+    {
+      "id": 1,
+      "label": "true_family_member",
+      "prompt": "Our rate-limit package exports createFixedWindowPolicy and createSlidingWindowPolicy. Both return RatePolicy, and callers keep them in a policies array and invoke canAdmit. The README tells users to discover interchangeable implementations by looking for policy factories. We are adding a token-bucket implementation with that same contract. A reviewer suggests makeTokenAllowance because it sounds clearer on its own. Review the proposed public name and recommend a small, justified naming plan. Do not redesign the package.",
+      "criteria": {
+        "positive": "Use the interface, call sites, and discovery convention to recognize real family membership and recommend a coherent sibling name or explain an equally coherent alternative.",
+        "negative": "Endorse the isolated synonym without addressing broken relationships, apply a suffix as a universal rule, or propose an unsupported package-wide rename.",
+        "exact_name_required": false
+      }
+    },
+    {
+      "id": 2,
+      "label": "adjacent_non_member",
+      "prompt": "The same package has fixed-window and sliding-window policy factories returning RatePolicy; policies decide whether requests may proceed. A new diagnostic object observes recent decisions and emits a changing explanation stream. It never admits requests, cannot replace a RatePolicy, and is passed to observeDecisions rather than the policies array. A teammate proposes createDiagnosticsPolicy to match the existing exports. Choose a naming direction and explain how users should understand its relationship to those exports.",
+      "criteria": {
+        "positive": "Preserve the conceptual connection while marking the different observer/diagnostic role; explain why cosmetic family membership would imply the wrong contract.",
+        "negative": "Copy the policy suffix just for consistency, suggest interchangeability, or choose an unrelated attractive label without grounding it in usage.",
+        "exact_name_required": false
+      }
+    },
+    {
+      "id": 3,
+      "label": "public_pair_and_domain_migration",
+      "prompt": "Our stable SDK exposes InboundMessage and OutboundMessage, a pair defined from one gateway’s viewpoint. Someone wants to rename only OutboundMessage to Transmission because it reads better; behavior is unchanged. Separately, the next major version will support multi-hop routing: the same persistent object is inbound at one gateway and outbound at another, and those directions become properties of a hop rather than object types. Customers use both current exports. Recommend what to do in the current patch and what naming change, if any, the major-version evidence supports.",
+      "criteria": {
+        "positive": "Resist an isolated cosmetic rename now; assess the future domain change rather than mechanically preserving the old pair; offer a coordinated, role-accurate naming/migration approach accounting for existing public users.",
+        "negative": "Rename one side on taste alone, reject every migration in the name of consistency, or globally replace public names without scope/compatibility consideration.",
+        "exact_name_required": false
+      }
+    }
+  ],
+  "arms": [
+    {
+      "name": "previous",
+      "agent_task": "/root/implement_local_design_judgment/check_related_naming_choices/answer_naming_scenarios_a",
+      "inputs": [
+        {
+          "path": "/workspace/skills/.tmp/design-judgment-naming-20261022/baseline/skills/design-judgment/SKILL.md",
+          "sha256": "d3b244b19ec6843d858c7616d0246fff36e9695576c3d362dd699a8030c27a8e",
+          "lines": 56,
+          "bytes_total": 7610,
+          "bytes_read": 7610,
+          "truncated": false
+        },
+        {
+          "path": "/workspace/skills/.tmp/design-judgment-naming-20261022/baseline/skills/design-judgment/references/context-sensitive-choices.md",
+          "sha256": "317485fd1b083449d6b3f7cf6a3f4848ef1946ae3c50b9ce500ad1324b52bb2f",
+          "lines": 41,
+          "bytes_total": 5257,
+          "bytes_read": 5257,
+          "truncated": false
+        }
+      ],
+      "output_path": "/workspace/skills/.tmp/design-judgment-naming-20261022/previous-output.txt",
+      "output_sha256": "52bd1e0064a0d887c05395805ef381f977405be0ffabdc0e7ded9aa63f9c87c4",
+      "output_bytes": 3462,
+      "word_counts": [
+        {
+          "scenario": 2,
+          "words": 157
+        },
+        {
+          "scenario": 1,
+          "words": 152
+        },
+        {
+          "scenario": 3,
+          "words": 167
+        }
+      ],
+      "results": [
+        {
+          "scenario": 2,
+          "judgment": "pass",
+          "rationale": "Distinguishes decision-making policies from observing diagnostics, preserves the shared factory relationship, grounds the role separation in observeDecisions versus policies, and does not force a Policy suffix."
+        },
+        {
+          "scenario": 1,
+          "judgment": "pass",
+          "rationale": "Uses the RatePolicy contract, policies/canAdmit call sites, and README discovery convention to justify genuine family membership; keeps changes local and does not require cosmetic package-wide uniformity."
+        },
+        {
+          "scenario": 3,
+          "judgment": "pass",
+          "rationale": "Preserves the public directional pair for the unchanged patch, accepts direction-neutral identity plus hop-relative direction when the model changes, and coordinates both exports and compatible migration."
+        }
+      ],
+      "total_pass": 3,
+      "total_cases": 3
+    },
+    {
+      "name": "revised",
+      "agent_task": "/root/implement_local_design_judgment/check_related_naming_choices/answer_naming_scenarios_b",
+      "inputs": [
+        {
+          "path": "/workspace/skills/skills/design-judgment/SKILL.md",
+          "sha256": "39fdcf93146d42e28c315854f05933e86237bbe65ec2ffaeb3f01cb268abf0d2",
+          "lines": 58,
+          "bytes_total": 8518,
+          "bytes_read": 8518,
+          "truncated": false
+        },
+        {
+          "path": "/workspace/skills/skills/design-judgment/references/context-sensitive-choices.md",
+          "sha256": "c734dbfefad6434aae57f20430798facc1ea7d63624fe32f4993824d2ed3c223",
+          "lines": 51,
+          "bytes_total": 7405,
+          "bytes_read": 7405,
+          "truncated": false
+        }
+      ],
+      "output_path": "/workspace/skills/.tmp/design-judgment-naming-20261022/revised-output.txt",
+      "output_sha256": "db2492ee193b4eed624cda2d657673b729ed3c468296d03b4c0667b4eb520b4f",
+      "output_bytes": 3458,
+      "word_counts": [
+        {
+          "scenario": 2,
+          "words": 152
+        },
+        {
+          "scenario": 1,
+          "words": 151
+        },
+        {
+          "scenario": 3,
+          "words": 160
+        }
+      ],
+      "results": [
+        {
+          "scenario": 2,
+          "judgment": "pass",
+          "rationale": "Distinguishes decision-making policies from observing diagnostics, preserves the shared factory relationship, grounds the role separation in observeDecisions versus policies, and does not force a Policy suffix."
+        },
+        {
+          "scenario": 1,
+          "judgment": "pass",
+          "rationale": "Uses the RatePolicy contract, policies/canAdmit call sites, and README discovery convention to justify genuine family membership; keeps changes local and does not require cosmetic package-wide uniformity."
+        },
+        {
+          "scenario": 3,
+          "judgment": "pass",
+          "rationale": "Preserves the public directional pair for the unchanged patch, accepts direction-neutral identity plus hop-relative direction when the model changes, and coordinates both exports and compatible migration."
+        }
+      ],
+      "total_pass": 3,
+      "total_cases": 3
+    }
+  ],
+  "review": {
+    "method": "Nonblinded model review against the frozen qualitative criteria; exact replacement tokens are not an oracle.",
+    "summary": "Both arms pass all three cases. The revised arm explicitly avoids changing contracts to justify matching names and adds a multi-hop migration example, but the previous arm already meets the same criteria. No measured improvement established.",
+    "limitations": [
+      "Only three scenarios, with one response per arm and no repeated sampling.",
+      "Three scenarios share one context per arm, so order and within-batch transfer can influence later answers; they are not independent trials.",
+      "Both response agents were explicitly given an activated skill and its reference; this does not validate automatic triggering or selective reference loading.",
+      "The reviewer knew arm identities, and source paths exposed the previous/revised condition to response agents.",
+      "Prompts are explicit about relevant contracts and model changes, creating a possible ceiling effect.",
+      "No no-skill control, causal attribution, broad generalization, production behavior claim, or repetition of the earlier ten-case suite."
+    ]
+  },
+  "artifact_safety": {
+    "all_targets_checked_absent_before_write": true,
+    "overwrite": false,
+    "other_writes": false,
+    "session_lifecycle_changed": false
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "title": "Contextual relations held-out transfer evaluation",
+  "frozen_before_runtime_read": true,
+  "frozen_before_candidate_disclosure": true,
+  "protocol": {
+    "authored": "2026-10-23",
+    "freeze_notice_utc": "2026-10-23T00:21:33Z",
+    "candidate_frozen_notice_utc": "2026-10-23T00:22:37Z",
+    "tasks": 6,
+    "arms": 2,
+    "runs_per_arm": 1,
+    "generation": "Two fresh native agents, fork_turns none, inherited model/configuration, no model or reasoning overrides. Identical ordered task prompts and answer instructions. Each agent receives exactly its full SKILL.md and context-sensitive-choices.md runtime inputs.",
+    "answer_instruction": "Answer T1 through T6 once each, in order. Aim for roughly 120-180 words per task, or shorter when sufficient. Give a concrete recommendation and concise rationale. Do not perform external research or repository actions.",
+    "hidden": "Acceptance criteria, other-arm outputs, comparison purpose, expected remedies and arm identity withheld from respondents.",
+    "judging": "Qualitative pass / partial / fail for each task against frozen criteria; assess semantic/contextual judgment, not exact preferred strings, noun avoidance, brevity or a total score.",
+    "limits": "Six intentionally contrasting synthetic tasks and one sample per runtime. Author also judges; no blind independent judging, statistical efficacy claim, external services, repeat runs or general benchmark claim. This tests bounded transfer and regressions, not causality or production outcomes. Input-format asymmetry: the previous-runtime inline reference accidentally split one configuration paragraph before its final sentence; a follow-up message before the answer corrected that paragraph break. No words changed and no runtime/snapshot file was edited. No answer was repeated.",
+    "write_scope": "Only this fixture and the exact two transient answer files. No runtime edits, lifecycle operations, installs, commits or pushes."
+  },
+  "runtime_inputs": {
+    "previous": [
+      {
+        "path": ".tmp/design-judgment-context-20261023/baseline/skills/design-judgment/SKILL.md",
+        "sha256": "39fdcf93146d42e28c315854f05933e86237bbe65ec2ffaeb3f01cb268abf0d2"
+      },
+      {
+        "path": ".tmp/design-judgment-context-20261023/baseline/skills/design-judgment/references/context-sensitive-choices.md",
+        "sha256": "c734dbfefad6434aae57f20430798facc1ea7d63624fe32f4993824d2ed3c223"
+      }
+    ],
+    "candidate": [
+      {
+        "path": "skills/design-judgment/SKILL.md",
+        "sha256": "0cf26a9d358951c2df648189f0aa2c6c608fb36adb7a79431deab6b47cdd6e7d"
+      },
+      {
+        "path": "skills/design-judgment/references/context-sensitive-choices.md",
+        "sha256": "dfe080ab55c3fbe34351b8c58f11b71d13f74aad59ccb3f005d79d3311515e55"
+      }
+    ]
+  },
+  "output_paths": {
+    "previous": ".tmp/design-judgment-context-20261023/previous-output.txt",
+    "candidate": ".tmp/design-judgment-context-20261023/candidate-output.txt"
+  },
+  "tasks": [
+    {
+      "id": "T1",
+      "prompt": "Review the name of this file-private helper. Keep the behavior unchanged and give the name you would actually use, with a short explanation grounded in the call site. A teammate proposes shortening it to `make`; another wants to keep all of the existing words.\n\n// billing/stripe/reconcile.ts; helper is not exported\n type StripeRow = { invoice_ref: string; paid_cents: number };\n type InvoiceAdjustment = { invoiceId: string; credit: number };\n function StripeInvoiceAdjustmentFactory(row: StripeRow): InvoiceAdjustment {\n   return { invoiceId: row.invoice_ref, credit: row.paid_cents / 100 };\n }\n const changes = rows.map(StripeInvoiceAdjustmentFactory);\n applyAdjustments(changes);",
+      "acceptance": [
+        "Infers the row-to-adjustment transformation from fields and map usage rather than treating Factory or a noun phrase as inherently wrong.",
+        "May omit Stripe because the private scope and input type establish it, but retains enough relationship/output information to distinguish the operation; bare make is not justified solely by the directory.",
+        "Accepts multiple natural names, including noun-based forms when their actual usage is clear; does not claim the shortest or a verb-prefixed name is uniquely correct."
+      ]
+    },
+    {
+      "id": "T2",
+      "prompt": "Choose public export names for these two functions and show the resulting import and two calls. The package entry point must continue exporting both. Names should work for the consumer shown; do not change behavior.\n\n// connectors/hubspot/people.ts\n export function shape(x: { contact_id: string; email_address: string }) {\n   return { externalId: x.contact_id, email: x.email_address.trim().toLowerCase() };\n }\n // connectors/salesforce/people.ts\n export function shape(x: { Id: string; Email: string }) {\n   return { externalId: x.Id, email: x.Email.trim().toLowerCase() };\n }\n // @work/connectors/index.ts re-exports functions from both files\n // consumer: jobs/sync-people.ts\n import { /* both functions */ } from '@work/connectors';\n const people = [...hubspotRows.map(/* first */), ...salesforceRows.map(/* second */)];\n await directory.upsertMany(people);",
+      "acceptance": [
+        "Recognizes the same basic transformation relationship as T1 despite different vocabulary and data shape.",
+        "Preserves an unambiguous provider/source distinction in the flat public import/calls, through qualified exports or an equivalently clear import/API arrangement permitted by the prompt.",
+        "Names or explanation convey normalized directory/person record output or conversion role; does not call these I/O fetches or object factories without evidence.",
+        "Does not remove provider qualification merely because source files are nested under provider directories that this consumer never imports directly."
+      ]
+    },
+    {
+      "id": "T3",
+      "prompt": "A reviewer wants both functions renamed to `encode`, saying that parallel APIs should use parallel names and noun names are harder to read. Review that proposal and give your preferred names for the two functions and the selected local value.\n\n// media/export.ts\n function imageCodec(kind: 'png' | 'webp') {\n   return kind === 'png' ? pngCodec : webpCodec;\n }\n function audioCodec(samples: Float32Array): Uint8Array {\n   return opusCodec.encode(samples);\n }\n const selected = imageCodec(options.imageFormat);\n const bytes = selected.encode(pixels);\n saveFile(`poster.${selected.extension}`, bytes);\n const sound = audioCodec(samples);\n saveFile('narration.opus', sound);\n // pngCodec and webpCodec each have encode(pixels) and extension.",
+      "acceptance": [
+        "Separates choosing a codec object from encoding samples, using returned value and later usage rather than their similar existing names.",
+        "Rejects two encode function names as a misleading symmetry; naming should make selection versus transformation understandable.",
+        "Allows an ordinary noun such as codec for the selected object, retaining the useful object/operation distinction instead of enforcing a verb-only rule.",
+        "Does not invent a factory/creation lifecycle for existing codec objects or broaden into unnecessary architecture changes."
+      ]
+    },
+    {
+      "id": "T4",
+      "prompt": "Decide whether this public option and its UI copy can ship together. If not, propose the smallest coherent correction and explain what users can rely on afterward. Do not rewrite the entire networking layer.\n\n type ReportOptions = { timeoutMs?: number };\n async function fetchReport(id: string, options: ReportOptions = {}) {\n   for (let attempt = 0; attempt < 3; attempt++) {\n     const controller = new AbortController();\n     const timer = setTimeout(() => controller.abort(), options.timeoutMs ?? 5000);\n     try {\n       const response = await fetch(`/reports/${id}`, { signal: controller.signal });\n       if (!response.ok) throw new Error('request failed');\n       return await response.json();\n     } catch (error) {\n       if (attempt === 2) throw error;\n     } finally { clearTimeout(timer); }\n     await sleep(250);\n   }\n }\n // Settings UI for timeoutMs:\n // Label: Maximum request duration\n // Help: Your report will finish within this time, including retries.",
+      "acceptance": [
+        "Infers that the timer is recreated per attempt and that retry/backoff and completion semantics do not satisfy the advertised whole-operation guarantee.",
+        "Offers a coherent bounded fix: disclose/name the per-attempt abort limit accurately, or explicitly add an operation-wide deadline including relevant phases if preserving the stronger contract.",
+        "Does not merely rename timeoutMs while retaining the false UI promise, or claim a successful report is guaranteed by any timeout.",
+        "Avoids overstating exact wall-clock completion from abort requests; qualifies cancellation/overhead if discussing strict duration."
+      ]
+    },
+    {
+      "id": "T5",
+      "prompt": "A designer proposes one shared text token, `Limit reached`, for both uses below, to keep terminology consistent. Decide what should actually appear in each place. Keep the inline design compact and the notification understandable; explain any deliberate difference.\n\n // In-app drawer:\n <Drawer title={`Project: ${project.name}`}>\n   <Section heading=\"Storage\">\n     <Status>{project.storage.usedGiB >= project.storage.limitGiB ? 'Limit reached' : 'Available'}</Status>\n     <Value>{project.storage.usedGiB} / {project.storage.limitGiB} GiB</Value>\n   </Section>\n </Drawer>\n // Worker:\n await email.send({\n   to: owner.email,\n   subject: 'Limit reached',\n   body: `${project.storage.usedGiB} / ${project.storage.limitGiB} GiB`\n });\n // Owners may administer several projects. Emails from different workers share the same sender.",
+      "acceptance": [
+        "Keeps or permits compact inline wording because project and storage context is visibly present in the drawer.",
+        "Adds enough project/resource context to the standalone notification, at least project identity and storage, rather than expecting file origin or sender to disambiguate.",
+        "Explains consistency at the level of meaning and guarantee, not identical strings everywhere; no universal prefixing or universal shortening.",
+        "Avoids invented billing consequences or guarantees not present in the evidence."
+      ]
+    },
+    {
+      "id": "T6",
+      "prompt": "Review the proposed dependency names and interface below. Give the smallest names/contracts you would keep or change, grounded in how the dependencies are used. Do not replace the storage architecture.\n\n class QuoteService {\n   constructor(private a: FastKv, private b: SqlQuotes) {}\n   async load(id: string) {\n     const first = await this.a.read(id);\n     if (first) return first;\n     const row = await this.b.read(id);\n     if (!row) throw new Error('quote not found');\n     await this.a.write(id, row, { ttlSeconds: 60 });\n     return row;\n   }\n   async accept(id: string) {\n     const row = await this.b.read(id);\n     if (!row) throw new Error('quote not found');\n     await this.b.markAccepted(id);\n     await this.a.remove(id);\n   }\n }\n // Proposal: rename a/b to primaryQuoteProvider/secondaryQuoteProvider,\n // and type both as QuoteProvider { read(id); write(id, value); }.",
+      "acceptance": [
+        "Infers cache/read-acceleration versus authoritative persistence/acceptance roles from fallback, TTL, mutation and invalidation usage, not backend brand alone or call order.",
+        "Rejects primary/secondary as implying an unsuitable equivalence or ranking; plausible local cache/repository names and domain-qualified external types are both acceptable.",
+        "Does not erase differing contracts into a read/write interface that cannot express expiration, acceptance and invalidation semantics shown; a truly small shared read-only sub-interface is acceptable if role-specific contracts remain.",
+        "Allows noun dependency names when they denote actual roles, and avoids unnecessary duplicate Quote qualification inside QuoteService when scope is reliable."
+      ]
+    }
+  ]
+}

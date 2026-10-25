@@ -8,6 +8,16 @@ A useful component owns a coherent decision or invariant. Its representation and
 
 Separate knowledge with different reasons to change. For example, a reservation rule should not need to know a database driver's retry behavior; the transaction boundary must still connect persistence outcomes to the rule's guarantee. Separation succeeds when each side has enough information to fulfill its responsibility, not when information disappears between abstractions.
 
+## Boundaries under change
+
+Suppose a cancellation policy is split into an eligibility checker, a fee calculator, and a refund builder, each interpreting the same cutoff and exceptions. A change to that policy now requires a maintainer to find and reconcile three interpretations. Moving their common decision into a cohesive policy owner, with a result the consumers can use, may localize the change. Merely moving the cutoff into a constants file would leave the behavioral interpretations scattered. Keep payment execution separate if its provider failures and retry rules change independently.
+
+Contrast a cancellation feature that already has one policy owner. A new requirement adds a reason that must be entered in the UI, accepted by the API, retained in storage, and included in an audit event. Several boundaries legitimately change because their contracts acquire new behavior or data; that edit count alone does not show scattered policy ownership. Trace which boundary owns each obligation and how the result reaches its consumers. Merging the UI, persistence, and policy into one file would not remove those obligations.
+
+Judge the proposed structure against the evidenced kind of change, including inconsistent intermediate results and work needed to find all affected decisions. A patch that once moves many imports can leave future changes more local; shorter files can leave the same rule harder to change. Keep independent changes independent rather than optimizing either extreme of file size.
+
+This distinction follows the recurring scattered-edit concern in Fowler and Beck's [Shotgun Surgery](https://www.informit.com/articles/article.aspx?p=2952392&seqNum=8). Their refactorings are possible remedies after diagnosing misplaced responsibility, not a requirement to combine every multi-file change.
+
 ## Preconditions, guarantees, and invariants
 
 A precondition states what must be true before an operation. A guarantee states what a caller may rely on after the operation's specified outcome. An invariant is a property the owner must preserve across externally observable states or defined synchronization boundaries.

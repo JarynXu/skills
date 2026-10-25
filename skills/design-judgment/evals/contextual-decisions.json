@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "purpose": "Held-out contextual design-decision transfer check. Prompts and acceptance criteria were authored before reading the candidate instructions.",
+  "warning": "Evaluator-only criteria below must not be supplied to evaluated agents.",
+  "frozen_before_evaluation": true,
+  "run": {
+    "date": "2026-10-22",
+    "logical_session_id": "s_0e2ed62fa4c97eda6f147536",
+    "order": [
+      "H09",
+      "H07",
+      "H03",
+      "H04",
+      "H10",
+      "H01",
+      "H02",
+      "H06",
+      "H08",
+      "H05"
+    ],
+    "arms": [
+      "baseline without candidate skill",
+      "candidate with complete frozen SKILL.md and reference"
+    ],
+    "model_metadata": "Inherited configuration; no model or reasoning overrides supplied. Exact model metadata was not exposed.",
+    "batching": "One ten-case batch per fresh agent. Same randomized order. Cross-case context is possible; this is not independent per-case evaluation or a production trial.",
+    "limitations": [
+      "One generated response per arm; no repeat sampling.",
+      "Cases explicitly state decisive constraints and cover only a narrow design-advice domain.",
+      "Evaluator authored criteria and knows arm identities; not a blind independent judge.",
+      "Not proof of universal improvement, production outcomes, or runtime skill discovery."
+    ]
+  },
+  "candidate_sources": [
+    {
+      "path": "skills/design-judgment/SKILL.md",
+      "sha256": "d3b244b19ec6843d858c7616d0246fff36e9695576c3d362dd699a8030c27a8e"
+    },
+    {
+      "path": "skills/design-judgment/references/context-sensitive-choices.md",
+      "sha256": "317485fd1b083449d6b3f7cf6a3f4848ef1946ae3c50b9ce500ad1324b52bb2f"
+    }
+  ],
+  "agent_visible_prompts": [
+    {
+      "id": "H01",
+      "prompt": "A coastal research team is naming a record in a sensor-management tool. Each record has a label, coordinates, notes, attached instruments, and readings. The current UI calls it “Station”; the proposed code type is StationRecord. Field teams already use “station” for a registered sampling location.\nOne record persists for that registered location across visits and instrument replacements. Several instruments can belong to it concurrently. Moving an instrument to a different registered location changes which record it belongs to, not the identity of either location.\nRecommend the product-facing noun and code type. Explain how your choice behaves when an instrument is replaced. Mention any material downside. Do not redesign the data model."
+    },
+    {
+      "id": "H02",
+      "prompt": "A museum imports crate measurements from three feeds. Each adapter currently contains approximately 45 lines that tokenize a length, interpret its unit, validate it, and round the metric result. The implementations happen to be identical today: missing units mean centimeters, decimal fractions are accepted, and results are rounded to whole millimeters. A fourth feed is expected next quarter.\nThe three feeds have independently owned format contracts. Their present agreement is coincidental. One provider has announced that its next version will interpret missing units as inches; existing files and the other providers must keep their current interpretation. Provider updates cannot be coordinated.\nA teammate proposes replacing the implementations with one parser contract and a LengthSource interface exposing parse, validate, and round. Recommend an implementation boundary for the next release. Show the smallest useful interface or function shape and explain how the announced change would work."
+    },
+    {
+      "id": "H03",
+      "prompt": "A crate-tracking service groups repeated observations of the same tag when they arrive within a time window, retaining the latest payload. The prototype uses collapseMs = 600. Events have no unique scan identifier, and there is no other reliable signal for distinguishing a repeated observation.\nHere, repeated observations are reader chatter. Genuine separate passages are at least three seconds apart. Commissioning tests show that different reader stations require windows between 250 and 900 milliseconds. Technicians can measure the appropriate window, and reader firmware updates sometimes change it. Deploying application code to every station takes two weeks; commissioning and firmware maintenance occur throughout the year.\nDecide where the window should live, who should control it, and how a change should take effect. Cover scope, validation, and how someone could explain a past grouping result. Keep the proposal proportional to this service."
+    },
+    {
+      "id": "H04",
+      "prompt": "A caption-alignment editor lets a trained operator shift a selected segment by up to two seconds. Operators make around 40 adjustments an hour and often work from the keyboard. A synchronized video preview is available. The selected segment and shift amount are visible beside an “Apply alignment” control.\nApplying an adjustment changes only an unpublished working copy. It immediately updates the local preview, is fully reversible through the existing undo history, and survives closing and reopening the project. Publication is a separate explicit workflow, outside this screen.\nDesign the smallest useful interaction around applying an adjustment. Specify what happens before and after activation, how keyboard operation works, and how an operator recovers from a mistake. Explain the most important tradeoff. Do not redesign the whole editor."
+    },
+    {
+      "id": "H05",
+      "prompt": "Perform a read-only review of a restoration lab’s review queue. Do not change code or files.\nThe queue currently offers three controls:\n- “Approve” immediately advances a reviewed image.\n- “Needs retake” opens an assignment form because a photographer and reason are required.\n- “Hold” opens a short reason field and leaves the image with the reviewer.\nA proposal would replace these with one status dropdown and one generic transition handler, making the controls and code more uniform. The existing controls use the standard component library and have verified keyboard and screen-reader support. Two recent observed sessions found no confusion about the controls. Retake assignments and held images have different permissions and histories. There is no planned fourth state, and the current implementation has no known defects.\nReview the consolidation proposal and recommend what, if anything, should enter the next sprint. Distinguish evidence-supported benefits from possibilities that would require investigation."
+    },
+    {
+      "id": "H06",
+      "prompt": "A coastal research team is naming a record in a sensor-management tool. Each record has a label, coordinates, notes, attached instruments, and readings. The current UI calls it “Station”; the proposed code type is StationRecord. Field teams already use “station” for a registered sampling location.\nOne record represents one instrument’s placement at a location for a bounded interval. Replacing the instrument creates another record even at the same location. Several records can exist concurrently at one registered location. Moving an instrument ends its current record and starts another; the registered location has its own persistent identifier.\nRecommend the product-facing noun and code type. Explain how your choice behaves when an instrument is replaced. Mention any material downside. Do not redesign the data model."
+    },
+    {
+      "id": "H07",
+      "prompt": "A museum imports crate measurements from three feeds. Each adapter currently contains approximately 45 lines that tokenize a length, interpret its unit, validate it, and round the metric result. The implementations happen to be identical today: missing units mean centimeters, decimal fractions are accepted, and results are rounded to whole millimeters. A fourth feed is expected next quarter.\nAll feeds are envelope variants of the same museum-owned measurement format. They must interpret a measurement identically under the selected format version. The museum publishes format changes atomically, and adapters already carry that version. An upcoming revision changes rounding rules; it must affect every adapter together while old files retain their previous interpretation.\nA teammate proposes replacing the implementations with one parser contract and a LengthSource interface exposing parse, validate, and round. Recommend an implementation boundary for the next release. Show the smallest useful interface or function shape and explain how the announced change would work."
+    },
+    {
+      "id": "H08",
+      "prompt": "A crate-tracking service groups repeated observations of the same tag when they arrive within a time window, retaining the latest payload. The prototype uses collapseMs = 600. Events have no unique scan identifier, and there is no other reliable signal for distinguishing a repeated observation.\nHere, the time window is intentional product behavior: rescanning within 600 milliseconds replaces a pending observation; a later scan creates another observation. This behavior is documented for operators and shared by the desktop and handheld clients. Historical replay must reproduce the original grouping. Stations do not differ in this respect, and there is no current requirement for an alternative window. A support engineer suggests making the value editable so future requests will not require a deployment.\nDecide where the window should live, who should control it, and how a change should take effect. Cover scope, validation, and how someone could explain a past grouping result. Keep the proposal proportional to this service."
+    },
+    {
+      "id": "H09",
+      "prompt": "A caption-alignment editor lets a trained operator shift a selected segment by up to two seconds. Operators make around 40 adjustments an hour and often work from the keyboard. A synchronized video preview is available. The selected segment and shift amount are visible beside an “Apply alignment” control.\nApplying an adjustment changes the outgoing caption stream used immediately by several venues. The operator can preview a proposed adjustment locally before sending it. Restoring the previous alignment corrects future output, but cannot retract captions already displayed or packets already archived by receiving venues. There is no later publication step.\nDesign the smallest useful interaction around applying an adjustment. Specify what happens before and after activation, how keyboard operation works, and how an operator recovers from a mistake. Explain the most important tradeoff. Do not redesign the whole editor."
+    },
+    {
+      "id": "H10",
+      "prompt": "We are finishing the “Reserve kit” flow for a field-equipment lending app. Several technicians can request the same kit at once. After pressing the button, users need to know whether they can leave for the pickup room or must wait.\nThe endpoint returns HTTP 202 and a requestId. The available API description says only “request received.” It does not say whether this response means an exclusive reservation already exists or whether allocation happens later. The design file shows an immediate green “Reserved” badge and pickup directions. No additional backend contract or endpoint documentation is available in this task.\nGive the next buildable recommendation, including the status label, when pickup directions become available, and any question that needs answering before the flow is finalized. Distinguish facts from assumptions."
+    }
+  ],
+  "evaluator_only": {
+    "protocol": [
+      "Evaluator-only: never supply the pair map or criteria to evaluated agents.",
+      "Judge causal reasoning and behavior, not preferred tokens. Allow reasoned alternatives that preserve stated semantics and survive counterexamples.",
+      "Naming a constraint without respecting it is insufficient. Do not credit invented requirements, observations, or backend guarantees.",
+      "Score each case before contrasting the paired recommendations. Require a material response to the changed constraint rather than explanation-only differences."
+    ],
+    "pairs": [
+      {
+        "ids": [
+          "H01",
+          "H06"
+        ],
+        "domain": "naming",
+        "decisive_change": "Persistent registered place versus instrument-placement interval; established field vocabulary is unchanged.",
+        "acceptance": {
+          "H01": [
+            "Use a place-level concept; Station, StationRecord, or a justified equivalent is acceptable.",
+            "Replacement preserves the station identity; retain established vocabulary absent a substantive reason to change it."
+          ],
+          "H06": [
+            "Distinguish placement interval from persistent station, e.g. Deployment, InstrumentPlacement, or StationDeployment.",
+            "Replacement or movement creates another interval instance; UI must not imply a one-to-one station/record relationship."
+          ]
+        },
+        "alternatives": "UI and code names need not match exactly. Location-forward UI is acceptable if interval identity remains clear.",
+        "falsifiers": [
+          "H06 cannot distinguish two simultaneous instruments at one location without changing the entity definition.",
+          "H01 creates a new station on hardware replacement.",
+          "Both cases receive the same bare concept and identity behavior despite different prose."
+        ]
+      },
+      {
+        "ids": [
+          "H02",
+          "H07"
+        ],
+        "domain": "abstraction",
+        "decisive_change": "Independent provider contracts versus one authoritative museum-owned versioned measurement contract.",
+        "acceptance": {
+          "H02": [
+            "Keep provider interpretations explicitly owned and independently changeable.",
+            "Provider A unit changes must not change provider B or old files.",
+            "Share only common mechanics or explicit versioned policy, not assumed semantic agreement."
+          ],
+          "H07": [
+            "Centralize the authoritative versioned measurement semantics or equivalently enforce them.",
+            "Separate envelope adaptation from semantic policy; update all adapters consistently while preserving old-file interpretation.",
+            "Avoid unnecessary parse/validate/round interface ceremony; a versioned parser function can suffice."
+          ]
+        },
+        "alternatives": "H02 may use a data-driven interpreter with explicit provider/version policy. H07 may retain wrappers if policy cannot drift. No framework is required.",
+        "falsifiers": [
+          "Changing A's default unit changes B's existing fixture.",
+          "A fourth H07 adapter must independently reimplement rounding.",
+          "Old files silently acquire new meanings.",
+          "Identical recommended boundaries have no concrete difference in policy ownership."
+        ]
+      },
+      {
+        "ids": [
+          "H03",
+          "H08"
+        ],
+        "domain": "configuration",
+        "decisive_change": "Station-specific physical calibration versus shared intentional product protocol.",
+        "acceptance": {
+          "H03": [
+            "Enable bounded station-level calibration without repeated application deployment.",
+            "Identify a credible operational owner and validation process.",
+            "Retain effective value/version evidence sufficient to explain historical results."
+          ],
+          "H08": [
+            "Do not introduce arbitrary station/user tuning without a real varying requirement.",
+            "Treat future changes as coordinated product behavior with reproducible history.",
+            "A named constant or constrained versioned policy is acceptable; hypothetical demand alone does not justify settings."
+          ]
+        },
+        "alternatives": "H03 may use centrally managed profiles. H08 may technically load configuration if governed as a product contract rather than freely mutable tuning.",
+        "falsifiers": [
+          "One H03 firmware change requires the two-week application rollout or changes all stations.",
+          "Historical grouping cannot be reproduced or explained after a value change.",
+          "H08 clients independently choose conflicting thresholds without a protocol change."
+        ]
+      },
+      {
+        "ids": [
+          "H04",
+          "H09"
+        ],
+        "domain": "interaction",
+        "decisive_change": "Recoverable unpublished working copy versus immediate external output that cannot be fully retracted.",
+        "acceptance": {
+          "H04": [
+            "Provide a low-friction editing loop, clear feedback, and existing undo.",
+            "No mandatory per-adjustment confirmation without a concrete reason.",
+            "Keep publication separate."
+          ],
+          "H09": [
+            "Make local preview versus live application unmistakable.",
+            "Provide deliberate activation appropriate to frequent keyboard use.",
+            "Distinguish prepared, sent, and uncertain outcomes where relevant.",
+            "Recovery repairs future output; it cannot erase already displayed or archived output."
+          ]
+        },
+        "alternatives": "No particular modal is required. Dedicated commit shortcuts or explicit guarded live modes can pass if accidental private editing cannot silently publish. A modal needs a justified burden.",
+        "falsifiers": [
+          "An operator's seemingly private preview edits transmit live.",
+          "Undo claims to retract consumed output.",
+          "H04 gets live-output safeguards without equivalent commitment.",
+          "Identical flows differ only in warning copy while the actual commitment boundary remains unclear."
+        ]
+      }
+    ],
+    "boundaries": [
+      {
+        "id": "H05",
+        "domain": "read-only review and preserving adequate design",
+        "acceptance": [
+          "Respect read-only scope.",
+          "Do not place the proposed consolidation in the next sprint on supplied evidence.",
+          "Recognize different workflows, data, permissions, and histories rather than cosmetic inconsistency.",
+          "Separate possible benefits from established problems; future reconsideration triggers are allowed."
+        ],
+        "alternatives": "A shared mechanical helper may be discussed as optional, not promoted to urgent work without evidence. A specific unresolved maintenance cost may warrant investigation, not an invented finding.",
+        "falsifiers": [
+          "Invented user confusion, accessibility defects, or recurring bugs.",
+          "Flattened required retake data or permissions.",
+          "Editing despite read-only scope.",
+          "Uniformity or fewer lines treated as an inherent benefit sufficient for the change."
+        ]
+      },
+      {
+        "id": "H10",
+        "domain": "missing commitment guarantee",
+        "acceptance": [
+          "Identify whether acceptance guarantees exclusive allocation, and how final success/failure is authoritatively observed, as the missing contract.",
+          "Do not infer reservation from HTTP 202 or transport success.",
+          "Offer a safe provisional pending/received state without claiming final backend semantics.",
+          "Do not instruct departure for pickup until entitlement is established; informational directions may be shown if clearly not authorization."
+        ],
+        "alternatives": "A proposed required API contract can replace a literal question. Conservative provisional UI is acceptable if unresolved implementation dependencies stay explicit.",
+        "falsifiers": [
+          "Immediate Reserved because the request succeeded.",
+          "Claims 202 proves allocation has not happened rather than that the guarantee is unknown.",
+          "Invents an existing polling endpoint, callback, lock, or guarantee.",
+          "Broad discovery questions miss the specific condition users may rely upon."
+        ]
+      }
+    ]
+  }
+}
