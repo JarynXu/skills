@@ -84,6 +84,60 @@ test('来源标记需要显式选择，发送核对完整正文含标记', async
   await sendText(client, scope, 'hello', true, { markOrigin: true }); assert.equal(inspectOrigin(sent).kind, 'automation-marked');
   await assert.rejects(sendText(client, scope, 'hello', true, { markOrigin: 'yes' }), { code: 'INVALID_ARGUMENT' });
 });
+test('可见后缀按原文另起一行，预览与发送使用同一完整正文', async () => {
+  const suffix = 'by 测试助手 `$()';
+  const calls = [];
+  const client = { sendTextDirect: async (_scope, text, apply) => {
+    calls.push({ text, apply });
+    return apply ? { ...scope, state: 'client-confirmed', message: { ...message('id'), text } } : { state: 'preview', text };
+  } };
+  assert.equal((await sendText(client, scope, '正文', false, { suffix })).text, '正文\nby 测试助手 `$()');
+  for (const body of ['正文', '正文\n', '正文\n' + suffix]) {
+    await sendReply(client, scope, body, { suffix });
+    assert.equal(calls.at(-1).text, '正文\nby 测试助手 `$()');
+    assert.equal(calls.at(-1).apply, true);
+  }
+  await sendText(client, scope, '正文\n', true);
+  assert.equal(calls.at(-1).text, '正文\n');
+  assert.equal(calls[0].apply, false);
+});
+test('后缀与有效来源标记组合时校验完整可见正文，不重复附加', async () => {
+  let sent;
+  const client = { sendTextDirect: async (_scope, text) => {
+    sent = text; return { ...scope, state: 'client-confirmed', message: { ...message('id'), text } };
+  } };
+  for (const body of ['正文', markAutomation('正文'), markAutomation('正文\nby 助手')]) {
+    await sendText(client, scope, body, true, { suffix: 'by 助手', markOrigin: true });
+    const origin = inspectOrigin(sent);
+    assert.equal(origin.kind, 'automation-marked'); assert.equal(origin.body, '正文\nby 助手');
+    assert.equal(sent, markAutomation('正文\nby 助手'));
+  }
+  await sendText(client, scope, markAutomation('正文'), true, { suffix: 'by 助手' });
+  assert.equal(inspectOrigin(sent).kind, 'automation-marked');
+  assert.equal(inspectOrigin(sent).body, '正文\nby 助手');
+});
+test('非法后缀和空正文在调用客户端前拒绝，后缀不能替代正文', async () => {
+  const client = { sendTextDirect: () => assert.fail('Invalid input must not reach the client.') };
+  for (const suffix of ['', ' \n', null, 123, 'by\u0000助手']) {
+    await assert.rejects(sendText(client, scope, '正文', true, { suffix }), { code: 'INVALID_ARGUMENT' });
+  }
+  await assert.rejects(sendText(client, scope, ' \n', true, { suffix: 'by 助手' }), { code: 'EMPTY_MESSAGE' });
+});
+test('缺少可见后缀的回执不能确认发送，不自动重发', async () => {
+  let sends = 0;
+  await assert.rejects(sendText({ sendTextDirect: async () => {
+    sends++; return { ...scope, state: 'client-confirmed', message: message('id') };
+  } }, scope, 'hello', true, { suffix: 'by 助手' }), { code: 'SEND_UNKNOWN' });
+  assert.equal(sends, 1);
+});
+test('借用页面客户端使用相同后缀正文和确认语义', async () => {
+  const text = 'hello\nby 助手';
+  const result = await sendText({ call: async (op, input) => {
+    if (op === 'send') { assert.equal(input.text, text); return { beforeIds: [] }; }
+    return { ...scope, messages: [{ ...message('id'), text }] };
+  } }, scope, 'hello', true, { ...options, suffix: 'by 助手' });
+  assert.equal(result.message.text, text);
+});
 test('SDK 与窗口读取附加来源信息，证据正文和覆盖字段保留原值', async () => {
   const text = markAutomation('hello');
   const result = await callPage({ evaluate: async (fn, op, input) => {

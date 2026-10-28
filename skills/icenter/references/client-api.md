@@ -86,7 +86,7 @@ try{
 }finally{sdk.close();}
 ```
 
-`SdkSession(connection,{accountId,ownsConnection:false})` 可借用连接；关闭会话不取得连接释放权。`catalog(query)` 返回契约副本，`check()` 只做方法身份核对，`describeType(type)` 读取类型定义，`history(options)` 提供有范围的历史查询。
+`SdkSession(connection,{accountId,ownsConnection:false})` 可借用连接；关闭会话不取得连接释放权。`catalog(query)` 返回契约副本，`check()` 只做方法身份核对，`describeType(type)` 读取类型定义，`history(options)` 提供有范围的历史查询。`userStatus()`、`setUserStatus(options)` 的当前状态、条件修改与确认契约见[本人状态](contacts-and-groups.md#本人状态)。
 
 ## 独立应用边界
 

@@ -28,7 +28,9 @@ node "<技能目录>/scripts/icenter.cjs" status --port <端口>
 | `read-image` | `--port --account --chat --message-id <单个ID> [--output-file <新绝对PNG路径>] [--variant best\|original\|large\|thumbnail] [--timeout-ms] [--apply]`。预览检查图片及缓存；执行导出解码后的图片。默认使用系统临时目录；保存、清晰度及识图交接见[读取消息图片](files-and-collections.md#读取消息图片)。 |
 | `release-image` | `--output-file <取图结果路径> --cleanup-token <取图结果令牌> [--apply]`。消费结束后释放该次临时输出，无需连接客户端。范围与失败处置见[读取消息图片](files-and-collections.md#读取消息图片)。 |
 | `sdk-info` | `--port --account`。核对专用文本和 ID 查询适配器；通用服务目录使用 sdk-list，当前方法指纹使用 sdk-check。发现方法名不等于验证业务结果。 |
-| `send` | `--port --account --chat --text-file [--mark-origin] [--apply]`。使用已核实的客户端 SDK，目标为已加载单聊或群，不要求选中或清空编辑器。正文为 UTF-8，CRLF 转 LF。默认预览；SDK 等候通知的期限为 8 秒，超时不重发。来源标记仅在显式选择时附加，使用条件见 [SDK 与消息来源](sdk-and-origin.md)。 |
+| `user-status` | `--port --account`。读取本人当前状态，返回名称、状态码、自定义条目 ID、文字和图标；查询失败不转换为无状态。 |
+| `set-user-status` | `--port --account [--status <枚举名称>] [--custom-id <ID>] [--expected-custom-id <ID>] [--apply]`。默认预览，默认目标 `None`。`Custom` 要求 custom-id，内置状态不接受该参数；条件修改与确认语义见[本人状态](contacts-and-groups.md#本人状态)。 |
+| `send` | `--port --account --chat --text-file [--suffix-file] [--mark-origin] [--apply]`。使用已核实的客户端 SDK，目标为已加载单聊或群，不要求选中或清空编辑器。正文为 UTF-8，CRLF 转 LF。默认预览；SDK 等候通知的期限为 8 秒，超时不重发。[可见后缀](compose-and-send.md#可见消息后缀)与[来源标记](sdk-and-origin.md)按显式选项附加。 |
 | `send-file` | `--port --account --chat --file [--apply]`。绝对源路径；执行客户端准备与发送两阶段，复用同一消息 ID。默认预览，不打开编辑器或文件选择器。 |
 | `sdk-list` | `[--query] [--types] [--all]`。离线目录；默认返回服务与数量，query 筛选操作，types 查询模型及枚举 ID，all 展开全部操作。 |
 | `sdk-check` | `--port --account [--all]`。只核对加载方法及指纹，默认返回数量和不匹配项；all 返回逐项结果，不执行业务动作。 |
@@ -79,6 +81,8 @@ node "<技能目录>/scripts/icenter.cjs" status --port <端口>
 | `SEND_FAILED` | 客户端已有失败记录；报告记录和状态，按授权决定重试。 |
 | `SEND_UNKNOWN`、`SELECTION_UNKNOWN` | 动作已有可能发生，检查原目标和现有结果。 |
 | `SDK_QUERY_FAILED`、`INVALID_MESSAGE_IDS` | 保留查询失败或参数错误，不转换为空历史。 |
+| `USER_STATUS_QUERY_FAILED`、`USER_STATUS_IDENTITY_UNSUPPORTED` | 核对当前账户与状态接口；缺少有效状态不等于 `None`。 |
+| `USER_STATUS_SET_UNKNOWN` | 设置已有可能生效；用 user-status 查询当前状态，核对目标后决定后续动作，不重复提交。 |
 | `TEXT_WOULD_CHANGE`、`INVALID_MESSAGE_TEXT` | 发送前拒绝；检查原文与客户端允许的文本，不静默删改字符。 |
 | `ORIGIN_MARKER_CONFLICT` | 保留已有标记和正文，核对损坏或未知版本，不重复附加。 |
 | `SDK_CONTRACT_CHANGED`、`SDK_SERVICE_UNAVAILABLE` | 方法、模型、枚举或当前加载状态不符；读取新实现并维护适配，不跳过指纹检查。 |

@@ -11,6 +11,20 @@ send 从 UTF-8 文件读取正文，CRLF 转 LF，其余字符保留。它调用
 
 预览不发送；--apply 不替代授权。客户端会改写的文本在发送前拒绝，不静默替换字符。可选 --mark-origin 的适用范围及来源判断见[SDK 与消息来源](sdk-and-origin.md)；代码、命令、链接及逐字内容保留原文。
 
+## 可见消息后缀
+
+消息后缀默认关闭。用户选择后缀时，把指定文本放在正文之后的新行，例如 `by Codex`。`send` 使用 `--suffix-file` 读取 UTF-8 后缀，CRLF 转 LF；后缀的其他字符保持原值。预览展示含后缀的完整正文；发送确认核对同一正文。末尾已有相同后缀时不重复追加。
+
+```text
+node "<技能目录>/scripts/icenter.cjs" send --port <端口> --account <账户ID> --chat <聊天ID> --text-file "<正文文件>" --suffix-file "<后缀文件>"
+```
+
+Node.js 的 `sendText(client,scope,text,apply,{suffix:'by Codex'})`、`sendReply(client,recipient,text,{suffix:'by Codex'})` 和 `NotificationSession.sendReply(recipient,text,{suffix:'by Codex'})` 使用同一发送入口。调用方按当前用户策略传入后缀，不在每层拼接，不建立后缀状态文件。`sendTextDirect` 和通用 `sdk-call` 属于底层入口，不附加该选项。附件、卡片和原生转发不支持此文本选项，不凭空另发一条署名消息。
+
+托管状态与消息后缀可以分别选择。启用托管状态不启用后缀，也不要求首次回复添加身份介绍。后缀用于向读者显示代发信息，不能认证作者或扩大代办权限。要求逐字发送或保持可执行代码、命令、链接原样时不附加后缀；正文之外增加署名需要符合用户的内容要求，不用文本猜测器自动判定。
+
+后缀与可选隐形来源标记共用时，来源标记校验包含后缀的完整可见正文，并位于最后。已有有效标记会按新正文重建；损坏或未知标记沿用[来源标记的处理](sdk-and-origin.md#代发来源与文风取样)。
+
 ## 草稿、回复和提及
 
 草稿使用 messages.saveDraftAtChatRoom、clearDraftAtChatRoom。先读取现有草稿、附件、引用和提及，明确已有内容的处置；不能用保存新正文覆盖用户原作。保存的依据是客户端草稿记录及重读，不等同于消息已发送，也不保证编辑器当前展示已刷新。

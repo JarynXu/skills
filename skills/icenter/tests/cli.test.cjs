@@ -10,7 +10,8 @@ const script = path.resolve(__dirname, '../scripts/icenter.cjs');
 
 test('真实 CLI 从任意工作目录输出可解析帮助，无需 npm install', () => {
   const run = spawnSync(process.execPath, [script, 'help'], { cwd: os.tmpdir(), encoding: 'utf8' });
-  assert.equal(run.status, 0); assert.ok(JSON.parse(run.stdout).commands.send); assert.ok(JSON.parse(run.stdout).commands['read-image']); assert.ok(JSON.parse(run.stdout).commands['release-image']);
+  assert.equal(run.status, 0); assert.ok(JSON.parse(run.stdout).commands.send.includes('suffix-file')); assert.ok(JSON.parse(run.stdout).commands['read-image']); assert.ok(JSON.parse(run.stdout).commands['release-image']);
+  assert.ok(JSON.parse(run.stdout).commands['user-status']); assert.ok(JSON.parse(run.stdout).commands['set-user-status'].includes('expected-custom-id'));
 });
 test('SDK 目录、枚举和网页目录报告同一参考客户端版本', () => {
   for (const args of [['sdk-list'], ['sdk-enum', '--name', '14ce.R'], ['web-list']]) {
@@ -35,5 +36,17 @@ test('真实 CLI 拒绝未知参数、缺失作用域和非法数值', () => {
   for (const args of [ ['send', '--unrecognized'], ['send', '--port', '1'], ['status', '--port', '0'], ['read', '--port', '1', '--account', 'self', '--chat', 'peer', '--limit', 'abc'] ]) {
     const run = spawnSync(process.execPath, [script, ...args], { encoding: 'utf8' });
     assert.equal(run.status, 1); assert.equal(JSON.parse(run.stdout).ok, false);
+  }
+});
+test('真实 CLI 在连接前拒绝空后缀、NUL 和损坏的 UTF-8 文件', async t => {
+  const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'icenter-suffix-test-'));
+  assert.equal(path.dirname(path.resolve(directory)), path.resolve(os.tmpdir()));
+  t.after(() => fs.rm(directory, { recursive: true, force: true }));
+  const body = path.join(directory, 'body.txt'), suffix = path.join(directory, 'suffix.txt');
+  await fs.writeFile(body, '正文');
+  for (const [content, code] of [[' \n', 'INVALID_ARGUMENT'], ['by\u0000助手', 'INVALID_ARGUMENT'], [Buffer.from([0xff]), 'ERR_ENCODING_INVALID_ENCODED_DATA']]) {
+    await fs.writeFile(suffix, content);
+    const run = spawnSync(process.execPath, [script, 'send', '--port', '1', '--account', 'self', '--chat', 'peer', '--text-file', body, '--suffix-file', suffix], { encoding: 'utf8' });
+    assert.equal(run.status, 1); assert.equal(JSON.parse(run.stdout).error.code, code);
   }
 });

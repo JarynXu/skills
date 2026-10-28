@@ -1,6 +1,6 @@
 ---
 name: icenter
-description: 操作 iCenter 桌面客户端，按任务选用客户端 SDK、应用接口或页面与桌面工具，处理连接准备、账户与本人身份、联系人和群组、会话与消息检索、写消息和发送、回复转发及提及、文件图片、收藏待办、消息监控、会议通话、短信、工作台和客户端设置。用户需要在 iCenter 查询信息或完成客户端操作时使用。
+description: 操作 iCenter 桌面客户端，按任务选用客户端 SDK、应用接口或页面与桌面工具，处理连接准备、账户与本人身份、联系人和群组、本人状态与托管标识、会话与消息检索、写消息和发送、可选消息后缀、回复转发及提及、文件图片、收藏待办、消息监控、会议通话、短信、工作台和客户端设置。用户需要在 iCenter 查询信息或完成客户端操作时使用。
 ---
 
 # iCenter
@@ -53,8 +53,9 @@ description: 操作 iCenter 桌面客户端，按任务选用客户端 SDK、应
 | 客户端业务接口、服务方法、DTO、枚举、回调、预览、并发或接口契约核对 | [客户端接口](references/client-api.md) |
 | 短信、资料与收藏、工作台、日历、云盘、智能应用、HTTP、文件及流式响应 | [独立应用接口](references/web-app-api.md) |
 | 找人、找群、切换会话、通讯录、标签、订阅号、群资料、成员、群机器人或群设置 | [联系人与群组](references/contacts-and-groups.md) |
+| 本人状态、自定义状态、开始或结束代办时显示托管标识 | [本人状态](references/contacts-and-groups.md#本人状态) |
 | 阅读、历史搜索、汇总、回复、转发、提及、翻译、撤回、置顶、已读、待办、会话筛选、同步与导出 | [消息与会话](references/messages.md) |
-| 写消息、保存草稿、发送文本、正式提及、回执、核对发送状态 | [编写与发送](references/compose-and-send.md) |
+| 写消息、保存草稿、发送文本、自定义消息后缀、正式提及、回执、核对发送状态 | [编写与发送](references/compose-and-send.md) |
 | SDK 直发、按消息 ID 读取、接口发现、代发来源标记与文风取样 | [SDK 与消息来源](references/sdk-and-origin.md) |
 | 图片、文件、语音、表情、截图、下载、群文件、云盘或收藏 | [文件与收藏](references/files-and-collections.md) |
 | 接收连续消息、被动订阅、短时观察、恢复监控与消息遗漏 | [消息监控](references/monitoring.md) |

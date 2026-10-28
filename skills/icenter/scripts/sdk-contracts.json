@@ -3528,7 +3528,7 @@
           ],
           "nativeBindings": [],
           "outcome": "not-inferred",
-          "validation": "source-linked-not-live-write-tested"
+          "validation": "live-self-status-read-verified"
         },
         "getUserListStatusFromICenter": {
           "hash": "5d572451e102f7078c09acbfb9310698cd7e6080b1051350eea0acc40818a8f0",
@@ -3598,7 +3598,7 @@
           ],
           "nativeBindings": [],
           "outcome": "not-inferred",
-          "validation": "source-linked-not-live-write-tested"
+          "validation": "live-self-status-verified; other-account display not verified"
         },
         "getSyncSettingFromICenter": {
           "hash": "527bbe02c0f3d44100019eecdd6c5c747d26fb804cbde4cb3312543595d54ca3",
@@ -4400,7 +4400,7 @@
           ],
           "nativeBindings": [],
           "outcome": "not-inferred",
-          "validation": "source-linked-not-live-write-tested"
+          "validation": "live-self-status-verified; other-account display not verified"
         },
         "deleteUserStatusCustom": {
           "hash": "5615f59782c16fb838c468527c1a61a5c9558da5871d37d4a8b6bcca5d3adfdf",
@@ -4435,7 +4435,7 @@
           ],
           "nativeBindings": [],
           "outcome": "not-inferred",
-          "validation": "source-linked-not-live-write-tested"
+          "validation": "live-self-status-verified; other-account display not verified"
         }
       }
     },
@@ -21860,6 +21860,28 @@
         "1": "forbiddenForward",
         "forward": 0,
         "forbiddenForward": 1
+      }
+    },
+    "22a3.b": {
+      "moduleId": "22a3",
+      "export": "b",
+      "values": {
+        "0": "None",
+        "1": "Busy",
+        "2": "meeting",
+        "3": "business",
+        "4": "vacation",
+        "5": "dinner",
+        "6": "Studying",
+        "99": "Custom",
+        "None": 0,
+        "Busy": 1,
+        "meeting": 2,
+        "business": 3,
+        "vacation": 4,
+        "dinner": 5,
+        "Studying": 6,
+        "Custom": 99
       }
     }
   }

@@ -23,7 +23,7 @@ SDK 发送参数为文本、聊天 ID、关闭特殊发送选项的对象、`atI
 
 旧借用客户端仅提供 `call` 时，`sendReply` 保留选择目标、等待消息列表、检查空编辑器、发送、确认和恢复原聊天的契约。这是调用前确定的能力差异，不是发送失败后的重试路径。共享客户端的调用方仍负责并发协调。
 
-`sendText(client,scope,text,apply,{markOrigin:false})` 与 `sendReply(client,recipient,text,{markOrigin:false})` 默认保持正文。标记选择属于使用者策略，通用技能不写入个人联系人、口癖或自动回复范围。
+`sendText(client,scope,text,apply,{markOrigin:false,suffix:undefined})` 与 `sendReply(client,recipient,text,{markOrigin:false,suffix:undefined})` 默认保持正文。可见后缀的选择、正文保真与组合规则见[编写与发送](compose-and-send.md#可见消息后缀)。来源标记选择属于使用者策略，通用技能不写入个人联系人、口癖或自动回复范围。
 
 ## 代发来源与文风取样
 

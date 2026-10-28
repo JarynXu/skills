@@ -28,12 +28,14 @@ const optionsByCommand = {
   'sdk-check': ['port','target-id','account','all'],
   'sdk-describe': ['port','target-id','account','service','method'],
   'sdk-call': ['port','target-id','account','service','method','args-file','field','apply'],
+  'user-status': ['port','target-id','account'],
+  'set-user-status': ['port','target-id','account','status','custom-id','expected-custom-id','apply'],
   'web-list': ['app','query','all','types'],
   'web-type': ['app','type'],
   'web-describe': ['port','target-id','account','app','method'],
   'web-call': ['port','target-id','account','app','method','args-file','field','view','timeout-ms','output-file','apply'],
   'send-file': ['port','target-id','account','chat','file','apply'],
-  send: ['port', 'target-id', 'account', 'chat', 'text-file', 'mark-origin', 'apply'],
+  send: ['port', 'target-id', 'account', 'chat', 'text-file', 'suffix-file', 'mark-origin', 'apply'],
   watch: ['port', 'target-id', 'account', 'chat', 'duration-seconds', 'idle-seconds', 'checkpoint'],
 };
 const output = value => process.stdout.write(JSON.stringify(value) + '\n');
@@ -125,7 +127,7 @@ async function main(argv) {
     finally{session.close();}
     return;
   }
-  if (['send-file','history','read-image','sdk-check','sdk-describe','sdk-type','sdk-call'].includes(command)) {
+  if (['send-file','history','read-image','sdk-check','sdk-describe','sdk-type','sdk-call','user-status','set-user-status'].includes(command)) {
     const accountId = required(values,'account');
     let args;
     if (command === 'sdk-call') {
@@ -134,7 +136,9 @@ async function main(argv) {
     }
     const session = await SdkSession.connect({port,targetId:values['target-id'],accountId,...(command === 'read-image' ? {timeoutMs:60000} : {})});
     try {
-      if(command==='send-file')output(await session.sendFile({chatId:required(values,'chat'),filePath:required(values,'file'),apply:!!values.apply}));
+      if(command==='user-status')output(await session.userStatus());
+      else if(command==='set-user-status')output(await session.setUserStatus({status:values.status??'None',customId:values['custom-id'],expectedCustomId:values['expected-custom-id'],apply:!!values.apply}));
+      else if(command==='send-file')output(await session.sendFile({chatId:required(values,'chat'),filePath:required(values,'file'),apply:!!values.apply}));
       else if (command === 'history') output(await session.history({chatId:required(values,'chat'),unionId:values['union-id']||'',limit:integer(values.limit??'50','limit',1,200),beforeId:values['before-id']||''}));
       else if (command === 'read-image') {
         const ids = required(values,'message-id');
@@ -170,11 +174,15 @@ async function main(argv) {
   const scope = command === 'status' ? {} : { accountId: required(values, 'account') };
   if (['select', 'read', 'read-ids', 'send', 'watch'].includes(command)) scope.chatId = required(values, 'chat');
   const limit = command === 'read' ? integer(values.limit ?? '50', 'limit', 1, 10000) : null;
-  let text;
+  let text, suffix;
   if (command === 'send') {
     const bytes = await fs.readFile(required(values, 'text-file'));
     text = new TextDecoder('utf-8', { fatal: true }).decode(bytes).replace(/\r\n/g, '\n');
     if (!text.trim()) throw new ClientError('EMPTY_MESSAGE', 'The message file is empty.');
+    if (values['suffix-file'] !== undefined) {
+      suffix = new TextDecoder('utf-8', { fatal: true }).decode(await fs.readFile(required(values, 'suffix-file'))).replace(/\r\n/g, '\n');
+      if (!suffix.trim() || suffix.includes('\u0000')) throw new ClientError('INVALID_ARGUMENT', 'The suffix file must contain nonempty text without NUL.');
+    }
   }
   let monitor;
   if (command === 'watch') {
@@ -214,7 +222,7 @@ async function main(argv) {
     }
     if (command === 'read-ids') output(await client.call('read-by-ids', { ...scope, messageIds: required(values, 'message-id') }));
     if (command === 'sdk-info') output(await client.call('sdk-info', scope));
-    if (command === 'send') output(await sendText(client, scope, text, !!values.apply, { markOrigin: !!values['mark-origin'] }));
+    if (command === 'send') output(await sendText(client, scope, text, !!values.apply, { markOrigin: !!values['mark-origin'], suffix }));
     if (command === 'watch') {
       const controller = new AbortController(); const stop = () => controller.abort();
       process.once('SIGINT', stop); process.once('SIGTERM', stop);

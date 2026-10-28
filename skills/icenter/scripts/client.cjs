@@ -2,7 +2,7 @@ const { setTimeout: delay } = require('node:timers/promises');
 const { ClientError, CdpClient, listTargets } = require('./cdp.cjs');
 const { pageOperation } = require('./page.cjs');
 const { nativePageOperation } = require('./native-page.cjs');
-const { withMessageOrigin, markAutomation } = require('./message-origin.cjs');
+const { withMessageOrigin, markAutomation, inspectOrigin } = require('./message-origin.cjs');
 const { withMessageContent } = require('./message-content.cjs');
 const { MessageCursor, requireScope } = require('./contracts.cjs');
 
@@ -47,8 +47,16 @@ async function select(client, scope, apply) {
   throw new ClientError('SELECTION_UNKNOWN', 'The client did not confirm the selected conversation. Inspect its state through CDP before retrying.');
 }
 
-async function sendText(client, scope, text, apply, { timeoutMs = 15000, pollMs = 300, markOrigin = false } = {}) {
+async function sendText(client, scope, text, apply, { timeoutMs = 15000, pollMs = 300, markOrigin = false, suffix } = {}) {
   if (typeof markOrigin !== 'boolean') throw new ClientError('INVALID_ARGUMENT', 'markOrigin must be a boolean.');
+  if (suffix !== undefined) {
+    if (typeof suffix !== 'string' || !suffix.trim() || suffix.includes('\u0000')) throw new ClientError('INVALID_ARGUMENT', 'suffix must be nonempty text without NUL.');
+    if (typeof text !== 'string' || !text.trim()) throw new ClientError('EMPTY_MESSAGE', 'A suffix cannot replace an empty message body.');
+    const origin = inspectOrigin(text), body = origin.body;
+    const complete = body === suffix || body.endsWith('\n' + suffix) ? body : body + (body.endsWith('\n') ? '' : '\n') + suffix;
+    // 可见后缀参与正文校验；已有的有效来源标记仍放在完整正文末尾。
+    text = origin.kind === 'automation-marked' ? markAutomation(complete) : complete;
+  }
   if (markOrigin) text = markAutomation(text);
   const direct = typeof client.sendTextDirect === 'function';
   let submitted;
