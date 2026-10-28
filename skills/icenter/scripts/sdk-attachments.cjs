@@ -7,7 +7,8 @@ async function downloadSdkFile(session,{chatId,messageId,outputPath,apply=false,
   outputPath=path.normalize(outputPath);
   const metadata=await session.invoke('messages','queryMsgByMsgIdList',[[{$type:'d88a.Lb',arguments:[messageId],fields:{}}]],{apply:true,view:'file-message-list'});
   const files=metadata.result?.messages;
-  if(!Array.isArray(files)||files.length!==1||files[0].messageId!==messageId||files[0].chatId!==chatId||files[0].accountId!==session.accountId||!files[0].fileName)throw new ClientError('MESSAGE_SCOPE_MISMATCH','A unique file message in the requested scope is required.');
+  if(!Array.isArray(files)||files.length!==1||files[0].messageId!==messageId||files[0].chatId!==chatId||files[0].accountId!==session.accountId)throw new ClientError('MESSAGE_SCOPE_MISMATCH','A unique message in the requested scope is required.');
+  if(!files[0].fileName)throw new ClientError('MESSAGE_NOT_FILE','This message has no ordinary file attachment; use read-image for native image messages.');
   const plan={accountId:session.accountId,chatId,messageId,fileName:files[0].fileName,outputPath,transport:'client-sdk'};
   if(!apply)return {state:'preview',...plan};
   try{await fs.writeFile(outputPath,'',{flag:'wx'});}catch(error){throw new ClientError(error.code==='EEXIST'?'OUTPUT_EXISTS':'OUTPUT_UNAVAILABLE','A new writable output file is required.',{outputPath,cause:error.code});}

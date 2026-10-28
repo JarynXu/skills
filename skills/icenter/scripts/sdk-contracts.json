@@ -2,6 +2,12 @@
   "version": 1,
   "clientVersion": "12.1.0",
   "status": "source-linked-contracts",
+  "imageDecoder": {
+    "moduleId": "bbc0",
+    "export": "a",
+    "method": "decryptFileToBuf",
+    "hash": "593b53728949365020dc2d5b4d8ce50e63565a9845b80046172a656213b0ae60"
+  },
   "liveVerifiedOperations": [
     "messages.sendTextMsg",
     "messages.queryMsgByMsgIdList",

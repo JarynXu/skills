@@ -3,6 +3,7 @@ const { ClientError, CdpClient, listTargets } = require('./cdp.cjs');
 const { pageOperation } = require('./page.cjs');
 const { nativePageOperation } = require('./native-page.cjs');
 const { withMessageOrigin, markAutomation } = require('./message-origin.cjs');
+const { withMessageContent } = require('./message-content.cjs');
 const { MessageCursor, requireScope } = require('./contracts.cjs');
 
 async function callPage(connection, operation, input = {}) {
@@ -11,8 +12,8 @@ async function callPage(connection, operation, input = {}) {
   if (!result || typeof result.ok !== 'boolean') throw new ClientError('INVALID_CLIENT_RESULT', 'The client returned an invalid operation result.');
   if (!result.ok) throw new ClientError(result.error.code, result.error.message, result.error.details);
   const value = result.value;
-  if (Array.isArray(value?.messages)) return { ...value, messages: value.messages.map(withMessageOrigin) };
-  if (value?.message) return { ...value, message: withMessageOrigin(value.message) };
+  if (Array.isArray(value?.messages)) return { ...value, messages: value.messages.map(message => withMessageContent(withMessageOrigin(message))) };
+  if (value?.message) return { ...value, message: withMessageContent(withMessageOrigin(value.message)) };
   return value;
 }
 

@@ -39,3 +39,8 @@ test('SDK 下载拒绝字符串执行标志，不访问客户端',async t=>{
   const outputPath=await output(t),client={accountId,invoke:()=>assert.fail('Invalid input must not reach SDK.')};
   await assert.rejects(downloadSdkFile(client,{chatId,messageId,outputPath,apply:'false'}),{code:'INVALID_ARGUMENT'});
 });
+test('图片的空文件名不被误报为账户或消息归属不符',async t=>{
+  const outputPath=await output(t),client={accountId,invoke:async()=>({result:{messages:[{messageId,chatId,accountId,fileName:''}]}})};
+  await assert.rejects(downloadSdkFile(client,{chatId,messageId,outputPath,apply:true}),{code:'MESSAGE_NOT_FILE'});
+  await assert.rejects(fs.access(outputPath),{code:'ENOENT'});
+});

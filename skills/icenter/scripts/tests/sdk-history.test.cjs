@@ -24,3 +24,8 @@ test('非法历史参数不访问 SDK',async()=>{
   const session={accountId,invoke:()=>assert.fail('Invalid input must not reach the client.')};
   for(const options of [{chatId,limit:0},{chatId,limit:201},{chatId,beforeId:'bad\n'},{chatId:''}])await assert.rejects(readHistory(session,options),{code:'INVALID_ARGUMENT'});
 });
+test('历史中的图片保留消息身份及待读取附件，空正文不变成无内容',async()=>{
+  const result=await readHistory(client({success:1,chatRoomUri:chatId,messageList:[message({msgType:3,content:''})],end:1}),{chatId});
+  assert.equal(result.messages[0].id,'message');assert.equal(result.messages[0].text,'');
+  assert.deepEqual(result.messages[0].attachments,[{kind:'image',state:'not-read'}]);
+});

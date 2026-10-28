@@ -1,5 +1,6 @@
 const { ClientError } = require('./cdp.cjs');
 const { withMessageOrigin } = require('./message-origin.cjs');
+const { withMessageContent } = require('./message-content.cjs');
 const transferStates = require('./sdk-contracts.json').enums['14ce.P'].values;
 
 // 按明确聊天及消息锚点读取本机历史，不改变当前聊天或已读状态。
@@ -14,7 +15,7 @@ async function readHistory(session,{chatId,unionId='',limit=50,beforeId=''}={}) 
   const messages=raw.messageList.map(message=>{
     if(message.data_owner!==session.accountId||message.chatRoomUri!==chatId||typeof message.msgId!=='string'||!message.msgId||typeof message.content!=='string')throw new ClientError('MESSAGE_SCOPE_MISMATCH','A history message belongs to another scope or has invalid content.');
     const status=message.msgTransStatus,transfer=status===transferStates.Success?'confirmed':status===transferStates.Failed?'failed':status===transferStates.ing?'pending':status===transferStates.Init?'initial':'unknown';
-    return withMessageOrigin({id:message.msgId,senderId:message.sendUri,clientTime:message.time,clientType:message.msgType,text:message.content,transfer,clientTransferStatus:status});
+    return withMessageContent(withMessageOrigin({id:message.msgId,senderId:message.sendUri,clientTime:message.time,clientType:message.msgType,text:message.content,transfer,clientTransferStatus:status}));
   });
   return {accountId:session.accountId,chatId,coverage:'local-client-history',messages,returnedCount:messages.length,requestedLimit:limit,beforeId:beforeId||null,clientEnd:raw.end,complete:false,transport:'client-sdk'};
 }

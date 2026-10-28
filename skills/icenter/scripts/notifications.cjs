@@ -3,6 +3,7 @@ const { discover, callPage } = require('./client.cjs');
 const { listenerPageOperation } = require('./listener-page.cjs');
 const { sendReply } = require('./conversation-send.cjs');
 const { withMessageOrigin } = require('./message-origin.cjs');
+const { withMessageContent } = require('./message-content.cjs');
 
 const nonempty = value => typeof value === 'string' && value.length > 0;
 const reject = message => { throw new ClientError('INVALID_NOTIFICATION_SCOPE', message); };
@@ -87,8 +88,8 @@ class NotificationSession {
   async readPending(input) {
     const snapshot = await pageCall(this.#connection, 'peek', ownerScope(input));
     return { ...snapshot, records: snapshot.records.map(record => ({ ...record,
-      ...(record.message ? { message: withMessageOrigin(record.message) } : {}),
-      ...(record.ownReply ? { ownReply: withMessageOrigin(record.ownReply) } : {}),
+      ...(record.message ? { message: withMessageContent(withMessageOrigin(record.message)) } : {}),
+      ...(record.ownReply ? { ownReply: withMessageContent(withMessageOrigin(record.ownReply)) } : {}),
     })) };
   }
   confirm(input) {

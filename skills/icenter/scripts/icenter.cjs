@@ -8,6 +8,7 @@ const { TextDecoder } = require('node:util');
 const { ClientError, CdpClient, listTargets } = require('./cdp.cjs');
 const { connect, discover, select, sendText, watch } = require('./client.cjs');
 const { SdkSession } = require('./sdk.cjs');
+const { releaseImage } = require('./image-output.cjs');
 
 const optionsByCommand = {
   connections: [], connect: ['executable', 'instance-pid', 'restart'], targets: ['port', 'all'], status: ['port', 'target-id'],
@@ -16,6 +17,8 @@ const optionsByCommand = {
   select: ['port', 'target-id', 'account', 'chat', 'apply'],
   read: ['port', 'target-id', 'account', 'chat', 'limit'],
   history: ['port','target-id','account','chat','union-id','limit','before-id'],
+  'read-image': ['port','target-id','account','chat','message-id','output-file','variant','timeout-ms','apply'],
+  'release-image': ['output-file','cleanup-token','apply'],
   'read-ids': ['port', 'target-id', 'account', 'chat', 'message-id'],
   'sdk-info': ['port', 'target-id', 'account'],
   'sdk-list': ['query','types','all'],
@@ -108,6 +111,10 @@ async function main(argv) {
     return;
   }
   if(command==='web-type'){output(SdkSession.webType(required(values,'app'),required(values,'type')));return;}
+  if (command === 'release-image') {
+    output(await releaseImage({ outputPath: required(values, 'output-file'), cleanupToken: required(values, 'cleanup-token'), apply: !!values.apply }));
+    return;
+  }
   const port = integer(required(values, 'port'), 'port', 1, 65535);
   if(['web-describe','web-call'].includes(command)){
     const accountId=required(values,'account'),app=required(values,'app'),method=required(values,'method');
@@ -117,17 +124,22 @@ async function main(argv) {
     finally{session.close();}
     return;
   }
-  if (['send-file','history','sdk-check','sdk-describe','sdk-type','sdk-call'].includes(command)) {
+  if (['send-file','history','read-image','sdk-check','sdk-describe','sdk-type','sdk-call'].includes(command)) {
     const accountId = required(values,'account');
     let args;
     if (command === 'sdk-call') {
       args = JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(await fs.readFile(required(values,'args-file'))));
       if (!Array.isArray(args)) throw new ClientError('INVALID_SDK_ARGUMENTS','The argument file must contain a JSON array.');
     }
-    const session = await SdkSession.connect({port,targetId:values['target-id'],accountId});
+    const session = await SdkSession.connect({port,targetId:values['target-id'],accountId,...(command === 'read-image' ? {timeoutMs:60000} : {})});
     try {
       if(command==='send-file')output(await session.sendFile({chatId:required(values,'chat'),filePath:required(values,'file'),apply:!!values.apply}));
       else if (command === 'history') output(await session.history({chatId:required(values,'chat'),unionId:values['union-id']||'',limit:integer(values.limit??'50','limit',1,200),beforeId:values['before-id']||''}));
+      else if (command === 'read-image') {
+        const ids = required(values,'message-id');
+        if (ids.length !== 1) throw new ClientError('INVALID_ARGUMENT','read-image requires exactly one message ID.');
+        output(await session.readImage({chatId:required(values,'chat'),messageId:ids[0],outputPath:values['output-file'],variant:values.variant||'best',apply:!!values.apply,timeoutMs:integer(values['timeout-ms']??'15000','timeout-ms',1000,45000)}));
+      }
       else if (command === 'sdk-check') {
         const result=await session.check();
         output(values.all?result:{accountId:result.accountId,total:result.operations.length,matched:result.operations.filter(operation=>operation.state==='contract-matched').length,unmatched:result.operations.filter(operation=>operation.state!=='contract-matched'),executedBusinessOperations:result.executedBusinessOperations,verification:result.verification});

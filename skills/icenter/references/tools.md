@@ -25,6 +25,8 @@ node "<技能目录>/scripts/icenter.cjs" status --port <端口>
 | `read` | `--port --account --chat [--limit]`。要求当前选中该会话，返回已加载窗口末尾的消息；默认 50，范围 1–10000。 |
 | `read-ids` | `--port --account --chat --message-id <ID>`，ID 参数可重复，单次 1–50 个不同值。从客户端历史查询，不切换聊天；缺失项在 `missingIds` 返回。 |
 | `history` | `--port --account --chat [--union-id] [--limit] [--before-id]`。不选中聊天，查询本机历史；默认 50，范围 1–200，按消息 ID 向前翻页；保留实际覆盖和原始结束标志。 |
+| `read-image` | `--port --account --chat --message-id <单个ID> [--output-file <新绝对PNG路径>] [--variant best\|original\|large\|thumbnail] [--timeout-ms] [--apply]`。预览检查图片及缓存；执行导出解码后的图片。默认使用系统临时目录；保存、清晰度及识图交接见[读取消息图片](files-and-collections.md#读取消息图片)。 |
+| `release-image` | `--output-file <取图结果路径> --cleanup-token <取图结果令牌> [--apply]`。消费结束后释放该次临时输出，无需连接客户端。范围与失败处置见[读取消息图片](files-and-collections.md#读取消息图片)。 |
 | `sdk-info` | `--port --account`。核对专用文本和 ID 查询适配器；通用服务目录使用 sdk-list，当前方法指纹使用 sdk-check。发现方法名不等于验证业务结果。 |
 | `send` | `--port --account --chat --text-file [--mark-origin] [--apply]`。使用已核实的客户端 SDK，目标为已加载单聊或群，不要求选中或清空编辑器。正文为 UTF-8，CRLF 转 LF。默认预览；SDK 等候通知的期限为 8 秒，超时不重发。来源标记仅在显式选择时附加，使用条件见 [SDK 与消息来源](sdk-and-origin.md)。 |
 | `send-file` | `--port --account --chat --file [--apply]`。绝对源路径；执行客户端准备与发送两阶段，复用同一消息 ID。默认预览，不打开编辑器或文件选择器。 |
@@ -52,6 +54,8 @@ node "<技能目录>/scripts/icenter.cjs" status --port <端口>
 账户 `id` 来自登录状态，`linkedUnionId` 来自同一资料对象，`aliasesComplete:false` 表示别名未穷尽。SIP URI 不应转换为邮箱。
 
 消息返回客户端消息 ID、发送人、原始时间、类型、正文、传输与已读字段。原始时间保留客户端表示，不假定 UTC；`text` 是客户端内容字段，非文本类型可能携带结构化内容。不要把文件元数据当成可读正文或已下载文件。`clientType`、`readStatus` 保留原始值，未经对应版本证据不能自行命名。
+
+图片消息的 `attachments[].kind` 为 `image`、`state` 为 `not-read`。它只标识后续内容读取需要，不把图片字节塞入消息正文或通知。`read-image` 返回可读文件，宿主识图结论另行取得。
 
 `transfer` 为 `initial`、`pending`、`confirmed`、`failed` 或 `unknown`。这表示客户端传输状态，不能证明他人收到或阅读。`send` 的 `client-confirmed` 还要求新增消息 ID、发送人和完整正文匹配。存在多条匹配消息时报告未知，避免选错证据。
 
@@ -81,6 +85,10 @@ node "<技能目录>/scripts/icenter.cjs" status --port <端口>
 | `SDK_BUSY` | 仍有在途调用；保留占用，不抢占或重复写入。 |
 | `SDK_CALL_UNKNOWN`、`SETTINGS_UNCONFIRMED` | 调用已有可能生效，按原对象及已知 ID 对账，不换页面重做。 |
 | `SDK_FLOW_REQUIRED` | 新文件需两阶段准备与发送，使用 send-file，不直接补一次底层调用。 |
+| `MESSAGE_NOT_FILE`、`MESSAGE_NOT_IMAGE` | 归属已核对，消息内容类型与所选操作不符；分别使用普通附件下载或 read-image，不把类型不符误报为账户不符。 |
+| `IMAGE_REVOKED`、`IMAGE_RESTRICTED`、`IMAGE_VARIANT_UNAVAILABLE` | 保留客户端的撤回、临时消息和清晰度限制，不借缓存绕过。 |
+| `IMAGE_DECODE_FAILED`、`IMAGE_CACHE_UNAVAILABLE`、`IMAGE_TOO_LARGE` | 当前内容未导出为可读图片；保留原因与已尝试清晰度，不能把缓存路径当作已读内容。 |
+| `IMAGE_DOWNLOAD_UNKNOWN`、`IMAGE_DOWNLOAD_UNCONFIRMED`、`IMAGE_READ_UNKNOWN` | 核对原消息及缓存，不以超时断定下载未发生，不自动重复请求。 |
 | `SDK_SENSITIVE_RESULT`、`SDK_RESULT_UNSERIALIZABLE` | 选择本次需要的结果字段；保留失败，不输出认证、密钥或循环对象。 |
 | `WEB_ACCOUNT_CHANGED`、`WEB_APP_NAVIGATED`、`WEB_CONTRACT_CHANGED` | 网页身份、来源或接口不符；停止当前调用，不借用另一账户或猜测新协议。 |
 | `WEB_DOWNLOAD_FAILED`、`WEB_DOWNLOAD_TIMEOUT`、`WEB_DOWNLOAD_REDIRECT`、`WEB_OUTPUT_EXISTS` | 保留文件服务或输出失败，核对已注册来源与输出；已有文件不覆盖。 |

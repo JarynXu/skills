@@ -82,6 +82,8 @@ node "<技能目录>/scripts/icenter.cjs" send --port <端口> --account <账户
 
 `send` 直发普通文本，`send-file` 执行文件的准备与发送，均保留当前聊天和草稿；`history` 支持非当前聊天及消息锚点，`read-ids` 单独返回缺失 ID。消息读取保留原始正文，并附加来源标记识别结果。标记不证明作者身份；无标记不证明本人原创。文风取样及可选标记的条件见 [SDK 与消息来源](references/sdk-and-origin.md)。
 
+消息中的 `attachments:[{kind:'image',state:'not-read'}]` 表示图片内容尚未读取。任务涉及图中内容时，按[读取消息图片](references/files-and-collections.md#读取消息图片)使用 `read-image` 复用客户端缓存，导出可解码 PNG，再交给宿主识图工具。临时读图使用默认临时输出，消费结束后按参考中的 `release-image` 释放。空正文、缓存路径或导出成功均不能代替实际看图；仅取得缩略图时保留清晰度限制。
+
 连续消息接收使用 `scripts/message-receiver.cjs`。它在同一账户、会话和发送者范围内归集消息，负责去重、静默等待、最长等待和持久恢复，无需安装其他技能。原文及提及证据逐条保留；一批消息不等于一个主题，晚到补充由接收者结合上下文判断。接口见[消息监控](references/monitoring.md)。需要原生逐条通知时使用 `scripts/notifications.cjs`；短时 `watch` 用于当前聊天的有时限观察。
 
 后台运行、唤醒目标和任务分派由调用方在技能包外组合。接收器交付的批次不再重复分轮或等待；调用方持久接收后确认交接。应用接口不接收目标会话、工作池或模型设置。关注对象及处理方式来自使用者授权，见[调用方组合边界](references/dispatch-design.md)。

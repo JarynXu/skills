@@ -3,6 +3,7 @@ const { discover } = require('./client.cjs');
 const { sdkPageOperation } = require('./sdk-page.cjs');
 const contracts = require('./sdk-contracts.json');
 const { readHistory } = require('./sdk-history.cjs');
+const { readMessageImage } = require('./message-images.cjs');
 const {webPageOperation}=require('./web-page.cjs');
 const {webApplicationOperation}=require('./web-application.cjs');
 const {startClientDownload}=require('./web-download.cjs');
@@ -58,6 +59,7 @@ class SdkSession {
   async describe(service,method) { return this.#call('describe',{ service,method }); }
   async check() { return this.#call('check',{}); }
   async history(options) { return readHistory(this,options); }
+  async readImage(options) { return readMessageImage(this.#connection, this.#accountId, options); }
   async sendFile({chatId,filePath,apply=false}) {
     if(typeof apply!=='boolean')throw new ClientError('INVALID_ARGUMENT','apply must be boolean.');
     const reply=await this.#call('file-send',{service:'messages',method:'sendFileTransCardMsg',chatId,filePath,apply});
