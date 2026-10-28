@@ -12,8 +12,11 @@
 | 设备与共享 | 查询设备、麦克风、扬声器和摄像头，使用相应设置、会议屏幕请求、Bfcp、远程控制接口。改变设备、共享或控制均需该动作授权；客户端状态和设备实际效果分别核对。 |
 | 直播及回放 | getMyLiveList、getLiveInfo、getLiveReserverList、createlive、modifyLive、cancelLive、enterLiveRoom、leaveLiveRoom、startLive、controlLive、getLiveStat 等。主持、管理和观众权限不同。 |
 | 转写、纪要和活动 | voiceTrans、getOneConfVoiceTransRecordInfo、getOneConfMinutes、createOneConfMinutes、editVoiceTransRecord、getLuckyBagList 等。实际内容、访问范围和对外通知分别核对；读取不授予创建或参与活动权限。 |
+| 转写热词与资源 | getHotWords、setHotWords、oprVTAsset。热词设置核对增量或全量模式；资源操作核对会议和操作类型，不以管理资源为由删除转写材料。 |
 
 方法名用于查定义，不代表可以凭名字填写参数。先核对 sdk-describe、模型和枚举，查实际成功与失败路径。便利方法可能依赖当前会议或页面状态；独立查询使用显式会议、成员及条件对象，不能把当前会议字段改成目标来伪造操作。
+
+`setHotWords` 使用 `8620.lb` 模型：`mode:0` 为增量，`changedHotWords` 中的 `8620.L` 项以 `word`、`oprType` 表达新增或删除；`mode:1` 使用 `totalHotWords` 替换全量列表。`sourceType` 区分通用、会中及会后设置，实际取值查 `sdk-type`。全量模式须包含需要保留的旧热词。`oprVTAsset` 使用 `8620.rb`，按目标会议填写 `callID`、`confID`、`confNum`，核对 `opType` 对应的行为及授权。
 
 会议邀请、拨号、录制、直播、屏幕共享和远程协助不作为技能迁移的真实试验。系统的设备与隐私提示保留用户确认，不用另一个工具绕过。任务结束核对实际共享和控制状态。
 

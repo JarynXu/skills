@@ -10,11 +10,17 @@ chats 是已加载会话的快照，不代表企业通讯录。按名称找人�
 
 新增、移除和置顶使用 addOneSingleContact、removeOneSingleContact、setContactsTop。修改前核对原联系人及已有关系，修改后重查。个人备注和标签不授予修改组织主数据的权限。labels 服务提供标签查询、增删、排序及人员标签分配。
 
+本人自定义状态使用 `contacts.getMyStatusList`、`saveUserStatusCustom`、`deleteUserStatusCustom`，模型为 `b7c5.a`。保存参数包含 `content`、`icon`、`userStatusCustomId`；更新和删除使用查询取得的 ID。`updateSyncSettingToICenter` 接受出差同步 `businessTrip`、休假同步 `holidayTrip` 两项参数，其后为回调和超时参数。自定义状态的维护与设置当前状态是不同动作，执行前查方法定义及目标状态。
+
 ## 群信息及成员
 
 groups.getCacheGroupFull 读取已核对群的原生资料，checkRosterPublicGroup 提供服务端核对路径。按当前定义识别群 URI、成员 URI、unionID、总人数及完整成员集合，不能用头像数或消息活跃度推断成员关系。缓存与服务端结果分别报告，不把尚未加载写成空群。
 
+`getCacheGroupFull` 的前两项参数为群 URI、查询原因；`checkRosterPublicGroup` 的前三项为群 URI、请求流水号、查询原因。可选参数的位置查 `sdk-describe`，不能沿用旧调用中的回调位置。
+
 群名、公告、成员、权限和二维码分别使用 modifyGroupName、modifyGroupBulletin、inviteMembersToPublicGroup、deleteMembersFromPublicGroup、modifyAllowmemberInvite、modifyDisplayDeleteInfo、modifymemTransNotifyEnable、modifyShareQRCode、getQRCode 等接口。参数中的成员结构由当前模型定义提供，不能传一组名字冒充成员对象。
+
+`groups.getGlobalMemtransnotify`、`setGlobalMemtransnotify` 读取和设置本人接收成员调岗通知的全局开关。单群的 `modifymemTransNotifyEnable` 保留该群范围，不能互相替代。全局读取核对 `success`、`enableTransNotify`；设置后重读目标值。
 
 创建、退出、解散、批量退出或批量删除是不同动作。createPublicGroup、leavePublicGroup、deletePublicGroup 及批量接口均保留相应授权。需要管理员、群主或受企业策略限制时保留服务端拒绝，不把请求受理当作关系变更成功。
 

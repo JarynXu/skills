@@ -62,6 +62,8 @@ Node.js 使用 `const image = await sdk.readImage({chatId,messageId,variant:'bes
 
 messages.sendImageMsg、sendAudioMsg、sendVideoMsg、sendCardMsg 及相应模型提供结构化发送。先读取定义核对文件、类型、来源、目标、回复信息和状态，按客户端政策验证。图片以文件消息发送时保持文件类型，不能改称图片消息。
 
+语音消息自动转文字开关使用 `messages.enableAutoConvertToTxt`、`disableAutoConvertToTxt`。它们修改转换偏好，不返回已有语音的转写内容。需要阅读语音时，核对该消息的转换状态与实际文本，不能把开启开关写成已读完语音。
+
 getFileSize 的封装元数据不保证等于原文件字节数；fileLocalPath 可能是封装缓存。取得实际原件后检查文件类型、可读性，必要时比较内容哈希。下载链接不表示已取得内容；缩略图保留实际清晰度，不表示已取得原图。过期、撤回、权限、网络和解密失败分别报告；下载不授予执行文件或宏的权限。
 
 表情资源使用 emoticons 服务，添加、删除、排序、下载和发送分别处理。群文件以已核对的群作为搜索条件查询文件消息及当前应用的文档接口，保留分页和文件版本。收藏使用 messages.addFavoriteMsg；云文档转换、分享及稍后处理保留各自写入授权。

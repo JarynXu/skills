@@ -62,7 +62,7 @@
             "e"
           ],
           "effect": "read",
-          "validation": "real authorized-record query verified",
+          "validation": "live read: HTTP 200/code 0000 without bo; no complete-history claim",
           "transport": {
             "httpMethod": "GET",
             "configMember": "smsSendService",
@@ -565,7 +565,7 @@
             "e"
           ],
           "effect": "read",
-          "validation": "source-linked; real scoped read returned HTTP 200/code 0000",
+          "validation": "live read: HTTP 200/code 0000 without bo; no complete-list claim",
           "binding": {
             "moduleId": "8057",
             "export": "A",
@@ -1419,7 +1419,7 @@
               "https://i.zte.com.cn"
             ]
           },
-          "validation": "source-linked; real scoped read returned HTTP 200/code 0000"
+          "validation": "live read: HTTP 200/code 0000 with bo"
         },
         "listFrequentWorkbenches": {
           "hash": "09bb4cd4a08c99f7fee46a02d84cb51b98c975678f839125bfcecd318adfa827",
@@ -1889,12 +1889,12 @@
       "path": "/zte-icenter-calendar-frame/index.html",
       "entry": {
         "kind": "native-frame",
-        "moduleId": "b538",
-        "chunk": "chunk-12c87328",
+        "moduleId": "b538c",
+        "chunk": "chunk-60e9aae2",
         "method": "getScheduleUri",
         "frameId": "scheduleContent",
-        "hash": "0efcbb86e721f4c9cf9f8ae22c9af68007d81ac16103567f4a29dc9aca5aacb1",
-        "factoryHash": "72e5b7baf55eda86a88fc81c68d0cddb94c200189e0a34c95bd3287053de84d2"
+        "hash": "79aa1e9b21c607db2a13c56ad87b83a7cf06eaddbc68c669fd3d2687a49411f6",
+        "factoryHash": "d433872cc09d0f55290d1fcf4e8724ffb1cabeb5e03603eececcaac6b43c6e79"
       },
       "webpackGlobal": "webpackChunkzte_icenter_calendar_frame",
       "identity": {
@@ -2073,7 +2073,7 @@
               "https://icenterapi.zte.com.cn"
             ]
           },
-          "validation": "source-linked; real scoped read returned HTTP 200/code 0000"
+          "validation": "live read: HTTP 200/code 0000 with bo"
         },
         "addSchedule": {
           "hash": "2bfc248d995013a7892b6f1f936898a8d6fdaa594abd709e0592fea3f891a8db",
@@ -2774,11 +2774,11 @@
       "entry": {
         "kind": "native-frame",
         "moduleId": "8447",
-        "chunk": "chunk-191a5b82",
+        "chunk": "chunk-adde5506",
         "method": "getWebIGPTUri",
         "frameId": "WebIGPTframe",
-        "hash": "f2ead157414c5e79066a8421c5fca8cdfc32e097a978b7da4a1fddfc7b62abaf",
-        "factoryHash": "89bdad25f41e4f16bdfd3527ed4e74c4bd94f428d6227d4ec589d123c286617f",
+        "hash": "e7075afc1d62c9fc89dcc30f9aa199080e586b6df4337911186322fe8fa67cfe",
+        "factoryHash": "b3733d3cd2e751178d9a0df95b3c7eecc80e8889d67d18359d78ff24387ddc23",
         "urlSetting": "webIGPTUrl"
       },
       "runtime": {
@@ -2820,7 +2820,7 @@
               "https://i.zte.com.cn"
             ]
           },
-          "validation": "source-linked native assistant transport; submission and streaming not exercised against the live service"
+          "validation": "live request: HTTP 200/code 5006; business operation rejected"
         },
         "app.category": {
           "hash": "d423a7d765e2c211d5b7a21dc395b07690c6f76e3811b5250dddbd73227610f9",
@@ -7158,8 +7158,8 @@
         "chunk": "chunk-766ef6d5",
         "method": "getCustomerServiceUri",
         "frameId": "CustomerServiceframe",
-        "hash": "a45398bff20a33219bae0c509d2569d7d5ff250687755aaf70ce338873dd5cbe",
-        "factoryHash": "fa263a474e68a983223ef2652a253f66fee2ed4175870de92280468fa4ef99a4"
+        "hash": "9473c0ba893e942140c75eaf57a65b671d128d7651b4ca40888284d4b4f380b0",
+        "factoryHash": "c45cc3b97b5a5d7ab31cfcbf8c19c39a11128a391acc0bb5ff2bdccc6e407b7b"
       },
       "runtime": {
         "kind": "source",
@@ -16532,7 +16532,7 @@
               "https://idrive.zte.com.cn"
             ]
           },
-          "validation": "source-linked; real scoped read returned HTTP 200/code 0000"
+          "validation": "live read: HTTP 200/code 0000 with bo"
         },
         "myBusiness.doApprovingByGet": {
           "parameters": [
