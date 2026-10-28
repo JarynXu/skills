@@ -2,9 +2,10 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const vm = require('node:vm');
 const { nativePageOperation } = require('../native-page.cjs');
+const { clientVersion } = require('../client-version.json');
 const accountId = 'sip:owner@example.test', chatId = 'sip:self@example.test';
 const input = { accountId, chatId, text: 'A plain message', apply: true };
-function fixture({ version = '12.1.0', transfer = 'confirmed', afterSend, queryIds = ['native-id'], queryChat = chatId, sanitize = value => value } = {}) {
+function fixture({ version = clientVersion, transfer = 'confirmed', afterSend, queryIds = ['native-id'], queryChat = chatId, sanitize = value => value } = {}) {
   const calls = [], state = { userInfo: { userId: accountId }, chatInfo: { chatSelectUri: 'sip:unrelated@example.test', chatList: [{ chatRoomUri: chatId, chatRoomType: 0 }] } };
   const message = id => ({ msgId: id, data_owner: accountId, chatRoomUri: queryChat, sendUri: accountId, content: input.text, msgType: 1, time: 'fixture', msgFromReceive: false,
     isMessageTransSuccess: () => transfer === 'confirmed', isMessageTransFailed: () => transfer === 'failed', isMessageTransing: () => transfer === 'pending', isMessageTransInit: () => false });
@@ -57,8 +58,16 @@ test('按 ID 查询保留覆盖和缺失事实，不读取其他聊天', async (
   const wrong = fixture({ queryChat: 'other' }); assert.equal((await wrong.call('read-by-ids', { accountId, chatId, messageIds: ['native-id'] })).error.code, 'MESSAGE_SCOPE_MISMATCH');
   const unexpected = fixture({ queryIds: ['unrequested'] }); assert.equal((await unexpected.call('read-by-ids', { accountId, chatId, messageIds: ['native-id'] })).error.code, 'MESSAGE_SCOPE_MISMATCH');
 });
-test('未知操作、未知版本、缺失 SDK 和非法 ID 不执行效果', async () => {
-  for (const [f, operation, value, code] of [[fixture(), 'arbitrary', input, 'UNKNOWN_OPERATION'], [fixture({ version: 'future' }), 'send', input, 'UNSUPPORTED_VERSION'],
+test('版本高低不阻止有效 SDK 调用，诊断返回实际版本', async () => {
+  for (const version of ['0.0.0', '9999.0.0']) {
+    const f = fixture({ version });
+    assert.equal((await f.call('sdk-info', { accountId })).value.version, version);
+    const result = await f.call('send');
+    assert.equal(result.ok, true); assert.equal(result.value.state, 'client-confirmed'); assert.equal(f.calls.length, 1);
+  }
+});
+test('未知操作、缺失 SDK 和非法 ID 不执行效果', async () => {
+  for (const [f, operation, value, code] of [[fixture(), 'arbitrary', input, 'UNKNOWN_OPERATION'],
     [fixture(), 'read-by-ids', { accountId, chatId, messageIds: ['duplicate', 'duplicate'] }, 'INVALID_MESSAGE_IDS']]) {
     assert.equal((await f.call(operation, value)).error.code, code); assert.equal(f.calls.length, 0);
   }

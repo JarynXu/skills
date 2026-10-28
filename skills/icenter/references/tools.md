@@ -71,7 +71,7 @@ node "<技能目录>/scripts/icenter.cjs" status --port <端口>
 | `RESTART_REQUIRED` | 所选接口或页面工具需要 CDP；保留未完成工作，按已确认授权对目标 PID 执行 `connect --restart`。 |
 | `INSTANCE_NOT_UNIQUE`、`INSTALLATION_NOT_UNIQUE` | 从实际实例或安装信息选择 PID、路径；不取第一个。 |
 | `CDP_NOT_READY` | 检查原实例、返回 PID 和端口，不重复启动或重启。 |
-| `UNSUPPORTED_VERSION`、`UNSUPPORTED_SCHEMA` | 使用通用 CDP 检查 DOM 和页面状态。维护专用适配器需要版本和字段证据。 |
+| `UNSUPPORTED_SCHEMA` | 使用通用 CDP 检查 DOM 和页面状态。维护专用适配器需要当前实现与字段证据。 |
 | `TARGET_NOT_FOUND` | 使用 `targets --all` 重新定位页面，不能沿用失效 ID。 |
 | `ACCOUNT_CHANGED`、`CHAT_CHANGED`、`MESSAGE_SCOPE_MISMATCH` | 重新核对账户和目标；禁止把新会话的数据贴上旧标签。 |
 | `CHAT_NOT_VISIBLE`、`CHAT_NOT_UNIQUE` | 搜索或滚动后核对精确 ID，不取第一个同名结果。 |
@@ -104,7 +104,7 @@ node "<技能目录>/scripts/icenter.cjs" status --port <端口>
 
 ## 适配边界
 
-当前适配器验证过 iCenter 12.1.0（Windows 文件版本 12.1.0.662）的 Vue 状态、主编辑器及文本发送与按 ID 查询 SDK。SDK 路径仍经 CDP 使用现有登录客户端；它不是厂商公开 API，不对未来版本作兼容承诺。已发现接口与已适配操作的边界见 [SDK 与消息来源](sdk-and-origin.md)。
+当前适配器验证过[记录版本](../scripts/client-version.json)的 Vue 状态、主编辑器及文本发送与按 ID 查询 SDK。SDK 路径仍经 CDP 使用现有登录客户端；它不是厂商公开 API，不对未来版本作兼容承诺。已发现接口与已适配操作的边界见 [SDK 与消息来源](sdk-and-origin.md)。
 
 通用 CDP 命令不依赖该 Vue 适配器。它不自动核对业务账户或会话，调用方按[CDP 页面](ui-and-settings.md)在动作前核对身份、草稿和控件，并检查协议异常及业务结果。
 

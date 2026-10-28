@@ -5,6 +5,7 @@ const fs = require('node:fs/promises');
 const os = require('node:os');
 const path = require('node:path');
 const { downloadFile } = require('../scripts/attachments.cjs');
+const { clientVersion } = require('../scripts/client-version.json');
 
 async function fixture(t, overrides = {}) {
   const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'icenter-attachments-'));
@@ -20,7 +21,7 @@ async function fixture(t, overrides = {}) {
   const loader = id => modules[id]; loader.c = { 0: {} }; loader.m = { 0: () => {} }; loader.s = 0;
   queue.push = payload => { Array.prototype.push.call(queue, payload); for (const [id, factory] of Object.entries(payload[1])) { loader.s = id; loader.c[id] = {}; loader.m[id] = factory; factory(loader.c[id], {}, loader); } };
   const context = { window: { webpackJsonp: queue }, process: { resourcesPath: 'client' },
-    require: name => name.endsWith('/app.asar/package.json') ? { version: overrides.version || '12.1.0' } : require(name),
+    require: name => name.endsWith('/app.asar/package.json') ? { version: overrides.version || clientVersion } : require(name),
     document: { querySelector: () => ({ __vue_app__: { config: { globalProperties: { $store: { state: { messageInfo: { messageList: [message] } } } } } } }) } };
   const session = { scope: { accountId: 'self', chatId: 'chat' }, async run(task, ...args) {
     return vm.runInNewContext(`(${task.toString()})(tools,...args)`, { ...context, tools: { check: () => ({ ...session.scope }) }, args });
@@ -35,8 +36,8 @@ test('文件下载预览只定位消息，不创建文件或调用服务', async
   await assert.rejects(fs.stat(f.outputPath), { code: 'ENOENT' });
   assert.equal(f.calls.length, 0); assert.equal(f.queue.length, 0);
 });
-test('下载调用已有客户端服务，确认消息、路径和实际文件，清理临时模块', async t => {
-  const f = await fixture(t);
+test('版本差异不阻止文件下载，结果包含实际文件，临时模块被清理', async t => {
+  const f = await fixture(t, { version: 'unverified' });
   const result = await downloadFile(f.session, { messageId: 'file-id', outputPath: f.outputPath, apply: true });
   assert.equal(result.state, 'downloaded'); assert.equal(await fs.readFile(f.outputPath, 'utf8'), '下载原文件\n');
   assert.deepEqual(f.calls[0].slice(0, 5), [4, 'chat', 'file-id', '', f.outputPath]);
@@ -48,10 +49,9 @@ test('已有输出保留，拒绝覆盖且不调用下载服务', async t => {
   await assert.rejects(downloadFile(f.session, { messageId: 'file-id', outputPath: f.outputPath, apply: true }), { code: 'OUTPUT_EXISTS' });
   assert.equal(await fs.readFile(f.outputPath, 'utf8'), '原有文件'); assert.equal(f.calls.length, 0);
 });
-test('参数、版本及消息作用域不匹配时不创建目标', async t => {
+test('参数及消息作用域不匹配时不创建目标', async t => {
   const f = await fixture(t, { version: 'other' });
   await assert.rejects(downloadFile(f.session, { messageId: 'file-id', outputPath: 'relative.txt' }), { code: 'INVALID_ARGUMENT' });
-  await assert.rejects(downloadFile(f.session, { messageId: 'file-id', outputPath: f.outputPath, apply: true }), { code: 'UNSUPPORTED_VERSION' });
   const current = await fixture(t); current.message.chatRoomUri = 'other';
   await assert.rejects(downloadFile(current.session, { messageId: 'file-id', outputPath: current.outputPath, apply: true }), { code: 'MESSAGE_NOT_FOUND' });
   await assert.rejects(fs.stat(f.outputPath), { code: 'ENOENT' }); await assert.rejects(fs.stat(current.outputPath), { code: 'ENOENT' });

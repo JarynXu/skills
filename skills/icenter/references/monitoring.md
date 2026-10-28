@@ -1,6 +1,6 @@
 # 消息观察与归集
 
-被动观察通过本机 CDP 读取 iCenter 12.1.0 的 SDK 新消息通知。它不切换聊天、不置已读、不发送消息，也不代表完整历史。开始前按[连接与身份](connection-and-identity.md)核对端口、主窗口、账户和提及身份。需要连续观察、去重及按静默期归集时使用 `scripts/message-receiver.cjs`；只需原生通知缓冲或要自行管理归集状态时使用 `scripts/notifications.cjs`。
+被动观察通过本机 CDP 读取 SDK 新消息通知，参考客户端版本见[版本记录](../scripts/client-version.json)。它不切换聊天、不置已读、不发送消息，也不代表完整历史。开始前按[连接与身份](connection-and-identity.md)核对端口、主窗口、账户和提及身份。需要连续观察、去重及按静默期归集时使用 `scripts/message-receiver.cjs`；只需原生通知缓冲或要自行管理归集状态时使用 `scripts/notifications.cjs`。
 
 ## 持久消息接收器
 

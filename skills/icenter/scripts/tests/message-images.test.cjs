@@ -9,11 +9,12 @@ const { imagePageOperation } = require('../image-page.cjs');
 const { SdkSession } = require('../sdk.cjs');
 const { withMessageContent } = require('../message-content.cjs');
 const { releaseImage } = require('../image-output.cjs');
+const { clientVersion } = require('../client-version.json');
 const accountId = 'sip:owner@example.test', chatId = 'sip:peer@example.test', messageId = 'image-id';
 const png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+j1ZkAAAAASUVORK5CYII=', 'base64');
 const digest = value => createHash('sha256').update(String(value)).digest('hex');
 
-function fixture({ cached = ['original', 'large', 'thumbnail'], bad = [], plain = [], download, decrypt, sourceBytes = png.length } = {}) {
+function fixture({ version = clientVersion, cached = ['original', 'large', 'thumbnail'], bad = [], plain = [], download, decrypt, sourceBytes = png.length } = {}) {
   const calls = { query: 0, download: [], decrypt: [] }, cache = new Set(cached);
   const state = { userInfo: { userId: accountId }, chatInfo: { chatSelectUri: 'unrelated', draft: 'human draft' } };
   class Message {
@@ -46,7 +47,7 @@ function fixture({ cached = ['original', 'large', 'thumbnail'], bad = [], plain 
     models: { exports: { Message, QueryItem } }, enums: { exports: { n: { TapOrigin: 4, TapSecond: 3, DefaultAttach: 0 } } } }, m: {}, s: 0 };
   const chunks = [], window = { webpackJsonp: chunks };
   chunks.push = entry => { Array.prototype.push.call(chunks, entry); for (const [id, factory] of Object.entries(entry[1])) { loader.m[id] = factory; loader.c[id] = {}; factory({}, {}, loader); } };
-  const contract = { clientVersion: '12.1.0', messages: { moduleId: 'messages', export: 'a' },
+  const contract = { messages: { moduleId: 'messages', export: 'a' },
     query: { hash: digest(Messages.prototype.queryMsgByMsgIdList) }, download: { hash: digest(Messages.prototype.downLoadMessageAttachs) },
     decoder: { moduleId: 'decoder', export: 'a', method: 'decryptFileToBuf', hash: digest(Decoder.prototype.decryptFileToBuf) },
     queryType: { moduleId: 'models', export: 'QueryItem', hash: digest(QueryItem) }, messageType: { moduleId: 'models', export: 'Message', hash: digest(Message) },
@@ -55,7 +56,7 @@ function fixture({ cached = ['original', 'large', 'thumbnail'], bad = [], plain 
   const context = vm.createContext({ window, Date, Math, document: { querySelector: () => ({ __vue_app__: { config: { globalProperties: { $store: { state } } } } }) },
     process: { argv: ['IS_MAIN_WINDOW'], resourcesPath: '/fixture' },
     require: name => {
-      if (name.endsWith('package.json')) return { version: '12.1.0' };
+      if (name.endsWith('package.json')) return { version };
       if (name === 'fs') return { promises: { stat: async file => {
         if (!cache.has(path.posix.basename(file))) throw Object.assign(new Error('missing'), { code: 'ENOENT' });
         return { isFile: () => true, size: sourceBytes };
@@ -73,8 +74,8 @@ function fixture({ cached = ['original', 'large', 'thumbnail'], bad = [], plain 
   } };
 }
 
-test('图片预览只检查归属及缓存，执行由客户端解密，不触碰聊天和草稿', async () => {
-  const f = fixture();
+test('版本差异不阻止图片预览和缓存读取，执行不触碰聊天和草稿', async () => {
+  const f = fixture({ version: 'unverified' });
   const preview = await f.call({ apply: false });
   assert.equal(preview.value.state, 'preview'); assert.equal(preview.value.contentRead, false);
   assert.deepEqual(f.calls.decrypt, []); assert.deepEqual(f.calls.download, []);

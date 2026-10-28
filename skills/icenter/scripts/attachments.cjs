@@ -12,7 +12,6 @@ async function downloadFile(session, { messageId, outputPath, apply = false, tim
   outputPath = path.normalize(outputPath);
   const plan = await session.run((tools, messageId) => {
     const scope = tools.check();
-    if (require(process.resourcesPath + '/app.asar/package.json').version !== '12.1.0') throw Object.assign(Error('Unsupported attachment adapter version'), { code: 'UNSUPPORTED_VERSION' });
     const messages = document.querySelector('#app').__vue_app__.config.globalProperties.$store.state.messageInfo?.messageList;
     if (!Array.isArray(messages)) throw Object.assign(Error('Loaded messages unavailable'), { code: 'UNSUPPORTED_SCHEMA' });
     const matches = messages.filter(message => message.msgId === messageId && message.chatRoomUri === scope.chatId);
@@ -27,12 +26,11 @@ async function downloadFile(session, { messageId, outputPath, apply = false, tim
   try {
     const result = await session.run(async (tools, messageId, outputPath, timeoutMs) => {
       const scope = tools.check();
-      if (require(process.resourcesPath + '/app.asar/package.json').version !== '12.1.0') throw Error('Unsupported attachment adapter version');
       const messages = document.querySelector('#app').__vue_app__.config.globalProperties.$store.state.messageInfo.messageList;
       const matches = messages.filter(message => message.msgId === messageId && message.chatRoomUri === scope.chatId);
       if (matches.length !== 1 || !matches[0].getFileName?.()) throw Error('File message changed');
 
-      // 12.1.0 的 webpack 入口为 0。临时工厂取得已有客户端服务，结束后撤销自身注册。
+      // 当前适配的 webpack 入口为 0。临时工厂取得已有客户端服务，结束后撤销自身注册。
       const queue = window.webpackJsonp, token = 'icenter_skill_attachment_' + require('crypto').randomUUID();
       let loader, service, kind;
       const payload = [[], { [token]: (module, exports, load) => { loader = load; } }, [[token]]];

@@ -4,7 +4,7 @@ const { checkImageOutput, writeImageOutput } = require('./image-output.cjs');
 const contracts = require('./sdk-contracts.json');
 
 const imageContract = {
-  clientVersion: contracts.clientVersion, messages: contracts.services.messages,
+  messages: contracts.services.messages,
   query: contracts.services.messages.methods.queryMsgByMsgIdList,
   download: contracts.services.messages.methods.downLoadMessageAttachs,
   queryType: contracts.types['d88a.Lb'], messageType: contracts.types['d88a.jb'],

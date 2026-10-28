@@ -5,9 +5,10 @@ const { createHash } = require('node:crypto');
 const { sdkPageOperation } = require('../sdk-page.cjs');
 const { SdkSession } = require('../sdk.cjs');
 const { ClientError } = require('../cdp.cjs');
+const { clientVersion } = require('../client-version.json');
 const accountId = 'sip:owner@example.test', chatId = 'sip:peer@example.test';
 const digest = value => createHash('sha256').update(String(value)).digest('hex');
-function fixture({ returned, action, version='12.1.0', readConfig,statSource }={}) {
+function fixture({ returned, action, version=clientVersion, readConfig,statSource }={}) {
   const calls = [];
   class Model { constructor(value='') { this.value=value; } }
   class QueryItem { constructor(id) { this.msgId=id; } }
@@ -103,9 +104,15 @@ test('非法模型字段、保留键和未知标记在调用服务前拒绝',asy
     assert.equal(result.ok,false);assert.equal(result.error.details.phase,'not-invoked');assert.equal(f.calls.length,0);assert.equal(f.window.__codexIcenterSdkCall,undefined);
   }
 });
-test('版本、账户、哈希和已有调用占用拒绝执行',async()=>{
-  for(const option of ['version','account','hash','busy']){
-    const f=fixture(option==='version'?{version:'future'}:{});
+test('版本高低不阻止匹配契约的服务调用',async()=>{
+  for(const version of ['0.0.0','9999.0.0']){
+    const f=fixture({version}),result=await f.call('invoke',{apply:true,arguments:['value']});
+    assert.equal(result.ok,true);assert.deepEqual(result.value.result,['value']);assert.equal(f.calls.length,1);
+  }
+});
+test('账户、哈希和已有调用占用拒绝执行',async()=>{
+  for(const option of ['account','hash','busy']){
+    const f=fixture({version:'unverified'});
     if(option==='account')f.state.userInfo.userId='other';
     if(option==='hash')f.contract.method.hash='wrong';
     if(option==='busy')f.window.__codexIcenterSdkCall='other-owner';

@@ -5,7 +5,6 @@ async function webPageOperation(operation,input,contract,applicationSource,downl
   const state=()=>document.querySelector('#app')?.__vue_app__?.config?.globalProperties?.$store?.state;
   const check=()=>{
     if(typeof process==='undefined'||!process.argv.includes('IS_MAIN_WINDOW'))fail('WRONG_WINDOW','Expected the main iCenter window.');
-    if(require(process.resourcesPath+'/app.asar/package.json').version!=='12.1.0')fail('UNSUPPORTED_VERSION','The application bridge requires iCenter 12.1.0.');
     if(state()?.userInfo?.userId!==input.accountId)fail('ACCOUNT_CHANGED','The client account changed.');
   };
   const hash=value=>require('crypto').createHash('sha256').update(String(value)).digest('hex');

@@ -1,5 +1,4 @@
 {
-  "clientVersion": "12.1.0",
   "apps": {
     "sms": {
       "origin": "https://i.zte.com.cn",

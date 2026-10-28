@@ -4,6 +4,7 @@ const vm=require('node:vm');
 const {createHash}=require('node:crypto');
 const {webPageOperation}=require('../web-page.cjs');
 const {SdkSession}=require('../sdk.cjs');
+const {clientVersion}=require('../client-version.json');
 const fs=require('node:fs/promises');
 const path=require('node:path');
 const os=require('node:os');
@@ -13,7 +14,7 @@ function fixture(options={}){
   const owned=[],existing={id:'native-frame',src:'https://app.example.test/user-work'},timers=new Set(),state={userInfo:{userId:'sip:owner@example.test'}};
   const document={querySelector:()=>({__vue_app__:{config:{globalProperties:{$store:{state}}}}}),getElementById:id=>id==='native-frame'?existing:null,createElement:()=>{const frame={style:{},remove(){this.removed=true}};return frame},body:{appendChild:frame=>owned.push(frame)}};
   const originalLookup=document.getElementById;
-  const context=vm.createContext({document,URL,process:{argv:['IS_MAIN_WINDOW'],resourcesPath:'/fixture'},require:name=>name.endsWith('package.json')?{version:'12.1.0'}:require(name),setTimeout:(fn,ms)=>{const timer=setTimeout(fn,ms);timers.add(timer);return timer},clearTimeout:timer=>{timers.delete(timer);clearTimeout(timer)}});
+  const context=vm.createContext({document,URL,process:{argv:['IS_MAIN_WINDOW'],resourcesPath:'/fixture'},require:name=>name.endsWith('package.json')?{version:clientVersion}:require(name),setTimeout:(fn,ms)=>{const timer=setTimeout(fn,ms);timers.add(timer);return timer},clearTimeout:timer=>{timers.delete(timer);clearTimeout(timer)}});
   const getCurrentWebContents=()=>({mainFrame:{get framesInSubtree(){return owned.filter(frame=>!frame.removed).map(frame=>({name:frame.name,url:frame.src,executeJavaScript:async()=>options.applicationFailure?{ok:false,error:{code:'WEB_ACCOUNT_CHANGED',message:'Mismatch',details:{phase:'not-invoked'}}}:{ok:true,value:{state:'returned'}}}))}}});
   context.remote={BrowserWindow:class{constructor(){throw Error('Native entry must not open a second window')}},getCurrentWebContents};
   vm.runInContext(`
@@ -24,7 +25,7 @@ function fixture(options={}){
     const chunks=[];chunks.push=payload=>{payload[1][Object.keys(payload[1])[0]](null,null,loader);return Array.prototype.push.call(chunks,payload)};window.webpackJsonp=chunks;
   `,context);
   const contract={origin:'https://app.example.test',path:'/connected/',method:{effect:'read',transport:{}},entry:{kind:'native-frame',chunk:'fixture-chunk',moduleId:'entry',method:'initialize',frameId:'native-frame',hash:sha(vm.runInContext('entry.initialize',context)),factoryHash:sha(vm.runInContext('factory',context))}};
-  const call=async()=>JSON.parse(JSON.stringify(await vm.runInContext('('+webPageOperation.toString()+')(...JSON.parse('+JSON.stringify(JSON.stringify(['invoke',{accountId:'sip:owner@example.test',app:'fixture',method:'query',arguments:[],apply:true},contract,'async function(){return {ok:true,value:{state:"returned"}}}']))+'))',context)));
+  const call=async()=>JSON.parse(JSON.stringify(await vm.runInContext('('+webPageOperation.toString()+')(...JSON.parse('+JSON.stringify(JSON.stringify(['invoke',{accountId:'sip:owner@example.test',app:'fixture',method:'query',arguments:[],apply:true},contract,'async function(){return {ok:true,value:{state:"returned"}}}',null]))+'))',context)));
   return {call,owned,existing,document,originalLookup,context,timers};
 }
 

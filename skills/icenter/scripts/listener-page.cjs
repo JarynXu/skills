@@ -1,4 +1,4 @@
-// 12.1.0 的被动消息订阅适配器；只注册观察回调，不切换会话或调用发送接口。
+// 被动消息订阅适配器；只注册观察回调，不切换会话或调用发送接口。
 function listenerPageOperation(operation, input) {
   const key = '__codexICenterListenerV1';
   const contractVersion = 3;
@@ -16,8 +16,6 @@ function listenerPageOperation(operation, input) {
       return { ok: true, value: { removed: !!current } };
     }
     if (!process.argv.includes('IS_MAIN_WINDOW')) fail('WRONG_WINDOW', 'Expected the iCenter main window.');
-    const version = require(process.resourcesPath + '/app.asar/package.json').version;
-    if (version !== '12.1.0') fail('UNSUPPORTED_VERSION', 'Passive notification adapter requires iCenter 12.1.0.');
     const store = document.querySelector('#app')?.__vue_app__?.config?.globalProperties?.$store;
     const accountId = store?.state?.userInfo?.userId;
     if (!accountId) fail('NOT_SIGNED_IN', 'No signed-in iCenter account.');

@@ -5,6 +5,7 @@ const {createHash,webcrypto}=require('node:crypto');
 const {webPageOperation}=require('../web-page.cjs');
 const {webApplicationOperation}=require('../web-application.cjs');
 const {SdkSession}=require('../sdk.cjs');
+const {clientVersion}=require('../client-version.json');
 const sha=value=>createHash('sha256').update(String(value)).digest('hex');
 
 function fixture(options={}){
@@ -34,10 +35,10 @@ function fixture(options={}){
   }
   const loader={c:{daba:{exports:{BrowserWindow,getCurrentWebContents:()=>({session:{borrowed:true}})}}},m:{}};
   const window={webpackJsonp:[]};window.webpackJsonp.push=payload=>{payload[1][Object.keys(payload[1])[0]](null,null,loader);return Array.prototype.push.call(window.webpackJsonp,payload)};
-  const main=vm.createContext({process:{argv:['IS_MAIN_WINDOW'],resourcesPath:'/client'},require:()=>({version:'12.1.0'}),document:{querySelector:()=>({__vue_app__:{config:{globalProperties:{$store:{state}}}}})},window,setTimeout:(fn,ms)=>{const timer=setTimeout(fn,ms);timers.add(timer);return timer},clearTimeout:timer=>{timers.delete(timer);clearTimeout(timer)}});
+  const main=vm.createContext({process:{argv:['IS_MAIN_WINDOW'],resourcesPath:'/client'},require:()=>({version:options.version??clientVersion}),document:{querySelector:()=>({__vue_app__:{config:{globalProperties:{$store:{state}}}}})},window,setTimeout:(fn,ms)=>{const timer=setTimeout(fn,ms);timers.add(timer);return timer},clearTimeout:timer=>{timers.delete(timer);clearTimeout(timer)}});
   const invoke=async(overrides={},operation='invoke')=>{
     const input={accountId:'sip:self@example.test',app:'sms',method:methodName,arguments:[{pageSize:1,startIndex:1,keyword:'exact value'}],apply:true,...overrides};
-    const result=await vm.runInContext('('+webPageOperation.toString()+')(...JSON.parse('+JSON.stringify(JSON.stringify([operation,input,contract,webApplicationOperation.toString()]))+'))',main);
+    const result=await vm.runInContext('('+webPageOperation.toString()+')(...JSON.parse('+JSON.stringify(JSON.stringify([operation,input,contract,webApplicationOperation.toString(),null]))+'))',main);
     return JSON.parse(JSON.stringify(result));
   };
   return {invoke,contract,web,main,window,state,requests,windows,timers};
@@ -45,6 +46,11 @@ function fixture(options={}){
 
 test('preview validates the account without opening a browser or issuing requests',async()=>{
   const f=fixture();const r=await f.invoke({apply:false});assert.equal(r.value.state,'preview');assert.equal(r.value.runtimeContractVerified,false);assert.equal(f.windows.length,0);assert.equal(f.requests.length,0);
+});
+test('客户端版本差异不阻止匹配契约的网页操作',async()=>{
+  const f=fixture({version:'unverified'}),r=await f.invoke();
+  assert.equal(r.ok,true);assert.equal(r.value.result.bo.rows[0].id,'original-id');
+  assert.equal(f.requests.length,1);assert.equal(f.windows.length,1);assert.equal(f.windows[0].closed,true);assert.equal(f.timers.size,0);
 });
 test('query uses its registered HTTPS API, browser credentials and response envelope',async()=>{
   const f=fixture();const r=await f.invoke();assert.equal(r.ok,true);assert.equal(r.value.responseCode,'0000');assert.equal(r.value.businessOutcome,'not-inferred');assert.equal(r.value.result.bo.rows[0].id,'original-id');

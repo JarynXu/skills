@@ -48,7 +48,7 @@ try {
 
 文件发送优先使用[文件接口](files-and-collections.md)。所选路径需要页面文件输入时，检查对应 `input[type=file]`，有证据的节点可使用 `DOM.setFileInputFiles`。Electron 原生文件选择框不属于网页 DOM，CDP 不能给任意原生对话框键入路径。
 
-12.1.0 的文件与图片按钮使用原生选择框。已核实的后续处理方法、无对话框发送和指定路径下载见[文件与收藏](files-and-collections.md)。其他原生能力可检查当前控件调用的桥接及参数契约，或使用下述桌面路径。不能猜私有 SDK、修改厂商程序或绕过认证。缺少可验证的接口和可用桌面工具时，说明受阻的功能。
+[记录版本](../scripts/client-version.json)的文件与图片按钮使用原生选择框。已核实的后续处理方法、无对话框发送和指定路径下载见[文件与收藏](files-and-collections.md)。其他原生能力可检查当前控件调用的桥接及参数契约，或使用下述桌面路径。不能猜私有 SDK、修改厂商程序或绕过认证。缺少可验证的接口和可用桌面工具时，说明受阻的功能。
 
 ## 可选桌面操作
 
@@ -60,7 +60,7 @@ try {
 
 ## 页面工作流工具
 
-`scripts/renderer.cjs` 提供 `RendererSession`，复用一个 CDP 连接。调用者拥有会话，结束时在 `finally` 中关闭。它检查主窗口、登录账户及可选的当前会话，不要求专用版本适配器成功。DOM 和 Vue 组件结构仍须符合当前页面。
+`scripts/renderer.cjs` 提供 `RendererSession`，复用一个 CDP 连接。调用者拥有会话，结束时在 `finally` 中关闭。它检查主窗口、登录账户及可选的当前会话，不要求专用接口适配器成功。DOM 和 Vue 组件结构仍须符合当前页面。
 
 ```javascript
 const { RendererSession } = require('<技能目录>/scripts/renderer.cjs');
@@ -95,7 +95,7 @@ webview 或独立窗口可能有自己的 target。重新发现并核对角色�
 
 ## 客户端设置
 
-12.1.0 的系统设置在主窗口内。需要展示或诊断该页面时，菜单为 `#MenuSystemSetting`，系统设置为 `#settingDetailShow .SystemSetting`，根元素为 `#SystemSettingDetail`。通知入口为 `.NotificationText`，另有 `.GeneralText`、`.ShortcutKeyText`、`.AbnormityText`。关闭入口为 `#SystemSettingDetail .SystemSettingDetailClose#close`。偏好修改使用客户端接口。
+[记录版本](../scripts/client-version.json)的系统设置在主窗口内。需要展示或诊断该页面时，菜单为 `#MenuSystemSetting`，系统设置为 `#settingDetailShow .SystemSetting`，根元素为 `#SystemSettingDetail`。通知入口为 `.NotificationText`，另有 `.GeneralText`、`.ShortcutKeyText`、`.AbnormityText`。关闭入口为 `#SystemSettingDetail .SystemSettingDetailClose#close`。偏好修改使用客户端接口。
 
 通知的当前状态可从 `.MessageAudioSetting .CheckBox`、`.MessageFlashSetting .CheckBox` 是否包含 `CheckBoxSelect` 读取。相应登录状态字段为 `$store.state.settingInfo.messageTipsAudio`、`messageTipsFlash`。核对两种观察是否一致；不点击开关来判断原值。通知开关调用 `setMessageTipsAudio`、`setMessageTipsFlash`，它们是切换动作，不能当成幂等赋值重试。
 

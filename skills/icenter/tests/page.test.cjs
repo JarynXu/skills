@@ -3,6 +3,7 @@ const assert = require('node:assert/strict');
 const vm = require('node:vm');
 const { pageOperation } = require('../scripts/page.cjs');
 const { callPage } = require('../scripts/client.cjs');
+const { clientVersion } = require('../scripts/client-version.json');
 
 // 固定版本的最小契约替身；真实 DOM 与客户端验证另行记录。
 function fixture() {
@@ -17,7 +18,7 @@ function fixture() {
     getAttribute: () => 'true', querySelector: () => richDraft ? {} : null, dispatchEvent: () => {} };
   const row = { dataset: { id: chat }, getClientRects: () => [1], click: () => { state.chatInfo.chatSelectUri = chat; clicks++; } };
   const context = { process: { argv: ['IS_MAIN_WINDOW'], resourcesPath: '/resources' },
-    require: () => ({ version: '12.1.0' }), Event: class {}, getComputedStyle: () => ({ visibility: 'visible' }),
+    require: () => ({ version: clientVersion }), Event: class {}, getComputedStyle: () => ({ visibility: 'visible' }),
     document: { querySelector: () => ({ __vue_app__: { config: { globalProperties: { $store: { state } } } } }),
       querySelectorAll: selector => selector === 'li.ChatInfo' ? [row] : [editor] } };
   return { state, context, editor, scope: { accountId: account, chatId: chat }, get clicks() { return clicks; },
@@ -34,11 +35,15 @@ test('账户来自登录状态，别名完整性不虚构', () => {
   assert.equal(r.value.account.id, f.scope.accountId); assert.equal(r.value.account.aliasesComplete, false);
   assert.equal(r.value.account.linkedUnionId, 'U1'); assert.equal(r.value.account.email, undefined);
 });
-test('辅助窗口与未适配版本拒绝执行', () => {
+test('辅助窗口拒绝执行，主窗口状态返回实际版本', () => {
   const f = fixture(); f.context.process.argv = ['IS_Image_WINDOW'];
   assert.equal(f.call('identify').value.role, 'other'); assert.equal(f.call('status').error.code, 'WRONG_WINDOW');
-  f.context.process.argv = ['IS_MAIN_WINDOW']; f.context.require = () => ({ version: '13.0.0' });
-  assert.equal(f.call('status').error.code, 'UNSUPPORTED_VERSION');
+  f.context.process.argv = ['IS_MAIN_WINDOW'];
+  for (const version of ['0.0.0', '9999.0.0']) {
+    f.context.require = () => ({ version });
+    const result = f.call('status');
+    assert.equal(result.ok, true); assert.equal(result.value.version, version);
+  }
 });
 test('目标账户或当前会话变化时不写编辑器', () => {
   const f = fixture();

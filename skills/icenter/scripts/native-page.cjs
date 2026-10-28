@@ -1,11 +1,10 @@
-// 12.1.0 的已核对 SDK 入口；不读取认证材料，不经编辑器发送，不提供任意方法执行。
+// 已核对的 SDK 入口；不读取认证材料，不经编辑器发送，不提供任意方法执行。
 async function nativePageOperation(operation, input = {}) {
   let phase = 'not-edited', acceptedId = null, lockToken = null;
   const fail = (code, message, details) => { throw Object.assign(new Error(message), { code, details }); };
   try {
     if (!['send', 'read-by-ids', 'sdk-info'].includes(operation)) fail('UNKNOWN_OPERATION', 'Unsupported SDK operation.');
     if (!process.argv.includes('IS_MAIN_WINDOW')) fail('WRONG_WINDOW', 'Expected the iCenter main window.');
-    if (require(process.resourcesPath + '/app.asar/package.json').version !== '12.1.0') fail('UNSUPPORTED_VERSION', 'The verified SDK adapter requires iCenter 12.1.0.');
     const currentState = () => document.querySelector('#app')?.__vue_app__?.config?.globalProperties?.$store?.state;
     const state = currentState();
     const accountId = state?.userInfo?.userId;
@@ -25,7 +24,7 @@ async function nativePageOperation(operation, input = {}) {
     const QueryItem = load?.c?.['d88a']?.exports?.Lb;
     const sanitize = load?.c?.['16f8']?.exports?.z;
     if (typeof service?.sendTextMsg !== 'function' || typeof service.queryMsgByMsgIdList !== 'function' || typeof QueryItem !== 'function' || typeof sanitize !== 'function') fail('UNSUPPORTED_SCHEMA', 'The loaded SDK differs from the verified contract.');
-    if (operation === 'sdk-info') return { ok: true, value: { version: '12.1.0', accountId, transport: 'client-sdk-over-cdp', verifiedOperations: ['send', 'read-by-ids'],
+    if (operation === 'sdk-info') return { ok: true, value: { version: require(process.resourcesPath + '/app.asar/package.json').version, accountId, transport: 'client-sdk-over-cdp', verifiedOperations: ['send', 'read-by-ids'],
       discoveredChatServiceMethods: Object.getOwnPropertyNames(Object.getPrototypeOf(service)).filter(key => key !== 'constructor' && typeof service[key] === 'function'),
       discoveryIsNotValidation: true, authentication: 'existing-client', arbitraryInvocation: false } };
     if (typeof input.chatId !== 'string' || !input.chatId) fail('SCOPE_REQUIRED', 'An observed chat ID is required.');

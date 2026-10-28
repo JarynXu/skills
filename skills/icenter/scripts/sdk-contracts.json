@@ -1,6 +1,5 @@
 {
   "version": 1,
-  "clientVersion": "12.1.0",
   "status": "source-linked-contracts",
   "imageDecoder": {
     "moduleId": "bbc0",

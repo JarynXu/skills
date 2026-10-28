@@ -2,6 +2,7 @@ const assert = require('node:assert/strict');
 const vm = require('node:vm');
 const { NotificationSession } = require('../notifications.cjs');
 const { listenerPageOperation } = require('../listener-page.cjs');
+const { clientVersion } = require('../client-version.json');
 const accountId = 'sip:owner@example.test';
 const chatId = 'sip:sender@example.test';
 const scope = { ownerId: 'source-test-owner', generationId: 'source-generation', accountId,
@@ -10,7 +11,7 @@ function raw(id, overrides = {}) {
   return { msgId: id, chatRoomUri: chatId, data_owner: accountId, sendUri: chatId,
     chatRoomType: 0, atInfo: '#', atExInfo: '#', msgType: 1, content: 'fixture message', ...overrides };
 }
-function renderer({ version = '12.1.0', lastId = 'baseline', now } = {}) {
+function renderer({ version = clientVersion, lastId = 'baseline', now } = {}) {
   const listeners = new Map();
   const state = { userInfo: { userId: accountId, unionId: 'UN-OWNER' }, chatInfo: { chatSelectUri: 'sip:unrelated@example.test', chatList: [{ chatRoomUri: chatId, chatRoomType: 0, lastMessageBriefInfo: lastId ? { msgId: lastId } : null }] } };
   const notifications = {

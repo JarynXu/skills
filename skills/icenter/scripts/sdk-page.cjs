@@ -1,4 +1,4 @@
-// 版本化客户端服务调用。请求数据只作为参数传递，不作为代码执行。
+// 按接口契约调用客户端服务。请求数据只作为参数传递，不作为代码执行。
 async function sdkPageOperation(operation, input, contract, modelContracts) {
   let phase = 'not-invoked', lockToken = null, callbackEvidence = [], observedId = null;
   const fail = (code, message, details) => { throw Object.assign(new Error(message), { code, details }); };
@@ -8,7 +8,6 @@ async function sdkPageOperation(operation, input, contract, modelContracts) {
   try {
     if (!['check','describe','type','invoke','file-send'].includes(operation)) fail('UNKNOWN_OPERATION', 'Unsupported SDK service operation.');
     if (!process.argv.includes('IS_MAIN_WINDOW')) fail('WRONG_WINDOW', 'Expected the main iCenter window.');
-    if (require(process.resourcesPath + '/app.asar/package.json').version !== '12.1.0') fail('UNSUPPORTED_VERSION', 'The SDK contracts require iCenter 12.1.0.');
     const state = () => document.querySelector('#app')?.__vue_app__?.config?.globalProperties?.$store?.state;
     const check = () => {
       const accountId = state()?.userInfo?.userId;

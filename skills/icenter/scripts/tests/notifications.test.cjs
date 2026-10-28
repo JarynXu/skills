@@ -10,6 +10,18 @@ const { markAutomation } = require('../message-origin.cjs');
 const { renderer, sessionFor, accountId, chatId, scope, raw } = require('./notification-fixture.cjs');
 const exec = promisify(execFile);
 
+test('客户端版本差异不阻止消息订阅、接收和释放', async () => {
+  const app = renderer({ version: 'unverified' }), session = sessionFor(app);
+  await session.subscribe(scope);
+  assert.equal(app.listeners.size, 1);
+  app.emit({ aNotifyType: 2, message: raw('different-version') });
+  const snapshot = await session.readPending(scope);
+  assert.equal(snapshot.records[0].message.id, 'different-version');
+  await session.confirm({ ...scope, sequence: snapshot.sequence });
+  await session.unsubscribe(scope);
+  assert.equal(app.listeners.size, 0); assert.equal(app.chunks.length, 0);
+});
+
 test('应用技能在不存在其他技能的隔离进程中提供原生订阅', async t => {
   const parent = path.resolve(os.tmpdir());
   const root = await fs.mkdtemp(path.join(parent, 'icenter-native-isolated-'));

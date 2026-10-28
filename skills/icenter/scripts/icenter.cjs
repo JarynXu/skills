@@ -9,6 +9,7 @@ const { ClientError, CdpClient, listTargets } = require('./cdp.cjs');
 const { connect, discover, select, sendText, watch } = require('./client.cjs');
 const { SdkSession } = require('./sdk.cjs');
 const { releaseImage } = require('./image-output.cjs');
+const { clientVersion } = require('./client-version.json');
 
 const optionsByCommand = {
   connections: [], connect: ['executable', 'instance-pid', 'restart'], targets: ['port', 'all'], status: ['port', 'target-id'],
@@ -81,7 +82,7 @@ async function main(argv) {
       client = await connect(prepared.port);
       try { output({ ...prepared, targetId: client.targetId, clientState: 'signed-in', ...(await client.call('status')) }); }
       catch (error) {
-        if (!['NOT_SIGNED_IN', 'UNSUPPORTED_VERSION', 'UNSUPPORTED_SCHEMA'].includes(error.code)) throw error;
+        if (!['NOT_SIGNED_IN', 'UNSUPPORTED_SCHEMA'].includes(error.code)) throw error;
         output({ ...prepared, targetId: client.targetId, clientState: error.code === 'NOT_SIGNED_IN' ? 'not-signed-in' : 'adapter-unavailable', adapterError: { code: error.code, message: error.message } });
       }
     } catch (error) {
@@ -99,7 +100,7 @@ async function main(argv) {
   if (command === 'sdk-enum') {
     const key = required(values,'name'), value = SdkSession.catalog().enums[key];
     if (!Object.hasOwn(SdkSession.catalog().enums,key)) throw new ClientError('UNKNOWN_SDK_ENUM','The enum is not registered.');
-    output({clientVersion:'12.1.0',name:key,values:value.values}); return;
+    output({clientVersion,name:key,values:value.values}); return;
   }
   if(command==='web-list'){
     const catalog=SdkSession.webCatalog(),apps=Object.entries(catalog.apps).filter(([name])=>!values.app||name===values.app);

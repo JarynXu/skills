@@ -7,7 +7,6 @@ async function imagePageOperation(input, contract) {
   try {
     const deadline = Date.now() + input.timeoutMs;
     if (!process.argv.includes('IS_MAIN_WINDOW')) fail('WRONG_WINDOW', 'Expected the main iCenter window.');
-    if (require(process.resourcesPath + '/app.asar/package.json').version !== contract.clientVersion) fail('UNSUPPORTED_VERSION', 'The image adapter requires its registered client version.');
     const check = () => {
       const accountId = document.querySelector('#app')?.__vue_app__?.config?.globalProperties?.$store?.state?.userInfo?.userId;
       if (!accountId) fail('NOT_SIGNED_IN', 'No signed-in client account.');

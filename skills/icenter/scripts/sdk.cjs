@@ -2,6 +2,7 @@ const { ClientError, CdpClient } = require('./cdp.cjs');
 const { discover } = require('./client.cjs');
 const { sdkPageOperation } = require('./sdk-page.cjs');
 const contracts = require('./sdk-contracts.json');
+const { clientVersion } = require('./client-version.json');
 const { readHistory } = require('./sdk-history.cjs');
 const { readMessageImage } = require('./message-images.cjs');
 const {webPageOperation}=require('./web-page.cjs');
@@ -37,11 +38,11 @@ class SdkSession {
   }
   static catalog(query='') {
     if (typeof query!=='string') throw new ClientError('INVALID_ARGUMENT','The catalog query must be text.');
-    return structuredClone({ clientVersion:contracts.clientVersion, status:contracts.status,
+    return structuredClone({ clientVersion, status:contracts.status,
       operations:Object.entries(contracts.services).flatMap(([service,value])=>Object.entries(value.methods).filter(([method])=>(service+'.'+method).toLowerCase().includes(query.toLowerCase())).map(([method,contract])=>({ service,method,...contract }))),
       types:Object.keys(contracts.types), enums:contracts.enums });
   }
-  static webCatalog(){return structuredClone(webContracts);}
+  static webCatalog(){return structuredClone({clientVersion,...webContracts});}
   static webTypes(app){
     if(!Object.hasOwn(webContracts.apps,app))throw new ClientError('UNKNOWN_WEB_APP','The application is not registered.');
     return Object.keys(require('./web-types.json')[app]||{});

@@ -5,11 +5,18 @@ const path = require('node:path');
 const os = require('node:os');
 const fs = require('node:fs/promises');
 const { writeImageOutput } = require('../scripts/image-output.cjs');
+const { clientVersion } = require('../scripts/client-version.json');
 const script = path.resolve(__dirname, '../scripts/icenter.cjs');
 
 test('真实 CLI 从任意工作目录输出可解析帮助，无需 npm install', () => {
   const run = spawnSync(process.execPath, [script, 'help'], { cwd: os.tmpdir(), encoding: 'utf8' });
   assert.equal(run.status, 0); assert.ok(JSON.parse(run.stdout).commands.send); assert.ok(JSON.parse(run.stdout).commands['read-image']); assert.ok(JSON.parse(run.stdout).commands['release-image']);
+});
+test('SDK 目录、枚举和网页目录报告同一参考客户端版本', () => {
+  for (const args of [['sdk-list'], ['sdk-enum', '--name', '14ce.R'], ['web-list']]) {
+    const run = spawnSync(process.execPath, [script, ...args], { cwd: os.tmpdir(), encoding: 'utf8' });
+    assert.equal(run.status, 0, run.stderr); assert.equal(JSON.parse(run.stdout).clientVersion, clientVersion);
+  }
 });
 test('真实 CLI 预览和释放临时图片无需连接客户端', async () => {
   const result = await writeImageOutput(Buffer.from('owned output'));

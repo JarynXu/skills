@@ -7,7 +7,6 @@ function pageOperation(operation, input = {}) {
     if (operation === 'identify') return { ok: true, value: { role } };
     if (role !== 'main') fail('WRONG_WINDOW', 'The target is not the iCenter main window.');
     const version = require(process.resourcesPath + '/app.asar/package.json').version;
-    if (version !== '12.1.0') fail('UNSUPPORTED_VERSION', `No verified script adapter for iCenter ${version}. Inspect the page through CDP.`);
     const state = document.querySelector('#app')?.__vue_app__?.config?.globalProperties?.$store?.state;
     if (!state?.userInfo || !state.chatInfo || !state.messageInfo) fail('UNSUPPORTED_SCHEMA', 'The iCenter store schema is unavailable.');
     const accountId = state.userInfo.userId;
