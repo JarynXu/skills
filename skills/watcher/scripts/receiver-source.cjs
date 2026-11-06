@@ -6,9 +6,11 @@ const { atomicJson, readJson, digest, canonicalJson } = require('./persistence.c
 const { RuntimeError, errorInfo } = require('./errors.cjs');
 
 class ReceiverStore extends EventJournal {
+  signature() { return digest(canonicalJson([this.config.source, this.config.targetThreadId])); }
+
   async open() {
     for (const name of ['batches', 'receipts', 'source-errors']) await fs.mkdir(path.join(this.root, name), { recursive: true });
-    await this.openIdentity(digest(canonicalJson([this.config.source, this.config.targetThreadId])));
+    await this.openIdentity(this.signature());
     await this.openEvents(event => {
       if (event.sourceId !== this.config.source.id || event.threadId !== this.config.targetThreadId ||
         typeof event.payload?.id !== 'string' || !event.payload.id || event.eventId !== digest([this.config.source.id, event.payload.id]) ||
@@ -67,9 +69,10 @@ class ReceiverStore extends EventJournal {
 
 // 工厂由可信装配提供；事件载荷不能选择模块、选项或目标。
 function createReceiverSource(config, { openReceiver } = {}) {
+  let subscription;
   return {
     createStore: () => new ReceiverStore(config),
-    identity: () => ({ sourceId: config.source.id }),
+    identity: () => ({ sourceId: config.source.id, ...(subscription ? { subscription } : {}) }),
     describe: () => ({ coverage: 'source-owned-ready-batches', sourceId: config.source.id }),
     async connect() {
       let factory = openReceiver;
@@ -83,6 +86,8 @@ function createReceiverSource(config, { openReceiver } = {}) {
         await receiver?.close?.();
         throw new RuntimeError('INVALID_RECEIVER', 'A receiver must provide read, confirm and close.');
       }
+      try { subscription = await receiver.describe?.(); }
+      catch (error) { await receiver.close(); throw error; }
       return receiver;
     },
     async collect(receiver, store, emit) {

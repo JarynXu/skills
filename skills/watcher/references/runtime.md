@@ -2,14 +2,20 @@
 
 ## 入口与环境
 
-需要 Windows、Node.js 22.4 或更高版本，使用 Node 内置模块。`scripts/trigger.cjs` 提供 `start`、`run`、`status`、`stop`、`ack`、`retry`、`reconcile-source`。`run` 在前台运行；`start` 启动隐藏后台进程。除 `status` 外，命令默认预览，`--apply` 执行。
+需要 Windows、Node.js 22.4 或更高版本，使用 Node 内置模块。`scripts/trigger.cjs` 的 `list` 和 `status` 只读。`start`、`run`、`stop`、`register`、`ack`、`retry`、`reconcile-source` 默认预览，`--apply` 执行。`run` 在前台运行，`start` 启动隐藏后台进程。
 
 ```text
+node "<watcher>/scripts/trigger.cjs" list
+node "<watcher>/scripts/trigger.cjs" list --thread <目标会话UUID>
 node "<watcher>/scripts/trigger.cjs" start --config "<绝对配置文件>"
 node "<watcher>/scripts/trigger.cjs" start --config "<绝对配置文件>" --apply
 node "<watcher>/scripts/trigger.cjs" status --config "<绝对配置文件>"
 node "<watcher>/scripts/trigger.cjs" stop --config "<绝对配置文件>" --apply
 ```
+
+标准入口自动将实例登记在用户 Codex 目录的 `watchers/instances`。列表按状态目录区分实例，显示来源名称、目标会话、配置路径、当前进程状态、最近成功采集时间与待投递情况。来源若提供 `describe()`，`subscription` 会包含它允许公开的范围和所有者。查询列表只读索引、状态与管道，不连接来源或加载接收器模块。要暂停一项，用它返回的配置路径执行 `stop`，恢复用同一配置执行 `start`。彻底结束来源订阅使用对应来源技能的入口。
+
+旧实例可以用 `register --config <原配置> --apply` 补登，登记前会核对原来源和目标的持久身份。只有已登记实例出现在列表内。旧包装器、其他用户的实例和宿主定时任务各有原来的管理入口。
 
 状态目录必须为绝对路径，不能是文件系统根、技能包内部或 Git 工作树内部。路径检查解析现有目录联接。Windows 内核命名管道提供单写者权；`listener.lock` 保存诊断记录。崩溃释放内核锁，磁盘事件保留。取得内核锁的进程替换旧记录，旧 PID 存活不构成拒绝条件。PID 复用不能代表实例所有权。
 
@@ -118,7 +124,7 @@ const source = createReceiverSource(config, { openReceiver });
 
 通知后端提供 `check()`、`notify(event,eventFile,configFile)`。确认结果必须含匹配的 threadId；原生队列返回 queuedMessageId，AppToolsNotifier 返回工具与回合证据。原生队列通过参数数组调用配置程序，不使用 shell。`Queued message` 只证明持久入队，不能证明冷会话开始执行。
 
-需要桌面应用唤醒时，组合入口注入 `scripts/app-tools-notifier.cjs` 导出的 `AppToolsNotifier`。它使用宿主现有 MCP stdio 服务，要求可信 serverFile、调用会话 ID 和执行器环境 CODEX_THREAD_ID、CODEX_APP_TOOLS_PIPE_PATH。不能伪造调用者或从载荷取连接参数。CLI 默认使用原生队列；AppToolsNotifier 需要外部组合注入，配置字段不能自行开启它。
+需要桌面应用唤醒时，配置 `"wake": {"backend":"app-tools"}`。标准 CLI 从宿主执行器取得调用会话和应用工具通道，启动时核对工具与本地目标。默认加载 Codex 用户目录下 `plugins/cache/openai-bundled/codex-app-tools/server.mjs`。宿主部署在其他位置时用 `wake.serverFile` 指向已安装可信服务的绝对路径。缺少服务、真实调用环境或目标时报告启动失败。在有桌面应用工具通道的会话内重新启动。旧配置的 `wake.executable` 继续使用原生入队。
 
 AppToolsNotifier 核对本地 Codex 目标。空闲目标确认匹配回合后返回 activation:started；原本忙碌时返回 queued-behind-active-turn。工具接受后没有观察到匹配回合，保留 NOTIFY_ACTIVATION_UNKNOWN，不能重发。组合入口拥有注入通知器的关闭责任。可选 forward 方法供可信组合使用，语义分派不属于 watcher。
 

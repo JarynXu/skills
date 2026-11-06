@@ -74,6 +74,28 @@ test('长通知被读取上限截断时仍能核对对应回合', async () => {
   assert.equal(f.calls.filter(call => call.tool === 'send_message_to_thread').length, 1);
 });
 
+test('桌面目标以委派工具结果接收输入，仅接受目标输入位置的投递标识', async () => {
+  for (const trusted of [true, false]) {
+    const f = fake(), original = f.client.call;
+    f.client.call = async (tool, args, callId) => {
+      const reply = await original(tool, args, callId);
+      if (tool !== 'read_thread') return reply;
+      const value = JSON.parse(reply.content[0].text);
+      for (const turn of value.turns) {
+        assert.equal(args.includeOutputs, true);
+        const text = turn.items[0].content[0].text;
+        turn.items = [{ type: 'functionCallOutput', name: trusted ? 'send_message_to_thread' : 'exec_command',
+          output: { text: '<codex_delegation>\n<input>\n' + text + '</input></codex_delegation>' } }];
+      }
+      return mcp(value);
+    };
+    const activation = new AppToolsNotifier({}, f.options).enqueue(threadId, 'fixture');
+    if (trusted) assert.equal((await activation).startedTurnId, turnId);
+    else await assert.rejects(activation, { code: 'NOTIFY_ACTIVATION_UNKNOWN' });
+    assert.equal(f.calls.filter(call => call.tool === 'send_message_to_thread').length, 1);
+  }
+});
+
 test('错误目标回执不证明成功，其他主机和非 Codex 目标不发送', async () => {
   const mismatch = fake({ accept: false });
   await assert.rejects(new AppToolsNotifier({}, mismatch.options).enqueue(threadId, 'Synthetic'), { code: 'NOTIFY_UNKNOWN' });

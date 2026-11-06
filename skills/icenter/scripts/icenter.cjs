@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const fs = require('node:fs/promises');
 const path = require('node:path');
-const { execFileSync } = require('node:child_process');
+const { prepareConnection } = require('./windows-connection.cjs');
 const { parseArgs } = require('node:util');
 const { randomUUID } = require('node:crypto');
 const { TextDecoder } = require('node:util');
@@ -9,6 +9,9 @@ const { ClientError, CdpClient, listTargets } = require('./cdp.cjs');
 const { connect, discover, select, sendText, watch } = require('./client.cjs');
 const { SdkSession } = require('./sdk.cjs');
 const { releaseImage } = require('./image-output.cjs');
+const { openNotifications } = require('./notifications.cjs');
+const { MessageReceiver } = require('./message-receiver.cjs');
+const { observe } = require('./observe.cjs');
 const { clientVersion } = require('./client-version.json');
 
 const optionsByCommand = {
@@ -37,6 +40,9 @@ const optionsByCommand = {
   'send-file': ['port','target-id','account','chat','file','apply'],
   send: ['port', 'target-id', 'account', 'chat', 'text-file', 'suffix-file', 'mark-origin', 'apply'],
   watch: ['port', 'target-id', 'account', 'chat', 'duration-seconds', 'idle-seconds', 'checkpoint'],
+  observe: ['port', 'target-id', 'account', 'chat', 'sender', 'duration-seconds', 'idle-seconds'],
+  subscriptions: ['port', 'target-id', 'account'],
+  'stop-receiver': ['port', 'target-id', 'account', 'state-dir', 'apply'],
 };
 const output = value => process.stdout.write(JSON.stringify(value) + '\n');
 const integer = (value, name, min, max) => {
@@ -48,36 +54,20 @@ const required = (values, key) => {
   return values[key];
 };
 
-function prepareConnection(action, values = {}) {
-  if (process.platform !== 'win32') throw new ClientError('UNSUPPORTED_PLATFORM', 'Connection preparation requires Windows PowerShell; use an explicit CDP port on other hosts.');
-  const args = ['-NoProfile', '-NonInteractive', '-File', path.join(__dirname, 'connection.ps1'), '-Action', action];
-  if (values.executable) args.push('-ExecutablePath', values.executable);
-  if (values['instance-pid']) args.push('-InstancePid', String(integer(values['instance-pid'], 'instance-pid', 1, 2147483647)));
-  if (values.restart) args.push('-Restart');
-  let raw;
-  try { raw = execFileSync('powershell.exe', args, { encoding: 'utf8', timeout: action === 'probe' ? 15000 : 50000, windowsHide: true }); }
-  catch (error) {
-    if (!error.stdout) throw new ClientError('CONNECTION_SETUP', 'Connection preparation did not finish.', { cause: error.message });
-    raw = error.stdout;
-  }
-  const result = JSON.parse(raw.replace(/^\uFEFF/, ''));
-  if (result.error) throw new ClientError(result.error.code, result.error.message, result.error.details);
-  return result;
-}
-
 async function main(argv) {
   const command = argv[0];
   if (!command || command === '--help' || command === 'help') {
-    output({ commands: optionsByCommand, defaults: { limit: 50, watchDurationSeconds: 60, watchIdleSeconds: 30 }, note: 'connect prepares the client; --restart allows restarting the selected instance. select/send/cdp preview by default; --apply executes. All IDs come from the observed client. See references/tools.md.' });
+    output({ commands: optionsByCommand, deprecated: { watch: 'Use observe for bounded SDK observation, or message-receiver with watcher for durable delivery.' }, defaults: { limit: 50, observeDurationSeconds: 60, watchDurationSeconds: 60, watchIdleSeconds: 30 }, note: 'connect prepares the client; --restart allows restarting the selected instance. select/send/cdp preview by default; --apply executes. All IDs come from the observed client. See references/tools.md.' });
     return;
   }
   if (!Object.hasOwn(optionsByCommand, command)) throw new ClientError('UNKNOWN_COMMAND', `Unknown command: ${command}`);
-  const schema = Object.fromEntries(optionsByCommand[command].map(key => [key, { type: ['apply', 'all', 'restart', 'mark-origin','types'].includes(key) ? 'boolean' : 'string', ...(['message-id','field'].includes(key) ? { multiple: true } : {}) }]));
+  const schema = Object.fromEntries(optionsByCommand[command].map(key => [key, { type: ['apply', 'all', 'restart', 'mark-origin','types'].includes(key) ? 'boolean' : 'string', ...(['message-id','field','sender'].includes(key) ? { multiple: true } : {}) }]));
   const { values } = parseArgs({ args: argv.slice(1), options: schema, allowPositionals: false, strict: true });
   if (command === 'connections') {
     output(prepareConnection('probe')); return;
   }
   if (command === 'connect') {
+    if (values['instance-pid']) values['instance-pid'] = integer(values['instance-pid'], 'instance-pid', 1, 2147483647);
     const prepared = prepareConnection('ensure', values);
     let client;
     try {
@@ -119,6 +109,29 @@ async function main(argv) {
     return;
   }
   const port = integer(required(values, 'port'), 'port', 1, 65535);
+  if (['subscriptions', 'observe', 'stop-receiver'].includes(command)) {
+    const accountId = required(values, 'account');
+    const stateDir = command === 'stop-receiver' ? required(values, 'state-dir') : undefined;
+    if (stateDir && !path.isAbsolute(stateDir)) throw new ClientError('INVALID_ARGUMENT', 'Use an absolute receiver state directory.');
+    if (command === 'stop-receiver' && !values.apply) { output({ state: 'preview', accountId, stateDir }); return; }
+    let observation;
+    if (command === 'observe') observation = { accountId, chatId: required(values, 'chat'), senderIds: required(values, 'sender'),
+      durationMs: integer(values['duration-seconds'] ?? '60', 'duration-seconds', 1, 43200) * 1000,
+      idleMs: values['idle-seconds'] && integer(values['idle-seconds'], 'idle-seconds', 1, 43200) * 1000,
+      emit: event => new Promise((resolve, reject) => process.stdout.write(JSON.stringify(event) + '\n', error => error ? reject(error) : resolve())) };
+    const session = await openNotifications({ port, targetId: values['target-id'] });
+    try {
+      if (command === 'subscriptions') output(await session.list({ accountId }));
+      else if (command === 'stop-receiver') output(await MessageReceiver.stopSaved({ session, accountId, stateDir }));
+      else {
+        const controller = new AbortController(), stop = () => controller.abort();
+        process.once('SIGINT', stop); process.once('SIGTERM', stop);
+        try { await observe(session, { ...observation, signal: controller.signal }); }
+        finally { process.removeListener('SIGINT', stop); process.removeListener('SIGTERM', stop); }
+      }
+    } finally { await session.close(); }
+    return;
+  }
   if(['web-describe','web-call'].includes(command)){
     const accountId=required(values,'account'),app=required(values,'app'),method=required(values,'method');
     const args=command==='web-call'?JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(await fs.readFile(required(values,'args-file')))):undefined;
@@ -186,6 +199,7 @@ async function main(argv) {
   }
   let monitor;
   if (command === 'watch') {
+    process.stderr.write('Deprecated: use observe for SDK notifications or message-receiver with watcher for ongoing delivery.\n');
     monitor = { durationMs: integer(values['duration-seconds'] ?? '60', 'duration-seconds', 1, 43200) * 1000,
       idleMs: integer(values['idle-seconds'] ?? '30', 'idle-seconds', 1, 43200) * 1000,
       emit: value => new Promise((resolve, reject) => process.stdout.write(JSON.stringify(value) + '\n', error => error ? reject(error) : resolve())) };

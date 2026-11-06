@@ -2,6 +2,42 @@
 
 被动观察通过本机 CDP 读取 SDK 新消息通知，参考客户端版本见[版本记录](../scripts/client-version.json)。它不切换聊天、不置已读、不发送消息，也不代表完整历史。开始前按[连接与身份](connection-and-identity.md)核对端口、主窗口、账户和提及身份。需要连续观察、去重及按静默期归集时使用 `scripts/message-receiver.cjs`；只需原生通知缓冲或要自行管理归集状态时使用 `scripts/notifications.cjs`。
 
+## 持续监听并唤醒指定会话
+
+一个 Codex 会话关注甲、另一个关注乙时，各写一份 watcher 配置。每份只选相应的聊天、发送者和目标会话。先从 watcher 的 `trigger.cjs list` 查已登记实例，并用以下命令核对当前账户的原生订阅。列表给出所有者、代次、范围和未确认数量。旧内存订阅的范围可能显示为 `null`，可按所有者核对旧配置。
+
+```text
+node "<icenter>/scripts/icenter.cjs" subscriptions --port <端口> --account <账户ID>
+```
+
+将下例保存为技能包和仓库之外的 JSON 文件。替换来源名称、绝对路径及从客户端和宿主核实的 ID。第二个目标使用另外的接收器目录和 watcher 目录。只有一个已开启 CDP 的 iCenter 实例时，接收器可以在每次启动时只读发现端口。多实例应在 `options` 中指定已核对的 `port` 和必要的 `targetId`。
+
+```json
+{
+  "version": 2,
+  "stateDir": "C:/Automation/contact-a/watcher",
+  "targetThreadId": "<目标 Codex 会话 UUID>",
+  "wake": { "backend": "app-tools" },
+  "source": {
+    "kind": "receiver",
+    "id": "甲的来信",
+    "module": "C:/Skills/icenter/scripts/message-receiver.cjs",
+    "export": "openMessageReceiver",
+    "options": {
+      "stateDir": "C:/Automation/contact-a/receiver",
+      "accountId": "<登录账户 ID>",
+      "sources": [{ "kind": "conversation", "chatId": "<甲的聊天 ID>", "senderIds": ["<甲的发送者 ID>"] }]
+    }
+  }
+}
+```
+
+用 watcher 的标准命令操作该配置，无需另写启动脚本。在桌面 Codex 会话的执行环境中预览 `start --config <绝对配置路径>`，再加 `--apply` 启动。用 `status --config <路径>` 核对 `listening`、`fresh` 和 `subscription.ownerId`。空闲时只有本地脚本等消息。固定时刻的检查按用户给定的时间另行配置。
+
+- 查询所有配置用 `list`，按目标查用 `list --thread <UUID>`。若两个会话都关注甲，会各自收到一份。需要代回时按用户指定的会话执行，观察权限不能代替发送授权。
+- 暂停其中一个用 watcher 的 `stop --config <该配置> --apply`。接收器在主窗口中保留自己的缓冲。用原配置重新 `start` 后核对代次和覆盖状态。首次观察从注册时开始，窗口重载或缓冲溢出需要核对历史。
+- 要彻底结束，在确认 watcher 已停止后运行 `icenter.cjs stop-receiver --port <端口> --account <账户ID> --state-dir <该接收器目录> --apply`。这会停止该所有者接收新通知，保存最后一批记录后注销。回执的 `pendingBatches` 和 `openGroups` 给出接收器留存的数量，原任务继续处理未交付内容。只暂停或结束用户指明的实例。
+
 ## 持久消息接收器
 
 `scripts/message-receiver.cjs` 提供独立 Node.js 模块。接收器管理原生通知订阅、持久消息去重、静默分组和待交付批次。
@@ -91,14 +127,16 @@ try {
 }
 ```
 
-`ownerId` 是订阅所有者标识，不是收件人。订阅绑定创建时的账户；读取和确认要求当前账户与订阅账户一致。`generationId` 标识渲染订阅代次。相同配置可复用现存订阅；每个渲染窗口只允许一个所有者。不同所有者不能读取、确认或移除对方的订阅。
+`ownerId` 标识订阅所有者，`generationId` 标识本次注册。一个主窗口可同时注册多个所有者。每个所有者的范围、缓冲、错误和确认序号独立。同一所有者用原配置重连时取回已有代次。读取和确认均核对登录账户。低层调用可带 `expectedGenerationId` 拒绝操作已被替换的代次。
 
 | 操作 | 返回及语义 |
 |---|---|
 | `subscribe(scope)` | 返回 `reused,generationId,baseline,sequence`。`baseline` 含聊天 ID、类型及当前最新消息 ID，不重放历史。配置变化拒绝复用。 |
 | `readPending(owner)` | 返回未确认记录副本及 `error,sequence,acknowledged,checkedAt`。错误可与已捕获记录并存。 |
 | `confirm({...owner,sequence})` | 清除不大于指定序号的本订阅缓冲，不改变客户端已读。调用方先持久化记录。确认期间到达的新消息保留。 |
-| `unsubscribe(owner)` | 仅注销本所有者观察者。注销会丢弃原生内存缓冲；调用方需先保存遗留记录或登记未保存范围。 |
+| `list({accountId})` | 列出该账户的原生所有者和缓冲状态，省略消息正文。 |
+| `seal(owner)` | 停止该所有者接收新通知，保留缓冲供最后一次读取和确认。 |
+| `unsubscribe({...owner,afterSequence})` | 仅在指定位置已全部确认时移除该所有者。旧调用省略 `afterSequence` 仍可直接移除，须先保存或登记遗留记录。 |
 | `sendReply({accountId,chatId},text,options?)` | 向核对后的聊天发送并取得客户端消息 ID。原生会话使用 SDK，不切换聊天、不改草稿。可选 `{markOrigin:true}` 按来源策略附加标记。发送需要用户授权，详见[编写与发送](compose-and-send.md)。 |
 | `close()` | 释放本会话拥有的 CDP 连接，不清除缓冲、错误或订阅。借用连接构造会话时不取得关闭权。 |
 
@@ -124,7 +162,13 @@ try {
 
 ## 有时限观察
 
-`icenter.cjs watch` 观察当前聊天已加载消息，包含本人消息。核对 `senderId` 及方向；它不替代全账户订阅。
+用 `observe` 在指定时间内接收 SDK 新来信。切换前台聊天不会改变观察范围。可重复指定 `--sender`，默认观察 60 秒，指定 `--idle-seconds` 可以提前结束。输出 `started`、`message` 和 `ended` 三类 JSON 行。结束时排空并注销这一临时订阅。输出失败且原生缓冲仍有记录时，错误中的所有者和代次可用于取回。
+
+```text
+node "<icenter>/scripts/icenter.cjs" observe --port <端口> --account <账户ID> --chat <聊天ID> --sender <发送者ID> --duration-seconds 120
+```
+
+原页面命令 `icenter.cjs watch` 已弃用，兼容旧调用及其检查点。它观察当前聊天已加载消息，包含本人消息。迁移时若需续接旧检查点，先按该锚点核对历史，再记录 SDK 订阅起点。需要跨进程恢复时使用持久接收器。
 
 ```text
 node "<icenter目录>/scripts/icenter.cjs" watch --port <端口> --account <账户ID> --chat <聊天ID> --duration-seconds 120 --idle-seconds 60 --checkpoint "<任务目录>/cursor.json"

@@ -8,8 +8,10 @@ const { loadConfig: loadInboxConfig } = require('./config.cjs');
 const { createInboxSource } = require('./inbox-source.cjs');
 const { createReceiverSource } = require('./receiver-source.cjs');
 const { NativeCodexQueue } = require('./codex-queue.cjs');
+const { AppToolsNotifier } = require('./app-tools-notifier.cjs');
+const { registerInstance, listInstances } = require('./instances.cjs');
 const output = value => process.stdout.write(JSON.stringify(value) + '\n');
-const common = ['start', 'run', 'status', 'stop', 'ack', 'retry', 'reconcile-source'];
+const common = ['start', 'run', 'status', 'stop', 'register', 'ack', 'retry', 'reconcile-source'];
 
 async function checkedEvent(config, eventId) {
   if (!/^[a-f0-9]{64}$/.test(eventId || '')) throw new RuntimeError('INVALID_ARGUMENT', '--event-id must be a lowercase SHA-256 event ID.');
@@ -20,9 +22,13 @@ async function checkedEvent(config, eventId) {
 
 const createSource = config => config.source.kind === 'receiver' ? createReceiverSource(config) : createInboxSource(config);
 
-async function main(argv, { loadConfig = loadInboxConfig, sourceFactory = createSource, queueFactory = config => new NativeCodexQueue(config.wake.executable), extensions = {} } = {}) {
+async function main(argv, { loadConfig = loadInboxConfig, sourceFactory = createSource, queueFactory, extensions = {} } = {}) {
   const command = argv[0];
-  if (!command || ['help', '--help'].includes(command)) { output({ commands: [...common, ...Object.keys(extensions)], required: '--config <absolute JSON file>', execution: 'Mutations preview by default; --apply executes.' }); return; }
+  if (!command || ['help', '--help'].includes(command)) { output({ commands: ['list', ...common, ...Object.keys(extensions)], list: 'list [--thread <target UUID>]', instance: '--config <absolute JSON file>', execution: 'Mutations preview by default; --apply executes.' }); return; }
+  if (command === 'list') {
+    const { values } = parseArgs({ args: argv.slice(1), options: { thread: { type: 'string' } } });
+    output({ instances: await listInstances(values.thread) }); return;
+  }
   if (!common.includes(command) && !extensions[command]) throw new RuntimeError('UNKNOWN_COMMAND', 'Unknown event command.');
   const schema = { config: { type: 'string' }, apply: { type: 'boolean' }, ...(extensions[command]?.options || {}) };
   if (['ack', 'retry'].includes(command)) schema['event-id'] = { type: 'string' };
@@ -43,8 +49,22 @@ async function main(argv, { loadConfig = loadInboxConfig, sourceFactory = create
   if (command === 'retry' && !values.reason?.trim()) throw new RuntimeError('RECONCILIATION_REASON_REQUIRED', 'Retry needs evidence that the previous notification was not accepted and cannot arrive later.');
   if (command === 'reconcile-source' && !values.reason?.trim()) throw new RuntimeError('RECONCILIATION_REASON_REQUIRED', 'Source reconciliation needs checked coverage or starting-point evidence from its owner.');
   if (!values.apply) { output({ state: 'preview', command, stateDir: config.stateDir, sourceId: config.source.id, targetThreadId: config.targetThreadId, ...(event ? { eventId: event.eventId } : {}) }); return; }
+  if (command === 'register') {
+    const identity = await readJson(path.join(config.stateDir, 'identity.json'));
+    if (identity?.version !== 2 || identity.signature !== sourceFactory(config).createStore().signature()) throw new RuntimeError('LISTENER_CONFIG_CHANGED', 'Register an existing watcher using its original source and target mapping.');
+    const current = await runtime.status(config);
+    if (current.ownership === 'unknown' || current.ownership === 'owned' && current.configFile && path.relative(current.configFile, config.configFile)) throw new RuntimeError('LISTENER_OWNERSHIP_UNKNOWN', 'The active configuration could not be matched to this file.');
+    await registerInstance(config);
+    output({ state: 'registered', sourceId: config.source.id, targetThreadId: config.targetThreadId, configFile: config.configFile }); return;
+  }
   if (command === 'start') { output(await runtime.start(config)); return; }
-  if (command === 'run') { await runtime.run(config, { source: sourceFactory(config), queue: queueFactory(config) }); return; }
+  if (command === 'run') {
+    const options = queueFactory ? { queue: queueFactory(config) } : { openQueue: () => config.wake.backend === 'app-tools'
+      ? new AppToolsNotifier({ serverFile: config.wake.serverFile, callerThreadId: process.env.CODEX_THREAD_ID })
+      : new NativeCodexQueue(config.wake.executable) };
+    await runtime.run(config, { source: sourceFactory(config), ...options, register: registerInstance });
+    return;
+  }
   if (command === 'stop') { output(await runtime.stop(config)); return; }
   if (command === 'ack') {
     const file = path.join(config.stateDir, 'consumer', event.eventId + '.json');

@@ -12,7 +12,7 @@
 
 ## 连接来源
 
-从 iCenter 公开接口核对账户、来源和运行参数。用 watcher 的 `receiver` 来源装配接收器。以下值是占位示例，需替换为已核对值；三个状态目录互不包含。
+从 iCenter 公开接口核对账户、来源和运行参数。一个目标会话关注一位联系人时，使用 watcher 的固定目标入口。每份配置独占自己的 watcher 和接收器状态目录。把以下占位值替换为已核对的身份与路径。
 
 ```json
 {
@@ -24,16 +24,15 @@
     "module": "C:/Skills/icenter/scripts/message-receiver.cjs",
     "export": "openMessageReceiver",
     "options": {
-      "port": 9222,
       "stateDir": "C:/Automation/example/receiver",
       "accountId": "<verified-account-id>",
-      "sources": [{ "kind": "direct" }],
+      "sources": [{ "kind": "conversation", "chatId": "<verified-chat-id>", "senderIds": ["<verified-sender-id>"] }],
       "quietMs": 3000,
       "maxWaitMs": 30000
     }
   },
   "targetThreadId": "11111111-1111-4111-8111-111111111111",
-  "wake": { "executable": "C:/Tools/codex.exe" }
+  "wake": { "backend": "app-tools" }
 }
 ```
 
@@ -42,9 +41,10 @@ watcher 不解析 `options` 的应用含义。它在建立来源连接时加载�
 ```text
 node "<watcher>/scripts/trigger.cjs" start --config "<watcher配置绝对路径>" --apply
 node "<watcher>/scripts/trigger.cjs" status --config "<watcher配置绝对路径>"
+node "<watcher>/scripts/trigger.cjs" list
 ```
 
-watcher 保存一批完整输入及其稳定事件 ID，再调用接收器的确认接口。该路径不设置第二个归集窗口。停止 watcher 会保存最后可读输入并关闭连接；注销 iCenter 原生订阅使用 iCenter 自身接口。
+watcher 保存一批完整输入及其稳定事件 ID，再调用接收器的确认接口。需要第二个联系人与目标时，再启动一份配置。用 `list` 查询映射，用 iCenter `subscriptions` 核对原生状态。暂停指定 watcher 会保留其缓冲，确认暂停后可用 iCenter 的 `stop-receiver` 结束该订阅。完整命令见[消息监控](../../skills/icenter/references/monitoring.md#持续监听并唤醒指定会话)。
 
 ## 导入与分派
 
@@ -91,4 +91,4 @@ node "<dispatcher>/scripts/dispatch.cjs" drain --config "<dispatcher配置绝对
 
 旧 `event-trigger`、`task-dispatch` 的私有实例不能通过改目录名完成迁移。新包不读取旧组合的共享账本。迁移前保存未确认来源、事件、投递结果和工作占用，核对目标状态；用公开导入和接收接口移交内容，保留旧新 ID 对应。未能核对的未知投递或活动工作保留在原实例中处理，不当作空闲重建。
 
-本仓库的组合测试使用真实的三个包、临时持久状态、原生客户端 fixture 和通知替身。真实客户端及宿主队列的部署验证需要对应运行环境和授权。
+本仓库的组合测试使用三个技能包、临时持久状态、原生客户端 fixture 和通知替身。同一真实主窗口中的订阅、暂停与恢复记录见[多会话监听验证](validation-2026-11-06.md)。

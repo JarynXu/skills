@@ -1,6 +1,7 @@
 // 被动消息订阅适配器；只注册观察回调，不切换会话或调用发送接口。
 function listenerPageOperation(operation, input) {
-  const key = '__codexICenterListenerV1';
+  const key = '__codexICenterSubscriptionsV1';
+  const legacyKey = '__codexICenterListenerV1';
   const contractVersion = 3;
   const fail = (code, message, details) => {
     const error = new Error(message);
@@ -9,10 +10,24 @@ function listenerPageOperation(operation, input) {
     throw error;
   };
   try {
-    let current = window[key];
+    const registry = window[key];
+    if (registry !== undefined && !(registry instanceof Map)) fail('LISTENER_CONTRACT_CHANGED', 'The renderer subscription registry has an unknown format.');
+    const legacy = window[legacyKey];
+    // 旧运行进程仍通过原槽位取得缓冲；只在原所有者注销时移除它。
+    let current = registry?.get(input.ownerId);
+    if (legacy && legacy.ownerId === input.ownerId) {
+      if (current) fail('LISTENER_IDENTITY_CONFLICT', 'Both legacy and current subscriptions claim this owner. Preserve both buffers for reconciliation.');
+      current = legacy;
+    }
+    if (current?.accountId && current.accountId !== input.accountId) fail('ACCOUNT_CHANGED', 'The existing listener belongs to a different account.');
+    if (current && input.expectedGenerationId && input.expectedGenerationId !== current.generationId) fail('LISTENER_LOST', 'The requested subscription generation is no longer present.');
     if (operation === 'remove') {
-      if (current && current.ownerId !== input.ownerId) fail('LISTENER_BUSY', 'Another listener owns this renderer subscription.');
-      if (current) { current.remove(); delete window[key]; }
+      if (current) {
+        if (input.afterSequence !== undefined && (current.sequence !== input.afterSequence || current.acknowledged !== input.afterSequence)) fail('PENDING_NOTIFICATIONS', 'Persist and confirm the remaining notifications before removing this subscription.');
+        if (!current.sealed) current.remove();
+        if (current === legacy) delete window[legacyKey];
+        else registry.delete(input.ownerId);
+      }
       return { ok: true, value: { removed: !!current } };
     }
     if (!process.argv.includes('IS_MAIN_WINDOW')) fail('WRONG_WINDOW', 'Expected the iCenter main window.');
@@ -20,8 +35,29 @@ function listenerPageOperation(operation, input) {
     const accountId = store?.state?.userInfo?.userId;
     if (!accountId) fail('NOT_SIGNED_IN', 'No signed-in iCenter account.');
     if (accountId !== input.accountId) fail('ACCOUNT_CHANGED', 'The listener account differs from the signed-in account.');
+    if (operation === 'list') {
+      const entries = [...(registry?.values() || [])];
+      if (legacy) entries.push(legacy);
+      const sourcesOf = item => {
+        let scopes = item.sources;
+        if (!scopes && item === legacy && item.contractVersion === contractVersion) {
+          try {
+            const [version, boundAccount, sources] = JSON.parse(item.signature);
+            if (version === contractVersion && boundAccount === accountId && Array.isArray(sources)) scopes = sources;
+          } catch { /* 更早的签名无法还原来源范围。 */ }
+        }
+        return scopes?.map(source => {
+          const room = source.chatId && store.state.chatInfo?.chatList?.find(chat => chat.chatRoomUri === source.chatId);
+          return { ...source, ...(source.chatId ? { chatName: room?.i18nChatRoomName || room?.chatRoomNameCn || room?.chatRoomNameEn || null } : {}) };
+        }) ?? null;
+      };
+      return { ok: true, value: { accountId, subscriptions: entries.filter(item => item.accountId === accountId).map(item => ({
+        ownerId: item.ownerId, generationId: item.generationId, sources: sourcesOf(item), lastReadAt: item.lastPollAt,
+        state: item.sealed ? 'sealed' : 'subscribed', pending: item.records.length,
+        sequence: item.sequence, acknowledged: item.acknowledged, error: item.error, legacy: item === legacy,
+      })) } };
+    }
     if (!input.ownerId) fail('SCOPE_REQUIRED', 'A listener owner ID is required.');
-    if (current && current.ownerId !== input.ownerId) fail('LISTENER_BUSY', 'Another listener owns this renderer subscription.');
     if (current && !current.accountId) fail('LISTENER_ACCOUNT_UNKNOWN', 'The existing subscription has no verified account binding; remove it before reusing, reading or acknowledging it.');
     if (current && current.accountId !== accountId) fail('ACCOUNT_CHANGED', 'The existing listener belongs to a different signed-in account.');
     if (operation === 'install') {
@@ -32,7 +68,7 @@ function listenerPageOperation(operation, input) {
         if (current.contractVersion !== contractVersion) fail('LISTENER_CONTRACT_CHANGED', 'The existing listener uses an older notification contract; preserve or process its records, then remove it before installing the new contract.');
         if (current.signature !== signature) fail('LISTENER_CONFIG_CHANGED', 'Stop the existing subscription before changing sources.');
         current.lastPollAt = Date.now();
-        return { ok: true, value: { reused: true, generationId: current.generationId, baseline: current.baseline, sequence: current.sequence } };
+        return { ok: true, value: { reused: true, generationId: current.generationId, baseline: current.baseline, sequence: current.sequence, sealed: !!current.sealed } };
       }
       if (typeof input.generationId !== 'string' || !input.generationId) fail('SCOPE_REQUIRED', 'A fresh renderer generation ID is required.');
       if (!Array.isArray(store.state.chatInfo?.chatList)) fail('UNSUPPORTED_SCHEMA', 'Conversation identities are unavailable.');
@@ -76,13 +112,15 @@ function listenerPageOperation(operation, input) {
         (input.replyAwareness && events?.SendMessageResult !== 0)) {
         fail('UNSUPPORTED_SCHEMA', 'Notification registration or event contracts differ from the verified adapter.');
       }
-      const name = 'CodexPassiveListener:' + input.ownerId;
+      const name = 'CodexPassiveSubscription:' + input.ownerId;
       const state = {
         ownerId: input.ownerId, accountId, contractVersion, generationId: input.generationId, signature, baseline, sequence: 0, acknowledged: 0,
+        sources: input.sources, sealed: false,
         records: [], bufferedBytes: 0, error: null, lastPollAt: Date.now(),
         remove: () => notifications.removeMessageBaseMattersNotifyListener(name),
       };
       const callback = notice => {
+        if (state.sealed) return true;
         try {
           if (store.state.userInfo.userId !== accountId) fail('ACCOUNT_CHANGED', 'The signed-in account changed during listening.');
           let messages;
@@ -191,11 +229,16 @@ function listenerPageOperation(operation, input) {
         return true;
       };
       notifications.addMessageBaseMattersNotifyListener(name, policy.PERMANENT, callback);
-      window[key] = state;
+      (window[key] ??= new Map()).set(state.ownerId, state);
       current = state;
       return { ok: true, value: { reused: false, generationId: state.generationId, baseline, sequence: 0 } };
     }
     if (!current) fail('LISTENER_LOST', 'The renderer subscription disappeared; reconcile continuity before reinstalling.');
+    if (operation === 'seal') {
+      if (!current.sealed) current.remove();
+      current.sealed = true;
+      return { ok: true, value: { generationId: current.generationId, sequence: current.sequence } };
+    }
     if (current.contractVersion !== contractVersion) {
       if (!current.accountId) fail('LISTENER_ACCOUNT_UNKNOWN', 'The existing subscription has no verified account binding; remove it before reading or acknowledging it.');
       if (current.accountId !== accountId) fail('ACCOUNT_CHANGED', 'The existing listener belongs to a different signed-in account.');

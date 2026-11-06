@@ -101,7 +101,11 @@ function toolValue(result) {
   catch { throw new RuntimeError('APP_TOOLS_PROTOCOL_ERROR', 'The app tool did not return the expected JSON result.'); }
 }
 function hasDelivery(turn, marker) {
-  return turn?.items?.some(item => item.type === 'userMessage' && item.content?.some(content => content.type === 'text' && content.text?.includes(marker)));
+  const isDelegation = body => typeof body === 'string' && body.startsWith('<codex_delegation>') && body.split('<input>')[1]?.trimStart().startsWith(marker);
+  return turn?.items?.some(item => {
+    if (item.type === 'userMessage') return item.content?.some(content => content.type === 'text' && (content.text?.startsWith(marker) || isDelegation(content.text)));
+    return item.type === 'functionCallOutput' && item.name === 'send_message_to_thread' && isDelegation(item.output?.text);
+  });
 }
 
 class AppToolsNotifier {
@@ -109,17 +113,18 @@ class AppToolsNotifier {
     this.client = client || new AppToolsConnection(config);
     this.prompts = prompts; this.activationTimeoutMs = activationTimeoutMs; this.now = now; this.pause = pause;
   }
-  async check() {
+  async check(threadId) {
     const result = await this.client.request('tools/list', {});
     for (const name of ['read_thread', 'send_message_to_thread']) if (!result.tools?.some(tool => tool.name === name)) throw new RuntimeError('APP_TOOLS_UNSUPPORTED', 'The app tool catalog is missing ' + name + '.');
+    if (threadId) await this.read(threadId);
   }
   notify(batch, eventFile, configFile) { return this.enqueue(batch.threadId, this.prompts.notify(batch, eventFile, configFile)); }
   forward(batch, eventFile, configFile, threadId, options = {}) {
     if (typeof this.prompts.forward !== 'function') throw new RuntimeError('DISPATCH_UNAVAILABLE', 'No dispatch notification formatter was composed.');
     return this.enqueue(threadId, this.prompts.forward(batch, eventFile, configFile, threadId, options));
   }
-  async read(threadId) {
-    const result = toolValue(await this.client.call('read_thread', { threadId, turnLimit: 1, includeOutputs: false, maxOutputCharsPerItem: 1000 }, 'event-read-' + randomUUID()));
+  async read(threadId, includeOutputs = false) {
+    const result = toolValue(await this.client.call('read_thread', { threadId, turnLimit: 1, includeOutputs, maxOutputCharsPerItem: 1000 }, 'event-read-' + randomUUID()));
     if (result.thread?.id !== threadId || result.thread.kind !== 'codex' || result.thread.hostId !== 'local') throw new RuntimeError('INVALID_WAKE_TARGET', 'The target is not the verified local Codex task.');
     return result;
   }
@@ -135,7 +140,7 @@ class AppToolsNotifier {
     if (before.thread.status?.type === 'active') return { ...receipt, activation: 'queued-behind-active-turn' };
     const deadline = this.now() + this.activationTimeoutMs;
     do {
-      const observed = await this.read(threadId);
+      const observed = await this.read(threadId, true);
       const turn = observed.turns?.find(turn => hasDelivery(turn, marker));
       if (turn) return { ...receipt, activation: 'started', startedTurnId: turn.id };
       await this.pause(150);

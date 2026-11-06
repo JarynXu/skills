@@ -20,7 +20,8 @@ function knownKeys(value, keys) {
 }
 function ownerScope(input) {
   if (!nonempty(input?.ownerId) || !nonempty(input.accountId)) reject('An owner ID and verified account ID are required.');
-  return { ownerId: input.ownerId, accountId: input.accountId };
+  if (input.expectedGenerationId !== undefined && !nonempty(input.expectedGenerationId)) reject('A generation precondition must be nonempty.');
+  return { ownerId: input.ownerId, accountId: input.accountId, ...(input.expectedGenerationId ? { expectedGenerationId: input.expectedGenerationId } : {}) };
 }
 
 function subscriptionScope(input) {
@@ -96,7 +97,15 @@ class NotificationSession {
     if (!Number.isInteger(input?.sequence) || input.sequence < 0) reject('A nonnegative observed sequence is required.');
     return pageCall(this.#connection, 'ack', { ...ownerScope(input), sequence: input.sequence });
   }
-  unsubscribe(input) { return pageCall(this.#connection, 'remove', ownerScope(input)); }
+  list({ accountId }) {
+    if (!nonempty(accountId)) reject('A verified account ID is required.');
+    return pageCall(this.#connection, 'list', { accountId });
+  }
+  seal(input) { return pageCall(this.#connection, 'seal', ownerScope(input)); }
+  unsubscribe(input) {
+    if (input.afterSequence !== undefined && (!Number.isSafeInteger(input.afterSequence) || input.afterSequence < 0)) reject('A final acknowledgement must be a nonnegative sequence.');
+    return pageCall(this.#connection, 'remove', { ...ownerScope(input), afterSequence: input.afterSequence });
+  }
   call(operation, input) { return callPage(this.#connection, operation, input); }
   sendTextDirect(scope, text, apply) { return this.call('send-sdk', { ...scope, text, apply }); }
   sendReply(recipient, text, options = {}) { return sendReply(this, recipient, text, options); }
@@ -104,6 +113,11 @@ class NotificationSession {
 }
 
 async function openNotifications({ port, targetId }) {
+  if (port === undefined) {
+    const { instances } = require('./windows-connection.cjs').prepareConnection('probe');
+    if (instances?.length !== 1 || !instances[0].port) throw new ClientError('INSTANCE_NOT_UNIQUE', 'Verify the client and configure a CDP port when a single ready instance cannot be identified.');
+    port = instances[0].port;
+  }
   const targets = (await discover(port)).filter(target => target.role === 'main' && (!targetId || targetId === target.id));
   if (targets.length !== 1) throw new ClientError('MAIN_WINDOW_NOT_UNIQUE', 'Expected one verified iCenter main window.');
   return new NotificationSession(await CdpClient.connect(targets[0].webSocketDebuggerUrl,{timeoutMs:20000}), { ownsConnection: true });

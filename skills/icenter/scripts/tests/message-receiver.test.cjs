@@ -23,6 +23,37 @@ async function fixture(t, overrides = {}) {
   return { app, session, root, options, receiver, time: value => { now = value; }, emit: (id, extra) => app.emit({ aNotifyType: 2, message: raw(id, extra) }) };
 }
 
+test('暂停后接回同一订阅，永久停止只清理已有状态目录中的所有者', async t => {
+  const f = await fixture(t), first = f.receiver.describe();
+  await assert.rejects(MessageReceiver.stopSaved(f.options), { code: 'RECEIVER_BUSY' });
+  await f.receiver.close(); f.emit('while-paused');
+  const resumed = await MessageReceiver.open(f.options);
+  assert.deepEqual(resumed.describe(), first);
+  f.time(103000); assert.equal((await resumed.read()).batches[0].records[0].id, 'while-paused');
+  await resumed.close();
+  await assert.rejects(MessageReceiver.stopSaved({ ...f.options, accountId: 'other' }), { code: 'ACCOUNT_CHANGED' });
+  assert.equal((await MessageReceiver.stopSaved(f.options)).ownerId, first.ownerId);
+  assert.equal((await MessageReceiver.stopSaved(f.options)).alreadyStopped, true);
+  assert.equal((await f.session.list({ accountId })).subscriptions.length, 0);
+  await assert.rejects(MessageReceiver.stopSaved({ ...f.options, stateDir: path.join(f.root, 'absent') }), { code: 'RECEIVER_NOT_FOUND' });
+  await assert.rejects(fs.stat(path.join(f.root, 'absent')), { code: 'ENOENT' });
+});
+
+test('结束时确认失败保留已封存的原生缓冲，可用原状态完成结束', async t => {
+  const f = await fixture(t), confirm = f.session.confirm.bind(f.session);
+  f.emit('last-before-stop');
+  f.session.confirm = async () => { throw new Error('confirmation unavailable'); };
+  await assert.rejects(f.receiver.stop(), /confirmation unavailable/);
+  await f.receiver.close();
+  const [active] = (await f.session.list({ accountId })).subscriptions;
+  assert.equal(active.state, 'sealed'); assert.equal(active.pending, 1);
+  await assert.rejects(MessageReceiver.open(f.options), { code: 'STOP_INCOMPLETE' });
+  f.session.confirm = confirm;
+  const receipt = await MessageReceiver.stopSaved(f.options);
+  assert.equal(receipt.ownerId, active.ownerId); assert.equal(receipt.checkpoint, 1); assert.equal(receipt.pendingBatches, 1);
+  assert.equal((await f.session.list({ accountId })).subscriptions.length, 0);
+});
+
 test('公开接收入口在静默后交付同人连续消息，确认不改变客户端已读', async t => {
   const f = await fixture(t);
   f.emit('first', { content: '看看方案' });

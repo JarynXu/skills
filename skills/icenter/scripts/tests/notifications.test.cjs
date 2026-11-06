@@ -8,6 +8,66 @@ const { promisify } = require('node:util');
 const { subscriptionScope, sendReply, ClientError } = require('../notifications.cjs');
 const { markAutomation } = require('../message-origin.cjs');
 const { renderer, sessionFor, accountId, chatId, scope, raw } = require('./notification-fixture.cjs');
+const { observe } = require('../observe.cjs');
+
+function asLegacySlot(app) {
+  const registry = app.window.__codexICenterSubscriptionsV1;
+  const state = registry.get(scope.ownerId);
+  registry.delete(scope.ownerId);
+  delete state.sources;
+  app.window.__codexICenterListenerV1 = state;
+  return state;
+}
+
+test('一个窗口并行观察不同或重叠的联系人，保留旧所有者的记录和确认位置', async () => {
+  const app = renderer(), session = sessionFor(app), chatB = 'sip:second@example.test';
+  app.state.chatInfo.chatList.push({ chatRoomUri: chatB, chatRoomType: 0 });
+  await session.subscribe(scope);
+  const legacy = asLegacySlot(app);
+  const other = { ...scope, ownerId: 'second-owner', generationId: 'second', sources: [{ chatId: chatB, senderIds: [chatB] }] };
+  const overlap = { ...scope, ownerId: 'third-owner', generationId: 'third' };
+  await session.subscribe(other); await session.subscribe(overlap);
+  app.emit({ aNotifyType: 2, message: raw('for-A') });
+  app.emit({ aNotifyType: 2, message: raw('for-B', { chatRoomUri: chatB, sendUri: chatB }) });
+  const ids = async owner => (await session.readPending(owner)).records.map(record => record.id);
+  assert.deepEqual(await ids(scope), ['for-A']); assert.deepEqual(await ids(other), ['for-B']);
+  assert.deepEqual(await ids(overlap), ['for-A']);
+  const list = (await session.list({ accountId })).subscriptions;
+  assert.equal(list.length, 3); assert.equal(list.find(item => item.legacy).sources[0].chatId, chatId);
+  assert.ok(!JSON.stringify(list).includes('fixture message'));
+  await session.confirm({ ...overlap, sequence: 1 });
+  assert.equal(legacy.acknowledged, 0); assert.deepEqual(await ids(other), ['for-B']);
+  await session.seal(other);
+  await assert.rejects(session.unsubscribe({ ...other, afterSequence: 0 }), { code: 'PENDING_NOTIFICATIONS' });
+  await session.confirm({ ...other, sequence: 1 });
+  await assert.rejects(session.unsubscribe({ ...other, expectedGenerationId: 'stale' }), { code: 'LISTENER_LOST' });
+  await session.unsubscribe({ ...other, afterSequence: 1 });
+  app.emit({ aNotifyType: 2, message: raw('still-A') });
+  assert.deepEqual(await ids(scope), ['for-A', 'still-A']);
+  assert.deepEqual(await ids(overlap), ['still-A']);
+  await session.unsubscribe(scope); await session.unsubscribe(overlap);
+  assert.equal(app.listeners.size, 0);
+});
+
+test('短时 SDK 观察确认已交付消息，结束只移除自己的订阅', async () => {
+  const app = renderer(), session = sessionFor(app), controller = new AbortController(), captured = [];
+  await session.subscribe(scope);
+  await observe(session, { accountId, chatId, senderIds: [chatId], durationMs: 1000, signal: controller.signal, emit: async event => {
+    captured.push(event);
+    if (event.event === 'started') { app.emit({ aNotifyType: 2, message: raw('bounded') }); controller.abort(); }
+  } });
+  assert.deepEqual(captured.map(event => event.event), ['started', 'message', 'ended']);
+  assert.equal(captured[1].message.id, 'bounded');
+  assert.equal(captured[2].reason, 'requested');
+  assert.equal((await session.readPending(scope)).acknowledged, 0);
+  await assert.rejects(observe(session, { accountId, chatId, senderIds: [chatId], durationMs: 1000, emit: async event => {
+    if (event.event === 'started') app.emit({ aNotifyType: 2, message: raw('keep-on-write-error') });
+    else throw new Error('output failed');
+  } }), error => error.details?.removed === false);
+  const sealed = (await session.list({ accountId })).subscriptions.find(s => s.state === 'sealed');
+  assert.equal((await session.readPending({ accountId, ownerId: sealed.ownerId })).records[0].id, 'keep-on-write-error');
+  await session.unsubscribe({ accountId, ownerId: sealed.ownerId }); await session.unsubscribe(scope);
+});
 const exec = promisify(execFile);
 
 test('客户端版本差异不阻止消息订阅、接收和释放', async () => {
@@ -117,8 +177,10 @@ test('连接重建复用订阅代次，其他所有者没有确认或注销权',
   assert.equal(reused.reused, true);
   assert.equal(reused.generationId, scope.generationId);
   assert.equal(app.listeners.size, 1);
-  for (const op of ['readPending', 'unsubscribe']) await assert.rejects(second[op]({ ...scope, ownerId: 'foreign' }), { code: 'LISTENER_BUSY' });
-  await assert.rejects(second.confirm({ ...scope, ownerId: 'foreign', sequence: 0 }), { code: 'LISTENER_BUSY' });
+  await assert.rejects(second.readPending({ ...scope, ownerId: 'foreign' }), { code: 'LISTENER_LOST' });
+  assert.deepEqual(await second.unsubscribe({ ...scope, ownerId: 'foreign' }), { removed: false });
+  await assert.rejects(second.confirm({ ...scope, ownerId: 'foreign', sequence: 0 }), { code: 'LISTENER_LOST' });
+  assert.equal(app.listeners.size, 1);
   await second.unsubscribe(scope);
 });
 
@@ -146,7 +208,7 @@ test('升级前无账户绑定的订阅拒绝复用和消费，原所有者可�
   const app = renderer(), session = sessionFor(app);
   await session.subscribe(scope);
   app.emit({ aNotifyType: 2, message: raw('legacy-buffer') });
-  const previous = app.window.__codexICenterListenerV1;
+  const previous = asLegacySlot(app);
   delete previous.accountId;
   for (const action of [
     () => session.subscribe(scope),
@@ -240,7 +302,7 @@ test('旧订阅契约拒绝复用但保留原 owner 读取确认和注销', asyn
   const app = renderer(), session = sessionFor(app);
   await session.subscribe(scope);
   app.emit({ aNotifyType: 2, message: raw('old-contract-message') });
-  const previous = app.window.__codexICenterListenerV1;
+  const previous = asLegacySlot(app);
   previous.contractVersion = 2;
   previous.signature = JSON.stringify([accountId, scope.sources, null, 30000, false]);
 

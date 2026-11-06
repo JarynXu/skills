@@ -87,9 +87,11 @@ node "<技能目录>/scripts/icenter.cjs" send --port <端口> --account <账户
 
 消息中的 `attachments:[{kind:'image',state:'not-read'}]` 表示图片内容尚未读取。任务涉及图中内容时，按[读取消息图片](references/files-and-collections.md#读取消息图片)使用 `read-image` 复用客户端缓存，导出可解码 PNG，再交给宿主识图工具。临时读图使用默认临时输出，消费结束后按参考中的 `release-image` 释放。空正文、缓存路径或导出成功均不能代替实际看图；仅取得缩略图时保留清晰度限制。
 
-连续消息接收使用 `scripts/message-receiver.cjs`。它在同一账户、会话和发送者范围内归集消息，负责去重、静默等待、最长等待和持久恢复，无需安装其他技能。原文及提及证据逐条保留；一批消息不等于一个主题，晚到补充由接收者结合上下文判断。接口见[消息监控](references/monitoring.md)。需要原生逐条通知时使用 `scripts/notifications.cjs`；短时 `watch` 用于当前聊天的有时限观察。
+用户要“持续关注某人，有新消息时叫这个 Codex 会话”，用 `scripts/message-receiver.cjs` 订阅 SDK 来信，交给 watcher 的固定目标实例。每个目标会话用自己的配置和状态目录，同一主窗口能并行订阅多个联系人。先用 watcher 的 `list` 查已有的来源与目标，再用 iCenter 的 `subscriptions` 核对原生订阅。只在用户另有按时执行的要求时配置定时任务。启动、暂停、恢复和结束见[消息监控](references/monitoring.md#持续监听并唤醒指定会话)。
 
-后台运行、唤醒目标和任务分派由调用方在技能包外组合。接收器交付的批次不再重复分轮或等待；调用方持久接收后确认交接。应用接口不接收目标会话、工作池或模型设置。关注对象及处理方式来自使用者授权，见[调用方组合边界](references/dispatch-design.md)。
+接收器也能单独使用，按账户、聊天和发送者去重、归集并持久保存原文及提及证据。需要原生逐条通知时使用 `scripts/notifications.cjs`。短时观察用 `icenter.cjs observe`。原页面命令 `icenter.cjs watch` 已弃用，保留给依赖旧检查点的调用方。
+
+watcher 负责后台等待和目标唤醒，实例配置放在技能包外。需要按内容分派时再接入 dispatcher。调用方持久接收整批消息后向接收器确认。关注对象、发送权限及批次交接见[调用方组合边界](references/dispatch-design.md)。
 
 ## 完成依据
 

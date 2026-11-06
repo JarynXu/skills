@@ -41,11 +41,14 @@ node "<技能目录>/scripts/icenter.cjs" status --port <端口>
 | `web-type` | `--app --type`。离线读取已登记的应用模型。 |
 | `web-describe` | `--port --account --app --method`。连接自有应用窗口或原生 frame，核对主体与契约；不执行所选业务操作，应用初始化请求仍会运行。 |
 | `web-call` | `--port --account --app --method --args-file [--field <路径>] [--view shape] [--timeout-ms] [--output-file] [--apply]`。默认预览不打开应用；执行保留原始响应，文件与流式语义见[独立应用接口](web-app-api.md)。 |
-| `watch` | `--port --account --chat [--duration-seconds] [--idle-seconds] [--checkpoint]`。默认总时长 60 秒、空闲时长 30 秒，范围 1–43200 秒。详细语义见[监控](monitoring.md)。 |
+| `subscriptions` | `--port --account`。查看该账户各个原生订阅的范围、所有者、代次和待确认数量。 |
+| `observe` | `--port --account --chat --sender [--duration-seconds] [--idle-seconds]`。按 SDK 通知输出该发送者的新来信，可重复指定发送者。总时长默认 60 秒。 |
+| `stop-receiver` | `--port --account --state-dir [--apply]`。按已有接收器的状态目录排空并注销该所有者。 |
+| `watch`（已弃用） | 旧页面观察仍接受 `--port --account --chat [--duration-seconds] [--idle-seconds] [--checkpoint]`。默认总时长 60 秒、空闲时长 30 秒。迁移见[消息监控](monitoring.md#有时限观察)。 |
 
 连接到客户端的命令可追加 `--target-id`；sdk-list、sdk-enum、web-list 和 web-type 是离线查询。通用 `cdp` 命令必须指定页面 ID。不接受未知参数或多余位置参数。消息内容来自文件，不能拼接进命令源码。
 
-普通命令输出一个 JSON 对象；`watch` 输出逐行 JSON。失败输出 `ok:false`、错误码及说明，退出码为 1。成功退出只支持该命令的结果语义，预览不会发送。
+普通命令输出一个 JSON 对象。`observe` 和旧 `watch` 输出逐行 JSON。失败输出 `ok:false`、错误码及说明，退出码为 1。成功退出只支持该命令的结果语义，预览不会发送。
 
 ## 被动通知接口
 

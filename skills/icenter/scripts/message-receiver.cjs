@@ -116,13 +116,17 @@ async function loadState(file, scope) {
     if (!info.isFile() || info.isSymbolicLink() || info.size > MAX_STATE_BYTES) fail('INVALID_RECEIVER_STATE', 'The checkpoint must be a regular file within the receiver capacity.');
     content = await fs.readFile(file, 'utf8');
   } catch (error) { if (error.code !== 'ENOENT') throw error; }
-  if (content === undefined) return { restored: false, state: { version: 2, scope, ownerId: randomUUID(), generationId: null, baseline: null, checkpoint: 0, error: null, reconciliations: [], grouping: createBatchState(scope) } };
+  if (content === undefined) {
+    if (!scope) fail('RECEIVER_NOT_FOUND', 'No saved receiver exists at this path.');
+    return { restored: false, state: { version: 2, scope, ownerId: randomUUID(), generationId: null, baseline: null, checkpoint: 0, error: null, reconciliations: [], grouping: createBatchState(scope) } };
+  }
   let state;
   try { state = JSON.parse(content); } catch { fail('INVALID_RECEIVER_STATE', 'The saved checkpoint is not valid JSON.'); }
   if (![1, 2].includes(state?.version) || typeof state.ownerId !== 'string' || !state.ownerId || !Number.isInteger(state.checkpoint) || state.checkpoint < 0 ||
       !(state.generationId === null || (typeof state.generationId === 'string' && state.generationId)) ||
       !(state.baseline === null || Array.isArray(state.baseline)) ||
       !(state.error === null || (typeof state.error?.code === 'string' && typeof state.error.message === 'string'))) fail('INVALID_RECEIVER_STATE', 'The saved checkpoint has invalid ownership or coverage state.');
+  scope ??= receiverScope(state.scope);
   if (fingerprint(state.scope) !== fingerprint(scope)) fail('RECEIVER_CONFIG_CHANGED', 'The state directory belongs to a different account, source or grouping policy. Preserve it and use the original configuration.');
   validateBatchState(state.grouping);
   if (state.grouping.accountId !== scope.accountId || state.grouping.quietMs !== scope.quietMs || state.grouping.maxWaitMs !== scope.maxWaitMs || fingerprint(state.grouping.sources) !== fingerprint(scope.sources)) fail('INVALID_RECEIVER_STATE', 'The saved groups do not match the receiver account and policy.');
@@ -157,6 +161,7 @@ class MessageReceiver {
       // 订阅前保存所有者，进程在建立订阅后中断仍能接回相同资源。
       await saveState(file, state);
       const installed = await session.subscribe(nativeScope(state));
+      if (installed.sealed || state.stoppedAt && installed.reused) fail('STOP_INCOMPLETE', 'Finish stopping this saved receiver before resuming it.');
       if (typeof installed.generationId !== 'string' || !installed.generationId || !Array.isArray(installed.baseline)) fail('INVALID_CLIENT_RESULT', 'The subscription has no verified generation or baseline.');
       const next = copy(state);
       if (restored && (!installed.reused || state.generationId && state.generationId !== installed.generationId)) {
@@ -165,6 +170,7 @@ class MessageReceiver {
             previousError: state.error ? { code: state.error.code, message: state.error.message } : null } });
         next.checkpoint = 0;
       }
+      delete next.stoppedAt;
       next.generationId = installed.generationId; next.baseline = installed.baseline;
       await saveState(file, next); state = next;
       return new MessageReceiver({ session, file, state, unlock, ownsSession });
@@ -178,7 +184,9 @@ class MessageReceiver {
     return task;
   }
 
-  #owner() { return { ownerId: this.#state.ownerId, accountId: this.#state.scope.accountId }; }
+  #owner() { return { ownerId: this.#state.ownerId, accountId: this.#state.scope.accountId, ...(this.#state.generationId ? { expectedGenerationId: this.#state.generationId } : {}) }; }
+
+  describe() { return { ownerId: this.#state.ownerId, accountId: this.#state.scope.accountId, generationId: this.#state.generationId, sources: copy(this.#state.scope.sources) }; }
 
   #snapshot() {
     return copy({ batches: this.#state.grouping.batches, error: this.#state.error,
@@ -285,13 +293,46 @@ class MessageReceiver {
 
   async stop() {
     await this.#serialized(async () => {
+      const sealed = await this.#session.seal?.(this.#owner());
       await this.#collect();
       const next = copy(this.#state);
+      if (sealed && sealed.sequence !== next.checkpoint) fail('PENDING_NOTIFICATIONS', 'The sealed subscription has unpersisted positions. Preserve its buffer for recovery.');
       if (!next.error) coverageError(next, { code: 'OBSERVATION_STOPPED', message: 'Observation was stopped. A later subscription has a new coverage interval.' });
+      next.stoppedAt ??= new Date().toISOString();
+      if (!sealed) next.finalDrain = 'unverified-legacy-session';
+      else delete next.finalDrain;
       await saveState(this.#file, next); this.#state = next;
-      await this.#session.unsubscribe(this.#owner());
+      const result = await this.#session.unsubscribe({ ...this.#owner(), afterSequence: next.checkpoint });
+      if (sealed && !result?.removed) fail('LISTENER_LOST', 'The subscription disappeared before final removal was confirmed.');
     });
     await this.close();
+    return this.#stopReceipt();
+  }
+
+  #stopReceipt() {
+    const { ownerId, generationId, checkpoint, grouping, error } = this.#state;
+    return { state: 'stopped', ownerId, generationId, checkpoint, pendingBatches: grouping.batches.length,
+      openGroups: grouping.openBatches.length, coverage: error?.code ?? null, ...(this.#state.finalDrain ? { finalDrain: this.#state.finalDrain } : {}) };
+  }
+
+  // 结束已保存的所有者时不能通过 open 重建刚消失的订阅。
+  static async stopSaved({ session, accountId, stateDir }) {
+    const directory = await privateDirectory(stateDir), file = path.join(directory, 'receiver.json');
+    const unlock = await acquireLock(directory);
+    let receiver;
+    try {
+      const { state } = await loadState(file);
+      if (state.scope.accountId !== accountId) fail('ACCOUNT_CHANGED', 'The saved receiver belongs to a different account.');
+      receiver = new MessageReceiver({ session, file, state, unlock, ownsSession: false });
+      const { subscriptions } = await session.list({ accountId });
+      const active = subscriptions.find(item => item.ownerId === state.ownerId);
+      if (!active) {
+        if (!state.stoppedAt) fail('LISTENER_LOST', 'No matching subscription exists. Preserve the checkpoint and reconcile the observation gap.');
+        return { ...receiver.#stopReceipt(), alreadyStopped: true };
+      }
+      if (state.generationId && active.generationId !== state.generationId) fail('LISTENER_LOST', 'The saved checkpoint belongs to a different subscription generation.');
+      return await receiver.stop();
+    } finally { if (receiver) await receiver.close(); else await unlock(); }
   }
 
   close() {

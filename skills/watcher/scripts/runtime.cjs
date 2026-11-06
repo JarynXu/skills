@@ -22,6 +22,7 @@ async function canonicalPath(file) {
   }
 }
 const pathIdentity = file => process.platform === 'win32' ? file.toLowerCase() : file;
+const configKey = config => digest([config.source.id, config.targetThreadId, pathIdentity(config.configFile || '')]);
 
 async function lockPipe(config) {
   if (process.platform !== 'win32') throw new ClientError('UNSUPPORTED_PLATFORM', 'The listener process lock requires Windows named pipes.');
@@ -59,6 +60,7 @@ async function acquireLock(config, { onStop } = {}) {
   await fs.mkdir(config.stateDir, { recursive: true });
   const file = path.join(config.stateDir, 'listener.lock');
   const owner = { pid: process.pid, token: randomUUID(), startedAt: new Date().toISOString() };
+  if (config.source?.id) owner.configKey = configKey(config);
   // 内核管道持有单写者权；磁盘文件仅记录所有者，进程崩溃不会留下内核锁。
   const sockets = new Set();
   let released = false;
@@ -148,7 +150,7 @@ async function deliver(store, queue, config, emit = output) {
 }
 
 // 运行时拥有等待、投递与退出；来源适配器拥有采集、连续性与外部操作。
-async function run(config, { source, queue = new NativeCodexQueue(config.wake.executable), emit = output, signal } = {}) {
+async function run(config, { source, queue, openQueue, emit = output, signal, register } = {}) {
   if (!source || typeof source.createStore !== 'function') throw new ClientError('SOURCE_REQUIRED', 'Compose a source adapter before starting.');
   const controller = new AbortController();
   const abort = () => controller.abort();
@@ -156,22 +158,26 @@ async function run(config, { source, queue = new NativeCodexQueue(config.wake.ex
   signal?.addEventListener('abort', abort, { once: true });
   if (signal?.aborted) abort();
   process.once('SIGINT', abort); process.once('SIGTERM', abort);
-  let connection, store, lastStatus = 0, ready = false;
+  let connection, store, lastStatus = 0, ready = false, lastObservationAt;
   const writeStatus = async (state, error) => {
-    await atomicJson(path.join(config.stateDir, 'status.json'), { version: 2, ...lock.owner, ...(source.identity?.() || {}), state,
-      updatedAt: new Date().toISOString(), ...(store ? store.summary() : {}), ...(error ? { error: errorInfo(error) } : {}) });
+    await atomicJson(path.join(config.stateDir, 'status.json'), { version: 2, ...lock.owner, sourceId: config.source?.id,
+      targetThreadId: config.targetThreadId, configFile: config.configFile, ...(source.identity?.() || {}), state,
+      updatedAt: new Date().toISOString(), lastObservationAt, ...(store ? store.summary() : {}), ...(error ? { error: errorInfo(error) } : {}) });
     lastStatus = Date.now();
   };
   let failure;
   try {
     store = source.createStore();
     await store.open();
+    await register?.(config);
     await writeStatus('starting');
-    await queue.check();
+    queue ??= openQueue ? await openQueue() : new NativeCodexQueue(config.wake.executable);
+    await queue.check(config.targetThreadId);
     if (!controller.signal.aborted) connection = await source.connect();
     while (!controller.signal.aborted) {
       const checkedAt = await source.collect(connection, store, emit);
       if (!Number.isFinite(checkedAt)) throw new ClientError('UNSUPPORTED_SCHEMA', 'A source capture needs a finite observation time.');
+      lastObservationAt = new Date(checkedAt).toISOString();
       await deliver(store, queue, config, emit);
       const state = store.summary().sourceCoverageError ? 'source-coverage-blocked' : store.summary().uncertainBatches.length ? 'notification-blocked' : 'listening';
       if (!ready || Date.now() - lastStatus >= 5000) await writeStatus(state);
@@ -189,12 +195,15 @@ async function run(config, { source, queue = new NativeCodexQueue(config.wake.ex
     try {
       // 清理连接前保存最后一次可读输入；来源的注销不是 watcher 停止的一部分。
       if (connection) {
-        try { if (!failure) await source.collect(connection, store, emit); }
+        try { if (!failure) lastObservationAt = new Date(await source.collect(connection, store, emit)).toISOString(); }
         catch (error) { failure = error; }
         try { await source.close(connection); }
         catch (error) { failure = failure ? new ClientError('SOURCE_CLEANUP_FAILED', 'The watcher failed and its source connection could not close.', { primary: errorInfo(failure), cleanup: errorInfo(error) }) : error; }
       }
-      await writeStatus(failure ? 'failed' : 'stopped', failure);
+      if (openQueue) {
+        try { await queue?.close?.(); } catch (error) { failure ??= error; }
+      }
+      if (failure?.code !== 'LISTENER_CONFIG_CHANGED') await writeStatus(failure ? 'failed' : 'stopped', failure);
       emit(failure ? { event: 'failed', error: errorInfo(failure) } : { event: 'stopped', reason: 'requested', ...store.summary() });
     } finally { await lock.release(); }
   }
@@ -228,9 +237,13 @@ async function start(config) {
 }
 
 async function stop(config) {
+  const verifyConfig = owner => {
+    if (config.source?.id && owner?.configKey && owner.configKey !== configKey(config)) throw new ClientError('LISTENER_CONFIG_CHANGED', 'Use the original instance configuration to stop this owner.');
+  };
   const active = await queryOwner(config);
   if (active.ownership === 'unknown') throw new ClientError('LISTENER_OWNERSHIP_UNKNOWN', 'The listener owner could not be verified.', active.error);
   if (active.ownership === 'owned') {
+    verifyConfig(active.owner);
     if (!active.stopSupported) throw new ClientError('LISTENER_NOT_STOPPABLE', 'The current lock owner is a maintenance operation or an incompatible runtime.', { pid: active.owner.pid });
     const requested = await queryOwner(config, { command: 'stop', token: active.owner.token });
     if (requested.ownership === 'absent' || requested.ownership === 'owned' && requested.owner.token !== active.owner.token) return status(config);
@@ -246,6 +259,7 @@ async function stop(config) {
   const lock = await acquireLock(config);
   try {
     const previous = await readJson(path.join(config.stateDir, 'status.json'));
+    verifyConfig(previous);
     const result = { ...previous, ...lock.owner, state: 'stopped', updatedAt: new Date().toISOString(), sourceSubscription: 'preserved' };
     await atomicJson(path.join(config.stateDir, 'status.json'), result);
     return { ...result, ownership: 'absent', lockRecord: 'missing', observedProcessAlive: false, fresh: false };

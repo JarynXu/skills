@@ -7,11 +7,13 @@ const MAX_RECORDS = 10000, MAX_RECORD_BYTES = 64 * 1024 * 1024;
 const recordBytes = value => Buffer.byteLength(JSON.stringify(value, null, 2) + '\n');
 
 class InboxStore extends EventJournal {
+  signature() { return digest([this.config.source, this.config.targetThreadId, this.config.debounceMs]); }
+
   constructor(config, { now = Date.now } = {}) { super(config); this.now = now; this.records = new Map(); this.files = new Map(); this.ordinal = 0; this.retainedRecordBytes = 0; }
 
   async open() {
     for (const name of ['messages', 'batches', 'receipts']) await fs.mkdir(path.join(this.root, name), { recursive: true });
-    await this.openIdentity(digest([this.config.source, this.config.targetThreadId, this.config.debounceMs]));
+    await this.openIdentity(this.signature());
     for (const { file, value } of await jsonFiles(path.join(this.root, 'messages'))) {
       if (!value || value.record?.sourceId !== this.config.source.id || typeof value.record.id !== 'string' || typeof value.record.text !== 'string' ||
         !Number.isInteger(value.ordinal) || value.ordinal < 1 || !Number.isFinite(Date.parse(value.receivedAt)) ||

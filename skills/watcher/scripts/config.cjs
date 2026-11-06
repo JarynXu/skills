@@ -1,5 +1,6 @@
 const fs = require('node:fs/promises');
 const path = require('node:path');
+const os = require('node:os');
 const { readJson, canonicalJson } = require('./persistence.cjs');
 const { canonicalPath } = require('./runtime.cjs');
 const { RuntimeError } = require('./errors.cjs');
@@ -26,7 +27,15 @@ async function validateStateDir(directory, skillRoots = [path.resolve(__dirname,
 async function loadConfig(file) {
   const value = await readJson(file);
   if (!value || value.version !== 2 || !['json-inbox', 'receiver'].includes(value.source?.kind)) throw new RuntimeError('INVALID_CONFIG', 'Use a version 2 json-inbox or receiver config.');
-  if (typeof value.source.id !== 'string' || !value.source.id || !UUID.test(value.targetThreadId || '') || !path.isAbsolute(value.wake?.executable || '')) throw new RuntimeError('INVALID_CONFIG', 'A source needs stable identity, an observed target thread UUID and an absolute native executable.');
+  if (typeof value.source.id !== 'string' || !value.source.id || !UUID.test(value.targetThreadId || '')) throw new RuntimeError('INVALID_CONFIG', 'Provide a stable source ID and a verified target thread UUID.');
+  const wake = { ...value.wake };
+  if (wake.backend === 'app-tools') {
+    if (Object.hasOwn(wake, 'callerThreadId')) throw new RuntimeError('INVALID_CONFIG', 'Caller identity comes from the executor.');
+    wake.serverFile ??= path.join(process.env.CODEX_HOME || path.join(os.homedir(), '.codex'), 'plugins', 'cache', 'openai-bundled', 'codex-app-tools', 'server.mjs');
+    if (typeof wake.serverFile !== 'string' || !path.isAbsolute(wake.serverFile)) throw new RuntimeError('INVALID_CONFIG', 'Provide an absolute trusted app-tools serverFile.');
+  } else if (wake.backend !== undefined && wake.backend !== 'native-queue' || typeof wake.executable !== 'string' || !path.isAbsolute(wake.executable)) {
+    throw new RuntimeError('INVALID_CONFIG', 'Select app-tools or configure the absolute native queue executable.');
+  }
   const allowed = value.source.kind === 'receiver' ? ['kind', 'id', 'module', 'export', 'options'] : ['kind', 'id', 'directory'];
   if (Object.keys(value.source).some(key => !allowed.includes(key))) throw new RuntimeError('INVALID_CONFIG', 'Unknown source configuration field.');
   const stateDir = await validateStateDir(value.stateDir);
@@ -44,7 +53,7 @@ async function loadConfig(file) {
   }
   const pollMs = value.pollMs ?? 1000, debounceMs = value.debounceMs ?? 0;
   if (!Number.isInteger(pollMs) || pollMs < 250 || pollMs > 60000 || !Number.isInteger(debounceMs) || debounceMs < 0 || debounceMs > 60000) throw new RuntimeError('INVALID_CONFIG', 'pollMs must be 250..60000 and debounceMs 0..60000.');
-  const config = { ...value, stateDir, source, pollMs, debounceMs, configFile: path.resolve(file), commandFile: path.join(__dirname, 'trigger.cjs') };
+  const config = { ...value, wake, stateDir, source, pollMs, debounceMs, configFile: path.resolve(file), commandFile: path.join(__dirname, 'trigger.cjs') };
   return source.kind === 'json-inbox' ? bindInboxConfig(config) : { ...config, eventContract: {
     matches: event => event.version === 2 && event.sourceId === source.id && event.threadId === config.targetThreadId
   } };
